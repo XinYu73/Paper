@@ -1,0 +1,259 @@
+PHYSICAL REVIEW A, VOLUME 65, 032108
+
+Bell’s theorem with and without inequalities for the three-qubit Greenberger-Horne-Zeilinger and W states
+
+Ada´n Cabello*
+Departamento de F´ısica Aplicada II, Universidad de Sevilla, 41012 Sevilla, Spain
+͑Received 31 July 2001; published 5 February 2002͒
+
+A proof of Bell’s theorem without inequalities valid for both inequivalent classes of three-qubit entangled states under local operations assisted by classical communication, namely Greenberger-Horne-Zeilinger ͑GHZ͒ and W, is described. This proof leads to a Bell inequality that allows more conclusive tests of Bell’s theorem for three-qubit systems. Another Bell inequality involving both tri- and bipartite correlations is introduced which illustrates the different violations of local realism exhibited by the GHZ and W states.
+
+DOI: 10.1103/PhysRevA.65.032108
+
+PACS number͑s͒: 03.65.Ud, 03.65.Ta
+
+I. INTRODUCTION
+
+In recent years, Greenberger-Horne-Zeilinger ͑GHZ͒ states of three or more qubits ͓1͔ have become ubiquitous in quantum information theory ͓2– 8͔. However, the interest in GHZ states began in connection with Bell’s theorem. While Bell’s proof of the impossibility of Einstein, Podolsky, and Rosen’s ͑EPR’s͒ ‘‘elements of reality’’ ͓9͔ was based on statistical predictions and inequalities ͓10͔, GHZ showed that a simpler proof can be achieved with perfect correlations and without inequalities ͓1,11,12͔. Subsequently, the GHZ proof was translated into experimentally veriﬁable Bell inequalities ͓13,14͔ and into real experiments ͓15,16͔. It has recently been found that not only the GHZ state but any two-qubit pure entangled state admits a proof of Bell’s theorem without inequalities ͓17–19͔.
+On the other hand, over the last few years the importance of quantum entanglement as a resource for unusual kinds of communication and information processing has stimulated the mathematical study of the entanglement of multiqubit systems. In particular, there has been much interest in the classiﬁcation of three-qubit pure entangled states in terms of equivalences under local operations assisted by classical communication ͑LOCC͒ ͓20–24͔. Du¨r, Vidal, and Cirac ͓21͔ have shown that there are only two classes of genuinely tripartite entanglement which are inequivalent under LOCC. One class is represented by the GHZ state,
+
+1
+
+͉GHZ͘ϭ ͱ2 ͉͑yϩyϩyϩ͘ϩ͉yϪyϪyϪ͘),
+
+͑1͒
+
+where ␴y͉yϮ͘ϭϮ͉yϮ͘, ␴y being the corresponding Pauli spin matrix. The other class is represented by the W
+state ͓25͔,
+
+1
+
+͉W͘ϭ ͱ3 ͉͑ϩϪϪ͘ϩ͉ϪϩϪ͘ϩ͉ϪϪϩ͘),
+
+͑2͒
+
+where ␴z͉Ϯ͘ϭϮ͉Ϯ͘. The GHZ and W states cannot be converted into each other by means of LOCC.
+
+*Electronic address: adan@us.es
+
+At this point, some natural questions arise. The ﬁrst being in which applications does the use of the W state mean an improvement over previous protocols using the GHZ state. This question is partially addressed in ͓21͔, where it is pointed out that in a three-qubit system prepared in a W ͑GHZ͒ state, if one of the qubits is traced out then the remaining two qubits are entangled ͑completely unentangled͒. Indeed, W is the three-qubit state whose entanglement has the highest robustness against the loss of one qubit ͓21͔. Moreover, from a single copy of the reduced density matrix for any two qubits belonging to a three-qubit W state, one can always obtain a state which is arbitrarily close to a Bell state by means of a ﬁltering measurement ͓26͔. This means that, if one of the parties sharing the system prepared in a W ͑GHZ͒ state decides not to cooperate with the other two, or if for some reason the information about one of the qubits is lost, then the remaining two parties still can ͑cannot͒ use entanglement resources to perform communication tasks.
+On the other hand, it has been shown that the W state does not allow a GHZ-type proof of Bell’s theorem ͓27͔. Therefore, two other natural questions are whether the W state admits any kind of proof of Bell’s theorem without inequalities and what the differences are between the violation of local realism exhibited by the GHZ and W states. In this paper, I will describe four related results which answer these questions. First, a proof of Bell’s theorem without inequalities speciﬁc for the W state. Second, an extension of that proof which is also valid for the GHZ state. Such a proof leads to a Bell-type inequality for three qubits which can be experimentally useful in order to achieve more conclusive tests of Bell’s theorem. Finally, a different set of Bell inequalities is considered with the purpose of illustrating some differences between the violations of local realism exhibited by the GHZ and W states.
+II. BELL’S THEOREM WITHOUT INEQUALITIES FOR THE W STATE
+First, I will show that the W state allows three local observers to deﬁne elements of reality which are incompatible with some predictions of quantum mechanics ͓28͔. I will use the following notation: zq and xq will be the results (Ϫ1 or 1) of measuring ␴z and ␴x on qubit q (qϭ1,2,3). The ﬁrst step of the proof consists of showing that, in the W state, all
+
+1050-2947/2002/65͑3͒/032108͑4͒/$20.00
+
+65 032108-1
+
+©2002 The American Physical Society
+
+ADA´ N CABELLO
+
+PHYSICAL REVIEW A 65 032108
+
+the zq and xq satisfy EPR’s criterion of elements of reality. EPR’s condition reads: ‘‘If, without in any way disturbing a
+system, we can predict with certainty (i.e., with probability
+equal to unity) the value of a physical quantity, then there
+exists an element of physical reality corresponding to this physical quantity’’ ͓9͔. From the expression of the W state given in Eq. ͑2͒, it can be immediately seen that z1 , z2, and z3 are elements of reality, since the result zi can be predicted with certainty from the results of spacelike separated mea-
+surements of z j and zk (iϭ” j, jϭ” k, and kϭ” i). In addition, by rewriting the W state in the suitable basis, it can easily be
+seen that, if ziϭϪ1 then, with certainty, x jϭxk . Therefore, if ziϭϪ1, then by measuring x j (xk) one can predict xk (x j) with certainty. Therefore, if ziϭϪ1, then x j and xk are elements of reality. If ziϭϩ1 then, using the expression ͑2͒, it can immediately be seen that z jϭϪ1. Therefore, following the previous reasoning, xi and xk are elements of reality ͑although xi could have ceased to be an element of reality after measuring ␴z on particle i). In conclusion, zq and xq are EPR elements of reality and therefore, according to EPR, they should have predeﬁned values Ϫ1 or 1 before
+any measurement.
+However, according to quantum mechanics, such an as-
+signment of values is impossible. The proof can be presented
+in a very similar way to Hardy’s proof of Bell’s theorem for nonmaximally entangled states of two qubits ͓17͔ by using
+four properties of the quantum state and a logical argument
+based on them. For the refutation of EPR’s elements of reality, the relevant properties of the W state ͑2͒, which can
+easily be checked, are
+
+PW͑ ziϭϪ1,z jϭϪ1 ͒ϭ1,
+
+͑3͒
+
+PW͑ x jϭxk͉ziϭϪ1 ͒ϭ1,
+
+͑4͒
+
+PW͑ xiϭxk͉z jϭϪ1 ͒ϭ1,
+
+͑5͒
+
+3
+
+PW͑xiϭxjϭxk͒ϭ 4 ,
+
+͑6͒
+
+where PW(ziϭϪ1,z jϭϪ1) means the probability of two qubits ͑although we cannot tell which one͒ giving the result Ϫ1 when measuring ␴z on all three qubits, and PW(x j ϭxk͉ziϭϪ1) is the conditional probability of ␴x j and ␴xk having the same result given that the result of ␴zi is Ϫ1. Property ͑3͒ tells us that, when measuring ␴z on all three qubits, the result Ϫ1 always occurs in two of them. Let us
+call these qubits i and j. Then let us suppose that we had
+measured ␴x on qubits j and k, instead of ␴z . Then, according to property ͑4͒, the results would have been the same.
+Therefore, following EPR, one reaches the conclusion that
+the predeﬁned values corresponding to the elements of real-
+ity x j and xk are equal. Now let us suppose that we had measured ␴x on qubits i and k, instead of ␴z . Then, according to property ͑5͒, the results would have been the same.
+Therefore, the predeﬁned values corresponding to the ele-
+ments of reality xi and xk are equal. Taking these two conclusions together, one must deduce that, in the W state, the
+predeﬁned values corresponding to the elements of reality
+
+FIG. 1. Diagram for Hardy’s proof of Bell’s theorem without inequalities for two qubits in a nonmaximally entangled state ͓17,29͔. ai and bi are alternative spin observables of qubit i.
+
+x1 , x2, and x3 always satisfy x1ϭx2ϭx3. However, this is in
+
+contradiction with property ͑6͒ which states that, when mea-
+
+suring ␴x on all three qubits, one ﬁnds results that cannot be
+
+explained
+
+with
+
+elements
+
+of
+
+reality
+
+in
+
+1 4
+
+of
+
+the cases.
+
+There-
+
+fore, the conclusion is that quantum predictions for the W
+
+state cannot be ‘‘completed’’ with EPR’s elements of reality.
+
+While the structure of this proof is similar to Hardy’s
+
+͓17,29͔, the logical argument is different: in Hardy’s, from a
+
+result that sometimes occurs, two local observers infer a re-
+
+sult that never occurs ͑see Fig. 1͒; here, from a result that
+
+always occurs, two observers infer a result that only some-
+
+times occurs ͑see Fig. 2͒. In addition, while in Hardy’s proof
+
+only 9% of the runs of a certain experiment contradict local
+
+realism, here 25% of the runs of the last experiment cannot
+
+be explained by local realism. On the other hand, while in
+
+Hardy’s proof we need both qubits to start the argument and
+
+in GHZ’s proof ͓11,12͔ all three qubits are required, in the
+
+proof for the W state the contradiction results from infer-
+
+ences from only two of all three qubits, but we cannot tell
+
+which one.
+
+III. BELL’S THEOREM WITHOUT INEQUALITIES FOR THE GHZ AND W STATES
+For two-qubit pure states, the logical structure that can be obtained from Fig. 1 by changing the ‘‘never’’ to ‘‘fewer times’’ is not particularly useful, since the states which satisfy a ‘‘sometimes-always-never’’ structure like that in Fig. 1, namely, nonmaximally entangled states ͓17͔, are the same which satisfy the extended structure ͓30͔. However, for three-qubit pure states, a similar extension of Fig. 2’s ‘‘always-always-sometimes’’ structure ͑changing the ﬁrst ‘‘always’’ to ‘‘sometimes’’ and the last ‘‘sometimes’’ to ‘‘fewer times’’͒ allows us to extend the proof for the W state to the GHZ state and, therefore, to obtain a common proof of Bell’s theorem without inequalities for both classes of genu-
+
+FIG. 2. Diagram for the proof of Bell’s theorem without inequalities for the W state.
+
+032108-2
+
+BELL’s THEOREM WITH AND WITHOUT . . .
+
+PHYSICAL REVIEW A 65 032108
+
+FIG. 3. Diagram for the extended proof of Bell’s theorem without inequalities valid for the GHZ and W states. The diagram in Fig. 2 is a particular case of this one.
+
+inely tripartite entangled states. Such a proof is illustrated in Fig. 3 and, for the GHZ state ͑1͒, it is based on its following four properties which can easily be checked:
+
+3
+
+PGHZ͑ ziϭϪ1,z jϭϪ1 ͒ϭ 4 ,
+
+͑7͒
+
+PGHZ͑ x jϭxk͉ziϭϪ1 ͒ϭ1,
+
+͑8͒
+
+PGHZ͑ xiϭxk͉z jϭϪ1 ͒ϭ1,
+
+͑9͒
+
+1
+
+PGHZ͑ xiϭx jϭxk͒ϭ 4 .
+
+͑10͒
+
+The proof for the GHZ state is parallel to the one for the W state, changing only the ‘‘always’’ to ‘‘in 75% of the cases’’ and changing the percentage of events of the fourth experiment that cannot be explained with elements of reality, which now is 50%.
+The previous demonstrations complete the family of simple proofs of Bell’s theorem without inequalities for the main classes of two- ͓17–19͔ and three-qubit ͓1,11,12͔ pure entangled states.
+
+ited by the GHZ state is even higher. By using properties ͑7͒–͑10͒, it can easily be seen that the middle term in Eq. ͑11͒ is 0.5, which is the maximum allowed violation of a CH-type inequality and corresponds to a value four in the corresponding Clauser-Horne-Shimony-Holt ͑CHSH͒ inequality ͓35͔.
+A similar situation occurs in Mermin’s inequality ͓13͔
+Ϫ 2 р ͗ A 1 A 2 A 3 ͘ Ϫ ͗ A 1 B 2 B 3 ͘ Ϫ ͗ B 1 A 2 B 3 ͘ Ϫ ͗ B 1 B 2 A 3 ͘ р 2, ͑12͒
+where Ai and Bi are observables of qubit i. By choosing Ai ϭ␴zi and Biϭ␴xi , for the GHZ state ͑1͒ we obtain four for the middle term in Eq. ͑12͒, four being the maximum allowed violation of inequality ͑12͒. For the W state ͑2͒, considering only local spin observables on plane x-z, and that A1ϭA2ϭA3 and B1ϭB2ϭB3, the maximum violation is 3.046 ͓for instance, by choosing Aiϭcos(0.628)␴x Ϫsin(0.628)␴z and Biϭcos(1.154)␴xϩsin(1.154)␴z͔. Alternatively, by choosing Aiϭ␴zi and Biϭ␴xi ͑which satisfy EPR’s criterion of elements of reality͒, the W state ͑2͒ gives the value three for the middle term in Eq. ͑12͒.
+Two reasons suggest that, for the three-qubit GHZ state, inequality ͑11͒ could lead to a more conclusive clear-cut experimental test of Bell’s theorem than inequality ͑12͒. As in CH’s, inequality ͑11͒ can be put into a form which does not involve the number of undetected particles, thereby rendering unnecessary the assumption of fair sampling ͓34͔. On the other hand, since CH and CHSH inequalities are equivalent ͓33͔, and Eq. ͑11͒ and CH ͓Eq. ͑12͒ and CHSH͔ inequalities have the same bounds, the ratio between the maximum violations shown by the GHZ and singlet states for inequality
+͑11͒ over CH’s ͓Eq. ͑12͒ over CHSH’s͔, 1ϩͱ2 ͓ͱ2͔, sug-
+gests that Eq. ͑11͒ reveals a higher violation of local realism than Eq. ͑12͒.
+
+IV. BELL-CH INEQUALITIES FOR THREE QUBITS
+The proofs without inequalities described in Secs. II and III can easily be converted into experimentally testable Bell inequalities. As noted in ͓31–33͔, the two-qubit Bell inequalities proposed by Clauser and Horne ͑CH͒ ͓34͔ can be put into a form in which only the four probabilities of a Hardy-type argument are included. Similarly, it can easily be seen that four probabilities related to those in Eqs. ͑3͒–͑6͒ ͓or in Eqs. ͑7͒–͑10͔͒ must satisfy the following Bell inequality:
+Ϫ1р P͑ ziϭϪ1,z jϭϪ1 ͒Ϫ P͑ ziϭϪ1,x jϭ” xk͒
+Ϫ P͑ xiϭxk ,z jϭϪ1 ͒Ϫ P͑ xiϭx jϭxk͒р0. ͑11͒
+For the W state ͑2͒, the value of the ﬁrst probability in Eq. ͑11͒ is 1, the values of the second and third probabilities are 0, and the value of the fourth is 3/4. Therefore, the middle term in Eq. ͑11͒ is 0.25. This means that the violation of the inequality ͑11͒ is higher than the maximum violation obtained from Hardy’s proof, where the middle term is 0.090 ͓32,33͔, and even higher than the violation for a singlet state, where the middle term is 0.207 ͓32,33͔. The violation exhib-
+
+V. BELL INEQUALITIES INVOLVING TRIAND BIPARTITE CORRELATIONS
+As a ﬁnal remark, the results in ͓21͔ point out that bipartite correlations are relevant to the W state but not to the GHZ state. Therefore, it would be interesting to consider Bell inequalities involving both tripartite and bipartite correlations. The simplest way of obtaining such an inequality would be by adding genuinely bipartite correlations to the tripartite correlations considered in Mermin’s inequality. For instance, a straightforward calculation would allow us to prove that any local realistic theory must satisfy the following inequality:
+
+Ϫ5р͗A1A2A3͘Ϫ͗A1B2B3͘Ϫ͗B1A2B3͘Ϫ͗B1B2A3͘
+
+Ϫ ͗ A 1 A 2 ͘ Ϫ ͗ A 1 A 3 ͘ Ϫ ͗ A 2 A 3 ͘ р 3.
+
+͑13͒
+
+Assuming that Ai and Bi are local observables on plane x-z, and that A1ϭA2ϭA3 and B1ϭB2ϭB3, a numerical calculation shows that both the GHZ and W states give a maximum
+value four for the middle term in Eq. ͑13͒ ͑for instance, by
+choosing Aiϭ␴zi and Biϭ␴xi in both cases͒. Therefore, both states lead to the same maximal violation of the inequality
+
+032108-3
+
+ADA´ N CABELLO
+͑13͒. However, if we assign a higher weight to the bipartite correlations appearing in the inequality, then we can reach a Bell inequality such as
+
+Ϫ8р͗A1A2A3͘Ϫ͗A1B2B3͘Ϫ͗B1A2B3͘Ϫ͗B1B2A3͘
+
+Ϫ 2 ͗ A 1 A 2 ͘ Ϫ 2 ͗ A 1 A 3 ͘ Ϫ 2 ͗ A 2 A 3 ͘ р 4,
+
+͑14͒
+
+which is violated by the W state ͓for instance, by choosing Aiϭ␴zi and Biϭ␴zi , state ͑2͒ gives the value ﬁve for the middle term in Eq. ͑14͔͒ but not by the GHZ state. Therefore, there are scenarios involving both tripartite and bipartite cor-
+relations in which the quantum predictions for the GHZ state
+can be reproduced with a local model while those for the W
+state cannot. A more general study of multipartite Bell inequalities is presented in ͓36,37͔.
+
+PHYSICAL REVIEW A 65 032108
+VI. SUMMARY
+In brief, we have completed the family of proofs without inequalities for two- and three-qubit pure entangled states with a proof for the W state that can also be extended to the GHZ state and we have then obtained two Bell inequalities for three qubits. The ﬁrst could lead to more conclusive tests of Bell’s theorem. The second, involving both tri- and bipartite correlations, illustrates some differences between the violations of local realism exhibited by the GHZ and W states.
+ACKNOWLEDGMENTS
+I thank J. L. Cereceda and C. Serra for their comments, and the organizers of the Sixth Benasque Center for Science, where this work was begun, the Junta de Andaluc´ıa Grant No. FQM-239, and the Spanish Ministerio de Ciencia y Tecnolog´ıa Grant No. BFM2000-0529 for their support.
+
+͓1͔ D. M. Greenberger, M. A. Horne, and A. Zeilinger, in Bell’s
+Theorem, Quantum Theory, and Conceptions of the Universe, edited by M. Kafatos ͑Kluwer, Dordrecht, 1989͒, p. 69. ͓2͔ R. Cleve and H. Buhrman, Phys. Rev. A 56, 1201 ͑1997͒. ͓3͔ M. Z˙ ukowski, A. Zeilinger, M. A. Horne, and H. Weinfurter, Acta Phys. Pol. A 93, 187 ͑1998͒. ͓4͔ S. Bose, V. Vedral, and P. L. Knight, Phys. Rev. A 57, 822 ͑1998͒. ͓5͔ A. Karlsson and M. Bourennane, Phys. Rev. A 58, 4394 ͑1998͒. ͓6͔ M. Hillery, V. Buzˇek, and A. Berthiaume, Phys. Rev. A 59, 1829 ͑1999͒. ͓7͔ C.-W. Zhang, C.-F. Li, Z.-Y. Wang, and G.-C. Guo, Phys. Rev. A 62, 042302 ͑2000͒. ͓8͔ J.-C. Hao, C.-F. Li, and G.-C. Guo, Phys. Rev. A 63, 054301 ͑2001͒. ͓9͔ A. Einstein, B. Podolsky, and N. Rosen, Phys. Rev. 47, 777 ͑1935͒. ͓10͔ J. S. Bell, Physics ͑Long Island City, N.Y.͒ 1, 195 ͑1964͒. ͓11͔ N. D. Mermin, Phys. Today 43͑6͒, 9 ͑1990͒; Am. J. Phys. 58, 731 ͑1990͒. ͓12͔ D. M. Greenberger, M. A. Horne, A. Shimony, and A. Zeilinger, Am. J. Phys. 58, 1131 ͑1990͒. ͓13͔ N. D. Mermin, Phys. Rev. Lett. 65, 1838 ͑1990͒. ͓14͔ S. M. Roy and V. Singh, Phys. Rev. Lett. 67, 2761 ͑1991͒. ͓15͔ D. Bouwmeester, J.-W. Pan, M. Daniell, H. Weinfurter, and A. Zeilinger, Phys. Rev. Lett. 82, 1345 ͑1999͒. ͓16͔ J.-W. Pan, D. Bouwmeester, M. Daniell, H. Weinfurter, and A. Zeilinger, Nature ͑London͒ 403, 515 ͑2000͒. ͓17͔ L. Hardy, Phys. Rev. Lett. 71, 1665 ͑1993͒.
+
+͓18͔ A. Cabello, Phys. Rev. Lett. 86, 1911 ͑2001͒. ͓19͔ A. Cabello, Phys. Rev. Lett. 87, 010403 ͑2001͒. ͓20͔ A. Ac´ın, A. Andrianov, L. Costa, E. Jane´, J. I. Latorre, and R.
+Tarrach, Phys. Rev. Lett. 85, 1560 ͑2000͒. ͓21͔ W. Du¨r, G. Vidal, and J. I. Cirac, Phys. Rev. A 62, 062314
+͑2000͒. ͓22͔ A. Higuchi and A. Sudbery, Phys. Lett. A 273, 213 ͑2000͒. ͓23͔ H. A. Carteret and A. Sudbery, J. Phys. A 33, 4981 ͑2000͒. ͓24͔ T. A. Brun and O. Cohen, Phys. Lett. A 281, 88 ͑2001͒. ͓25͔ The name ‘‘W’’ is for Wolfgang ͑Du¨r͒, one of the authors of
+Ref. ͓21͔. ͓26͔ N. Gisin, Phys. Lett. A 210, 151 ͑1996͒. ͓27͔ A. Cabello, Phys. Rev. A 63, 022104 ͑2001͒. ͓28͔ Pitowsky ͓I. Pitowsky, Phys. Lett. A 156, 137 ͑1991͔͒ observed
+that the W states allow three observers to make predictions
+which ‘‘taken together contradict quantum mechanics.’’ The
+proof in this paper is simpler and is based solely on EPR’s
+elements of reality. ͓29͔ D. Boschi, S. Branca, F. De Martini, and L. Hardy, Phys. Rev.
+Lett. 79, 2755 ͑1997͒. ͓30͔ L. Hardy ͑private communication͒. ͓31͔ L. Hardy, Phys. Rev. Lett. 73, 2279 ͑1994͒. ͓32͔ N. D. Mermin, Phys. Today 47͑6͒, 9 ͑1994͒; 47͑11͒, 119
+͑1994͒; Am. J. Phys. 62, 880 ͑1994͒. ͓33͔ N. D. Mermin, Ann. N.Y. Acad. Sci. 755, 616 ͑1995͒. ͓34͔ J. F. Clauser and M. A. Horne, Phys. Rev. D 10, 526 ͑1974͒. ͓35͔ J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, Phys.
+Rev. Lett. 23, 880 ͑1969͒. ͓36͔ I. Pitowsky and K. Svozil, Phys. Rev. A 64, 014102 ͑2001͒. ͓37͔ R. F. Werner and M. M. Wolf, Phys. Rev. A 64, 032112 ͑2001͒.
+
+032108-4
+

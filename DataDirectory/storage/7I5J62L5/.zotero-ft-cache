@@ -1,0 +1,1116 @@
+Computer Physics Communications 200 (2016) 87–95
+Contents lists available at ScienceDirect
+Computer Physics Communications
+journal homepage: www.elsevier.com/locate/cpc
+
+ATLAS: A real-space finite-difference implementation of orbital-free density functional theory
+Wenhui Mi a,1, Xuecheng Shao a,1, Chuanxun Su a, Yuanyuan Zhou a, Shoutao Zhang a, Quan Li a, Hui Wang a, Lijun Zhang b, Maosheng Miao c, Yanchao Wang a,∗, Yanming Ma a,∗
+a State Key Laboratory of Superhard Materials, Jilin University, Changchun 130012, China b College of Materials Science and Engineering, Jilin University, Changchun 130012, China c Department of Chemistry and Biochemistry, California State University Northridge, 18111 Nordhoff St., Northridge, CA 91330, USA
+
+article info
+Article history: Received 24 July 2015 Received in revised form 22 October 2015 Accepted 13 November 2015 Available online 22 November 2015
+Keywords: Orbital-free density functional theory Quantum mechanical Real-space representations Local pseudopotentials
+
+abstract
+Orbital-free density functional theory (OF-DFT) is a promising method for large-scale quantum mechanics simulation as it provides a good balance of accuracy and computational cost. Its applicability to largescale simulations has been aided by progress in constructing kinetic energy functionals and local pseudopotentials. However, the widespread adoption of OF-DFT requires further improvement in its efficiency and robustly implemented software. Here we develop a real-space finite-difference (FD) method for the numerical solution of OF-DFT in periodic systems. Instead of the traditional selfconsistent method, a powerful scheme for energy minimization is introduced to solve the Euler–Lagrange equation. Our approach engages both the real-space finite-difference method and a direct energyminimization scheme for the OF-DFT calculations. The method is coded into the ATLAS software package and benchmarked using periodic systems of solid Mg, Al, and Al3Mg. The test results show that our implementation can achieve high accuracy, efficiency, and numerical stability for large-scale simulations.
+© 2015 Elsevier B.V. All rights reserved.
+
+1. Introduction
+Computational simulation is a powerful tool for predicting material properties and understanding the physics underlying experimental observations [1]. Reliable simulation relies on advanced computational theories and methods, and in recent decades many efficient approaches with different levels of accuracy have emerged to receive remarkable success; e.g., quantum-mechanical [2–4] and empirical potential methods [5,6].
+Quantum mechanical approaches based on the Kohn–Sham (KS) density functional theory (DFT) [2,3] allow accurate descriptions of materials’ properties, but are computationally demanding. They require evaluation of the kinetic energy term related to the computation of single-electron wave-functions. The calculation of electron density needs to consider 3Ne degrees of freedom, and thus the computational cost scales as a cubic relation of
+O(Ne3) [7], where Ne is the total number of electrons of the system.
+∗ Corresponding authors.
+E-mail addresses: wyc@calypso.cn (Y. Wang), mym@calypso.cn (Y. Ma). 1 These two authors contributed equally.
+http://dx.doi.org/10.1016/j.cpc.2015.11.004 0010-4655/© 2015 Elsevier B.V. All rights reserved.
+
+The large computational cost limits KS-DFT to only small systems with unit cells of up to only hundreds or thousands of atoms [7], which makes its traditional implementation unsuitable for studying complex systems (e.g., surfaces, interfaces, nanomaterials, and biomaterials) or macro-scale features (e.g., grain boundaries, dislocations, and cracks) that require large-scale simulations using cells of tens of thousands or millions of atoms [1,8].
+Over the past two decades, many linear scaling techniques have been developed in an effort to reduce the cubic scaling of traditional KS-DFT [4,9]. However, they depend on both the ‘‘nearsightedness’’ principle [4,9] and the concept of ‘‘locality’’ [10], and therefore scale linearly only for systems containing a large number of atoms. There is an unavoidable crossover between cubic and linear scaling [1,4,9]. Moreover, linear scaling requires a bandgap structure or localized electronic structure, and appears not to function for metals [1,8].
+Alternative approaches related to parameter fitting have therefore been designed using empirical interatomic potentials [5,6]. These simulations require much less computational cost and are computationally capable of dealing with macro-scale problems, but they suffer notable shortcomings in terms of accuracy and transferability [1,8]. More severely, these simulations completely neglect the properties of electrons, which are fundamentally important to various aspects of chemistry and physics. There
+
+88
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+is therefore an urgent need for a reliable quantum-mechanicsbased method able to perform large-scale simulations.
+Orbital-free (OF) DFT [11–15], is potentially an efficient theory for large-scale quantum mechanical simulations. The total energy within the OF-DFT scheme is expressed as an explicit functional of electron density in the Hohenberg–Kohn theorem [2], and there is no need to deal with wave functions. Here the electron density, a simple function with three degrees of freedom, can uniquely determine the ground-state properties of a many-electron system. As such, the computational cost of OF-DFT scales quasilinearly with the number of atoms in the system, providing substantial advantages in numerical simplicity and efficiency for large-scale simulations [11–15].
+The drawbacks of OF-DFT include two challenges to its realistic treatment of the kinetic energy density functional (KEDF) and ion–electron interactions [13]. First, the kinetic energy term is a sole functional of the electron density function; its construction determines the accuracy of OF-DFT, and significant progress has been made in the last two decades (Refs. [16–27]) with the proposal of various encouraging KEDFs. These functionals have been successfully tested in many systems, including nearly free-electron-like systems and semi-conductors [28–30]. Second, the lack of particular orbitals leads the ion–electron interaction to be described only by the local pseudopotentials (LPPs), and previous studies have sought to construct various LPPs. Empirical [12,14,15,31,32] and ‘‘bulk derived’’ LPPs [33] have been developed and successfully applied to various metals and semiconductors [8,28], but a notable challenge is the construction of a good LPP from an existing nonLPP without appeal to any bulk- or aggregate-system KS calculations [13]. We recently developed an optimized effective potential (OEPP) scheme to construct full first-principles LPPs from existing non-LPPs [34] to enhance the transferability of the pseudopotential. Our OEPP worked well for a large number of elements, and the transferability of the LPP was found to be an intrinsic property of elements.
+The ground-state energy Emin and electron density ρ in OF-DFT [13,15] can be obtained by minimizing the total energy E[ρ] of the system with respect to the trial electron density ρ. The following
+minimization equation is non-linear and multidimensional [35]:
+
+
+
+
+
+
+
+
+
+Emin
+
+=
+
+min
+ρ
+
+E[ρ] − µ
+
+ρ(r)dr − Ne ; ρ ≥ 0 ,
+Ω
+
+(1)
+
+where µ is a Lagrange multiplier used to enforce the constraint that the total number of electrons Ne is conserved, and Ω is the whole
+space for the simulation.
+
+Currently, there are two main procedures for solving Eq. (1)
+
+[13]. The first is to seek a direct solution of the equation by
+minimizing the total energy with respect to the electron density ρ
+
+[35–38]. The well-known PROFESS code was built this way [35,39, 40], and has been successfully used to investigate many large-scale problems [41–43]. The other procedure is to transform Eq. (1) into an ordinary KS-like equation that can be solved self-consistently by
+
+any KS computer program [44–46]. However, recent research [13,
+
+47,48] has shown that the iterative self-consistent procedure for
+
+OF-DFT does not work properly for large systems. Moreover, the
+
+non-convergence problem is not solved, and the underlying reason
+
+for this remains unclear [13]. In this work, a real-space finite-difference method for solving
+the OF-DFT Euler–Lagrange equation (Eq. (1)) for periodic systems
+
+is developed by direct minimization. As shown previously, a real-
+
+space finite-difference method provides three obvious advantages
+
+[49–52]: (i) the method is independent of any basis, simplifying
+
+its implementation [53]; (ii) a real-space method is advantageous
+
+for large-scale parallel calculations due to its avoidance of the fast Fourier transform (FFT) method for the reciprocal-space approach and the serious drawback in the need for ‘‘all-to-all
+
+communication’’ [9] during parallel calculation; and (iii) there is no barrier to switching between a periodic and a non-periodic system for a real-space approach. Particularly, we find that the finitedifference method is computationally more efficient in dealing with the Laplace, gradient, and divergence operators than the FFTbased method.
+Our method is coded into Ab initio orbiTaL-free density functionAl theory Software (ATLAS) and is benchmarked in periodic systems of Mg, Al, and Al3Mg. Our current implementation of OF-DFT is shown to be numerically accurate, stable, and efficient.
+The remainder of this paper is organized as follows. Section 2 gives the theory. The OF-DFT differential equation is presented for illustration, followed by detailed real-space representations of the finite-difference method and the direct energy minimization method to obtain the ground-state electron density. Section 3 reports testing results on Mg, Al, and Al3Mg crystals to demonstrate the computational accuracy, efficiency, and stability of the procedure. Finally, conclusions are presented in Section 4.
+
+2. Theory and background
+
+2.1. OF-DFT theory
+
+In the OF-DFT scheme [13,15], the ground state total energy
+of an N-electron system in a local external potential Vext (r) is a functional of electron density ρ(r):
+
+
+
+ρ(r)dr = Ne.
+
+(2)
+
+Ω
+
+The total energy functional E[ρ] (atomic units, a.u., are used
+throughout the paper) can be written as follows [13,15]:
+
+ EOF [ρ] = T [ρ] + EH [ρ] + EXC [ρ] + Vext (r)ρ(r)dr
+
++ Ei−i({Ri}),
+
+(3)
+
+where EH [ρ] is the Hartree repulsion energy, EXC [ρ] the exchange–correlation energy, and Vext (r) the external potential rep-
+resenting the ion–electron interaction as given by local pseudopotentials in the OF-DFT scheme. Ei−i is the interaction energy between ions, which is dealt with in our implementation using Ewald summation [54–56]. The kinetic energy of the non-interacting
+electrons (T [ρ]) is an explicit functional of electron density. These
+KEDFs can be roughly categorized into two general types: local/semilocal and nonlocal. The former naturally scales linearly with system size, while the later scales quadratically owing to its double integral [57]. Our program implements both local/semilocal KEDFs [58,59] and the nonlocal Wang–Govind–Carter (WGC) KEDF [22]. The WGC KEDF can be written as follows:
+
+T WGC [ρ] = TTF [ρ] + TvW [ρ] + Tnl[ρ],
+
+(4)
+
+where TTF [ρ] is the Thomas–Fermi term assuming the limit of a
+uniform electron gas. It takes the form
+
+
+
+TTF [ρ] = CTF ρ5/3(r)dr,
+
+(5)
+
+Ω
+
+where CTF
+
+=
+
+3 10
+
+(3π
+
+2
+
+)2/3
+
+.
+
+TvW
+
+[ρ
+
+]
+
+is
+
+the
+
+von
+
+Weizsäcker (vW) term
+
+designed for a single-orbital system:
+
+TvW
+
+[ρ]
+
+=
+
+
+Ω
+
+ρ(r
+
+)
+
+ −
+
+1 2
+
+∇
+
+
+2
+
+ρ (r )dr .
+
+(6)
+
+The third non-local term has the form
+
+
+
+Tnl[ρ] = ρα(r)k[ρ(r), ρ(r), r, r′]ρβ (r′)drdr′.
+
+(7)
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+89
+
+This non-local term Tnl[ρ] is Taylor expanded to achieve quasilin-
+ear scaling with system size via FFT [22,38].
+Our approach decomposes the KEDFs into the λTvW term and a remaining term Tθ [ρ] (which, when λ = 1, is the Pauli term [13]):
+
+T [ρ] = λTvW [ρ] + Tθ [ρ].
+
+(8)
+
+The vW kinetic potential term can be evaluated as follows:
+
+δTvW [ρ] δρ
+
+=
+
+1
+√ρ
+
+ 2
+
+∇ −
+
+√ρ.
+
+2
+
+(9)
+
+The finite-difference method is adopted here to obtain the vW kinetic potential term instead of FFT, as implemented in PROFESS [35].
+Instead of minimizing EOF directly over the electron density, we
+rewrite the total energy as the functional of φ = √ρ. Taking the
+constraint of Eq. (2) into account by Lagrange’s multiplier method,
+we define
+
+
+
+
+
+L[φ] = EOF [φ] − µ φ2(r)dr − N ,
+
+(10)
+
+Ω
+
+then the gradient of L with respect to φ is
+
+δL[φ] δφ
+
+=
+
+δEOF [ρ] δρ
+
+δρ δφ
+
+−
+
+2µφ
+
+=
+
+2
+
+ δE[ρ] δρ
+
+−
+
+ µ
+
+φ
+
+= 2 {Hφ − µφ} ,
+
+(11)
+
+where
+
+Hφ
+
+=
+
+− λ ∇2φ(r)
+2
+
++
+
+Veff
+
+(r )φ (r ).
+
+(12)
+
+This equality is derived from Eq. (9) and
+
+Veff (r)
+
+=
+
+δTθ [ρ] δρ
+
++
+
+δEH [ρ] δρ
+
++
+
+δEXC [ρ] δρ
+
++ Vion(r)
+
+= Vθ (r) + VH (r) + VXC (r) + Vion(r).
+
+(13)
+
+The variational principle requires δL/δφ = 0, which leads to the
+Euler–Lagrange equation:
+
+Hφ = µφ.
+
+(14)
+
+This is a Schrödinger-like equation [13,44–46,60], but much simplified as there is only one ‘‘orbital’’ with the minimal eigenvalue. This equation can then be resolved by minimizing the
+OF-DFT total energy with respect to √ρ.
+
+2.2. Real-space representations
+
+Real-space calculations are performed on grids, in which the values of the electron density distribution and effective potential are given on discrete Cartesian grid points. The real-space finitedifference expansion transforms the kinetic energy operator into a spare matrix, which has nonzero elements only in the vicinity of the leading diagonal [51,52]. The general form of the Laplacian with a Cartesian grid can be expressed as follows:
+
+N
+
+∇2φ(xi, yj, zk) =
+
+ Cnφ(xi + nhx, yj, zk)
+
+n=−N
+
+N
+ Cnφ(xi, yj + nhy, zk)
+n=−N
+
+N
+ Cnφ(xi, yj, zk + nhz ),
+n=−N
+
+(15)
+
+where N is the order of the finite difference expansion; hx, hy, and hz are the grid spacings in the x, y, and z directions, respectively; and the Cn coefficients are available in Refs. [51,61]. It is noteworthy that the FD coefficients are derived from a Taylorseries expansion of the desired function. Thus, the truncation error exists during minimizing the total energy functional using the FD method because it does not satisfy the variational principle [51]. However, in general the net error is within the error of OF-DFT and can be ignored when reasonable order of expansion and grid spacing of FD are employed to perform the calculations. Furthermore, the Cartesian grid is incompatible with the periodicity of a non-orthorhombic unit cell. A new high-order finite-difference method for a non-orthorhombic grid has been proposed and successfully applied to periodic systems [62]. We adopt it here. The general form of the Laplacian operator for a nonorthorhombic grid is as follows:
+
+2
+∇
+
+=
+
+6
+
+fi
+i=1
+
+∂2 ∂ vi2
+
+.
+
+(16)
+
+We represent the Laplacian by a combination of derivatives
+along six nearest-neighboring vi directions: three original ai (i = 1, 2, 3) directions and three additional nearest-neighboring
+directions, where ai are the lattice vectors in real space. For the fi coefficient, refer to Ref. [62]. Note that the H matrix (Eq. (14)) is a spare matrix whose nonzero elements are confined within
+a diagonal band, and the extent of the nonzero elements in off-
+diagonal positions depends on the order of the finite difference
+expansion. The Hartree potential is determined by solving the
+Poisson equation:
+
+∇2VH (r) = −4π [ρ(r) − ρ0(r)],
+
+(17)
+
+using FD method with conjugate gradients (CG) algorithm [63],
+where ρ0(r) is the average electron density of the system. For in-
+finite periodic systems, we encountered the divergent problems on the ion–electron, ion–ion, and electron–electron interaction
+energies arising from the long-range Coulomb interaction −Z /r.
+Fortunately, the divergent problem converts into the singularity
+problem at g = 0 in reciprocal space. For a charge-neutral sys-
+tem, the singularity for Hartree electron–electron potential can be exactly canceled by adding up singularities encountered in the electron–ion and ion–ion potentials, and can therefore be ne-
+glected [35,64]. The Hartree potential VH (r) can thus be obtained as
+follows:
+
+ 4π 
+
+VH (r) = FFT ′
+
+ρ(G) |G |2
+
+(ρ(G = 0) = 0),
+
+(18)
+
+where ρ(G) is the electron density in reciprocal space, and FFT ′ is
+a reverse FFT transform.
+In fact, both real space (Eq. (17)) and FFT-based (Eq. (18)) formulations of Hartree potential are employed in our approach. However, our studies indicate that computational cost (time and storage) to calculate the Hartree potential using FFT-based method is lower than real space FD method for the systems (Natom/cell
+<10,000), in which parallel calculations are not required. Thus, the
+FFT-based method is adopted to calculate Hartree potential for this work.
+The ionic term Vion(r) in Eq. (13) can be constructed from Vloc (r)
+(i.e., LPPs). We use our developed OEPP for LPPs. OEPPs for both Mg and Al are shown in Fig. 1(a) and 1(b), respectively. The theory of constructing OEPP is presented elsewhere [34]. For a periodic system, the ionic potential receives contributions from an infinite number of atoms, leading to a divergent summation of the longrange Coulomb term. To seek a solution, as mentioned above, the
+
+90
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+Fig. 1. Local optimized effective pseudopotential of Mg (a) and Al (b) in real space.
+
+pseudopotential Vion(r) is then expressed in reciprocal space as
+follows [7,64]:
+
+1
+
+Vion(G) ≡ Ωcell
+
+Vion(r)exp(iG · r)dr
+Ωcell
+
+=
+
+1 Ωcell
+
+ntype
+ Sκ (G)Vlκoc (G),
+κ =1
+
+(19)
+
+where ntype is the number of atomic species, and for each atomic
+species κ there are nκ identical atoms at positions τκ,j, j = 1, nκ , and Ωcell is the unit cell volume. The structure factor S(G) for each
+atomic species κ is [64]
+
+nκ
+
+Sκ (G) =  exp(iG · τκ,j),
+
+(20)
+
+j=1
+
+and the form factor Vloc (G) is [64]
+
+
+
+Vlκoc (G) =
+
+Vlκoc (r)exp(iG · r)dr.
+
+allspace
+
+(21)
+
+The spherical symmetry of LPP allows the 3D Fourier transform to be represented by a 1D radial Fourier transform [35,64]:
+
+Vlκoc (g)
+
+=
+
+4π
+
+∞
+0
+
+Vlκoc (r )r 2
+
+sin(gr )
+gr
+
+dr
+
+=
+
+Vnκc (g)
+
+−
+
+4π Z
+g2
+
+(g ̸= 0),
+
+(22)
+
+where g = |G| and the non-Coulomb potential Vnκc (g) in reciprocal
+space can be written as
+
+Vnκc (g)
+
+=
+
+4π
+
+ rcut
+0
+
+ Vlκoc (r )
+
++
+
+Z r
+
+ r2 sin(gr) dr.
+gr
+
+(23)
+
+At g = 0, the Coulomb interaction is canceled as described above,
+leading to
+
+ rcut
+
+Vlκoc (g = 0) = 4π
+
+(r2Vlκoc (r) + Zr)dr,
+
+0
+
+(24)
+
+where rcut is the cutoff of core radii. In our implementation, Vloc (r)
+
+is equal to −Z /r when r ≥ rcut .
+
+For a given grid spacing h, the size of the grid points can be
+
+determined
+
+as
+
+3
+i=1
+
+Ni,
+
+where
+
+Ni
+
+=
+
+|ai| .
+h
+
+(25)
+
+For a given structure, the wave vector G is determined by
+
+G(n1, n2, n3) = n1b1 + n2b2 + n3b3,
+
+(26)
+
+where bi (i = 1, 2, 3) are the primitive vectors in reciprocal space, and ni = (0, 1, 2 · · · Ni) are integers.
+Finally, the real-space local ion–electron pseudopotential
+Vion(r) can be calculated by an FFT:
+
+Vion(r) = FFT (Vion(G)).
+
+(27)
+
+Notably, a new method has been proposed to eliminate the FFT and Ewald summations. In this method, the electrostatic interactions (ion–electron, electron–electron, and ion–ion interactions) can be replaced by the equivalent localized charge distributions and boundary conditions in real space [65,66]. Specially, the entire electrostatic potential and energy can be obtained by solving one Poisson equation using multigrid method in real space, which exhibits rigorous linear scaling [51,52,67,68]. It is well suited for large scale, parallel computations due to no requirements of FFT or reciprocal lattice summations and we will implement it into our ATLAS code.
+As mentioned above, all the physical quantities in the realspace finite-difference formalism can be directly represented on discretized grid points with a uniform interval [62]. Finally, Eq. (12) can be expressed as the following discretized expression:
+
+Hφ(ui, vj, wk)
+
+λ
+
+
+
+N
+
+
+=−
+2
+
+Cn1 φ(ui + ξ11n1h, vj + ξ12n1h, wk + ξ13n1h)
+
+n1 =−N
+
+N
+
+
+
++
+
+Cn2 φ(ui + ξ21n2h, vj + ξ22n2h, wk + ξ23n2h)
+
+n2 =−N
+
+N
+
+
+
++
+
+Cn3 φ(ui + ξ31n3h, vj + ξ32n3h, wk + ξ33n3h)
+
+n3 =−N
+
+N
+
+
+
++
+
+Cn4 φ(ui + ξ41n4h, vj + ξ42n4h, wk + ξ43n4h)
+
+n4 =−N
+
+N
+
+
+
++
+
+Cn5 φ(ui + ξ51n5h, vj + ξ52n5h, wk + ξ53n5h)
+
+n5 =−N
+
+N
+
+
+
+
+
++
+
+Cn6 φ(ui + ξ61n6h, vj + ξ62n6h, wk + ξ63n6h)
+
+n6 =−N
+
++ [Vion(ui, vj, wk) + VH (ui, vj, wk) + VXC (ui, vj, wk)
+
++ Vθ (ui, vj, wk)] × φ(ui, vj, wk),
+
+(28)
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+91
+
+Fig. 2. Flow chart of ATLAS.
+
+where Cni = ficni , N is the order of the finite-difference expansion. The choice of ξ as −1, 0, or 1 depends on the lattice vectors
+of the crystal. Given that the Laplacian operator extends to only
+a few neighbors around each grid point, Eq. (28) is a sparse
+matrix. We solve it here to obtain the minimum energy EmOFin[ρ]
+by implementing an energy-minimization scheme. Previous works
+have shown that the Truncated Newton (TN) method [69] is one
+of the most efficient [35–37]; therefore, it is employed in our
+approach.
+
+2.3. Algorithm for energy minimization
+
+Our scheme selects √ρ as the variable to minimize the total
+energy. The flow chart of ATLAS code is shown in Fig. 2. The procedure followed comprises three major steps. First, an initial
+guess of the electron density ρ0 is required for a trial solution of φ2.
+Note that the initially guessed electron density is derived from the model of a homogeneous electron gas (the average charge density of the system).
+Second, the ground-state electron density is obtained by minimizing the total energy using the TN method based on the initial guess. The TN algorithm for energy minimization consists of two iterations: an outer iteration that approximates the descent direction p as the direction for minimizing energy, and an inner
+iteration that determines the step size θ by a line search to ensure
+an energy decrease [35–37,69]. The details of this step include three procedures.
+(i) According to the TN scheme, the search direction |pk⟩ at
+iteration k is simply determined by the quantities of the current
+iteration. |pk⟩ can be written as follows:
+
+|pk⟩ = −A−k 1|gk⟩,
+
+(29)
+
+where |gk⟩ is the gradient of Lk(φ) according to Eq. (11), which can
+be written as
+
+|gk⟩ = 2 {Hk|φk⟩ − µk|φk⟩} ,
+
+(30)
+
+with
+
+µk
+
+≡
+
+⟨φk|Hk|φk⟩ .
+Ne
+
+(31)
+
+Ak is the approximate Hessian matrix of Lk:
+
+Ak
+
+=
+
+δ2Lk
+
+.
+
+δ φ (r )δ φ (r ′ )
+
+(32)
+
+As in previous works [35,36], we rewrite Eq. (29) as a linear
+
+equation to determine |pk⟩:
+
+Ak|pk⟩ = −|gk⟩.
+
+(33)
+
+This equation can be solved using the linear conjugate gradient
+
+method [70]. We compute Ak|p⟩ using the first-order finite-
+difference approximation rather than attempt the explicit evalu-
+
+ation of Ak:
+
+Ak|p⟩
+
+≈
+
+|g (φ
+
++
+
+ϵp)⟩ ϵ
+
+−
+
+|g(φ)⟩ .
+
+(34)
+
+This ensures that the computational cost of our approach is linear
+
+scaling.
+(ii) The step size θk is determined by line search with the normalization constraint of |φk+1⟩. |pk⟩ is further orthogonalized to |φk⟩ and normalized to Ne.
+
+|φk′⊥⟩
+
+=
+
+|pk⟩
+
+−
+
+|φk⟩⟨φk
+Ne
+
+|
+
+|pk
+
+⟩
+
+(35)
+
+
+
+|φk⊥⟩ =
+
+Ne
+⟨φk′⊥|φk′⊥
+
+⟩
+
+|φk′⊥
+
+⟩
+
+(36)
+
+|φk+1⟩ then is updated by
+
+|φk+1⟩ = |φk⟩ cos(θk) + |φk⊥⟩ sin(θk),
+
+(37)
+
+where the value of θk is determined by line search [63,71,72] with
+
+the Wolfe conditions to ensure it lies toward lower energy [37].
+
+θk
+
+←
+
+min E
+θ
+
+[φk+1 (r ,
+
+θ )]
+
+.
+
+(38)
+
+(iii) When the step size θk is determined, the new electron density can be derived by ρk+1 = φk2+1. The process is repeated until both the gradient of Lagrange |g⟩ and the variation of total
+
+energy are smaller than the given tolerances.
+
+Finally, the third step involves calculating the total energy or
+
+other related physical quantities of a given structure from the
+
+ground-state electron density.
+
+3. Numerical results
+
+We consider here three bulk systems of Mg, Al, and Al3Mg to benchmark the above formalism (as implemented in our ATLAS code) for accuracy and computational efficiency. The calculation employs the local density approximation (LDA) for electron exchange and correlation as parametrized by Perdew and Zunger [73,74]. The local pseudopotentials of Mg and Al are constructed by our OEPP scheme for their respective electronic configurations of 3s13p1 and 3s23p1. The core cutoff radii are 2.6 a.u. for Mg and 2.2 a.u. for Al.
+
+3.1. Tests of real-space OF-DFT convergence
+
+Our real-space finite-difference implementation of OF-DFT has two controllable parameters that critically influence the accuracy of the calculations: the order of finite difference expansion and the grid spacing h. These parameters are chosen depending on the convergence test of the total energies of the systems. The grid spacing in real space is related to the plane-wave cutoff energy
+(Ecut = π 2/2h2) in reciprocal space. Here we show in a real
+application how to choose the values of these parameters. We run ATLAS code on calculations of total energy for bulk Mg with a bodycentered cubic (bcc) lattice. Fig. 3 shows that a fourth-order finitedifference expansion and a grid spacing of 0.18 Å are sufficient for a well-converged total energy (0.1 meV/atom). Similar results are also found for bulk Al. Therefore, these two values are adopted for all the following calculations on systems of bulk Mg, Al, and Al3Mg.
+
+92
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+Table 1
+Bulk properties obtained by OF-DFT and KSDFT methods: equilibrium volume (V0 per atom in Å3), total energy (E0 in eV per atom), and bulk moduli (B0 in GPa).
+
+Systems
+
+Methods
+
+V0
+
+E0
+
+B0
+
+Mg
+
+KS
+
+OF
+
+Al
+
+KS
+
+OF
+
+Al3 Mg
+
+KS
+
+OF
+
+22.023
+
+−24.588
+
+36.5
+
+22.225
+
+−24.577
+
+35.0
+
+18.029
+
+−56.799
+
+69.4
+
+18.435
+
+−56.801
+
+67.4
+
+19.031
+
+−48.767
+
+55.2
+
+19.019
+
+−48.757
+
+57.5
+
+the same OEPP. The results (Fig. 5) show expected small energy differences between the two sets of data, but both calculations give essentially identical structure sequences in energy order, providing further confidence in the robustness of our ATLAS code. To verify the correctness of our new implementation, we calculate the total energy of Mg, Al, Al3Mg, and other more complex systems (e.g., distorted structures of fcc Mg with big cells containing atomic distortions following a frozen phonon at the smallest wave vectors and with the length of the longest cell vector varying from 14.2 to 142 Å) using PROFESS [35] with the same OEPP and KEDF
+(e.g., TFλvW λ = 1, 1/5, 1/9) as used in ATLAS. The results show
+that the energy difference obtained between ATLAS and PROFESS is less than 0.1 meV/atom for all these systems.
+
+3.3. Computational efficiency
+
+Fig. 3. Effect of (a) grid spacing and (b) order of finite-difference approximation on the total energy of bulk Mg with a bcc lattice.
+
+3.2. Computational accuracy
+
+For benchmarking our ATLAS program, bulk properties of
+
+hexagonal close-packed (hcp) Mg and face-centered cubic (fcc)
+
+Al and Al3Mg are calculated and compared with those calculated by the CASTEP code [75] within KS-DFT. Our ATLAS calculations
+
+employ the WGC formula for KEDF [22] (with the following
+
+√
+
+√
+
+parameters: γ = 2.7, α = (5 + 5)/6, and β = (5 − 5)/6) and
+
+the OEPP local pseudopotential. Note that the WGC form of KEDF
+
+is known to describe accurately various bulk properties of Mg and
+
+Al. For meaningful comparison, the CASTEP calculations adopted
+
+the same OEPP local pseudopotentials as used in our method. The
+
+calculated equilibrium volumes, total energies, and bulk moduli
+
+are listed in Table 1. Our ATLAS results are in excellent agreement
+
+with those obtained by CASTEP; the noticeable small differences
+
+stem from the difference between the kinetic energy terms used in
+
+the two codes.
+
+We now focus on the fundamental quantity of electron density
+
+as calculated by the ATLAS and CASTEP codes. Fig. 4 shows that
+
+the two calculations give essentially identical contour plots of
+
+electron density in the (001) and (011) planes for Al and the
+
+(0001) and (0110) planes for Mg, thus supporting the accurate
+
+implementation of OF-DFT in ATLAS code. Further validation of our
+
+method is given by randomly generating ten different structures of
+
+Mg using the CALYPSO software package [76,77] as listed in Table 2,
+
+and then calculating their total energies using both codes with
+
+Note that a prominent difference between our method and prior works [35] is that the vW term is evaluated with a finite-difference expression instead of the FFT-based approach. The (wall) times for calculating vW kinetic potential for different sizes of grid points via fourth-order finite-difference expression and the FFTbased method using FFTW [78] are shown in Fig. 6. The finitedifference approach is clearly computationally more efficient than the FFT method, especially for denser grid points. This is due to the different size dependence of the two methods. Assuming N is the number of grid points, the computational cost of the finite-
+difference method is proportional to O(N), whereas that of FFT is proportional to O(N log N). Note that our approach shows a similar
+advantage in dealing with the generalized gradient approximation (GGA) kinetic potentials relating to the gradient and divergence operators.
+A further test of the computational efficiency of the ATLAS software package is given in the analysis of bcc Mg. Fig. 7 shows the (wall) times for calculations of ion–electron potential terms, all other potential terms in Eq. (13), and the total energies within the course of an electron density optimization on systems containing 10–10,000 atoms using a single processor. For comparison, singleprocessor calculations are also performed using the DFT code of CASTEP for systems containing up to 240 atoms. Both systems use the same exchange–correlation functional and OEPP. As expected, ATLAS shows a substantial advantage in computational efficiency over KS-DFT calculation. Note that the number of iterations to reach convergence (8–10) changes little with system size. Our method therefore shows strong potential applicability to largescale simulation.
+In fact, the computational cost of ATLAS shows quadratic scaling instead of linear, because the ion–electron potential term involving an explicit treatment of structure factors scales quadratically for a periodic system [8]. To avoid the quadratic scaling problem, a particle-mesh Ewald algorithm, which has linear scaling for the ion–electron term, will be implemented in ATLAS for periodic systems [8,56,79].
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+93
+
+a
+
+b
+
+c
+
+d
+
+Fig. 4. Contour plots of electron density calculated by ATLAS (solid line) and CASTEP (dotted line). (a) The (001) and (b) (011) planes of Al; (c) the (0001) and (d) (0110) planes of Mg. Electron density and lattice vectors are given in Å and (a.u./100), respectively.
+
+Fig. 5. Relative energy differences between the first structure and another nine structures of Mg generated by CALYPSO. The numbers along the horizontal axis correspond to the structures in Table 2, which lists their detailed structural information.
+3.4. Numerical stability
+The calculations for the Mg, Al, and Al3Mg systems show
+that ATLAS is numerically stable with TFλvW and WGC KEDF.
+However, previous works [13,57] have indicated that procedures implementing most GGA KEDFs are numerically unstable. In the previous implementation, the numerical evaluation of gradient and divergence operators used the FFT. In our method, we adopted
+
+Fig. 6. Timings (wall time) used to calculate vW kinetic potential in different numbers of grid points with both the finite-difference expression and the FFT-based method.
+the finite-difference method to evaluate these operators for all the GGA KEDFs [58,59], and tested our method using several systems (e.g., Al and Mg with fcc, bcc, hcp, and sc structures). The results indicate that ATLAS with GGA KEDFs is also numerically un-
+stable except for TFλvW, E00, and P92, which is consistent with
+previous work [57]. Therefore, we believe that the numerical instabilities of most GGA KEDFs originate from unphysical electron
+
+94
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+Table 2 Details of ten random structures of Mg generated by CALYPSO.
+
+Structure no. Space group (Number) Lattice parameters
+
+1
+
+P21/c (14)
+
+a = 2.9688 Å b = 4.7352 Å c = 11.5362 Å β = 112.3421◦
+
+2
+
+P − 6m2 (187)
+
+a = b = 5.6880 Å
+
+c = 2.6768 Å
+
+3
+
+Ima2 (46)
+
+a = 4.2219 Å b = 8.5195 Å c = 8.3406 Å
+
+4
+
+P3m1 (156)
+
+a = b = 5.6997 Å
+
+c = 5.3316 Å
+
+5
+
+Pnn2 (34)
+
+a = 4.6491 Å b = 11.0429 Å c = 2.9217 Å
+
+6
+
+P4/mmm (123)
+
+a = 5.9328 Å
+
+b = 5.9328 Å
+
+c = 4.2617 Å
+
+7
+
+P4 (75)
+
+a = b = 5.7234 Å c = 4.5792 Å
+
+8
+
+P2221 (17)
+
+9
+
+P2 (3)
+
+10
+
+Pmna (53)
+
+a = 5.3893 Å b = 4.7685 Å c = 5.8367 Å
+a = 6.2958 Å b = 7.6726 Å c = 3.1136 Å β = 94.1982◦
+a = 3.3393 Å b = 7.5958 Å c = 5.9138 Å
+
+Wykoff position
+4e −0.51477 0.74802 −0.24572 4e −0.78771 0.52847 −0.60354 2d 0.50000 −0.00000 −0.50000
+1b 0.00000 0.00000 0.50000 1d 0.33333 0.66667 0.50000 3j 0.81547 0.18453 0.00000
+4a 0.00000 0.00000 0.07444 4b 0.25000 0.29658 0.01732
+4b 0.25000 −0.16647 0.26886
+4b 0.25000 0.55467 0.11780
+4b −0.25000 0.68084 0.26549
+1a 0.00000 0.00000 0.23588
+1a 0.00000 −0.00000 0.65630
+1b 0.33333 0.66667 0.52999 1c 0.66667 0.33333 0.65311 3d 0.18246 0.81754 0.99311 3d 0.50622 0.49377 0.25310
+4c 0.22362 0.16685 0.57664 4c 0.70660 0.63845 0.95432 2a 0.00000 0.00000 0.08609
+1c 0.50000 0.50000 −0.00000
+1d 0.50000 0.50000 0.50000
+4l 0.32079 0.00000 −0.00000
+4m 0.29232 0.00000 0.50000
+4d 0.70357 0.72197 0.85041 1a 0.00000 0.00000 0.33461 1a 0.00000 0.00000 0.85646 2c 0.00000 0.50000 0.03534 2c 0.00000 0.50000 0.49923
+4e 0.69544 0.72370 1.34282 2a 0.95451 0.00000 0.50000 2a 0.41997 0.00000 0.50000 2c 0.00000 0.67949 0.75000
+2e −0.66003 −0.52140 1.47599 2e −0.73000 −0.98151 1.40517 2e −0.15425 −0.13749 1.09614 2e −0.74070 −0.72248 0.96147 1b −0.00000 −0.69511 0.50000 1c −0.50000 −0.34474 1.00000
+2b 0.00000 0.00000 0.50000 4h 0.50000 0.30656 0.43343 4h 0.50000 0.75004 1.12286
+
+density produced by the singular and unphysical kinetic potential [13,14,57] during the process of optimizing the electron density.
+4. Conclusion
+We developed an efficient ab initio method for the numerical solution of OF-DFT for large-scale simulations on periodic systems, and coded it into the ATLAS software package. Our method employs the real-space finite-difference formulation and the scheme of energy minimization to yield both computational accuracy and efficiency for large-scale simulations. The performance of our method is well tested by designed static simulations for periodic systems of Mg, Al, and Al3Mg, as well as comparison with data obtained by previous OF-DFT (PROFESS) and KS-DFT software packages (CASTEP). The results reveal that, except for the ion–electron term, the computational costs of the calculations of all other potential terms scale linearly with system size for periodic systems.
+
+Our future developments of ATLAS code will focus on the implementation of entire real-space multigrid method [67] to achieve linear scaling on the all electrostatic interactions terms [65,66], more efficient algorithms for energy minimization, compatibility with non-periodic systems, parallel computing, and the evaluation of force and stress for ion and cell relaxations. We believe that ATLAS will become an alternative method for large-scale ab initio simulations.
+Acknowledgments
+The authors acknowledge funding support from the National Natural Science Foundation of China (Grant Nos. 11274136 and 11404128), the Postdoctoral Science Foundation of China (Grant No. 2014M551181, 2015T80294), the 2012 Changjiang Scholar of the Ministry of Education, and the China 973 Program (Grant No. 2011CB808204). Some of the calculations were performed at the High-Performance Computing Center of Jilin University.
+
+W. Mi et al. / Computer Physics Communications 200 (2016) 87–95
+
+95
+
+Fig. 7. Timings (wall time) using ATLAS to calculate the total energy within the course of an electron-density optimization for systems of 10–10,000 atoms in a simulated bcc Mg cell. The total time (blue line) is shown as the sum of the times for the ion–electron potential term (black line) and for all other potential terms and energy terms (green line). Also shown is the total time (wall time) cost for static energy calculation on systems of 2–240 atoms using CASTEP (red line). (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+References
+[1] E.A. Carter, Science 321 (2008) 800. [2] P. Hohenberg, W. Kohn, Phys. Rev. 136 (1964) B864. [3] W. Kohn, L.J. Sham, Phys. Rev. 140 (1965) A1133. [4] S. Goedecker, Rev. Modern Phys. 71 (1999) 1085. [5] M.S. Daw, M.I. Baskes, Phys. Rev. B 29 (1984) 6443. [6] M.S. Daw, M.I. Baskes, Phys. Rev. Lett. 50 (1983) 1285. [7] M.C. Payne, M.P. Teter, D.C. Allan, T.A. Arias, J.D. Joannopoulos, Rev. Modern
+Phys. 64 (1992) 1045 and references therein. [8] L. Hung, E.A. Carter, Chemical Physics Letters 475 (2009) 163. [9] D. Bowler, T. Miyazaki, Rep. Progr. Phys. 75 (2012) 036503. [10] W. Kohn, Phys. Rev. Lett. 76 (1996) 3168. [11] V.V. Karasiev, D. Chakraborty, S. Trickey, Many-Electron Approaches in
+Physics, Chemistry and Mathematics, Springer, 2014, pp. 113–134. [12] T.A. Wesolowski, Recent Progress in Orbital-free Density Functional Theory
+(Recent Advances in Computational Chemistry), World Scientific Publishing Company, 2013. [13] V.V. Karasiev, S.B. Trickey, Comput. Phys. Comm. 183 (2012) 2519. [14] V.V. Karasiev, R.S. Jones, S.B. Trickey, F.E. Harris, New Developments in Quantum Chemistry, 2009, p. 25ff. [15] Y.A. Wang, E.A. Carter, Theoretical Methods in Condensed Phase Chemistry, Springer, 2002, pp. 117–184. [16] L.-W. Wang, M.P. Teter, Phys. Rev. B 45 (1992) 13196. [17] M. Pearson, E. Smargiassi, P. Madden, J. Phys.: Condens. Matter 5 (1993) 3221. [18] F. Perrot, J. Phys.: Condens. Matter 6 (1994) 431. [19] E. Smargiassi, P.A. Madden, Phys. Rev. B 49 (1994) 5220. [20] M. Foley, P.A. Madden, Phys. Rev. B 53 (1996) 10589. [21] B. Jesson, M. Foley, P. Madden, Phys. Rev. B 55 (1997) 4941. [22] Y.A. Wang, N. Govind, E.A. Carter, Phys. Rev. B 60 (1999) 16350. [23] B. Zhou, V.L. Ligneres, E.A. Carter, J. Chem. Phys. 122 (2005) 044103. [24] C. Huang, E.A. Carter, Phys. Rev. B 81 (2010) 045206. [25] J. Xia, C. Huang, I. Shin, E.A. Carter, J. Chem. Phys. 136 (2012) 084102. [26] C. Huang, E.A. Carter, Phys. Rev. B 85 (2012) 045126. [27] I. Shin, E.A. Carter, J. Chem. Phys. 140 (2014) 18A531. [28] J. Xia, E.A. Carter, J. Power Sources 254 (2014) 62.
+
+[29] H.R. Rüter, R. Redmer, Phys. Rev. Lett. 112 (2014) 145007. [30] J.-F. Danel, L. Kazandjian, Phys. Rev. E 91 (2015) 013103. [31] C. Fiolhais, J.P. Perdew, S.Q. Armster, J.M. MacLaren, M. Brajczewska, Phys. Rev.
+B 51 (1995) 14001. [32] W.C. Topp, J.J. Hopfield, Phys. Rev. B 7 (1973) 1295. [33] B. Zhou, Y. Alexander Wang, E.A. Carter, Phys. Rev. B 69 (2004) 125109. [34] W. Mi, S. Zhang, Y. Ma, M. Miao, Constructing Optimal Local Pseudopotentials
+from First Principles, 2015, arXiv:1503.02992v1. [35] G.S. Ho, V.L. Lignères, E.A. Carter, Comput. Phys. Comm. 179 (2008) 839. [36] C.J. Garcıa-Cervera, Commun. Comput. Phys. 2 (2007) 334. [37] L. Hung, C. Huang, E.A. Carter, Commun. Comput. Phys. 12 (2012) 135. [38] G.S. Ho, V.L. Lignères, E.A. Carter, Phys. Rev. B 78 (2008) 045105. [39] L. Hung, C. Huang, I. Shin, G.S. Ho, V.L. Lignères, E.A. Carter, Comput. Phys.
+Comm. 181 (2010) 2208. [40] M. Chen, J. Xia, C. Huang, J.M. Dieterich, L. Hung, I. Shin, E.A. Carter, Comput.
+Phys. Comm. 190 (2015) 228. [41] G.S. Ho, E.A. Carter, J. Comput. Theor. Nanosci. 6 (2009) 1236. [42] I. Shin, E.A. Carter, Modelling Simul. Mater. Sci. Eng. 20 (2012) 015006. [43] M. Chen, L. Hung, C. Huang, J. Xia, E.A. Carter, Mol. Phys. 111 (2013) 3448. [44] M. Levy, J.P. Perdew, V. Sahni, Phys. Rev. A 30 (1984) 2745. [45] B. Deb, S. Ghosh, Int. J. Quantum Chem. 23 (1983) 1. [46] M. Levy, H. Ou-Yang, Phys. Rev. A 38 (1988) 625. [47] G. K.-L. Chan, A.J. Cohen, N.C. Handy, J. Chem. Phys. 114 (2001) 631. [48] R.G. Parr, R.G. P.W. Yang, Density-functional Theory of Atoms and Molecules,
+Oxford university press, 1989. [49] M.M.G. Alemany, M. Jain, L. Kronik, J.R. Chelikowsky, Phys. Rev. B 69 (2004)
+075101. [50] G. Schofield, J.R. Chelikowsky, Y. Saad, Comput. Phys. Comm. 183 (2012) 497. [51] T.L. Beck, Rev. Modern Phys. 72 (2000) 1041. [52] K. Hirose, First-principles Calculations in Real-space Formalism: Electronic
+Configurations and Transport Properties of Nanostructures, Imperial College Press, 2005. [53] J.R. Chelikowsky, N. Troullier, Y. Saad, Phys. Rev. Lett. 72 (1994) 1240. [54] P.P. Ewald, Ann. Phys. 369 (1921) 253. [55] A.Y. Toukmaji, J.A.B. Jr., Comput. Phys. Comm. 95 (1996) 73. [56] U. Essmann, L. Perera, M.L. Berkowitz, T. Darden, H. Lee, L.G. Pedersen, J. Chem. Phys. 103 (1995) 8577. [57] J. Xia, E.A. Carter, Phys. Rev. B 91 (2015) 045124. [58] D. Garcia-Aldea, J. Alvarellos, J. Chem. Phys. 127 (2007) 144109.
+[59] A.W. G´’o tz, S.M. Beyhan, L. Visscher, J. Chem. Theory Comput. 5 (2009) 3161. [60] H. Jiang, W. Yang, J. Chem. Phys. 121 (2004) 2030. [61] B. Fornberg, Math. Comput. 51 (1988) 699. [62] A. Natan, A. Benjamini, D. Naveh, L. Kronik, M.L. Tiago, S.P. Beckman, J.R.
+Chelikowsky, Phys. Rev. B 78 (2008) 075109. [63] W.H. Press, Numerical Recipes 3rd edition: The Art of Scientific Computing,
+Cambridge university press, 2007. [64] R.M. Martin, Electronic Structure: Basic Theory and Practical Methods,
+Cambridge university press, 2004. [65] J. Pask, P. Sterne, Phys. Rev. B 71 (2005) 113101. [66] V. Gavini, J. Knap, K. Bhattacharya, M. Ortiz, J. Mech. Phys. Solids 55 (2007) 669. [67] A. Brandt, S. McCormick, J. Ruge, SIAM J. Sci. Stat. Comput. 4 (1983) 244. [68] A. Brandt, Math. Comput. 31 (1977) 333. [69] S.G. Nash, J. Comput. Appl. Math. 124 (2000) 45. Numerical Analysis 2000. Vol.
+IV: Optimization and Nonlinear Equations. [70] M.R. Hestenes, E. Stiefel, 1952. [71] R.P. Brent, Algorithms for Minimization Without Derivatives, Courier Corpo-
+ration, 2013. [72] P.E. Gill, W. Murray, M.H. Wright, Practical Optimization, Vol. 5, Academic
+press London, 1981. [73] D.M. Ceperley, B.J. Alder, Phys. Rev. Lett. 45 (1980) 566. [74] J.P. Perdew, A. Zunger, Phys. Rev. B 23 (1981) 5048. [75] M. Segall, P.J. Lindan, M.a. Probert, C. Pickard, P. Hasnip, S. Clark, M. Payne,
+J. Phys.: Condens. Matter. 14 (2002) 2717. [76] Y. Wang, J. Lv, L. Zhu, Y. Ma, Phys. Rev. B 82 (2010) 094116. [77] Y. Wang, J. Lv, L. Zhu, Y. Ma, Comput. Phys. Comm. 183 (2012) 2063. [78] M. Frigo, S.G. Johnson, Acoustics, Speech and Signal Processing, 1998,
+in: Proceedings of the 1998 IEEE International Conference on, vol. 3, IEEE, 1998, pp. 1381–1384. [79] N. Choly, E. Kaxiras, Phys. Rev. B 67 (2003) 155101.
+

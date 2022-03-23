@@ -1,0 +1,1698 @@
+ORIGINAL PAPER
+Decoherence
+Most Robust and Fragile States with the Same Entanglement Properties
+Hong-Mei Li and Bao-Kui Zhao*
+
+www.ann-phys.org
+
+Finding the most robust entangled states and the most fragile entangled
+
+these states are crucial for many application purposes.[3] In 2008, Aolita et al.
+
+states during the whole process of decoherence is particularly a fundamental
+
+studied the entire dynamical evolution of
+
+problem for quantum physics and quantum information processing. Here the robustness of three-qubit states under three diﬀerent decoherence channels (amplitude damping, dephasing, bit ﬂip) systematically are investigated, and the most robust genuine tripartite entangled states and the most fragile ones
+
+N-qubit GHZ entanglement for arbitrary N.[12] In ref. [13], Aolita et al. derived analytical upper bounds for the entanglement of generalized GHZ states coupled to locally decoherence environments, but
+
+during each of the three decoherence processes are found. Moreover, the
+
+they also showed that the robustness of
+
+states with the most signiﬁcant diﬀerence in robustness are shown to be
+
+randomly generated initial states tends to
+
+locally unitarily equivalent to each other and therefore contain the same entanglement properties.
+
+violate the bounds and that this discrepancy grows with the number of qubits. In refs. [14,15], the authors established
+
+a systematic method to obtain lower and
+
+upper bounds for the entanglement of
+
+1. Introduction
+
+graph, or (mixed) graph-diagonal states aﬀected by several models of noise throughout the decoherence process. In ref. [16], Bor-
+
+Entanglement is the most nonclassical feature of quantum ras et al. reported that some highly entangled multiqubit pure
+
+mechanics and it plays an important role in quantum infor- states are robust during the decoherence process. However, as the
+
+mation processing.[1–3] However, a realistic quantum system study on robustness of genuine random states during the whole
+
+inevitably interacts with its surrounding environment, which decoherence process is absent, it is diﬃcult to conclude whether
+
+usually degrades its entanglement. This decoherence introduces the speciﬁc state is the most robust one or not. In ref. [17], by us-
+
+some disadvantages on multiqubit entanglement creation and ing a reliable Monte Carlo method, we pointed out that the Bell-
+
+manipulation in quantum information processing tasks. Par- like states are always the most robust states in two-qubit system
+
+ticularly, under certain circumstances, the entanglement of an during the whole decoherence process. Moreover, the inﬂuence
+
+entangled quantum state can even disappear in a ﬁnite time, a of entanglement properties on robustness of multiqubit system
+
+phenomenon termed as entanglement sudden death (ESD).[4–8] during decoherence was investigated by some groups.[18,19] In
+
+Recently, the robustness of entanglement became a major 2010, we pointed out that the robustness of a three-qubit system
+
+concern to the researchers and many interesting investigations in an arbitrary superposition of a GHZ state and a W state under
+
+on it of multiqubit quantum systems under diﬀerent decoher- depolarizing channel does not depend completely on its entan-
+
+ence models have been reported.[9–19] Some studies on the ro- glement quantity, but there is a residual eﬀect in it induced by
+
+bustness of graph-state in the presence of decoherence showed the three-tangle therein.[18] In ref. [19], Zhang et al. investigated
+
+that the time at which the entanglement of the states disappears the robustness of arbitrary three-qubit pure state under depolar-
+
+grows with the number of qubits N.[9–11] However, Aolita et al. izing channel systematically and pointed out that the three-qubit
+
+pointed out in ref. [12] that even if the disentanglement time pure states always manifest the same speed of disentanglement
+
+of Greenberger–Horne–Zeilinger (GHZ) states grows with the if they contain the same entanglement properties. Our question
+
+number of qubits N, the amount of entanglement is reduced to is whether this law stands for the states in other typical local de-
+
+arbitrarily small values at times which decrease with N. In other coherent environment.
+
+words, the full dynamical evolution of entanglement should be
+
+Here, we systematically investigate the decoherence process
+
+studied to draw comprehensive conclusions on its robustness. of three-qubit pure states under three typical local noise chan-
+
+Some special classes multiqubit states such as N-qubit GHZ nel: amplitude damping, dephasing, and bit ﬂip, respectively.
+
+states and graph states have been intensively studied[12–16] since Under each kind of these local noise channels, the decoherence
+
+process of some special states were derived through analytical
+
+H.-M. Li, Prof. B.-K. Zhao College of Physics Jilin University Changchun, 130012, China
+
+method and that of random three-qubit pure states were computed through numerical method. By comparision, we found the most robust state and the most fragile one during the whole decohrence process. Moreover, we show that in each kind of these
+
+E-mail: bkzhao@jlu.edu.cn
+
+typical local decoherence process, the robustness of the states
+
+DOI: 10.1002/andp.201800053
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (1 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+with the same entanglement properties can have the most signiﬁcant diﬀerence.
+In Section 2, we brieﬂy introduce the local decoherence models to be considered in the present work. In Sections 3, 4, and 5, we investigate the robustness of entanglement for special genuine three-qubit entangled states and random pure states under three typical noise channels, respectively. Finally, we summarize our conclusions in Section 6.
+
+2. Decoherence Models
+We consider three paradigmatic types of local decoherence channels: amplitude damping, dephasing, and bit ﬂip. It is assumed that each qubit in multiqubit quantum systems is coupled to its own noisy environment, and the mutual interaction between qubits is neglected. The dynamics of each qubit in a threeparticle quantum system is governed by a master equation. From the master equation, one can obtain a completely positive trace-preserving map ε which describes the corresponding evolution:[16] ρi (t) = ε(t)ρi (0). The maps (or channels) can be described, in the Born–Markovian approximation, via its Kraus representation[16,21] as
+
+M
+
+ε(ρi (0)) =
+
+E
+
+j
+
+i
+
+(t
+
+)ρi
+
+(0)
+
+E
+
+† ji
+
+(t
+
+)
+
+(1)
+
+j =1
+
+where E j (t) ( j = 1, ..., M) are the Kraus operators needed to
+
+completely characterize the channel, satisfying the normalization
+
+condition
+
+E
+
+† j
+
+(t
+
+)
+
+E
+
+j
+
+(t
+
+)
+
+=
+
+I.
+
+We
+
+deﬁne
+
+p
+
+as
+
+the
+
+degree
+
+of
+
+decoher-
+
+ence of an individual qubit, where p ∈ [0, 1]; p = 0 means no de-
+
+coherence and p = 1 means complete decoherence.
+
+First, the Kraus operators for amplitude damping process are
+
+E0 =
+
+1 0
+
+√0 1− p
+
+,
+
+E1 =
+
+0 0
+
+√p 0
+
+(2)
+
+As a second type of noise, the dephasing channel describes the processes where there is loss of quantum coherence with probability p, but without any exchange of energy. The Kraus operators of dephasing process to a state with a decoherence degree p are represented as
+
+E0 =
+
+1 0
+
+√0 1− p
+
+,
+
+E1 =
+
+0 0
+
+√0p
+
+(3)
+
+Finally, the third type of environment to be dealt with here is bit ﬂip channel. The Kraus operators of bit ﬂip channel can be expressed as
+
+E0 =
+
+1− p 2
+
+1 0
+
+0 1
+
+,
+
+E1 =
+
+p01 210
+
+(4)
+
+Diﬀerent from the depolarizing channel, these three channels are not invariant under the action of local unitary operations.
+
+3. Robustness of Entanglement under Amplitude Damping Channel
+3.1. Robustness of Special States under Amplitude Damping Channel
+
+On the one hand, in order to pick up the bipartition entanglement dynamics, we use negativity N(ρ)[20] as the measure of entangle-
+ment corresponding to the partitions 1:2 for three-qubit states.
+Negativity is widely used in investigating the entanglement dy-
+namics of multiqubit system, though it cannot detect positive par-
+tial transpose (PPT) entangled states. The concept of negativity, ﬁrst introduced by Z˙ yczkowski et al.,[23] originates from the the well-known Peres–Horodecki criterion.[24] The entanglement of
+qubit A with qubit B and C, is deﬁned as twice the absolute value
+of the sum of the negative eigenvalues of the partially transposed density matrix ρTA describing the bipartition A − (B, C), which can be written in terms of the trace norm ρTA 1, as refs. [20,22]
+
+N(ρ) = ρTA 1 − 1
+
+(5)
+
+On the other hand, we use concurrence[25] and three-tangle[26] as bipartite and tripartite entanglement criterion to detect the two kinds of entanglement properties for a given three-qubit pure state in the absence of decoherence, respectively. As the detector for two-tangle in a two-qubit state ρ, the concurrence is deﬁned as
+
+C(ρ) = max{0, λ1 − λ2 − λ3 − λ4}
+
+(6)
+
+where λ1 λ2 λ3 λ4 are the square roots of the eigenvalues
+
+of the matrix ρ(σy ⊗ σy )ρ∗(σy ⊗ σy ). Here ρ∗ is the complex con-
+
+jugation of the matrix ρ and σy is the second Pauli matrix. As
+
+for a three-qubit pure state |ξ ABC =
+
+1 ij
+
+k=0
+
+ai
+
+j
+
+k
+
+|i
+
+j
+
+k
+
+,
+
+the
+
+three-
+
+tangle detector τABC (originally called residual entanglement)[26]
+
+is given as
+
+τABC = 4|d1 − 2d2 + 4d3|
+
+(7)
+
+where
+
+d1 = a0200a1211 + a0201a1210 + a0210a1201 + a1200a0211;
+
+d2 = a000a111a011a100 + a000a111a101a010
+
++ a000a111a110a001 + a011a100a101a010
+
++ a011a100a110a001 + a101a010a110a001;
+
+d3 = a000a110a101a011 + a111a001a010a100
+
+(8)
+
+The amplitude damping channel is a simpliﬁed model of spontaneous decay of a two-level atomic excitation state. We ﬁrst consider the system ABC be in a pure state
+
+| = cos θ |000 + s√in θ (|101 + |110 )
+
+(9)
+
+2
+
+where
+
+θ
+
+∈
+
+[0,
+
+π 4
+
+],
+
+which
+
+is
+
+invariant
+
+under
+
+permutation
+
+between
+
+√the qubit B and C. It is easy to get the two-tangle CAB = CAC =
+
+2 sin θ cos θ , CBC = sin2 θ , and the three-tangle τABC = 0 for
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (2 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+the pure state | . As the entanglement properties of threequbit states always aﬀect their robustness under depolarizing channel,[18,19] the entanglement dynamics of this genuine entangled three-qubit state without three-tangle under the amplitude damping channel is worth investigating.
+Under the action of the amplitude damping channel (2), the partial transposed density matrix of the state (9) is given by
+
+⎛
+
+⎞
+
+ρ11 0 0 0 0 0 0 0
+
+ρT (t)
+
+=
+
+⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+0 0 0 0 0 0
+
+ρ22 ρ32 0 ρ52 0
+0
+
+ρ23 ρ33 0 ρ53 0
+0
+
+0 0 0 0 0 0
+
+ρ25 ρ35 0 ρ55 0
+0
+
+0 0 0 0 ρ66 ρ76
+
+0 0 0 0 ρ67 ρ77
+
+000000⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(10)
+
+0 0 000 0 00
+
+Here
+
+ρ11(t) = sin2 θ (1 − s )2 + cos2 θ,
+
+ρ22 (t )
+
+=
+
+ρ23 (t )
+
+=
+
+ρ32 (t )
+
+=
+
+ρ33 (t )
+
+=
+
+sin2 θ (1 − s )s , 2
+
+ρ25 (t )
+
+=
+
+ρ35 (t )
+
+=
+
+ρ52 (t )
+
+=
+
+ρ53 (t )
+
+=
+
+sin √θ cos θ s , 2
+
+ρ55(t) = sin2 θ (1 − s )s ,
+
+ρ66 (t )
+
+=
+
+ρ67 (t )
+
+=
+
+ρ76 (t )
+
+=
+
+ρ77 (t )
+
+=
+
+sin2 θ s 2 2
+
+(11)
+
+and s ≡ 1 − p. It is obvious that the exponent of parameter s is not more than 2 in all the matrix elements of Equation (11), which implies that the density matrix of the state (9) is so robust as to be less aﬀected by the amplitude damping noise.
+Substituting the partial transposed density matrix (10) into Equation (5), the entanglement during the evolution can be easily obtained
+
+N = (1 − p) N0 − p 1 − 1 − N02
+
+(12)
+
+Figure 1. Robustness of entanglement for three-qubit pure states under amplitude damping channel. We plot the degree of amplitude damping p when the entanglement decreases to N0/2, N0/4, N0/8, and N0/16 in insets (a), (b), (c), and (d), respectively. Robustness of a three-qubit system in the state | , the state | , and 40 000 random sampled pure states under amplitude damping channel are shown with solid (red) lines, dashed (green) lines, or solid (black) dots, respectively.
+where σxA = σxB = σxC , are the ﬁrst Pauli matrix, and therefore, in terms of its equivalent properties, is completely equivalent to √| . Indeed, it is easy to calculate the two-tangle CAB = CAC =
+2 sin θ cos θ , CBC = sin2 θ , and the three-tangle τABC = 0 for this state, which indicate that the state | also contains the same amount of entanglement as the state | therein. But we will show that the entanglement dynamics of the state | is diﬀerent from that of state | under the same amplitude damping channel. The details are given in Appendix A.1.
+3.2. Robustness of Three-Qubit Pure States under Amplitude Damping Channel
+
+Here N0 = sin 2θ is the initial entanglement of the state in (9). If
+
+we take
+
+N
+
+=
+
+N0 c
+
+,
+
+and
+
+c
+
+≥
+
+1,
+
+we can
+
+readily
+
+obtain the
+
+amplitude
+
+damping
+
+degree
+
+p
+
+when
+
+the
+
+negativity
+
+decreases
+
+to
+
+N0 c
+
+p=
+
+N0
+
+−
+
+2N0 − c N0 + c + 1
+
+(13)
+
+2 1 − 1 − N02
+
+2c 1 − 1 − N02
+
+2
+
+Then we consider another pure state
+
+| = cos θ|111 + s√in θ (|010 + |001 )
+
+(14)
+
+2
+
+where
+
+θ
+
+∈
+
+[0,
+
+π 4
+
+].
+
+Note
+
+that
+
+this
+
+state
+
+is
+
+related to the
+
+|
+
+by a local
+
+unitary transformation as
+
+| = σxA ⊗ σxB ⊗ σxC |
+
+(15)
+
+In order to study the robustness of three-qubit states systematically, we explored the decoherence process of all three-qubit pure states under amplitude damping channel. On the one hand, according to Equation (13), one can easily get the relation between the degree of amplitude damping p and the initial entanglement N0 when the entanglement decreases to N0/2 (c=2), N0/4 (c=4), N0/8 (c=8), and N0/16 (c=16) for the robust state | in (9).
+We plot these four curves with red solid lines in insets (a), (b), (c), and (d) of Figure 1, respectively. On the other hand, according to Equation (A.4) in Appendix A.1, one can easily get the relation between the degree of amplitude damping p and the initial entanglement N0 when the entanglement decreases to N0/2 (c=2), N0/4 (c=4), N0/8 (c=8), and N0/16 (c=16) for the fragile state | in (14). We also plot these four curves with green dashed lines in insets (a), (b), (c), and (d) of Figure 1, respectively. In order to study the robustness of arbitrary three-qubit pure state, we sampled 40 000 three-qubit pure states randomly distributed
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (3 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+according to the Haar measure[27] and calculated their negativity. This random matrix method is powerful and reliable to explore the robustness of an arbitrary three-qubit pure state in the absence of analytical method. For each sampled three-qubit pure state under amplitude damping channel, we compute the degree of amplitude damping p when its negativity decreases to N0/2, N0/4, N0/8, and N0/16 respectively. The degree of amplitude damping p is plotted in insets (a), (b), (c), and (d) of Figure 1 with black solid dots when the negativity decreases to N0/2, N0/4, N0/8, and N0/16, respectively.
+From each inset in the ﬁgure, one can see that there is no oneto-one correspondence between the degree of amplitude damping p, measure the robustness of the random sampled states, and the initial entanglement N0. Moreover, it is obvious that the degree of amplitude damping p is not higher than the red lines and not lower than the green solid line when the negativity decreases to N0/2, N0/4, N0/8, and N0/16, respectively. In other words, the state | in (9) is the most robust one and the state | in (14) is the most fragile one during decoherence under amplitude damping channel, although both of them contain the same entanglement properties.
+
+4. Robustness of Entanglement under Dephasing Channel
+4.1. Robustness of Special States under Dephasing Channel
+
+The dephasing channel is a model that reﬂects the decay of nondiagonal elements for density matrix with time. In this channel, we ﬁrst consider the three-qubtit system ABC be in a pure state
+
+| = c√os θ (|001 + |010 ) + i s√in θ (|100 + |111 )
+
+(16)
+
+2
+
+2
+
+where
+
+θ
+
+∈
+
+[0,
+
+π 4
+
+],
+
+which
+
+is
+
+invariant
+
+under
+
+permutation
+
+between
+
+qubit B and C. It is easy to get the two-tangle CAB = CAC = 0,
+
+CBC = cos 2θ , and the three-tangle τABC = sin2 2θ for this state,
+
+which indicate that the bipartition entanglement NA−BC of the
+
+state | contains only three-tangle. The bipartition entangle-
+
+ment dynamics of this genuine entangled three-qubit state which
+
+contains only three-tangle under dephasing channel is investi-
+
+gated in Appendix A.2.
+
+Then we consider another pure state
+
+| = eiθ (|000 + |111 ) + e−iθ (|011 + |100 )
+
+2
+
+2
+
+where
+
+θ
+
+∈
+
+[0,
+
+π 4
+
+].
+
+Note
+
+that
+
+this
+
+state
+
+is
+
+related
+
+to
+
+|
+
+unitary transformation as
+
+(17) by a local
+
+| = HA ⊗ HB ⊗ HC |
+
+(18)
+
+where
+
+HA = HB = √1 2
+
+1 1
+
+1 −1
+
+, HC = √1 2
+
+1 1
+
+−1 1
+
+(19)
+
+are the Hadamard matrices, and therefore, in terms of its equivalent properties, is completely equivalent to | . Indeed, it is
+
+Figure 2. Robustness of entanglement for three-qubit pure states under dephasing channel. We plot the degree of dephasing p when the quantum entanglement decreases to N0/2, N0/4, N0/8, and N0/16 in insets (a), (b), (c), and (d), respectively. Robustness of a three-qubit system in the state | , in the state | , and 40 000 random sampled pure states under dephasing channel are shown with solid (red) lines, dashed (green) lines, or solid (black) dots, respectively.
+easy to calculate the two-tangle CAB = CAC = 0, and the threetangle τABC = sin2 2θ for this state, which indicate that the state | also contains the same amount of entanglement as the state | therein. But we will show that the entanglement dynamics of state | is diﬀerent from that of state | under the same dephasing channel. The details are given in Appendix A.3.
+4.2. Robustness of Three-Qubit Pure States under Dephasing Channel
+Similar to the case of the study on decoherence process of threequbit states under amplitude damping channel, we also explored the decoherence process of all three-qubit pure states under dephasing channel systematically. According to Equation (A.10) in Appendix A.2, it is easily to get the degree of dephasing, p = 0.5, p = 0.75, p = 0.875, and p = 0.9375, when the initial entanglement N0 decreases to N0/2, N0/4, N0/8, and N0/16 for the robust state | in (16), respectively. We plot these four curves with red solid lines in insets (a), (b), (c), and (d) of Figure 2, respectively. As for the decoherence process of the state | in (17), by using numerical methods according to Equation (A.15) in Appendix A.3, one can get the degree of dephasing p when the negativity decreases to N0/2, N0/4, N0/8, and N0/16, respectively. We also plot these four curves with green dashed lines in insets (a), (b), (c), and (d) of Figure 2, respectively.
+For each random sampled three-qubit pure state under dephasing channel, we compute the degree of dephasing p when its negativity decreases to N0/2, N0/4, N0/8, and N0/16, respectively. These degrees of dephasing values p are plotted in insets (a), (b), (c), and (d) of Figure 2 with solid black dots when the negativity decreases to N0/2, N0/4, N0/8, and N0/16, respectively.
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (4 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+From each inset in the ﬁgure, one can obviously see that there is no one-to-one correspondence between the degree of dephasing p, measure the robustness of the random sampled states, and the initial entanglement N0. Moreover, it is obvious that the degree of dephasing p is not higher than the red solid lines and not lower than the green dashed lines when the negativity decreases to N0/2, N0/4, N0/8, and N0/16, respectively. In other words, the state | in (16) is the most robust one and the state | in (17) is the most fragile one during decoherence under dephasing channel, although both of them contain the same entanglement properties.
+
+www.ann-phys.org
+
+5. Robustness of Entanglement under Bit Flip Channel
+5.1. Robustness of Special States under Bit Flip Channel
+The bit ﬂip channel ﬂips the state of a qubit between |0 and |1 with a certain probability and each qubit is aﬀected by the noise correspondingly, which is the same as dephasing channel up to local rotation. For this channel, the states | in (17) and | in (16), which contain the same entanglement properties and the most signiﬁcant diﬀerence in robustness under dephasing channel, are investigated in Appendix sections A.4 and A.5, respectively.
+5.2. Robustness of Three-Qubit Pure States under Bit Flip Channel
+Similar to the cases of the study on decoherence process of threequbit states under amplitude damping channel and dephasing channel, the decoherence process of all three-qubit pure states under bit ﬂip channel are also explored. We plot the degree of bit ﬂip p for the state | in (17), the state | in (16), and random sampled states under bit ﬂip channel when the negativity decreases to N0/2, N0/4, N0/8, and N0/16 with green dashed lines, red solid lines, and solid black dots in insets (a), (b), (c), and (d) of Figure 3, respectively.
+From each inset in the ﬁgure, one can see obviously that there is no one-to-one correspondence between the degree of bit ﬂip p, measure of the robustness of the random sampled states, and the initial entanglement N0. Moreover, it is obvious that p is not higher than the green dashed lines and not lower than the red solid lines when the negativity of random sampled states decreases to N0/2, N0/4, N0/8, and N0/16, respectively. As the same unitary operation also connects the bit ﬂip channel with the dephasing channel, the state | in (17) is the most robust one and the state | in (16) is the most fragile one during decoherence under bit ﬂip channel.
+6. Discussion and Summary
+We have investigated the decoherence process of three-qubit states under three typical noise channels systematically. We use
+
+Figure 3. Robustness of entanglement for three-qubit pure states under bit ﬂip channel. We plot the degree of bit ﬂip p when the quantum entanglement decreases to N0/2, N0/4, N0/8, and N0/16 in insets (a), (b), (c), and (d), respectively. Robustness of a three-qubit system in the state | , the state | , and 40 000 random sampled pure states under bit ﬂip channel are shown with solid (red) lines, dashed (green) lines, or solid (black) dots, respectively.
+the degree of decoherence noise that induces the initial entanglement N0 decay to N0/c (c = 2, 4, 8, and 16) as the quantiﬁer of robustness during decoherence. With the help of the random matrices method to produce all three-qubit pure states, we obtained the numerical and analytical results for the stability of all threequbit entangled states against noise during decoherence process. We compared the robustness of special quantum states with that of random pure states, and found the most robust states and the most fragile ones during decoherence under typical local decoherence models. Moreover, we found that these states, which exhibit the largest possible diﬀerence in robustness, actually contain the same entanglement properties. Furthermore, we found that the most robust states under dephasing channel are the most fragile ones under the bit ﬂip channel, and the most fragile states under dephasing channel are the most robust ones under the bit ﬂip channel.
+Our present work focuses on the three-qubit entangled states. It would be interesting to see if the above observations hold true for other multiqubit pure states under typical decoherence models. Furthermore, we showed that although local unitary operations cannot change the entanglement properties of a state, it can greatly enhance the robustness of a system against decoherence. This provides a possible way for protecting the robust quantum states against decoherence through appropriate local unitary operations.
+Appendix
+A.1. The State | under Amplitude Damping Channel
+The partial transposed density matrix of the state (14) under amplitude damping channel is given by
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (5 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+⎛
+
+⎞
+
+ρ11 0 0 0 0 0 0 0
+
+ρT (t)
+
+=
+
+⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+0 0 0 0 0 0
+
+ρ22 ρ23 0 ρ25 0 0 ρ32 ρ33 0 ρ35 0 0 0 0 ρ44 0 ρ46 ρ47 ρ52 ρ53 0 ρ55 0 0 0 0 ρ64 0 ρ66 0 0 0 ρ74 0 0 ρ77
+
+0 0 0 0 0 0
+
+⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+0 0 0 0 0 0 0 ρ88
+
+(A.1)
+
++3c2 81N02 N04 − 4N02 + 8 − 4N02 1 + 1 − N02
+
++24c N0 (1 − N0) N04 + 2N03 − 4N02
+1 2
++ N03 − 4N02 − 4N0 + 8 1 + 1 − N02
+
+(A.5)
+
+Here
+
+A.2. The State | under Dephasing Channel
+
+ρ11(t) = sin2 θ (1 − s ) + cos2 θ (1 − s )3,
+
+ρ22 (t )
+
+=
+
+ρ33 (t )
+
+=
+
+sin2 θ s
+2
+
++ cos2 θ s (1 − s )2,
+
+ρ23 (t )
+
+=
+
+ρ32 (t )
+
+=
+
+sin2 θ s , 2
+
+ρ25 (t )
+
+=
+
+ρ35 (t )
+
+=
+
+ρ52 (t )
+
+=
+
+ρ53 (t )
+
+=
+
+sin √θ cos θ 2
+
+(1
+
+−
+
+s )s ,
+
+ρ46 (t )
+
+=
+
+ρ47 (t )
+
+=
+
+ρ64 (t )
+
+=
+
+ρ74 (t )
+
+=
+
+sin √θ cos θ 2
+
+s 2,
+
+ρ44(t) = ρ66(t) = ρ77(t) = cos2 θ (1 − s )s 2,
+
+ρ55(t) = cos2 θ s (1 − s )2,
+
+ρ88(t) = cos2 θ s 3
+
+(A.2)
+
+One can see that the exponent of parameter s reaches 3 in some matrix elements of Equation (A.1), which implies that the density matrix of the state | is so fragile as to be greatly aﬀected by the amplitude damping noise. The entanglement of the state (14) during decoherence under amplitude damping channel can be expressed as
+
+N = max 0, (1 − p)2 N0 − p 1 + 1 − N02
+
+(A.3)
+
+Here N0 = sin 2θ is the initial entanglement of the state in Equa-
+
+tion (14). From the above equation, the amplitude damping de-
+
+gree
+
+p
+
+when
+
+the
+
+negativity
+
+decreases
+
+to
+
+N0 c
+
+can
+
+easily
+
+be
+
+ob-
+
+tained,
+
+p=
+
+N0
+
+3 1 + 1 − N02
+
+− 3c
+
+3 kc 2
+1 + 1 − N02
+
+− 2c(1 − N0) + 2
+
+3
+
+3
+
+kc 2
+
+3
+
+where c ≥ 1, and
+
+(A.4)
+
+kc = 4c3 (1 − N0) (2 − N0) 1 + 1 − N02 − N02
+
++27c2 N0 2 1 + 1 − N02 − N02
+
+The partial transposed density matrix of the state (16) under dephasing channel (3) is given by
+
+⎛
+
+⎞
+
+0 0 0 0 0 ρ16 ρ17 0
+
+ρT (t) = ⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝ρρ00006711
+
+ρ22 ρ32 0 0 0 0
+
+ρ23 ρ33 0 0 0 0
+
+0 0 0 0 ρ64 ρ74
+
+0 0 0 ρ55 0 0
+
+0 0 ρ46 0 0 0
+
+0 0 ρ47 0 0 0
+
+0 0 0 ρ58 0 0
+
+⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+0 0 0 0 ρ85 0 0 ρ88
+
+(A.6)
+
+Here the non-zero diagonal matrix elements
+
+ρ22 (t )
+
+=
+
+ρ33 (t )
+
+=
+
+cos2 2
+
+θ
+
+,
+
+ρ55 (t )
+
+=
+
+ρ88 (t )
+
+=
+
+sin2 2
+
+θ
+
+are constant, and only the oﬀ-diagonal terms
+
+(A.7)
+
+ρ16(t) = ρ6∗1(t) = ρ17(t) = ρ7∗1(t) = ρ46(t)
+
+=
+
+ρ6∗4 (t )
+
+=
+
+ρ47 (t )
+
+=
+
+ρ7∗4 (t )
+
+=
+
+i
+
+sin
+
+θ cos 2
+
+θ
+
+s,
+
+ρ23 (t )
+
+=
+
+ρ32 (t )
+
+=
+
+cos2 2
+
+θ
+
+s,
+
+ρ58 (t )
+
+=
+
+ρ85 (t )
+
+=
+
+sin2 2
+
+θ
+
+s
+
+(A.8)
+
+are aﬀected by the dephasing noise. It is obvious that the exponent of parameter s is not more than 1 in all matrix elements in Equation (A.8), which implies that the oﬀ-diagonal terms of the density matrix of the state (16) are so robust as to be less aﬀected by the dephasing noise. The entanglement during the evolution under dephasing channel can be expressed as
+
+N = N0(1 − p)
+
+(A.9)
+
+Here N0 = sin 2θ is the initial entanglement of Equation (16).
+
+The
+
+degree
+
+of
+
+dephasing
+
+when
+
+the
+
+negativity
+
+decreases
+
+to
+
+N0 c
+
+can
+
+easily be obtained
+
+p =1− 1 c
+where c ≥ 1.
+
+(A.10)
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (6 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+A.3. The State | under Dephasing Channel
+
+Under the dephasing channel, the partial transposed density matrix of the state (17) is given by
+
+⎛
+
+⎞
+
+ρ11 0 0 ρ14 ρ15 0 0 ρ18
+
+ρT (t) = ⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝ρρ00004511
+
+0 0 0 0 0 0
+
+0 0 0 0 0 0
+
+0 0 ρ44 ρ54 0 0
+
+0 0 ρ45 ρ55 0 0
+
+0 0 0 0 0 0
+
+0 0 0 0 0 0
+
+0 0 ρ48 ρ58 0 0
+
+⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+ρ81 0 0 ρ84 ρ85 0 0 ρ88
+
+(A.11)
+
+Here the non-zero diagonal matrix elements
+
+ρ11 (t )
+
+=
+
+ρ44 (t )
+
+=
+
+ρ55 (t )
+
+=
+
+ρ88 (t )
+
+=
+
+1 4
+
+are constant, and the oﬀ-diagonal terms
+
+(A.12)
+
+ρ18 (t )
+
+=
+
+ρ45 (t )
+
+=
+
+ρ54 (t )
+
+=
+
+ρ81 (t )
+
+=
+
+1
+
+s
+
+√ s
+
+,
+
+4
+
+ρ14 (t )
+
+=
+
+ρ4∗1 (t )
+
+=
+
+ρ85 (t )
+
+=
+
+ρ5∗8 (t )
+
+=
+
+e 2iθ s , 4
+
+ρ15 (t )
+
+=
+
+ρ5∗1 (t )
+
+=
+
+ρ84 (t )
+
+=
+
+ρ4∗8 (t )
+
+=
+
+e −2iθ 4
+
+√ s
+
+(A.13)
+
+are aﬀected by the dephasing noise. Obviously, the exponent
+
+of
+
+parameter
+
+s
+
+reaches
+
+3 2
+
+in
+
+some
+
+matrix
+
+elements
+
+in
+
+Equa-
+
+tion (A.13), which implies that the oﬀ-diagonal terms of the den-
+
+sity matrix of state (17) are so fragile as to be greatly aﬀected by
+
+the action of dephasing channel. The entanglement of the state
+
+| during the evolution under dephasing channel can also be
+
+expressed as
+
+N = max 0, 1 (1 − p)3/2 2
+
++ 4N02 − 2 (1 − p)3/2 + p2 − 3 p + 2 − 1 (A.14)
+
+Here N0 = sin 2θ is the initial entanglement of the state in Equa-
+
+tion (17). If we take
+
+N
+
+=
+
+N0 c
+
+,
+
+and
+
+c
+
+≥
+
+1, Equation (A.14) turn into
+
+the following sextic equation
+
+p6 − 4p5 + 4p4 + 8
+
+2c2 N04 + 4c N03 + N02 − c N0 c2
+
+p3
+
+− 16
+
+3c2 N04 + 6c N03 + 2N02 − c N0 c2
+
+p2
+
++
+
+48 (c N0 + 1)2 c2
+
+N02
+
+p−
+
+32
+
+c2 − 1 c3
+
+N03
+
+−
+
+16
+
+c4 − 1 c4
+
+N04
+
+=0
+
+(A.15)
+
+Unfortunately, the above general sextic equation with one variable p can be solved analytically only in a few special cases.
+
+However, we can get the dephasing degree p when the negativity
+
+decreases
+
+to
+
+N0 c
+
+accurately
+
+through
+
+the
+
+numerical
+
+methods.
+
+A.4. The State | under Bit Flip Channel
+
+The partial transposed density matrix of the pure state | in (17) under the action of bit ﬂip channel (4) is given by
+
+⎛ ρ11 0
+
+0 ρ14 ρ15 0
+
+⎞ 0 ρ18
+
+ρT (t) = ⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝ρρ00004511
+
+ρ22 ρ32 0
+0 ρ62 ρ72
+
+ρ23 ρ33 0
+0 ρ63 ρ73
+
+0 0 ρ44 ρ54 0 0
+
+0 0 ρ45 ρ55 0 0
+
+ρ26 ρ36 0
+0 ρ66 ρ76
+
+ρ27 ρ37 0
+0 ρ67 ρ77
+
+ρρ00004588⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+ρ81 0 0 ρ84 ρ85 0 0 ρ88
+
+(A.16)
+
+Here
+
+ρ11(t) = ρ18(t) = ρ44(t) = ρ45(t) = ρ54(t)
+
+= ρ55(t) = ρ81(t) = ρ88(t) =
+
+1 8
+
+1 + s2
+
+,
+
+ρ22(t) = ρ27(t) = ρ33(t) = ρ36(t) = ρ63(t)
+
+= ρ66(t) = ρ72(t) = ρ77(t) =
+
+1 8
+
+1 − s2
+
+,
+
+ρ23(t) = ρ26(t) = ρ32(t) = ρ37(t) = ρ62(t) = ρ67(t)
+
+=
+
+ρ73 (t )
+
+=
+
+ρ76 (t )
+
+=
+
+e −2iθ + e 2iθ 16
+
+1 − s2 .
+
+ρ14(t) = ρ4∗1(t) = ρ48(t)) = ρ8∗4(t)
+
+= ρ51(t) = ρ1∗5(t) = ρ85(t) = ρ5∗8(t)
+
+= 3e 2iθ − e −2iθ s 2 + e −2iθ + e 2iθ
+
+16
+
+16
+
+(A.17)
+
+One can obviously see that the exponent of parameter s is not more than 2 in all matrix elements of Equation (A.16), which implies that the most fragile state | under dephasing channel is so robust as to be less aﬀected by the bit ﬂip noise. The entanglement of the state (17) during the evolution under bit ﬂip channel can be expressed as
+
+N = N0(1 − p)2
+
+(A.18)
+
+The
+
+degree
+
+of
+
+bit
+
+ﬂip
+
+when
+
+the
+
+negativity
+
+decreases
+
+to
+
+N0 c
+
+can
+
+easily be obtained
+
+p =1− 1 c
+where c ≥ 1.
+
+(A.19)
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (7 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+A.5. The State | under Bit Flip Channel
+
+following sextic equation
+
+The partial transposed density matrix of the state | in (16) under the action of bit ﬂip channel (4) is given by
+
+⎛
+
+⎞
+
+ρ11 0 0 ρ14 0 ρ16 ρ17 0
+
+ρT (t) = ⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝ρρρ000467111
+
+ρ22 ρ32 0 ρ52 0
+0
+
+ρ23 ρ33 0 ρ53 0
+0
+
+0
+0 ρ44 0 ρ64 ρ74
+
+ρ25 ρ35 0 ρ55 0
+0
+
+0
+0 ρ46 0 ρ66 ρ76
+
+0
+0 ρ47 0 ρ67 ρ77
+
+ρρρ000235888⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+0 ρ82 ρ83 0 ρ85 0 0 ρ88
+
+(A.20)
+
+p6 − 6 p5 + 14 p4 + 4 c N02 + N0 − 4c p3 c
+
+− 4 3c N02 + 3N0 − 2c p2 + 12 c N02 + N0 p
+
+c
+
+c
+
+−
+
+4
+
+c2 − 1 c2
+
+N02
+
+=0
+
+(A.23)
+
+where c ≥ 1. Through the numerical methods, the degree of bit
+
+ﬂip
+
+when
+
+the
+
+negativity
+
+decreases
+
+to
+
+N0 c
+
+can
+
+also
+
+be
+
+obtained.
+
+Here
+
+ρ11(t) = ρ14(t) = ρ41(t) = ρ44(t)
+
+= 1 (1 − s ) s 2 + 2 cos2 θ s + 1 , 8
+
+ρ22(t) = ρ33(t) = ρ23(t) = ρ32(t)
+
+= 1 (1 + s ) s 2 − 2 sin2 θ s + 1 , 8
+
+ρ55(t) = ρ58(t) = ρ85(t) = ρ88(t)
+
+= 1 (1 + s ) s 2 − 2 cos2 θ s + 1 , 8
+
+ρ66(t) = ρ67(t) = ρ76(t) = ρ77(t)
+
+= 1 (1 − s ) s 2 + 2 sin2 θ s + 1 , 8
+ρ16(t) = ρ6∗1(t) = ρ17(t) = ρ7∗1(t)
+
+= ρ46(t) = ρ6∗4(t) = ρ47(t) = ρ7∗4(t)
+
+=
+
+i
+
+sin
+
+θ cos 4
+
+θ
+
+(1
+
++
+
+s
+
+)s
+
+,
+
+ρ25(t) = ρ5∗2(t) = ρ28(t) = ρ8∗2(t)
+
+= ρ35(t) = ρ5∗3(t) = ρ38(t) = ρ8∗3(t)
+
+= i sin θ cos θ (1 − s )s 4
+
+(A.21)
+
+Interestingly, the exponent of parameter s reaches 3 in some matrix elements of Equation (A.20), which implies that the most robust state | under dephasing channel is so fragile as to be greatly aﬀected by the bit ﬂip noise. The entanglement of the state | in (16) during the precess of decoherence under bit ﬂip channel can also be expressed as
+
+N = max 0, 1 − p 2
+
+4(1 −
+
+p ) N02
+
++
+
+p2
+
++
+
+(1
+
+− p)3 2
+
+−
+
+1 2
+
+(A.22)
+
+Similar to the case of the state | in (17) under the dephas-
+
+ing
+
+channel,
+
+if
+
+we
+
+take
+
+N
+
+=
+
+N0 c
+
+,
+
+Equation
+
+(A.22)
+
+turns
+
+into
+
+the
+
+Acknowledgements
+This work is supported by the National Natural Science Foundation of China under Grant No. 11105061.
+Conﬂict of Interest
+The authors declare no conﬂict of interest.
+Keywords
+decoherence, etanglement, robustness
+Received: February 6, 2018 Revised: June 12, 2018
+Published online: September 3, 2018
+[1] A. Einstein, B. Podolsky, N. Rosen, Phys. Rev. 1935, 47, 777. [2] R. Horodecki, P. Horodecki, M. Horodecki, K. Horodecki, Rev. Mod.
+Phys. 2009, 81, 865. [3] M. A. Nielsen, I. L. Chuang, Quantum Computation and Quantum
+Information, Cambridge University Press, Cambridge, UK 2000. [4] a) T. Yu, J. H. Eberly, Phys. Rev. Lett. 2004, 93, 140404; b) T. Yu, J. H.
+Eberly, Phys. Rev. Lett. 2006, 97, 140403. [5] M. P. Almeida, F. de Melo, M. Hor-Meyll, A. Salles, S. P. Walborn, P.
+H. Souto Ribeiro, L. Davidovich, Science 2007, 316, 579. [6] A. Salles, F. de Melo, M. P. Almeida, M. Hor-Meyll, S. P. Walborn, P.
+H. Souto Ribeiro, L. Davidovich, Phys. Rev. A 2008, 78, 022322. [7] T. Yu, J. Eberly, Science 2009, 323, 598. [8] K. Roszak, P. Horodecki, R. Horodecki, Phys. Rev. A 2010, 81, 042308. [9] C. Simon, J. Kempe, Phys. Rev. A 2002, 65, 052327. [10] W. Du¨r, H. J. Briegel, Phys. Rev. Lett. 2004, 92, 180403. [11] M. Hein, W. Du¨r, H. J. Briegel, Phys. Rev. A 2005, 71, 032350. [12] L. Aolita, R. Chaves, D. Cavalcanti, A. Acin, L. Davidovich, Phys. Rev.
+Lett. 2008, 100, 080501. [13] L. Aolita, D. Cavalcanti, A. Acin, A. Salles, M. Tiersch, A. Buchleitner,
+F. de Melo, Phys. Rev. A 2009, 79, 032322. [14] D. Cavalcanti, R. Chaves, L. Aolita, L. Davidovich, A. Acin, Phys. Rev.
+Lett. 2009, 103, 030502. [15] L. Aolita, D. Cavalcanti, R. Chaves, C. Dhara, L. Davidovich, A. Acin,
+Phys. Rev. A 2010, 82, 032317. [16] A. Borras, A. P. Majtey, A. R. Plastino, M. Casas, A. Plastino, Phys. Rev.
+A 2009, 79, 022108.
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (8 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+
+www.advancedsciencenews.com
+
+www.ann-phys.org
+
+[17] K. I. Kim, B. K. Zhao, H. M. Li, Commun. Theor. Phys. 2014, 62, 667. [18] B. K. Zhao, F. G. Deng, Phys. Rev. A 2010, 82, 014301. [19] F. L. Zhang, Y. Jiang, M. L. Liang, Ann. Phys. (Amsterdam, Neth.) 2013,
+333, 136. [20] G. Vidal, R. F. Werner, Phys. Rev. A 2002, 65, 032314. [21] K. Kraus, States, Eﬀect, and Operation: Fundamental Notions in Quan-
+tum Theory, Springer-Verlag, Berlin, Germany 1983.
+
+[22] S. Lee, D. P. Chi, S. D. Oh, J. Kim, Phys. Rev. A 2003, 68, 062304. [23] K. Zyczkowski, P. Horodecki, A. Sanpera, M. Lewenstein, Phys. Rev. A
+1998, 58, 883. [24] A. Peres, Phys. Rev. Lett. 1996, 77, 1413. [25] W. K. Wootters, Phys. Rev. Lett. 1998, 80, 2245. [26] V. Coﬀman, J. Kundu, W. K. Wootters, Phys. Rev. A 2000, 61, 052306. [27] K. Zyczkowski, M. Ku´s, J. Phys. A 1994, 27, 4235.
+
+Ann. Phys. (Berlin) 2018, 530, 1800053
+
+1800053 (9 of 9)
+
+C 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+

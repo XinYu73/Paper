@@ -1,0 +1,1957 @@
+THE INTERNATIONAL SERIES OF MONOGRAPHS ON CHEMISTRY
+GENERAL EDITORS
+R. BRESLOW J. B. GOODENOUGH
+J. HALPERN, FRS J. S. ROWLINSON, FRS
+
+THE INTERNATIONAL SERIES OF MONOGRAPHS ON CHEMISTRY
+1. J. D. Lambert: Vibrational and rotational relaxation in gases 2. N. G. Parsonage and L. A. K. Staveley: Disorder in crystals 3. G. C. Maitland, M. Rigby, E. B. Smith, and W. A. Wakeham:
+Intermolecular forces: their origin and determination 4. W. G. Richards, H. P. Trivedi, and D. L. Cooper: Spin-orbit
+coupling in molecules 5. C. F. Cullis and M. M. Hirschler: The combustion of organic
+polymers 6. R. T. Bailey, A. M. North, and R. A. Pethrick: Molecular motion
+in high polymers 7. Atta-ur-Rahman and A. Basha Biosynthesis of indole alkaloids 8. J. S. Rowlinson and B. Widom: Molecular theory of capillarity 9. C. G. Gray and K. E. Gubbins: Theory of molecular fluids. Volume
+1: Fundamentals 10. C. G. Gray and K. E. Gubbins: Theory of molecular fluids. Volume
+2: Applications 11. S. Wilson: Electron correlation in molecules 12. E. Haslam: Metabolites and metabolism 13. G. R. Fleming: Chemical applications of ultrafast spectroscopy 14. R. R. Ernst, G. Bodenhausen, and A. Wokaun: Principles of
+nuclear magnetic resonance in one and two dimensions 15. M. Goldman: Quantum description of high-resolution NMR in
+liquids 16. R. G. Parr and W. Yang: Density-functional theory of atoms and
+molecules 17. J. C. Vickerman, A. Brown, and N. M. Reed: Secondary ion mass
+spectrometry: Principles and applications
+
+DENSITY-FUNCTIONAL THEORY OF ATOMS AND MOLECULES
+ROBERT G. PARR and WEITAO YANG
+University of North Carolina
+OXFORD UNIVERSITY PRESS • NEW YORK CLARENDON PRESS • OXFORD
+
+Oxford University Press
+Oxford New York Toronto Delhi Bombay Calcutta Madras Karachi Kuala Lumpur Singapore Hong Kong Tokyo
+Nairobi Dar es Salaam Cape Town Melbourne Auckland Madrid and associated companies in Berlin Ibadan
+Copyright © 1989 by Oxford University Press
+First published in 1989 by Oxford University Press, Inc., 198 Madison Avenue, New York, New York 10016-4314 First issued as an Oxford University Press paperback in 1994 Oxford is a registered trademark of Oxford University Press All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without the prior permission of Oxford University Press, Inc. Library of Congress Cataloging-in-Publication Data
+Parr, Robert G., 1921Density-functional theory of atoms and molecules/
+Robert G. Parr and Weitao Yang, p. cm.—(International series of monographs on chemistry: 16)
+Bibliography: p. Includes index. ISBN 0-19-504279^ ISBN 0-19-509276-7 (pbk.) 1. Electronic structure. 2. Density functionals.
+3. Quantum theory. 4. Quantum chemistry. I. Yang, Weitao. II. Title. III. Series.
+QC176.8.E4P37 1989 530.4'1—dc!9 88-25157
+89 Printed in the United States of America
+
+PREFACE
+This book is an exposition of a unique approach to the quantum theory of the electronic structure of matter, the density-functional theory, designed to introduce this fascinating subject to any scientist familiar with elementary quantum mechanics.
+It has been a triumph of contemporary quantum chemistry to solve accurately Schrodinger's equation for many-electron systems, and useful predictions of facts about molecules are now routinely made from quantum-mechanical calculations based on orbital theories and their systematic extensions. Thus, we have restricted and unrestricted Hartree-Fock models, configuration-interaction and many-body perturbation methods for computing correlation effects, and so on. For small molecules, the accuracy achieved is phenomenal. Excited states as well as ground states can be handled, as can potential-energy surfaces for chemical reactions. Standard program packages are available.
+Our subject here is not the systematic calculations of traditional quantum chemistry, however, but something quite different. We shall be primarily concerned with ground states, and for ground states there exists a remarkable special theory, the density-functional theory. This constitutes a method in which without loss of rigor one works with the electron density p(r) as the basic variable, instead of the wave function ip(rl,si, i2,S2> • • • >*«> sn). The density p is just the three-dimensional single-particle density evinced in diffraction experiments and so readily visualized, and the quantum theory for ground states can be put in terms of it. The simplification is immense. The restriction to ground states is what makes density-functional theory possible, the minimum-energy principle for ground states playing a vital role. This is reminiscent of thermodynamics, which is largely a theory of equilibrium states.
+The various terms that enter density-functional theory directly, or pop up in it naturally, are quantities of great intuitive appeal, mostly long well-known to chemists in one guise or another. These include the electronegativity of Pauling and Mulliken, the hardness and softness of Pearson, and the reactivity indices of Fukui. These concepts are prominent in our presentation.
+Density-functional theory offers a practical computational scheme, the Kohn-Sham equations. These equations are similar to Hartree-Fock
+
+VI
+
+PREFACE
+
+equations, yet in principle they include both exchange and correlation effects. This method is employed for very many contemporary calculations done for solids, and it has been increasingly applied to atoms and molecules. Large challenges remain (as discussed in this book), having to do with the need to improve the approximate form of the energy functional. As these challenges are met, the importance for computational chemistry will increase. For larger molecules, density-functional methods may well prove superior to conventional methods.
+Density-functional theory has its roots in the papers of Thomas and Fermi in the 1920s, but it became a complete and accurate theory (as opposed to a model) only with the publications in the early 1960s of Kohn, Hohenberg, and Sham. In this book, we include many references to these and other authors, but our plan is to give a coherent account of the theory as it stands today without special regard for the historical development of the subject.
+The table of contents indicates the specific topics covered. We emphasize systems with a finite number of electrons, that is, atoms and molecules. Time-dependent phenomena are discussed, as are excited states and systems at finite ambient temperature. We attempt to be fairly rigorous without emphasizing rigor, and we try to be fairly complete as regards basic principles without being all-encompassing. Our bibliography should be particularly helpful to new workers in the field. Appendix G is a guide to other expositions of the subject.
+The first two chapters contain background material only; the exposition of the subject of density-functional theory begins with the third chapter. Many of the more mathematical arguments throughout the book can be glossed over lightly by readers not interested in details of the theory. But we would urge every reader not previously exposed to density-functional theory to dwell at length over the entire §§3.1-3.4 and §§7.1-7.4. The Kohn-Sham concept of noninteracting reference system, first introduced in §7.1, is hard for some to grasp, but it is a beautiful idea absolutely essential for appreciating what contemporary density-functional theory is all about.
+We are greatly indebted to Professor Mel Levy of Tulane University for many useful comments on the manuscript of this book, and to Ms. Evon Ward for her expert typing of it. Members of the UNC quantum chemistry group, past and present, have been helpful in many ways. The senior author gratefully acknowledges research support from the National Science Foundation and the National Institutes of Health, over a number of years.
+
+Chapel Hill, N.C. June 1988
+
+R. G. P. W. Y.
+
+CONTENTS
+
+1. Elementary wave mechanics
+
+3
+
+1.1 The Schrodinger equation
+
+3
+
+1.2 Variational principle for the ground state
+
+5
+
+1.3 The Hartree-Fock approximation
+
+7
+
+1.4 Correlation energy
+
+13
+
+1.5 Electron density
+
+14
+
+1.6 Hellmann-Feynman theorems and virial theorem
+
+16
+
+2. Density matrices
+
+20
+
+2.1 Description of quantum states and the Dirac notation
+
+20
+
+2.2 Density operators
+
+24
+
+2.3 Reduced density matrices for fermion systems
+
+27
+
+2.4 Spinless density matrices
+
+32
+
+2.5 Hartree-Fock theory in density-matrix form
+
+35
+
+2.6 The vV-representability of reduced density matrices
+
+40
+
+2.7 Statistical mechanics
+
+44
+
+3. Density-functional theory
+
+47
+
+3.1 The original idea: The Thomas-Fermi model
+
+47
+
+3.2 The Hohenberg-Kohn theorems
+
+51
+
+3.3 The v- and W-representability of an electron density
+
+53
+
+3.4 The Levy constrained-search formulation
+
+56
+
+3.5 Finite-temperature canonical-ensemble theory
+
+60
+
+3.6 Finite-temperature grand-canonical-ensemble theory
+
+64
+
+3.7 Finite-temperature ensemble theory of classical systems 66
+
+4. The chemical potential
+
+70
+
+4.1 Chemical potential in the grand canonical ensemble at
+
+zero temperature
+
+70
+
+4.2 Physical meaning of the chemical potential
+
+74
+
+4.3 Detailed consideration of the grand canonical ensemble
+
+near zero temperature
+
+75
+
+4.4 The chemical potential for a pure state and in the
+
+canonical ensemble
+
+81
+
+4.5 Discussion
+
+84
+
+Vlll
+
+CONTENTS
+
+5. Chemical potential derivatives
+
+87
+
+5.1 Change from one ground state to another
+
+87
+
+5.2 Electronegativity and electronegativity equalization
+
+90
+
+5.3 Hardness and softness
+
+95
+
+5.4 Reactivity index: the Fukui function
+
+99
+
+5.5 Local softness, local hardness, and softness and hardness
+
+kernels
+
+101
+
+6. Thomas-Fermi and related models
+
+105
+
+6.1 The traditional TF and TFD models
+
+105
+
+6.2 Implementation
+
+110
+
+6.3 Three theorems in Thomas-Fermi theory
+
+114
+
+6.4 Assessment and modification
+
+116
+
+6.5 An alternative derivation and a Gaussian model
+
+118
+
+6.6 The purely local model
+
+123
+
+6.7 Conventional gradient correction
+
+127
+
+6.8 The Thomas-Fermi-Dirac-Weizsacker model
+
+132
+
+6.9 Various related considerations
+
+136
+
+7. The Kohn-Sham method: Basic principles
+
+142
+
+7.1 Introduction of orbitals and the Kohn-Sham equations 142
+
+7.2 Derivation of the Kohn-Sham equations
+
+145
+
+7.3 More on the kinetic-energy functional
+
+149
+
+7.4 Local-density and Xa approximations
+
+152
+
+7.5 The integral formulation
+
+157
+
+7.6 Extension to nonintegral occupation numbers and the
+
+transition-state concept
+
+163
+
+8. The Kohn-Sham method: Elaboration
+
+169
+
+8.1 Spin-density-functional theory
+
+169
+
+8.2 Spin-density functionals and the local spin-density
+
+approximations
+
+174
+
+8.3 Self-interaction correction
+
+180
+
+8.4 The Hartree-Fock-Kohn-Sham method
+
+183
+
+8.5 The exchange-correlation-energy functional via the
+
+exchange-correlation hole
+
+186
+
+8.6 The exchange-correlation-energy functional via wave-
+
+vector analysis
+
+194
+
+8.7 Other studies of the exchange-correlation-energy
+
+functional
+
+197
+
+9. Extensions
+
+201
+
+9.1 Finite-temperature Kohn-Sham theory
+
+201
+
+9.2 Excited states
+
+204
+
+CONTENTS
+
+ix
+
+9.3 Time-dependent systems
+
+208
+
+9.4 Dynamic linear response
+
+210
+
+9.5 Density-matrix-functional theory
+
+213
+
+9.6 Nonelectronic and multicomponent systems
+
+215
+
+10. Aspects of atoms and molecules
+
+218
+
+10.1 Remarks on the problem of chemical binding
+
+218
+
+10.2 Interatomic forces
+
+219
+
+10.3 Atoms in molecules
+
+221
+
+10.4 More on the HSAB principle
+
+224
+
+10.5 Modeling the chemical bond: The bond-charge model 229
+
+10.6 Semiempirical density-functional theory
+
+234
+
+11. Miscellany
+
+237
+
+11.1 Scaling relations
+
+237
+
+11.2 A maximum-entropy approach to density-functional
+
+theory
+
+239
+
+11.3 Other topics
+
+243
+
+11.4 Final remarks
+
+244
+
+Appendix A Functional
+
+246
+
+Appendix B Convex functions and functional
+
+255
+
+Appendix C Second quantization for fermions
+
+259
+
+Appendix D The Wigner distribution function and the h
+
+semiclassical expansion
+
+265
+
+Appendix E The uniform electron gas
+
+271
+
+Appendix F Tables of values of electronegativities and hardnesses 276
+
+Appendix G The review literature of density-functional theory
+
+281
+
+Bibliography
+
+285
+
+Author index
+
+319
+
+Subject index
+
+325
+
+This page intentionally left blank
+
+Density-Functional Theory of Atoms and Molecules
+
+This page intentionally left blank
+
+1
+ELEMENTARY WAVE MECHANICS
+1.1 The Schrodinger equation The principles of density-functional theory are conveniently expounded by making reference to conventional wave-function theory. Therefore, this first chapter reviews elementary quantum theory (Levine 1983, Merzbacher 1970, Parr 1963, McWeeny and Sutcliffe 1969, Szabo and Ostlund 1982). The next chapter summarizes the more advanced techniques that we shall need, mainly having to do with density matrices.
+Any problem in the electronic structure of matter is covered by Schrodinger's equation including the time. In most cases, however, one is concerned with atoms and molecules without time-dependent interactions, so we may focus on the time-independent Schrodinger equation. For an isolated N-electron atomic or molecular system in the BornOppenheimer nonrelativistic approximation, this is given by
+where E is the electronic energy, W = W(xt, x2, . . . , xn) is the wave function, and H is the Hamiltonian operator,
+in which
+is the "external" potential acting on electron i, the potential due to nuclei of charges Za. The coordinates x, of electron i comprise space coordinates it and spin coordinates 5,. Atomic units are employed here and throughout this book (unless otherwise specified): the length unit is the Bohr radius a0(=0.5292 A), the charge unit is the charge of the electron, e, and the mass unit is the mass of the electron, me. When additional fields are present, of course, (1.1.3) contains extra terms.
+We may write (1.1.2) more compactly as
+3
+
+4
+
+DENSITY-FUNCTIONAL THEORY
+
+1.1
+
+where
+
+is the kinetic energy operator,
+
+is the electron-nucleus attraction energy operator, and
+
+is the electron-electron repulsion energy operator. The total energy W is the electronic energy E plus the nucleus-nucleus repulsion energy
+
+That is,
+
+It is immaterial whether one solves (1.1.1) for E and adds Vm afterwards, or includes Vnn in the definition of H and works with the Schrodinger equation in the form H*y = WW.
+Equation (1.1.1) must be solved subject to appropriate boundary
+conditions. W must be well-behaved everywhere, in particular decaying
+to zero at infinity for an atom or molecule or obeying appropriate periodic boundary conditions for a regular infinite solid. \V\2 is a probability distribution function in the sense that
+
+|W(r", s") |2 drN = probability of finding the system
+
+with position coordinates between rN and
+
+r^ + drN and spin coordinates
+
+equal to SN
+
+(1.1.10)
+
+Here dr" = drl, dt2,. . . , dtN; tN stands for the set r,, r2, . . . , tN, and SN stands for the set sit s2, . . . , SN. The spatial coordinates are continuous, while the spin coordinates are discrete. Because electrons are fermions, W also must be antisymmetric with respect to interchange of the coordinates (both space and spin) of any two electrons.
+There are many acceptable indepepdent solutions of (1.1.1) for a given system: the eigenfunctions *yk, with corresponding energy eigenvalues Ek. The set Wfc is complete, and the W^ may always be taken to be orthogonal and normalized [in accordance with (1.1.10)],
+
+1.2
+
+ELEMENTARY WAVE MECHANICS
+
+5
+
+We denote the ground-state wave function and energy by WQ and E0. Here / d\N means integration over 3N spatial coordinates and summation over N spin coordinates.
+Expectation values of observables are given by formulas of the type
+
+where A is the Hermitian linear operator for the observable A. Many measurements average to (A); particular measurements give particular eigenvalues of A. For example, if W is normalized, expectation values of kinetic and potential energies are given by the formulas
+and
+The square brackets here denote that \P determines T and V; we say that T and V are functional of W (see Appendix A).
+1.2 Variational principle for the ground state When a system is in the state VP, which may or may not satisfy (1.1.1), the average of many measurements of the energy is given by the formula
+where
+Since, furthermore, each particular measurement of the energy gives one of the eigenvalues of H, we immediately have
+The energy computed from a guessed W is an upper bound to the true ground-state energy E0. Full minimization of the functional E[W] with respect to all allowed ./V-electron wave functions will give the true ground state WQ and energy ^[Wo] = E0; that is,
+
+6
+
+DENSITY-FUNCTIONAL THEORY
+
+1.2
+
+Formal proof of the minimum-energy principle of (1.2.3) goes as follows. Expand W in terms of the normalized eigenstates of H, *Vk:
+
+Then the energy becomes
+
+where Ek is the energy for the kth eigenstate of H. Note that the orthogonality of the W* has been used. Because E0^El^E2^ • • • , E\*y} is always greater than or equal to E0, and it reaches its minimum E0 if and only if *P = C0W0.
+Every eigenstate W is an extremum of the functional £[W]. In other words, one may replace the Schrodinger equation (1.1.1) with the variational principle
+When (1.2.7) is satisfied, so is (1.1.1), and vice versa. It is convenient to restate (1.2.7) in a way that will guarantee that the
+final *P will automatically be normalized. This can be done by the method of Lagrange undetermined multipliers (§17.6 of Arfken 1980, or Appendix A). Extremization of (W| H \*V) subject to the constraint (W \ V) = 1 is equivalent to making stationary the quantity [{^l // 11?} —£(W|VI;)] without constraint, with E the Lagrange multiplier. This gives
+One must solve this equation for V as a function of E, then adjust E until normalization is achieved. It is elementary to show the essential equivalence of (1.2.8) and (1.1.1). Solutions of (1.2.8) with forms of W restricted to approximate forms V of a given type (that is, a subset of all allowable W) will give well-defined best approximations W0 and E0 to the correct WQ and E0. By (1.2.3), En^E0, and so convergence of the energy, from above, is assured as one uses more and more flexible VP. Most contemporary calculations on electronic structure are done with this variational procedure, in some linear algebraic implementation.
+Excited-state eigenfunctions and eigenvalues also satisfy (1.2.8), but the corresponding methods for determining approximate ^k and Ek encounter orthogonality difficulties. For example, given 4%, E\ is not necessarily above £1( unless Wj is orthogonal to the exact W0.
+To summarize: For a system of N electrons and given nuclear potential v(r), (1.2.8) defines a procedure for going from N and v(r) to the
+
+1.3
+
+ELEMENTARY WAVE MECHANICS
+
+7
+
+ground-state wave function *P and hence through (1.1.12) to the ground-state energy E[N, v] and other properties of interest. Note that in this statement there is no mention of the kinetic-energy or electronrepulsion parts of H, because these are universal in that they are determined by N. We say that E is a functional of N and v(r).
+
+1.3 The Hartree-Fock approximation
+Suppose now that V is approximated as an antisymmetrized product of N orthonormal spin orbitals V>,(x), each a product of a spatial orbital <j>k(r) and a spin function o(s) = a(s) or P(s), the Slater determinant
+
+The Hartree-Fock approximation (Roothaan 1951) is the method whereby the orthonormal orbitals i/>, are found that minimize (1.2.1) for this determinantal form of W.
+The normalization integral (WHF | WHF) is equal to 1, and the energy expectation value is found to be given by the formula (for example, see Parr 1963)
+where
+
+These integrals are all real, and 7,y 5= .K(> 5= 0. The Jtj are called Coulomb integrals, the K,y are called exchange integrals. We have the important equality
+This is the reason the double summation in (1.3.2) can include the i =j terms.
+
+8
+
+DENSITY-FUNCTIONAL THEORY
+
+1.3
+
+Minimization of (1.3.2) subject to the orthonormalization conditions
+
+now gives the Hartree-Fock differential equations
+where
+in which the Coulomb-exchange operator ^(x^ is given by Here
+and
+with /(xx) an arbitrary function. The matrix e consists of Lagrange multipliers (in general complex) associated with the constraints of (1.3.7). Also, so that e is Hermitian (Roothaan 1951).
+Multiplying (1.3.8) by ty? and integrating, one obtains the formula for "orbital energies,"
+Summing over i and comparing with (1.3.2), we find
+where the symbol Vee stands for the total electron-electron repulsion energy
+
+1.3
+
+ELEMENTARY WAVE MECHANICS
+
+9
+
+For the total molecular energy including nuclear-nuclear repulsion, one has from (1.1.9),
+
+Note that neither £HF nor WHF is equal to the sum of orbital energies. Solution of (1.3.8) must proceed iteratively, since the orbitals i/>, that
+solve the problem appear in the operator F. Consequently, the HartreeFock method is a nonlinear "self-consistent-field" method.
+For a system having an even number of electrons, in what is called the restricted Hartree-Fock method (RHF), the N orbitals ^ are taken to comprise N/2 orbitals of form (j)k(r)a(s) and N/2 orbitals of form $it(r)/3(x). The energy formula (1.3.2) becomes
+where
+
+while the Hartree-Fock equations (1.3.8) now read with the operator F given by (1.3.9) and (1.3.10), with (1.3.11) and (1.3. 12) replaced by
+The determinantal wave function (1.3.1) for this "closed-shell" case is
+
+10
+
+DENSITY-FUNCTIONAL THEORY
+
+1.3
+
+explicitly
+
+An important property of this wave function [andalso of the more general (1.3.1)] is that a unitary transformation of the occupied orbitals (j)k (or tpi) to another set of orbitals rjm leaves the wave function unchanged except possibly by an inconsequential phase factor. The operators /, k, and F of (1.3.23) through (1.3.25) [or of (1.3.9) through (1.3.12)] are also invariant to such a transformation (Roothaan 1951, Szabo and Ostlund 1982, page 120).That is to say,if we let
+where U is a unitary matrix,
+then (1.3.23) becomes
+where
+This exhibits the considerable freedom that exists in the choice of the matrix E.
+Since the matrix c is Hermitian, one may choose the matrix U to diagonalize it. The corresponding orbitals Am, called the canonical Hartree-Fock orbitals, satisfy the canonical Hartree-Fock equations,
+Equation (1.3.31) is considerably more convenient for calculation than (1.3.23). Furthermore, the orbitals that are solutions of (1.3.31) are uniquely appropriate for describing removal of electrons from the system in question. There is a theorem due to Koopmans (1934) that if one assumes no reorganization (change of orbitals) on ionization, the best (lowest-energy) single-determinantal description for the ion is the determinant built from the canonical Hartree-Fock orbitals of (1.3.31). One then finds, approximately,
+where Im is the ionization energy associated with removal of an electron from the orbital Km. This equation is in error, because it ignores both
+
+1.3
+
+ELEMENTARY WAVE MECHANICS
+
+11
+
+reorganization and errors in the Hartree-Fock description (called correlation energy: see the next section); fortunately these tend to cancel.
+The orbital energies for the canonical Hartree-Fock orbitals also control the long-range behavior of the orbitals. Naively, one would expect, from the one-electron nature of (1.3.31), Km ~exp [-(-2s^)y2r] for large r. This is correct for atoms with s electrons only, but not in general. Instead, in general the maximum (least-negative) of all of the occupied e.xm determines the long-range behavior of all of the orbitals:
+
+The long-range properties of the exchange part of F are responsible for this remarkable behavior (Handy, Marron, and Silverstone 1969). The operator F is not a Sturm-Liouville operator.
+For the closed-shell case, entirely equivalent to the canonical HartreeFock description are the circulant Hartree-Fock description and the localized Hartree-Fock description. Circulant Hartree-Fock orbitals (Parr and Chen 1981, Nyden and Parr 1983) are orbitals the absolute squares of which are as close to each other as possible in a certain sense; for them, the matrix c of (1.3.29) is a circulant matrix (diagonal elements all equal, every row a cyclic permutation of every other). Localized Hartree-Fock orbitals (Edmiston and Ruedenberg 1963) are orbitals with maximum self-repulsion or minimum interorbital exchange interaction. The electron repulsion part of (1.3.19) is, from (1.3.6),
+
+where
+
+and
+
+/ and K are each invariant to unitary transformation, but the terms in square brackets in these equations are not; the unitary transformation to localized orbitals can therefore be effected by maximizing
+or, equivalently, by minimizing
+
+Circulant orbitals are important because they are orbitals that have equivalent mathematical and physical footing, each very close to the
+
+12
+
+DENSITY-FUNCTIONAL THEORY
+
+1.3
+
+square root of the electron density per particle. Localized orbitals are important because their existence reconciles molecular-orbital theory with the more traditional descriptions of molecules as held together by localized chemical bonds.
+If from the beginning one neglects all interorbital exchange terms in the Hartree-Fock method, which corresponds to using a product of orbitals as the wave function in place of the antisymmetrized product of (1.3.1) or (1.3.26), one gets the orthogonalized Hartree method. The closed-shell equation (1.3.23) is replaced by
+
+where in which
+
+This method gives orbitals even more localized than the localized Hartree-Fock orbitals; these are useful for some purposes (Levy, Nee, and Parr 1975).
+When the number of electrons is not even, the standard Hartree-Fock scheme is what is called the unrestricted open-shell Hartree—Fock method (UHF) (Szabo and Ostlund 1982, pages 205-229). Spatial parts of spin orbitals with a spin are allowed to be different from spatial parts of spin orbitals with j8 spin, even within a single "pair" of electrons. Noting that orthogonality between all a-spin spin orbitals and all /3-spin spin orbitals is still preserved, we see that the only problem in implementation is the complication associated with handling all N orbitals in the Hartree-Fock equations. The m ithematical apparatus is (1.3.8) to (1.3.12). The UHF method can also be used for an even number of electrons. Often, indeed usually, the UHF method then gives no energy lowering over the restricted HF method. But there are important cases in which energy lowering is found. For example, the UHF description of bond breaking in H2 gives the proper dissociation products, while the RHF description of H2 gives unrealistic ones.
+Many physical properties of most molecules in their ground states are well accounted for by use of Hartree-Fock wave functions (Schaefer 1972).
+In actual implementation of Hartree-Fock theory (and also in calculations of wave functions to an accuracy higher than those of HartreeFock), one usually (though not always) employs some set of fixed, one-electron basis functions, in terms of which orbitals are expanded and many-electron wave functions are expressed. This transforms the mathe-
+
+1.4
+
+ELEMENTARY WAVE MECHANICS
+
+13
+
+matical problem into one (or more) matrix eigenvalue problems of high dimension, in which the matrix elements are calculated from arrays of integrals evaluated for the basis functions. If we call the basis functions XP(r), one can see from (1.1.2) what the necessary integrals will be: overlap integrals,
+
+kinetic energy integrals,
+
+electron-nucleus attractionintegrals,
+
+and electron—electron repulsion integrals,
+
+Sometimes these are all computed exactly, in which case one says that one has an ab initio method. (For reviews, see Schaefer 1977 and Lawley 1987. The term "ab initio" was used first, though intended to have a different meaning, in Parr, Craig, and Ross 1950.) Sometimes these are determined by some recourse to experimental data, in which case one has a semiempirical method (Parr 1963,Segal 1977). Such details are of course vital, but here they will not be of much concern to us in the present exposition.
+1.4 Correlation energy
+When one is interested in higher accuracy, there are straightforward extensions of the single-determinantal description to simple "multiconfiguration" descriptions involving few determinants (for example, Section 4.5 of Szabo and Ostlund 1982).
+The exact wave function for a system of many interacting electrons is never a single determinant or a simple combination of a few determinants, however. The calculation of the error in energy, called correlation energy, here defined to be negative,
+is a major problem in many-body theory on which there has been a vast amount of work and much progress has been made. The methods
+
+14
+
+DENSITY-FUNCTIONAL THEORY
+
+1.5
+
+employed include the linear mixing of many determinants (millions!), called configuration interaction (Chapter 4 of Szabo and Ostlund 1982), and many-body perturbation techniques (Chapter 6 of Szabo and Ostlund 1982). For comprehensive reviews, see Sinanoglu and Brueckner (1970), Hurley (1976), and Wilson (1984).
+Correlation energy tends to remain constant for atomic and molecular changes that conserve the numbers and types of chemical bonds, but it can change drastically and become determinative when bonds change. Its magnitude can vary from 20 or 30 to thousands of kilocalories per mole, from a few hundredths of an atomic unit on up. Exchange energies are an order of magnitude or more bigger, even if the self-exchange term is omitted.
+
+1.5 Electron density
+In an electronic system, the number of electrons per unit volume in a given state is the electron density for that state. This quantity will be of great importance in this book; we designate it by p(r). Its formula in terms of VP is
+
+This is a nonnegative simple function of three variables, x, y, and z, integrating to the total number of electrons,
+
+There has been much attention paid to the electron density over the years (Smith and Absar 1977). Maps of electron densities are available in many places (for example, Bader 1970). For an atom in its ground state, the density decreases monotonically away from the nucleus (Weinstein, Politzer, and Srebrenik 1975), in approximately piecewise exponential fashion (Wang and Parr 1977). For molecules, at first sight, densities look like superposed atomic densities; on closer inspection (experimental or theoretical), modest (but still quite small in absolute terms) buildups of density are seen in bonding regions.
+At any atomic nucleus in an atom, molecule, or solid, the electron density has a finite value; for an atom we designate this p(0). In the neighborhood of a nucleus there always is a cusp in the density owing to the necessity for Hamiltonian terms — |V2 —(Zalra) not to cause blowups in fity there. The specific cusp condition is (for example, see Davidson
+
+1.5
+
+ELEMENTARY WAVE MECHANICS
+
+15
+
+1976, page 44)
+
+where p(ra) is the spherical average of p(ra). Another important result is the long-range law for electron density,
+where /min is the exact first ionization potential (Morrell, Parr, and Levy 1975; this paper also contains a generalization of Koopmans' theorem). The corresponding Hartree—Fock result will be, from (1.3.33),
+where £max approximates /mjn by (1.3.32). Finally, we record here certain results about electron density from the
+standard first-order perturbation theory for a nondegenerate state. Suppose the state ^l is perturbed to the state W* = W" + W* by the one-electron perturbation AV = £,• Au(r,). The energy change to first order is
+while the perturbed wavefunction is, to first order,
+
+The electron-density change is then, to first order in Aw,
+
+where the "functional derivative" dpidv is defined by
+
+16
+
+DENSITY-FUNCTIONAL THEORY
+
+1.6
+
+This quantity is called the linear response function. The symmetry represented in (1.5.9) is important. If a perturbation at point 1 produces a density change at point 2, then the same perturbation at point 2 will produce at point 1 precisely the same density change. Note that
+
+All of these formulas assume that the number of electrons is fixed. For a general discussion of functional derivatives, see Appendix A.
+1.6 Hellmann-Feynman theorems and virial theorem Let Abe a parameter in the Hamiltonian and ^(A) be an eigenfunction of H. Then
+
+and
+These identities are the differential Hellmann-Feynman theorem (formula), the integral Hellmann-Feynman theorem (formula), and the integrated Hellmann-Feynman theorem (formula) (Epstein, Hurley, Wyatt, and Parr 1967). The derivative 3///3A is written as a partial derivative to emphasize that the integral (W| 3///3A |W) can depend on the coordinate system chosen to describe a particular situation.
+The equation (1.6.1) is a direct result of the first-order perturbation formula for energy, (1.5.6) above. Integrating (1.6.1) from A, to A2 gives (1.6.3). Theorem (1.6.2) can be put in a general form,
+where //A and HB are different Hamiltonians acting on the same N-electron wave-function space, but they need not be related to each other by a parameter A. Since WB and WA are eigenfunctions of HB and HA, then
+Multiply these equations respectively by Wg and WA and integrate. Take
+
+1.6
+
+ELEMENTARY WAVE MECHANICS
+
+17
+
+the complex conjugate of the second result. Subtraction then gives
+
+Provided (WB\WA)=£Q, this is equivalent to (1.6.4) [and also (1.6.1) follows as the special case when the change is small].
+Use Cartesian coordinates and in (1.6.1) let A be the coordinate Xa of the position of nucleus a. Suppose that no fields are present except those due to the nuclei; i.e., that there are no extra terms in (1.1.3). Then the only terms in H that depend on Xa are v and Vm, and (1.6.1), yields, using (1.1.9),
+
+This is a purely classical expression. What it shows is that the force on nucleus a due to the other nuclei and the electrons, in some particular Born-Oppenheimer nuclear configuration, is just what would be computed from classical electrostatics from the locations of the other nuclei and the electronic charge density (see Deb 1981). This is the famous electrostatic theorem of Feynman (1939).
+An application of (1.6.1) that we are interested in is the formula obtained if one replaces Za by XZa everywhere it appears in H and then computes W(l) — W(0) for a ground state. Note that the ground state of N electrons in the absence of any nuclei has zero energy: W(0) = 0. Hence, for a ground state (Wilson 1962, Politzer and Parr 1974)
+
+Here p(r, A) is the density associated with the eigenfunction *P(x, A) for the Af-electron problem with scaled nuclear charges.
+Note that the Hellmann-Feyman theorems (1.6.1) through (1.6.3) hold for any eigenstate, while (1.6.7) is only true for a ground state. Equation (1.6.7), as well as the electrostatic theorem (1.6.6), can be thought of as foreshadowing what we will be demonstrating at length in this book: For a ground state, the electron density suffices for the determination of all the properties. Another essential point is that these various theorems may or may not hold for approximate eigenfunctions. For example, (1.6.1) holds for exact Hartree-Fock wave functions (Stanton 1962).
+Another important theorem is the virial theorem, which relates the kinetic energy and potential energy components of the energy in certain circumstances. This theorem results from homogeneity properties that
+
+18
+
+DENSITY-FUNCTIONAL THEORY
+
+1.6
+
+may or may not be present for a particular problem in the kinetic and potential energy components of H. The kinetic energy component,
+
+is homogeneous of degree -2 in particle coordinates. The total potential energy component,
+
+is homogeneous of degree —1 in all particle coordinates. Assuming no additional forces are acting, we then find for any eigenstate of an atom,
+and for any eigenstate of a molecule or solid with a particular sufficient set of internuclear distances Rt = |Rap|,
+and
+Proofs are elementary (Lowdin 1959). Given a normalized eigenstate W, it makes stationary the E[*V] of (1.2.1). Take a normalized scaled version of this V,
+and calculate £[^5]. This is stationary for £ = 1, which gives (1.6.10) through (1.6.12). The scaling properties of the individuals components of EpI^] are important. Using (1.1.13) and (1.1.14), these are found to be
+and
+respectively. The dependences on t,R are parametric. For a comprehensive review of the virial theorem, see Marc and McMillan (1985).
+Note that in (1.6.13) both electronic and nuclear coordinates are scaled. Another type of scaling, of electronic coordinates only, is important for the purposes of this book. Let
+Then we find
+
+1.6
+
+ELEMENTARY WAVE MECHANICS
+
+19
+
+and
+
+though this time Vne for molecules does not scale simply. The scaling of (1.6.16) produces a simple dilation of the electronic cloud without changing its normalization; the scaling of (1.6.13) changes nuclear positions as well. For atoms, the two scalings are equivalent.
+
+2
+DENSITY MATRICES
+2.1 Description of quantum states and the Dirac notation
+In this chapter, the concepts and form of elementary quantum mechanics are generalized. This allows use of variables other than coordinates for the description of a state, permits ready discussion of physical states that cannot be described by wave functions, and prepares the way for formally considering the number of particles to be variable rather than constant. Taking advantage, as appropriate, of the identity of electrons and the fact that we are exclusively concerned with systems and equations that involve two-particle interactions at worst, several tools are developed for formal analysis: Dirac notation, density operators, and density matrices. We follow Dirac (1947) and Messiah (1961); see also Szabo and Ostlund (1982, especially pp. 9-12), and Weissbluth (1978).
+We begin with the quantum state of a single-particle system. Such a state was described in Chapter 1 by a wave function ^(r) in coordinate space (neglecting the spin for the moment). It can also be equivalently "represented" by a momentum-space wave function that is the Fourier transform of ^(r). This, together with the quantum superposition principle, leads one to construct a more general and abstract form of quantum mechanics. Thus, one associates with each state a ket vector \1V) in the linear vector space $?, called the Hilbert space (Messiah 1961, pp. 164-166). The linearity of the Hilbert space implements the superposition principle: a linear combination of two vectors C, IW,} + C2 |W2) is also a ket vector in the same Hilbert space, associated with a realizable physical state.
+Just as a vector in three-dimensional coordinate space can be denned by its three components in a particular coordinate system, the ket JW) can be completely specified by its components in any particular representation. The difference is that the Hilbert space here has an infinite number of dimensions.
+In one-to-one correspondence with the space of all kets |W), there is a dual space consisting of bra vectors (*V\. For an arbitrary bra (<&| and ket 11*}, the inner product (<t> | W) is defined by
+20
+
+2.1
+
+DENSITY MATRICES
+
+21
+
+This is for the case that both (O| and |\P) are represented in a discrete basis with components <I>f and W,. If the representation is continuous, one has an integral rather than a sum, for example,
+
+where the integral is equivalent to the sum of all component products with different values of r. Thus, the inner product of a ket and a bra is a complex number and satisfies
+If
+we call I1?} and (^l normalized. The bra (W| is said to be the conjugate of the ket|V).
+Consider now a complete basis set {I/}} (for example, the eigenstates of some Hamiltonian), satisfying the orthonormality conditions
+Then any ket \W) can be expressed in terms of the ket basis set |/j-) by
+Taking the inner product of HP) with a bra (fj\, we find the y'th component of \*V} in the representation of the |/),
+where (2.1.5) has been used. If the basis set is continuous, the orthonormality condition becomes
+where 6(r —r') is the Dirac delta function, and for an arbitrary ket \W),
+and
+Here W(r) is precisely the ordinary wave function in coordinate space. If a basis set |p) were used, one would instead get the momentum-space function. Bras may be expanded similarly.
+An operator A transforms a ket into another ket in the Hilbert space,
+
+22
+
+DENSITY-FUNCTIONAL THEORY
+
+2.1
+
+The adjoint of A, denoted by A1', transforms the corresponding bra,
+
+An operator is self-adjoint, or Hermitian, if it equals its adjoint; operators corresponding to observables always have this property. For normalized ket and bra, (2.1.11) can be written
+and (2.1.12) as
+When a bra ( | and a ket | } are juxtaposed, one has an inner product if { | is before | }, i.e. { | | }= { | ); and an operator if | } is before {|.
+A very important type of operator is the projection operator onto a normalized ket \X}:
+The projection property is manifest when Pt acts on the ket \^V) of (2.1.6):
+
+Note that only the part of |W) associated with |/j) is left. Projection operators have the property
+For this reason, they are said to be idempotent. By inserting (2.1.7) into (2.1.6), we get
+
+from which follows
+where / is the identity operator. This is the closure relation. The corresponding expression for a continuous basis set is
+The closure relation greatly facilitates transformation between different representations, which makes the Dirac notation so useful. As an
+
+2.1
+
+DENSITY MATRICES
+
+23
+
+example, we compute the inner product
+
+which is identically (2.1.1). Or, consider the effect of the operator A in (2.1.11),
+where the complex numbers (fi\A\f/) constitute the matrix representation of A in the basis set \ft). [Such a matrix in full in fact defines the operator.] If we use a continuous basis set, (2.1.22) becomes
+where v4(r',r) = (r'|^4 |r). Equation (2.1.23) indicates that an operator can be nonlocal. An operator A is local if
+Often the potential part of a one-body Hamiltonian H is local, in which case the Schrodinger equation (1.1.1) is just a differential equation. The Hartree-Fock exchange operator in (1.3.12) is nonlocal.
+As another example of the use of (2.1.15), we may prove the formula for the decomposition of a Hermitian operator into its eigenfunctions. Let the kets | at) be the complete set of eigenkets of the linear operator A, with eigenvalues a,. Then
+Here again the sum becomes an integral in the continuous case. If particle spin is included in the above, then the closure relation is
+With this interpretation of integrals, all of the above equations may be regarded as including spin, with r replaced by x.
+We now turn to a quantum system of many identical particles, for which the foregoing concepts and formulas go through when suitably generalized. However, a new feature appears—the antisymmetry (or
+
+24
+
+DENSITY-FUNCTIONAL THEORY
+
+2.2
+
+symmetry) of fermion (or boson) wave functions with respect to exchange of indices (coordinates) of any two particles. The antisymmetric and symmetric states span subspaces of the N-particle Hilbert space, XN, the subspaces denoted by 2t$, and 3fsN. We focus on %($,, since electrons are fermions. In fflN, a normalized basis ket for N particles in suitably denned states |or,), \a2), . . . , \aN}, respectively, is
+
+while for fermions, a typical normalized antisymmetric basis ket would be
+
+where the P's are operators permutating particle coordinates and (-l)p is the parity of the permutation P. The closure relation in 2£N is
+while that in %if(A$, is
+
+The summations in both formulas become integrals if the indices are continuous.
+Generalizing (2.1.10), the N-electron coordinate wave function is related to the abstract ket vector in $£$, by
+In the case that |1V} takes the form (2.1.28), describing N independent electrons moving in N one-electron states, one can show from (2.1.31) that *PN is a Slater determinant of the form of (1.3.1).
+2.2 Density operators We now consider an even more general description of a quantum state. By (1.1.10), the quantity
+is the probability distribution associated with a solution of the Schrodinger equation (1.1.1), with the Hamiltonian operator HN. The main result of the present chapter will be to establish the utility of quantities of the type
+which is more general than (2.2.1) in that the variables in the first factor
+
+2.2
+
+DENSITY MATRICES
+
+25
+
+are primed. The two sets of independent quantities xjx2 • • • and XjX2 • • • can be thought of as two sets of indices that give (2.2.2) a numerical value, in contrast with the single set XjX2 • • • that suffices for (2.2.1). We therefore may think of (2.2.2) as an element of a matrix, which we shall call a density matrix. If we set x, = x,' for all i, we get a diagonal element of this matrix, the original (2.2.1). Equivalently, (2.2.2) can be viewed as the coordinate representation of the density operator,
+
+since
+
+Note that fN is a projection operator. We then have for normalized *VN,
+where the trace of the operator A is denned as the sum of diagonal elements of the matrix representing A, or the integral if the representation is continuous as in (2.2.5). One can also verify from (1.1.12) that
+of which (1.1.12) is the coordinate representation. In view of (2.2.6), the density operator yN of (2.2.3) carries the same
+information as the N-electron wave function |WN). yN is an operator in the same space as the vector \*VN}. Note that while |W) is defined only up to an arbitrary phase factor, yN for a state is unique, y/v also is Hermitian.
+An operator description of a quantum state becomes necessary when the state cannot be represented by a linear superposition of eigenstates of a particular Hamiltonian HN ("by a vector in the Hilbert space S€N"). This occurs when the system of interest is part of a larger closed system, as for example an individual electron in a many-electron system, or a macroscopic system in thermal equilibrium with other macroscopic systems. For such a system one does not have a complete Hamiltonian containing only its own degrees of freedom, thereby precluding the wave-function description. A state is said to be pure if it is described by a wave function, mixed if it cannot be described by a wave function.
+A system in a mixed state can be characterized by a probability distribution over all the accessible pure states. To accomplish this description, we generalize the density operator of (2.2.3) to the ensemble
+
+26
+
+DENSITY-FUNCTIONAL THEORY
+
+2.2
+
+density operator
+
+where pt is the probability of the system being found in the state |W,), and the sum is over the complete set of all accessible pure states. With the |W,) orthonormal, the rules of probability require that p, be real and
+that
+
+Note that if the interactions can induce change in particle number, the accessible states can involve different particle numbers.
+For a system in a pure state, one p, is 1 and the rest are zero; f of (2.2.7) then reduces to yN of (2.2.3). By construction, f is normalized: In an arbitrary complete basis \fk),
+
+[Here and later Tr means the trace in Fock space (see Appendix C), containing states with different numbers of particles, in contrast to the trace denoted by tr in (2.2.5), in yV-particle Hilbert space.] f is Hermitian:
+It also is positive semidefinite:
+The pi are the eigenvalues of f. For a system to be in a pure state, it is necessary and sufficient for the
+density operator to be idempotent:
+The ensemble density operator in general lacks this property:
+
+2.3
+
+DENSITY MATRICES
+
+27
+
+For a mixed state, the expectation value for the observable A is given by a natural generalization of (2.2.6),
+
+Note that this is very different from what (1.1.12) gives when |V) is a linear combination E/C/|W,-), in which case cross terms (V,-!^ IV,-)
+enter. The foregoing definitions and properties also hold for time-dependent
+pure-state density operators yN and ensemble density operators f. From the time-dependent Schrodinger equation,
+
+we find
+
+so that
+where the brackets denote the commutator. More generally, the linearity of (2.2.7) leads to
+This is clearly true if f of (2.2.7) only involves states with the same number of particles (canonical ensemble case). If, on the other hand, states with different numbers of particles are allowed, to interpret (2.2.17) one has to use the Hamiltonian in second-quantized form (see Appendix C), which is independent of the number of particles. The Hamiltonian in (2.2.17) is only for the subsystem of interest, neglecting all its interactions with the rest of the larger closed system.
+For a stationary state, f is independent of time. Therefore, from (2.2.17)
+Accordingly, H and f can share the same eigenvectors.
+2.3 Reduced density matrices for fermion systems The basic Hamiltonian operator of (1.1.2) is the sum of two symmetric "one-electron" operators and a symmetric "two-electron" operator. It
+
+28
+
+DENSITY-FUNCTIONAL THEORY
+
+2.3
+
+also does not depend on spin. Similarly, operators corresponding to other physical observables are of one-electron or two-electron type and often are spin free. Wave functions *VN are antisymmetric. These facts mean that the expectation value formulas (1.1.12) or (2.2.6), and (2.2.14) can be systematically simplified by integrating the W/^W^ product of (2.2.1), or its generalization (2.2.7), over N-2 of its variables. This gives rise to the concepts of reduced density matrix and spinless density matrix, which we now describe (Lowdin 1955a,b, McWeeny 1960, Davidson 1976).
+One calls (2.2.1) the Mh order density matrix for a pure state of an N-electron system. One then defines the reduced density matrix of order p by the formula
+
+where is a binomial coefficient. In particular,
+
+and
+Note that the second-order density matrix y2 normalizes to the number of electron pairs,
+while the first-order density matrix y, normalizes to the number of electrons,
+Note also that yl can be obtained from y2 by quadrature,
+Here the full four-variable y2(xjx2, x,x2) is not necessary, only the three-variable y2(xjx2, XjX2).
+
+2.3
+
+DENSITY MATRICES
+
+29
+
+The reduced density matrices y\ and y2 as just defined are coordinatespace representations of operators y1 and y2, acting, respectively, on the one- and two-particle Hilbert spaces. Like yN, these operators are positive semidefinite,
+
+and they are Hermitian,
+
+Antisymmetry of yN also requires that any reduced density matrix change its sign on exchange of two primed or two unprimed particle indices; thus
+The Hermitian reduced density operators yt and y2 admit eigenfunctions and associated eigenvalues,
+and
+For YI, the eigenfunctions 1/>,(X) are called natural spin orbitals, and the eigenvalues nf the occupation numbers; these are very important concepts. From the rule for expressing an operator in terms of its eigenvectors, (2.1.25), we have
+or
+Similarly,
+where the g, again are occupation numbers; the |0,) are two-particle functions called natural geminals, which in accord with (2.3.11) are defined to be antisymmetric. From (2.3.7) and (2.3.8) also follow
+Differential equations for the natural orbitals i/;, have been discussed briefly by Lowdin (1955a). Their long-range behavior is given by Morrell,
+
+30
+
+DENSITY-FUNCTIONAL THEORY
+
+2.3
+
+Parr, and Levy (1975):
+
+where /min is the smallest ionization potential of the system. Comparing (2.3.14) and (2.3.16) with (2.2.7) and recalling the prob-
+abilistic interpretation of (2.2.7), one sees that n, is proportional to the probability of the one-electron state |^>,-} being occupied; similarly g; is proportional to the probability of the two-electron state |#,) being occupied.
+For a mixed state, a corresponding set of definitions of reduced density matrices and operators is appropriate, and the same properties all hold. For the case in which all participating states have the same particle number, N, we denote the f of (2.2.7) as the Nth-order density operator tN. The pth-order mixed state density matrix is then
+
+corresponding to an operator fp. Similarly one has f2 and f 1; the second of which will be of special importance for us. It corresponds to the matrix
+where the W; are the various TV-electron states entering the mixed state in question. Many of the formulas below hold for mixed states as well as pure states, but we will not specify this in every case.
+Now consider the expectation value, for an antisymmetric TV-body wave function *P, of a one-electron operator
+We have
+If the one-electron operator is local in the sense of (2.1.24), as are most operators in molecular physics, we conventionally only write down the diagonal part; thus
+
+2.3
+
+DENSITY MATRICES
+
+31
+
+and the corresponding expectation-value formula is
+
+All two-electron operators that concern us are local, and so we may denote the operators by their diagonal part, neglecting the two delta functions. That is, we write
+
+and obtain for the corresponding expectation value
+
+For the expectation value of the Hamiltonian (1.1.2), combining all the parts, we obtain
+
+It is because of (2.3.6) that in fact only the second-order density matrix is needed. In the next section, we will further simplify this equation by integrating over the spin variables.
+One might hope to minimize (2.3.27) with respect to y2, thus avoiding the problem of the 4,/V-dimensional W. This hope has spawned a great deal of work (see for example Coleman 1963, 1981, Percus 1978, Erdahl and Smith 1987). There is a major obstacle to implementing this idea, however, realized from pretty much the beginning. Trial y2 must correspond to some antisymmetric W, that is, for any guessed y2 there must be a V from which it comes via (2.3.2). This is the Nrepresentability problem for the second-order density matrix.
+It is a very difficult task to obtain the necessary and sufficient conditions for a reduced matrix y2 to be derivable from anantisymmetric wave function (Coleman 1963, 1981). A more tractable problem is to solve the ensemble N-representability problem for F2; that is, to find the necessary and sufficient conditions for a F2 to be derivable from a mixed-state (ensemble) F2 by (2.3.19). It is in fact completely legitimate to enlarge the class of trial density operators for an TV-electron problem from a pure-state set to the set of positive unit-trace density operators
+
+32
+
+DENSITY-FUNCTIONAL THEORY
+
+2.4
+
+made up from N-electron states, because
+
+That is, minimization of tr (HtN) leads to the W-electron ground-state energy and the ground state yN if it is not degenerate, or an arbitrary linear combination f ^ (convex sum) of all degenerate ground states if it is degenerate. Thus, the search in (2.3.27) may be made over ensemble Af-representable T2.
+It is advantageous for this problem that the set of positive unit
+operators tN is convex, and so also the allowable f2. [A set C is convexif for any two elements Y1 and Y2 of C, PiYl + P2Y2 also belongs to C if Q^Plt 0=£P2, and P1 + P2 = l . ] The situation for f2 has not yet been practically resolved, though there has been progress (Coleman 1981). But for f i a complete solution has been found, as will be described in §2.6.
+Given a f\,
+
+the necessary and sufficient conditions for it to be N-representable are that
+for all of the eigenvalues of f\ (Lowdin 1955a, Coleman 1963). This conforms nicely with the simple rule that an orbital cannot be occupied by more than one electron—the naive Pauli principle.
+For states that are eigenstates of H, the Schrodinger equation itself gives equations relating reduced density matrices of different orders (Nakatsuji 1976, Cohen and Frishberg 1976).
+2.4 Spinless density matrices
+Many operators of interest do not involve spin coordinates, for instance the Hamiltonian operators for atoms or molecules. This makes desirable further reduction of the density matrices of (2.3.2) and (2.3.3), by summation over the spin coordinates s^ and s2 (McWeeney 1960).
+We define the first-order and second-order spinless density matrices by
+
+2.4
+
+DENSITY MATRICES
+
+33
+
+and
+
+We also introduce a shorthand notation for the diagonal element of p2,
+and note that the diagonal element of Pi(rj, rx) is just the electron density of (1.5.1),
+Furthermore, which follows directly from (2.3.6). In particular,
+The expectation value formulas of (2.3.24) and (2.3.26) now read, for spin-free operators <?I(FI) and <92(rir2), and The energy formula of (2.3.27) becomes
+
+34
+
+DENSITY-FUNCTIONAL THEORY
+
+2.4
+
+The three terms in this formula represent respectively the electronic kinetic energy, the nuclear-electron potential energy, and the electronelectron potential energy. Though of course we still have the difficulties mentioned at the end of the previous section, it is salutatory that (2.4.9) involves only one function of three coordinates, p(r), and two functions of six coordinates, Pi(r', r) and p2(r]5 r2).
+It is helpful to consider in a little more detail the third term in (2.4.9), the electron-electron repulsion energy. If this were purely classical, it would just be the self-repulsion energy of a distribution p(r), the quantity
+
+where the factor 1/2 enters to prevent double counting. This suggests that we write
+where h(rl7 r2), defined by this formula, is the pair correlation function— a symmetric function that incorporates all nonclassical effects. The function h(rl,t2) satisfies an important integral condition or "sum rule". Inserting (2.4.11) in the right-hand side of (2.4.6), one finds
+
+Hence, we have
+which must hold for all it. We shall later make use of this condition, which encodes a great deal of information. Another way to write it, going back to Slater (for example, Slater 1951), is obtained if we define the exchange-correlation hole (sometimes called the exchange-correlation charge) of an electron at rt by
+From (2.4.12), this is a unit charge with sign opposite to that of the electron,
+
+2.5
+
+DENSITY MATRICES
+
+35
+
+In terms of pxc, the electron-repulsion term in (2.4.9) becomes
+
+Sometimes it is convenient to have the spinless density matrices of (2.4.1) and (2.4.2) resolved into components arising from different spins or products of spins (McWeeney 1960,McWeeney and Sutcliffe 1969). First consider Pi(rj, rt) of (2.4.1). For any values of t{ and r1; this is the sum over spin of the diagonal parts of yt; that is,
+where the second equality just defines the notation. Also, as a byproduct, the electron density itself is a sum of two components,
+When pa and p^ are not equal, there is spin polarization, and the spin density,
+is not zero. Similarly, we find for p2
+where notation analogous to that of (2.4.16) has been used. Cusp conditions on pj and p2 are given on pp. 42-44 and 103-104 of
+Davidson (1976).
+2.5 Hartree-Fock theory in density-matrix form The trial wave function for the Hartree-Fock method is the single determinant of spin orbitals, (1.3.1). We now rework the Hartree-Fock theory in density-matrix language (Blaizot and Ripka 1986,p. 177, Lowdin 1955a,b). The result will be a formulation in which the dependent variable is the first-order density matrix itself.
+Density matrices assume very simple forms when they are derived from a single determinant. The first-order reduced density matrix, called the Fock—Dirac density matrix, is
+
+36
+
+DENSITY-FUNCTIONAL THEORY
+
+2.5
+
+where the i/>, are orthonormal spin orbitals. To prove this formula, expand the determinant (1.3.1) in the first row and use (2.3.3), noting that the integration over x2, . . . , \N of a product of two (N — l)-electron Slater determinants gives (N —1)1 if the orbitals are the same in both, and gives zero otherwise. The second-order reduced density matrix can be calculated in a similar way by expanding the determinant in the first two rows (Laplace expansion). The result is
+
+More generally, one finds (Lowdin 1954b)
+
+so that the density matrix of any order is calculable from first-order density matrices.
+In operator form, (2.5.1) reads
+and can be regarded as the projector onto the space spanned by the N occupied spin orbitals. Not only is this form for yt a consequence of the wave function being a single determinant, but, conversely, if YI is of this form, the wave function must be a single determinant. The proof has two parts. First, it follows from (2.5.4) that yt has N eigenvectors with eigenvalues all equal to 1, the "occupied orbitals," and an infinite number of other eigenvectors with eigenvalues zero [compare (2.3.29)]. Construct an N -electron Slater determinant D with N eigenfunctions of y, with all eigenvalues equal to 1. This is a determinant giving y,. The occupied-orbital set is not unique, because the determinant is invariant up to a phase factor to a unitary transformation [see the discussion following (1.3.26)]. Second, we can show that there can be no other determinant giving y,. To see this, expand the wave function in a complete set of determinants built from the whole set of natural orbitals of y1; calculate yi, and compare with (2.5.4). All coefficients will be zero except the one associated with the original determinant built from the N occupied orbitals. There is then a one-to-one mapping between a Slater determinant and a density matrix of the form (2.5.1).
+
+2.5
+
+DENSITY MATRICES
+
+37
+
+Equivalently, one may say that a necessary and sufficient condition for the W-electron wave function to be a single determinant (unique up to a unitary transformation) is that YI be idempotent with trace N:
+
+These formulas follow immediately from (2.5.4); the argument that they imply (2.5.4) is that (2.5.5) requires the eigenvalues of YI to be either 1 or 0 and there are N eigenvectors with eigenvalues all equal to 1 [from (2.5.6)]. In coordinate representation, (2.5.5) and (2.5.6) read
+and
+Inserting (2.5.2) in (2.3.27), the Hartree-Fock energy becomes [compare (1.3.2)]
+
+In the Hartree-Fock method, one seeks to minimize this functional of Yi, over the set of all YI of the form (2.5.1), or, equivalently, over all YI satisfying (2.5.7) and (2.5.8).
+This constrained minimization can be implemented by using Lagrange undetermined multipliers (see Appendix A). The condition (2.5.7) depends on x{ and xt, so that the multiplier associated with it must depend on xj and xt; call it ar(x1? Xj). Let ft be the multiplier for (2.5.8). The variational problem may then be written as
+Taking the functional derivatives (see Appendix A), one gets the
+
+38
+
+DENSITY-FUNCTIONAL THEORY
+
+2.5
+
+Euler-Lagrange equation for the problem:
+
+where F(x1; xl) is the matrix for the Fock operator P in the coordinate representation,
+
+The equivalence of this definition of the Fock operator with the previous (1.3.9) becomes clear if we calculate
+where / and k are as defined in (1.3.11) and (1.3.12). Note the simple form of the last, the nonlocal exchange, term in (2.5.12).
+Equation (2.5.11) can be regarded as the coordinate representation of an operator equation in one-particle space:
+where / is the identity operator. Multiplyingthis equation on the right by y1; and then on the left, and subtracting the results, we obtain
+Thus the operators P and y1 commute and have common eigenfunctions. These common eigenfunctions are the Hartree-Fock orbitals of (1.3.31). The yj that is a solution of (2.5.15) can be constructed from these orbitals via (2.5.4). This ya, denoted by y"F, thus minimizes the Hartree-Fock energy functional £HF[TI] of (2.5.9); that is,
+for any idempotent y\ of trace N. It is obvious that £HF[y"F] is above the true ground-stateenergy E (by the correlation energy), since £HF[y"F] is
+
+2.5
+
+DENSITY MATRICES
+
+39
+
+the minimum over only the class of all determinantal wave functions. Lieb (1981) in fact proved a more general result than (2.5.16): YI on the right-hand side of (2.5.16) can be replaced by any 7V-representable Fj (satisfying (2.3.30)). In summary,
+
+Finally, we can express the Hartree-Fock energy functional in terms of the spinless first-order density matrix pi(r!,r!) of the previous section, and exhibit the pair-correlation function and exchange-correlation hole for Hartree-Fock theory. From (2.5.2), we have\ for the components of the diagonal part of p2,
+
+where the notation of the last section has been used. Two other similar components can be written down if we exchange a and /3 spin labels in the above formulas. [Since the function p2'a2'a'"2(rtr2, tit2) is proportional to the probability of finding an electron at FJ with spin cr, and another electron at r2 with spin o2, note from (2.5.18) that the determinantal wave function only describes the correlation of like-spin electrons—the "exchange effect" in Hartree-Fock theory.] The spinless second-order density matrix, by (2.4.19) and (2.5.18), becomes
+
+Inserting (2.5.19) into (2.4.9), one gets the total energy formula
+
+where
+
+40
+
+DENSITY-FUNCTIONAL THEORY
+
+2.6
+
+and
+
+For the closed-shell case of an even number of electrons pairwise occupying N/2 spatial orbitals,
+and (2.5.24) becomes
+This is equivalent to the last term of (1.3.19). Comparing the electron-electron repulsion in (2.5.20) with (2.4.15),
+we see that in the Hartree-Fock approximation the exchange-correlation hole is given by
+From (2.4.13) the pair correlation function is
+The "correlation" included here is among electrons of the same spin only, as again can be seen by noting in (2.5.9) that the spin integrations over the YI(X!, x2)yi(x2, xt) factor give zero for contributions from different spin states for particles 1 and 2. The term correlation as defined in §1.4 is over and above this correlation already included in the single-determinant description, so we sometimes use the notation p™ for the exchange hole of (2.5.28). Note that the sum rules of (2.4.12) and (2.4.14) are satisfied in Hartree-Fock theory:
+This property is preserved for any approximate p2 that is Af-representable.
+2.6 The JV-representability of reduced density matrices The necessary and sufficient conditions for a given first-order density matrix to be derivable from a mixed-state density operator were stated in
+
+2.6
+
+DENSITY MATRICES
+
+41
+
+(2.3.30). In this section, we give the proof of this theorem and also briefly discuss the corresponding problem for the second-order density matrix.
+Necessary conditions on I\ and F2 are conditions that they satisfy when they satisfy (2.3.19) for a proper TN. Sufficient conditions are those that guarantee the existence of a TN that reduces to this I\ and/or F2. The set of Fx or F2 that simultaneously satisfies both necessary and sufficient conditions is called the set of TV-representable I\ or F2. Thus, if the energy (2.4.9) is minimized over sets I\ and F2 satisfying only necessary conditions (such sets are larger than the corresponding Af-representable sets), an energy lower than the true energy—lower bound to the energy—can be obtained; if the energy is minimized over sets satisfying only sufficient conditions (such sets are smaller than the corresponding W-representable sets), an energy higher than the true energy is delivered—an upper bound to the energy. In the Hartree-Fock method, for example, the density matrix yt satisfies the sufficients (2.5.5) and (2.5.6); Hartree-Fock energies are consequently upper bounds for true energies. Lower-bound studies are rarer; they include pioneering works by Garrod and Percus (1964) and Garrod and Fusco (1976). Note that if one minimizes over all sets satisfying the sufficient conditions, the ground-state energy is obtained.
+We now derive some necessary conditions on y\ and y2 imposed by TV-representability—the so-called Pauli conditions (Coleman 1981). These are that if |i/>,) is some normalized spin-orbital state and IV/V/) 's a normalized 2 x 2 Slater determinantal state built from orthonormal i/>, and tyj, then
+
+and
+
+or, in the coordinate representation,
+
+and
+
+These results can be derived in various ways. We follow Coleman (1981) and use the method of second quantization
+as described in Appendix C. For each member of an arbitrary orthonormal set {ij>i}, there is a creation operator a/~ and an annihilation operator &j. The corresponding creation and annihilation field operators are
+
+42
+
+DENSITY-FUNCTIONAL THEORY
+
+2.6
+
+defined as
+
+and
+
+In terms of these, for a state IW) the first- and second-order reduced
+density matrices yl and y2 of (2.3.2) and (2.3.3) are given, respectively, by (see Appendix C)
+
+We use these to establish, in turn, (2.6.1) and (2.6.2). Inserting (2.6.7) into the integral in (2.6.3) and using (2.6.5) and
+(2.6.6), we find, if we take the set {tyj} to include i/>, as one of its members (which we can always do),
+
+Here, the operator
+is the occupation number operator for the z'thorbital. It is idempotent:
+Thus NJ is a projection operator. But the expectation value of any projection operator is always nonnegative and not greater than 1:
+where {u/,} is any complete set. Therefore the right-hand side of (2.6.9) is a nonnegative number less
+than or equal to 1, proving (2.6.1). We note in passing that the total number operator is
+For the proof of (2.6.2), we need the quantity
+
+2.6
+
+DENSITY MATRICES
+
+43
+
+where the fact has been used that a, and ay anticommute (see Appendix C). Inserting (2.6.14) and its adjoint into (2.6.8) and then (2.6.4), and using the orthogonality and normalization property of the 2 x 2 determinants, we find
+
+From the fact that the product of two projection operators is still a projection operator, we then see that (W\ /V}7V,- \W} in (2.6.15) is a nonnegative number less than or equal to 1. Equation (2.6.2) follows.
+Equation (2.6.1) is equivalent to the requirement that the eigenvalues of YI, the occupation numbers n, of (2.3.12), fall in the range 0 to 1:
+Equation (2.6.3) is not a condition on the eigenvalues of y2, however, since the eigenfunctions of y2 are not in general 2 x 2 Slater determinants.
+Leaving the analysis of the 7V-representability of y2 aside, we complete the basic story of YI by asserting and proving that conditions (2.6.16) are not only necessary but also sufficient conditions for the ensemble-TVrepresentability of a first-order reduced density matrix (Coleman 1963, 1981). Necessity has just been proved; it remains to prove sufficiency.
+We need a simple lemma about vectors and convex sets. Recall from §2.3 that a set is convex if an arbitrary positively weighted average of any two elements in the set also belongs to the set. Define an extreme element of a convex set as an element E such that E =plY1+ p2Y2 implies that Y: and Y2 are both multiples of E. Then the lemma states that the set =2" of vectors v = (vl, v2, . . .) in a space of arbitrary but fixed dimension with 0 *£ u, =£ 1 and ^vf = N is convex and its extreme elements are the vectors with N components equal to 1 and all other components equal to zero. That «$? is convex is obvious. The condition on & requires that each element has at least ./V positive components. Thus, a mean of any two vectors has more than TV components unless the nonzero components of the original vectors are the same and all equal to 1. The vectors with TV components equal to 1 are therefore extreme. No other type of vector is extreme, as any vector with more than N positive components can always be resolved into an average of several extreme elements.
+Given this lemma, it is clear that any YI or f\ satisfying (2.6.16) is an element of a convex set whose extreme elements are those YI (or F?) that have TV eigenvalues equal to 1 and the rest equal to zero. Each of these y? (or PI), according to the discussion in §2.5, determines up to a phase a determinantal TV-electron wave function and a unique corresponding pure-state density operator Y°N- Some positively weighted sum of these Y%
+
+44
+
+DENSITY-FUNCTIONAL THEORY
+
+2.7
+
+will be the TN that reduces to the given YI (or f\) through (3.3.20). Thereby, sufficiency is proved.
+
+2.7 Statistical mechanics
+As was shown in §2.2, when a system is in a mixed state, rather than a pure state, it is mandatory to describe it with density operators. Such is the case for a system at some finite temperature, for the ignorance of the details of the interaction between system and surroundings makes denning an appropriate complete Hamiltonian impossible. There will be a probability distribution over accessible pure states of the form (2.2.7), with probability p, for the accessible state l^,}, in the ensemble density operator f. The probabilities must be determined by a statisticalmechanical argument appropriate for each particular case (Gibbs 1931, Feynman 1972,McQuarrie 1976).
+The key quantity to consider is the entropy of the probability distribution,
+
+The first formula is the definition, the second follows from the fact that the trace of an operator is the sum of its eigenvalues. The constant kB is Boltzmann's constant.
+First we consider the canonical ensemble, which is a mixture of pure states all having the same particle number N. Consequently
+We seek to determine the pNi by the maximum-entropy principle. At equilibrium, 5" will be a maximum subject to two constraints. The probabilities must sum to unity, to which we attach a Lagrange multiplier A, and the expectation value of HN must equal the observed energy,
+to which we attach another Lagrange multiplier a. (The notation tr indicates a trace over N constant states only.) The variational principle thus is
+One can carry out the variation either by varying both the PNi and | tyNi} in (2.7.3), or more elegantly, by working with f N itself. Doing the latter, use f N = f^ + 8tN in (2.7.5) and find
+
+2.7
+
+DENSITY MATRICES
+
+45
+
+This gives, after determination of A from the normalization condition on
+
+where
+in which 9 is the temperature. Note that the final f ^ commutes with HN, in agreement with (2.2.18). That (2.7.7) corresponds to a maximum 5 can be checked readily.
+These results can be reformulated as follows. Define the Helmholtz free energy A for the density operator f N by
+
+Then for all positive and unit trace f N,
+where
+with ZN the partition function
+One proof of (2.7.10) is given by Feynman (1972). Another is presented in §3.5.
+Now we turn to the grand-canonical-ensemble approach. The system is allowed to have a more general f in which there are nonzero probabilities associated with different particle numbers, but an average number of particles equal to some observed number
+The entropy must be maximized subject to constant energy (2.7.4) and constant particle number (2.7.13). The result is the formula for the equilibrium F°,
+
+where n is the Lagrange multiplier for the constraint of (2.7.13) and is called the chemical potential.
+Again there is a reformulation. Define the grand potential by
+
+46
+
+DENSITY-FUNCTIONAL THEORY
+
+2.7
+
+Then for all positive and unit trace f,
+
+where
+
+and Z is the grand partition function
+A somewhat involved proof of (2.7.16) may be found in a paper by Mermin (1965), who followed Gibbs (1931, p. 131). A much simpler proof is given in §3.6.
+It is instructive to compare the three minimum principles we have now established: (1.2.3) for the ground-state energy, (2.7.10) for the equilibrium Helmholtz free energy, and (2.7.16) for the grand potential. The second extends the first to finite temperature within the same N-particle Hilbert space. The third also applies to a finite-temperature system but to the larger Fock space that is the product space of all the different N-constant Hilbert spaces. The density-functional theory described in the next chapter will be structured similarly, proceeding from the groundstate theory based on (1.2.3) to finite-temperature extensions based on (2.7.10) and (2.7.16). The zero-temperature limits of the finitetemperature theories are of special interest.
+
+3 DENSITY-FUNCTIONAL THEORY
+3.1 The original idea: the Thomas-Fermi model
+We are now ready to begin to expound the density-functional theory of electronic structure, the principal subject of this book. This is a remarkable theory that allows one to replace the complicated ,/V-electron wave function *P (x!,x2,. . . ,\N) and the associated Schrodinger equation by the much simpler electron density p(r) and its associated calculational scheme. Remarkable indeed!
+There is a long history of such theories, which until 1964 only had status as models. The history begins with the works of Thomas and Fermi in the 1920s (Thomas 1927; Fermi 1927, 1928a, 1928b; March 1975). What these authors realized was that statistical considerations can be used to approximate the distribution of electrons in an atom. The assumptions stated by Thomas (1927) are that: "Electrons are distributed uniformly in the six-dimensional phase space for the motion of an electron at the rate of two for each h3 of volume," and that there is an effective potential field that "is itself determined by the nuclear charge and this distribution of electrons." The Thomas-Fermi formula for electron density can be derived from these assumptions. We here give a slightly different, but equivalent, derivation of the Thomas-Fermi theory; see Chapter 6 for additional viewpoints.
+We divide the space into many small cubes (cells), each of side / and volume AV = I3, each containing some fixed number of electrons AAT (which may have different values for different cells), and we assume that the electrons in each cell behave like independent fermions at the temperature 0 K, with the cells independent of one another.
+The energy levels of a particle in a three-dimensional infinite well are given by the formula
+where nx, ny, nz = 1, 2, 3, . . . , and the second equality defines the quantity R. For high quantum numbers, that is, for large R, the number
+47
+
+48
+
+DENSITY-FUNCTIONAL THEORY
+
+3.1
+
+of distinct energy levels with energy smaller than e can be approximated by the volume of one octant of a sphere with radius R in the space (nx, ny,nz). This number is
+
+The number of energy levels between e and e + de is accordingly
+
+where the function g(e) is the density of states at energy e. To compute the total energy for the cell with AW electrons, we need
+the probability for the state with energy e, to be occupied, which we call /(e). This is the Fermi-Dirac distribution,
+which at 0 K reduces to a step function:
+where £F is the so-called Fermi energy. All the states with energy smaller than EF are occupied and those with energy greater than ep are unoccupied. The Fermi energy eF is the zero-temperature limit of the chemical potential |U.
+Now we find the total energy of the electrons in this cell by summing the contributions from the different energy states:
+
+where the factor 2 enters because each energy level is doubly occupied, by one electron with spin a and another with spin j3. The Fermi energy eF
+
+3.1
+
+DENSITY-FUNCTIONAL THEORY
+
+49
+
+is related to the number of electrons AW in the cell, through the formula
+
+Eliminating EF from (3.1.6) by (3.1.7), we obtain
+
+This derivation can be found, for example, in McQuarrie (1976, pp. 164-166).
+Equation (3.1.8) is a relation between total kinetic energy and the electron density p = AN/I3 = AN/AV for each cell in the space. (Note that different cells can have different values of p.) Adding the contributions from all cells, we find the total kinetic energy to be, now reverting to atomic units,
+where the limit AV—»0, with p = AN/AV = p(r) finite, has been taken to give an integration instead of a summation. This is the famous Thomas-Fermi kinetic energy functional, which Thomas and Fermi dared to apply to electrons in atoms, in the manner we are about to describe. [We here first encounter one of the most important ideas in modern density-functional theory, the local density approximation (LDA). In this approximation, electronic properties are determined as functionals of the electron density by applying locally relations appropriate for a homogeneous electronic system. In later chapters the LDA is employed for properties other than the kinetic energy.]
+What (3.1.9) accomplishes is approximation of the electronic kinetic energy in terms of the density p(r), whereas the rigorous energy formula of (2.4.9) gives the kinetic energy in terms of the first-order density matrix. If we further neglect the exchange and correlation terms in (2.4.9), thus only taking into consideration the classical electrostatic energies of electron-nucleus attraction and electron-electron repulsion, we get, using (2.4.10), an energy formula for an atom in terms of electron density alone:
+
+50
+
+DENSITY-FUNCTIONAL THEORY
+
+3.1
+
+This is the energy functional of the Thomas-Fermi theory of atoms. For molecules, the second term is modified appropriately.
+We now assume that for the ground state of an atom of interest the electron density minimizes the energy functional £TF[p(r)], under the constraint
+
+where N is the total number of electrons in the atom. One may incorporate this constraint by the method of Lagrange multipliers (see Appendix A). The ground-state electron density must satisfy the variational principle
+
+which yields the Euler-Lagrange equation
+
+where 0(r) is the electrostaticpotential at point r due to the nucleus and the entire electron distribution:
+Equation (3.1.13) can be solved in conjunction with the constraint (3.1.11), and the resulting electron density then inserted in (3.1.10) to give the total energy. This is the Thomas-Fermi theory of the atom, an exquisitely simple model.
+Countless modifications and improvements of the Thomas-Fermi theory have been made over the years. Some of them will be discussed in Chapter 6, where the underlying approximations will also be examined in some detail. Unfortunately, the primitive method just described founders when one comes to molecules. As will be shown in Chapter 6, no molecular binding whatever is predicted in the method (Teller 1962). This, plus the fact that the accuracy for atoms is not high as that with other methods, caused the method to come to be viewed as an oversimplified model of not much real importance for quantitative predictions in atomic or molecular or solid-state physics.
+However, the situation changed with the publication of the landmark paper by Hohenberg and Kohn (1964). They provided the fundamental theorems showing that for ground states the Thomas-Fermi model may be regarded as an approximation to an exact theory, the density functional theory. There exists an exact energy functional E[p], and there
+
+3.2
+
+DENSITY-FUNCTIONAL THEORY
+
+51
+
+exists also an exact variational principle of the form of (3.1-12). This exact theory will now be described, first in its original form, then in more mature versions.
+
+3.2 The Hohenberg-Kohn theorems
+Recall that for an electronic system described by the Hamiltonian (1.1.2), both the ground-state energy and the ground-state wave function are determined by the minimization of the energy functional E[W] of (1.2.1) and (1.2.3). But for an N-electron system, the external potential u(r) completely fixes the Hamiltonian; thus N and v(t) determine all properties for the ground state. (Only nondegenerate ground states are considered in this section; degeneracy presents no difficulty, as will be discussed in §3.4.) This of course is not surprising since v(r) defines the whole nuclear frame for a molecule, which together with the number of electrons determines all the electronic properties.
+In place of N and u(r), the first Hohenberg-Kohn theorem (Hohenberg and Kohn 1964) legitimizes the use of electron density p(r) as basic variable. It states: The external potential v(r) is determined, within a trivial additive constant, by the electron density p(r). Since p determines the number of electrons, it follows that p(r) also determines the ground-state wave function W and all other electronic properties of the system. Note that u(r) is not restricted to Coulomb potentials.
+The proof of this theorem of Hohenberg and Kohn is disarmingly simple. All that is employed is the minimum-energy principle for the ground state. Consider the electron density p(r) for the nondegenerate ground state of some N-electron system. It determines N by simple quadrature [(1.5.2)]. It also determines v(r), and hence all properties. For if there were two external potentials v and v' differing by more than a constant, each giving the same p for its ground state, we would have two Hamiltonians H and H' whose ground-state densities were the same although the normalized wave functions V and W would be different. Taking V as a trial function for the H problem, we would then have, using (1.2.3),
+
+where £0 and E'0 are the ground-state energies for H and A', respecively. Similarly, taking W as a trial function for the A' problem,
+
+52
+
+DENSITY-FUNCTIONAL THEORY
+
+3.2
+
+Adding (3.2.1) and (3.2.2), we would obtain E0 + E'0< E'0 + E0, a contradiction, and so there cannot be two different t; that give the same p for their ground states.
+Thus, p determines N and v and hence all properties of the ground state, for example the kinetic energy T[p], the potential energy V[p], and the total energy E[p]. In place of (3.1.10) we have, writing Ev for E to make explicit the dependence on v,
+
+where
+We may write
+where J[p] is the classical repulsion of (2.4.10). The nonclassical term is a very elusive, very important quantity; it is the major part of the "exchange-correlation energy" defined and discussed at length in Chapters 7 and 8 below.
+The second Hohenberg-Kohn theorem (Hohenberg and Kohn 1964) provides the energy variational principle. It reads: For a trial density p(r), such that p(t)^Q and J p(r) dr = N,
+where Ev[p] is the energy functional of (3.2.3). This is analogous to the variational principle for wave functions, (1.2.3). It provides the justification for the variational principle in Thomas-Fermi theory in that £TF[p] is an approximation to E[p]. To prove this theorem, note that the previous theorem assures that p determines its own v, Hamiltonian //, and wave W, which can be taken as a trial function for the problem of interest having external potential v. Thus,
+Assuming differentiability of Ev[p], the variational principle (3.2.6) requires that the ground-state density satisfy the stationary principle
+which gives the Euler-Lagrange equation
+
+3.3
+
+DENSITY-FUNCTIONAL THEORY
+
+53
+
+The quantity fi is the chemical potential; it is discussed in detail in Chapters 4 and 5.
+If we knew the exact FHK[p], (3.2.8) would be an exact equation for the ground-state electron density. Note that FHK[p] of (3.2.4) is defined independently of the external potential u(r); this means that FHK[P] is a universal functional of p(r). Once we have an explicit form (approximate or accurate) for FHK[P]> we can apply this method to any system. Equation (3.2.9) is the basic working equation of density-functional theory.
+Accurate calculational implementations of the density-functional theory are far from easy to achieve, because of the unfortunate (but challenging) fact that the functional /v«c[p] is nard to come by in explicit form. We will say a great deal more about these matters in subsequent chapters. Suffice it here to emphasize that the very existence of the exact theory provides impetus both to work to advance the calculational procedures to higher and higher accuracy and also to strive to develop the conceptual consequences. In this reformulation of wave mechanics, the electron density, and only the electron density, plays the key role, and that emphatically bodes well for simple descriptive consequences.
+Various mathematical questions can be put to the derivation just given of density-functional theory; the theory stands up very well. We go into these questions in some detail in the next section. In later sections, we develop the whole theory, and its extensions to variable N and finite temperature, from scratch, by methods that are more transparent and more helpful for subsequent development.
+
+3.3 The v- and jV-representability of an electron density
+It is extraordinary that, as shown in the previous section, the groundstate electron density uniquely determines the properties of a ground state, particularly the ground-state energy. We now discuss some subtle aspects of this relationship.
+Noting the close association of electron density with ground state in the Hohenberg-Kohn theorems, we define a density to be v-representable if it is the density associated with the antisymmetric ground-state wave function of a Hamiltonian of the form (1.1.2) with some external potential v(r) (not necessarily a Coulomb potential). A given density may or may not be u-representable. We then can restate the first HohenbergKohn theorem as the fact that there is a one-to-one mapping between ground-state wave functions and u-representable electron densities. It is through this unique mapping that a v-representable density determines the properties of its associated ground state. Thus, when we say that all ground-state properties are functionals of the electron density, we need
+
+54
+
+DENSITY-FUNCTIONAL THEORY
+
+3.3
+
+to understand that these functionals are defined only for u-representable densities. Of particular importance is the functional FHK[P] of (3.2.4),
+
+where V is the ground-state wave function associated with p, which has to be u-representable.
+The second Hohenberg-Kohn theorem simply states that for all u-representable densities,
+
+where £u[p0] is the ground-state energy of the Hamiltonian with u(r) as external potential, and p0 is its ground-state density.
+It is clear that both the functional F[p] and the variational principle of (3.2.2) hinge on the u-representability of trial densities. What if a trial density is not u-representable? This is a serious difficulty, since many "reasonable" densities have been shown to be non-u-representable (Levy 1982, Lieb 1982). We mention one example. Given a Hamiltonian that has q degenerate ground-state wave functions {W,, i = 1, . . . , q), the density p(r) = E,-=i C,-p,-(r) is generally not unrepresentable for q>2, where O^C^l, £?=i C,, = 1, and p,(r) is the density for W(. Englisch and Englisch (1983) showed that even for a single-particle system there are densities that do not come from a ground-state wave function of any v(r).
+The variational principle (3.3.2) ceases to apply in a practical calculation if the trial densities are not u-representable, which is entirely possible from the foregoing discussion. The conditions for a density to be u-representable are as yet unknown. In footnote 2 of their paper, Hohenberg and Kohn (1964) proved u-representability for the case of a density that is nearly uniform and, more recently, Kohn (1983) has established u-representability in a lattice version of the Schrodinger equation, for all densities near to a nondegenerate ground-state density. For further discussion on u-representability in lattice systems, see Chayes, Chayes, and Ruskai (1985).
+As we shall show in the next section, fortunately it turns out that density-functional theory can be formulated in a way that only requires the density both in functionals and in variational principle to satisfy a weaker condition, the W-representability condition. A density is Nrepresentable if it can be obtained from some antisymmetric wave function (compare §2.6). The N-representability condition is weaker than the u-representability condition, since the former is necessary for the latter.
+The N-representability condition is satisfied for any reasonable density.
+
+3.3
+
+DENSITY-FUNCTIONAL THEORY
+
+55
+
+More mathematicallystated, a density p(r) is W-representable if
+
+This was first shown by Gilbert (1975), who exhibited how one can represent such p in terms of N orthonormal orbitals based on a space partitioning (and hence generate p from a single-determinantal wave function); see also the proof of Lieb (1982).
+An explicit construction due to Harriman (1980) [following Macke (1955a,b)], uses N smooth, continuous, and orthonormal orbitals for any density satisfying (3.3.3). For simplicity,consider a one-dimensional case, Xi =£* ^x2. Then the required orbitals are
+where
+
+and either k = 0, ±1, ±2, . . . , or k = ±1/2, ±3/2, ±5/2, . . . (Ghosh and Parr 1985). All orbitals have the same orbital density, Also 0 = q(xl) < q(x) < q(x2) = 1, and
+The orbitals are orthonormal:
+
+Thus, any number of such orbitals can be constructed and any total density can be represented by
+where 0 =s Xk =£ 1, S^ Afc = A' for any integer M^N. For A/ = TV, we have
+
+56
+
+DENSITY-FUNCTIONAL THEORY
+
+3.4
+
+the density p(x) associated with an N x N determinant. Thus, construction suffices to prove the sufficiency of the conditions (3.3.3) for N-representability. For the three-dimensional case, see Zumbach and Maschke (1983), and especially Cioslowski (1988a).
+Some additional terminology will be helpful later (Levy 1982). If p is the density from the ground-state wave function of a Hamiltonian of the form (1.1.2) with some v(r), then p is said to be pure-state vrepresentable (so far we have referred to this simply as u-representable and will continue to do so if there is no ambiguity). If the Hamiltonian giving p includes no interactions between electrons, that is, if the Hamiltonian has the form
+
+then p is said to be noninteracting pure-state v-representable. Correspondingly, for an interacting or noninteracting Hamiltonian, if p is derived from an ensemble density matrix composed entirely of degenerate ground-state wave functions, then p is said to be ensemble vrepresentable or noninteracting ensemble v-representable. The previously mentioned example of a non-u-representable density is in fact ensemble t»-representable, interacting or noninteracting.
+3.4 The Levy constrained-search formulation
+Having established in the last two sections the one-to-one correspondence between ground-state electron density p0(r) and the ground-state wave function Wo, we now proceed to show how one in fact can determine *V0 from a given p0(r). (Here subscripts have been given to W and p to emphasize their ground-state nature.)
+The inverse of this problem is trivial: W0 gives p0(r) by quadrature. But there exist an infinite number of antisymmetric wave functions (not necessarily from ground states) that all give the same density. Given one of these functions that integrates to p(), say Wpo, how do we distinguish it from the true ground-state W0?
+The answer is simple (Levy 1979, 1982; Levy and Perdew 1985b). The minimum-energy principle for the ground state gives
+where H = f + Vee + Sfu(r,), the Hamiltonian for the N-electron system. Since the potential energy due to the external field u(r) is a simple functional of density, we therefore have
+
+3.4
+
+DENSITY-FUNCTIONAL THEORY
+
+57
+
+Thus,
+
+and we conclude that among all the wave functions giving the same
+ground-state density p0, the ground state WQ minimizes the expectation value (f + Vee).
+If we compare (3.4.3) with (3.3.1), we see that the right-hand side of
+(3.4.3) is equal to JFHK[PO]> the universal functional defined for any u-representable density. That is to say,
+
+This is a constrained-search definition for the density functional FHK[p0]. Searching over all the antisymmetric wave functions that yield the input density p0, FHK[p0] delivers the minimum expectation value of (T + Vee).
+Defining FHK[PO] by (3.4.4) not only provides a new proof for the first theorem of Hohenberg and Kohn, but also eliminates the original Hohenberg-Kohn limitation that there be no degeneracy in the ground state. For in the constrained search, only one of a set of degenerate wave functions is selected, the one corresponding to p0.
+The variational search in (3.4.4) is "constrained" because the space of trial wave functions comprises only those that give the density p0(r), in contrast to the search for the minimum of (*P| f + Vee + T,f v(ti) \*P) in (1.2.3), which is unconstrained (except for normalization) because the space of trial wave functions is the whole JV-particle Hilbert space.
+In the constrained-search formula for FHK[p0], that is, the second equality in (3.4.4), there is no need to make reference to the fact that p0 is a u-representable ground-state density, so long as it comes from an antisymmetric wave function. This permits one to extend the domain of definition for ^K[PO] from u-representable densities to Af-representable densities. Define
+for any p that is W-representable. The functional F[p] searches all W that yield the input density p(r) and then delivers the minimum of (f + Vee). It follows from (3.4.4) and (3.4.5) that
+for any p0 that is u-representable. The constrained-search formula (3.4.5) eliminates the v-
+representability constraint on the domain of variation in the HohenbergKohn variational principle (3.3.2). This becomes clear if one divides the
+
+58
+
+DENSITY-FUNCTIONAL THEORY
+
+3.4
+
+ground-state energy minimization procedure of (1.2.3) into two steps:
+
+In the second line here, the inner minimization is constrained to all wave functions that give p(r), while the outer minimization releases this constraint by searching all p(r). The first term within the square brackets in the third line is precisely the functional F[p] defined in (3.4.5). Thus,
+where
+The prescription of (3.4.5) and (3.4.7) to (3.4.9) dispels any aura of mystery that may appear to surround the original Hohenberg-Kohn F[p] (see Figure 3.1.)
+The variation in (3.4.8) is over all W-representable densities; it requires no more than the nonnegativity, proper normalization, and continuity of the trial densities [cf. (3.3.3)]. This makes the minimization in (3.4.7) easier to carry out than the original Hohenberg-Kohn minimization of (3.3.2). The u-representability problem in the original approach has been eliminated.
+The foregoing arguments are from the work of Levy (1979) [see also Lieb (1982)], who devised this constrained-search formulation in the spirit of the Percus (1978) definition of a universal kinetic-energy functional for noninteracting fermion systems. The existence of the minimum in (3.4.5) has been proved by Lieb (1982), in an elegant and rigorous discussion of the whole theory. If we call the minimizing wave function ip™'n, then we have
+where
+
+3.4
+
+DENSITY-FUNCTIONAL THEORY
+
+59
+
+Figure 3.1(a) Percus-Levy partition of the A^-electron Hilbert space. Each shaded area is the set of all 1* that integrate to a particular p. The minimization in (3.4.5) for a particular p is constrained to the shaded area associated with this p, and is realized by only one point (denoted by •) in this shaded area. The minimization in (3.4.8) is over all such points.
+Figure 3.1(b) An analogous constrained-search problem. To identify the tallest child in a school, one does not have to line up all of the children in the schoolyard. Instead, one can simply ask the tallest child from each room to come to the schoolyard.
+
+60
+
+DENSITY-FUNCTIONAL THEORY
+
+3.5
+
+and
+
+The functional F[p] in (3.4.5) is universal [as is FHK[p] of (3.2.4)] in the sense that it is independent of the external field v(t). The same F[p] applies to both a hydrogen atom and a giant protein molecule; the part of E[p] that depends on the structure of an individual system is J v(r)p(r) dr, as indicated in (3.4.9). This shows the promise, as well as the challenge, of looking for an accurate method to deal with F[p]. What we have at this stage is a rigorously defined F[p], for any Nrepresentable density p characterized by (3.3.3). However, as we shall be discussing at length, what we have is a functional F[p] that is highly difficult to approximate, which is not surprising because what we have done is to change the variational unknown from the complicated many-variable function *P to a single three-variable function p.
+This situation may be contrasted with the state of the theory of reduced density matrices outlined in Chapter 2. The electronic energy as a functional of the second-order reduced density matrix F2 is explicit and simple, but the domain of energy variation is the set of N-representable F2, the practical characterization of which is, unfortunately, unknown.
+The constrained-search definition of (3.4.5) allows one to approximate F[p] by bounds; namely,
+
+or, more simply,
+where S is any subspace of the /V-electron Hilbert space and Wp is any N-electron wave function that gives p(r). This idea has been exploited by Nyden and Parr (Nyden and Parr 1983, Nyden 1983), Zumbach and Maschke (1983), Ghosh and Parr (1984), Schonhammer and Gunnarsson (1987), and Cioslowski (1988a).
+In summary, there now has been proved the existence of the universal density functional F[p] for any N-representable density, (3.4.5), and there has now been established the energy-functional minimum principle, (3.4.8). A rigorous density-functional method for determining the ground-state density and ground-state energy for any electronic system is thereby provided.
+3.5 Finite-temperature canonical-ensemble theory
+For macroscopic systems at finite temperature, the equilibrium state is analogous to the ground state at zero temperature. In place of the
+
+3.5
+
+DENSITY-FUNCTIONAL THEORY
+
+61
+
+variational principle of (1.2.3), we have the principle (2.7.10) for a canonical ensemble, or the principle (2.7.16) for a grand canonical
+ensemble. The constrained-search ground-state density-functional theory can readily be generalized to the equilibrium states in ensembles. We begin with the canonical ensemble.
+First, we provide a proof of (2.7.10). We may express a general ,/V-particle density operator fN in terms of its eigenvalues and normalized eigenvectors,
+
+which is possible by (2.1.25). Then the Helmholtz free energy ^[f^] of (2.7.9) becomes
+
+The free energy thus depends on two sets of variables {pNi} and {W^,}. Leaving {WM} fixed for the moment, one can find the set of {pNi} that minimizes A for a given set {W,} by solving
+or equivalently,
+where A is the Lagrange multiplier for the constraint
+which is equivalent to tr fN = 1. Solving (3.5.4) and (3.5.5) gives
+
+Inserting (3.5.6) into (3.5.2), we obtain Using (3.5.2) and (3.5.6), we therefore find
+
+62
+
+DENSITY-FUNCTIONAL THEORY
+
+3.5
+
+The last step is from the Gibb's inequality, Equation (B.ll) of Appendix B.
+To complete the proof, we need an inequality for a general operator 6,
+
+where { } denotes the expectation value for any state. This comes from Jensen's inequality for convex functions of an operator, Equation (B.17) of Appendix B. Thus,
+
+where the *¥% are the eigenstates of H. The inequality becomes an equality only when *PNi = ^y°Ni for all i. We
+have here used the fact that {W/v,} is a complete set. Combining (3.5.8) and (3.5.10) leads to the variational principle (2.7.10).
+Having the variational principle in hand, one can now construct the density-functional theory for the canonical ensemble by dividing the minimization of the Helmhotz free energy into two steps:
+where
+with f the total kinetic-energy operator, U the particle-particle interaction energy (not necessarily Coulomb repulsion), and v(t) the external field. Defining the universal density functional by the constrained search
+
+3.5
+
+DENSITY-FUNCTIONAL THEORY
+
+63
+
+one obtains the free-energy variational principle:
+
+where
+Note that F[p] is a universal functional of p: while it depends on the statistics of the particles (which determines the symmetry of fN) and the particle-particle interaction potential U, it does not depend on the external field. We use the same notation F[p] to denote different functionals in (3.5.13) and (3.4.5) in order to emphasize the similarity of the different density-functional theories. This should not cause confusion, because one rarely uses two types of density-functional theories at one time. We shall also use F for the universal functionals constructed in the next two sections.
+The functional F[p] defined in (3.5.13) can be decomposed into three pieces, namely
+with the kinetic-energy functional being
+the particle-particle interaction potential energy functional being
+and the entropy functional being
+where f™™ is the density operator with which the minimum in (3.5.13) is achieved, kB is the Boltzmann constant, and 6 is the absolute temperature.
+If the density p0(r) for an equilibrium state of some u(r) is given, the constrained-search of (3.5.13) reaches the minimum at the equilibrium density operator fN for this v(r), in analogy with (3.4.6). This follows from (3.5.11) and (3.5.14):
+
+In this way, p0(r) determines f ^.
+
+64
+
+DENSITY-FUNCTIONAL THEORY
+
+3.6
+
+In summary, we have shown that in a canonical ensemble at a given
+temperature: (1) The equilibrium-state particle density p0(r) uniquely determines the equilibrium density operator t°N and hence all the properties of the equilibrium state. (2) There holds a free-energy variational principle (3.5.14) in terms of particle density into which there enters the universal functional (3.5.13).
+
+3.6 Finite-temperature grand-canonical-ensemble theory
+We now turn to the grand canonical ensemble, in which the state of a system is described by a density operator in Fock space, that is, with nonzero probabilities for different particle numbers. Such a general density operator is
+
+and the grand potential Q[F] of (2.7.15) is
+
+where ju is the chemical potential of the system (a parameter describing the whole ensemble). The proof of the variational principle for the grand potential, (2.7.16), proceeds similarly to the proof in the last section of the variational principle for the Helmholtz free energy in the canonical ensemble. One first holds the set of variables {WN,} fixed, and looks for the minimum of Q with respect to {pNi}. Thus, we solve
+or equivalently
+where A is the Lagrange multiplier for the constraint that probability be normalized. There results
+
+3.6
+
+DENSITY-FUNCTIONAL THEORY
+
+65
+
+Hence
+
+We now prove that Q[{p%, WNi}] is a minimum for fixed {VM}:
+
+Here we have used (3.6.5) and the Gibbs' inequality (B.ll). Consequently, again using (B.17),
+The inequality in this last formula becomes an equality when each WNi is *P%i, an eigenstate of (H — pN). The density operator determined by the sets {p°Ni, *P°Ni} is the equilibrium one of (2.7.14). Adding (3.6.7) and (3.6.8), we obtain the desired variational principle, (2.7.16).
+Construction of a density-functional theory by constrained search is now straightforward:
+Define Then
+
+66
+
+DENSITY-FUNCTIONAL THEORY
+
+3.7
+
+where the grand potential functional is
+
+One can split F[p(r)] into its components,
+
+where f™n is the density operator that minimizes T r f ( ! f + t / + (l/)8)lnf) and simultaneously gives p(r). If the density p0(r) for an equilibrium state of some t>(r) is given, the constrained search of (3.6.10) reaches the minimum at the equilibrium density operator f° for the same v(t). This follows from (3.6.11) and (3.6.2):
+
+Note that the chemical potential ju only appears in the combination u(r) —ju. Note also that because we have here described a grand canonical ensemble, F[p] is a universal functional of density p(r) that may integrate to a noninteger, the average particle number N.
+In summary, we have shown that in a grand canonical ensemble at a given temperature and chemical potential \JL: (1) The equilibrium-state particle density p0(r) uniquely determines the equilibrium density operator f° and hence all the properties of the equilibrium state. (2) There holds the grand potential variational principle in terms of particle density, (3.6.11), with the universal functional F[p] defined by (3.6.10).
+The density-functional theory of the grand canonical ensemble is due in the first instance to Mermin (1965), whose proof was a proof by contradiction patterned after the Hohenberg-Kohn proof of §3.2.
+3.7 Finite-temperature ensemble theory of classical systems
+For classical systems at finite temperature, a theory may also be formulated through constrained search. We do that here, choosing the grand-canonical-ensemble approach. Following the work of Merrnin (1965) for quantum electronic systems, Ebner and Saam (1975) and Ebner, Saam and Stroud (1976) developed the density-functional theory for classical systems through a proof by contradiction. For subsequent
+
+3.7
+
+DENSITY-FUNCTIONAL THEORY
+
+67
+
+developments, see Evans (1979) and Rowlinson and Widom (1982). For earlier related work, see,for example, Stillinger and Buff (1962) or Lebowitz and Percus (1963).
+In classical statistical mechanics, the equilibrium state of a system in a finite-temperature grand canonical ensemble is described by the probability distribution function
+
+where HN is the Hamiltonian when there are N particles present,
+
+fj. is the chemical potential, /3 = l/kB6, and Z is the grand partition function
+The trace symbol here connotes integration over phase space and then summation over all different numbers of particle; namely,
+
+In (3.7.1), /° is the probability density for the system at equilibrium in a grand canonical ensemble, in the microscopic state of N particles described by the phase-space coordinates {r1; . . . , IN, p1,. . . , pN}. Note the similarity with the formula (2.7.14) for a quantum system.
+Like the quantum mechanical F°, /° can be derived from the maximum-entropy principle of §2.7. Or, as in §3.6, Fcan be derived from the minimum grand potential principle
+for all probability densities / such that
+The grand potential is defined as
+[ts value at /° is
+The proof of (3.7.5) is straightforward. The Euler-Lagrange equation
+
+68
+
+DENSITY-FUNCTIONAL THEORY
+
+3.7
+
+associated with the variational principle of (3.7.5) is
+
+or
+
+The solution of (3.7.10) satisfying (3.7.6) is (3.7.1). From (3.7.7) and (3.7.8) there follows
+
+where in the second equality (3.7.1) has been used to express HN - fiN in terms of /° and Z. The inequality follows from the Gibbs inequality of (B.ll) for the continuous-variable case.
+Given the minimum principle, constrained-search implementation of it is straightforward:
+
+where p(r)is the particle density with Define Then
+Note that F[p] is a universal functional of p(r), independent of the
+
+3.7
+
+DENSITY-FUNCTIONAL THEORY
+
+69
+
+external potential v(r). Finally, split F[p(t)] into its components:
+
+Here /™n is the probability density that minimizes Trcl [/(T + t/ + (1//3) In/)] and simultaneously gives the particle density p(r).
+In the foregoing constrained-search formulation, the minimum principle of (3.7.15) is not restricted to the class of particle densities that come from an equilibrium state of some external potential (classical ensemble u-representability). This is required in the earlier formulation of Evans (1979); for further discussion see Chayes, Chayes, and Lieb (1984). The only requirement now is that trial p(r) be derivable from a classical probability distribution. In case the given density p(r) does come from an equilibrium state the constrained search in (3.7.15) reaches its minimum at the equilibrium probability density /° for the same external potential u(r). This follows from (3.7.15) and (3.7.16):
+
+This section has provided the following density functional theorems. In a classical grand canonical ensemble at a given temperature and chemical potential //: (1) The equilibrium one-particle density p0(r) uniquely determines the equilibrium probability distribution f°, and hence all the properties of the equilibrium state. (2) There holds the grand-potentialvariational principle in terms of one-particle density, (3.7.16), with the universal functional F[p] defined by (3.7.15).
+
+4
+THE CHEMICAL POTENTIAL
+4.1 Chemical potential in the grand canonical ensemble at zero temperature
+In the last chapter were obtained the principal equations of the density-functional theory of electronic systems, the equations for the determination of the electron density and the energy for a ground state or equilibrium state of a system of interest. For the ground state, E[p] reaches its minimum among densities p that integrate to the number of electrons N for the system of interest, where E[p] is given by (3.2.3) or (3.4.9). For an equilibrium state at temperature 6 in a canonical ensemble, A[p] reaches its minimum among densities p that integrate to N, where A[p] is given by (3.5.15). And for an equlibrium state at temperature 6 and chemical potential n in a grand canonical ensemble, Q[p] reaches its minimum among all p, where Q[p] is denned by (3.6.12).
+We are particularly interested in the zero-temperature limit, for at 9 = 0 (/3 = °o), the equilibrium state and ground state become one and the same—the state of primary interest to us. As 6 goes to zero, the term 6S[p] disappears from A[p] of (3.5.15) and Q[p] of (3.6.12). At this limit, do the corresponding variational principles remain valid? The answer does not follow from the arguments of §3.5 and §3.6, for in the proofs of the theorems of those sections the concavity of the entropy S[f], as a functional of the density operator, plays a vital role. Detailed analysis for each case is needed. In this section and the next two, we consider the grand canonical ensemble. We take up the canonical ensemble in §4.4.
+In the limit as f$ tends to infinity, the universal functional F[p] defined in (3.6.10) becomes
+This is the universal ground-state functional proposed by Perdew, Parr, Levy, and Balduz (1982). It extends Levy's constrained search to general density operators f in Fock space (grand canonical ensemble). In (4.1.1), Vee is written in place of the general particle-particle interaction potentia
+70
+
+4.1
+
+THE CHEMICAL POTENTIAL
+
+71
+
+U because we specialize henceforth to electronic systems. The grand potential at /3—»°° correspondingly reduces to
+
+into which enters the grand-canonical-ensemble energy functional
+Note that both Q[p] and EGC[p] are defined for densities integrating to any finite positive number, in contrast with E[p] of (3.4.9), which is defined only for densities integrating to positive integers.
+Assume now the /3—»°° limit of the Q[f] variational principle of (3.6.9),
+where E°(N) and n are the energy and the chemical potential of the ground state with N electrons. Following the prescription of (3.6.9), the corresponding density-functional variational principle is then
+from which follows the variational equation for the ground-state electron density and energy
+and the Euler-Lagrange equation
+Equivalently,
+In the last equation, it has been assumed that FGC[p] is differentiate [see Englisch and Englisch (1984a, b) for discussion of the validity of this assumption].
+We now show that (4.1.4) is not true in general [see Blaizot and Ripka 1986, p. 410)]; nevertheless, it is valid for atomic and molecular systems. Consider a trial f that describes a ground state with the average number
+
+72
+
+DENSITY-FUNCTIONAL THEORY
+
+4.1
+
+of electrons N + AN = Tr TN. Then we have from (4.1.4),
+
+Similarly, from another f with Tr f N = N - AN,
+
+It follows from (4.1.9) that if E°(N) is a differentiable function,
+
+Adding (4.1.9) and (4.1.10), we obtain
+which demands that the function E°(N) be convex (see Appendix B). If E°(N) is twice differentiable, then (4.1.12) implies
+
+Conditions (4.1.11) and (4.1.12) or (4.1.13) are also sufficient to guarantee the validity of (4.1.9). See the theorem before Equation (B.13) in Appendix B.
+Setting AN = 1 in (4.1.12), we see that
+or
+where /(N) is the ionization potential of the N-electron ground state. Equation (4.1.15) states that successive ionization potentials are not decreasing (for fixed external potential).
+For atoms and molecules, no counterexample is known to (4.1.15), although a first-principles proof has never been given. As examples, in Table 4.1 we list all of the successive ionization potentials for the oxygen and carbon atoms; in Figure 4.1 we plot the energy of oxygen as a function of the number of electrons, determined from the formula
+
+Phillips and Davidson (1984) give examples of nonconvex E°(N), though not for electronic systems.
+Summarizing the foregoing, we have shown that for systems for which E°(N) is convex, including atoms and molecules, the zero-temperature limit of grand-canonical-ensemble theory exists, as manifest in (4.1.4),
+
+4.1
+
+THE CHEMICAL POTENTIAL
+
+73
+
+Table 4.1 lonization Energies for Carbon and Oxygen
+
+Species
+C"
+Cc+
+C2+ C3+ C4+ C5+
+
+lonization Potential
+(eV)
+1.12 11.26 24.38 47.86 64.48 391.99 489.84
+
+Species
+O O 0+ 02+ 03+ 04+ 05+
+Q6+
+07+
+
+lonization Potential
+(eV)
+1.47 13.61 35.15 54.93 77.39 113.87 138.08 739.08 871.12
+
+(4.1.5), and (4.1.6). The chemical potential in these equations is the zero-temperature limit of the chemical potential defined for the finitetemperature grand canonical ensemble,
+
+Figure 4.1 Energy (in electron volts) of the oxygen atom and its ions.
+
+74
+
+DENSITY-FUNCTIONAL THEORY
+
+4.2
+
+where A is the Helmholtz free energy. In this book we generally use the symbol \i to designate this zero-temperature limit, writing
+
+and we simplify the notation in (4.1.6), (4.1.7), and (4.1.8) to give
+and
+Equations (4.1.19) and (4.1.20) are the basic working equations of the ground-state density-functional theory for atoms, molecules, and solids.
+4.2 Physical meaning of the chemical potential The chemical potential of density-functional theory measures the escaping tendency of an electronic cloud. It is a constant, through all space, for the ground state of an atom, molecule, or solid, and equals the slope of the E versus N curve at constant v(t). The analogy with the chemical potential of ordinary macroscopic thermodynamics is clear and useful.
+The chemical potential is the negative of the electronegativity of Pauling and Mulliken (Parr, Donnelly, Levy, and Palke 1978). For, the three-point finite-difference approximation to 9E/3N for a species S is
+
+where / = E§ —Es and A = Es —E$ are respectively the ionization potential and electron affinity for the species. And Mulliken's formula for electronegativity (Mulliken 1934) is
+Therefore
+and the chemical potential concept is the same as the electronegativity concept.
+Mulliken's beautiful argument for (4.2.2) is as follows. Given two species, S and T, which is the more electronegative? The energy required for S to take an electron from T is /T —x4s, while the energy required for T to take an electron from S is /s —A-r. If the two requirements were
+
+4.3
+
+THE CHEMICAL POTENTIAL
+
+75
+
+the same, we would have equal electronegativities:
+I-T-AS = IS- AT, IS + AS = IT + AT
+The factor \ isarbitrary. Density-functional theory is, then, a theory of ground (equilibrium)
+electronic states in which the electronegativity of chemistry plays in the basic variational principle (4.1.6) just the role that the energy plays in the basic variational principle (1.2.8) of wave-function theory. This result demands attention to the density-functional theory as a description of chemistry. In this description, the chemical potential is the key concept; we shall find in the next chapter that the derivatives of the chemical potential are of comparable importance.
+
+4.3 Detailed consideration of the grand canonical ensemble near zero temperature
+In order to have the variational equation (4.1.20), we have seen in §4.1 that we should take the 9—>Q limit of the grand canonical theory described in §§3.6 and 4.1. We now carefully examine this limiting process. Then we determine the ground-state energy for nonintegral N. The argument derives from Gyftopoulos and Hatsopoulos (1965) and Perdew, Parr, Levy, and Balduz (1982); see also Linderberg (1977).
+To see how the analysis goes, it is most helpful first to consider a particular model system, a species that can exist in only three states: the neutral ground state with energy E0 and number of electrons 7V0, a positive-ion ground state with energy E0 +1 and number of electrons N0 —l, and a negative-ion ground state with energy E0 —A and number of electrons N0 + 1. All states are assumed nondegenerate. At inverse temperature ft and chemical potential \i, the grand canonical partition function will be
+
+Consequently we have, from standard formulas for ensemble averages,
+
+Also and
+
+76
+
+DENSITY-FUNCTIONAL THEORY
+
+4.3
+
+These formulas provide the various average properties for any j3 and ju. To obtain them for any /3 and N, one may eliminate fj. using (4.3.2).
+Suppose first that N = N0—the system has an integral number of electrons. Then from (4.3.2) it immediately follows that e^(-4+") = e-P(/+c)j or / +A +2fl =0, or
+
+This is just the Mulliken formula of (4.2.2), and it is valid for any temperature.
+When N^No, (4.3.2) can be rewritten as a quadratic equation and solved, as follows. Let
+
+Then (4.3.2) becomes the solution of which is
+
+This gives A/i and hence fi for any /? and AN or N. For AN = 0, for example, we find jc = ±l = +l, AjU = 0, (U = jU0, recovering (4.3.5) for any /3. For AN ^ 0, the zero-temperature limits are different for AN plus
+and AN minus. Noting that lim/3_00.y = 0 assuming convexity of E(N), we find, in the zero-temperature limit:
+
+Consequently, we have for very high j8 or very low 9,
+
+4.3
+
+THE CHEMICAL POTENTIAL
+
+77
+
+From (4.3.5), (4.3.12) and (4.3.14), we therefore infer the zerotemperature limits
+To obtain the ground-state energy, we insert (4.3.11) and (4.3.13) into (4.3.3), and take the limit /J-»°°. The result, writing N for N, is
+For this three-state model, the energy at zero temperature is a continuous series of straight-line segments, as shown in Fig.4.1. The energy for a nonintegral number of electrons is given by linear interpolation between the values for integral numbers of electrons (Perdew, Parr, Levy, and Balduz, 1982).
+As can be readily verified by calculation, for typical atomic or molecular values of / and A, it requires a quite high temperature to cause much curvature to appear in E(N) curves. We will return to the curvature at the end of this section. Equations (4.3.15) and (4.3.16), although derived from a three-state model, remain true in general, as will be established below. The essence of the zero-temperature grandcanonical-ensemble theory is captured in (4.3.15) and (4.3.16).
+In this three-state model system, all states have been assumed to be nondegenerate. But there is little effect if degeneracy is present. If the degeneracies of positive ion, neutral species, and negative ion are g+, g0, and g_, (4.3.2) is replaced by
+Equation (4.3.5) is replaced by
+
+78
+
+DENSITY-FUNCTIONAL THEORY
+
+4.3
+
+This displays a temperature dependence in |U0, but in the ft —»°° limit this disappears and (4.3.5) results. For N nonintegral, (4.3.12) and (4.3.14) are similarly modified by terms vanishing as ft —> °o [Perdew 1985], so that (4.3.15) and (4.3.16) remain valid in the presence of degeneracies.
+We now describe the zero-temperature limit of the full grandcanonical-ensemble theory, into which enter ground and excited states of all species, and ions of all possible positive and negative charges. The only assumption is the convexity assumption of (4.1.15). For the general case, the partition function becomes
+
+where gNj are degeneracies, and in place of (4.3.2)
+
+In the 0—»0 or /}—»°° limit, only the ground states of the various species survive. Calling the ground-state energy and degeneracy for N electrons E°N and g°N, we get for very large ft and integral N
+
+provided only that the convexity condition of (4.1.5) is satisfied. Similarly, if N = N0 + &N, where N0 is some integer and AAf is
+positive, the result should be
+If AN is negative, on the other hand,
+Summarizing, we have
+
+in accordance with (4.3.15). E(N) as a function of N at /J = °° is a series of straight-line segments connecting integral-N values.
+To prove the foregoing, we depart from the literature by formulating the problem directly at zero temperature. Instead of using a Lagrange multiplier fi as in (4.1.4), we carry out the energy minimization with proper normalizationbuilt in at the start. Thus, we write the ground-state
+
+4.3
+
+THE CHEMICAL POTENTIAL
+
+79
+
+energy for an arbitrary number of electrons N as
+
+with constraints
+
+where p(M) and E°(M) are the probability and ground-state energy for the system in same external potential u(r) with M electrons. M is an integer and the sum is over all positive integers. The minimization in (4.3.25) is equivalent to the one in (4.1.4), because we now use for the evaluation of Tr f H the eigenstates of the Hamiltonian H in which f is diagonal with eigenvalues p(M). The excited states all have zero probabilities, since E°(M) is the minimum for the expectation value of H for states with M electrons.
+We now solve for p(M) and E°(N). This problem is a minimization of a linear function of p(M) with linear constraints; it cannot be solved by the usual Lagrange multiplier method. Instead, the minimum is reached at the boundary of the domain of admissible p(M). Suppose N is between the integers 7 — 1 and /. Then we can rewrite (4.3.26) and (4.3.27) as
+which can be solved for p(J — 1) and p(J),
+where, for the primed summations,
+Inserting (4.3.31) and (4.3.32) into (4.3.25), we have
+in which p(L) needs only to satisfy (4.3.28).
+
+80
+
+DENSITY-FUNCTIONAL THEORY
+
+4.3
+
+For each L, the value of p(L) that minimizes (4.3.34) depends on the sign of the term in square brackets in (4.3.34), the quantity
+
+Since the boundary values of p(L) are 0 and 1, to attain the minimum of E°(N) it is necessary that
+
+It turns out that for the atoms and molecules we always have which comes from the convexity of E°(M) in (4.1.15), or equivalently [see Equation (B.I) in Appendix B], for a^O, /? 2= 0, a + /3 = 1, and aMl + /?M2 also an integer. For L>/-1,
+using (4.3.38). For L </ — 1, one finds
+using (4.3.38). Applying (4.3.39) and (4.3.40), (4.3.36), and (4.3.34), we obtain
+in agreement with (4.3.16). If (4.3.38) is a strict inequality, that is, if E°(M) is strictly convex, we further have, from (4.3.31) and (4.3.32),
+
+If E°(M) is only convex, then the set of p(M) that minimizes (4.2.34) is not unique. Equation (4.3.41) still holds, however, as does the chemical
+
+4.4
+
+THE CHEMICAL POTENTIAL
+
+81
+
+potential expression
+
+In summary, at the limit of zero temperature the grand-canonicalensemble theory gives E°(N) as a continuous linear interpolation among E°(M) values, where M is integral. This assumes E°(M) to be convex at all positive integers, which is the case for atoms and molecules.
+To end this section, we briefly consider another quantity of interest: the curvature of £ as a function of N at 0 K,
+
+This is found to be
+
+where
+Alternatively, we could define
+which would accord with the ididentity
+since (d2E/dN2)0=0 is zero for the straight-line segments for N <N0 and W > A^0. The quantity ?j0 = (/ —.A)/2 turns out to be very important; it is the absolute hardness of a chemical species (Parr and Pearson 1983). Hardness will be discussed at length in the next chapter.
+4.4 The chemical potential for a pure state and in the canonical ensemble
+We now consider the concept of chemical potential in the canonical ensemble and for a pure state, both cases in which the number of electrons is integral.
+
+82
+
+DENSITY-FUNCTIONAL THEORY
+
+4.4
+
+As was described in §3.5, in the canonical ensemble one has a system
+of interest of N0 particles and minimizes a functional A[p] over densities integrating to N0. In the 6 = 0 limit, which is our present concern, one minimizes E[p] subject to proper normalization of p; that is,
+
+where
+
+with
+These are the zero-temperature limits of (3.5.13)-(3.5.15). The variational principle of (4.4.1) follows from (2.3.28), the minimizing density being the ground-state density if the ground state is nondegenerate, or an arbitrary linear combination of the ground-state densities if it is degenerate. The universal functional Fc[p] was proposed by Valone (1980a) and Lieb (1982) to extend the Levy constrained search to all mixed states in the ^-electron Hilbert space.
+In the pure ground-state theory of §3.4, F[p] of (3.4.5) is the universal functional instead of (4.4.3). The variational principle (3.4.8) is of the same form as (4.4.1). In the following discussion, these two cases are dealt with at the same time, E[p] standing for the energy functional for both canonical ensemble and pure state.
+How do we implement the variation (4.4.1) within all the densities integrating to integral N1 We cannot directly use the Lagrange multiplier technique, because the constraint-free variation 6{E[p] - A[Jp dr - N]}, where A is the supposed Lagrange multiplier, would require E[p] to be defined for nonintegral numbers of electron (see Appendix A), which is not the case in either the canonical ensemble (4.4.2) or the pure state (3.4.9). However, we can explicitly impose the normalization by writing
+
+This allows g(r) to be any nonnegative function, while p(r) always still integrates to N, in the same way that normalization of wave functions is taken care of in (1.2.1) and (1.2.3). Thus, we have the ground-state variational principle
+
+4.4
+
+THE CHEMICAL POTENTIAL
+
+83
+
+where we have used the chain rule, (A.24) of Appendix A. The subscript N here indicates that the functional differentiation is performed with N fixed. Using (4.4.4), we get
+
+so that (4.4.5) gives
+The right-hand side of (4.4.7) is a constant independent of r. This constant cannot be determined by (4.4.7), because any value makes (4.4.7) an identity. Therefore,
+with C an arbitrary constant. Contained in (4.4.8) is the equivalent of the Schrodinger equation for
+the ground state. Comparing with (4.1.7), we see that chemical potential fi does not occur in (4.4.8) and its existence in the theory at this stage is solely due to the grand-canonical ensemble extension of the ground-state theory.
+The chemical potential concept can also be identified in the canonical ensemble theory, however. The simple way to do this is to follow the procedure that is used for canonical ensemble theory in statistical mechanics, the finite-difference method (see p. 41 of Ashcroft and Mermin 1976). Thus, for the system of N electrons, we take [and note that this accords with (4.3.15)]
+
+Also, the curvature of E(N) becomes Note the difference between this formula and (4.3.45).
+
+84
+
+DENSITY-FUNCTIONAL THEORY
+
+4.5
+
+Another way to recover the chemical potential is to extend the minimization (4.4.1) to all different integral N. In this case the Lagrange
+multiplier \n becomes fuzzy if one makes no further assumptions (Parr and Bartolotti 1983). Consider at what density the quantity E[p] — pN[p] will in fact be a minimum, if only trial densities normalized to integers
+are used. If J p dt = N0, the minimum value is E[p0(N0)] - /j,N0, where E[p0(N0)] is the ground-state energy for N0 electrons. Similarly, if J p dr = N0 + 1, the minimum value will be E[p0(Nu + 1)] - n(N0 + 1)]; if J p d r = A/o-1, it will be E[p0(N() - 1)] - p(N0 - 1). Of these three numbers, the smallest depends on the value of ft and on the values of the three energies. The smallest will be the first, £[p0(A70)] —juA/o, if jU is in the range
+
+where / and A respectively are the ionization potential and electron affinity of the species with N = A7,,. Note that (4.4.9) to (4.4.11) give \n values in this range. With any value of fi satisfying (4.4.13), the minimum
+of E[p] — (*N[p] over all p integrating to different integers will give
+£[p0(A'o)] - pN0. Equation (4.4.13) also implies that E°(N) needs to be convex [see (4.1.15)]. Trial p may in fact be limited to those integrating to integers.
+
+4.5 Discussion
+Although the zero-temperature limit of the grand canonical ensemble provides a natural definition for the ground state of nonintegral-A7 systems, the continuous straight-line segments for E°(N) need not be correct for a species imbedded in some environment, or for an atom or functional group in a molecule. In most actual situations we can reasonably imagine interpolating among values of ground-state energies for integral numbers of electrons, thereby extending the minimum search of (4.4.1) to arbitrary densities. Then we will be able to use Lagrangemultiplier techniques,
+
+or
+
+For example, a parabolic fit of the three points E°(N - 1), E°(N), and E°(N + 1) for integral N, gives ju = — (I + A)/2, in agreement with (4.4.11), and 17 = (I-A)/2 in agreement with (4.4.12).
+In fact, (4.5.2) is more convenient to handle than (4.4.8), because
+
+4.5
+
+THE CHEMICAL POTENTIAL
+
+85
+
+(6E/6p(r))N is hard to evaluate. Thus, in many practical applications of density functional theory, instead of (4.4.8), (4.5.2) is used, where some interpolation or other is implicit in the treatment of E[p].
+The difference between 6E/6p and (6E/6p)N is itself worth some elaboration (Parr and Bartolotti 1983). One has E = E[p, v]. Writing
+
+where o is a shape factor,
+
+one has E = E[N, o, v] as well. Therefore we may write
+
+and also
+Subtracting these equations we find, since 6N and dv(r) are independent, and Equation (4.5.7) will not here concern us further.
+Does (4.5.8) mean that the term in curly brackets is identically zero? No, because (4.5.4) implies that
+Together, (4.5.8) and (4.5.9) imply that
+or,
+
+86
+
+DENSITY-FUNCTIONAL THEORY
+
+4.5
+
+where the constant cannot be evaluated without more information. The mathematical lemma used here is well known (Courant and Hilbert 1953, p. 201). Note that (4.5.11) is compatible with (4.4.8) and (4.5.2).
+In this chapter we have discussed the concept of chemical potential from various angles: the zero-temperature limit of the grand-canonicalensemble theory, the finite difference in the pure-state theory, the differential in the interpolation theory, and the fuzzy result from consideration of pure states in the Fock space. Equations (4.4.9)-(4.4.12) are clear-cut definitions for most practical purposes. The discontinuity of chemical potential at integral numbers of electrons turns out to be of major importance in calculations of band gaps of solids (Perdew and Levy 1983, Sham and Schliiter 1985. Gunnarsson and Schonhammer 1986, Schonhammer and Gunnarsson 1987, Shen, Bylander, and Kleinman 1988, Sham and Schliiter 1988).
+Ensembles other than the ones we have considered are also of interest. For example, see the Tachibana (1989) proposal to incorporate constraints for an apparatus, affording the possibility of turning an excited state into a ground state and thereby making it accessible to ground-state theory.
+
+5 CHEMICAL POTENTIAL
+DERIVATIVES
+5.1 Change from one ground state to another Before we proceed to the further development of density-functional theory, which will require much detailed argument, we pause to demonstrate its unique power by considering the equations governing the change from one ground state to another. A splendid relevance for chemistry will be revealed.
+The fundamental differential expression of density-functional theory, for the change from one ground state to another for some electronic system, is the formula
+Note that this is a simple generalization of the first-order perturbation formula (1.5.6) to include change in electron number. The coefficient /j, is the chemical potential in the theory, the quantity that was the subject of the previous chapter.
+We now prove (5.1.1). For a change from one ground state to another (the equilibrium state in the grand canonical ensemble at OK), the total differential of the energy E = E[N, v] will be
+This must be the same as the differential of E = E[p] defined by (3.4.9),
+From (3.2.9) or (4.1.20), we find, however, that the ground-state p(r) must satisfy the Euler equation
+while from the first-order perturbation formula (1.5.6) we have
+87
+
+88
+
+DENSITY-FUNCTIONAL THEORY
+
+5.1
+
+Inserting (5.1.4) and (5.1.5) into (5.1.3) proves (5.1.1); note that dN = J dp(r) dr. Comparing (5.1.1) and (5.1.2), we thus obtain
+
+in agreement with (4.1.11). Here, again, we have employed functional derivatives: dE/dv, 6E/6p. For a summary of the mathematical definitions and properties of these and related quantities, see Appendix A.
+Similarly, the change in chemical potential associated with a change in N and/or v is given by the formula
+
+Or, introducing the symbols and
+
+we arrive at the important formula
+
+The second formula for/(r) in (5.1.9) is a "Maxwell relation" following from the fact that dE is an exact differential.
+The density-functional equation (5.1.10) is highly pertinent for chemical concepts; the quantities in it are the subject of the next several sections of this chapter. As already stated in §4.2, u is the negative of the electronegativity of the species; first introduced in §4.3, r/ is the hardness of the species. Both u and r/ are numbers, global properties of the species. The quantity /(r) is a local property that depends on r; we call it the Fukui function for the species (Parr and Yang 1984); ^ and 17 are discussed in §5.2 and §5.3, /(r) in §5.4 and §5.5.
+Returning to the differential formula of (5.1.1), we note that understanding energy changes to second order will require understanding the dependence of u and p(r) on TV and v(r). The differential coefficients of u are given by (5.1.8) and (5.1.9). For p(r) we need (5.1.9) and one other quantity, the two-variable linear response function,
+
+This important property has already been discussed in §1.5.
+
+5.1
+
+CHEMICAL POTENTIAL DERIVATIVES
+
+89
+
+Before proceeding, we should emphasize that in this chapter, beginning with (5.1.1), the ground state energy E[N, v] is assumed to be a continuous and differentiate function of the number of electrons N for a given external potential v(r). The zero-temperature grand-canonicalensemble definition of the ground state for a nonintegral number of electrons, which was discussed in detail in §4.3, provides the result that \JL is equal to — / o r —A according as dN < 0 or dN > 0, where / and A are the ionization potential and electron affinity. This definition does not fully support the use of (5.1.7) (see discussion at the end of §4.3)]. Other interpolation schemes may give a smooth E versus N curve (see §4.4and also §7.4).
+There are, however, two unambiguous ways to read (5.1.6) and (5.1.8), and other formulas involving differentiation with respect to N. One is through the finite-difference methods of (4.4.9)-(4.4.12). The other is to invoke the nonzero-temperature grand-canonical-ensemble description of §3.6, in which all quantities are continuous in the ensemble-average N.
+The natural variables in (5.1.1) and (5.1.10) are N and u(r). Just as in ordinary macroscopic thermodynamics, it is convenient to define new state functions that will be particularly appropriate for use when other variables are more pertinent for a problem at hand. Define F and Q by
+
+Then, one has, for the change of any one ground state into any other,
+
+To derive (5.1.14), take the differential of (5.1.12) and make use of (5.1.1). Equation (5.1.15) follows similarly. The function F has the p(r) as its natural variables, while the functional Q has /u and u(r) as its natural variables.
+The quantity F of (5.1.12) is precisely the Hohenberg-Kohn F of (3.2.4) or (3.4.5), since of course E = T + Vee + Vne = F + Vne. The quantity Q, of (5.1.13) is the zero-temperature grand potential of (3.6.12) or (4.1.4). From (5.1.12), (5.1.13), and the Euler equation (3.2.9) it follows that the ground-state density satisfies
+

@@ -1,0 +1,1408 @@
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+Improved tetrahedron method for the Brillouin-zone integration applicable to response functions
+
+Mitsuaki Kawamura,1,* Yoshihiro Gohda,1 and Shinji Tsuneyuki1,2 1Department of Physics, University of Tokyo, Tokyo 113-0033, Japan
+2Institute for Solid State Physics, University of Tokyo, Kashiwa 277-8581, Japan
+(Received 17 January 2014; published 14 March 2014)
+
+We improve the linear tetrahedron method to overcome systematic errors due to overestimations (underestimations) in integrals for convex (concave) functions, respectively. Our method is applicable to various types of calculations such as the total energy, the charge (spin) density, response functions, and the phonon frequency, in contrast with the Blo¨chl correction, which is applicable to only the ﬁrst two. We demonstrate the ability of our method by calculating phonons in MgB2 and fcc lithium.
+
+DOI: 10.1103/PhysRevB.89.094515
+
+PACS number(s): 71.15.Dx, 71.45.Gm, 74.25.Kc
+
+I. INTRODUCTION
+In calculations of periodic systems on the basis of density functional theory (DFT) [1], integrals of matrix elements over the Brillouin zone (BZ) are evaluated to obtain various physical quantities of solids including the total energy, the electron (spin) density, the density of states, response functions, and the phonon frequency. Since this integral with respect to the Bloch wave vector k is replaced with a summation over a range of points described by a discrete variable k, approximation schemes employed for this summation can signiﬁcantly affect the accuracy and computational costs. Accurate integration using a modest number of k points is even more important for hybrid-DFT [2] and GW approximations [3], because in these cases the computational cost is proportional to the square of the number of k points, whereas standard semilocal approximations have a linear dependence.
+There are two kinds of schemes to perform such an integration over the k points, namely, the broadening method [4] and the tetrahedron method [5]. In the broadening method, we replace the delta function with a smeared function which has a ﬁnite broadening width; we have to check the convergences about both the broadening width and the number of k points to obtain accurate results. In the tetrahedron method, we perform analytical integration in tetrahedral regions covering the BZ with the piecewise linear interpolation of a matrix element. Unlike the broadening method, we have to check the convergence only about the number of k points. The tetrahedron method is applied to calculations of susceptibility [6], phonon frequency [7], phonon line width [8], and the local Green’s function as part of the dynamical mean ﬁeld theory in the Hubbard model [9].
+However, the tetrahedron method has a drawback: if a matrix element Ak is a convex (concave) function of k, this method systematically overestimates (underestimates) its contribution to the integral due to the linear interpolation involved. Although this can be avoided by using the quadratic interpolation, we cannot perform analytical integration straightforwardly in such a case. The Blo¨chl correction [10] was invented to overcome this issue by utilizing the following two facts: (i) the difference between the linear interpolation integration and that using the quadratic interpolation is approximately proportional to the
+
+second derivative of Ak integrated over the occupied region; (ii) although ∂2Ak/∂k2 cannot be evaluated within the framework of linear interpolation, we can perform the volume integral by replacing it with the Fermi surface integration of the ﬁrst derivative of Ak (which can be evaluated by linear interpolation) using the Gauß theorem. Using this method we can reduce the number of k points to obtain converged results for total energies and charge densities. However, in the calculation of response functions or phonon frequencies, the integral k< F d3kAk/( F − k) appears, where Ak is an arbitrary function of k. In this case, the Blo¨chl correction is inapplicable because we cannot perform the Fermi surface integration when ∂(Ak/( F − k))/∂k is singular.
+In this work, we develop a newly improved tetrahedron method that is applicable to calculations involving integrations of functions with singularities on the Fermi surfaces. It is constructed by means of a higher order interpolation and the least-squares method. We apply our method to the BZ integration in calculations of phonon frequencies based on density functional perturbation theory (DFPT) [11]. Following that we successfully calculate the frequency of phonons in MgB2 and fcc Li. In contrast, it is difﬁcult to achieve convergence in this calculation using conventional methods because the phonons in these materials couple strongly with electrons in the vicinity of Fermi surfaces [12,13]. In Sec. II, we describe our new tetrahedron method in detail after summarizing the conventional linear tetrahedron method and the Blo¨chl correction. Section III shows how our method improves the convergence about the number of k points in the calculation of phonons, followed by the conclusion in Sec. IV.
+II. METHOD
+In this section, we introduce our new tetrahedron method; we begin with the standard linear tetrahedron method and the Blo¨chl correction to explain why these methods are not necessarily efﬁcient in calculating response functions such as phonon frequencies.
+A. The linear tetrahedron method and its drawbacks
+We overview the general procedure of the tetrahedron method and its drawbacks. We calculate the integral
+
+*kawamura@cms.phys.s.u-tokyo.ac.jp
+
+d3kAkB( k),
+
+(1)
+
+1098-0121/2014/89(9)/094515(8)
+
+094515-1
+
+©2014 American Physical Society
+
+KAWAMURA, GOHDA, AND TSUNEYUKI
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+FIG. 1. (Color online) Subcell division into six tetrahedra and numbering of the tetrahedron corners; the red lines in the rightmost tetrahedron are the edges of the subcell.
+
+on the basis of the linear tetrahedron method, where B( k) is a function of the orbital energy such as θ ( F − k), δ( F − k), or θ ( F − k)/( F − k). Here, θ (x) is the Heaviside step function. First, we divide a subcell into six tetrahedra (Fig. 1);
+this subcell is partitioned with the uniform k-point mesh; for
+convenience, we number the corners of each tetrahedron from
+1 to 4 along speciﬁc edges of the subcell (see Fig. 1). The
+contribution of this tetrahedron (T ) to the integral (1) is
+
+1
+
+1−x
+
+1−x−y
+
+6VT dx
+
+dy
+
+dzAT (s)B[ T (s)], (2)
+
+0
+
+0
+
+0
+
+where s = (x,y,z), and
+
+AT (s) ≡ AkT1 (1−x−y−z)+kT2 x+kT3 y+kT4 z,
+
+(3)
+
+T (s) ≡ , kT1 (1−x−y−z)+kT2 x+kT3 y+kT4 z
+
+(4)
+
+where kTi is the k point of the ith corner of T . In the linear tetrahedron method, we approximate AT and T with linear
+functions:
+
+A1T (s) = A1(1 − x − y − z) + A2x + A3y + A4z, (5)
+
+1 T
+
+(s)
+
+=
+
+1(1 − x − y − z) +
+
+2x +
+
+3y +
+
+4z,
+
+(6)
+
+where Ai and i are the matrix element and the orbital energy at the ith corner, respectively. The integration (2) with
+formulas (5) and (6) is performed analytically.
+However, linear interpolation has a drawback: if the matrix
+element AT (s) is a convex function within the tetrahedron T , the interpolated function A1T (s) becomes A1T (s) AT (s) in T ; hence, the integral is systematically overestimated. If AT (s) is a concave function, the sign of the inequality is reversed [see
+Fig. 2(a)].
+
+B. The Blo¨chl correction and its limitation In the special case that the integral (1) becomes
+
+d3kAkθ ( F − k),
+
+(7)
+
+we can overcome the drawback of the linear tetrahedron
+method by considering the curvature of Ak within the framework of the linear interpolation [10]; this type of integration
+appears in the calculations of total energies or charge (spin)
+densities. In this case, we can evaluate the difference between the integral (7) with the linear interpolation of Ak (Alin) and that with the quadratic interpolation (Aquad) as follows. First,
+
+FIG. 2. (Color online) Two kinds of approximations of the matrix
+element. True and approximated matrix elements AT are depicted as black dash-doted lines and red solid lines, respectively; the black
+points indicate the matrix elements Ak for a given value of k; the dashed lines indicate the boundaries of the tetrahedra. (a) The liner interpolated function A1T is always smaller (larger) than the true function AT in the case of a convex (concave) function. (b) The leveled linear function is a better approximation of the true function.
+
+we write this difference as
+
+A ≡ Aquad − Alin =
+
+kF
+T
+
+ij
+
+CiTj
+
+∂2Ak ∂ki ∂kj
+
+,
+T
+
+(8)
+
+where CiTj is the form factor describing the shape and the orientation of the tetrahedron as follows,
+
+CiTj
+
+=
+
+1 40
+
+4
+
+4
+
+4
+
+kTl i
+
+kTm j − 4
+
+kTl i kTl j
+
+l=1
+
+m=1
+
+l=1
+
+,
+
+(9)
+
+and · · · T indicates an integration in the tetrahedron T . Now, we replace ∂2Ak/∂k2 with ∂Ak/∂k because the former cannot
+be evaluated in the framework of the linear interpolation, but
+the latter can be. We assume that the form factor is a constant over the entire BZ (CiTj ≈ Cij ), and then we apply the Gauß theorem:
+
+A ≈ Cij
+ij
+
+d3k ∂2Ak k< F ∂ ki ∂ kj
+
+= Cij
+ij
+
+d2k (∇k k)i ∂Ak
+
+k= F
+
+|∇k k| ∂kj
+
+Fermi surface
+≈
+T
+
+ij
+
+CiTj
+
+(∇k k)i ∂Ak |∇k k| ∂kj
+
+.
+T
+
+(10)
+
+However, when we calculate an integral such as
+
+d
+
+3
+
+kAk
+
+θ
+
+(
+
+F− F−
+
+k)
+k
+
+(11)
+
+(this kind of integration appears in the calculations of response functions and phonon frequencies), the difference associated with the two kinds of interpolation becomes
+
+A=
+
+k< F T
+
+ij
+
+CiTj
+
+∂2Ak ∂ki ∂kj
+
+G( k,∇k
+T
+
+k ),
+
+(12)
+
+where G( k,∇k k) is a complicated function of k and ∇k k; therefore, we cannot apply the Blo¨chl correction because we cannot replace ∂2Ak/∂k2 with ∂Ak/∂k as before. This is due to the presence of the energy denominator; hence, we have to
+start with another concept to overcome this issue.
+
+094515-2
+
+IMPROVED TETRAHEDRON METHOD FOR THE . . .
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+TABLE I. Points for constructing a third-order interpolation function.
+
+Nearest-neighbor points on extended lines of each edge of T (green balls in Fig. 3).
+
+k5 = 2k1 − k2 k6 = 2k2 − k3 k7 = 2k3 − k4 k8 = 2k4 − k1
+
+k9 = 2k1 − k3 k10 = 2k2 − k4 k11 = 2k3 − k1 k12 = 2k4 − k2
+
+k13 = 2k1 − k4 k14 = 2k2 − k1 k15 = 2k3 − k2 k16 = 2k4 − k3
+
+Remaining corners of tetrahedra
+
+that share surfaces with T (blue balls in Fig. 3).
+
+k17 = k4 − k1 + k2 k19 = k2 − k3 + k4
+
+k18 = k1 − k2 + k3 k20 = k3 − k4 + k1
+
+C. A newly improved tetrahedron method applicable
+to response functions
+The systematic error of the tetrahedron method is a result of the linear interpolation. Although we can avoid this problem if we use higher order interpolation, the integral (2) becomes unsolvable analytically. The real question is, how can we improve the linear approximation of the matrix elements? The answer is to employ leveling rather than interpolating [see Fig. 2(b)]. The procedure is explained below.
+(1) We construct the N th polynomial ANT (s) from Ak and k using the corners of a tetrahedron T and some additional surrounding points for sampling.
+
+(2) We ﬁt a linear function
+
+ALT SM (s) = A¯1(1 − x − y − z) + A¯2x + A¯3y + A¯4z (13)
+into ANT (s) through the least-squares method (LSM); that is to say, we solve
+
+∂1
+
+1−x
+
+1−x−y
+
+∂ A¯ i
+
+dx
+0
+
+0
+
+dy
+0
+
+dz
+
+× ANT (s) − ALT SM (s) 2 = 0.
+
+(14)
+
+(3)
+
+We apply the same procedure to
+
+k, and obtain
+
+LSM T
+
+(s).
+
+(4) We evaluate integral (2) replacing AT (s) and T (s) with
+
+ALT SM (s) and
+
+LSM T
+
+(s),
+
+respectively.
+
+(5) We repeat the above steps for all tetrahedra.
+
+Although the approximated matrix element ALT SM (s) is discontinuous at boundaries of tetrahedra [see Fig. 2(b)], it is of
+
+no concern because we are interested only in the integrated
+
+value.
+
+D. Implementation
+We use a third-order polynomial A3T (s) as ANT (s) in our implementation. The sampling points used to construct A3T (s) are the corners of the tetrahedron T (4 points) and the other 16 points given in Table I and Fig. 3. As a result, A3T (s) becomes
+
+A3T
+
+(s) =
+
+A1 2
+
+u(u
+
++
+
+1)(2
+
+−
+
+u)
+
++
+
+A2 2
+
+x(x
+
++
+
+1)(2
+
+−
+
+x)
+
++
+
+A3 2
+
+y(y
+
++
+
+1)(2
+
+−
+
+y)
+
++
+
+A4 z(z 2
+
++
+
+1)(2
+
+−
+
+z)
+
+−
+
+u2x 6
+
+(2A5
+
++
+
+A14)
+
+x2y
+
+y2z
+
+z2u
+
+u2y
+
+x2z
+
+− 6 (2A6 + A15) − 6 (2A7 + A16) − 6 (2A8 + A13) − 6 (2A9 + A11) − 6 (2A10 + A12)
+
+−
+
+y2u 6 (2A11
+
++
+
+A9)
+
+−
+
+z2x 6
+
+(2A12
+
++
+
+A10)
+
+−
+
+u2z 6 (2A13
+
++
+
+A8)
+
+−
+
+x2u 6 (2A14
+
++
+
+A5)
+
+−
+
+y2x 6
+
+(2A15
+
++
+
+A6)
+
+−
+
+z2y 6
+
+(2A16
+
++
+
+A7)
+
++ (A2 + A4)xz(u + y) + (A1 + A3)uy(x + z) −
+
+A17 +
+
+A10
+
++ A12 2
+
++
+
+A5 − A14 6
+
++
+
+A13 − A8 6
+
+xzu
+
+−
+
+A18
+
++
+
+A9
+
++ A11 2
+
++
+
+A6
+
+− A15 6
+
++
+
+A14
+
+− 6
+
+A5
+
+xyu −
+
+A19
+
++
+
+A10
+
++ 2
+
+A12
+
++
+
+A7
+
+− A16 6
+
++
+
+A15
+
+− A6 6
+
+xyz
+
+−
+
+A20
+
++
+
+A9
+
++ A11 2
+
++
+
+A8
+
+− A13 6
+
++
+
+A16
+
+− 6
+
+A7
+
+yzu,
+
+(15)
+
+where u = 1 − x − y − z. By substituting it into (14), we obtain ALT SM (s):
+
+20
+
+A¯i = Pij Akj ,
+
+(16)
+
+j =1
+
+where
+
+P = (P(1),P(2),P(3),P(4),P(5)),
+
+(17)
+
+⎛
+
+⎞
+
+1440 0 30 0
+
+P(1)
+
+=
+
+1 1260
+
+⎜⎜⎝
+
+0 30
+
+1440 0 0 1440
+
+30 0
+
+⎟⎟⎠,
+
+(18)
+
+0 30 0 1440
+
+⎛−38
+
+7 17 −28⎞
+
+P(2)
+
+=
+
+1 1260
+
+⎜⎜⎝−1278
+
+−38 −28
+
+7 −38
+
+177⎟⎟⎠ = t P(4), (19)
+
+7 17 −28 −38
+
+⎛−56
+
+9 −46
+
+⎞ 9
+
+P(3)
+
+=
+
+1 1260
+
+⎜⎜⎝−469
+
+−56 9
+
+9 −56
+
+−469⎟⎟⎠,
+
+(20)
+
+9 −46 9 −56
+
+⎛−18 −18 12 −18⎞
+
+P(5)
+
+=
+
+1 1260
+
+⎜⎜⎝−1182
+
+−18 −18
+
+−18 −18
+
+−1182⎟⎟⎠.
+
+(21)
+
+−18 12 −18 −18
+
+094515-3
+
+KAWAMURA, GOHDA, AND TSUNEYUKI
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+FIG. 3. (Color online) Points for constructing a third-order interpolation function (parallel stereogram). Red points denote the corners of T . The blue and green points are explained in Table I.
+
+We go through the same procedure for the orbital energy k. We can consider this procedure in a different way: when we
+calculate the contribution from a tetrahedron, we use the linear tetrahedron method after we have replaced matrix elements and orbital energies with those given in (16). Using this idea, we represent the integration (1) as
+
+d3kAkB( k) = Akwk,
+
+(22)
+
+k
+
+where wk is calculated as follows: (1) We divide the BZ into tetrahedra. (2) We calculate effective orbital energies as
+
+20
+
+¯i =
+
+Pij kTj
+
+j =1
+
+(23)
+
+for the corners of each tetrahedron. (3) We calculate the effective weight w¯ iT using the standard linear tetrahedron method with the effective orbital
+energy (23).
+(4) wk is calculated as
+
+4 20
+
+wk =
+
+Pij w¯ iT δ k − kTj .
+
+T i=1 j =1
+
+(24)
+
+III. COMPARISON WITH OTHER INTEGRATION SCHEMES FOR ACTUAL CALCULATIONS
+
+We implement our method in an ab initio electronic
+
+structure calculation code QUANTUM ESPRESSO [14] which uses
+
+plane waves to represent Kohn-Sham (KS) orbitals. Then, we
+
+test the effectiveness of the method through calculations of
+
+phonons in two systems, MgB2 [15] and fcc lithium at a high
+
+pressure (20 GPa), based on DFPT [11] (Appendix A).
+
+Magnesium diboride has the highest TC (about 40 K)
+
+out of the known phonon-type superconductors. Many ab
+
+initio studies have been performed since it was discovered
+
+[12,16–19], revealing that the high TC is a result of the strong interaction between intralayer vibrations of B atoms
+
+and their covalent bonding orbitals (σ bands) (Fig. 4). This
+
+strong coupling also softens phonon frequencies due to the
+
+screening of the ion-ion interaction; this screening occurs due
+
+to linear responses of σ electrons in the vicinity of the Fermi
+
+surfaces. We have to evaluate these responses accurately to
+
+determine the phonon frequencies precisely. Lithium exhibits
+
+a monatomic fcc structure at pressures between 7.5 and
+
+39 GPa [20]. In this phase it becomes a superconductor. Its
+
+TC increases with pressure up to 30 GPa [21–23] because
+
+otrfanthsveegrsroewatchouosftitchemeoldeectraot nq-p≈ho−n→oKn
+
+interaction. The lower couples with electrons
+
+most strongly in this material [13]. In this test, we consider the
+
+phonons of fcc Li at a pressure of 20 GPa.
+
+We use norm-conserving pseudopotentials [24] in calcu-
+
+lations of MgB2; the cutoff energy of plane waves is set
+
+to 50 Ry. In the calculations of fcc lithium, we use an
+
+ultrasoft pseudopotential [25]. We treat the electrons in the 1s
+
+orbitals as valence electrons [26] and employ a cutoff energy
+
+of 80 Ry. In both of these applications, we use the GGA-
+
+PBE functional [27] and the ﬁrst-order Hermite-Gaussian
+
+function [4,28] for broadening. We apply our method to the
+
+calculation of the frequency of the intralayer vibrational mode
+
+of B atoms at the A point in the BZ (Fig. 5, top left). The
+
+result of the improved tetrahedron method converges faster
+
+than that of the linear tetrahedron method; it converges with
+
+approximately 123 k points. If we use a broadening method
+
+with a small broadening width (0.01 Ry), the result converges
+
+at an unrealistically large number of k points (about 503 k
+
+FIG. 4. (Color online) Left: The Mg-centered Wigner-Seits cell of MgB2. Green and purple spheres indicate Mg and B atoms respectively. The σ orbital (blue and red isosurfaces of opposite signs) and the displacement pattern of the intralayer vibrational mode of the B atoms with wave number q at the A point (arrows) are also depicted. Right: Schematic illustration of the Fermi surfaces of the σ bands; the red arrow indicates the momentum vector of a phonon at the A point which connects occupied (O) and unoccupied (U) regions in the vicinity of the Fermi surface.
+094515-4
+
+IMPROVED TETRAHEDRON METHOD FOR THE . . .
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+Phonon frequency [THz]
+
+MgB2
+
+15.2
+
+14.8
+
+14.4
+
+14
+
+13.6
+
+103 203 303 403 503 603 0
+
+0.02 0.04 0.06
+
+k-point grid
+
+Broadening width [Ry]
+
+Phonon frequency [THz]
+
+fcc Li 7
+
+6.5
+
+6
+
+5.5
+
+5
+
+4.5
+
+203
+
+403
+
+603
+
+k-point grid
+
+0.01
+
+0.03
+
+0.05
+
+Broadening width [Ry]
+
+Tetrahedron: Linear tetrahedron
+Our method
+
+Broadening:
+
+0.01 Ry
+
+0.05 Ry
+
+0.03 Ry
+
+0.06 Ry
+
+FIG. 5. (Color online) Left: k convergences of the frequencies of the intralayer vibrational mode of the B atoms at the A point in the BZ for MgB2 (top) and the lower transverse acoustic mode at the K point in the BZ for fcc Li at 20 GPa (bottom) with a different k integration method. The upward-pointing and downward-pointing triangles with red and green solid lines are the results of the linear and improved tetrahedron methods; the plus signs, multiplication signs, squares, and diamonds with blue, purple, cyan, and black dashed lines denote the results of the broadening method for widths of 0.01, 0.03, 0.05, and 0.06 Ry, respectively. Lines are guides for the eyes. Right: The frequency of these modes converged about the number of k at each broadening width (circles with orange line); the green solid lines indicate the converged value obtained by our method.
+
+points). On the other hand, using large broadening widths (0.03 Ry and 0.06 Ry), convergence occurs at a lower number of k points. However, results are far away from the one converged about the broadening width; the complicated dependence of the convergence on the broadening width is shown in the top-right panel of Fig. 5. The result cannot be represented by a simple function, so it is difﬁcult to extrapolate to a broadening width of zero.
+The bottom left panel of Fig. 5 shows the k convergence of the lower transverse acoustic mode at the K point in the BZ for fcc Li at 20 GPa calculated with the different integration schemes. Our method achieves convergence very quickly; it requires only 163 k points. In this system, the result of the broadening method is very sensitive to the broadening width; the error due to broadening is more than 25% at a width of
+
+0.05 Ry; hence, the broadening method is not suitable for this calculation.
+We will show how the accuracy of the phonon calculations affects the prediction of the superconducting transition temperature within the framework of the following McMillan formula [29,30]:
+
+TC
+
+=
+
+ωln 1.2
+
+exp
+
+−1.04(1 + λ) λ − μ∗(1 + 0.62λ)
+
+.
+
+(25)
+
+Here,
+
+λ=
+
+2
+
+qνknn D( F)ωqν
+
+× gnqkνn k+q 2δ( nk − F)δ( n k+q − F)
+
+(26)
+
+and
+
+1
+
+2
+
+ln(ωln) =
+
+λ
+q ν knn
+
+D(
+
+F)ωqν
+
+ln(ωqν )
+
+× gnqkνn k+q 2δ( nk − F)δ( n k+q − F), (27)
+
+where ωqν is the phonon frequency with the wave number q and the branch ν, nk is the KS eigenvalue with the wave number k and the band index n, and D( F) is the density of states per spin at the Fermi energy. The electron-phonon coupling constant gnqkνn k+q is written in the form
+
+gnqkνn k+q =
+τα
+
+(ηqν)τα n ,k + q | δvS | n,k ,
+
+Mτ ωqν
+
+δRτ α (q )
+
+(28)
+
+where Mτ is a mass of an ion, (ηqν)τα is the unit displacement pattern of the phonon (q,ν), |n,k is the KS orbital, and δvS/δRτα(q) is the linear response of the KS potential with respect to the distortion of the wave number q; τ and α are indices of an ion in the unit cell and a direction in the Cartesian coordinate, respectively. Although there are more precise methods to calculate TC such as density functional theory for superconductors [31,32], we use this simple formula because we are only interested in changes in the results due to the k integration in the phonon calculations.
+To evaluate the integrals in (26) and (27), we use the linear tetrahedron method with a q grid of 6 × 6 × 4 (8 × 8 × 8) and a k grid of 24 × 24 × 18 (32 × 32 × 32) for MgB2 (fcc Li), respectively. Additionally, we calculate each ωqν and δvS/δRτα(q) with different k grids and different k integration schemes.
+Figure 6 shows the result of λ, ωln, and TC from McMillan’s formula (μ∗ = 0.1); in both the MgB2 and Li cases, we obtain very fast k convergence using our method. Comparing the k converged result of our method to that of the broadening method with a width of 0.05 Ry, we can see a large overestimate of the phonon frequencies occurs when the broadening method is used, resulting in an underestimated λ and an overestimated ωln. Moreover, speeds of convergences about the broadening width for calculations of the λ and ωln are very slow; these results have not reach the convergence even for the broadening width of 0.01 Ry; if we use smaller broadening width (such as 0.005 Ry), we need an unrealistic number of k points to obtain the k-converged result.
+
+094515-5
+
+KAWAMURA, GOHDA, AND TSUNEYUKI
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+λ
+
+ωln [K]
+
+MgB2 0.7
+0.66
+0.62 650 640 630
+21 20
+
+ωln [K]
+
+λ
+
+fcc Li 1.6 1.5 1.4 1.3 1.2 1.1
+1 260 240 220 200 180 160
+20
+19
+18
+
+TC [K]
+
+19
+
+17
+
+103
+
+203
+
+k-point grid
+
+Tetrahedron: Linear tetrahedron
+Our method
+
+303
+
+16 103
+
+303
+
+503
+
+k-point grid
+
+Broadening: 0.01 Ry 0.02 Ry
+
+0.03 Ry 0.04 Ry 0.05 Ry
+
+TC [K]
+
+FIG. 6. (Color online) The k convergences of λ (top), ωln (middle), and TC from McMillan’s formula (bottom) of MgB2 (left) and fcc Li (right) calculated using ωqν and δvS/δRτα(q) with different k integration schemes; the upward-pointing and downward-pointing triangles with red and green solid lines are the results of the linear and improved tetrahedron methods; the diamonds, plus signs, multiplication signs, squares, and circles with gray, blue, purple, black, and cyan dashed lines denote the results of broadening methods of widths 0.01, 0.02, 0.03, 0.04, and 0.05 Ry respectively. Lines are guides for the eyes.
+
+IV. CONCLUSION
+We introduced an improvement to the tetrahedron method based on the third-order interpolation and the least-squares method that reduces the number of k points required to obtain converged results of the BZ integrations. Our method is applicable to various kinds of k integration; in particular, it is efﬁcient for calculations of phonons and response functions because the associated computational costs are large and the Blo¨chl correction is not applicable to these calculations. We demonstrated this effectiveness through calculations of phonon frequencies in MgB2 and fcc Li.
+
+Technology Center and the Institute for Solid State Physics, the University of Tokyo.
+
+APPENDIX A: CALCULATION OF WEIGHTS FOR DFPT
+
+The integration weights for the DFPT calculations of phonon frequencies are different from those of the total energy, θ ( F − nk), or the density of states, δ( − nk). They are
+
+Wn(1n)k
+
+=
+
+θ(
+
+n k+q − F)θ ( F − nk − n k+q
+
+nk) ,
+
+(A1)
+
+Wn(2n)k = θ ( F − nk)θ ( nk − n k+q ).
+
+(A2)
+
+In integrations with weights that contain products of two
+step functions, only regions where both Heaviside functions
+become 1 contribute to the results; therefore, we divide the
+tetrahedra two times to cut out these regions (Fig. 7). We will explain how to calculate Wn(1n)k.
+(1) We divide a subcell into six tetrahedra. (2) We cut out one or three tetrahedra T where θ ( F − nk) = 1 from tetrahedron T and evaluate nk, n k+q at the corners of T as
+
+4
+T i = Fij ( F − T 1, . . . , F − T 4) Tj ,
+j =1
+
+(A3)
+
+through linear interpolation (Appendix B). Here T 1, . . . , T 4
+and T 1, . . . , T 4 are nk and n k+q , respectively, on the corners of T , where T 1 T 2 T 3 T 4.
+(3) We cut out one or three tetrahedra T where θ ( n k+q − F) = 1 from tetrahedron T . The orbital energies are calcu-
+lated as
+
+4
+T i = Fij ( T 1 − F, . . . , T 4 − F) T j .
+j =1
+
+(A4)
+
+(4) The weights of the corners of T are (Appendix C)
+
+WT(1)i = −VT
+
+4 j =1,j =i
+
+dj2
+
+ln
+
+dj dj
+
+−ln −di
+
+di
+
+dj
+
+−
+
+1
+
+4 k=1,k=j
+
+(dj
+
+−
+
+dk )
+
+,
+
+(A5)
+
+where di = T i − T i .
+
+ACKNOWLEDGMENTS
+This work was supported by the Elements Strategy Initiative Center for Magnetic Materials (ESICMM) under the outsourcing project of MEXT. The numerical calculations were performed using the Fujitsu FX10s at the Information
+
+FIG. 7. (Color online) Flow of the calculation of weights. We divide the tetrahedra two times to cut out regions where two Heaviside functions become one.
+
+094515-6
+
+IMPROVED TETRAHEDRON METHOD FOR THE . . .
+
+FIG. 8. (Color online) How to divide a tetrahedron in the case of 1 0 < 2 (left), 2 0 < 3 (center), and 3 0 < 4 (right).
+
+(5) We calculate the weights of the corners of T from those of T :
+
+4
+
+WT(1i) =
+
+Fji ( T 1 − F, . . . , T 4 − F)WT(1)j .
+
+j =1
+
+(A6)
+
+(6) We calculate the weights of the corners of T from those of T :
+
+4
+
+WT(1i) =
+
+Fji ( F − T 1, . . . , F − T 4)WT(1j) .
+
+j =1
+
+(A7)
+
+(7) Finally, we sum up the contributions from all tetrahedra:
+
+6Nk 4
+
+Wn(1n)k =
+
+WT i .
+
+T =1 i=1
+
+(A8)
+
+APPENDIX B: HOW TO DIVIDE A TETRAHEDRON
+
+We will explain how to cut out tetrahedra T in the case of
+θ ( ) = 1 from tetrahedron T . We represent nk at the corners of T as 1, . . . , 4, where 1 2 3 4. We deﬁne aij = − j /( i − j ). In all cases
+
+VT = VT | det(F )|.
+
+(B1)
+
+(1) 0 1. We cut out no tetrahedra because θ ( ) becomes
+
+1 over the entire tetrahedron in this case: ⎛1 0 0 0⎞
+
+F = ⎜⎝00
+
+1 0
+
+0 1
+
+00⎟⎠.
+
+(B2)
+
+0001
+
+(2) 1 0 < 2. Three tetrahedra are cut out (Fig. 8, left):
+
+⎛a12 a21 0
+
+0⎞
+
+(a)
+
+F = ⎜⎝aa1134
+
+0 0
+
+a31 0
+
+a041⎟⎠,
+
+(B3)
+
+0001
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+⎛a12 a21 0 0⎞
+
+(b)
+
+F = ⎜⎝a013
+
+0 0
+
+a31 1
+
+00⎟⎠,
+
+(B4)
+
+0 0 01
+
+⎛a12 a21 0 0⎞
+
+(c)
+
+F
+
+=
+
+⎜⎝
+
+0 0
+
+1 0
+
+0 1
+
+00⎟⎠.
+
+(B5)
+
+0 0 01
+
+(3) 2 0 < 3. Three tetrahedra are cut out (Fig. 8,
+
+center):
+
+⎛a13 0 a31 0 ⎞
+
+(a)
+
+F = ⎜⎝a014
+
+0 a24
+
+0 0
+
+aa4412⎟⎠,
+
+(B6)
+
+0001
+
+⎛a13 0 a31 0 ⎞
+
+(b)
+
+F
+
+=
+
+⎜⎝
+
+0 0
+
+a23 a24
+
+a32 0
+
+a042⎟⎠,
+
+0001
+
+(B7)
+
+⎛a13 0 a31 0⎞
+
+(c)
+
+F
+
+=
+
+⎜⎝
+
+0 0
+
+a23 0
+
+a32 1
+
+00⎟⎠.
+
+(B8)
+
+0 0 01
+
+(4) 3
+
+0 < 4. One tetrahedron is cut out (Fig. 8, right):
+
+⎛a14 0
+
+0 a41⎞
+
+F
+
+=
+
+⎜⎝
+
+0 0
+
+a24 0
+
+0 a34
+
+aa4423⎟⎠.
+
+0001
+
+(B9)
+
+APPENDIX C: CALCULATION OF WT(1)
+We represent the matrix elements at the corners of the tetrahedron as f1, . . . ,f4. We evaluate the integral
+
+A = d3k Ak
+
+dT
+
+T
+
+dk
+
+(C1)
+
+using linear interpolation to obtain
+
+1
+
+1−x
+
+1−x−y
+
+AT ≈ 6V dx
+
+dy
+
+dz
+
+0
+
+0
+
+0
+
+× A1 + (A2 − A1)x + (A3 − A1)y + (A4 − A1)z d1 + (d2 − d1)x + (d3 − d1)y + (d4 − d1)z
+
+4
+≡ Ai WT i ,
+i=1
+
+(C2)
+
+where
+
+1
+
+1
+
+1
+
+1
+
+WT i = 6V
+
+dx1 dx2 dx3 dx4
+
+0
+
+0
+
+0
+
+0
+
+×
+
+xi δ(x1 + x2 d1x1 + d2x2
+
++ x3 + + d3x3
+
+x4 +
+
+− d4
+
+1) x4
+
+.
+
+(C3)
+
+This in turn yields (A5).
+
+094515-7
+
+KAWAMURA, GOHDA, AND TSUNEYUKI
+
+PHYSICAL REVIEW B 89, 094515 (2014)
+
+[1] P. Hohenberg and W. Kohn, Phys. Rev. 136, B864 (1964).
+[2] J. Perdew, M. Emzerhof, and K. Burke, J. Chem. Phys. 105, 9982 (1996).
+[3] L. Hedin, Phys. Rev. 139, A796 (1965). [4] M. Methfessel and A. T. Paxton, Phys. Rev. B 40, 3616
+(1989). [5] O. Jepsen and O. K. Andersen, Solid State Commun. 9, 1763
+(1971). [6] J. Rath and A. J. Freeman, Phys. Rev. B 11, 2109 (1975) [7] S. Y. Savrasov, Phys. Rev. Lett. 69, 2819 (1992). [8] S. Y. Savrasov and D. Y. Savrasov, Phys. Rev. B 54, 16487
+(1996). [9] T. Fujiwara, S. Yamamoto, and Y. Ishii, J. Phys. Soc. Jpn. 72,
+777 (2003). [10] P. E. Blo¨chl, O. Jepsen, and O. K. Andersen, Phys. Rev. B 49,
+16223 (1994). [11] S. Baroni, S. de Gironcoli, A. Dal Corso, and P. Giannozzi, Rev.
+Mod. Phys. 73, 515 (2001). [12] M. Calandra, G. Profeta, and F. Mauri, Phys. Rev. B 82, 165111
+(2010). [13] T. Bazhirov, J. Noffsinger, and M. L. Cohen, Phys. Rev. B 82,
+184509 (2010). [14] P. Giannozzi et al., J. Phys.: Condens. Matter 21, 395502 (2009);
+http://www.quantum-espresso.org/. [15] J. Nagamatsu, N. Nakagawa, T. Muranaka, Y. Zenitani, and
+J. Akimitsu, Nature (London) 410, 63 (2001). [16] Y. Kong, O. V. Dolgov, O. Jepsen, and O. K. Andersen, Phys.
+Rev. B 64, 020501 (2001).
+
+[17] K.-P. Bohnen, R. Heid, and B. Renker, Phys. Rev. Lett. 86, 5771 (2001).
+[18] H. J. Choi, D. Roundy, H. Sun, M. L. Cohen, and S. G. Louie, Phys. Rev. B 66, 020513 (2002).
+[19] A. Eiguren and C. Ambrosch-Draxl, Phys. Rev. B 78, 045124 (2008).
+[20] M. Hanﬂand, K. Syassen, N. Christensen, and D. Novikov, Nature (London) 408, 174 (2000).
+[21] S. Deemyad and J. S. Schilling, Phys. Rev. Lett. 91, 167001 (2003).
+[22] V. Struzhkin, M. Eremets, W. Gan, H. Mao, and R. Hemley, Science 298, 1213 (2002).
+[23] K. Shimizu, H. Ishikawa, D. Takao, T. Yagi, and K. Amaya, Nature (London) 419, 597 (2002).
+[24] D. R. Hamann, M. Schlu¨ter, and C. Chiang, Phys. Rev. Lett. 43, 1494 (1979).
+[25] D. Vanderbilt, Phys. Rev. B 41, 7892 (1990). [26] We used the pseudopotential Li.pbe-s-rrkjus_psl.0.2.1.UPF
+from http://www.quantum-espresso.org. [27] J. P. Perdew, K. Burke, and M. Ernzerhof, Phys. Rev. Lett. 78,
+1396 (1997). [28] S. de Gironcoli, Phys. Rev. B 51, 6773 (1995). [29] W. L. McMillan, Phys. Rev. 167, 331 (1968). [30] R. Dynes, Solid State Commun. 10, 615 (1972). [31] L. N. Oliveira, E. K. U. Gross, and W. Kohn, Phys. Rev. Lett.
+60, 2430 (1988). [32] M. Lu¨ders, M. A. L. Marques, N. N. Lathiotakis, A. Floris,
+G. Profeta, L. Fast, A. Continenza, S. Massidda, and E. K. U. Gross, Phys. Rev. B 72, 024545 (2005).
+
+094515-8
+

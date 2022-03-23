@@ -1,0 +1,3298 @@
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+Local unitary transformation, long-range quantum entanglement, wave function renormalization, and topological order
+
+Xie Chen,1 Zheng-Cheng Gu,2 and Xiao-Gang Wen1 1Department of Physics, Massachusetts Institute of Technology, Cambridge, Massachusetts 02139, USA
+2Kavli Institute for Theoretical Physics, University of California, Santa Barbara, California 93106, USA
+͑Received 28 July 2010; revised manuscript received 21 September 2010; published 26 October 2010͒
+
+Two gapped quantum ground states in the same phase are connected by an adiabatic evolution which gives rise to a local unitary transformation that maps between the states. On the other hand, gapped ground states remain within the same phase under local unitary transformations. Therefore, local unitary transformations deﬁne an equivalence relation and the equivalence classes are the universality classes that deﬁne the different phases for gapped quantum systems. Since local unitary transformations can remove local entanglement, the above equivalence/universality classes correspond to pattern of long-range entanglement, which is the essence of topological order. The local unitary transformation also allows us to deﬁne a wave function renormalization scheme, under which a wave function can ﬂow to a simpler one within the same equivalence/universality class. Using such a setup, we ﬁnd conditions on the possible ﬁxed-point wave functions where the local unitary transformations have ﬁnite dimensions. The solutions of the conditions allow us to classify this type of topological orders, which generalize the string-net classiﬁcation of topological orders. We also describe an algorithm of wave function renormalization induced by local unitary transformations. The algorithm allows us to calculate the ﬂow of tensor-product wave functions which are not at the ﬁxed points. This will allow us to calculate topological orders as well as symmetry-breaking orders in a generic tensor-product state.
+
+DOI: 10.1103/PhysRevB.82.155138
+
+PACS number͑s͒: 64.70.Tg, 71.27.ϩa
+
+I. INTRODUCTION
+According to the principle of emergence, the rich properties and the many different forms of materials originate from the different ways in which the atoms are ordered in the materials. Landau symmetry-breaking ͑SB͒ theory provides a general understanding of those different orders and resulting rich states of matter.1,2 It points out that different orders really correspond to different symmetries in the organizations of the constituent atoms. As a material changes from one order to another order ͑i.e., as the material undergoes a phase transition͒, what happens is that the symmetry of the organization of the atoms changes.
+For a long time, we believed that Landau symmetrybreaking theory describes all possible orders in materials and all possible ͑continuous͒ phase transitions. However, in last 20 years, it has become more and more clear that Landau symmetry-breaking theory does not describe all possible orders. After the discovery of high-Tc superconductors in 1986,3 some theorists believed that quantum spin liquids play a key role in understanding high-Tc superconductors4 and started to introduce various spin liquids.5–9 Despite the success of Landau symmetry-breaking theory in describing all kinds of states, the theory cannot explain and does not even allow the existence of spin liquids. This leads many theorists to doubt the very existence of spin liquids. In 1987, in an attempt to explain high-temperature superconductivity, an infrared stable spin liquid—chiral spin state was discovered,10,11 which was shown to be perturbatively stable and exist as quantum phase of matter ͑at least in a large N limit͒. At ﬁrst, not believing Landau symmetry-breaking theory fails to describe spin liquids, people still wanted to use symmetry breaking to describe the chiral spin state. They identiﬁed the chiral spin state as a state that breaks the time-
+
+reversal and parity symmetries but not the spin rotation symmetry.11 However, it was quickly realized that there are many different chiral spin states that have exactly the same symmetry, so symmetry alone is not enough to characterize different chiral spin states. This means that the chiral spin states contain a new kind of order that is beyond symmetry description.12 This new kind of order was named13 topological order.14
+The key to identify ͑and deﬁne͒ new orders is to identify new universal properties that are beyond the local order parameters and long-range correlations used in the Landau symmetry-breaking theory. Indeed, new quantum numbers, such as ground-state degeneracy,12 the non-Abelian Berry’s phase of degenerate ground states,13 and edge excitations,15 were introduced to characterize ͑and deﬁne͒ the different topological orders in chiral spin states. Recently, it was shown that topological orders can also be characterized by topological entanglement entropy.16,17 More importantly, those quantities were shown to be universal ͑i.e., robust against any local perturbation of the Hamiltonian͒ for chiral spin states.13
+The existence of those universal properties establishes the
+existence of topological order in chiral spin states.
+Near the end of 1980s, the existence of chiral spin states
+as a theoretical possibility, as well as their many amazing properties, such as fractional statistics,10,11 spin-charge separation,10,11 and chiral gapless edge excitations,15 were
+established reliably, at least in the large N limit introduced in
+Ref. 18. Even non-Abelian chiral spin states can be established reliably in the large N limit.19 However, it took about
+10 years to establish the existence of a chiral spin state reliably without using large N limit ͑based on an exactly soluble model on honeycomb lattice͒.20
+Soon after the introduction of chiral spin states, experi-
+ments indicated that high-temperature superconductors do
+
+1098-0121/2010/82͑15͒/155138͑28͒
+
+155138-1
+
+©2010 The American Physical Society
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+not break the time-reversal and parity symmetries. So chiral spin states do not describe high-temperature superconductors. Thus the theory of topological order became a theory with no experimental realization. However, the similarity between chiral spin states and fractional quantum Hall ͑FQH͒ states allows one to use the theory of topological order to describe different FQH states.21 Just like chiral spin states, different FQH states all have the same symmetry and are beyond the Landau symmetry-breaking description. Also like chiral spin states, FQH states have ground-state degeneracies22 that depend on the topology of the space.13,21 Those ground-state degeneracies are shown to be robust against any perturbations. Thus, the different orders in different quantum Hall states can be described by topological orders, and the topological order does have experimental realizations.
+The topology-dependent ground-state degeneracy, that signal the presence of topological order, is an amazing phe-
+nomenon. In FQH states, the correlation of any local opera-
+tors are short ranged. This seems to imply that FQH states
+are “short sighted” and they cannot know the topology of
+space which is a global and long-distance property. However,
+the fact that ground-state degeneracy does depend on the
+topology of space implies that FQH states are not short
+sighted and they do ﬁnd a way to know the global and long-
+distance structure of space. So, despite the short-range cor-
+relations of any local operators, the FQH states must contain
+certain hidden long-range correlation. But what is this hidden
+long-range correlation? This will be one of the main topic of
+this paper.
+Since high-Tc superconductors do not break the timereversal and parity symmetries, nor any other lattice symme-
+tries, some people concentrated on ﬁnding spin liquids that
+respect all those symmetries and hoping one of those sym-
+metric spin liquids hold the key to understand high-Tc superconductors. Between 1987 and 1992, many symmetric spin liquids were introduced and studied.5–9,23–26 The excitations
+in some of constructed spin liquids have a ﬁnite energy gap
+while in others there is no energy gap. Those symmetric spin
+liquids do not break any symmetry and, by deﬁnition, are
+beyond Landau symmetry-breaking description.
+By construction, topological order only describes the or-
+ganization of particles or spins in a gapped quantum state. So
+the theory of topological order only applies to gapped spin
+liquids. Indeed, we ﬁnd that the gapped spin liquids do contain nontrivial topological orders25 ͑as signiﬁed by their topology-dependent and robust ground-state degeneracies͒ and are described by topological quantum ﬁeld theory ͑such as Z2 gauge theory͒ at low energies. One of the simplest topologically ordered spin liquids is the Z2 spin liquid which was ﬁrst introduced in 1991.24,25 The existence of Z2 spin liquid as a theoretical possibility, as well as its many amazing properties, such as spin-charge separation,24,25 fractional mutual statistics,25 and topologically protected ground-state degeneracy,25 were established reliably ͑at least in the large N limit introduced in Ref. 18͒. Later, Kitaev introduced the famous toric code model which establishes the existence of the Z2 spin liquid reliably without using large N limit.27 The topologically protected degeneracy of the Z2 spin liquid was used to perform fault-tolerant quantum computation.
+
+The study of high-Tc superconductors also leads to many gapless spin liquids. The stability and the existence of those gapless spin liquid were in more doubts than their gapped counterparts. But careful analysis in certain large N limit do suggest that stable gapless spin liquids can exist.18,28,29 If we do believe in the existence of gapless spin liquids, then the next question is how to describe the orders ͑i.e., the organizations of spins͒ in those gapless spin liquids. If gapped quantum state can contain new type of orders that are beyond Landau’s symmetry-breaking description, it is natural to expect that gapless quantum states can also contain new type of orders. But how to show the existence of new orders in gapless states?
+Just like topological order, the key to identify new orders is to identify new universal properties that are beyond Landau symmetry description. Clearly we can no longer use the ground-state degeneracy to establish the existence of new orders in gapless states. To show the existence of new orders in gapless states, a new universal quantity—projective symmetry group ͑PSG͒—was introduced.30 It was argued that ͑some͒ PSGs are robust against any local perturbations of the Hamiltonian that do not change the symmetry of the Hamiltonian.28–31 So through PSG, we establish the existence of new orders even in gapless states. The new orders are called quantum order to indicate that the new orders are related to patterns of quantum entanglement in the manybody ground state.32
+II. SHORT-RANGE AND LONG-RANGE QUANTUM
+ENTANGLEMENTS
+What is missed in Landau theory so that it fails to describe those new orders? What is the new feature in the organization of particles/spins so that the resulting order cannot be described by symmetry?
+To answer those questions, let us consider a simple quantum system which can be described with Landau theory—the transverse ﬁeld Ising model in two dimensions: H = −B͚Xi − J͚ZiZj, where Xi, Yi, and Zi are the Pauli matrices on site i. In B ӷ J limit, the ground state of the system is an equal-weight superposition of all possible spin-up and spin-down states: ͉⌽+͘ = ͚͕␴i͖͉͕␴i͖͘, where ͕␴i͖ label a particular spin-up ͑Zi = 1͒ and spin-down ͑Zi = −1͒ conﬁgurations. In the J ӷ B limit, the system has two degenerate ground states ͉⌽↑͘ = ͉↑ ↑ ¯ ↑͘ and ͉⌽↓͘ = ͉↓ ↓ ¯ ↓͘.
+The transverse ﬁeld Ising model has a Z → −Z symmetry. The ground state ͉⌽+͘ respect such a symmetry while the ground state ͉⌽↑͘ ͑or ͉⌽↓͒͘ break the symmetry. Thus the small J ground state ͉⌽+͘ and the small B ground state ͉⌽↑͘ describe different phases since they have different symmetries.
+We note that ͉⌽↑͘ is the exact ground state of the transverse ﬁeld Ising model with B = 0. The state has no quantum entanglement since ͉⌽↑͘ is a direct product of local states: ͉⌽↑͘ = i͉ ↑ ͘i where ͉ ↑ ͘i is an up-spin state at site i. The state ͉⌽+͘ is the exact ground state of the transverse ﬁeld Ising model with J = 0. It is also a state with no quantum entanglement: ͉⌽+͘ = i͉͑ ↑ ͘i + ͉ ↓ ͘i͒ ϰ i͉+͘i, where ͉+͘i ϵ ͉ ↑ ͘i + ͉ ↓ ͘i is a state with spin in x direction at site i.
+
+155138-2
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+We see that the states ͑or phases͒ described by Landau symmetry-breaking theory has no quantum entanglement at least in the J = 0 or B = 0 limits. In the J / B Ӷ 1 and B / J Ӷ 1 limits, the two ground states of the two limits still represent two phases with different symmetries. However, in this case, the ground states are not unentangled. On the other hand since the ground states in the J = 0 or B = 0 limits have ﬁnite energy gaps and short-range correlations, a small J or a small B can only modify the states locally. Thus we expect the ground states have only short-range entanglement.
+The above example, if generalized to other symmetrybreaking states, suggests the following conjecture: if a gapped quantum ground state is described by Landau symmetry-breaking theory, then it has short-range quantum entanglement.33
+The direct-product states and short-range-entangled ͑SRE͒ states only represent a small subset of all possible quantum many-body states. Thus, according to the point of view of the above conjecture, we see that what is missed by Landau symmetry-breaking theory is long-range quantum entanglement. It is this long-range quantum entanglement that makes a state to have nontrivial topological/quantum order.
+However, mathematically speaking, the above conjecture is a null statement since the meaning of short-range quantum entanglement is not deﬁned. In the following, we will try to ﬁnd a more precise description ͑or deﬁnition͒ of short-range and long-range quantum entanglements. We will start with a careful discussion of quantum phases and quantum phase transitions.
+III. QUANTUM PHASES AND LOCAL UNITARY
+EVOLUTIONS
+To give a precise deﬁnition of quantum phases, let us consider a local quantum system whose Hamiltonian has a smooth dependence on a parameter g: H͑g͒. The groundstate average of a local operator O of the system, ͗O͑͘g͒, naturally also depend on g. If the function ͗O͑͘g͒, in the limit of inﬁnite system size, has a singularity at gc for some local operators O, then the system described by H͑g͒ has a quantum phase transition at gc. After deﬁning phase transition, we can deﬁne when two quantum ground states belong to the same phase: let ͉⌽͑0͒͘ be the ground state of H͑0͒ and ͉⌽͑1͒͘ be the ground state of H͑1͒. If we can ﬁnd a smooth path H͑g͒, 0 Յ g Յ 1 that connect the two Hamiltonian H͑0͒ and H͑1͒ such that there is no phase transition along the path, then the two quantum ground states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ belong to the same phase. We note that “connected by a smooth path” deﬁne an equivalence relation between quantum states. A quantum phase is an equivalence class of such equivalence relation. Such an equivalence class is called an universality class.
+If ͉⌽͑0͒͘ is the ground state of H͑0͒ and in the limit of inﬁnite system size all excitations above ͉⌽͑0͒͘ have a gap, then for small enough g, we believe that the systems described by H͑g͒ are also gapped.34 In this case, we can show that, the ground state of H͑g͒, ͉⌽͑g͒͘, is in the same phase as ͉⌽͑0͒͘, for small enough g, i.e., the average ͗O͑͘g͒ is a
+
+E
+
+E
+
+∆
+
+(a)
+
+s
+
+∆
+
+ε
+
+(b)
+
+s
+
+E
+
+E
+
+(c)
+
+s
+
+(d)
+
+s
+
+FIG. 1. ͑Color online͒ Energy spectrum of a gapped system as a function of a parameter s in the Hamiltonian. ͓͑a͒ and ͑b͔͒ For gapped system, a quantum phase transition can happen only when energy gap closes. ͑a͒ describes a ﬁrst-order quantum phase transition ͑caused by level crossing͒. ͑b͒ describes a continuous quantum phase transition which has a continuum of gapless excitations at the transition point. ͑c͒ and ͑d͒ cannot happen for generic states. A gapped system may have ground-state degeneracy, where the en-
+ergy splitting between the ground states vanishes when system size L → ϱ: limL→ϱ ⑀ = 0. The energy gap ⌬ between ground and excited states on the other hand remains ﬁnite as L → ϱ.
+
+smooth function of g near g = 0 for any local operator O.35 After scaling g to 1, we ﬁnd that: if the energy gap for H͑g͒ is ﬁnite for all g in the segment ͓0,1͔, then there is no phase transition along the path g.
+In other words, for gapped system, a quantum phase transition can happen only when energy gap closes35 ͑see Fig. 1͒.36 Here, we would like to assume that the reverse is also true: a closing of the energy gap for a gapped state always
+induces a phase transition. Or more precisely if two gapped states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are in the same phase, then we can always ﬁnd a family of Hamiltonian H͑g͒ , such that the energy gap for H͑g͒ are ﬁnite for all g in the segment [0,1], and ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are ground states of H͑0͒ and H͑1͒ , respectively.
+The above two statements imply that two gapped quantum states are in the same phase ͉⌽͑0͒͘ ϳ ͉⌽͑1͒͘ if and only if they can be connected by an adiabatic evolution that does not
+close the energy gap. Given two states, ͉⌽͑0͒͘ and ͉⌽͑1͒͘, determining the ex-
+istence of such a gapped adiabatic connection can be hard.
+We would like to have a more operationally practical equiva-
+lence relation between states in the same phase. Here we would like to show that two gapped states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are in the same phase, if and only if they are related by a local unitary ͑LU͒ evolution. We deﬁne a LU evolution as a unitary operation generated by time evolution of a local
+Hamiltonian for a ﬁnite time. That is,
+
+͓ ͔ ͉⌽͑1͒͘ ϳ ͉⌽͑0͒͘ iff ͉⌽͑1͒͘ = T e−i͐01dgH˜ ͑g͒ ͉⌽͑0͒͘, ͑1͒
+
+where T is the path-ordering operator and H˜ ͑g͒ = ͚iOi͑g͒ is a sum of local Hermitian operators. Note that H˜ ͑g͒ is in general different from the adiabatic path H͑g͒ that connects the
+two states.
+
+155138-3
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+First, assume that two states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are in the same phase, therefore we can ﬁnd a gapped adiabatic path H͑g͒ between the states. The existence of a gap prevents the system to be excited to higher energy levels and leads to a local unitary evolution, the quasiadiabatic continuation as deﬁned in Ref. 35, that maps from one state to the other. That is,
+
+͓ ͔ ͉⌽͑1͒͘ = U͉⌽͑0͒͘, U = T e−i͐01dgH˜ ͑g͒ .
+
+͑2͒
+
+The exact form of H˜ ͑g͒ is given in Refs. 34 and 35 and will
+be discussed in more detail in the Appendix.
+On the other hand, the reverse is also true: if two gapped states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are related by a local unitary evolution, then they are in the same phase. Since ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are related by a local unitary evolution, we have ͉⌽͑1͒͘ = T͓e−i͐01dgH˜ ͑g͔͉͒⌽͑0͒͘. Let us introduce
+
+͓ ͔ ͉⌽͑s͒͘ = U͑s͉͒⌽͑0͒͘, U͑s͒ = T e−i͐0sdgH˜ ͑g͒ .
+
+͑3͒
+
+Assume ͉⌽͑0͒͘ is a ground state of H͑0͒, then ͉⌽͑s͒͘ is a ground state of H͑s͒ = U͑s͒HU†͑s͒. If H͑s͒ remains local and gapped for all s ෈ ͓0 , 1͔, then we have found an adiabatic connection between ͉⌽͑0͒͘ and ͉⌽͑1͒͘.
+First, let us show that H͑s͒ is a local Hamiltonian. Since H is a local Hamiltonian, it has a form H = ͚iOi, where Oi only acts on a cluster whose size is ␰. ␰ is called the range of interaction of H. We see that H͑s͒ has a form H͑s͒ = ͚iOi͑s͒, where Oi͑s͒ = U͑s͒OiU†͑s͒. To show that Oi͑s͒ only acts on a cluster of a ﬁnite size, we note that for a local system described by H˜ ͑g͒, the propagation velocities of its excitations have a maximum value vmax. Since Oi͑s͒ can be viewed as the time evolution of Oi by H˜ ͑t͒ from t = 0 to t = s, we ﬁnd that Oi͑s͒ only acts on a cluster of size ␰ +˜␰ + svmax,35,37 where ˜␰ is the range of interaction of H˜ . Thus H͑s͒ are indeed local Hamiltonian.
+If H has a ﬁnite energy gap, then H͑s͒ also have a ﬁnite
+energy gap for any s. As s goes for 0 to 1, the ground state of the local Hamiltonians, H͑s͒, goes from ͉⌽͑0͒͘ to ͉⌽͑1͒͘. Thus the two states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ belong to the same
+phase. This completes our argument that states related by a
+local unitary evolution belong to the same phase.
+The ﬁniteness of the evolution time is very important in
+the above discussion. Here “ﬁnite” means the evolution time
+does not grow with system size and in the thermodynamic
+limit, phases remain separate under such evolutions, as
+proven in Ref. 38. On the other hand, if the system size
+under consideration is ﬁnite, there is a critical time limit
+above which phase separation could be destroyed. The time
+limit depends on the propagation speed of interactions in the
+Hamiltonian. This is the case in Ref. 39, where topological
+order as measured by topological entropy and ﬁdelity was found to decay under certain local Hamiltonian evolution ͑a quantum quench͒. However this result does not contradict
+our statement. As the calculation is done for a particular
+system size, the critical time limit could be below or above
+the time period they studied. If the calculation could be done
+
+for larger and larger system sizes for a ﬁxed amount of time, we expect that topological order should emerge as stable against local quenches.
+Thus through the above discussion, we show that two gapped ground states,40 ͉⌽͑0͒͘ and ͉⌽͑1͒͘ , belong to the same phase if and only if they are related by a local unitary evolution [Eq. (1)]. A more detailed and more rigorous discussion of this equivalence relation is given in the Appendix, where exact bounds on locality and transformation error is given.
+The relation ͓Eq. ͑1͔͒ deﬁnes an equivalence relation between ͉⌽͑0͒͘ and ͉⌽͑1͒͘. The equivalence classes of such an equivalence relation represent different quantum phases. So the above result implies that the equivalence classes of the LU evolutions are the universality classes of quantum phases for gapped states.
+IV. TOPOLOGICAL ORDER IS A PATTERN OF LONG-RANGE ENTANGLEMENT
+Using the LU evolution, we can obtain a more precise description ͑or deﬁnition͒ of short-range entanglement: a state has only short-range entanglement if and only if it can be transformed into an unentangled state (i.e., a directproduct state) through a local unitary evolution.
+If a state cannot be transformed into an unentangled state through a LU evolution, then the state has long-range entanglement ͑LRE͒. We also see that all states with shortrange entanglement can transform into each other through local unitary evolutions.
+Thus all states with short-range entanglement belong to the same phase. The local unitary evolutions we consider here do not have any symmetry. If we require certain symmetry of the local unitary evolutions, states with short-range entanglement may belong to different symmetry breaking phases, which will be discussed in Sec. VI.
+Since a direct-product state is a state with trivial topological order, we see that a state with a short-range entanglement also has a trivial topological order. This leads us to conclude that a nontrivial topological order is related to long-range entanglement. Since two gapped states related by a LU evolution belong to the same phase, thus two gapped states related by a local unitary evolution have the same topological order. In other words, topological order describes the equivalent classes deﬁned by local unitary evolutions.
+Or more pictorially, topological order is a pattern of longrange entanglement. In Ref. 38, it was shown that the “topologically nontrivial” ground states, such as the toric code,27 cannot be changed into a “topologically trivial” state such as a product state by any unitary locality-preserving operator. In other words, those topologically nontrivial ground states have long-range entanglement.
+V. LU EVOLUTIONS AND QUANTUM CIRCUITS
+The LU evolutions introduced here is closely related to quantum circuits with ﬁnite depth. To deﬁne quantum circuits, let us introduce piecewise local unitary operators. A piecewise local unitary operator has a form Upwl = ͟iUi,
+
+155138-4
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+1 2 ... l Ui (b)
+(a)
+FIG. 2. ͑Color online͒ ͑a͒ A graphic representation of a quantum circuit, which is formed by ͑b͒ unitary operations on patches of ﬁnite size l. The dark shading represents a causal structure.
+
+where ͕Ui͖ is a set of unitary operators that act on nonoverlapping regions. The size of each region is less than some
+ﬁnite number l. The unitary operator Upwl deﬁned in this way is called a piecewise local unitary operator with range
+l. A quantum circuit with depth M is given by the product of M piecewise local unitary operators ͑see Fig. 2͒: UcMirc = U͑p1w͒lU͑p2w͒l ¯ U͑pMwl͒. In quantum information theory, it is known that ﬁnite time unitary evolution with local Hamiltonian ͑LU evolution deﬁned before͒ can be simulated with constant depth quantum circuit and vice versa. Therefore, the equivalence relation ͓Eq. ͑1͔͒ can be equivalently stated in terms of constant depth quantum circuits,
+
+͉⌽͑1͒͘ ϳ ͉⌽͑0͒͘ iff ͉⌽͑1͒͘ = UcMirc͉⌽͑0͒͘,
+
+͑4͒
+
+where M is a constant independent of system size. Because of their equivalence, we will use the term “local unitary transformation” to refer to both local unitary evolution and constant depth quantum circuit in general.
+The LU transformation deﬁned through LU evolution ͓Eq. ͑1͔͒ is more general. It can be easily generalized to study topological orders and quantum phases with symmetries ͑see Sec. VI͒.30,41 The quantum circuit has a more clear and simple causal structure. However, the quantum circuit approach breaks the translation symmetry. So it is more suitable for studying quantum phases that do not have translation symmetry.
+In fact, people have been using quantum circuits to classify many-body quantum states which correspond to quantum phases of matter. In Ref. 42, the local unitary transformations described by quantum circuits was used to deﬁne a renormalization-group ͑RG͒ transformations for states and establish an equivalence relation in which states are equivalent if they are connected by a local unitary transformation. Such an approach was used to classify one-dimensional matrix product states. In Ref. 43, the local unitary transformations with disentanglers was used to perform a renormalization-group transformations for states, which give rise to the multiscale entanglement renormalization ansatz ͑MERA͒ in one and higher dimensions. The disentanglers and the isometries in MERA can be used to study quantum phases and quantum phase transitions in one and higher dimensions. For a class of exactly solvable Hamiltonians which come from the stabilizer codes in quantum computation, topological order has also been classiﬁed using local unitary circuits.44 Later in this paper, we will use the quantum circuit description of LU transformations to classify two-dimensional ͑2D͒ topological orders through classifying the ﬁxed-point LU transformations.
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+g
+2 SRE
+
+g
+2 SB−SRE 1 SY−SRE 1
+
+SB−SRE 2 SY−SRE 2
+
+LRE 1
+
+LRE 2
+
+(a)
+
+g1
+
+SY−LRE 1 SY−LRE 2 SY−LRE 3
+
+SB−LRE 1 SB−LRE 2 SB−LRE 3
+
+(b)
+
+g1
+
+FIG. 3. ͑Color online͒ ͑a͒ The possible phases for a Hamiltonian H͑g1 , g2͒ without any symmetry. ͑b͒ The possible phases for a Hamiltonian Hsymm͑g1 , g2͒ with some symmetries. The shaded regions in ͑a͒ and ͑b͒ represent the phases with short-range entanglement ͑i.e., those ground states can be transformed into a direct
+product state via a generic LU transformations that do not have any
+symmetry͒.
+
+VI. SYMMETRY-BREAKING ORDERS AND SYMMETRY
+PROTECTED TOPOLOGICAL ORDERS
+In the above discussions, we have deﬁned phases without any symmetry consideration. The H˜ ͑g͒ or Upwl in the LU transformation does not need to have any symmetry and can be sum/product of any local operators. In this case, two Hamiltonians with an adiabatic connection are in the same phase even if they may have different symmetries. Also, all states with short-range entanglement belong to the same phase ͑under the LU transformations that do not have any symmetry͒.
+On the other hand, we can consider only Hamiltonians H with certain symmetries and deﬁne phases as the equivalent classes of symmetric local unitary transformations,
+͑ ͒ ͉⌿͘ ϳ T e−i͐01dgH˜ ͑g͒ ͉⌿͘ or ͉⌿͘ ϳ UcMirc͉⌿͘,
+where H˜ ͑g͒ or UcMirc has the same symmetries as H. We note that the symmetric local unitary transformation in the form T͑e−i͐01dgH˜ ͑g͒͒ always connect to the identity transformation continuously. This may not be the case for the transformation in the form UcMirc. To rule out that possibility, we deﬁne symmetric local unitary transformations as those that connect to the identity transformation continuously.
+The equivalent classes of the symmetric LU transformations have very different structures compared to those of LU transformations without symmetry. Each equivalent class of the symmetric LU transformations is smaller and there are more kinds of classes, in general.
+Figure 3 compares the structure of phases for a system without any symmetry and a system with some symmetry in more detail. For a system without any symmetry, all the SRE states ͑i.e., those ground states can be transformed into a direct product state via a generic LU transformations that do not have any symmetry͒ are in the same phase ͓SRE in Fig. 3͑a͔͒. On the other hand, LRE can have many different patterns that give rise to different topological phases ͓LRE 1 and LRE 2 in Fig. 3͑a͔͒. The different topological orders usually give rise to quasiparticles with different fractional statistics and fractional charges.
+For a system with some symmetries, the phase structure can be much more complicated. The short-range-entangled states no longer belong to the same phase since the equiva-
+
+155138-5
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+lence relation is described by more special symmetric LU transformations: ͑A͒ states with short-range entanglement belong to different equivalent classes of the symmetric LU transformations if they have different broken symmetries. They correspond to the SB short-range-entanglement phases SB-SRE 1 and SB-SRE 2 in Fig. 3͑b͒. They are Landau’s symmetry-breaking states.
+͑B͒ States with short-range entanglement can belong to different equivalent classes of the symmetric LU transformations even if they do not break any symmetry of the system. ͑In this case, they have the same symmetry.͒ They correspond to the symmetric ͑SY͒ short-range-entangled phases SY-SRE 1 and SY-SRE 2 in Fig. 3͑b͒. We say those states have symmetry protected topological orders. Haldane phase45 and Sz = 0 phase of spin-1 chain are examples of states with the same symmetry which belong to two different equivalent classes of symmetric LU transformations ͑with parity symmetry͒.41,46 Band and topological insulators47–52 are other examples of states that have the same symmetry and at the same time belong to two different equivalent classes of symmetric LU transformations ͑with time reversal symmetry͒. Also, for a system with some symmetries, the long-range-entangled states are divided into more classes ͑more phases͒.
+͑C͒ Symmetry-breaking and long-range entanglements can appear together in a state, such as SB-LRE 1, SB-LRE 2, etc., in Fig. 3͑b͒. The topological superconducting states are examples of such phases.53,54
+͑D͒ Long-range-entangled states that do not break any symmetry can also belong to different phases such as the symmetric long-range-entanglement phases SY-LRE 1, SYLRE 2, etc., in Fig. 3͑b͒. The many different Z2 symmetric spin liquids with spin rotation, translation, and time-reversal symmetries are examples of those phases.30,55,56 Some timereversal symmetric topological orders were also called topological Mott insulators or fractionalized topological insulators.57–62
+VII. LOCAL UNITARY TRANSFORMATION AND WAVE
+FUNCTION RENORMALIZATION
+After deﬁning topological order as the equivalent classes of many-body wave functions under LU transformations, we like to ask: how to describe ͑or label͒ the different equivalent classes ͑i.e., the different topological orders or patterns of long-range entanglement͒?
+One simple way to do so is to use the full wave function which completely describe the different topological orders. But the full wave functions contain a lot of nonuniversal short-range entanglement. As a result, such a labeling scheme is a very inefﬁcient many-to-one labeling scheme of topological orders. To ﬁnd a more efﬁcient or even one-toone labeling scheme, we need to remove the nonuniversal short-range entanglement.
+As the ﬁrst application of the notion of LU transformation, we would like to describe a wave function renormalization-group ﬂow introduced in Refs. 43 and 63. The wave function renormalization can remove the shortrange entanglement and simplify the wave function. In Ref.
+
+FIG. 4. ͑Color online͒ A ﬁnite depth quantum circuit can transform a state ͉⌽͘ into a direct-product state, if and only if the state ͉⌽͘ has no long-range quantum entanglement. Here, a dot represents a site with physical degrees of freedom. A vertical line carries an index that label the different physical states on a site. The presence of horizontal lines between dots represents quantum entanglement.
+
+63, the wave function renormalization for string-net states is generated by the following two basic moves:
+
+k
+
+Φ
+
+il j
+
+=δij Φ
+
+i
+
+͑5͒
+
+Φ
+
+i ml jk
+
+=
+
+Fljki∗mn∗∗ Φ
+
+il j nk
+
+n
+
+͑6͒
+
+͑Note that the deﬁnition of the F-tensor in Ref. 63 is slightly different from the deﬁnition in this paper.͒ The two basic moves can generate a generic wave function renormalization which can reduce the string-net wave functions to very simple forms.17,63 Later in Ref. 43, the wave function renormalization for generic states was discussed in a more general setting, and was called MERA. The two basic string-net moves ͓Eqs. ͑5͒ and ͑6͔͒ correspond to the isometry and the disentangler in MERA, respectively. In the MERA approach, the isometries and the disentanglers are applied in a layered fashion while in the string-net approach, the two basic moves can be applied arbitrarily. In this section, we will follow the MERA setup to describe the wave function renormalization. Later in this paper, we will follow the string-net setup to study the ﬁxed-point wave functions.
+Note that we can use a LU transformation U to transform some degrees of freedom in a state into direct product ͑see Figs. 4 and 5͒. We then remove those degrees of freedom in the form of direct product. Such a procedure does not change the topological order. The reverse process of adding degrees of freedom in the form of direct product also does not change the topological order. We call the local transformation in Fig. 5 that changes the degrees of freedom a generalized local
+
+FIG. 5. ͑Color online͒ A piecewise local unitary transformation can transform some degrees of freedom in a state ⌽ into a direct product. Removing/adding the degrees of freedom in the form of direct product deﬁnes an additional equivalence relation that deﬁnes the topological order ͑or classes of long-range entanglement͒.
+
+155138-6
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+U
+
+region A
+
+(a)
+
+U P
+U
+
+region A
+
+(b)
+
+FIG. 6. ͑Color online͒ ͑a͒ A gLU transformation U acts in region A of a state ͉⌽͘, which reduces the degree of freedom in region A to those contained only in the support space of ͉⌽͘ in region A. ͑b͒ U†U = P is a projector that does not change the state ͉⌽͘.
+unitary ͑gLU͒ transformation. It is clear that a generalized local unitary transformation inside a region A does not change the reduced density matrix ␳A for the region A. This is the reason why we say that ͑generalized͒ local unitary transformations cannot change long-range entanglement and
+topological order. Similarly, the addition or removal of de-
+coupled degrees of freedom to or from the Hamiltonian, H ↔ H  Hdp, will not change the phase of the Hamiltonian ͑i.e., the ground states of H and H  Hdp are in the same phase͒, if those degrees of freedom form a direct product state ͑i.e., the ground state of Hdp is a direct product state͒.
+Let us deﬁne the gLU transformation U more carefully and in a more general setting. Consider a state ͉⌽͘. Let ␳A be the reduced density matrix of ͉⌽͘ in region A. ␳A may act in a subspace of the total Hilbert space VA in region A, which is called the support space VAsp of region A. The dimension DAsp of VAsp is called support dimension of region A. Now the Hilbert space VA in region A can be written as VA = VAsp  ¯VAsp. Let ͉˜␺i͘, i = 1 , . . . , DAsp be a basis of this support space VAsp, ͉˜␺i͘, i = DAsp + 1 , . . . , DA be a basis of ¯VAsp, where DA is the dimension of VA, and ͉␺i͘, i = 1 , . . . , DA be a basis of VA. We can introduce a LU transformation Ufull which rotates the basis ͉␺i͘ to ͉˜␺i͘. We note that in the new basis, the wave function only has nonzero amplitudes on the ﬁrst DAsp basis vectors. Thus, in the new basis ͉˜␺i͘, we can reduce the range of the label i from ͓1 , DA͔ to ͓1 , DAsp͔ without losing any information. This motivates us to introduce the gLU transformation as a rotation from ͉␺i͘, i = 1 , . . . , DA to ͉˜␺i͘, i = 1 , . . . , DAsp. The rectangular matrix U is given by Uij = ͗˜␺i ͉ ␺j͘. We also regard the inverse of U , U†, as a gLU transformation. A LU transformation is viewed as a special
+case of gLU transformation where the degrees of freedom are not changed. Clearly U†U = P and UU† = PЈ are two projectors. The action of P does not change the state ͉⌽͘ ͓see Fig. 6͑b͔͒.
+We note that despite the reduction in the degrees of free-
+dom, a gLU transformation deﬁnes an equivalent relation.
+Two states related by a gLU transformation belong to the
+same phase. The renormalization ﬂow induced by the gLU
+transformations always ﬂows within the same phase.
+
+VIII. WAVE FUNCTION RENORMALIZATION AND A CLASSIFICATION OF TOPOLOGICAL ORDER
+As an application of the wave function renormalization, in this section, we will study the structure of ﬁxed-point wave functions under the wave function renormalization, which will lead to a classiﬁcation of topological order ͑without any symmetry͒.
+We note that as wave functions ﬂow to a ﬁxed point, the gLU transformations in each step of the renormalization also ﬂow to a ﬁxed point. So instead of studying ﬁxed-point wave functions, here, we will study the ﬁxed-point gLU transformations. For this purpose, we need to ﬁx the renormalization scheme. In the following, we will discuss a renormalization scheme motivated by the string-net wave function.63 After we specify a proper wave function renormalization scheme, then the ﬁxed-point wave function is simply the wave function whose “form” does not change under the wave function renormalization.
+Since those ﬁxed-point gLU transformations do not change the ﬁxed-point wave function, their actions on the ﬁxed-point wave function do not depend on the order of the actions. This allows us to obtain many conditions that gLU transformations must satisfy. From those conditions, we can determine the forms of allowed ﬁxed-point gLU transformations. This leads to a general description and a classiﬁcation of topological orders and their corresponding ﬁxed-point wave functions.
+The renormalization scheme that we will discuss was ﬁrst used in Ref. 63 to characterize the scale invariant string-net wave function. It is also used in Ref. 17 to simplify the string-net state in a region, which allows us to calculate the entanglement entropy of the string-net state exactly. A similar approach was used in Ref. 64 to show quantum-double/ string-net wave function to be a ﬁxed-point wave function and its connection to 2D MERA.43 In the following, we will generalize those discussions by not starting with string-net wave functions. We just try to construct local unitary transformations at a ﬁxed point. We will see that the ﬁxed-point conditions on the gLU transformations lead to a mathematical structure that is similar to the tensor category theory—the mathematical framework behind the string-net states.
+A. Quantum states on a graph
+Since the wave function renormalization may change the lattice structure, we will consider quantum states deﬁned on a generic trivalence graph G: each edge has N + 1 states, labeled by i = 0 , . . . , N ͑see Fig. 7͒. We assume that the index i on the edge admits an one-to-one mapping ‫ء‬: i → i‫ ء‬that satisﬁes ͑i‫ = ء͒ء‬i. As a result, the edges of the graph are oriented. The mapping i → i‫ ء‬corresponds to the reverse of the orientation of the edge ͑see Fig. 8͒. Each vertex also has physical states, labeled by ␣ = 1 , . . . , Nv ͑see Fig. 7͒.
+Each labeled graph ͑see Fig. 7͒ corresponds to a state and all the labeled graphs form an orthonormal basis. Our ﬁxedpoint state is a superposition of those basis states:
+
+155138-7
+
+CHEN, GU, AND WEN
+
+mβ l
+
+γ
+
+i=0,...,N
+
+k α= 1,...,Nv
+
+jλ
+
+n
+
+FIG. 7. A quantum state on a graph G. There are N + 1 states on
+each edge which are labeled by l = 0 , . . . , N. There are Nv states on each vertex which are labeled by ␣ = 1 , . . . , Nv.
+
+|Φﬁx = all conf. Φﬁx
+
+.
+
+Here we will make an important assumption about the
+
+ﬁxed-point wave function. We will assume that the ﬁxed-
+
+point wave function is “topological:” two labeled graphs
+
+have the same amplitude if the two labeled graphs can be
+
+deformed into each other continuously on the plane without
+
+the vertices crossing the links. For example,
+
+⎛
+
+⎞
+
+⎛
+
+⎞
+
+0
+
+ψﬁx ⎝1
+
+21 01
+
+1 ⎠ = ψﬁx ⎝2
+
+21 10
+
+0⎠
+
+0
+
+Due to such an assumption, the topological orders studied in this paper may not be most general.
+We also assume that all the ﬁxed-point states on each different graphs to have the same form. This assumption is motivated by the fact that during wave function renormalization, we transform a state on one graph to a state on a different graph. The “ﬁxed point” means that the wave functions on those different graphs are all determined by the same collection of the rules, which deﬁnes the meaning of having the same form. However, the wave function for a given graph can have different total phases if the wave function is calculated by applying the rules in different orders. Those rules are noting but the ﬁxed-point gLU transformations.
+
+B. Structure of entanglement in a ﬁxed-point wave function
+Before describing the wave function renormalization, let us examine the structure of entanglement of a ﬁxed-point wave function. First, let us consider a ﬁxed-point wave function ⌽fix on a graph. We examine the wave function on a patch of the graph, for example,
+
+i
+
+i*
+
+FIG. 8. The mapping i → i‫ ء‬corresponds to the reverse of the orientation of the edge.
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+mβ l
+
+γ
+
+i
+
+k α= 1,...,Νijk
+
+jλ
+
+n
+
+FIG. 9. A quantum state on a graph G. If the three edges of a
+vertex are in the states i, j, and k, respectively, then the vertex has Nijk states, labeled by ␣ = 1 , . . . , Nijk. Note the orientation of the edges are point toward to vertex. Also note that i → j → k runs anticlockwise.
+
+i αj k
+mβ .
+l
+The ﬁxed-point wave function
+i αj k
+Φ ﬁx m β
+l
+
+͑only the relevant part of the graph is drawn͒ can be viewed as a function of ␣ , ␤ , m:
+
+ψijkl,Γ(α, β, m) = Φﬁx
+
+i αj k mβ l
+
+if we ﬁx i , j , k , l and the indices on other part of the graph. ͑Here the indices on other part of the graph is summarized by ⌫.͒ As we vary the indices ⌫ on other part of graph ͑still keeping i, j, k, and l ﬁxed͒, the wave function of ␣ , ␤ , m, ␺ijkl,⌫͑␣ , ␤ , m͒, may change. All those ␺ijkl,⌫͑␣ , ␤ , m͒ form a linear space of dimension Dijkl‫ء‬. Dijkl is an important concept that will appear later. We note that the two vertices ␣ and ␤ and the link m form a region surrounded by the links i , j , k , l.
+So we will call the dimension-Dijkl‫ ء‬space the support space Vijkl‫ ء‬and Dijkl‫ ء‬the support dimension for the state ⌽fix on the region surrounded by the ﬁxed boundary state i , j , k , l.
+Similarly, we can deﬁne Dijk as the support dimension of the
+i
+Φ ﬁx j α k
+
+on a region bounded by links i , j , k. Since the region contains only a single vertex ␣ with Nv physics states, we have Dijk Յ Nv. We can use a local unitary transformation on the vertex to reduce the range of ␣ to 1 , . . . , Nijk, where Nijk = Dijk. In the rest of this paper, we will implement such a reduction. So, the number of physical states on a vertex de-
+pend on the physical states of the edges that connect to the
+vertex. If the three edges of a vertex are in the states i, j, and
+k, respectively, then the vertex has Nijk states, labeled by ␣ = 1 , . . . , Nijk ͑see Fig. 9͒. Here we assume that
+
+Nijk = Njki.
+
+͑7͒
+
+155138-8
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+We note that in the ﬁxed-point wave function
+
+Φﬁx
+
+i αj k
+
+mβ
+
+,
+
+l
+
+the number of choices of ␣ , ␤ , m is Nijkl‫͚ = ء‬mN=0Njim‫ء‬Nkml‫ء‬. Thus the support dimension Dijkl‫ ء‬satisﬁes Dijkl‫ ء‬Յ Nijkl‫ء‬. Here we will make an important assumption—the saturation assumption: the ﬁxed-point wave function saturate the inequality,
+
+N
+
+͚ Dijkl‫ = ء‬Nijkl‫ ء‬ϵ Njim‫ء‬Nkml‫ء‬.
+
+͑8͒
+
+m=0
+
+We will see that the entanglement structure described by such a saturation assumption is invariant under the wave function renormalization.
+
+C. First type of wave function renormalization
+
+Our wave function renormalization scheme contains two types of renormalization. The ﬁrst type of renormalization does not change the degrees of freedom and corresponds to a local unitary transformation. It corresponds to locally deform the graph
+i αj k mβ l
+
+to
+
+i j χk
+δn .
+l
+
+͑The parts that are not drawn are the same.͒ The ﬁxed-point wave function on the new graph is given by
+
+i j χk
+
+Φ ﬁx
+
+δn .
+
+l
+
+Again, such a wave function can be viewed as a function of ␹ , ␦ , n:
+
+i j χk
+
+ψ˜ijkl,Γ(χ, δ, n) = Φﬁx
+
+δn
+
+l
+
+if we ﬁx i , j , k , l and the indices on other part of the graph. The support dimension of the state
+
+i j χk
+
+Φﬁx
+
+δn
+
+l
+
+on the region surrounded by i , j , k , l is D˜ ijkl‫ء‬. Again D˜ ijkl‫ ء‬Յ N˜ ijkl‫ء‬, where N˜ ijkl‫ ء‬ϵ ͚nN=0Nkjn‫ء‬Nl‫ء‬ni is number of choices of ␹ , ␦ , n. The saturation assumption implies that N˜ ijkl‫ = ء‬D˜ ijkl‫ء‬.
+The two ﬁxed-point wave functions
+
+Φﬁx
+
+i αj k mβ l
+
+and
+
+i j χk
+
+Φﬁx
+
+δn
+
+l
+
+are related via a local unitary transformation. Thus Dijkl‫ء‬ = D˜ ijkl‫ء‬, which implies
+
+N
+
+N
+
+͚ ͚ Njim‫ء‬Nkml‫ = ء‬Nkjn‫ء‬Nl‫ء‬ni.
+
+͑9͒
+
+m=0
+
+n=0
+
+We express such an unitary transformation as
+
+N Nkjn‫ ء‬Nnil‫ء‬
+
+͚ ͚ ͚ ␺ijkl,⌫͑␣,␤,m͒ Ӎ
+
+Fkijlmn,,␹␣␦␤˜␺ijkl,⌫͑␹,␦,n͒ ͑10͒
+
+n=0 ␹=1 ␦=1
+
+or graphically as
+
+⎛
+
+⎞
+
+Φﬁx
+
+i
+⎝
+
+α m
+
+j β
+
+k
+⎠
+
+l
+
+⎛
+
+N Nkjn∗ Nnil∗
+
+i
+
+Fkijlnm,χ,αδβ Φﬁx ⎝
+
+=0 =1 δ=1
+
+⎞
+j χk
+δ n ⎠.
+l
+
+͑11͒
+
+where Ӎ means equal up to a constant phase factor. ͑Note that the total phase of the wave function is unphysical.͒ We will call such a wave function renormalization step a
+F-move. We would like to remark that Eq. ͑11͒ relates two wave
+functions on two graphs G1 and G2 which only differ by a local reconnection. We can choose the phase of Fkijlmn,,␹␣␦␤ to make Ӎ into =:
+
+⎛
+
+Φﬁx
+
+i
+⎝
+
+αj mβ
+
+l
+
+⎞
+
+⎛
+
+k
+
+N Nkjn∗ Nnil∗
+
+i
+
+⎠=
+
+Fkijlnm,χ,αδβ Φﬁx ⎝
+
+n=0 χ=1 δ=1
+
+⎞
+j χk
+δ n ⎠.
+l
+
+But such choice of phase only works for a particular pair of graphs G1 and G2. To use Fkijlmn,,␹␣␦␤ to relate all pair of states that only differ by a local reconnection, in general, we may
+have a phase ambiguity, with the value of phase depend on
+
+155138-9
+
+CHEN, GU, AND WEN
+
+the pair of graphs. So Eq. ͑11͒ can only be a relation up to a
+
+total phase factor.
+
+͑FkiFjl͒onm,r,␹␣␦ﬁ␤x=eFdki jilmn, ,,␹j␣,␦␤ki,saandNli,jktl‫ء‬hedimmaetnrisxioFnkiajllwmitahtrmixa͓tsriexe
+
+elements Eq. ͑9͔͒.
+
+The mapping ˜␺ijkl,⌫͑␹ , ␦ , n͒ → ␺ijkl,⌫͑␣ , ␤ , m͒ generated by
+
+the matrix Fkijl is unitary. Since, as we change ⌫,
+
+˜␺ijkl,⌫͑␹ , ␦ , n͒ and ␺ijkl,⌫͑␣ , ␤ , m͒ span two Nijkl‫ء‬-dimensional
+
+spaces. Thus Fkijl is a Nijkl‫ ء‬ϫ Nijkl‫ ء‬unitary matrix
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+⎛
+i
+Φﬁx ⎝
+
+⎞
+j χk
+δn ⎠
+l
+
+⎛
+
+N
+
+Flj∗kin∗ m,χ∗δ,β α Φﬁx
+
+i
+⎝
+
+αj mβ
+
+m=0 α,β
+
+l
+
+⎞
+k
+⎠
+͑16͒
+
+using the relabeled Eq. ͑11͒. So we have
+
+͑Fkijlmn,,␹␣␦␤͒‫ ء‬Ӎ Flj‫ء‬kin‫ء‬,m␹␦‫ء‬,␤␣.
+
+͑17͒
+
+͚ Fkijlmn,Ј␹,␦␣Ј␤Ј͑Fkijlmn,,␹␣␦␤͒‫␦ = ء‬m␣␤,mЈ␣Ј␤Ј,
+n,␹,␦
+
+͑12͒
+
+where ␦m␣␤,mЈ␣Ј␤Ј = 1 when m = mЈ, ␣ = ␣Ј, ␤ = ␤Ј, and ␦m␣␤,mЈ␣Ј␤Ј = 0 otherwise.
+We can deform
+
+i αj k
+
+kβ l i
+
+m β to m α ,
+
+l
+
+j
+
+Since the total phase of the wave function is unphysical, the
+
+total phase choose the
+
+of total
+
+Fki jlmn,,␹␣␦␤ phase
+
+can be of Fkijlmn,,␹␣␦␤
+
+chosen arbitrarily. to make
+
+We
+
+can
+
+͑Fkijlmn,,␹␣␦␤͒‫ = ء‬Flj‫ء‬kin‫ء‬,m␹␦‫ء‬,␤␣.
+
+͑18͒
+
+If we apply Eq. ͑18͒ twice, we reproduce Eq. ͑14͒. Thus Eq. ͑14͒ is not independent and can be dropped.
+From the graphic representation ͓Eq. ͑11͔͒, We note that
+
+and
+
+i
+
+j χk
+
+k
+
+δ n to
+
+li
+
+χ
+
+δ n
+
+.
+
+l
+
+j
+
+when
+
+Fkijlmn,,␹␣␦␤ = 0
+
+We see that ⎛k β l i⎞
+Φﬁx ⎝ m α ⎠
+j
+
+N
+
+⎛k
+
+Fikjl∗∗nm∗∗,δ,χβαΦﬁx ⎝
+
+n=0 χ,δ
+
+l i⎞
+
+χ
+
+δ n
+
+⎠.
+
+j ͑13͒
+
+Equations ͑11͒ and ͑13͒ relate the same pair of graphs, and thus
+
+Fkijlmn,,␹␣␦␤ Ӎ Fikjl‫ءء‬nm‫ءء‬,␦,␤␹␣
+
+͑14͒
+
+͑where we have used the condition Nijkl = Dijkl.͒
+
+Using the relation ͓Eq. ͑12͔͒, we can rewrite Eq. ͑11͒ as
+
+⎛
+
+⎞
+
+⎛
+
+⎞
+
+i j χk
+
+N
+
+Φﬁx ⎝ δ n ⎠
+
+(Fkijlnm,χ,αδβ )∗Φﬁx
+
+i
+⎝
+
+αj mβ
+
+k
+⎠.
+
+l
+
+m=0 α,β
+
+l ͑15͒
+
+We can also express
+
+i j χk
+
+Φﬁx
+
+δn
+
+l
+
+as
+
+Njim‫ ء‬Ͻ 1 or Nkml‫ ء‬Ͻ 1 or Nkjn‫ ء‬Ͻ 1 or Nnil‫ ء‬Ͻ 1. ͑19͒
+
+When Njim‫ ء‬Ͻ 1 or Nkml‫ ء‬Ͻ 1, the left-hand side of Eq. ͑11͒ is always zero. Thus Fkijlmn,,␹␣␦␤ = 0 when Njim‫ ء‬Ͻ 1 or Nkml‫ ء‬Ͻ 1. When Nkjn‫ ء‬Ͻ 1 or Nnil‫ ء‬Ͻ 1, wave function on the right-hand side of Eq. ͑11͒ is always zero. So we can choose Fkijlmn,,␹␣␦␤ = 0 when Nkjn‫ ء‬Ͻ 1 or Nnil‫ ء‬Ͻ 1.
+The F-move ͓Eq. ͑11͔͒ maps the wave functions on two different graphs through a local unitary transformation. Since
+we can locally transform one graph to another graph through different paths, the F-move ͓Eq. ͑11͔͒ must satisfy certain self-consistent condition. For example, the graph
+
+i αj k l
+
+m
+
+β nχ
+
+p
+
+can be transformed to
+
+ij kl
+
+γ
+
+φ s
+
+δ q
+
+p
+
+through two different paths; one contains two steps of local transformations and the other contains three steps of local transformations as described by Eq. ͑11͒. The two paths lead to the following relations between the wave functions:
+
+155138-10
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+⎛
+
+⎞
+
+Φﬁx
+
+i
+⎜⎜⎝
+
+αj
+
+m
+
+β nχ
+
+k
+
+l
+⎟⎟⎠
+
+p
+
+⎛
+
+⎞
+
+Flmpqk,nδ ,βχΦﬁx
+
+i
+⎜⎜⎝
+
+αj m
+
+kl
+
+ε
+
+δ q
+
+⎟⎟⎠
+
+q,δ,
+
+p
+
+⎛
+i
+Flmpqk,nδ ,βχFqipjms,φ,αγ Φﬁx ⎜⎜⎝
+q,δ, ;s,φ,γ
+
+⎞
+
+j kl
+
+γ
+
+φ s
+
+δ q
+
+⎟⎟⎠ ,
+
+p
+
+⎛
+
+⎞
+
+Φﬁx
+
+i
+⎜⎜⎝
+
+αj
+
+m
+
+β nχ
+
+k
+
+l
+⎟⎟⎠
+
+p
+
+⎛
+
+⎞
+
+i
+Fkijnmt,η,αϕβ Φﬁx ⎜⎜⎝
+t,η,ϕ
+
+jη k ϕt nχ
+p
+
+l
+⎟⎟⎠
+
+⎛
+
+⎞
+
+i
+Fkijnmt,η,αϕβ Fliptsn,,κϕγχΦﬁx ⎜⎜⎝
+t,η,ϕ;s,κ,γ
+
+jη k tκ γs p
+
+l
+⎟⎟⎠
+
+⎛
+
+⎞
+
+ij kl
+
+Fkijnmt,η,αϕβ Fliptsn,,κϕγχFljskqt,,δηφκΦﬁx ⎜⎜⎝
+
+γ
+
+φ s
+
+δ q
+
+⎟⎟⎠ .
+
+t,η,κ;ϕ;s,κ,γ;q,δ,φ
+
+p
+
+͑20͒ ͑21͒
+
+The consistence of the above two relations leads a condition
+
+on the F tensor.
+
+To obtain such a condition, let us ﬁx i , j , k , l , p, and view
+
+⎛
+
+⎞
+
+i αj k l
+
+Φﬁx ⎜⎝
+
+m
+
+β nχ
+
+⎟⎠
+
+p
+
+as a function of ␣ , ␤ , ␹ , m , n:
+
+⎛
+
+⎞
+
+α
+
+ψ(α, β, χ, m, n)
+
+=
+
+Φﬁx ⎜⎝
+
+m
+
+β nχ
+
+⎟⎠ .
+
+p
+
+As we vary indices on other part of graph, we obtain differ-
+ent wave functions ␺͑␣ , ␤ , ␹ , m , n͒ which form a dimension
+Dijklp‫ ء‬space. In other words, Dijklp‫ ء‬is the support dimension of the state ⌽fix on the region ␣ , ␤ , ␹ , m , n with boundary state i , j , k , l , p ﬁxed ͑see the discussion in Sec. VIII B͒. Since the number of choices of ␣ , ␤ , ␹ , m , n is Nijklp‫ء‬ = ͚m,nNjim‫ء‬Nkmn‫ء‬Nlnp‫ء‬, we have Dijklp‫ ء‬Յ Nijklp‫ء‬. Here we require a similar saturation condition as in Eq. ͑8͒,
+
+Nijklp‫ = ء‬Dijklp‫ء‬.
+
+͑22͒
+
+Similarly, the number of choices of ␦ , ␾ , ␥ , q , s in
+
+⎛
+i
+Φﬁx ⎜⎝
+
+⎞
+
+j kl
+
+γ
+
+φ s
+
+δ q
+
+⎟⎠
+
+p
+
+is also Nijklp‫ء‬. Here we again assume D˜ ijklp‫ = ء‬Nijklp‫ء‬, where D˜ ijklp‫ ء‬is the support dimension of
+
+⎛
+i
+Φﬁx ⎜⎝
+
+⎞
+
+j kl
+
+γ
+
+φ s
+
+δ q
+
+⎟⎠
+
+p
+
+on the region bounded by i , j , k , l , p. So the two relations ͓Eqs. ͑20͒ and ͑21͔͒ can be viewed as
+two relations between a pair of vectors in the two
+Dijklp‫ء‬-dimensional vector spaces. As we vary indices on other part of graph ͑still keeping i , j , k , l , p ﬁxed͒, each vec-
+tor in the pair can span the full Dijklp‫ء‬-dimensional vector space. So the validity of the two relations ͓Eqs. ͑20͒ and ͑21͔͒ implies that
+
+Nkjt‫ ء‬Ntin‫ ء‬Nlts‫ء‬
+
+Nqmp‫ء‬
+
+͚ ͚ ͚ ͚ ͚ Fkijnmt,,␩␣␸␤Flitpns,,␸␬␹␥Fljskqt,,␩␦␾␬ = ei␪F
+
+Flmpkqn,␦,␤⑀␹Fqi jpms,,␣␾⑀␥ ,
+
+t ␩=1 ␸=1 ␬=1
+
+⑀=1
+
+͑23͒
+
+which is a generalization of the famous pentagon identity ͑due to the extra constant phase factor ei␪F͒. We will call such
+a relation projective pentagon identity. The projective penta-
+gon identity is a set of nonlinear equations satisﬁed by the rank-10 tensor Fkijlmn,,␹␣␦␤ and ␪F. The above consistency relation is equivalent to the requirement that the local unitary transformations described by Eq. ͑11͒ on different paths all com-
+mute with each other up to a total phase factor.
+
+D. Second type of wave function renormalization
+
+The second type of wave function renormalization does change the degrees of freedom and corresponds to a generalized local unitary transformation. One way to implement the second type renormalization is to reduce
+
+i
+
+α
+
+to c b
+
+βγ
+
+j
+
+a
+
+k
+
+j
+
+i λk
+
+͑the part of the graph that is not drawn is unchanged͒:
+
+155138-11
+
+CHEN, GU, AND WEN
+
+k
+
+i
+
+j
+
+k i i’ j
+
+k i i’ j
+
+FIG. 10. A “triangle” graph can be transformed into a “tadpole” via two steps of the ﬁrst type of wave function renormalization ͑i.e., two steps of local unitary transformations͒.
+
+⎛
+
+i⎞
+
+Φﬁx ⎜⎝
+
+α cb βγ
+
+⎟⎠
+
+j
+
+a
+
+k
+
+⎛
+
+Nijk Fiajbkc,,λαβγ Φﬁx ⎜⎝
+
+λ=1
+
+j
+
+⎞
+i
+⎟⎠ .
+λk
+͑24͒
+
+But we can deﬁne a simpler second type renormalization, by noting that
+
+i
+
+α
+
+cb
+
+βγ
+
+j
+
+a
+
+k
+
+can be reduced to
+
+βj i k i’
+α
+via the ﬁrst type of renormalization steps ͑see Fig. 10͒, which are local unitary transformations. In the simpliﬁed second type renormalization, we want to reduce
+
+βj i k i’
+α
+to
+
+so that we still have a trivalence graph. This requires that the support dimension DiiЈ‫ ء‬of the ﬁxed-point wave function
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+⎛
+
+⎞
+
+Φﬁx ⎜⎝ i
+
+β k
+
+j ⎟⎠
+i’
+
+α
+
+is given by
+
+This implies that ⎛
+Φﬁx ⎜⎝
+i
+
+DiiЈ‫␦ = ء‬iiЈ.
+
+⎞
+
+β k
+
+j ⎟⎠
+i’
+
+α
+
+⎛ δii Φﬁx ⎜⎝
+i
+
+͑25͒
+
+⎞
+
+β k
+
+j i
+
+⎟⎠ .
+
+α
+
+͑26͒
+
+The simpliﬁed second type renormalization can now be writ-
+
+ten as ͑since Dii‫ = ء‬1͒
+
+⎛
+
+⎞
+
+Φﬁx ⎜⎝
+i
+
+β k
+
+j i
+
+⎟⎠
+
+Pikj,αβ Φﬁx
+
+i
+
+α
+
+. ͑27͒
+
+We will call such a wave function renormalization step a P-move.64 Here Pikj,␣␤ satisﬁes
+
+Nkii‫ ء‬Nj‫ء‬jk‫ء‬
+͚ ͚ ͚ Pikj,␣␤͑Pikj,␣␤͒‫ = ء‬1
+k,j ␣=1 ␤=1
+
+͑28͒
+
+and
+
+Pikj,␣␤ = 0, if Nkii‫ ء‬Ͻ 1 or Nj‫ء‬jk‫ ء‬Ͻ 1.
+
+͑29͒
+
+The condition ͓Eq. ͑28͔͒ ensures that the two wave functions on the two sides of Eq. ͑27͒ have the same normalization. We
+
+note that the number of choices for the four indices ͑j , k , ␣ , ␤͒ in Pikj,␣␤ must be equal or greater than 1,
+
+͚ Di = Nii‫ء‬kNjk‫ء‬j‫ ء‬Ն 1. j,k
+
+͑30͒
+
+Notice that
+
+⎛ Φﬁx ⎜⎝
+i
+
+⎞
+
+β k
+
+j i
+
+⎟⎠
+
+α
+
+Fij∗ji∗∗km,β∗α,λγ Φﬁx
+m,λ,γ
+
+j
+
+i
+
+i
+
+γm λ
+
+⎛
+
+Fij∗ji∗∗km,β∗α,λγ Fmi∗∗mi∗jl,,λνγµΦﬁx ⎜⎜⎝ i
+m,λ,γ,l,ν,µ
+
+µ⎞
+
+l ν
+
+i
+
+⎟⎟⎠
+
+m
+
+Using Eq. ͑27͒ and its variation
+
+⎛ µ⎞
+
+Φﬁx ⎜⎜⎝ i
+
+l ν
+
+i
+
+⎟⎟⎠
+
+Pil∗m,µν Φﬁx
+
+i
+
+.
+
+m
+
+we can rewrite Eq. ͑31͒ as
+
+155138-12
+
+͑31͒ ͑32͒
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+ei␪P1Pikj,␣␤ =
+
+͚
+
+Fij‫ء‬j‫ء‬i‫ء‬km,␤‫␣ء‬,␭␥Fmi‫ءء‬mi‫ء‬j,l␭,␯␥␮Pil‫ء‬m,␮␯ ,
+
+m,␭,␥,l,␯,␮
+
+͑33͒
+
+which is More
+
+caocnodnitdioitniosnoonnFPkijlmnik,j,␹,␣␣␦␤␤.and
+
+Pik j,␣␤
+
+can
+
+be
+
+obtained
+
+by
+
+noticing that
+
+⎛
+
+p⎞
+
+⎛
+
+p⎞
+
+Φﬁx
+
+⎜⎜⎝
+
+iη αm j
+
+β
+
+k⎟⎟⎠
+
+l
+
+N
+
+Fkijlnm,χ,αδβ Φﬁx ⎜⎜⎝i
+
+n=0 χ,δ
+
+η j δ
+
+n
+
+χk⎟⎟⎠
+
+,
+
+l ͑34͒
+
+which implies that
+
+⎛⎞
+
+i
+Pijp,αηδimΦﬁx ⎝
+
+β
+
+k
+⎠
+
+l
+
+⎛⎞
+
+ik
+
+Fkijlnm,χ,αδβ Pkj∗p,χηδknΦﬁx ⎝ δ ⎠ .
+
+n,χ,δ
+
+l
+
+͑35͒
+
+We ﬁnd
+
+Nkjk‫ء‬
+
+͚ ei␪P2Pijp,␣␩␦im␦␤␦ =
+
+Fki jlmk,,␹␣␦␤ Pkj p‫ء‬,␹␩
+
+␹=1
+
+for all k,i,l satisfying Nkil‫ ء‬Ͼ 0. ͑36͒
+
+E. Fixed-point wave functions from the ﬁxed-point gLU
+transformations
+In the last section, we discussed the conditions that a ﬁxed-point gLU transformation ͑Fkijlmn,,␥␣␭␤ , Pikj,␣␤͒ must satisfy. After ﬁnding a ﬁxed-point gLU transformation ͑Fkijlmn,,␥␣␭␤ , Pikj,␣␤͒, in this section, we are going to discuss how to calculate the corresponding ﬁxed-point wave function ⌽fix from the solved ﬁxed-point gLU transformation ͑Fkijlmn,,␥␣␭␤ , Pikj,␣␤͒.
+First we note that, using the two types of wave function renormalization introduced above, we can reduce any graph to
+
+i.
+So, once we know
+
+Φﬁx i ,
+
+we can reconstruct the full ﬁxed-point wave function ⌽fix on any connected graph.
+Let us assume that
+
+Φﬁx i
+
+= Ai = Ai∗
+
+͑37͒
+
+Here Ai satisfy
+
+͚ Ai = Ai‫ء‬,
+
+Ai͑Ai͒‫ = ء‬1.
+
+͑38͒
+
+i
+
+The condition ͚iAi͑Ai͒‫ = ء‬1 is simply the normalization condition of the wave function. The condition Ai = Ai‫ ء‬come from the fact that the graph
+
+i
+can be deformed into the graph
+
+i
+on a sphere. To ﬁnd the conditions that determine Ai, let us ﬁrst con-
+sider the ﬁxed-point wave function where the index on a link is i:
+Φﬁx(i, Γ) = Φﬁx Γ i ,
+
+where ⌫ are indices on other part of graph. We note that the graph
+Γi
+
+can be deformed into the graph
+i Γ
+
+on a sphere. Thus
+
+Φﬁx Γ i
+
+= Φﬁx
+
+i
+
+Γ
+
+.
+
+Using the F-moves and the P-moves, we can reduce
+i
+Γ to i :
+
+i
+
+Φﬁx Γ i = Φﬁx
+
+Γ
+
+We see that
+
+f (i, Γ)Φﬁx i ͑39͒
+
+Φﬁx i
+
+= Ai = 0
+
+͑40͒
+
+for all i. Otherwise, any wave function with i link will be
+
+zero.
+
+To ﬁnd more conditions on Ai, we note that
+
+⎛
+
+⎞
+
+j
+
+Φﬁx ⎜⎜⎝
+i
+
+λ m γ
+
+⎟⎟⎠
+
+Pimj,γλΦﬁx
+
+i
+
+= Pimj,γλAi.
+
+͑41͒
+
+By rotating
+
+155138-13
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+j λ m iγ
+
+by 180°, we can show that Pimj,␥␭Ai Ӎ Pmj‫ءء‬i‫ء‬,␭␥Aj or Pimj,␥␭Ai = ei␪A1Pmj‫ءء‬i‫ء‬,␭␥Aj .
+
+͑42͒
+
+We also note that
+
+⎛j
+
+⎞
+
+Φﬁx ⎝α k β⎠
+
+i
+
+⎛
+
+Fji∗jikm∗,,αλβγ Φﬁx ⎜⎜⎝
+
+m,λ,γ
+
+i
+
+⎞
+j
+
+λ m γ
+
+⎟⎟⎠ .
+
+͑43͒
+
+This allows us to show
+
+͚ ⌽i␪kj,␣␤ = ei␪Ј
+
+Fijj‫ء‬kim‫ء‬,␣,␭␤␥ Pim j,␥␭Ai ,
+
+m,␭,␥
+
+͑44͒
+
+where
+
+⎛j
+
+⎞
+
+Φθikj,αβ , ≡ Φﬁx ⎝α k β⎠
+
+i
+
+Φθikj,αβ = e i θA2 Φθkji,αβ , Φθikj,αβ = 0, if Nikj = 0.
+
+͑45͒
+
+The condition ⌽i␪kj,␣␤ Ӎ ⌽k␪ji,␣␤ comes from the fact that the graph
+
+j αk β
+i
+
+and the graph
+
+i αj β
+k
+
+can be deformed into each other on a sphere. Also, for any given i , j , k , ␣ that satisfy Nkji Ͼ 0, the wave
+function
+
+i
+Φﬁx α j Γ
+k
+
+must be nonzero for some ⌫, where ⌫ represents indices on other part of the graph. Then after some F-moves and P-moves, we can reduce
+
+i
+
+i
+
+α j Γ to α j β .
+
+k
+
+k
+
+So, for any given i , j , k , ␣ that satisfy Nkji Ͼ 0,
+i
+Φﬁx α j β
+k
+
+is nonzero for some ␤. Since such a statement is true for any choices of basis on the vertex ␣, we ﬁnd that for any given
+
+i , j , k , ␣ that satisfy Nkji Ͼ 0 and for any nonzero vector v␣,
+i
+α vαΦﬁx α j β
+k
+
+is nonzero for some ␤. This means that the matrix Mkji is invertible, where Mkji is a matrix whose elements are given by
+i
+(Mkji)αβ = Φﬁx α j β .
+k
+
+Let us deﬁne
+i
+Φﬁx α j β
+k
+
+= det(Mkji ),
+
+we ﬁnd that ⎛
+i
+det Φﬁx ⎝α j
+k
+
+⎞
+β⎠ = det[Φθkji,αβ] = 0. ͑46͒
+
+The above also implies that
+
+Nkji = Ni‫ء‬j‫ء‬k‫ء‬.
+
+͑47͒
+
+The conditions ͓Eqs. ͑38͒, ͑42͒, ͑44͒, and ͑45͔͒ allow us to determine Ai ͑and ⌽i␪kj,␣␤͒.
+From Eq. ͑45͒, we see that relation
+
+j
+
+i
+
+Φﬁx α k β = Φﬁx α j β
+
+i
+
+k
+
+eleqaudastiotonssfoomr eFkijelmnq,,␥␣u␭␤a,tiPonikjs,␣␤f,oarnFdkiAjlmni,,,␥␣␭c␤a, nPbikej,␣o␤b,taainndedAbiy.
+
+More using
+
+the relations
+
+⎛
+δ
+Φﬁx ⎜⎝
+
+n
+
+ij
+
+αm
+
+l
+
+k
+
+χ⎞
+
+⎛
+β
+
+⎟⎠ = Φﬁx ⎜⎝
+
+l
+
+⎞
+δ
+
+mi
+
+αj
+
+k
+
+n
+
+⎟⎠
+
+β
+
+χ
+
+⎛
+α
+
+j
+
+= Φﬁx ⎜⎝
+
+in m δl k
+
+⎞
+β
+⎟⎠ ,
+
+χ
+
+͑48͒
+
+from the tetrahedron rotation symmetry63,65 and
+
+155138-14
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+⎛
+δ
+Φﬁx ⎜⎝
+
+n
+
+ij
+
+αm
+
+l
+
+k
+
+β
+
+χ⎞
+
+⎛
+δ
+
+n
+
+⎞
+χ
+
+⎟⎠
+
+Fkijlnm,γ∗λ,αβ Φﬁx ⎜⎝ l i j k⎟⎠
+
+γλ
+
+λ
+
+γ n
+
+⎛
+
+n
+
+⎞
+χ
+
+Fkijlnm,γ∗λ,αβ Fnlnlp∗∗i,∗σ,δλΦﬁx ⎜⎝l
+γλ,pσ
+
+εp
+
+σ j
+
+n
+⎛
+
+k ⎟⎠
+γ
+χ⎞
+
+Fkijlnm,γ∗λ,αβ Fnlnlp∗∗i,∗σ,δλPnpl∗,σ
+
+Φﬁx ⎝
+
+j n
+
+γλ,pσ
+
+k⎠
+γ
+
+=
+
+Fkijlnm,γ∗λ,αβ Fnlnlp∗∗i,∗σ,δλPnpl∗,σ Φθkjn∗,γχ.
+
+γλ,pσ
+
+͑49͒
+
+It is not clear if Eqs. ͑48͒ and ͑49͒ will lead to new indepen-
+
+dent equations or not. In the following discussions, we will
+
+not include Eqs. ͑48͒ and ͑49͒. We ﬁnd that, at least for
+
+simple cases, the equations without Eqs. ͑48͒ and ͑49͒ are
+
+enough to completely determine the solutions.
+
+To summarize, the conditions ͓Eqs. ͑9͒, ͑12͒, ͑18͒, ͑23͒,
+
+͑30͒, ͑33͒, ͑36͒, ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑47͔͒ form a set of
+
+Anoi,nalinndea͑␪r Fe,q␪uPa1t,io␪nPs2͒w. FhionsdeinvgarNiaijbkl,eFskijalmnr,,e␥␣␭␤N, iPjkik,j,F␣␤kijl,mna,,␥␣n␭␤d,
+
+Pik j,␣␤, Ai that
+
+satisfy such a set of nonlinear equations corresponds to ﬁnd-
+
+ing a ﬁxed-point gLU transformation that has a nontrivial
+
+ﬁxed-point wave function. So the solutions ͑Nijk , Fkijlmn,,␥␣␭␤ , Pikj,␣␤ , Ai͒ give us a characterization of topological orders. This may lead to a classiﬁcation of topologi-
+
+cal order from the local unitary transformation point of view.
+
+IX. SIMPLE SOLUTIONS OF THE FIXED-POINT CONDITIONS
+In this section, let us ﬁnd some simple solutions of the ﬁxed-point conditions ͓Eqs. ͑9͒, ͑12͒, ͑18͒, ͑23͒, ͑30͒, ͑33͒, ͑36͒, ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑47͔͒ for the ﬁxed-point gLU transformations ͑Nijk , Fkijlmn,,␥␣␭␤ , Pikj,␣␤͒ and the ﬁxed-point wave function Ai.
+
+A. Unimportant phase factors in the solutions
+
+Formally, the solutions of the ﬁxed-point conditions are
+
+not isolated. They are parametrized by several continuous
+
+phase factors. In this section, we will discuss the origin of
+
+those phase factors. We will see that those different phase
+
+factors do not correspond to different states of matter ͑i.e.,
+
+different equivalence classes of gLU transformations͒. So af-
+
+ter removing those unimportant phase factors, the solutions
+
+of the ﬁxed-point conditions are isolated ͑at least for the
+
+simple examples studied here͒.
+
+We notice that, apart from two normalization conditions,
+
+all of the ﬁxed-point conditions are T͑twFhkioujlmns,p,␥␣h␭␤a,siefei␾f1aP͑cikFtjo,ki␣rjlm␤ns,,,␥␣ee␭␤ii␾␾, 12P,A2ikij͒d,␣o␤is,nAoai͒tlsoleaaids
+
+linear in Pikj,␣␤ and Ai. a solution, then
+solution. However, the to different ﬁxed-point
+
+wave functions since they only affect the total phase of the
+
+wave function and are unphysical. Thus the total phases of
+
+dPoikmjSaimntodilsaAeritl,ycsatanhye,btPeo00ta0ad,l1j1puՆhstae0sdea. noWdf eFAkic0jlamϾn,n,␥␣0␭␤u.sise
+
+this also
+
+degree of freeunphysical and
+
+can be adjusted. We have used this degree of freedom to
+
+reduce Eq. ͑17͒ to Eq. ͑18͒. But this does not totally ﬁx the total phase of Fkijlmn,,␥␣␭␤. The transformation Fkijlmn,,␥␣␭␤ → −Fkijlmn,,␥␣␭␤ does not affect Eq. ͑18͒. We can use such a transformation to set the real part of a nonzero component of Fkijlmn,,␥␣␭␤ to be positive.
+
+The above three phase factors are unphysical. However,
+
+the ﬁxed-point solutions may also contain phase factors that
+
+do correspond to different ﬁxed-point wave functions. For example, the local unitary transformation ei␪l0Mˆ l0 does not
+
+watifoiftnehcct͉lht0ha͘nesgtfaeutssei͑oaFnnkidjlrmnu,,͉␥␣ll␭0‫ء‬e␤͘,NPstiikajkjt,,␣e␤.w,ShAueicr͒ehaManˆdllo0gcieasnlteuhrneaittneausrmyabtcreaornnostfifnolurimnokuassfamily of the ﬁxed-point wave functions parametrized by ␪l0. Those wave functions are related by local unitary transfor-
+
+mations that continuously connect to identity. Thus, those
+
+ﬁxed-point wave functions all belong to the same phase.
+
+Similarly, we can consider the following local unitary transformation ͉␣͘ → ͚␤U␣͑i␤0j0k0͉͒␤͘ that acts on each vertex with states ͉i0͘ , ͉j0͘ , ͉k0͘ on the three edges connecting to the vertex. Such a local unitary transformation also does not af-
+
+fect the fusion rule Nijk. The new local unitary transformation changes ͑Fkijlmn,,␥␣␭␤ , Pikj,␣␤ , Ai͒ and generates a continuous family of the ﬁxed-point wave functions parametrized by the unitary matrix U␣͑i␤0j0k0͒. Again, those ﬁxed-point wave functions all belong to the same phase.
+
+In the following, we will study some simple solutions of
+
+the ﬁxed-point conditions. We ﬁnd that, for those examples,
+
+the solutions have no addition continuous parameter apart
+
+from the phase factors discussed above. This suggests that
+
+the solutions of the ﬁxed-point conditions correspond to iso-
+
+lated zero-temperature phases.
+
+B. N = 1 loop state
+Let us ﬁrst consider a system where there are only two states ͉0͘ and ͉1͘ on each link of the graph. We choose i‫ء‬
+
+155138-15
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+= i and the simplest fusion rule that satisﬁes Eqs. ͑9͒, ͑30͒, and ͑47͒ is
+
+other
+
+N000 = N110 = N101 = N011 = 1,
+
+Nijk = 0.
+
+͑50͒
+
+Since Nijk Յ 1, there is no states on the vertices. So the indices ␣ , ␤ , . . . labeling the states on a vertex can be suppressed.
+The above fusion rule corresponds to the fusion rule for
+the N = 1 loop state discussed in Ref. 63. So we will call the
+corresponding graphic state N = 1 loop state. Due to the relation ͓Eq. ͑18͔͒, the different components of
+the tensor Fkijlmn are not independent. There are only four independent potentially nonzero components which are de-
+noted as f0 , . . . , f3:
+
+F000000
+
+= f0
+
+F101010
+
+= (F100101
+
+)∗ = (F011001
+
+)∗
+
+= F010110
+
+= f1
+
+F001111
+
+= (F110011
+
+)∗ = f2
+
+F111100
+
+= f3
+
+͑51͒
+
+We note that Fkijlmn in Eq. ͑11͒ relates wave functions on two graphs. In the above we have drawn the two related graphs
+after the F tensor, where the ﬁrst graph following F corresponds to the graph on the left-hand side of Eq. ͑11͒ and the
+second graph corresponds to the graph on the right-hand side of Eq. ͑11͒. The doted line corresponds to the ͉0͘ state on the link and the solid line corresponds to the ͉1͘ state on the link. There are four potentially nonzero components in Pikj, which are denoted by p0 , . . . , p3,
+
+P000 = p0, P001 = p1, P100 = p2, P101 = p3. ͑52͒
+We can adjust the total phases of pi and Ai to make p0 Ն 0 and A0 Ն 0. We can also use the local unitary transformation ei␪l0Mˆ l0 with l0 = 1 to make f1 Ն 0 since the F’s described by f1 in Eq. ͑51͒ are the only F’s that change the number of ͉1͘ links.
+The ﬁxed-point conditions ͓Eqs. ͑9͒, ͑12͒, ͑18͒, ͑23͒, ͑30͒, ͑33͒, ͑36͒, ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑47͔͒ form a set of nonlinear equations on the ten variables fi, pi, and Ai. Many of the nonlinear equations are dependent or even equivalent.
+Using a computer algebraic system, we simplify the set of nonlinear equations. The simpliﬁed equations are ͑after making the phase choice described above͒
+
+f0 = f1 = f2 = 1, f3 = ␩,
+
+p1 = p3 = ␩p0, p2 = p0,
+
+p02 + ͉p1͉2 = 1, ͉p2͉2 + ͉p3͉2 = 1,
+
+p1A0 = p2A1, ␩p3A1 = p1A0, ͉A0͉2 + ͉A1͉2 = 1, ͑53͒
+where ␩ = Ϯ 1. The above simpliﬁed equations can be solved exactly. We ﬁnd two solutions parametrized by ␩ = Ϯ 1,
+f0 = f1 = f2 = 1, f3 = ␩,
+
+1
+
+␩
+
+p0 = p2 = ͱ2 , p1 = p3 = ͱ2 ,
+
+A0
+
+=
+
+1
+ͱ2
+
+,
+
+A1
+
+=
+
+␩
+ͱ2
+
+.
+
+͑54͒
+
+We also ﬁnd
+
+ei␪F = ei␪P1 = ei␪P2 = ei␪A1 = ei␪A2 = 1.
+
+͑55͒
+
+The ␩ = 1 ﬁxed-point state corresponds to the Z2 loop condensed state whose low-energy effective-ﬁeld theory is the Z2 gauge theory.63,66 We call such a state, simply, the Z2 state. The ␩ = −1 ﬁxed-point state corresponds to the double-
+semion state whose low-energy effective-ﬁeld theory is the U͑1͒ ϫ U͑1͒ Chern-Simons gauge theory63,66
+
+L
+
+=
+
+1 4␲
+
+͑2a1␮‫␯ץ‬a1␭⑀␮␯␭
+
+−
+
+2a2␮‫␯ץ‬a2␭⑀␮␯␭͒ .
+
+͑56͒
+
+C. N = 1 string-net state
+To obtain another class of simple solutions, we modify the fusion rule to
+
+other
+
+N000 = N110 = N101 = N011 = N111 = 1,
+
+Nijk = 0
+
+͑57͒
+
+while keeping everything the same. The above Nijk also satisﬁes Eqs. ͑9͒, ͑30͒, and ͑47͒.
+The new fusion rule corresponds to the fusion rule for the
+N = 1 string-net state discussed in Ref. 63. So we will call the
+corresponding graphic state N = 1 string-net state. Again, due to the relation ͓Eq. ͑18͔͒, the different compo-
+nents of the tensor Fkijlmn are not independent. Now there are seven independent potentially nonzero components which
+are denoted as f0 , . . . , f6,
+
+155138-16
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+F000000
+
+= f0
+
+F101010
+
+= (F100101
+
+)∗ = (F011001
+
+)∗
+
+= F010110
+
+= f1
+
+F001111
+
+= (F110011
+
+)∗ = f2
+
+F101111
+
+= (F111011
+
+)∗ = F011111
+
+= (F110111
+
+)∗ = f3
+
+F111100
+
+= f4
+
+F111110
+
+= (F111101
+
+)∗ = f5
+
+F 111
+
+= f6
+
+͑58͒
+
+Note that F’s described by f1 and f5 are the only F’s that change the number of ͉1͘ links and the number of ͉1͉͘1͉͘1͘
+vertices. So we can use the local unitary transformation ei͑␪Mˆ 1+␾Mˆ 111͒ to make f1 and f5 to be positive real numbers. ͑Here Mˆ 1 is the total number of ͉1͘ links and Mˆ 111 is the total number of ͉1͉͘1͉͘1͘ vertices.͒ We also use the freedom of adjusting the total sign of Fkijlmn to make Re͑f0͒ Ն 0.
+There are ﬁve potentially nonzero components in Pikj, which are denoted by p0 , . . . , p4,
+P000 = p0, P001 = p1, P100 = p2,
+
+P101 = p3, P111 = p4.
+
+͑59͒
+
+We use the freedom of adjusting the total phase of Pikj to make p0 to be a positive number. We can also use the freedom of adjusting the total phase of Ai to make A0 to be a
+
+positive number.
+The ﬁxed-point conditions ͓Eqs. ͑12͒, ͑18͒, ͑23͒, ͑33͒, ͑36͒, ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑46͔͒ form a set of nonlinear equation on the variables fi, pi, and Ai, which can be simpliﬁed. The simpliﬁed equations have the following form:
+
+f0 = f1 = f2 = f3 = 1,
+
+f
+
+4
+
+=
+
+f
+
+2 5
+
+=
+
+−
+
+f6
+
+Ͼ
+
+0
+
+,
+
+p12
+
+f
+
+2 4
+
++
+
+p12
+
+=
+
+1,
+
+p0 = f4p1,
+
+p2 = p0,
+
+p3 = p1,
+
+p4 = 0,
+
+A0 = f4A1,
+
+͑A0͒2 + ͑A1͒2 = 1,
+
+f
+
+2 4
+
++
+
+f
+
+4
+
+−
+
+1
+
+=
+
+0.
+
+͑60͒
+
+Let that
+
+␥ be the positive solution
+f5 = ͱ␥. The above can be
+
+of ␥2 + ␥ = 1: written as
+
+␥=
+
+ͱ5−1 2
+
+.
+
+We
+
+see
+
+f0 = f1 = f2 = f3 = 1, f4 = − f6 = ␥, f5 = ͱ␥,
+
+␥
+
+1
+
+p0
+
+=
+
+p2
+
+=
+
+␥2
+
++
+
+, 1
+
+p1
+
+=
+
+p3
+
+=
+
+␥2
+
++
+
+, 1
+
+p4 = 0,
+
+A0
+
+=
+
+␥ ␥2 +
+
+, 1
+
+A1
+
+=
+
+1 ␥2 +
+
+1
+
+.
+
+͑61͒
+
+We also ﬁnd ei␪F = ei␪P1 = ei␪P2 = ei␪A1 = ei␪A2 = 1.
+
+͑62͒
+
+The ﬁxed-point state corresponds to the N = 1 string-net condensed state63 whose low-energy effective-ﬁeld theory is the doubled SO͑3͒ Chern-Simons gauge theory.66
+
+D. An N = 2 string-net state—The Z3 state
+The above simple examples correspond to nonorientable string-net states. Here we will give an example of orientable string-net state. We choose N = 2, 0‫ = ء‬0, 1‫ = ء‬2, 2‫ = ء‬1, and
+
+N000 = N012 = N120 = N201 = N021 = N102 = N210 = N111 = N222
+
+= 1.
+
+͑63͒
+
+The above Nijk satisﬁes Eqs. ͑9͒, ͑30͒, and ͑47͒. Due to the relation ͓Eq. ͑18͔͒, the different components of
+the tensor Fkijlmn are not independent. There are eight independent potentially nonzero components which are denoted as
+f0, . . . , f7:
+
+F000000
+
+= f0
+
+F101010
+
+= (F200101
+
+)∗ = F010220
+
+= (F022002
+
+)∗ = f1
+
+F202020
+
+= (F100202
+
+)∗ = (F011001
+
+)∗
+
+= F020110
+
+= f2
+
+F001111
+
+= F002222
+
+= (F210021
+
+)∗
+
+= (F120012
+
+)∗ = f3
+
+F102121
+
+= (F112011
+
+)∗ = F012112
+
+= (F110122
+
+)∗ = f4
+
+F201212
+
+= (F221022
+
+)∗ = F021221
+
+= (F220211
+
+)∗ = f5
+
+F211102
+
+= (F212210
+
+)∗ = (F121120
+
+)∗
+
+= F122201
+
+= f6
+
+F111200
+
+= (F222100
+
+)∗ = f7
+
+͑64͒
+
+There are nine potentially nonzero components in Pikj, which are denoted by p0 , . . . , p8,
+
+P000 = p0, P001 = p1, P002 = p2, P100 = p3, P101 = p4,
+
+P102 = p5, P200 = p6, P201 = p7, P202 = p8. ͑65͒
+Using the transformations discussed in Sec. IX B, we can ﬁx the phases of f1, f2, f6, and p0 to make them positive.
+The ﬁxed-point conditions ͓Eqs. ͑12͒, ͑18͒, ͑23͒, ͑33͒, ͑36͒, ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑46͔͒ form a set of nonlinear equation on the variables fi, pi, and Ai, which can be solved exactly. After ﬁxing the phases using the transformations discussed in Sec. IX B, we ﬁnd only one solution
+
+155138-17
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+fi = 1, i = 0,1, ... ,7, 1
+pi = ͱ3 , i = 0,1, . . . ,8,
+
+A0
+
+=
+
+A1
+
+=
+
+A2
+
+=
+
+1
+ͱ3
+
+.
+
+͑66͒
+
+We also ﬁnd ei␪F = ei␪P1 = ei␪P2 = ei␪A1 = ei␪A2 = 1.
+
+͑67͒
+
+The ﬁxed-point state corresponds to the Z3 string-net condensed state63 whose low-energy effective-ﬁeld theory is the U͑1͒ ϫ U͑1͒ Chern-Simons gauge theory55,63
+
+L
+
+=
+
+1 4␲
+
+͑3a1␮‫␯ץ‬a2␭⑀␮␯␭
+
++
+
+3a2␮‫␯ץ‬a1␭⑀␮␯␭͒ ,
+
+͑68͒
+
+which is the Z3 gauge theory. We note that all the above simple solutions also satisfy the
+standard pentagon identity, although we solved the weaker projective pentagon identity. It is not clear if we can ﬁnd nontrivial solutions that do not satisfy the standard pentagon identity.
+
+X. A CLASSIFICATION OF TIME-REVERSAL INVARIANT TOPOLOGICAL ORDERS
+
+There are several ways to deﬁne time-reversal operation for the graphic states. The simplest one is given by
+
+Tˆ :⌽͑⌫͒ → ⌽‫͒⌫͑ء‬,
+
+͑69͒
+
+where ⌫ represents the labels on the vertices and links which
+
+are not changed under Tˆ . ͑This corresponds to the situation
+
+where the different states on the links and the vertices are
+
+realized by different occupations of scalar bosons.͒ For such
+
+a time reversal transformation, Tˆ 2 = 1 and the real solutions
+
+of the ﬁxed-point conditions ͓Eqs. ͑9͒, ͑12͒, ͑18͒, ͑23͒, ͑30͒,
+
+͑33͒, ͑36͒, ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑46͔͒ give us a classiﬁ-
+
+cation of time reversal invariant topological orders in local
+
+spin systems. Note that the time-reversal invariant topologi-
+
+cal orders are equivalent class of local orthogonal transfor-
+
+mations that connect to the identity transformation continu-
+
+ously. Different real solutions ͑Nijk , Fkijlmn,,␥␣␭␤ , Pikj,␣␤ , Ai͒ of the
+ﬁxed-point conditions do not always correspond to different
+
+time-reversal invariant topological orders. The solutions dif-
+
+fer by some unimportant phase factors ͑which are Ϯ1 signs͒
+
+correspond to the same topological order.
+
+To understand the above result, we notice that, from the
+
+structure of the ﬁxed-point conditions, is a solution, then ͑␩FFkijlmn,,␥␣␭␤ , ␩PPikj,␣␤ ,
+
+if ͑Fkijlmn,,␥␣␭␤ , Pikj,␣␤ , Ai͒ ␩AAi͒ is also a solu-
+
+tion, where ␩F = Ϯ 1, ␩P = Ϯ 1, and ␩A = Ϯ 1. However, the
+
+three phase factors ␩F, ␩P, and ␩A do not lead to different
+
+ﬁxed-point wave functions since they only affect the total
+
+phase of the wave function and are unphysical.
+
+On the other hand, the ﬁxed-point solutions may also con-
+
+tain phase factors that do correspond to different ﬁxed-point
+
+wave functions. For example, the local orthogonal transfor-
+
+mation ei␲Mˆ l0 does not affect the
+is the number of links with ͉l0͘ local orthogonal transformation
+
+csfthuaastineognaensrdu͑lFe͉lki0‫ء‬Njl͘mni,,␥js␣k␭t␤,a,tweP.hikejS,r␣ue␤c,MhAˆ ila͒0
+
+and generates a discrete family of the ﬁxed-point wave func-
+
+tions.
+
+Similarly, we can consider the following local orthogonal transformation ͉␣͘ → ͚␤O␣͑i␤0j0k0͉͒␤͘ that acts on each vertex with states ͉i0͘ , ͉j0͘ , ͉k0͘ on the three edges connecting to the vertex. Such a local orthogonal transformation also does not
+
+affect the fusion mation changes
+
+͑rFukiljlemn,,N␥␣␭␤ij,k.PTikjh,␣e␤n, Aewi͒
+
+local orthogonal transforand generates a family of
+
+the ﬁxed-point wave functions parametrized by the orthogo-
+
+nal matrix O␣͑i␤0j0k0͒.
+
+Now the question is that do those solutions related by
+
+local orthogonal transformations have the same time-reversal
+
+invariant topological order or not. We know that two gapped
+
+wave functions have the same time-reversal invariant topo-
+
+logical order if and only if they can be connected by local
+
+orthogonal transformation that connects to identity continu-
+
+ously. It is well known that an orthogonal matrix whose de-
+
+terminant is −1 does not connect to identity. Thus it appears
+
+that local orthogonal transformations some times can gener-
+
+ate different time reversal invariant topological orders.
+
+However, when we use the equivalent classes of local
+
+orthogonal transformations to deﬁne time-reversal invariant
+
+topological orders, we not only assume the local orthogonal
+
+transformations to connect to identity continuously, we also
+
+assume that we can expand the local Hilbert spaces ͑say by
+
+increasing the range of the indices i and ␣ that label the
+
+states on the edges and the vertices͒. The local orthogonal
+
+transformations can act on those enlarged Hilbert spaces and
+
+can connect to identity in those enlarged Hilbert spaces.
+
+Even when a local orthogonal transformation cannot be de-
+
+formed into identity in the original Hilbert space, it can al-
+
+ways be deformed into identity continuously in an enlarged
+
+Hilbert space. Thus two real wave functions related by a
+
+local orthogonal transformation always have the same time-
+
+reversal invariant topological order.
+
+For
+
+example,
+
+an
+
+orthogonal
+
+matrix
+
+͑
+
+10 0−1
+
+͒
+
+that
+
+acts
+
+on
+
+states ͉0͘ and ͉1͘ does not connect to identity within the
+
+space of two by two orthogonal matrices. However, we can
+
+embed the above orthogonal matrix into a three by three
+
+orthogonal matrix that acts on ͉0͘, ͉1͘, and ͉2͘:
+
+΂ ΃ 1 0 0 0 −1 0 . 0 0 −1
+
+Such a three by three orthogonal matrix does connect to identity within the space of three by three orthogonal matrices. This completes our argument that all local orthogonal transformations can connect to identity continuously at least in an enlarged Hilbert space.
+So, after factoring out the unimportant phase factors discussed above, the real solutions of the ﬁxed-point conditions may uniquely correspond to time-reversal invariant topological orders. The four types of real solutions discussed in the
+
+155138-18
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+last section are examples of four different time-reversal invariant topological orders.
+For the N = 1 loop states and the N = 1 string-net state, we only have two states on each link. In this case, we can treat the two states as the two states of an electron spin. The time-reversal transformation now becomes
+
+Tˆ :c0͉0͘ + c1͉1͘ → − c1‫͉ء‬0͘ + c0‫͉ء‬1͘
+
+͑70͒
+
+on each link. For such a time-reversal transformation Tˆ 2 = −1. The two N = 1 loop states and the N = 1 string-net state are not invariant under such a time-reversal transformation.
+
+XI. WAVE FUNCTION RENORMALIZATION
+FOR TENSOR PRODUCT STATES
+A. Motivation
+Once the ﬁxed-point states have been identiﬁed and the labeling of topological orders has being found, we then face the next important issue: given a generic ground-state wave function of a system, how to identify the topological orders in the state? In other words, how to calculate the data ͑Nijk , Fkijlmn,,␥␣␭␤ , Pikj,␣␤ , Ai͒ that characterize the topological orders from a generic wave function?
+One way to address the above issue is to have a general renormalization procedure which ﬂows other states in the same phase to the simple ﬁxed-point state so that we can identify topological order from the resulting ﬁxed-point state. That is, we want to ﬁnd a local unitary transformation which removes local entanglement and gets rid of unnecessary degrees of freedom from the state. How to ﬁnd the appropriate unitary transformation for a speciﬁc state is then the central problem in this renormalization procedure. Such a procedure for one-dimensional tensor product states ͑TPS͒ ͑also called matrix product states͒ has been given in Ref. 42. Here we will propose a method to renormalize twodimensional TPS, where nontrivial topological orders emerge. The basic idea is to use the gLU transformation discussed in Sec. VII. Note that, through the gLU transformation, we can reduce the number of labels in a region A to the minimal value without loosing any quantum information ͑see Fig. 6͒. This is because the gLU transformation is a lossless projection into the support space of the state in the region A. By performing such gLU transformations on overlapping regions repeatedly ͓see Fig. 2͑a͔͒, we can reduce a generic wave function to the simple ﬁxed-point form discussed above. It should be noted that any state reducible in this way can be represented as a MERA.43
+In the following, we will present this renormalization procedure for two-dimensional TPS where we ﬁnd a method to calculate the proper gLU transformations. The tensor product states are many-body entangled quantum states described with local tensors. By making use of the entanglement information contained in the local tensors, we are able to come up with an efﬁcient algorithm to renormalize two-dimensional TPS.
+This algorithm can be very useful in the study of quantum phases. Due to the efﬁciency in representation, TPS has found wide application as variational ansatz states in the
+
+FIG. 11. ͑Color online͒ Left: tensor T representing a 2D quantum state on hexagonal lattice. i is the physical index and ␣ , ␤ , ␥ are the inner indices. Right: a tensor product state where each vertex is associated with a tensor. The inner indices of the neighboring tensors connect according to the underlying hexagonal lattice.
+studies of quantum many-body systems.67–73 Suppose that in a variational study we have found a set of tensors which describe the ground state of a two-dimensional many-body Hamiltonian and want to determine the phase this state belongs to. We can apply our renormalization algorithm to this tensor product state, which removes local entanglement and ﬂows the state to its ﬁxed point. By identifying the kind of order present in the ﬁxed-point state, we can obtain the phase information for the original state.
+In this section, we will give a detailed description of the algorithm and in the next section we will present its application to some simple ͑but nontrivial͒ cases. The states we are concerned with have translational symmetry and can be described with a translational invariant tensor network. To be speciﬁc, we discuss states on a hexagonal lattice. Generalization to other regular lattices is straightforward.
+
+B. Tensor product states
+
+Consider a two-dimensional spin model on a hexagonal lattice with one spin ͑or one qudit͒ living at each vertex. The Hilbert space of each spin is D dimensional. The state can be represented by assigning to every vertex a set of tensors T␣i ␤␥, where i ͑see Fig. 11͒ labels the local physical dimension and takes value from 1 to D. ␣ , ␤ , ␥ are inner indices along the three directions in the hexagonal lattice, respectively. The dimension of the inner indices is d. Note that the ﬁgures in this note are all sideviews with inner indices in the horizontal plane and the physical indices pointing in the vertical direction, if not speciﬁed otherwise.
+The wave function is given in terms of these tensors by
+
+͚ ͉␺͘ =
+
+tTr͑Ti1Ti2, . . . ,Tim, . . .͉͒i1i2, . . . ,im, . . .͘,
+
+i1,i2,. . .,im,. . .
+
+͑71͒
+
+where tTr denotes tensor contraction of all the connected
+inner indices on the links of the hexagonal lattice.
+A renormalization procedure of quantum states is com-
+posed of local unitary transformations and isometry maps such that the state ﬂows along the path ͉␺͑0͒͘ , ͉␺͑1͒͘ , ͉␺͑2͒͘ , . . . and ﬁnally toward a ﬁxed point ͉␺ϱ͘. With the tensor product representation, ﬂow of states corresponds to a ﬂow of tensors T͑0͒ , T͑1͒ , T͑2͒ , . . . We will give the detailed procedure of how
+the tensors are mapped from one step to the next in the
+following section.
+
+155138-19
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+FIG. 12. ͑Color online͒ Double tensor T represented as two layers of tensor T with the physical indices contracted. The gray layer is the lower layer.
+C. Renormalization algorithm In one round of renormalization, we start from tensor T͑n͒, do some operation to it which corresponds to local unitary transformations on the state, and map T͑n͒ to T͑n+1͒. The whole procedure can be broken into two parts: the F-move and the P move, in accordance with the two steps introduced in the previous section.
+1. Step 1: F-move
+In the F-move, we take a
+
+conﬁguration in the tensor network and map it to a
+
+conﬁguration by doing a local unitary operation. We will see that the tensor product representation of a state leads to a natural way of choosing an appropriate unitary operation for the renormalization of the state.
+In order to do so, ﬁrst we deﬁne the double tensor T of tensor T as
+
+͚ T␣Ј␤Ј␥Ј,␣␤␥ = ͑T␣i Ј␤Ј␥Ј͒‫ ء‬ϫ T␣i ␤␥. i
+
+͑72͒
+
+Graphically the double tensor T is represented by two layers of tensor T with the physical indices connected ͑see Fig. 12͒. The tensor T giving rise to the same double tensor T is not unique. Any tensor TЈ which differs from T by an unitary transformation U on physical index i gives the same T as U and U† cancels out in the contraction of i. On the other hand,
+an unitary transformation on i is the only degree of freedom possible, i.e., any TЈ which gives rise to the same T as T differs from T by a unitary on i. Therefore, in the process of turning a tensor T into a double tensor T and then split it again into a different tensor TЈ, we apply a nontrivial local unitary operation on the corresponding state. A well designed
+way of splitting the double tensor will give us the appropri-
+ate unitary transformation we need, as we show below.
+F-move has the following steps. First, construct double
+tensors for two neighboring sites on the lattice and combine
+them into a single double tensor with eight inner indices.
+
+FIG. 13. ͑Color online͒ F-move in the renormalization procedure: ͑1͒ combining double tensors T1 and T2 on neighboring sites into a single double tensor T, ͑2͒ splitting double tensor T into tensor ˜T, and ͑3͒ SVD decomposition of tensor ˜T into tensors Ta and Tb.
+
+͚ T␣Ј␤Ј␦Ј⑀Ј,␣␤␦⑀ = T1,␣Ј␤Ј␥Ј,␣␤␥ ϫ T2,␦Ј⑀Ј␥Ј,␦⑀␥. ͑73͒ ␥Ј,␥
+
+Note that with respect to the bipartition of indices ␣Ј␤Ј␦Ј⑀Ј and ␣␤␦⑀, T is Hermitian
+
+T␣Ј␤Ј␦Ј⑀Ј,␣␤␦⑀ = ͑T␣␤␦⑀,␣Ј␤Ј␦Ј⑀Ј͒‫ء‬
+
+͑74͒
+
+and positive semideﬁnite. Therefore it has a spectral decom-
+position with positive eigenvalues ͕␭j Ն 0͖. The corresponding eigenvectors are ͕Tˆ j͖,
+
+͚ T␣Ј␤Ј␦Ј⑀Ј,␣␤␦⑀ = ␭j͑Tˆ ␣j Ј␤Ј␦Ј⑀Ј͒‫ ء‬ϫ Tˆ ␣j ␤␦⑀.
+
+͑75͒
+
+j
+
+This spectral decomposition lead to a special way of decomposing double tensor T into tensors. Deﬁne a rank 8 tensor ˜T͑as shown in Fig. 13 after step 2͒ as follows:
+
+͚ ͱ ˜T␣lm␤n␦r⑀ =
+
+␭j͑Tˆ ljmnr͒‫ ء‬ϫ Tˆ ␣j ␤␦⑀.
+
+͑76͒
+
+j
+
+˜T has four inner indices ␣ , ␤ , ␦ , ⑀ of dimension d and four physical indices l , m , n , r also of dimension d which are in the direction of ␣ , ␤ , ␦ , ⑀, respectively. As ͕Tˆ j͖ form an orthonormal set, it is easy to check that ˜T gives rise to double tensor T. Going from T1 and T2 to ˜T, we have implemented a local unitary transformation on the physical degrees of freedom on the two sites so that in ˜T the physical indices and the inner indices represent the same conﬁguration. In some sense, we are keeping only the physical degrees of freedom necessary for entanglement with the rest of the system while getting rid of those that are only entangled within this local region. Now we do a singular value decomposition of tensor ˜T in the direction orthogonal to the link between T1 and T2 and ˜T is decomposed into tensors Ta and Tb,
+
+͚ ˜T␣lm␤n␦r⑀ = Taln,␣␦␭ ϫ Tbm,r␤⑀␭. ␭
+
+͑77͒
+
+This step completes the F-move. Ideally, this step should be done exactly so we are only applying local unitary operations to the state. Numerically, we keep some large but ﬁnite cut-
+
+155138-20
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+FIG. 16. ͑Color online͒ The corner double line tensor which is a
+ﬁxed point of the renormalization algorithm. The three groups of indices ͕␣ , ␤ , i1͖, ͕␥ , ␦ , i2͖, and ͕⑀ , ␭ , i3͖ are entangled within each group but not between the groups.
+
+FIG. 14. Original hexagonal lattice ͑gray line͒ and renormalized lattice ͑black line͒ after F-move has been applied to the neighboring pairs of sites circled by dash line.
+
+off dimension for the singular value decomposition step, so this step is approximate.
+On a hexagonal lattice, we do F-move on the chosen neighboring pairs of sites ͑dash circled in Fig. 14͒ so that the tensor network is changed into a conﬁguration shown by thick dark lines in Fig. 14. Physical indices are omitted from this ﬁgure. Now by grouping together the three tensors that meet at a triangle, we can map the tensor network back into a hexagonal lattice, with 1/3 the number of sites in the original lattice. This is achieved by the P-move introduced in the next section.
+
+2. Step 2: P-move
+Now we contract the three tensors that meet at a triangle together to form a new tensor in the renormalized lattice as shown in the ﬁrst step in Fig. 15,
+
+͚ T␣I ␤␥ = Tan,r␣␦⑀ ϫ Tblm,␤␭␦ ϫ Tcp,q␥⑀␭, ␦⑀␭
+
+͑78͒
+
+where I is the physical index of the new tensor which includes all the physical indices of Ta , Tb , Tc: l , m , n , r , p , q. Note that in the contraction, only inner indices are contracted and the physical indices are simply group together. Constructing the double tensor T from T, we get the renormalized double tensor on the new hexagonal lattice which is in
+
+the same form as T1 , T2 and we can go back again and do the F-move.
+3. Complications: Corner double line
+One problem with the above renormalization algorithm is that, instead of having one isolated ﬁxed-point tensor for each phase, the algorithm has a continuous family of ﬁxed points which all correspond to the same phase. Consider a tensor with structure shown in Fig. 16. The tensor is a tensor product of three parts which include indices ͕␣ , ␤ , i1͖, ͕␥ , ␦ , i2͖, and ͕⑀ , ␭ , i3͖, respectively. It can be shown that this structure remains invariant under the renormalization ﬂow. Therefore, any tensor of this structure is a ﬁxed point of our renormalization ﬂow. However, it is easy to see that the state it represents is a tensor product of loops around each plaquette, which can be disentangled locally into a trivial product state. Therefore, the states all have only short-range entanglement and correspond to the topologically trivial phase. The trivial phase has then a continuous family of ﬁxed-point tensors. This situation is very similar to that discussed in Refs. 41 and 74. We will keep the terminology and call such a tensor a corner double line tensor. Not only does corner double line tensor complicate the situation in the trivial phase, it leads to a continuous family of ﬁxed points in every phase. It can be checked that the tensor product of a corner double line with any other ﬁxed-point tensor is still a ﬁxed-point tensor. The states they correspond to differ only by small loops around each plaquette and represent the same topological order. Therefore any single ﬁxed-point tensor gets complicated into a continuous class of ﬁxed-point tensors. In practical application of the renormalization algorithm, in order to identify the topological order of the ﬁxedpoint tensor, we need to get rid of such corner double line structures. Due to their simple structure, this can always be done, as discussed in the next section.
+
+FIG. 15. ͑Color online͒ P-move in the renormalization procedure: ͑1͒ contracting three tensors that meet at a triangle Ta , Tb , Tc to form a new tensor T͑1͒ on one site of the renormalized hexagonal lattice. ͑2͒ Constructing the double tensor T͑1͒ from T͑1͒ so that we
+can start to do F-moves again.
+
+XII. APPLICATIONS OF THE RENORMALIZATION FOR TENSOR PRODUCT STATES
+Now we present some examples where our algorithm is used to determine the phase of a tensor product state. The algorithm can be applied both to symmetry breaking phases and topological ordered phases. In the study of symmetry
+
+155138-21
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+breaking/topological ordered phases, suppose that we have obtained some tensor product description of the ground state of the system Hamiltonian. We can then apply our algorithm to the tensors, ﬂow them to the ﬁxed point, and see whether they represent a state in the symmetry-breaking phase/ topological ordered phase or a trivial phase.
+For system with symmetry/topological order related to gauge symmetry, it is very important to keep the symmetry/ gauge symmetry in the variational approach to ground state and search within the set of tensors that have this symmetry/ gauge symmetry.75 The resulting tensor will be invariant under such symmetries/gauge symmetries but the state they correspond to may have different orders. In the symmetrybreaking case, the state could have this symmetry or could spontaneous break it. In the topological ordered phase, the state could have nontrivial topological order or be just trivial. Our algorithm can then be applied to decide which is the case. In order to correctly determine the phase for such symmetric tensors, it is crucial that we maintain the symmetry/ gauge symmetry of the tensor throughout our renormalization process. We will discuss in detail two cases: the Ising symmetry-breaking phase and the Z2 topological ordered phase. For simplicity of discussion and to demonstrate the generality of our renormalization scheme, we will ﬁrst introduce the square lattice version of the algorithm. All subsequent applications are carried out on square lattice. ͑Algorithm on a hexagonal lattice would give qualitatively similar result, though quantitatively they might differ, e.g., on the position of critical point.͒
+
+A. Renormalization on square lattice
+Tensor product states on a square lattice are represented with one tensor T␣i ␤␥␦ on each vertex, where i is the physical index and ␣␤␥␦ are the four inner indices in the up, down, left, right directions, respectively. We will assume translational invariance and require the tensor to be the same on every vertex. The renormalization procedure is be a local unitary transformation on the state which ﬂows the form of the tensor until it reaches the ﬁxed point. It is implemented in the following steps. First, we form the double tensor T from tensor T,
+
+͚ T␣Ј␤Ј␥Ј␦Ј,␣␤␥␦ = ͑T␣i Ј␤Ј␥Ј␦Ј͒‫ ء‬ϫ T␣i ␤␥␦. i
+
+Then do the spectral decomposition of positive operator T into
+
+͚ T␣Ј␤Ј␥Ј␦Ј,␣␤␥␦ = ␭j͑Tˆ ␣j Ј␤Ј␥Ј␦Ј͒‫ ء‬ϫ Tˆ ␣j ␤␥␦ j
+
+and form a new tensor ˜T␣lm␤n␥r␦
+
+͚ ͱ ˜T␣lm␤n␥r␦ =
+
+␭j͑Tˆ ljmnr͒‫ ء‬ϫ Tˆ ␣j ␤␥␦,
+
+j
+
+where l , m , n , r are physical indices in the up, down, left, and right directions, respectively. This is illustrated in step 1 of Fig. 17. This step is very similar to the second step in the F-move on hexagonal lattice. Next we do SVD decomposi-
+
+FIG. 17. ͑Color online͒ Renormalization procedure on square lattice part 1: ͑1͒ decomposing double tensor T into tensor ˜T and ͑2͒ SVD decomposition of ˜T in two different directions, resulting in tensors Ta , Tb and Tc , Td, respectively. tion of tensor ˜T. For vertices in sublattice A we decompose between the up-right and down-left directions as shown in step 2 of Fig. 17. For vertices in sublattice B we decompose between the up-left and down-right directions as shown in step 3 of Fig. 17,
+͚ ˜T␣lm␤n␥r␦ = Talr,␣␦␭ ϫ Tbm,n␤␥␭, ␭
+͚ ˜T␣lm␤n␥r␦ = Tclr,␣␦␭ ϫ Tbm,n␤␥␭. ␭
+After the decomposition, the original lattice ͑gray lines in Fig. 18͒ is transformed into the conﬁguration shown by thick dark lines in Fig. 18. Physical indices are omitted from this ﬁgure. If we now shrink the small squares, we get a tensor product state on a renormalized square lattice. Figure 19 shows how this is done.
+In step 1, we contract the four tensors that meet at a small square
+FIG. 18. Original square lattice ͑gray line͒ and renormalized lattice ͑black line͒ after the operations in Fig. 17 has been applied. Physical indices of the tensors are not drawn here.
+
+155138-22
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+FIG. 19. ͑Color online͒ Renormalization procedure on square lattice part 2: ͑1͒ combining four tensors that meet at a square into a single tensor and ͑2͒ constructing a double tensor from it.
+
+͚ T␣I ␤␥␦ =
+
+Tam,1␤n␯1␹ ϫ Tbm,2␣n␭2␮ ϫ Tcm,␦3n␮3␹ ϫ Tdm,4␥n␭4␯,
+
+␭␮␯␹
+
+where I stands for the combination of all physical indices mi , ni, i = 1 , . . . , 4. In step 2, we construct a double tensor T form tensor T and completes one round of renormalization. Now we can go back to step 1 in Fig. 17 and ﬂow the tensor further.
+Now we are ready to discuss two particular examples, the Ising symmetry-breaking phase and the Z2 topological ordered phase, to demonstrate how our algorithm can be used to determine the phase of a tensor product state.
+
+B. Ising symmetry-breaking phase
+
+A typical example for symmetry-breaking phase transition is the transverse ﬁeld Ising model. Consider a square lattice with one spin 1/2 on each site. The transverse ﬁeld Ising model is
+
+͚ ͚ HIsing = ZiZj + ⑀ Xk,
+
+ij
+
+k
+
+where ͕ij͖ are nearest-neighbor sites. The Hamiltonian is invariant under spin-ﬂip transformation ͟kXk for any ⑀.
+When ⑀ = 0, the ground state spontaneously breaks this symmetry into either the all spin-up state ͉00¯ 0͘ or the all spin-down state ͉11¯ 1͘. In this case any global superposition ␣͉00¯ 0͘ + ␤͉11¯ 1͘ represents a degenerate ground state. When ⑀ = ϱ, the ground state has all spin polarized in the X direction ͉͑++ ¯ +͒͘ and does not break this symmetry.
+In the variational study of this system, we can require that
+the variational ground state always have this symmetry, re-
+gardless if the system is in the symmetry-breaking phase or not. Then we will ﬁnd for ⑀ = 0 the ground state to be ͉00¯ 0͘ + ͉11¯ 1͘. Such a global superposition represents the spontaneous symmetry breaking. For ⑀ = ϱ, we will ﬁnd the ground state to be ͉++ ¯ +͘ and does not break the symmetry. For 0 Ͻ ⑀ Ͻ ϱ, we will need to decide which of the
+previous two cases it belongs to. We can ﬁrst ﬁnd a tensor
+product representation of an approximate ground state which
+is symmetric under the spin-ﬂip transformation, then apply
+the renormalization algorithm to ﬁnd the ﬁxed point and de-
+cide which phase the state belongs to. Below we will assume
+
+a simple form of tensor and demonstrate how the algorithm works.
+Suppose that the tensors obtained from the variational study T␣i ␤␥␦, where i , ␣ , ␤ , ␥ , ␦ can be 0 or 1, takes the following form:
+T␣0 ␤␥␦ = ␭␣+␤+␥+␦,
+
+T␣1 ␤␥␦ = ␭4−͑␣+␤+␥+␦͒.
+
+͑79͒
+
+␭ is a parameter between 0 and 1. Under an X operation to the physical index, the tensor is changed to ˜T,
+
+˜T␣0 ␤␥␦ = ␭4−͑␣+␤+␥+␦͒,
+
+˜T␣1 ␤␥␦ = ␭␣+␤+␥+␦.
+˜T can be mapped back to T by switching the 0,1 label for the four inner indices ␣␤␥␦. Such a change in basis for the inner indices does not change the contraction result of the tensor and hence the state that is represented. Therefore, the state is invariant under the spin-ﬂip transformation ͟kXk and we will say that the tensor has this symmetry also.
+When ␭ = 0, the tensor represents state ͉00¯ 0͘ + ͉11¯ 1͘, which corresponds to the spontaneous symmetrybreaking phase. We note that the ␭ = 0 tensor is a direct sum of dimension-1 tensors. Such a direct-sum structure corresponds to spontaneous symmetry breaking, as discussed in detail in Ref. 41. When ␭ = 1, the tensor represents state ͉+ + ¯ +͘ which corresponds to the symmetric phase. When 0 Ͻ ␭ Ͻ 1, there must be a phase transition between the two phases. However, as ␭ goes from 0 to 1, the tensor varies smoothly with well-deﬁned symmetry. It is hard to identify the phase-transition point. Now we can apply our algorithm to the tensor. First, we notice that at ␭ = 0 or 1, the tensor is a ﬁxed point for our algorithm. Next, we ﬁnd that for ␭ Ͻ 0.358, the tensor ﬂows to the form with ␭ = 0 while for ␭ Ͼ 0.359, it ﬂows to the form with ␭ = 1. Therefore, we can clearly identify the phase a state belongs to using this algorithm and ﬁnd the phase-transition point.
+Note that in our algorithm, we explicitly keep the spin-ﬂip symmetry in the tensor. That is, after each renormalization step, we make sure that the renormalized tensor is invariant under spin-ﬂip operations up to change in basis for the inner indices. If the symmetry is not carefully preserved, we will not be able to tell the two phases apart.
+We also need to mention that for arbitrary ␭, the ﬁxed point that the tensor ﬂows to can be different from the tensor at ␭ = 0 or 1 by a corner double line structure. We need to get rid of the corner double line structure in the result to identify the real ﬁxed point. This is possible by carefully examining the ﬁxed-point structure. Another way to distinguish the different ﬁxed points without worrying about corner double lines is to calculate some quantities from the ﬁxed-point tensors that are invariant with the addition of corner double lines. We also want the quantity to be invariant under some trivial changes to the ﬁxed point, such as a change in scale T → ␩T or the change in basis for physical and inner indices. One such quantity is given by the ratio of X2 and X1 deﬁned as X1 = ͚͑␣Ј␥Ј,␣␥T␣Ј␣Ј␥Ј␥Ј,␣␣␥␥͒2 and X2
+
+155138-23
+
+CHEN, GU, AND WEN
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+T
+
+T
+
+T
+
+T
+
+FIG. 20. Quantity X2 / X1 obtained by taking the ratio of the contraction value of the double tensor in two different ways. X2 / X1 is invariant under change in scale, basis transformation and corner double line structures of the double tensor and can be used to distinguish different ﬁxed-point tensors. For clarity, only one layer of the double tensor is shown. The other layer connects in exactly the same way.
+
+= ͚␣Ј␤Ј␥Ј␦Ј,␣␤␥␦T␣Ј␣Ј␥Ј␦Ј,␣␣␥␦ ϫ T␤Ј␤Ј␦Ј␥Ј,␤␤␦␥. Figure 20 gives a graphical representation of these two quantities. In
+this ﬁgure, only one layer of the double tensor is shown. The
+other layer connects in the exactly the same way. It is easy to verify that X2 / X1 is invariant under the change in scale, basis transformation, and corner double lines.
+We calculate X2 / X1 along the renormalization ﬂow. The result is shown in Fig. 21. At the ␭ = 0 ﬁxed point, X2 / X1 = 0.5 while at ␭ = 1, X2 / X1 = 1. As we increase the number of renormalization steps, the transition between the
+two ﬁxed points becomes sharper and ﬁnally approaches a step function with critical point at ␭c = 0.358. Tensors with ␭ Ͻ ␭c belongs to the symmetry-breaking phase while tensors with ␭ Ͼ ␭c belongs to the symmetric phase.
+
+C. Z2 topological ordered phase
+The algorithm can also be used to study topological order of quantum states. In this section, we will demonstrate how the algorithm works with Z2 topological order.
+Consider again a square lattice but now with one spin 1/2 per each link. A simple Hamiltonian on this lattice with Z2 topological order can be deﬁned as
+
+͚ ͟ ͚ ͟ HZ2 =
+
+p
+
+Xi +
+i෈p
+
+v
+
+Zj,
+j෈v
+
+where p means plaquettes and i ෈ p is all the spin 1/2’s around the plaquette and v means vertices and j ෈ v is all the
+
+FIG. 21. ͑Color online͒ X2 / X1 for tensors ͓Eq. ͑79͔͒ under the renormalization ﬂow. As the number of RG steps increases, the
+transition in X2 / X1 becomes sharper and ﬁnally approaches a step function at ﬁxed point. The critical point is at ␭c = 0.358.
+
+spin 1/2’s connected to the vertex. The ground-state wave
+
+function of this Hamiltonian is a ﬁxed-point wave function
+
+and corresponds to the N = 1 loop state with ␩ = 1 as dis-
+
+cussed in the previous section.
+
+The ground-state wave function has a simple tensor prod-
+
+uct representation. For simplicity of discussion we split ev-
+
+ery spin 1/2 into two and associate every vertex with four
+
+spins. =0,1
+
+aTnhdethterneesoirnnTe␣irj␤kl␥in␦,dZi2cehsas␣f,o␤u,r␥p, h␦y=s0ic,a1l.
+
+indices
+
+i,j,k,l
+
+Tii
+
+jkl jkl,Z2
+
+=
+
+1,
+
+if mod͑i + j + k + l,2͒
+
+= 0 all other terms being 0.
+
+It can be checked that TZ2 is a ﬁxed-point tensor of our algorithm. This tensor has a Z2 gauge symmetry. If we apply Z operation to all the inner indices, where Z maps 0 to 0 and 1 to −1, the tensor remains invariant as only even conﬁgurations of the inner indices are nonzero in the tensor.
+Consider then the following set of tensor parametrized by g
+
+Tii
+
+jkl jkl
+
+=
+
+gi+j+k+l,
+
+if mod͑i + j + k + l,2͒
+
+= 0 all other terms being 0.
+
+͑80͒
+
+At g = 1, this is exactly TZ2 and the corresponding state has topological order. At g = 0, the tensor represents a product
+state of all 0 and we denote the tensor as T0. At some critical point in g, the state must go through a phase transition. This
+set of tensors are all invariant under gauge transformation
+ZZZZ on their inner indices and the tensor seems to vary
+smoothly with g. One way to detect the phase transition is to apply our algorithm. We ﬁnd that, at g Ͼ gc, the tensors ﬂow to TZ2 while at g Ͻ gc, the tensors ﬂow to T0. We determine gc to be between 0.804 and 0.805. As this model is mathemati-
+cally equivalent to two-dimensional classical Ising model
+where the transition point is known to great accuracy, we
+compare our result to that result and ﬁnd our result to be within 1% accuracy ͑gc = 0.8022͒. Again in the renormalization algorithm, we need to carefully preserve the Z2 gauge symmetry of the tensor so that we can correctly determine
+the phase of the states.
+The ﬁxed-point tensor structure might also be compli-
+cated by corner double line structures but it is always pos-
+sible to identify and get rid of them. Similarly, we can calculate the invariance quantity X2 / X1 to distinguish the two ﬁxed points. X2 / X1 = 1 for TZ2 while X2 / X1 = 0.5 for T0. The result is plotted in Fig. 22 and we can see that the transition in X2 / X1 approaches a step function after a large number of steps of RG, i.e., at the ﬁxed point. The critical point is at gc = 0.804. For g Ͻ gc, the tensor belongs to the trivial phase while for g Ͼ gc, the tensor belongs to the Z2 topological ordered phase.
+Our algorithm can also be used to demonstrate the stabil-
+ity of topological order against local perturbation. As is
+shown in Ref. 75, local perturbations to the Z2 Hamiltonian correspond to variations in tensor that do not break the Z2 gauge symmetry. We picked tensors in the neighborhood of
+TZ2 which preserve this gauge symmetry randomly and applied our renormalization algorithm ͑gauge symmetry is kept
+
+155138-24
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+FIG. 22. ͑Color online͒ X2 / X1 for tensors ͓Eq. ͑80͔͒ under the renormalization ﬂow. As the number of RG steps increases, the transition in X2 / X1 becomes sharper and ﬁnally approaches a step function at ﬁxed point. The critical point is at gc = 0.804.
+throughout the renormalization process͒. We ﬁnd that as long as the variation is small enough, the tensor ﬂows back to TZ2, up to a corner double line structure. This result shows that the Z2 topological ordered phase is stable against local perturbations.
+
+XIII. SUMMARY
+
+In this paper, we discuss a deﬁning relation between local unitary transformation and quantum phases. We argue that two gapped states are related by a local unitary transformation if and only if the two states belong to the same quantum phase.
+We can use the equivalent classes of local unitary transformations to deﬁne “patterns of long range entanglement.” So the patterns of long-range entanglement correspond to universality classes of quantum phases, and are the essence of topological orders.32
+As an application of this point of view of quantum phases and topological order, we use the generalized local unitary transformations to generate a wave function renormalization, where the wave functions ﬂow within the same universality class of a quantum phase ͑or the same equivalent class of the local unitary transformations͒. In other words, the renormalization ﬂow of a wave function does not change its topological order. Such a wave function renormalization allows us to classify topological orders, by classifying the ﬁxed-point wave functions and the associated ﬁxed-point local unitary transformations.
+First, we ﬁnd that the ﬁxed-point local unitary transformations are described by the data ͑Nijk , Fkijlmn,,␹␣␦␤ , Pikj,␣␤͒ that satisfy
+
+Nijk = Njki = Nk‫ء‬j‫ء‬i‫ ء‬Ն 0,
+
+N
+͚ Nii‫ء‬kNjk‫ء‬j‫ ء‬Ն 1,
+j,k=0
+
+N
+
+N
+
+͚ ͚ Njim‫ء‬Nkml‫ = ء‬Nkjn‫ء‬Nl‫ء‬ni,
+
+m=0
+
+n=0
+
+͑81͒
+
+͑Fkijlmn,,␹␣␦␤͒‫ = ء‬Flj‫ء‬kin‫ء‬,m␹␦‫ء‬,␤␣,
+
+͚ Fkijlmn,Ј␹,␦␣Ј␤Ј͑Fkijlmn,,␹␣␦␤͒‫␦ = ء‬m␣␤,mЈ␣Ј␤Ј,
+n,␹,␦
+
+Nkjt‫ ء‬Ntin‫ ء‬Nlts‫ء‬
+
+Nqmp‫ء‬
+
+͚ ͚ ͚ ͚ ͚ Fkijnmt,,␩␣␸␤Flitpns,,␸␬␹␥Fljskqt,,␩␦␾␬ = ei␪F
+
+Flmpkqn,␦,␤⑀␹Fqi jpms,,␣␾⑀␥ ,
+
+t ␩=1 ␸=1 ␬=1
+
+⑀=1
+
+͑82͒
+
+ei␪P1Pikj,␣␤ =
+
+͚
+
+Fij‫ء‬j‫ء‬i‫ء‬km,␤‫␣ء‬,␭␥Fmi‫ءء‬mi‫ء‬j,l␭,␯␥␮Pil‫ء‬m,␮␯ ,
+
+m,␭,␥,l,␯,␮
+
+Nkjk‫ء‬
+
+͚ ei␪P2Pijp,␣␩␦im␦␤␦ =
+
+Fki jlmk,,␹␣␦␤ Pkj p‫ء‬,␹␩
+
+␹=1
+
+for all k,i,l satisfying Nkil‫ ء‬Ͼ 0 ͑83͒
+
+͓see Eqs. ͑9͒, ͑12͒, ͑18͒, ͑23͒, ͑30͒, ͑33͒, ͑36͒, and ͑47͔͒. From the data ͑Nijk , Fkijlmn,,␹␣␦␤ , Pikj,␣␤͒ we can further ﬁnd out the ﬁxed-point wave function by solving the following equa-
+tions for Ai , i = 0 , . . . , N:
+
+͚ Ai = ei␪AAi‫ ء‬0,
+
+Ai͑Ai͒‫ = ء‬1,
+
+i
+
+Pimj,␥␭Ai = ei␪A1Pmj‫ءء‬i‫ء‬,␭␥Aj ,
+
+͚ ⌽i␪kj,␣␤ = ei␪Ј
+
+Fijj‫ء‬kim‫ء‬,␣,␭␤␥ Pim j,␥␭Ai ,
+
+m,␭,␥
+
+⌽i␪kj,␣␤ = ei␪A1⌽k␪ji,␣␤,
+
+⌽i␪kj,␣␤ = 0, if Nikj = 0,
+
+det͑⌽i␪kj,␣␤͒ 0
+
+͑84͒
+
+͓see Eqs. ͑38͒, ͑40͒, ͑42͒, and ͑44͒–͑46͔͒. The combined data ͑Nijk , Fkijlmn,,␹␣␦␤ , Pikj,␣␤ , Ai͒ that satisfy the
+conditions ͓Eqs. ͑81͒–͑84͔͒ classify a large class of topological orders. We see that the problem of classifying a large class of topological orders becomes the problem of solving a set of nonlinear algebraic equations ͓Eqs. ͑81͒–͑84͔͒.
+The combined data ͑Nijk , Fkijlmn,,␹␣␦␤ , Pikj,␣␤ , Ai͒ that satisfy the conditions ͓Eqs. ͑81͒–͑84͔͒ also classify a large class of time-reversal invariant topological orders, if we restrict ourselves to real solutions. The solutions related by local orthogonal transformations all belong to the same phase since the local orthogonal transformations always connect to identity if we enlarge the Hilbert space.
+We like to point out that we cannot claim that the solutions ͑Nijk , Fkijlmn,,␹␣␦␤ , Pikj,␣␤ , Ai͒ classify all topological orders since we have assumed that the ﬁxed-point local unitary transformations are described by tensors of ﬁnite dimensions. It appears that chiral topological orders, such as quantum Hall states, are described by tensors of inﬁnite dimensions.
+
+155138-25
+
+CHEN, GU, AND WEN
+We note that the data ͑Nijk , Fkijlmn,,␹␣␦␤ , Pikj,␣␤ , Ai͒ just characterize different ﬁxed-point wave functions. It is not guaranteed that the different data will represent different topological orders. However, for the simple solutions discussed in this paper, they all coincide with string-net states, where the topological properties, such as the ground-state degeneracy, number of quasiparticle types, the quasiparticle statistics, etc., were calculated from the data. From those topological properties, we know that those different simple solutions represent different topological orders. Also ͑Fkijlmn,,␹␣␦␤ , Pikj,␣␤ , Ai͒ are real for the simple solutions discussed here. Thus they also represent topological orders with time-reversal symmetry. ͑Certainly, at the same time, they represent stable topological orders even without time-reversal symmetry.͒
+We also like to point out that our description of ﬁxedpoint local unitary transformations is very similar to the description of string-net states. However, the conditions ͓Eqs. ͑81͒–͑84͔͒ on the data appear to be weaker than ͑or equivalent to͒ those63 on the string-net data. So the ﬁxed-point wave functions discussed in this paper may include all the string-net states ͑in 2D͒.
+Last, we present a wave function renormalization scheme, based on the gLU transformations for generic TPS. Such a wave function renormalization always ﬂows within the same phase ͑or within the same equivalence class of LU transformations͒. It allows us to determine which phase a generic TPS belongs to by studying the resulting ﬁxed-point wave functions. We demonstrated the effectiveness of our method for both symmetry-breaking phases and topological ordered phases. We ﬁnd that we can even use tensors that do not break symmetry to describe spontaneous symmetry-breaking states: if a state described by a symmetric tensor has a spontaneous symmetry breaking, the symmetric tensor will ﬂow to a ﬁxed-point tensor that has a form of direct sum.
+ACKNOWLEDGMENTS
+We would like to thank I. Chuang, M. Hastings, M. Levin, F. Verstraete, Z.-H. Wang, Y.-S. Wu, and S. Bravyi for some very helpful discussions. X.G.W. is supported by NSF under Grant No. DMR-0706078. Z.C.G. is supported in part by the NSF under Grant No. NSFPHY05-51164.
+APPENDIX: EQUIVALENCE RELATION BETWEEN QUANTUM STATES IN THE SAME PHASE
+In Secs. III and IV, we argued about the equivalence relation between gapped quantum ground states in the same phase. We concluded that two states are in the same phase if and only if they can be connected by local unitary evolution or constant depth quantum circuit,
+͓ ͔ ͉⌽͑1͒͘ ϳ ͉⌽͑0͒͘ iff ͉⌽͑1͒͘ = T e−i͐01dgH˜ ͑g͒ ͉⌽͑0͒͘,
+͉⌽͑1͒͘ ϳ ͉⌽͑0͒͘ iff ͉⌽͑1͒͘ = UcMirc͉⌽͑0͒͘.
+Now we want to make these arguments more rigorous, by stating clearly what is proved and what is conjectured, and by giving precise deﬁnition of two states being the same, the
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+locality of operators, etc. We will show the equivalence in the following steps: ͑1͒ if two gapped ground states are in the
+same phase, then they are connected by local unitary evolution, ͑2͒ a gapped ground state remains in the same phase under local unitary evolution, and ͑3͒ a local unitary evolu-
+tion can be simulated by a constant depth quantum circuit and vice versa. ͑All these discussions can be generalized to the case where the system has certain symmetries. H˜ ͑g͒ and
+Ucirc used in the equivalence relation will then have the same symmetry as the system Hamiltonian H.͒
+First, according to the deﬁnition in Sec. III, two states ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are in the same phase if we can ﬁnd a family of local Hamiltonians H͑g͒, g ෈ ͓0 , 1͔ with ͉⌽͑g͒͘
+being its ground state such that the ground-state average of any local operator O, ͗⌽͑g͉͒O͉⌽͑g͒͘ changes smoothly from
+g = 0 to g = 1. Here we allow a more general notion of locality for the Hamiltonian34 and require H͑g͒ to be a sum of local operators HZ͑g͒,
+
+͚ H͑g͒ = HZ͑g͒, Z෈Z
+
+͑A1͒
+
+where HZ͑g͒ is a Hermitian operator deﬁned on a compact region Z. ͚Z෈Z sums over a set Z of regions. The set Z contains regions that differ by translations. The set Z also contains regions with different sizes. However, HZ͑g͒ approaches zero exponentially as the size of the region Z ap-
+proaches inﬁnity. Or more precisely, for all sites u in the
+lattice
+
+͚ ʈHZ͑g͒ʈ͉Z͉exp͓␮diam͑Z͔͒ = O͑1͒
+Z෈Z,Z෉u
+
+͑A2͒
+
+for some positive constant ␮. Here ͚Z෈Z,Z෉u sums over all regions in the set Z that cover the site u, ʈ ¯ ʈ denotes operator norm, ͉Z͉ is the cardinality of Z, and diam͑Z͒ is the
+diameter of Z. Therefore, instead of being exactly zero out-
+side of a ﬁnite region, the interaction terms can have an
+exponentially decaying tail. If ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are gapped ground states of H͑0͒ and
+H͑1͒, then we assume that for all ͗⌽͑g͉͒O͉⌽͑g͒͘ to be smooth, H͑g͒ must remain gapped for all g. If H͑g͒ closes
+gap for some gc, then there must exist a local operator O such that ͗⌽͑g͉͒O͉⌽͑g͒͘ has a singularity at gc. We call the gapped H͑g͒ an adiabatic connection between two states in
+the same phase.
+The existence of an adiabatic connection gives rise to a local unitary evolution between ͉⌽͑0͒͘ and ͉⌽͑1͒͘. A slight
+modiﬁcation of Lemma 7.1 in Ref. 34 gives theorem 1 which
+is given below. Theorem 1. Let H͑g͒ be a differentiable family of local
+Hamiltonians and ͉⌽͑g͒͘ be its ground state. If the excitation gap above ͉⌽͑g͒͘ is larger than some ﬁnite value ⌬ for all g , then we can deﬁne H˜ ͑g͒ = i͐dtF͑t͒exp͓iH͑g͒t͔͓‫ץ‬gH͑g͔͒exp͓ −iH͑g͒t͔ , such that ͉⌽͑1͒͘ = T͓e−i͐01dgH˜ ͑g͔͉͒⌽͑0͒͘, where F͑t͒ is a function which has the following properties: ͑1͒ the fourier transform of F͑t͒, ˜F͑␻͒ is equal to −1 / ␻ for ͉␻͉ Ͼ ⌬. ͑2͒ ˜F͑␻͒ is inﬁnitely differentiable. ͑3͒ F͑t͒ = −F͑−t͒. Under this deﬁnition, H˜ ͑g͒ is local ͑almost͒ and satisﬁes
+
+155138-26
+
+LOCAL UNITARY TRANSFORMATION, LONG-RANGE…
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+
+ʈ͓H˜ Z͑g͒,OB͔ʈ Յ hЈ͓dist͑Z,B͔͉͒Z͉ʈH˜ Z͑g͒ʈʈOBʈ, ͑A3͒
+where OB is any operator supported on site B, dist͑Z , B͒ is the smallest distance between B and any site in Z, and hЈ͑l͒ is a function which decays faster than any negative power of l. ͓ ¯ ͔ denotes commutator of two operators. This is called the quasiadiabatic continuation of states.
+Therefore, we can show that if ͉⌽͑0͒͘ and ͉⌽͑1͒͘ are in the same phase, then we can ﬁnd a local ͓as deﬁned in Eq. ͑87͔͒ Hamiltonian H˜ Z͑g͒ such that ͉⌽͑1͒͘ = T͓e−i͐01dgH˜ ͑g͔͉͒⌽͑0͒͘. In other words, states in the same phase are equivalent under local unitary evolution.
+Note that here we map ͉⌽͑0͒͘ exactly to ͉⌽͑1͒͘. There is another version of quasiadiabatic continuation,35 where the mapping is approximate. In that case, H˜ Z͑g͒ can be deﬁned to have only exponentially small tail outside of a ﬁnite region instead of a tail which decays faster than any negative power. T͓e−i͐01dgH˜ ͑g͔͉͒⌽͑0͒͘ will not be exactly the same as ͉⌽͑1͒͘ but any local measurement on them will give approximately the same result.
+Next we want to show that the reverse is also true. Suppose that ͉⌽͑0͒͘ is the gapped ground state of a local Hamiltonian H͑0͒, H͑0͒ = ͚ZHZ͑0͒ and each HZ͑0͒ is supported on a ﬁnite region Z. Apply a local unitary evolution generated by H˜ ͑s͒ to ͉⌽͑0͒͘ and take it to ͉⌽͑g͒͘, g = 0 ϳ 1, ͉⌽͑g͒͘ = Ug͉⌽͑0͒͘, where Ug = T͓e−i͐0gdsH˜ ͑s͔͒. ͉⌽͑g͒͘ is then ground state of H͑g͒ = UgH͑0͒Ug† = ͚ZUgHZ͑0͒Ug† = ͚ZHZ͑g͒. Under unitary transformation Ug the spectrum of H͑0͒ does not change, therefore H͑g͒ remains gapped. To show that H͑g͒ also remains local, we use the Lieb-Robinson bound derived in Ref. 34, which gives
+ʈ͓HZ͑g͒,OB͔ʈ = ʈ͓UgHZ͑0͒Ug†,OB͔ʈ
+Յ h͓dist͑Z,B͔͉͒Z͉ʈHZ͑0͒ʈʈOBʈ,
+where h͑l͒ decays faster than any negative power of l. Therefore, HZ͑g͒ remains local up to a tail which decays faster than any negative power. H͑g͒ then forms a local gapped adiabatic connection between ͉⌽͑0͒͘ and ͉⌽͑1͒͘.
+To detect for phase transition, we must check whether the ground-state average value of any local operator O, ͗⌽͑g͉͒O͉⌽͑g͒͘, has a singularity or not. ͗⌽͑g͉͒O͉⌽͑g͒͘ = ͗⌽͑0͉͒Ug†OUg͉⌽͑0͒͘. Using the Lieb-Robinson bound given in Ref. 34, we ﬁnd Ug†OUg remains local ͓in the sense of Eq. ͑87͔͒ and evolves smoothly with g. Therefore,
+
+͗⌽͑g͉͒O͉⌽͑g͒͘ changes smoothly. In fact, because H͑g͒ is
+
+differentiable, the derivative of ͗⌽͑g͉͒O͉⌽͑g͒͘ to any order
+
+always exists. Therefore, there is no singularity in the
+
+ground-state average value of any local operator O and
+
+͉⌽͑0͒͘ and ͉⌽͑1͒͘ are in the same phase. We have hence
+
+shown that states connected with local unitary evolution are
+
+in the same phase.
+
+This completes the equivalence relation stated in ͑1͒. The
+
+deﬁnition of locality is slightly different in different cases, so
+
+there is still some gap in the equivalence relation. However,
+
+we believe that the equivalence relation should be valid with
+
+a slight generalization of the deﬁnition of locality.
+
+Lastly, we want to show that the equivalence relation is
+
+still valid if we use constant depth quantum circuit instead of
+
+local unitary evolution. This is true because we can always
+
+simulate a local unitary evolution using a constant depth
+
+quantum circuit and vice versa.
+
+To simulate a local unitary evolution of the form T͓e−i͐01dgH˜ ͑g͔͒, ﬁrst divide the total time into small segments ␦t such that T͓e−i͐m͑m␦+t 1͒␦tdgH˜ ͑g͔͒ Ӎ e−i␦tH͑m␦t͒. H͑m␦t͒
+
+= ͚ZHZ͑m␦t͒. The set of local operators ͕HZ͑m␦t͖͒ can always be divided into a ﬁnite number of subsets ͕HZ1i ͑m␦t͖͒, ͕HZ2i ͑m␦t͖͒¯ such that elements in the same subset commute with each other. Then we can do Trotter expansion and approximate e−i␦tH͑m␦t͒ as e−i␦tH͑m␦t͒ Ӎ ͑U͑1͒U͑2͒¯͒n, where U͑1͒ = ͟ie−i␦tHZ1i /n, U͑2͒ = ͟ie−i␦tHZ2i /n¯ Each term in U͑1͒, U͑2͒
+commute, therefore they can be implement as a piecewise
+
+local unitary operator. Putting these piecewise local unitary
+
+operators together, we have a quantum circuit which simu-
+
+lates the local unitary evolution. The depth of circuit is pro-
+
+portional to n ϫ ͑1 / ␦t͒. It can be shown that to achieve a
+
+simulation with constant error, a constant depth circuit would
+
+sufﬁce.76
+
+On the other hand, to simulate a constant depth quantum
+
+circuit Ucirc = U͑p1w͒lU͑p2w͒l ¯ U͑p2w͒l, where U͑pkw͒l = ͟iUi͑k͒ with a lo-
+
+cal unitary evolution, we can deﬁne the time-dependent
+
+Hamiltonian eiHi͑k͒␦t = Ui͑k͒.
+
+as It
+
+H͑t͒ = ͚iHi͑k͒, such that is easy to check that
+
+for ͑k − 1͒␦t Ͻ t Ͻ k␦t, T͓e−i͐0M␦tdgH˜ ͑g͔͒ = Ucirc.
+
+The simulation time needed is M␦t. We can always choose a
+
+ﬁnite ␦t such that ʈHi͑k͒ʈ is ﬁnite and the evolution time is
+
+ﬁnite.
+
+We have shown that constant depth quantum circuit and
+
+local unitary evolution can simulate each other. The equiva-
+
+lence relation ͓Eq. ͑1͔͒ can therefore also be stated in terms
+
+of constant depth circuit as in Eq. ͑4͒.
+
+1 L. D. Landau, Phys. Z. Sowjetunion 11, 26 ͑1937͒. 2 V. L. Ginzburg and L. D. Landau, Zh. Eksp. Teor. Fiz. 20, 1064
+͑1950͒. 3 J. G. Bednorz and K. A. Mueller, Z. Phys. B: Condens. Matter
+64, 189 ͑1986͒. 4 P. W. Anderson, Science 235, 1196 ͑1987͒. 5 G. Baskaran, Z. Zou, and P. W. Anderson, Solid State Commun.
+63, 973 ͑1987͒.
+
+6 I. Afﬂeck and J. B. Marston, Phys. Rev. B 37, 3774 ͑1988͒. 7 D. S. Rokhsar and S. A. Kivelson, Phys. Rev. Lett. 61, 2376
+͑1988͒. 8 I. Afﬂeck, Z. Zou, T. Hsu, and P. W. Anderson, Phys. Rev. B 38,
+745 ͑1988͒. 9 E. Dagotto, E. Fradkin, and A. Moreo, Phys. Rev. B 38, 2926
+͑1988͒. 10 V. Kalmeyer and R. B. Laughlin, Phys. Rev. Lett. 59, 2095
+
+155138-27
+
+CHEN, GU, AND WEN
+͑1987͒. 11 X.-G. Wen, F. Wilczek, and A. Zee, Phys. Rev. B 39, 11413
+͑1989͒. 12 X.-G. Wen, Phys. Rev. B 40, 7387 ͑1989͒. 13 X.-G. Wen, Int. J. Mod. Phys. B 4, 239 ͑1990͒. 14 The name “topological order” is motivated by the low-energy
+effective theory of the chiral spin states, which is a topological quantum ﬁeld theory ͑Ref. 77͒. 15 X.-G. Wen, Phys. Rev. B 43, 11025 ͑1991͒. 16 A. Kitaev and J. Preskill, Phys. Rev. Lett. 96, 110404 ͑2006͒. 17 M. Levin and X.-G. Wen, Phys. Rev. Lett. 96, 110405 ͑2006͒. 18 J. B. Marston and I. Afﬂeck, Phys. Rev. B 39, 11538 ͑1989͒. 19 X.-G. Wen, Phys. Rev. Lett. 66, 802 ͑1991͒. 20 A. Y. Kitaev, Ann. Phys. ͑N.Y.͒ 321, 2 ͑2006͒. 21 X.-G. Wen and Q. Niu, Phys. Rev. B 41, 9377 ͑1990͒. 22 F. D. M. Haldane and E. H. Rezayi, Phys. Rev. B 31, 2529 ͑1985͒. 23 G. Kotliar and J. Liu, Phys. Rev. B 38, 5142 ͑1988͒. 24 N. Read and S. Sachdev, Phys. Rev. Lett. 66, 1773 ͑1991͒. 25 X.-G. Wen, Phys. Rev. B 44, 2664 ͑1991͒. 26 P. A. Lee and N. Nagaosa, Phys. Rev. B 46, 5621 ͑1992͒. 27 A. Y. Kitaev, Ann. Phys. ͑N.Y.͒ 303, 2 ͑2003͒. 28 W. Rantner and X.-G. Wen, Phys. Rev. B 66, 144501 ͑2002͒. 29 M. Hermele, T. Senthil, M. P. A. Fisher, P. A. Lee, N. Nagaosa, and X.-G. Wen, Phys. Rev. B 70, 214437 ͑2004͒. 30 X.-G. Wen, Phys. Rev. B 65, 165113 ͑2002͒. 31 X.-G. Wen and A. Zee, Phys. Rev. B 66, 235110 ͑2002͒. 32 X.-G. Wen, Phys. Lett. A 300, 175 ͑2002͒. 33 The conjecture is for symmetry-breaking states with ﬁnite energy
+gaps. However, it is unclear whether it is possible to ﬁnd a
+deﬁnition of “short-range quantum entanglement” to make the
+conjecture valid for gapless symmetry-breaking states. 34 S. Bravyi, M. Hastings, and S. Michalakis, J. Math. Phys. 51,
+093512 ͑2010͒. 35 M. B. Hastings and X.-G. Wen, Phys. Rev. B 72, 045141 ͑2005͒. 36 For each Hamiltonian, we can introduce an algebra of local op-
+erators. If the energy gap for H͑g͒ is ﬁnite for all g in the segment ͓0,1͔, Ref. 35 shows that the algebra of local operators
+for different g’s are isomorphic to each other at low energies,
+using a quasiadiabatic continuation of quantum states. 37 E. H. Lieb and D. W. Robinson, Commun. Math. Phys. 28, 251
+͑1972͒. 38 S. Bravyi, M. B. Hastings, and F. Verstraete, Phys. Rev. Lett. 97,
+050401 ͑2006͒. 39 D. I. Tsomokos, A. Hamma, W. Zhang, S. Haas, and R. Fazio,
+Phys. Rev. A 80, 060302 ͑2009͒. 40 A state is called a gapped state if there exist a local Hamiltonian
+such that the state is the gapped ground state of the Hamiltonian. 41 Z.-C. Gu and X.-G. Wen, Phys. Rev. B 80, 155131 ͑2009͒. 42 F. Verstraete, J. I. Cirac, J. I. Latorre, E. Rico, and M. M. Wolf,
+Phys. Rev. Lett. 94, 140601 ͑2005͒. 43 G. Vidal, Phys. Rev. Lett. 99, 220405 ͑2007͒; Understanding
+Quantum Phase Transitions, edited by L. D. Carr ͑Taylor & Francis, Boca Raton, 2010͒͒. 44 S. Bravyi ͑personal communication͒; B. Yoshida, arXiv:1007.4601 ͑unpublished͒.
+
+PHYSICAL REVIEW B 82, 155138 ͑2010͒
+45 F. D. M. Haldane, Phys. Lett. A 93, 464 ͑1983͒. 46 F. Pollmann, E. Berg, A. Turner, and M. Oshikawa,
+arXiv:0909.4059 ͑unpublished͒. 47 C. L. Kane and E. J. Mele, Phys. Rev. Lett. 95, 226801 ͑2005͒. 48 B. A. Bernevig and S.-C. Zhang, Phys. Rev. Lett. 96, 106802
+͑2006͒. 49 C. L. Kane and E. J. Mele, Phys. Rev. Lett. 95, 146802 ͑2005͒. 50 J. Moore and L. Balents, Phys. Rev. B 75, 121306͑R͒ ͑2007͒. 51 L. Fu, C. L. Kane, and E. J. Mele, Phys. Rev. Lett. 98, 106803
+͑2007͒. 52 X.-L. Qi, T. L. Hughes, and S.—C. Zhang, Phys. Rev. B 78,
+195424 ͑2008͒. 53 N. Read and D. Green, Phys. Rev. B 61, 10267 ͑2000͒. 54 W.-H. Ko, P. A. Lee, and X.-G. Wen, Phys. Rev. B 79, 214502
+͑2009͒. 55 S.-P. Kou, M. Levin, and X.-G. Wen, Phys. Rev. B 78, 155134
+͑2008͒. 56 S.-P. Kou and X.-G. Wen, Phys. Rev. B 80, 224406 ͑2009͒. 57 S. Raghu, X.-L. Qi, C. Honerkamp, and S.-C. Zhang, Phys. Rev.
+Lett. 100, 156401 ͑2008͒. 58 Y. Zhang, Y. Ran, and A. Vishwanath, Phys. Rev. B 79, 245331
+͑2009͒. 59 D. Pesin and L. Balents, Nat. Phys. 6, 376 ͑2010͒. 60 B. Yang and Y. Kim, Phys. Rev. B 82, 085111 ͑2010͒. 61 J. Maciejko, X. Qi, A. Karch, and S. Zhang, arXiv:1004.3628
+͑unpublished͒. 62 B. Swingle, M. Barkeshli, J. McGreevy, and T. Senthil,
+arXiv:1005.1076 ͑unpublished͒. 63 M. A. Levin and X.-G. Wen, Phys. Rev. B 71, 045110
+͑2005͒. 64 M. Aguado and G. Vidal, Phys. Rev. Lett. 100, 070404 ͑2008͒;
+R. König, B. W. Reichardt, and G. Vidal, Phys. Rev. B 79, 195123 ͑2009͒. 65 S. Hong, arXiv:0907.2204 ͑unpublished͒. 66 M. Freedman, C. Nayak, K. Shtengel, K. Walker, and Z. Wang, Ann. Phys. ͑N.Y.͒ 310, 428 ͑2004͒. 67 A. Gendiar, N. Maeshima, and T. Nishino, Prog. Theor. Phys. 110, 691 ͑2003͒. 68 Y. Nishio, N. Maeshima, A. Gendiar, and T. Nishino, arXiv:cond-mat/0401115 ͑unpublished͒. 69 N. Maeshima, J. Phys. Soc. Jpn. 73, 60 ͑2004͒. 70 F. Verstraete and J. Cirac, arXiv:cond-mat/0407066 ͑unpublished͒. 71 F. Verstraete, J. I. Cirac, and V. Murg, Adv. Phys. 57, 143 ͑2008͒. 72 Z.-C. Gu, M. Levin, and X.-G. Wen, Phys. Rev. B 78, 205116 ͑2008͒. 73 H. C. Jiang, Z. Y. Weng, and T. Xiang, Phys. Rev. Lett. 101, 090603 ͑2008͒. 74 M. Levin and C. P. Nave, Phys. Rev. Lett. 99, 120601 ͑2007͒. 75 X. Chen, B. Zeng, Z. Gu, I. Chuang, and X. Wen, arXiv:1003.1774 ͑unpublished͒. 76 S. Lloyd, Science 273, 1073 ͑1996͒. 77 E. Witten, Commun. Math. Phys. 121, 351 ͑1989͒.
+
+155138-28
+

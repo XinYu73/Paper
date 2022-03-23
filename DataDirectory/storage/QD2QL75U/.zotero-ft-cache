@@ -1,0 +1,604 @@
+arXiv:quant-ph/9907047v2 24 Jul 1999
+
+Distributed Entanglement
+Valerie Coﬀman,(1) Joydip Kundu,(2) and William K. Wootters(3)
+(1)Department of Physics, Johns Hopkins University, Baltimore, MD 21218, USA (2)Department of Physics, MIT, Cambridge, MA 02139, USA
+(3)Department of Physics, Williams College, Williamstown, MA 01267, USA and Isaac Newton Institute, University of Cambridge, Cambridge, CB3 0EH, UK
+Abstract
+Consider three qubits A, B, and C which may be entangled with each other. We show that there is a trade-oﬀ between A’s entanglement with B and its entanglement with C. This relation is expressed in terms of a measure of entanglement called the “tangle,” which is related to the entanglement of formation. Speciﬁcally, we show that the tangle between A and B, plus the tangle between A and C, cannot be greater than the tangle between A and the pair BC. This inequality is as strong as it could be, in the sense that for any values of the tangles satisfying the corresponding equality, one can ﬁnd a quantum state consistent with those values. Further exploration of this result leads to a deﬁnition of the “three-way tangle” of the system, which is invariant under permutations of the qubits.
+PACS numbers: 03.65.Bz, 89.70.+c
+1
+
+Quantum entanglement has rightly been the subject of much study in
+
+recent years as a potential resource for communication and information pro-
+
+cessing. As with other resources such as free energy and information, one
+
+would like to have a quantitative theory of entanglement giving speciﬁc rules
+
+about how it can and cannot be manipulated; indeed such a theory has begun
+
+to be developed. The ﬁrst step in building the theory has been to quantify
+
+entanglement itself. In the last few years a number of entanglement mea-
+
+sures for bipartite states have been introduced and analyzed [1–7], the one
+
+most relevant to the present work being the “entanglement of formation”
+
+[2], which is intended to quantify the amount of quantum communication
+
+required to create a given state. In the present paper we draw on some of the
+
+earlier work on entanglement of formation [6, 7] in order to explore another
+
+basic quantitative question: To what extent does entanglement between two
+
+objects limit their entanglements with other objects?
+
+Unlike classical correlations, quantum entanglement cannot be freely shared
+
+among many objects.
+
+For
+
+example,
+
+given
+
+a
+
+triple
+
+of
+
+spin-
+
+1 2
+
+particles A, B
+
+and C, if particle A is fully entangled with particle B, e.g., if they are in the
+
+singlet state
+
+√1 2
+
+(|
+
+↑↓
+
+−| ↓↑
+
+), then particle A cannot be simultaneously entan-
+
+gled with particle C. (If A were entangled with C, then the pair AB would
+
+also be entangled with C and would therefore have a mixed-state density
+
+matrix, whereas the singlet state is pure.) One expects that a less extreme
+
+form of this restriction should also hold: if A is partly entangled with B, then
+
+A can have only a limited entanglement with C. The ﬁrst goal of this paper
+
+is to verify this intuition and express it quantitatively. We will see that the
+
+restriction on the sharing of entanglement takes a particularly elegant form
+
+in terms of a measure of entanglement called the “tangle,” which is closely
+
+related to the entanglement of formation. Further analysis of this result will
+
+lead us naturally to a quantity that measures a three-way entanglement of
+
+the system and is invariant under all permutations of the particles [8].
+
+The present work is related to recent work on the characterization of
+
+multiparticle states in terms of invariants under local transformations [9–
+
+12]; indeed, both the tangle and our measure of three-way entanglement are
+
+invariants in this sense. Our work is also related to research exploring the
+
+connection between entanglement and cloning [13–17]. An example along
+
+these lines was studied by Bruß, who asked, in the case of a singlet pair
+
+AB, to what extent particle B’s entanglement with particle A can be shared
+
+2
+
+symmetrically and isotropically with a third particle, for a purpose such as
+
+teleportation where isotropy is desired [18]. Our investigation is similar in
+
+spirit to that of Bruß but has a diﬀerent focus in that we are looking for
+
+a general law governing the splitting or sharing of entanglement; thus, for
+
+example, we make no assumptions about the symmetry of the system. Some
+
+of the results presented here have been mentioned in a recent paper by one
+
+of us [19], but the proofs and most of the details and observations have not
+
+been previously published. In this paper we conﬁne our attention to binary
+
+quantum
+
+objects
+
+(qubits)
+
+such
+
+as
+
+spin-
+
+1 2
+
+particles—we
+
+will
+
+use
+
+the
+
+generic
+
+basis labels |0 and |1 rather than |↑ and |↓ —but the same questions could
+
+be raised for larger objects.
+
+We begin by deﬁning the tangle. Let A and B be a pair of qubits, and
+
+let the density matrix of the pair be ρAB, which may be pure or mixed. We
+
+deﬁne the “spin-ﬂipped” density matrix to be
+
+ρ˜AB = (σy ⊗ σy)ρ∗AB(σy ⊗ σy),
+
+(1)
+
+where the asterisk denotes complex conjugation in the standard basis {|00 ,
+
+|01 , |10 , |11 } and σy expressed in the same basis is the matrix
+
+0 i
+
+−i 0
+
+.
+
+As both ρAB and ρ˜AB are positive operators, it follows that the product
+
+ρABρ˜AB, though non-Hermitian, also has only real and non-negative eigen-
+
+values. Let the square roots of these eigenvalues, in decreasing order, be λ1,
+
+λ2, λ3, and λ4. Then the tangle of the density matrix ρAB is deﬁned as
+
+τAB = [max{λ1 − λ2 − λ3 − λ4, 0}]2.
+
+(2)
+
+For the special case in which the state of AB is pure, the matrix ρABρ˜AB has
+
+only one non-zero eigenvalue, and one can show that τAB = 4 det ρA, where ρA is the density matrix of qubit A, that is, the trace of ρAB over qubit B.
+
+It is by no means obvious from the deﬁnition that the tangle is a measure
+
+of entanglement for mixed states. This interpretation comes from previous
+
+work, in which a speciﬁc connection is established between the tangle and
+
+the entanglement of formation of a pair of qubits [7]. For the purpose of this
+
+paper it is suﬃcient to note that τ = 0 corresponds to an unentangled state,
+
+τ = 1 corresponds to a completely entangled state, and the entanglement of
+
+formation is a monotonically increasing function of τ .1 (The earlier work did
+
+1The
+
+entanglement
+
+of
+
+formation
+
+is
+
+given
+
+by
+
+E
+
+=
+
+h(
+
+1 2
+
++
+
+1 2
+
+√ 1
+
+−
+
+τ ),
+
+where
+
+h
+
+is
+
+the
+
+binary
+
+entropy function h(x) = −x log x − (1 − x) log(1 − x).
+
+3
+
+not deﬁne the tangle per se but rather the “concurrence,” which is simply the square root of the tangle. It is with some hesitation that we introduce the new term “tangle” here instead of speaking of the square of the concurrence. However, for our present purpose the tangle does seem to be the more natural measure to use, and the discussion is signiﬁcantly simpliﬁed by introducing this term.) At present, the tangle is deﬁned only for a pair of qubits, not for higher-dimensional systems.
+We now turn to the ﬁrst problem of this paper: given a pure state of three qubits A, B, and C, how is the tangle between A and B related to the tangle between A and C? For this special case—a pure state of three qubits—the formula for the tangle simpliﬁes: each pair of qubits, being entangled with only one other qubit in a joint pure state, is described by a density matrix having at most two non-zero eigenvalues. It follows that the product ρABρ˜AB also has only two non-zero eigenvalues. We can use this fact and Eq. (2) to write the following inequality for the tangle τAB between A and B.
+
+τAB = (λ1 − λ2)2 = λ12 + λ22 − 2λ1λ2
+
+= Tr(ρABρ˜AB) − 2λ1λ2 ≤ Tr(ρABρ˜AB).
+
+(3)
+
+Here ρAB is the density matrix of the pair AB, obtained from the original pure state by tracing over qubit C. Eq. (3) and the analogous equation for τAC allow us to bound the sum τAB + τAC:
+
+τAB + τAC ≤ Tr(ρABρ˜AB) + Tr(ρACρ˜AC).
+
+(4)
+
+The next paragraph is devoted to evaluating the right-hand side of this inequality.
+Let us express the pure state |ξ of the three-qubit system in the standard basis {|ijk }, where each index takes the values 0 and 1:
+
+|ξ = aijk|ijk .
+
+(5)
+
+ijk
+
+In terms of the coeﬃcients aijk, we can write Tr(ρABρ˜AB) as
+
+Tr(ρAB ρ˜AB ) = aijka∗mnkǫmm′ ǫnn′ a∗m′n′pai′j′pǫi′iǫj′j ,
+
+(6)
+
+where ǫ01 = −ǫ10 = 1 and ǫ00 = ǫ11 = 0 and the sum is over all the indices. We now replace the product ǫnn′ǫj′j with the equivalent expression
+
+4
+
+δnj′δn′j − δnjδn′j′, and in the ﬁrst of the two resulting terms (that is, the one associated with δnj′δn′j) we perform a similar substitution for ǫmm′ ǫi′i. These substitutions directly give us
+
+Tr(ρABρ˜AB) = 2 det ρA − Tr(ρ2B) + Tr(ρ2C),
+
+(7)
+
+where ρA, ρB, and ρC are the 2x2 density matrices of the individual qubits. Because each of these matrices has unit trace, we can rewrite Eq. (7) as
+
+Tr(ρABρ˜AB) = 2(det ρA + det ρB − det ρC).
+
+(8)
+
+By symmetry we must also have
+
+Tr(ρAC ρ˜AC) = 2(det ρA + det ρC − det ρB).
+
+(9)
+
+Summing these last two equations, we ﬁnally get a simple expression for the right-hand side of Eq. (4), namely,
+
+Tr(ρABρ˜AB) + Tr(ρACρ˜AC ) = 4 det ρA.
+
+(10)
+
+Eqs. (4) and (10) give us our ﬁrst main result:
+
+τAB + τAC ≤ 4 det ρA.
+
+(11)
+
+We can interpret the right-hand side of Eq. (11) as follows. Thinking of the pair BC as a single object, it makes sense to speak of the tangle between qubit A and the pair BC, because, even though the state space of BC is four-dimensional, only two of those dimensions are necessary to express the pure state |ξ of ABC. (The two necessary dimensions are those spanned by the two eigenstates of ρBC that have non-zero eigenvalues. That there are only two such eigenvalues follows from the fact that A is only a qubit.) We may thus treat A and BC, at least for this purpose, as a pair of qubits, and so the tangle is well deﬁned. In fact this tangle τA(BC) is simply 4 det ρA as we have mentioned before. We can therefore rewrite our result as
+
+τAB + τAC ≤ τA(BC).
+
+(12)
+
+Informally, Eq. (12) can be expressed as follows. Qubit A has a certain amount of entanglement with the pair BC. This amount bounds A’s entanglement with qubits B and C taken individually, and the part of the
+
+5
+
+entanglement that is devoted to qubit B (as measured by the tangle) is not
+available to qubit C.
+We will say more shortly about the case of three qubits in a pure state, but
+at this point it is worth mentioning a generalization to mixed states. If ABC
+is in a mixed state ρ, then τA(BC) is not deﬁned, because all four dimensions of BC might be involved, but we can deﬁne a related quantity τAm(iBnC) via the following prescription. Consider all possible pure-state decompositions of the state ρ, that is, all sets {(ψi, pi)} such that ρ = i pi|ψi ψi|. For each of these decompositions, one can compute the average value of τA(BC):
+
+τA(BC) = piτA(BC)(ψi).
+i
+
+(13)
+
+The minimum of this average over all decompositions of ρ is what we take to be τAm(iBnC)(ρ). The following analogue of Eq. (12) then holds for mixed states:
+
+τAB + τAC ≤ τAm(iBnC).
+
+(14)
+
+To prove this, consider the pure states |ψi belonging to an optimal decomposition of ρ, that is, a decomposition that minimizes τA(BC) . We can write our basic inequality, Eq. (12), for each such pure state and then average both sides of the inequality over the whole decomposition. The right-hand side of the resulting inequality is τAm(iBnC)(ρ), which is what we want on the right-hand side. On the left-hand side we have two terms: (i) the average of the tangle between A and B over a set of mixed states whose average is ρAB (i.e., TrC(ρ)), and (ii) the average of the tangle between A and C over a set of mixed states whose average is ρAC. It is a fact that the tangle is a convex function on the set of density matrices.2 That is, the average of the tangles is greater than or equal to the tangle of the average. In this case the tangles of the averages are τAB = τ (ρAB) and τAC = τ (ρAC). The sum of these two tangles must thus be less than or equal to τAm(iBnC)(ρ), which is what we wanted to prove.
+Returning to the case of pure states, one may wonder how tight the inequality (12) is. Could one ﬁnd, for example, a more stringent bound of
+2It follows from Ref. [7] that the concurrence is a convex non-negative function on the set of density matrices for two qubits. The tangle, being the square of the concurrence, is therefore also convex.
+
+6
+
+the same form, based on a diﬀerent measure of entanglement? To address this question, consider the following pure state of ABC:
+
+|φ = α|100 + β|010 + γ|001 ,
+
+(15)
+
+where the three positions in the kets refer to qubits A, B, and C in that
+
+order. For this state, one ﬁnds that τAB = 4|α|2|β|2, τAC = 4|α|2|γ|2, and τA(BC) = 4|α|2(|β|2 + |γ|2). Thus the inequality (12) becomes in this case an
+equality: τAB + τAC = τA(BC). This example shows that for any values of the
+
+tangles satisfying this equality, there is a quantum state that is consistent
+
+with those values.
+
+Now let T (τ ) be a monotonically increasing function of τ that we might
+
+propose as an alternative measure of entanglement. For simplicity let us
+
+assume that T (0) = 0 and T (1) = 1. Because of the above example, T could
+
+satisfy the inequality TAB + TAC ≤ TA(BC) only if T (x) + T (y) ≤ T (x + y) for all non-negative x and y such that x + y ≤ 1. Suppose T has this property.
+
+Then could there exist some quantum state for which TAB + TAC = TA(BC)
+
+but τAB + τAC < τA(BC)? That is, could T yield an equality for some state for
+
+which τ gives only an inequality? The answer is no, because if τAB + τAC < τA(BC), then TAB + TAC = T (τAB) + T (τAC ) ≤ T (τAB + τAC ) < T (τA(BC)) = TA(BC). Moreover, the only way T can match τ in those cases where τ gives an equality is for T to be equal to τ . In this sense, τ is an optimal measure
+
+of entanglement with respect to the inequality given in Eq. (12). Note,
+
+however, that the above argument applies only to functions of τ . There
+
+could in principle be other measures of entanglement that are not functions
+
+of τ that could make an equal claim to optimality.
+
+The entanglement of formation is a function of τ , but it is a concave
+
+function and therefore does not satisfy an inequality of the form of Eq. (12).
+
+Consider, for example, the state
+
+√1 2
+
+|100
+
++
+
+1 2
+
+|010
+
++
+
+1 2
+
+|001
+
+.
+
+One ﬁnds that
+
+the relevant entanglements of formation are EAB = 0.601, EAC = 0.601,
+
+and EA(BC) = 1. Thus, contrary to what one might expect, the sum of the entanglements of formation between A and the separate qubits B and C is
+
+greater than 1 “ebit,” despite the fact that one can reasonably regard 1 ebit
+
+as the entanglement capacity of a single qubit. This is not a paradox; it
+
+simply shows us that entanglement of formation does not exhibit this par-
+
+ticular kind of additivity. (This sense of “additivity” should not be confused
+
+with the additivity of entanglement when one combines pairs to make larger
+
+7
+
+systems[7]. It is not known whether entanglement of formation satisﬁes the latter notion of additivity.)
+We have just seen that there are some states for which the inequality (12) becomes an equality. Of course there are other states for which the inequality is strict. As we will see, it turns out to be very interesting to consider the diﬀerence between the two sides of Eq. (12). This diﬀerence can be thought of as the amount of entanglement between A and BC that cannot be accounted for by the entanglements of A with B and C separately. In the following paragraphs we refer to this quantity as the “residual tangle.”
+Let the system ABC be in a pure state |ξ , and as before, let the components of |ξ in the standard basis be aijk:
+
+|ξ = aijk|ijk .
+
+(16)
+
+ijk
+
+According to Eqs. (3) and (10) and the discussion following Eq. (11), the residual tangle is equal to
+
+τA(BC) − τAB − τAC = 2(λA1 BλA2 B + λA1 C λA2 C),
+
+(17)
+
+where λA1 B and λA2 B are the square roots of the two eigenvalues of ρABρ˜AB, and λA1 C and λA2 C are deﬁned similarly. We now derive an explicit expression for the residual tangle in terms of the coeﬃcients aijk.
+We focus ﬁrst on the product λA1 BλA2 B. This product can almost be interpreted as the square root of the determinant of ρABρ˜AB. But ρABρ˜AB
+is an operator acting on a four-dimensional space, and two of its eigenvalues
+
+are zero; so its determinant is also zero. However, if we consider the action
+
+of ρABρ˜AB only on its range, then λA1 BλA2 B will be the square root of the determinant of this restricted transformation.
+
+The range of ρABρ˜AB is spanned by the two vectors |v0 = ij aij0|ij0
+
+and |v1 = ij aij1|ij1 . (These vectors also span the range of ρAB.) To
+
+examine the action of ρABρ˜AB on this subspace, we consider its eﬀect on
+
+vectors of the form x|v1 + y|v2 ≡
+
+x y
+
+. This eﬀect is given by
+
+x′ y′
+
+=R
+
+x y
+
+,
+
+(18)
+
+8
+
+where R is a 2x2 matrix. The product λA1 BλA2 B is the square root of the determinant of R. One ﬁnds that
+
+Rij = aklja∗mniσmpσnqa∗pqrastrσskσtl,
+
+(19)
+
+where the sum is over all repeated indices. (We have ordered the factors
+
+so as to suggest the expression ρABρ˜AB from which R is derived.) Taking
+
+the determinant of R involves somewhat tedious but straightforward algebra,
+
+with the following result:
+
+√
+
+λA1 BλA2 B = det R = |d1 − 2d2 + 4d3|,
+
+(20)
+
+where
+
+d1 = a2000a2111 + a2001a2110 + a2010a2101 + a2100a2011; d2 = a000a111a011a100 + a000a111a101a010 + a000a111a110a001
++ a011a100a101a010 + a011a100a110a001 + a101a010a110a001; d3 = a000a110a101a011 + a111a001a010a100.
+
+(21)
+
+We can get a mental picture of this expression by imagining the eight coef-
+ﬁcients aijk attached to the corners of a cube. Then each term appearing in d1, d2, or d3 is a product of four of the coeﬃcients aijk such that the “center of mass” of the four is at the center of the cube. Such conﬁgurations fall into
+three classes: those in which the four coeﬃcients lie on a body diagonal and
+each one is used twice (d1); those in which they lie on a diagonal plane (d2), and those in which they lie on the vertices of a tetrahedron (d3). Within each category, all the possible conﬁgurations are given the same weight.
+This picture immediately yields an interesting fact: the quantity λA1 BλA2 B is invariant under permutations of the qubits. (A permutation of qubits
+corresponds to a reﬂection or rotation of the cube, but each di is invariant under such actions.) This means in particular that we need not carry out a separate calculation to ﬁnd λA1 CλA2 C, since we know we will get the same result. We can now therefore write down an expression for the residual tangle:
+
+τA(BC) − τAB − τAC = 4|d1 − 2d2 + 4d3|.
+
+(22)
+
+Note that the residual tangle does not depend on which qubit one takes as the “focus” of the construction. In our calculations we have focused on
+
+9
+
+entanglements with qubit A, but if we had chosen qubit B instead, we would have found that
+
+τB(CA) − τBC − τBA = 4|d1 − 2d2 + 4d3|.
+
+(23)
+
+The residual tangle thus represents a collective property of the three qubits that is unchanged by permutations; it is really a kind of three-way tangle. If we call this quantity τABC, we can summarize the main results of this paper in the following equation.
+
+τA(BC) = τAB + τAC + τABC .
+
+(24)
+
+In words, the tangle of A with BC is the sum of its tangle with B, its tangle
+
+with C, and the essential three-way tangle of the triple. As an example,
+
+consider the Greenberger-Horne-Zeilinger state
+
+√1 2
+
+(|000
+
++ |111 ) [20].
+
+For
+
+this state the tangle of each qubit with the rest of the system is 1, the three-
+
+way tangle is also 1, and all the pairwise tangles are zero (the qubits in each
+
+pair are classically correlated but not entangled). Thus Eq. (24) in this case
+
+becomes 1 = 0 + 0 + 1.
+
+Finally, we note that the expression for τABC in terms of d1, d2, and d3 [Eq. (22)] can be rewritten, after a little more algebra, in a more standard
+
+form:
+
+τABC = 2
+
+aijkai′j′manpk′an′p′m′ ǫii′ ǫjj′ ǫkk′ ǫmm′ ǫnn′ ǫpp′ ,
+
+(25)
+
+where the sum is over all the indices. This form does not immediately reveal the invariance of τABC under permutations of the qubits, but the invariance is there nonetheless.
+It would be very interesting to know which of the results of this paper generalize to larger objects or to larger collections of objects. At this point it is not clear how one might begin to generalize this approach to qutrits or higher dimensional objects, because the spin-ﬂip operation seems peculiar to qubits. On the other hand, it appears very likely that at least some of these results can be extended to larger collections of qubits. The one solid piece of evidence we can oﬀer is the existence of a generalization of the state |φ of Eq. (15) to n qubits:
+
+|φ = α1|100 . . . 0 + α2|010 . . . 0 + α3|001 . . . 0 + · · · + αn|000...1 . (26)
+
+10
+
+One can show that for this state, the following equality holds.
+
+τ12 + τ13 + · · · + τ1n = τ1(23...n),
+
+(27)
+
+where the qubits are now labeled by numbers rather than letters. We are willing to conjecture that the corresponding inequality, analogous to Eq. (12), is valid for all pure states of n qubits.
+This work was supported in part by the National Science Foundation’s Research Experiences for Undergraduates program. WKW is grateful for the support and hospitality of the Isaac Newton Institute. We would also like to thank Tony Sudbery and Noah Linden for discussions that helped streamline the derivation of Eq. (11).
+
+11
+
+References
+[1] C. H. Bennett, H. J. Bernstein, S. Popescu, and B. Schumacher, Phys. Rev. A 53, 2046 (1996).
+[2] C. H. Bennett, D. P. DiVincenzo, J. Smolin, and W. K. Wootters, Phys. Rev. A 54, 3824 (1996).
+[3] V. Vedral, M. B. Plenio, M. A. Rippin, and P. L. Knight, Phys. Rev. Lett. 78, 2275 (1997); V. Vedral, M. B. Plenio, K. Jacobs, and P. L. Knight, Phys. Rev. A 56, 4452 (1997); V. Vedral and M. B. Plenio, Phys. Rev. A 57, 1619 (1998).
+[4] M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev. Lett. 80, 5239 (1998).
+[5] E. M. Rains, quant-ph/9809078, quant-ph/9809082.
+[6] S. Hill and W. K. Wootters, Phys. Rev. Lett. 78, 5022 (1997).
+[7] W. K. Wootters, Phys. Rev. Lett. 80, 2245 (1998).
+[8] The problem of quantifying multiparticle entanglement has been discussed, for example, in M. Murao, M. B. Plenio, S. Popescu, V. Vedral, and P. L. Knight, Phys. Rev. A 57, 4075 (1998) and A. Thapliyal, Phys. Rev. A 59, 3336 (1999).
+[9] N. Linden and S. Popescu, quant-ph/9711017; N. Linden, S. Popescu, and A. Sudbery, quant-ph/9801076.
+[10] J. Schleinz and G. Mahler, Phys. Lett. A 224, 39 (1996).
+[11] M. Grassl, M. R¨otteler, and T. Beth, quant-ph/9712040.
+[12] J. Kempe, quant-ph/9902036.
+[13] V. Buˇzek, V. Vedral, M. B. Plenio, P. L. Knight, and M. H. Hillery, Phys. Rev. A 55, 3327 (1997).
+[14] N. Cerf, quant-ph/9805024.
+12
+
+[15] D. Bruß, D. P. DiVincenzo, A. Ekert, C. A. Fuchs, C. Macchiavello, and J. A. Smolin, Phys. Rev. A 57, 2368 (1998).
+[16] A. Karlsson and M. Bourennane, Phys. Rev. A 58, 4394 (1998). [17] M. Murao, D. Jonathan, M. B. Plenio, and V. Vedral, Phys. Rev. A 59,
+156 (1999). [18] D. Bruß, quant-ph/9902023. [19] W. K. Wootters, Phil. Trans. R. Soc. Lond. A 356, 1717 (1998). [20] D. M. Greenberger, M. Horne, and A. Zeilinger, in Bell’s Theorem,
+Quantum Theory, and Conceptions of the Universe, ed. M. Kafatos (Kluwer 1989).
+13
+

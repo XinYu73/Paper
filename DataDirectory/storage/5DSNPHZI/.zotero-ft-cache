@@ -1,0 +1,1545 @@
+Computer Physics Communications 269 (2021) 108122
+Contents lists available at ScienceDirect
+Computer Physics Communications
+www.elsevier.com/locate/cpc
+
+eQE 2.0: Subsystem DFT beyond GGA functionals ✩,✩✩
+Wenhui Mi a,c,∗, Xuecheng Shao a,∗, Alessandro Genova a,d, Davide Ceresoli e, Michele Pavanello a,b,∗
+a Department of Chemistry, Rutgers University, Newark, NJ 07012, USA b Department of Physics, Rutgers University, Newark, NJ 07012, USA c International Center for Computational Method and Software, College of Physics, Jilin University, Changchun, 130012, China d Kitware Inc., 1712 U.S. 9 Suite 300, Clifton Park, NY 12065, USA e CNR-SCITEC c/o Dipartimento di Chimica, Università degli studi di Milano via Golgi 19, 20133 Milano, Italy
+
+article info
+Article history: Received 17 March 2021 Received in revised form 27 April 2021 Accepted 6 July 2021 Available online 5 August 2021
+Keywords: Electronic structure Density-functional theory Subsystem density functional theory Parallel computing Embedding
+
+a b s t r a c t
+By adopting a divide-and-conquer strategy, subsystem-DFT (sDFT) can dramatically reduce the computational cost of large-scale electronic structure calculations. The key ingredients of sDFT are the nonadditive kinetic energy and exchange-correlation functionals which dominate it’s accuracy. Even though, available semilocal nonadditive functionals ﬁnd a broad range of applications, their accuracy is somewhat limited especially for those systems where achieving balance between exchange-correlation interactions on one side and nonadditive kinetic energy on the other is crucial. In eQE 2.0, we improve dramatically the accuracy of sDFT simulations by (1) implementing nonlocal nonadditive kinetic energy functionals based on the LMGP family of functionals; (2) adapting Quantum ESPRESSO’s implementation of rVV10 and vdW-DF nonlocal exchange-correlation functionals to be employed in sDFT simulations; (3) implementing “deorbitalized” meta GGA functionals (e.g., SCAN-L). We carefully assess the performance of the newly implemented tools on the S22-5 test set. eQE 2.0 delivers excellent interaction energies compared to conventional Kohn-Sham DFT and CCSD(T). The improved performance does not come at a loss of computational eﬃciency. We show that eQE 2.0 with nonlocal nonadditive functionals retains the same linear scaling behavior achieved previously in eQE 1.0 with semilocal nonadditive functionals.
+Program summary Program title: eQE CPC Library link to program ﬁles: https://doi.org/10.17632/g55n9xmnt2.1 Developer’s repository link: https://gitlab.com/Pavanello/eqe Licensing provisions: GPLv2 Programming language: Fortran 90 External routines/libraries: BLACS, MPI Nature of problem: Solving the electronic structure of molecules and materials with subsystem density functional theory Solution method: This version of eQE uses subsystem Density-Functional Theory (DFT) to compute the electronic structure of molecules and materials. Subsystem DFT is a divide-and-conquer version of DFT that can be massively parallelized and is linear scaling in work and data. However, it requires the use of density functionals for kinetic and exchange-correlation energies. eQE can now employ nonlocal functionals as well as meta-GGA functionals for these energy terms. Additional comments: Url of stable release http://eqe.rutgers.edu
+© 2021 Elsevier B.V. All rights reserved.
+
+✩ The review of this paper was arranged by Prof. Weigel Martin. ✩✩ This paper and its associated computer program are available via the Computer Physics Communications homepage on ScienceDirect (http://www.sciencedirect.com/ science/journal/00104655).
+* Corresponding authors.
+E-mail addresses: mwh@calypso.cn (W. Mi), xuecheng.shao@rutgers.edu (X. Shao), alessandro.genova@kitware.com (A. Genova), davide.ceresoli@cnr.it (D. Ceresoli), m.pavanello@rutgers.edu (M. Pavanello).
+https://doi.org/10.1016/j.cpc.2021.108122
+0010-4655/© 2021 Elsevier B.V. All rights reserved.
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+1. Introduction
+Kohn–Sham density functional theory (KS-DFT) [1,2] is the most widely used approach for ab initio electronic structure simulations and has been employed for scientiﬁc discoveries across a broad range of disciplines such as chemistry, physics, and materials science. The success of KS-DFT is due to the good balance between computational cost and accuracy. However, due to its cubic scaling with respect to the number of electrons, Ne , KS-DFT calculations are limited in the system sizes they can approach.
+Several alternative approaches have been proposed to access system sizes that relate to experimentally relevant microstates. Among them, we recall linear-scaling KS-DFT [3–6], orbital-free DFT (OF-DFT) [7–14], subsystem-DFT (sDFT) [15–22], a combination of the two [23] and others [24,25]. These approaches can achieve (quasi)-linear scaling by exploiting speciﬁc features, such as the “nearsightedness” of the electronic structure which arises in many non-conductive systems [3,5].
+sDFT adopts a divide-and-conquer strategy, whereby a system is split into smaller but interacting subsystems. In this way, the cubic scaling of conventional KS-DFT can be reduced. Linear scalability in sDFT is achieved by modeling the interactions between subsytems with pure density functionals: the nonadditive exchangecorrelation (NAXC), the nonadditive kinetic energy (NAKE), and the long-range Coulomb interaction between the subsystems’ charge densities. Among them, the only available exact functional is the Coulomb interaction while the other two need to be approximated. Thus, the accuracy of sDFT is dictated by NAKE and NAXC.
+In this work, we present version 2.0 of embedded Quantum ESPRESSO (eQE) [26], a code that implements sDFT based on Quantum ESPRESSO [27–29]. In the ﬁrst release of eQE [26], we successfully implemented semilocal (GGA) level nonadditive functionals for both NAXC and NAKE with the following main features: (1) a scheme of parallel execution to distribute the workload across subsystems resulting in low data communication achieving high parallel eﬃciency, (2) ab initio molecular dynamics (AIMD), and (3) applicability to periodic systems. Many large systems currently outside KS-DFT’s realm of applicability have been successfully studied by eQE [30–36].
+eQE 2.0 is capable of deploying nonlocal and meta-GGA (mGGA) XC and NAKE functionals yielding highly accurate simulations of weakly interacting subsystems. It is well known that, due to their dependence on the density and its derivative in only one point, semilocal XC functionals inherently lack the ability to capture intermediate-range and long-range dispersion interactions [37–45]. However, dispersion interactions play a crucial role in systems that are weakly bound and amenable to be treated by sDFT. mGGA and nonlocal XC functionals address these issues as mGGAs capture intermediate-range correlations due to their dependence on higher order derivatives of the density beyond the gradient or the kinetic energy density. Nonlocal functionals capture long-range dispersion interactions because they encode a dependency on the density on more than a single point at a time.
+As mentioned, GGA NAKEs are widely used [18,19,16]. However, due to their inability to describe the inherent non-locality of the kinetic energy, GGAs work well only when the inter-subsystem density overlap is weak. In principle, nonlocal NAKEs have the potential to obtain more reliable results [8,15] than GGAs. In practice, however, most of the available nonlocal functionals are not suitable to be used as NAKEs because they are optimized for bulk systems where the electron density is nonzero everywhere. Conversely, the subsystem densities in sDFT feature at least one non-periodic dimension where they decay to zero.
+Recently, we have developed a new generation of nonlocal kinetic energy functionals [46,12] and further adopted them as NAKEs [15] considerably improving the accuracy of sDFT in terms
+
+of both energy and electron density. However, the original implementation [15] is computationally very expensive compared to typical GGA NAKEs. In eQE 2.0, we implement a completely new scheme to evaluate nonlocal NAKEs that brings down the computational cost to almost GGA-level without sacriﬁcing accuracy.
+The remainder of this paper is organized as follows. A brief review of sDFT and the previous version of eQE is given in section 2. Details of the implementation of the new functionals and benchmark calculations are discussed in section 3. Finally, in section 4 we summarize this work and conclude with several potential future developments aimed to further increase the range of applicability of sDFT.
+
+2. Brief review of sDFT and eQE
+
+In sDFT, the system of interest is split into interacting subsystems of smaller size. Accordingly, the total electron density, n(r), is partitioned into subsystem contributions:
+
+Ns
+
+n(r) = nI (r),
+
+(1)
+
+I
+
+where Ns is the total number of subsystems and nI (r) is the electron density of the subsystem I . In this way, the total energy functional of the system, EsDFT[{nI }], contains additive and nonadditive contributions encoding intra- and inter-subsystem interactions. Namely,
+
+Ns
+
+EsDFT[{nI }] =
+
+EK
+
+S [nI ,
+
+v
+
+I ext
+
+]
+
++
+
+T snadd[{nI }]
+
++
+
+E
+
+nadd xc
+
+[{nI
+
+}]
+
+I
+
++
+
+E
+
+nadd Coul
+
+[{nI
+
+},
+
+{v
+
+I ext
+
+}]
+
+(2)
+
+where
+
+v
+
+I ext
+
+is
+
+the
+
+external
+
+potential
+
+associated
+
+with
+
+subsystem
+
+I.
+
+The
+
+energy
+
+functional
+
+for
+
+each
+
+subsystem,
+
+E
+
+K
+
+S
+
+[n
+
+I
+
+,
+
+v
+
+I ext
+
+],
+
+is
+
+the
+
+same
+
+as
+
+the
+
+energy
+
+functional
+
+of
+
+typical
+
+KS-DFT
+
+with
+
+v
+
+I ext
+
+as
+
+ex-
+
+ternal
+
+potential
+
+and nI
+
+as
+
+electron
+
+density.
+
+T
+
+nadd s
+
+,
+
+E
+
+nadd xc
+
+,
+
+and
+
+E
+
+nadd Coul
+
+are the NAKE and NAXC energy functionals, and the nonadditive
+
+Coulomb energy, respectively. All these nonadditive energy func-
+
+tionals share the same deﬁnition:
+
+Ns
+
+F nadd[{nI }] = F [n] − F [nI ].
+
+(3)
+
+I
+
+Among
+
+them
+
+only
+
+E
+
+nadd Coul
+
+can
+
+be
+
+expressed
+
+exactly,
+
+the
+
+others
+
+need
+
+to be approximated.
+
+Variational minimization of EsDFT with respect to variations of
+
+the electron density of each subsystem leads to the following cou-
+
+pled KS-like equations,
+
+−
+
+1 2
+
+∇
+
+2
+
++
+
+v
+
+I KS
+
+(r)
+
++
+
+v
+
+I emb
+
+(r)
+
+φiI (r) = εiI φiI (r),
+
+(4)
+
+where
+
+v
+
+I KS
+
+,
+
+v
+
+I emb
+
+,
+
+φiI
+
+are
+
+the
+
+KS–potential
+
+of
+
+the
+
+isolated
+
+subsys-
+
+tem, the embedding potential containing the functional derivatives
+
+of the nonadditive energy terms with respect to nI , and the orbitals of subsystem I , respectively. The embedding potential can
+
+be written as follows:
+
+Ns
+υeImb(r) =
+
+ˆ
+
+n J (r ) dr |r − r |
+
++
+
+v
+
+J ext
+
+(r)
+
+J=I
+
++
+
+δ
+
+T
+
+nad s
+
+[{nI
+
+}]
+
++
+
+δ
+
+E
+
+nad xc
+
+[{nI
+
+}]
+
+.
+
+(5)
+
+δnI (r)
+
+δnI (r)
+
+The original version of eQE, implemented sDFT in the following way:
+
+2
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+1. The construction of subsystem Hamiltonians and their diagonalizations are performed independently for each subsystem in parallel (all subsystems at the same time) and in a reduced subsystem-centered simulation cell.
+2. Subsystems can be assigned a custom number of processors to optimize load balance.
+3. The parallelization scheme is hierarchical designed to reduce inter-node communication.
+4. An additional global DIIS layer [26,47] to reduce the number of SCF cycles.
+
+τT F (r)
+
+=
+
+3 10
+
+(3π
+
+2
+
+)
+
+2 3
+
+n
+
+5 3
+
+(r).
+
+To
+
+eliminate
+
+the
+
+numerical
+
+inaccuracies
+
+arising at large s, we developed a numerically stable enhancement
+
+factor
+
+F
+
+ST
+
+V
+
+(s)
+
+=
+
+1.0
+
++
+
+5 3
+
+s2 1.0 + as2
+
+,
+
+(10)
+
+which is used in place of the original F T V [n], with a = 0.01. We choose the LMGP family of functionals [15] as the nonlocal
+kinetic energy functional in eQE 2.0. LMGP’s potential term, v NL (r), can be written as follows:
+
+By adopting these steps, eQE achieved high parallel eﬃciency as showcased in several application works [30,32–34]. We need to stress that the computational eﬃciency and accuracy of eQE is system dependent. In general, the larger the number of subsystems and the smaller their size, the better eQE performs compared to KS-DFT codes.
+
+v NL (r) = n−1/6(r)F −1 n5/6(q)ω[n(r)](q) (r),
+
+(11)
+
+where n5/6(q) = F n5/6(r) (q), ω[n(r)](q) is the nonlocal kernel expressed in reciprocal space, F and F −1 represent forward and
+inverse Fourier transforms, respectively. There are two important
+details to note:
+
+3. New features and upgrades in eQE 2.0
+In this section, We discuss the main features and updates of eQE since its original release in 2017 [26].
+
+1. the nonlocal kinetic potential has a n−1/6(r) factor which can lead to numerical noise in the low electron density regions.
+2. The kernel of LMGP is density-dependent and of spherical
+symmetry, e.g., ω[n](r, r ) = ω[n(r)](|r − r |).
+
+3.1. Nonlocal NAKEs
+
+Recently, we developed fully nonlocal sDFT [15], which considerably improves on the accuracy of semilocal sDFT. However, in the original implementation, the computational cost was orders of magnitude larger than semilocal NAKEs. In this work, the issue was resolved by presenting a new implementation of nonlocal NAKE which achieves the same accuracy in the results at essentially the cost of semilocal functionals.
+The typical form of a nonlocal kinetic energy functional is:
+
+T s[n] = T T F [n] + T vW [n] +T NL [n]
+
+(6)
+
+T T V [n]
+
+where, T T F [n], T vW [n], and T NL [n] are the Thomas-Fermi (TF) [48,49] and von Weizsäcker (vW) [50] functionals, and lastly the
+
+nonlocal part of the functional, respectively. The nonlocal part is in
+
+practice a two-point functional deﬁned by a double integration of
+
+the electron density at two different points in space. The interac-
+
+tion between two points is described by the so-called kernel, ω:
+
+¨
+
+T NL[n] = nα(r)ω[n](r, r )nβ (r )drdr
+
+(7)
+
+where α and β are positive numbers. The corresponding potential
+is obtained by functional derivative with respect to the density:
+
+v Ts (r)
+
+=
+
+δT T V [n] δn(r)
+
++
+
+δT NL [n] δn(r)
+
+=
+
+vTV
+
+(r)
+
++
+
+v NL (r).
+
+(8)
+
+As discussed in our previous work [15], direct implementation of
+
+this formalism for calculating the kinetic potential leads to nu-
+
+merical instabilities for both terms in the region of low electron
+
+density. In this region, the von Weizsäcker potential is inaccurate
+
+due to its dependence on the Laplacian of the electron density
+
+which is noisy for low density. The nonlocal part shares a similar
+
+issue. In eQE 2.0, we resolve these issues as follows.
+
+For the T T V [n] = T T F [n] + T vW [n] term, the corresponding GGA
+
+formalism reads,
+
+ˆ
+
+ˆ
+
+T T V [n] = τT V (r)dr = τT F (r)F T V [s](r)dr,
+
+(9)
+
+To eliminate issues related to point (1) above, a density weighted mix of GGA and nonlocal potentials was implemented [15]. Namely,
+
+v Ts [n](r) = (v NL[n](r) + v ST V [n](r)) W [n](r)
+
++ vGG A[n](r)(1 − W [n](r))
+
+(12)
+
+where
+
+W [n](r)
+
+=
+
+n(r) nmax
+
+,
+
+nmax
+
+is
+
+the
+
+maximum
+
+value
+
+of
+
+electron
+
+den-
+
+sity in the system and vGG A is the potential of a well-established
+
+GGA kinetic energy functional (we use revAPBEK [51]). The kinetic
+
+energy can be obtained by line integration [52,15]:
+
+ˆ
+
+ˆ1
+
+T s[n] = dr n(r) dt v Ts [nt ] (r),
+
+(13)
+
+0
+
+where nt (r) = tn(r). This required using a set of 40 or more t points to obtain the converged results and with that 40 or more kinetic potentials {v Ts [nt ](r)} needed to be evaluated.
+To reduce the computational cost and still maintain numerical
+stability and accuracy, eQE 2.0 features a kinetic energy density
+mix where the total KEDF can be approximated as:
+ˆ
+Ts[n] = τ [n](r)dr
+ˆ
+
+= W [n](r) τNL[n](r) + τST V [n](r)
+
+(14)
+
++ 1 − W [n](r) τGG A[n](r)dr
+
+where τ [n], τST V [n], τGG A [n], τNL[n] are the kinetic energy density for total KEDF, T ST V [n] and T GG A [n] (revAPBEk [51]), respectively.
+The corresponding kinetic potential is
+
+v Ts [n](r)
+
+=
+
+δT s[n] δn(r)
+
+∂ W [n]
+
+= ∂n(r)
+
+τNL[n](r) + τST V [n](r) − τGG A[n](r)
+
++ W [n](r) v NL[n](r) + v ST V [n](r) − vGG A[n](r)
+
+where s is the dimensionless reduced density gradient, s =
+
+1
+2(3π 2)1/3
+
+|∇n(r)| n3/4 (r)
+
+,
+
+the
+
+enhancement
+
+factor
+
+F T V (s)
+
+=
+
+1
+
++
+
+5 3
+
+s2
+
+,
+
+and
+
++ vGG A [n](r).
+
+(15)
+
+3
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+Fig. 1. Interaction energy deviations against the corresponding KS-DFT results for the S22-5 test set obtained by eQE with the following NAKEs: revAPBEK (GGA), LMGPAa (original, nonlocal), and LMGPAb (this work, nonlocal). LMGPA is the LMGP functional with “arithmetically symmetrized” kernel as explained in [46]. PBE XC functional is
+adopted in all calculations. The indices on the x-axis correspond to complexes listed in Table S1 of the Supporting Information from Ref. [15].
+
+where
+
+∂ W [n] ∂n(r)
+
+=
+
+, 1
+nmax
+
+vGG A [n](r) =
+
+∂τGG A [n] ∂n(r)
+
+−
+
+∇
+
+·
+
+∂τGG A [n] ∂ ∇ n(r)
+
+,
+
+v ST V [n](r)
+
+=
+
+∂τST V [n] ∂n(r)
+
+−∇
+
+·
+
+∂τST V [n] ∂ ∇ n(r)
+
+In practice, the above equations for both KEDF Eq. (14) and ki-
+
+netic potential Eq. (15) can be further separated into three terms.
+
+Namely,
+
+T s[n] = E ST V [n] + EGG A [n] + E NL [n],
+
+(16)
+
+v Ts [n](r) = V ST V [n](r) + V GG A [n](r) + V NL[n](r)
+
+(17)
+
+and each part can be evaluated in the following way:
+
+1. STV term
+
+V
+
+ST
+
+V
+
+[n](r)
+
+=
+
+W ˆ
+
+[n](r)v ST
+
+V
+
+[n](r)
+
++
+
+τST V [n](r)
+nmax
+
+,
+
+(18)
+
+E ST V [n] = W [n](r)τST V [n](r)dr.
+
+(19)
+
+2. GGA term
+
+V
+
+GG
+
+A [n](r)
+
+=
+
+[1 ˆ
+
+−
+
+W
+
+[n](r)]
+
+v GG A [n](r)
+
+−
+
+τGG A[n](r)
+nmax
+
+,
+
+(20)
+
+EGG A[n] = [1 − W [n](r)] τGG A[n](r)dr.
+
+(21)
+
+3. NL term
+
+V
+
+N L [n](r)
+
+=
+
+W
+
+[n](r)v NL[n](r)
+
++
+
+τN L [n](r)
+nmax
+
+(22)
+
+where the nonlocal kinetic density τNL needs to be approxi-
+
+mated because the functional integration procedure in Eq. (13)
+
+is too expensive. From Eq. (11) notice that v NL [n] ∼ n2/3,
+
+with W [n] ∝ n, τNL can be approximated as τNL[n](r)
+
+3 8
+
+n(r)
+
+v
+
+N
+
+L
+
+[n](r).
+
+Thus,
+
+the
+
+nonlocal
+
+kinetic
+
+energy
+
+can
+
+be
+
+ap-
+
+proximated as:
+
+ˆ
+
+E NL[n] = τNL[n](r)W [n](r)dr.
+
+(23)
+
+In this way, each time the kinetic energy/potential is evaluated, only two GGA KEDFs and one fully nonlocal term need to be calculated, dramatically reducing the computational cost compared to the original eQE implementation.
+The ability of nonlocal sDFT to predict interaction energies and electron densities for the S22-5 test set (noncovalently interacting complexes at equilibrium and displaced geometries [53]) has been
+
+demonstrated in our previous work [15]. To quantify the accuracy of the new implementation, we select the same test set with the same calculation settings as before. The interaction energy deviations between sDFT with different NAKEs, such as revAPBEK and LMGPA (i.e., LMGP with arithmetically symmetrized kernel [46] which we implemented in the original and new version of eQE) against the corresponding KS-DFT reference are shown in Fig. 1.
+The reason why we compare sDFT with KS-DFT is that in KSDFT the total noninteracting kinetic energy is exact, while in sDFT the nonadditive part of the noninteracting kinetic energy is approximate. If the two methods deliver similar results for a given choice of exchange-correlation (we use PBE for this comparison) then it means that the approximate nonadditive functional used in sDFT is accurate. Later we will also compare against CCSD(T) benchmark values. As expected, the LMGPA nonlocal NAKE considerably improves on the results of semilocal sDFT, especially when the dimer distances are shorter than the equilibrium distance (i.e., for the S22-5(0.9) subset). Most importantly, the results from the new version of LMGPA are almost on top of the original version, showing that the new implementation maintains an excellent level of accuracy but is computationally much cheaper. A similar result is obtained when a different XC functional is used (such as a nonlocal XC functional) [15].
+Hereafter, the new implementation of LMGPA (noted as LMGPAb in the ﬁgure captions) is simply referred to as LMGPA.
+3.2. Nonlocal NAXCs
+It is well known that semilocal XC functionals struggle to describe long-range correlation effects such as dispersion interactions. However, dispersion interactions play a critically important role in a wide variety of materials, especially those composed of weakly interacting subsystems. Thus, it is necessary to adopt NAXC functionals that go beyond GGA to systematically improve the performance of sDFT.
+Many nonlocal XC functionals have been proposed [54–58]. Among them, rVV10 [57] stands out for its accuracy across not only non-covalently bound complexes but also covalent, ionic, and metallic solids. Most importantly, the computational cost can remain low [59]. Thus, we adapted the existing rVV10 implementation of Quantum ESPRESSO [57] for eQE, where an evaluation of the functional and corresponding potential in the supersystem (physical cell) and in the subsystem-centered cells are needed. The resulting fully nonlocal sDFT compares favorably against CCSD(T)
+
+4
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+Fig. 2. Wall times when simulating supercells containing 32, 64, 128, and 256 CO2 molecules. The corresponding numbers of MPI tasks are 64, 128, 256, 512. Full lines are eQE simulations with different NAKE functionals. Doted lines are KS-DFT (QE version 6.6) simulations for the same systems and same cutoff for the plane waves (i.e., 40 Ry for the wavefunctions and 400 Ry for the electron density).
+
+benchmark values for the interaction energies of the S22-5 set as can be seen in Fig. 3.
+To quantify the computational eﬃciency and scaling, we simulated supercells of 32, 64, 128, and 256 CO2 molecules with the corresponding number of processors of 64, 128, 256, and 512. These calculations are performed in both KS-DFT (version 6.6 of Quantum ESPRESSO) and eQE 2.0 with both PBE and rVV10 XC functionals. Considering that the number of SCF iterations for different systems is not exactly the same, we report here the wall time for the ﬁrst 20 iteration steps. As shown in Fig. 2, eQE scales ideally when system size and resources are proportionally scaled. This is in contrast with version 6.6 of Quantum ESPRESSO which, as expected, scales polynomially with system size. Most importantly, The computational cost of nonlocal sDFT traces almost perfectly the scaling of semilocal sDFT. These results indicate that the implementation of nonlocal functionals for both NAKEs and NAXC are nearly ideal in eQE 2.0.
+
+3.3. Deorbitalized meta GGA functionals
+
+A key challenge in DFT is the development of accurate and computationally affordable functionals for the XC energy. The socalled Perdew-Schmidt Jacob’s ladder [60,61] provides a classiﬁcation of the level of complication that goes in the formulation of the functional. The ladder leads to the “heaven of chemical accuracy”, starting from the local density approximation (LDA; dependence on n(r), only), generalized gradient approximations (GGA; dependent on n(r) and |∇n(r)|), and meta-generalized gradient approximations (mGGA; dependent on n(r), |∇n(r)| as well as the
+noninteracting kinetic energy density, τ (r), and possibly the density laplacian, ∇2n(r), and higher order derivatives). Generally, and
+particularly in this work, the functional dependencies of a mGGA functional can be expressed as follows
+
+Exc := Exc ξ [n, ∇n], τ ,
+
+(24)
+
+where the ξ function represents the GGA component of the mGGA functional.
+Among all functionals, GGAs dominate materials modeling mainly due to their computational eﬃciency and generally reliable description of various types of materials [62]. However, as mentioned, GGAs are severely limited because their description of
+
+long/intermediate-range electron-electron correlation, such as van der Waals interaction, is not satisfactory. Additionally, the presence of self-interaction [63] is detrimental for spin-polarized systems and fractional-spin systems (static correlation) [64,65]. Among the various mGGA XC functionals, the strongly constrained and appropriately normed (SCAN) satisﬁes a record 17 exact conditions and can considerably improve GGAs for various systems (e.g., covalent, metallic, and even weak bonds) [66].
+Unfortunately, because τ (r) is typically deﬁned in terms of the KS-DFT occupied orbitals {φi},
+
+1
+τ (r) =
+2
+
+Ne
+
+|∇φi(r)|2 ,
+
+(25)
+
+i=1
+
+the mGGA XC potential,
+
+δ Exc ξ [n, ∇n], τ
+
+vxc(r) =
+
+δn(r),
+
+(26)
+
+cannot be directly evaluated by means of functional derivative un-
+
+less expensive optimized effective potential (OEP) methods are em-
+
+ployed [67–69].
+
+To address this complication, a few workarounds have been
+
+proposed: (1) completely avoid the evaluation of the τ -dependent
+
+mGGA potential. The mGGA functional is just used for non-self-
+
+consistent evaluation of the energy using the n and τ obtained
+
+from a non-τ -dependent potential [70,71]. However, this approach
+
+is not self-consistent, i.e., the potential is not the derivative of the
+
+energy functional which can cause issues, for example, of energy
+
+conservation during an ab-initio molecular dynamics. (2) Evalu-
+
+ate the potential in the generalized Kohn-Sham (gKS) scheme. gKS
+
+only involves functional derivatives with respect to the KS or-
+
+bitals [60,72] (e.g., δ Exc[{φi}]/δφi ) yielding an orbital-dependent XC potential. The computational cost of the gKS scheme is much
+
+cheaper than OEP, thus it is currently a widely-used approach for
+
+τ -dependent mGGAs.
+
+We note that sDFT cannot directly take advantage of the gKS
+
+scheme because only the KS orbitals of the subsystems are avail-
+
+able. The KS orbitals of the global supersystem are never com-
+
+puted. This issue persists not only for mGGAs, but also for the
+
+Hartree-Fock (HF) exchange potential [73,74].
+
+In eQE 2.0, we decided to approach the problem from a differ-
+
+ent angle. Inspired by recent advances in the OF-DFT community,
+
+the kinetic energy density, τ , can be approximated directly with a
+
+pure density functional [75,76]. This strategy goes by the name of
+
+“deorbitalization” converting the explicit orbital-dependent mGGA
+
+XC energy functional to a pure density functional. As a result,
+
+the corresponding deorbitalized XC potential can be evaluated via
+
+Eq. (26) [76,77].
+
+With deorbitalization, the challenge is to approximate the ki-
+
+netic energy density, not the potential or the energy. Thus, func-
+
+tionals that work well in OF-DFT and as nonadditive functionals
+
+in sDFT may in the end not work well for approximating the
+
+τ needed by mGGA XC functionals. GGAs might be considered,
+
+given their easy and cheap evaluation. However, many researchers
+
+[78–80] have shown that Laplacian-level functionals (i.e., those depending on ∇2n) are the most suitable functionals for this task.
+
+Laplacian-level KEDF approximations can be written as follows
+ˆ
+
+Ts[n, ∇n, ∇2n] = τ [n, ∇n, ∇2n](r)dr.
+
+(27)
+
+Thus, tˆhe deorbitalized mGGA functionals can be written as,
+
+Exc = εxc ξ [n, ∇n], τ [n, ∇n, ∇2n] (r)dr
+
+ˆ
+
+= εxc[n, ∇n, ∇2n](r)dr.
+
+(28)
+
+5
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+Fig. 3. Interaction energy deviations against CCSD(T) benchmark values for the S22-5 test set. sDFT calculations carried out with eQE with the following NAKEs: revAPBEK (GGA), LMGPAa (original, nonlocal), and LMGPAb (this work, nonlocal). LMGPA is the LMGP functional with “arithmetically symmetrized” kernel as explained in [46]. rVV10
+XC functional is adopted in all calculations. The indices on the x-axis correspond to complexes listed in Table S1 of the Supporting Information from Ref. [15].
+
+In this way, the XC functional is an explicit density functional and the corresponding XC potential can be evaluated by Eq. (26). Namely,
+
+v xc
+
+=
+
+δ Exc δn
+
+=
+
+∂ εxc ∂n
+
+−∇
+
+·
+
+(
+
+∂ ∂
+
+εxc ∇n
+
+)
+
++
+
+∇
+
+2
+
+(
+
+∂ εxc ∂∇2n
+
+).
+
+(29)
+
+where we are omitting hereafter speciﬁc variable dependence of
+the density and other functions/functionals. Considering τ as a functional of n, ∇n, and ∇2n as shown in Eq. (27)–(28), the XC energy density partial derivatives with respect to n, ∇n, and ∇2n
+can be expressed as follows
+
+∂εxc = ∂εxc ∂ξ + ∂εxc ∂τ
+
+(30)
+
+∂n ∂ξ ∂n ∂τ ∂n
+
+∂ εxc ∂∇n
+
+=
+
+∂ εxc ∂ξ
+
+∂ξ ∂∇n
+
++
+
+∂ εxc ∂τ
+
+∂τ ∂∇n
+
+(31)
+
+∂ εxc ∂∇2n
+
+=
+
+∂ εxc ∂τ
+
+∂τ ∂∇2n
+
+.
+
+(32)
+
+Here, the terms in red color are independent of the choice of τ .
+(For interpretation of the colors in the text, the reader is referred to the web version of this article.) Thus, these operations are collected in a single subroutine for each mGGA XC functional.
+To better show the formalisms of mGGA functionals related to
+τ parts implemented in eQE, we ﬁrst deﬁne the following reduced
+gradient and reduced density Laplacian:
+
+1. Reduced gradient
+
+|∇n| s = 2(3π 2)1/3n4/3
+
+p
+
+=
+
+s2
+
+=
+
+Cp
+
+|∇n|2 n8/3
+
+2. Reduced density Laplacian
+
+q=
+
+∇2n 4(3π 2)2/3n5/3
+
+=
+
+C
+
+p
+
+∇2n n5/3
+
+(33) (34)
+(35)
+
+where
+
+Cp
+
+=
+
+1
+4(3π 2)2/3
+
+.
+
+In general, Laplacian-level kinetic energy density τ can be ex-
+
+pressed as:
+
+τ = τTF Ft [p, q],
+
+(36)
+
+where
+
+τTF
+
+=
+
+3 10
+
+(3π
+
+2
+
+)2/3n5/3
+
+.
+
+Using of Eq. (36), the kinetic energy density partial derivatives
+
+with respect to n, ∇n, and ∇2n can be further written as follows
+
+∂τ = ∂n
+
+∂ Ft ∂p + ∂ Ft ∂q ∂p ∂n ∂q ∂n
+
+τTF
+
++
+
+∂τT F ∂n
+
+Ft
+
+(37)
+
+∂τ ∂∇n
+
+=
+
+∂ Ft ∂p
+
+∂p ∂∇n τTF
+
+(38)
+
+∂τ ∂∇2n
+
+=
+
+∂ Ft ∂q
+
+∂q ∂∇2n τTF,
+
+(39)
+
+where
+
+∂p ∂n
+
+=
+
+−
+
+8 3
+
+p/n,
+
+∂q ∂n
+
+=
+
+−
+
+5 3
+
+q/n,
+
+∂p ∂∇n
+
+/∇
+
+n
+
+=
+
+2C p n8/3
+
+,
+
+∂q ∂∇2n
+
+=
+
+Cp n5/3
+
+,
+
+and
+
+∂τT F ∂n
+
+=
+
+5 3
+
+C TFn2/3 .
+
+The
+
+above
+
+equations
+
+(37)–(39)
+
+are
+
+independent
+
+of
+
+the particular mGGA XC functional used. The terms in blue color
+
+are determined only by the choice of KEDF, and the other terms are
+
+independent of the choice of both XC and KEDF. Thus, the terms in
+
+blue are evaluated in a separate, independent subroutine which is
+
+called by the subroutine that combines all terms together.
+
+eQE 2.0 implements one of the best performing mGGA func-
+
+tionals, the SCAN functional [66] deorbitalized utilizing Laplacian-
+
+level KEDFs (PC [75], PCopt [76], TFLopt [76], GEA2L, L04 [78]).
+
+3.4. A note on numerical stability
+
+Previous works [76,77] show that the use of the Laplacian op-
+erator can introduce noise in the results, especially when a plane-
+wave basis is adopted. To address this challenge we implemented a smooth Laplacian, Lˆs, inspired by convolutions typically used for smoothing images. Consider x(r) as any physical quantity deﬁned
+in real space (such as electron density n(r) and potential v(r)), then, the smooth Laplacian operator, Lˆs, operates on x(r) as,
+
+Lˆsx(r) = −F −1 F Sˆ [x(r)] + Sˆ x(r) − Sˆ [x(r)] |g|2e−σ |g|2 . (40)
+Where Sˆ is deﬁned as,
+
+Sˆ x(r) = F −1 F [x(r)]e−σ |g|2 ,
+
+(41)
+
+g is the reciprocal space vector, and σ is a parameter. Based on our tests, σ = 0.02 is a good choice to maintain numerical stability
+without over smoothing.
+
+6
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+Fig. 4. Mean absolute deviations (MADs) of interaction energies computed by several realizations of the SCAN functional: original (SCAN), deorbitalized SCAN with L04 KEDF
+for τ (SCAN-L04), and SCAN–L04 in sDFT coupled with nonlocal NAKE (LMGPA@SCAN-L04) in comparison to CCSD(T) for the S22-5 test set. The SCAN results are taken from
+Ref. 66. All values are given in kcal/mol. H-Bond, Dispersion and Mixed stand for hydrogen-bonded, dispersion-bonded and complexes bonded by a mix of hydrogen bonds and dispersion interactions, respectively.
+
+Table 1 Summary of the Mean absolute deviations (MADs) of interaction energies computed with different approaches against CCSD(T) results. All values are given in kcal/mol. H-bonded, Dispersion and Mixed stand for hydrogen-bonded, dispersion-bonded and complexes bonded by a mix of hydrogen bonds and dispersion interactions, respectively.
+
+Methods
+SCAN SCAN-L04 LMGPA@SCAN-L04
+
+H-bonded
+0.56 3.04 2.41
+
+Dispersion
+1.19 0.79 1.25
+
+Mixed
+0.64 0.84 0.73
+
+Total
+0.82 1.52 1.46
+
+To verify the SCAN functional implemented in eQE, we implemented the subroutines we use in eQE for evaluation of SCAN functional in Quantum ESPRESSO 6.6. Our implementation of SCAN in Quantum ESPRESSO (using the gKS approach) reproduced exactly the same results as the latest version Quantum ESPRESSO with Libxc [81,82]. This indicates that our implementation is correct. As previous work shows [78], the L04 mGGA KEDF outper-
+forms other mGGA KEDFs when employed to approximate τ for
+mGGA XC functionals. Thus, here, we select L04 in all calculations. We note, however, that the PCopt KEDF has also been reported to be suitable for this task [77].
+We again select the S22-5 test set with the same settings as before [15], except for the plane wave cutoffs which is increased to 500 Ry for the density and is kept to 70 Ry for the wavefunctions. As shown in Fig. 4, we present the mean absolute deviations (MADs) of interaction energies obtained with different approaches in comparison to the benchmark CCSD(T) energies. These approaches include the SCAN functional implemented in the gKS scheme (SCAN), the SCAN-L04 functional (SCAN-L04), and the SCAN-L04 functional used in sDFT with the nonlocal LMGPA as NAKE (LMGPA@SCAN-L04). It is clear that SCAN-L04 delivers good interaction energies with MADs well below 5 kcal/mol. SCAN-L04 does not deteriorate the good performance of SCAN, except for the hydrogen bonded systems. Moreover, sDFT simulations with LMGPA@SCAN-L04 combination can deliver no worse results (even better for hydrogen bonded and Mixed bonded system) in comparison to SCAN-L04 results.
+To further quantify the performance of SCAN-L04, we summarize the MADs of the interaction energies calculated with SCAN, SCAN-L04, and LMGPA@SCAN-L04 against CCSD(T) results in Table 1. It is clear that the performances of these three approaches are similar, since the total MAD for SCAN, SCAN-L04,
+
+and LMGPA@SCAN-L04 are 0.82, 1.52, 1.46 kcal/mol, respectively. For hydrogen-bonded systems, SCAN (0.56 kcal/mol) outperforms LMGPA@SCAN-L04 (2.41 kcal/mol) and SCAN-L04 (3.04 kcal/mol).
+It is clear that deorbitalized mGGA functionals are competitive against the best pure functionals currently on the market. We envision further improvement for the deorbitalization strategy tackling the following weaknesses:
+1. Deorbitalized mGGAs require larger plane-wave cutoffs to achieve converged results compared to typical GGA functionals.
+2. The use of Laplacian-level KEDF for evaluating τ with plane-
+wave basis sets is numerically challenging. This can lead to an increase in the number of SCF iterations.
+3. Currently available approximations to τ [n](r) are still fairly
+crude.
+4. Conclusions and future directions
+This work releases version 2 of embedded Quantum ESPRESSO – a code for running density embedding simulations of molecules and condensed-phase systems. Since its ﬁrst release, eQE has been successfully employed for many large-scale simulations for condensed matter physics and chemistry. The new release allows the user to employ nonlocal functionals both for the kinetic energy (needed for density embedding) and exchange-correlation. Speciﬁcally, the new functionals include nonlocal nonadditive kinetic energy such as LMGPA, and nonlocal XC functionals such as rVV10. eQE version 2 also includes deorbitalized meta GGA XC function-
+als (i.e., where the kinetic energy density, τ , is approximated by a
+pure density functional). Preliminary benchmark tests for the new nonlocal functionals indicate that they considerably improve on the performance of semilocal functionals in KS-DFT and subsystem DFT (embedding) calculations without increasing the computational cost signiﬁcantly and, most importantly, maintaining eQE’s strong scalability with systems size.
+Following this release, we will turn to further improve eQE’s performance implementing new features which may include (but not limited to) development of new nonadditive XC functionals, especially the latest SCAN variants (such as: r2SCAN [83,84], r2SCAN+ [85,86], SCAN+rVV10 [87]). We will also continue to develop more accurate KEDFs for both nonadditive functionals for embedding and for approximating the kinetic energy density used in deorbitalized meta GGA functionals.
+
+7
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+Declaration of competing interest
+The authors declare that they have no known competing ﬁnancial interests or personal relationships that could have appeared to inﬂuence the work reported in this paper.
+Acknowledgements
+This material is based upon work supported by the National Science Foundation under Grants No. CHE-1553993 and OAC1931473. We thank the Oﬃce of Advanced Research Computing at Rutgers for providing access to the Amarel and Caliburn clusters.
+References
+[1] P. Hohenberg, W. Kohn, Phys. Rev. 136 (1964) 864–871. [2] W. Kohn, L.J. Sham, Phys. Rev. 140 (1965) 1133–1138. [3] S. Goedecker, Rev. Mod. Phys. 71 (4) (1999) 1085. [4] D.R. Bowler, T. Miyazaki, Rep. Prog. Phys. 75 (2012) 036503. [5] K.-H. Liou, C. Yang, J.R. Chelikowsky, Comput. Phys. Commun. 254 (2020)
+107330, https://doi.org/10.1016/j.cpc.2020.107330. [6] A.M.P. Sena, T. Miyazaki, D.R. Bowler, J. Chem. Theory Comput. 7 (2011)
+884–889, https://doi.org/10.1021/ct100601n. [7] Y.A. Wang, E.A. Carter, in: S.D. Schwartz (Ed.), Theoretical Methods in Con-
+densed Phase Chemistry, Kluwer, Dordrecht, 2000, pp. 117–184. [8] W.C. Witt, G. Beatriz, J.M. Dieterich, E.A. Carter, J. Math. Res. 33 (7) (2018)
+777–795. [9] W. Mi, X. Shao, C. Su, Y. Zhou, S. Zhang, Q. Li, H. Wang, L. Zhang, M. Miao, Y.
+Wang, Y. Ma, Comput. Phys. Commun. 200 (2016) 87–95. [10] X. Shao, Q. Xu, S. Wang, J. Lv, Y. Wang, Y. Ma, Comput. Phys. Commun. 233
+(2018) 78–83. [11] C. Huang, E.A. Carter, Phys. Rev. B 81 (2010) 045206. [12] W. Mi, M. Pavanello, Phys. Rev., B Rapid Commun. 100 (2019) 041105. [13] K. Luo, V.V. Karasiev, S. Trickey, Phys. Rev. B 98 (4) (2018) 041111. [14] V.V. Karasiev, S.B. Trickey, Comput. Phys. Commun. 183 (12) (2012) 2519–2527. [15] W. Mi, M. Pavanello, J. Phys. Chem. Lett. 11 (1) (2020) 272–279, https://doi.org/
+10.1021/acs.jpclett.9b03281. [16] T.A. Wesolowski, S. Shedge, X. Zhou, Chem. Rev. 115 (2015) 5891–5928, https://
+doi.org/10.1021/cr500502v. [17] A.S.P. Gomes, C.R. Jacob, Annu. Rep. Prog. Chem., Sect. C, Phys. Chem. 108
+(2012) 222–277. [18] C.R. Jacob, J. Neugebauer, WIREs Comput. Mol. Sci. 4 (2014) 325–362, https://
+doi.org/10.1002/wcms.1175. [19] A. Krishtal, D. Sinha, A. Genova, M. Pavanello, J. Phys. Condens. Matter 27
+(2015) 183202, http://iopscience.iop.org/0953-8984/27/18/183202. [20] J. Nafziger, A. Wasserman, J. Phys. Chem. A 118 (2014) 7623–7639, https://
+doi.org/10.1021/jp504058s. [21] G. Senatore, K. Subbaswamy, Phys. Rev. B 34 (8) (1986) 5754. [22] T.A. Wesolowski, A. Warshel, J. Chem. Phys. 97 (1993) 8050. [23] S. Andermatt, J. Cha, F. Schiffmann, J. VandeVondele, J. Chem. Theory Comput.
+12 (2016) 3214–3227, https://doi.org/10.1021/acs.jctc.6b00398. [24] D. Porezag, T. Frauenheim, T. Köhler, G. Seifert, R. Kaschner, Phys. Rev. B 51 (19)
+(1995) 12947. [25] M. Elstner, D. Porezag, G. Jungnickel, J. Elsner, M. Haugk, T. Frauenheim, S.
+Suhai, G. Seifert, Phys. Rev. B 58 (11) (1998) 7260. [26] A. Genova, D. Ceresoli, A. Krishtal, O. Andreussi, R. DiStasio Jr., M. Pavanello,
+Int. J. Quant. Chem. 117 (2017) e25401, https://doi.org/10.1002/qua.25401. [27] P. Giannozzi, S. Baroni, N. Bonini, M. Calandra, R. Car, C. Cavazzoni, D. Ceresoli,
+G.L. Chiarotti, M. Cococcioni, I. Dabo, A. Dal Corso, S. de Gironcoli, S. Fabris, G. Fratesi, R. Gebauer, U. Gerstmann, C. Gougoussis, A. Kokalj, M. Lazzeri, L. Martin-Samos, N. Marzari, F. Mauri, R. Mazzarello, S. Paolini, A. Pasquarello, L. Paulatto, C. Sbraccia, S. Scandolo, G. Sclauzero, A.P. Seitsonen, A. Smogunov, P. Umari, R.M. Wentzcovitch, J. Phys. Condens. Matter 21 (2009) 395502, http:// www.quantum-espresso.org. [28] P. Giannozzi, O. Baseggio, P. Bonfà, D. Brunato, R. Car, I. Carnimeo, C. Cavazzoni, S. De Gironcoli, P. Delugas, F. Ferrari Ruﬃno, et al., J. Chem. Phys. 152 (15) (2020) 154105. [29] P. Giannozzi, O. Andreussi, T. Brumme, O. Bunau, M.B. Nardelli, M. Calandra, R. Car, C. Cavazzoni, D. Ceresoli, M. Cococcioni, N. Colonna, I. Carnimeo, A.D. Corso, S. de Gironcoli, P. Delugas, R.A.D. Jr, A. Ferretti, A. Floris, G. Fratesi, G. Fugallo, R. Gebauer, U. Gerstmann, F. Giustino, T. Gorni, J. Jia, M. Kawamura, H.-Y. Ko, A. Kokalj, E. Küçükbenli, M. Lazzeri, M. Marsili, N. Marzari, F. Mauri, N.L. Nguyen, H.-V. Nguyen, A.O. de-la Roza, L. Paulatto, S. Poncé, D. Rocca, R. Sabatini, B. Santra, M. Schlipf, A.P. Seitsonen, A. Smogunov, I. Timrov, T. Thonhauser, P. Umari, N. Vast, X. Wu, S. Baroni, J. Phys. Condens. Matter 29 (46) (2017) 465901, http://stacks.iop.org/0953-8984/29/i=46/a=465901.
+
+[30] A. Umerbekova, M. Pavanello, Int. J. Quant. Chem. (2020) e26243, https://doi.
+
+org/10.1002/qua.26243.
+
+[31] A. Umerbekova, S.-F. Zhang, S.K. P, M. Pavanello, Eur. Phys. J. B 91 (2018),
+
+https://doi.org/10.1140/epjb/e2018-90145-2.
+
+[32] S.K. P, A. Genova, M. Pavanello, J. Phys. Chem. Lett. 8 (2017) 5077–5083, https://
+
+doi.org/10.1021/acs.jpclett.7b02212.
+
+[33] W. Mi, P. Ramos, J. Maranhao, M. Pavanello, J. Phys. Chem. Lett. 10 (24) (2019)
+
+7554–7559, https://doi.org/10.1021/acs.jpclett.9b03054.
+
+[34] A. Genova, D. Ceresoli, M. Pavanello, J. Chem. Phys. 144 (2016) 234105, https://
+
+doi.org/10.1063/1.4953363, http://scitation.aip.org/content/aip/journal/jcp/144/
+
+23/10.1063/1.4953363.
+
+[35] A. Genova, D. Ceresoli, M. Pavanello, J. Chem. Phys. 141 (2014) 174101, https://
+
+doi.org/10.1063/1.4897559, http://arxiv.org/abs/1406.7803.
+
+[36] A. Genova, M. Pavanello, J. Phys. Condens. Matter 27 (2015) 495501, https://
+
+doi.org/10.1088/0953-8984/27/49/495501.
+
+[37] A.J. Misquitta, B. Jeziorski, K. Szalewicz, Phys. Rev. Lett. 91 (2003) 033201.
+
+[38] K. Pernal, R. Podeszwa, K. Patkowski, K. Szalewicz, Phys. Rev. Lett. 103
+
+(2009) 263201, https://doi.org/10.1103/PhysRevLett.103.263201, http://link.aps.
+
+org/doi/10.1103/PhysRevLett.103.263201.
+
+[39] J. Klimes, D.R. Bowler, A. Michaelides, J. Phys. Condens. Matter 22 (2010)
+
+022201, http://stacks.iop.org/0953-8984/22/i=2/a=022201.
+
+[40] J. Klimeš, A. Michaelides, J. Chem. Phys. 137 (2012) 120901, https://doi.org/10.
+
+1063/1.4754130, http://link.aip.org/link/?JCP/137/120901/1.
+
+[41] O.A. Vydrov, T. Van Voorhis, J. Chem. Theory Comput. 8 (2012) 1929–1934,
+
+http://pubs.acs.org/doi/abs/10.1021/ct300081y.
+
+[42] D.C. Langreth, M. Dion, H. Rydberg, E. Schröder, P. Hyldgaard, B.I. Lundqvist, Int.
+
+J. Quant. Chem. 101 (2005) 599–610, https://doi.org/10.1002/qua.20315.
+
+[43] J.F. Dobson, T. Gould, J. Phys. Condens. Matter 24 (2012) 073201.
+
+[44] N. Ferri, R.A. DiStasio, A. Ambrosetti, R. Car, A. Tkatchenko, Phys. Rev. Lett.
+
+114 (17) (2015).
+
+[45] J. Hermann, R.A. DiStasio, A. Tkatchenko, Chem. Rev. 117 (2017) 4714–4758,
+
+https://doi.org/10.1021/acs.chemrev.6b00446.
+
+[46] W. Mi, A. Genova, M. Pavanello 148 (18) (2018) 184107.
+
+[47] P. Pulay, J. Comput. Chem. 3 (1982) 556–560.
+
+[48] E. Fermi, Rend. Accad. Naz. Lincei 6 (1927) 602–607.
+
+[49] L.A. Thomas, Proc. Camb. Philos. Soc. 23 (1927) 542–548.
+
+[50] C.F. von Weizsäcker, Z. Phys. 96 (1935) 431–458.
+
+[51] L.A. Constantin, E. Fabiano, S. Laricchia, F. Della Sala, Phys. Rev. Lett. 106 (18)
+
+(2011) 186406.
+
+[52] J.-D. Chai, J.D. Weeks, Phys. Rev. B 75 (2007) 205122, https://doi.org/10.1103/
+
+PhysRevB.75.205122, http://link.aps.org/doi/10.1103/PhysRevB.75.205122.
+
+[53] L. Grafova, M. Pitonak, J. Rezac, P. Hobza, J. Chem. Theory Comput. 6 (2010)
+
+2365–2376, https://doi.org/10.1021/ct1002253.
+
+[54] M. Dion, H. Rydberg, E. Schröder, D.C. Langreth, B.I. Lundqvist, Phys. Rev. Lett.
+
+92 (24) (2004) 246401.
+
+[55] K. Lee, É.D. Murray, L. Kong, B.I. Lundqvist, D.C. Langreth, Phys. Rev. B 82 (8)
+
+(2010) 081101.
+
+[56] O.A. Vydrov, T. Van Voorhis, Phys. Rev. Lett. 103 (6) (2009) 063004.
+
+[57] R. Sabatini, T. Gorni, S. De Gironcoli, Phys. Rev. B 87 (4) (2013) 041108.
+
+[58] O.A. Vydrov, T. Van Voorhis, J. Chem. Phys. 133 (24) (2010) 244103.
+
+[59] G. Román-Pérez, J.M. Soler, Phys. Rev. Lett. 103 (2009) 096102, https://
+
+doi.org/10.1103/PhysRevLett.103.096102,
+
+http://link.aps.org/doi/10.1103/
+
+PhysRevLett.103.096102.
+
+[60] J. Tao, J.P. Perdew, V.N. Staroverov, G.E. Scuseria, Phys. Rev. Lett. 91 (2003)
+
+146401, https://doi.org/10.1103/PhysRevLett.91.146401, https://link.aps.org/doi/
+
+10.1103/PhysRevLett.91.146401.
+
+[61] J.P. Perdew, in: AIP Conference Proceedings, AIP, 2001.
+
+[62] M.G. Medvedev, I.S. Bushmarinov, J. Sun, J.P. Perdew, K.A. Lyssenko, Science
+
+355 (6320) (2017) 49–52, https://doi.org/10.1126/science.aah5975.
+
+[63] J.P. Perdew, A. Zunger, Phys. Rev. B 23 (1981) 5048.
+
+[64] A.J. Cohen, P. Mori-Sanchez, W. Yang, Chem. Rev. 112 (2011) 289–318.
+
+[65] A.J. Cohen, P. Mori-Sanchez, W. Yang, Science 321 (2008) 792–794, https://doi.
+
+org/10.1126/science.1158722.
+
+[66] J. Sun, A. Ruzsinszky, J.P. Perdew, Phys. Rev. Lett. 115 (3) (2015), https://doi.org/
+
+10.1103/physrevlett.115.036402.
+
+[67] W. Yang, Q. Wu, Phys. Rev. Lett. 89 (14) (2002), https://doi.org/10.1103/
+
+physrevlett.89.143002.
+
+[68] A. Görling, J. Chem. Phys. 123 (2005) 062203, https://doi.org/10.1063/1.
+
+1904583, http://link.aip.org/link/?JCP/123/062203/1.
+
+[69] A.V. Arbuznikov, M. Kaupp, Chem. Phys. Lett. 381 (3–4) (2003) 495–504.
+
+[70] J.P. Perdew, S. Kurth, A. Zupan, P. Blaha, Phys. Rev. Lett. 82 (12) (1999) 2544.
+
+[71] M. Ernzerhof, G.E. Scuseria, J. Chem. Phys. 111 (3) (1999) 911–915.
+
+[72] J.C. Womack, N. Mardirossian, M. Head-Gordon, C.-K. Skylaris, J. Chem. Phys.
+
+145 (20) (2016) 204114.
+
+[73] S. Laricchia, E. Fabiano, F. Della Sala, J. Chem. Phys. 133 (2010) 164111, https://
+
+doi.org/10.1063/1.3494537, http://link.aip.org/link/?JCP/133/164111/1.
+
+[74] S. Laricchia, E. Fabiano, F. Della Sala, J. Chem. Phys. 137 (1) (2012) 014102,
+
+https://doi.org/10.1063/1.4730748, http://link.aip.org/link/?JCP/137/014102/1.
+
+[75] J.P. Perdew, L.A. Constantin, Phys. Rev. B 75 (15) (2007) 155109.
+
+[76] D. Mejia-Rodriguez, S. Trickey, Phys. Rev. A 96 (5) (2017) 052512.
+
+8
+
+W. Mi, X. Shao, A. Genova et al.
+
+Computer Physics Communications 269 (2021) 108122
+
+[77] D. Mejia-Rodriguez, S. Trickey, Phys. Rev. B 98 (11) (2018) 115161. [78] S. Laricchia, L.A. Constantin, E. Fabiano, F. Della Sala, J. Chem. Theory Comput.
+10 (1) (2014) 164–179. [79] S. Smiga, E. Fabiano, L.A. Constantin, F.D. Sala, J. Chem. Phys. 146 (6) (2017)
+064105, https://doi.org/10.1063/1.4975092. [80] S. Laricchia, L.A. Constantin, E. Fabiano, F.D. Sala, J. Chem. Theory Comput. 10
+(2013) 164–179, https://doi.org/10.1021/ct400836s. [81] S. Lehtola, C. Steigemann, M.J. Oliveira, M.A. Marques, SoftwareX 7 (2018) 1–5. [82] M.A. Marques, M.J. Oliveira, T. Burnus, Comput. Phys. Commun. 183 (10) (2012)
+2272–2281.
+
+[83] J.W. Furness, A.D. Kaplan, J. Ning, J.P. Perdew, J. Sun, J. Phys. Chem. Lett. 11 (19) (2020) 8208–8215.
+[84] D. Mejía-Rodríguez, S. Trickey, Phys. Rev. B 102 (12) (2020) 121109. [85] S. Ehlert, U. Huniar, J. Ning, J.W. Furness, J. Sun, A.D. Kaplan, J.P. Perdew, J.G.
+Brandenburg, J. Chem. Phys. 154 (6) (2021) 061101, https://doi.org/10.1063/5. 0041008. [86] S. Grimme, A. Hansen, S. Ehlert, J.-M. Mewes, J. Chem. Phys. 154 (6) (2021) 064103, https://doi.org/10.1063/5.0040021. [87] H. Peng, Z.-H. Yang, J.P. Perdew, J. Sun, Phys. Rev. X 6 (4) (2016) 041005.
+
+9
+

@@ -1,0 +1,4042 @@
+Density Functional Theory
+
+R. M. Dreizler E. K. U. Gross
+Density Functional Theory
+An Approach to the Quantum Many-Body Problem
+With 18 Figures
+Springer-Verlag Berlin Heidelberg New York London Paris Tokyo Hong Kong Barcelona
+
+Prof. Dr. Reiner M. Dreizler
+Institut fUr Theoretische Physik, Universitlit Frankfurt, Robert-Mayer-Strasse 8-10, D-6000 Frankfurt, Fed. Rep. of Germany
+Prof. Dr. Eberhard K. U. Gross
+PhysikaJisches Institut, Universitlit Wilrzburg, Am Rubland D-8700 Wilrzburg, Fed. Rep. of Germany
+ISBN 978-3-642-86107-9 ISBN 978-3-642-86105-5 (eBook) DOI 10.1007/978-3-642-86105-5
+Library of Congress CataIoging-in-Publication Data. Dreizler, Reiner M. Density functional theory: an ap-
+proach to the quantum many-body problem I R. M. Dreizier, E. K. U. Gross. p. em. Includes bibliographical
+references (p.). ISBN 0-387-51993-9 (alk. paper) 1. Density functionals. 2. Many-body problem. I. Gross, E. K. U. (Eberhard K.U.), 1953-. II. Title. QC2O.7.D43D74 1990 530.1'44 - dc 20 90-9623 This work is subject to copyright. All rights are reserved, whether the whole or part of the material is concerned, specifically the rights of translation, reprinting, reuse of illustrations, recitation, broadcasting, reproduction on microfilms or in other ways, and storage in data banks. Duplication of this publication or parts thereof is only permitted under the provisions of the German Copyright Law of September 9, 1965, in its current version, and a copyright fee must always be paid. Violations fall under the prosecution act of the German Copyright Law. @) Springer-Verlag Berlin Heidelberg 1990 The use of registered names, trademarks, etc. in this publication does not imply, even in the absence of a specific statement, that such names are exempt from the relevant protective laws and regulations and therefore free for general use. 1}>pesetting: K+V Fotosatz GmbH, 0-6124 Beerfelden Cover design: W. Eisenschink, D-6805 Heddesheim 2157/3150-543210 - Printed on acid-free paper
+
+Foreword
+I am delighted to write a few introductory lines for this work on density functional tbeory. Both of the authors - major leaders in the field - are my friends; and one of them, Hardy Gross, has been my close collaborator for the last five years. (In fact, lam-somewhat jealous of this book since it kept Hardy rather preoccupied for almost two years!)
+Density functional theory (DFf) is just over 25 years old. In several branches of physics and chemistry (solids, liquids, plasmas, molecules, nuclei, surfaces ... ) it has become a standard method of calculation and has led to new insights into physical and chemical concepts. Since DFf deals with properties of interacting many-particle systems, approximations must, of course, be made somewhere along the line, and thanks to a great deal of thoughtful work, better, more "physical", or more practical approximations continue to appear. Another area of research aims at re-casting the basic formulations of DFf, notably the constrained search approach of M. Levy and E. Lieb, to free it from some limitations and to gain new formal insights. Some workers have been elucidating formal constraints on DFf, e.g., the virial theorem. Some have been working on establishing connections between concepts of DFf and of ttaditional many-body theory. Extensions to excited states, to time-dependent phenomena, to superconductivity, etc., have been appearing.
+I expect that the present book will occupy an important place in this rapidly changing scene. The authors have, wisely, not attempted to be encyclopedic. The emphasis is on logical foundations and exploration of approximations. The book's hallmarks are clarity and - within its self-imposed limitations completeness. I expect that both experts and students, "fundamentalists" and users will find it very helpful; and I see it as a solid base for future advances.
+Waiter Kohn
+
+Preface
+
+When we started to collect and sort the material for this work we intended to write a review article on density functional theory. A cursory glance at the list of references at the end of this volume will convince the prospective reader that the body of literature on this topic is quite large. Inevitably, we had to realise that a coherent and reasonably complete account of the various facets of density functional theory would exceed the limitsof any journal article. The enterprise eventually settled into the form of a book.
+It is our intention to provide a comprehensive account of the recent developments in a field that has found applications in atomic, molecular, solid state and nuclear physics. The presentation is sufficiently detailed to make the subject accessible to the non-specialist. All basic derivations are selfcontained in the sense that no recourse to the original literature is necessary. As it stands, the text is suitable for a course on density functional theory at the advanced graduate level, the prerequisite being a reasonably firm foundation in general quantum mechanics.
+We wish to express our thanks to the people who supported us in the preparation of this book. The main burden has been carried by Margret Sch",arz, who efficiently and cheerfully typed a number of drafts and the final manuscript. We wish to thank her in particular. Thanks are also due to the members of the Frankfurt group for the final compilation of the list of references and to Mrs. Boffo for the figures and diagrams. Concerning the scientific aspects we thank Drs. E. Engel and H. J. Ltidde for numerous helpful discussions. E. K. U. G. expresses his gratitude to W. Kohn for his warm hospitality at the University of California, Santa Barbara. Numerous discussions with him on the subject of density functional theory have left their mark in this work. E. K. U. G. also wishes to thank the Max-Planck-Institut fUr Festkorperforschung in Stuttgart, and in particular the group of W. Hanke, for their kind hospitality during a stay in 1986 when part of this work was written. The contribution of E. K. U. G. was supported in part by the National Science Foundation under grant No. DMR87-03434 and by a Heisenberg fellowship of the Deutsche Forschungsgemeinschaft.
+
+Frankfurt am Main Santa Barbara April, 1990
+
+Reiner M. Dreizler Eberhard K. U. Gross
+
+Contents
+1. Introduction .............................................. .
+2. Basic Formalism for Stationary Non-Relativistic Systems ........ 4 2.1 The Hohenberg-Kohn Theorem ........................... 4 2.2 Degenerate Groundstates ................................. 7 2.3 v-Representability and Related Questions ................... 10 2.4 Fractional Particle Number, Chemical Potential, and Derivative Discontinuities ............................ 19
+3. Extensions ................................................. 25 3.1 Spin-Polarised Systems .................................. 25 3.2 Finite Temperature Ensembles ............................ 28 3.3 MuIticomponent Systems ........ . . . . . . . . . . . . . . . . . . . . . . . . . 30 3.4 Hartree-Fock Limit.. . . . . . . . . . . . . .. . . . .. . . . . . . ... . . . . .. . . 31 3.5 Excited States .......................................... 32 3.6 Density Matrix Functionals ...... . . . . . . . . . . . . . . . . . . . . . . . . . 36 3.7 Momentum Space....................................... 37 3.8 Bose Systems ........................................... 39 3.9 Superconducting Systems ..... . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+4. The Kohn-Sham Scheme .................................... 43 4.1 The Basic Kohn-Sham Equations ................ . . . . . . . . . 44 4.2 Degenerate Kohn-Sham Groundstates and the Question of v-Representability ..................... 48 4.3 Spin-Polarised Systems .................................. 52 4.4 Fractional Occupation, Janak's Theorem, and the Slater Transition State ............................ 54 4.5 Excited States: The Kohn-Sham Scheme for Ensembles ...... 58 4.6 SchrOdinger Equation for the Square Root of the Groundstate Density ............................ . . . 62 4.7 HeIImann-Feynman, Virial, and Scaling Properties of Density Functionals .............. 64 4.8 Single-Particle Equations for Superconductors: A Generalized Bogoliubov-deGennes Scheme ............... 70
+
+X
+
+Contents
+
+5. Explicit Functionals I: Kinetic and Excbange Energy Functionals Derived from tbe One-Particle Density Matrix ................. 75 5.1 Density-Gradient Expansions from Semiclassical Expansions: A Survey............................................... 75 5.2 The Kirzhnits Method ................................... 79 5.2.1 Semiclassical Expansion ............................ 79 5.2.2 Density-Gradient Expansion ......................... 83 5.3 The Wigner-Kirkwood Approach and Partial Resummation of the Gradient Expansion ............................... 90 5.4 Empirical Convergence Studies of the Gradient Expansion ... 95 5.5 Original von Weizs~cker Functional Versus Gradient Expansion ............................... 105 5.6 Pade Approximants and Other Parametrisations ............ 113 5.7 Phase-Space Approach Based on Local Thermodynamics .... 120 5.8 The Classical Density Functional Models of Thomas, Fermi, Dirac, and von Weizs~cker ............................... 124 5.8.1 Definition of the Models .... , ..... , ............ " . . . 124 5.8.2 The Thomas-Fermi Variational Equation .............. 126 5.8.3 Numerical Comparison and Some Applications ........ 131
+
+6. Many-Body Perturbation Tbeory ............................. 138 6.1 Diagrammatic Approach to the Inhomogeneous Electron Gas 139 6.2 The Exchange-Correlation Functional Expressed in Terms of the Irreducible Self-Energy ........... 142 6.3 The Band Gap in Insulators and Semiconductors ........... 145 6.4 The Fermi Surface in Metals ............................. 148 6.5 The Homogeneous Electron Gas .......................... 149 6.5.1 Basic Relations .................................... 149 6.5.2 The Groundstate Energy ............................ 162
+
+7. Explicit Functionals II: Tbe Local Density Approximation and Beyond ................. 173 7.1 The Local Density Approximation ........................ 176 7.2 Discussion of the Local Density Approximation. .... . . . . . . . . 183 7.3 Nonlocal Density Schemes ............................... 188 7.4 Self-Interaction Corrections .............................. 192 7.5 Wave Vector Analysis .................................... 196 7.6 Gradient Corrections .................................... 199 7.6.1 General Considerations ............................. 199 7.6.2 Low-Order Perturbative Results ...................... 204 7.6.3 Hartree-Fock Results ............................... 207 7.6.4 Results Based on Random Phase and Related Approximations ........................ 214 7.6.5 Results Derived from the Local Field Correction ....... 220 7.6.6 Results Based on Wave Vector Analysis ............... 222 7.7 Kohn-Sham Results for Atoms and Molecules .............. 229
+
+Contents
+
+XI
+
+7.7.1 Atomic Systems. . . . . . . . . . . . . .. . . . . . . . . . . . . . . . . . . . .. 230 7.7.2 Molecular Systems ................................. 238
+
+8. Density Functional Theory of Relativistic Systems .............. 245 8.1 Introduction ............................................ 245 8.2 Existence Theorems ..................................... 246 8.3 Explicit Functionals I: The Relativistic Kirzhnits Expansion .. 251 8.3.1 The Dirac Orbital Picture ........................... 252 8.3.2 The Quantum Electrodynamical Picture ............... 257 8.4 The Homogeneous Relativistic Electron Gas ................ 261 8.5 Explicit Functionals II: The Local Density Approximation ... 264 8.5.1 Unpolarised Systems ............................... 264 8.5.2 Polarised Systems ......................... :........ 266 8.6 Remarks and Applications ............................... 269
+
+Appendix .................................................... 273 A. Definition of Density Matrices, Green's Functions, and Correlation Functions ............................... 273 B. Compilation of Literature on Atomic and Molecular Kohn-Sham Results .............. 277
+
+References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 281
+
+Subject Index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 297
+
+1. Introduction
+The notion that ground state properties of quantum many-particle systems can be characterised solely in terms of the one-particle density is not obvious. Consider for instance the ground state energy and appeal to the description of the system with the aid of Green's function techniques (Martin and Schwinger, 1959). The ground state energy can be expressed directly in terms of one- and two-particle Green's functions. The determination of these quantities involves, however, a set of differential equations coupling eventually all n-particle Green's functions, with n being less than or equal to the number of particles involved. A corresponding statement applies if one frames the problem in the language of the theory of density matrices (ter Haar, 1961).
+In view of this situation, the early density functional model of Thomas (1927) and Ferrni (1927, 1928) and the extensions suggested by Dirac (1930) and von Weizsacker (1935), which do express the ground state energy in terms of the density alone, have to be considered as heuristic attempts to cut the chain of many-particle correlations indicated above. These models provide, nonetheless, quite reasonable results and considerable insight with relatively little effort. They also demonstrate the attraction of the density functional approach: The number of degrees of freedom is reduced to a minimum.
+The possible apprehension that the construction of such models might be leading towards a dead end was relieved by the basic theorem of Hohenberg and Kohn (1964). The original theorem states in essence that an exact representation of the ground state properties of a stationary, nonrelativistic many-particle system in terms of the ground state density alone is possible. The theorem ensures that the exact ground state density can be calculated, without recourse to the SchrOdinger equation, from a variational principle involving only the density, i.e., the chain of correlations can be disentangled completely, at least in principle. For a given system, e.g., of Coulomb-interacting particles moving in the external potential v(r), the exact ground state density and energy are obtained by minimisation of the energy functional
+where the kinetic contribution, T[n], and the Coulomb energy, WCoul [n], are universal functionals of the density n (r), i.e., these functionals do not depend on the external potential v(r) of the system in question.
+While the original version of the Hohenberg-Kohn theorem still relied on a number of restrictions such as the assumption of nondegenerate ground
+
+2
+
+1. Introduction
+
+states, the rigorous foundation of density functional theory has since been extended to cover practically all situations of interest, as for instance degenerate ground states, spin-polarised systems, thermodynamic systems, relativistic systems, multicomponent systems etc. A number of rigorous bounds and interrelations for the various quantities involved have been established, and the mathematical structure of the functionals has been exposed and tied to the framework of functional analysis (Lieb, 1982).
+The theorem offers, however, no practical guide to the explicit construction of the functionals in question. For this purpose one still has to face the full intricacies of the many-particle problem. The energy functionals that are available to date for Coulomb systems are essentially obtained from two (not unrelated) lines of argumentation. The first relies on the theory of the homogeneous electron gas as a starting point and exploits the (linear) response of this system to inhomogeneities. The second, more restricted in scope and more closely oriented towards "justification" and extension of the simple density functional models indicated above, is based on semiclassical expansions.
+None of the ground state energy functionals available can be considered as constituting the final answer. One can state, that all ground state energy density functionals available lead to partially deficient results, if one determines the ground state density and energy directly from the variational principle
+
+implied by the basic theorem. The major reason for these deficiencies is an inappropriate representation of the kinetic energy contribution T[n].
+Although one may be willing to accept the deficiencies for many problems of practical interest, this situation cannot be considered satisfactory. Only with the approach introduced by Kohn and Sham (1965) has one been able to calculate (ground state) properties of many-particle Coulomb systems with an accuracy that compares favorably with the results of much more involved configuration interaction calculations and/or experiment. The gist of the KohnSham scheme is the introduction of an equivalent orbital picture that can be established rigorously. It leads quite naturally to a more appropriate representation of the kinetic energy contribution. Historically, the Kohn-Sham scheme has its roots in the Hartree and Xa methods, which are, like the Kohn-Sham scheme, self-consistent methods featuring an effective single-particle SchrOdinger equation with a local, density-dependent, one-particle potential. The Kohn-Sham scheme goes beyond the Hartree and Xa methods in that it includes correlation effects exactly. One has to emphasize, however, that the Kohn-Sham scheme is tightly tailored to the generation of the ground state density. Consideration of excited states calls for a separate line of access.
+In the present review we shall attempt to cover the developments in density functional theory on three levels referring to
+
+1. Introduction
+
+3
+
+(i) rigorous foundation (ii) derivation of explicit functionals (iii) applications
+for stationary nonrelativistic and relativistic many-electron systems. In view of the plethora of contributions at each level we were forced to make a definite choice in the weight accorded to these general themes, in order to maintain a digestible length. We chose to present a more comprehensive account of the foundations and of the derivation of explicit functionals, while the discussion of applications is restricted to a minimum, involving mainly atomic and molecular systems. This restriction is supposed to be partially offset by a list of contributions addressing applications to these systems, which is added as an appendix. For similar reasons we had to abandon the original goal to also include a discussion of time-dependent density functional theory and of the recent developments in molecular dynamics and simulated annealing. We thought it worthwhile and necessary, however, to include a summary of the theory of the electron gas (focussing on the points relevant for the ensuing discussion of density functionals). For a recent reView of time-dependent density functional theory the reader is referred to Gross and Kohn (1990).
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+We start with a short summary of the original version of the Hohenberg-Kohn theorem (1964) which was formulated for local, spin-independent external potentials leading to a non-degenerate ground state. The question of degenerate ground states is considered in the following subsection. The formulation of the basic theorem has led to a substantial body of literature (for recent reviews, see, e.g., Lieb, 1982, and Erdahl and Smith, 1987) addressing its rigorous mathematical foundation. This subject will be covered from a physicist's point of view in the section on v-representability. Finally we shall describe an extension of the formalism to fractional particle number which leads to the recently discovered derivative discontinuities of the fundamental energy functional.
+2.1 The Hohenberg-Kohn Theorem
+The many-fermion systems under consideration are characterised by a nonrelativistic time-independent Hamiltonian
+which, in second quantised notation, is of the standard form
+We assume that the two-particle interaction is specified (e.g., the Coulomb interaction), but subject the system to different external potentials. For this purpose we define a set "f' of local one-particle potentials with the property that the solution of each eigenValue problem
+leads to a non-degenerate ground state for a system of N fermions:
+
+2.1 The Hohenberg-Kohn Theorem
+
+5
+
+Collecting the ground states in the set 'P we have, via solution of the SchrMinger equation, defined a map
+c: 1"-+'P .
+
+The map is surjective by construction: 'P contains no element which is not associated with some element of Y'.
+Next, for all ground state, wavefunctions contained in 'P, we calculate the ground state densities
+I ~ I n (r) = <'P Ifi (r) I'P) = ( 'P 1jI;- (r) IjIa (r) 'P)
+
+L J J =N
+
+dX2'" dXNI 'P(ra'X2'" .,xN)1 2 ,
+
+(2.2)
+
+a
+
+establishing a second map
+
+D:'P-+.A'.
+
+This map of the ground state wavefunctions on the set of ground state densities
+.A'is again trivially surjective. The gist of the proof of the theorem of Hohenberg and Kohn is then: The
+maps C and D are also injective (one to one) and thus bijective (fully inverti-
+ble). The demonstration of injectivity is rather straightforward:
+For the map C one has to show that two potentials V, V' E 1"always lead
+to different ground states I'P) and I'P'), provided the potentials differ by more
+than a constant,
+
+V* V'+const
+
+(2.3)
+
+(Potentials differing by an additive constant are considered equivalent.) Starting from the Schrodinger equations
+
+(T+ W"+ V) I'P) = Egs I'P)
+
+(2.4)
+
+and
+
+(T+ W"+ V') I'P,) = E~s I'P') ,
+
+(2.5)
+
+the assumption I'P) = I'P') gives by subtraction
+
+(2.6)
+Since Vand V' are multiplicative operators, (2.6) leads to V-V' = Egs - E~s' in contradiction to (2.3), if I'P) does not vanish on a set of positive measure.
+This is, however, guaranteed by the unique continuation theorem valid for "reasonably well behaved" potentials, i.e. potentials that do not exhibit infinite barriers, etc. The rigorous foundation of density functional theory is based on
+the Hilbert space of potentials 1"= L 312 +L 00 (Lieb, 1982).
+
+6
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+* * In the case of the map D one shows that I 'P) I'PI implies n (r) n' (r).
+The argument involves the steps
+
+due to the Ritz principle, and
+('P'IHI 'PI =('P'IH'+ V- V'I 'PI = E~+ Sn'(r)[v(r)- v'(r)]d3r .
+A corresponding argument starting with E~s gives
+Addition of the two inequalities with the assumption n (r) = n' (r) leads to the
+obvious contradiction
+
+and one concludes that the map D must be injective. Having established that unique inversion of the map D is possible,
+
+D-1:n(r)-I'P[n]) ,
+
+the first statement of the Hohenberg-Kohn theorem can be formulated: The
+ground state expectation value of any observable 6 is a unique functional of
+the exact ground state density
+('P[n] 161 'P[n]) = O[n]
+
+The full inverse map
+
+(CD)-I: n(r)-+v(r)
+
+tells us that knowledge of the ground state density determines the external potential of the system (to within a trivial constant) and thus, as the kinetic energy and the inter-particle interaction are specified, the entire Hamiltonian.
+As a second important statement, the Hohenberg-Kohn theorem establishes the variational character of the energy functional
+
+(2.7)
+
+where Vo is the external potential of a specific system with ground state densi-
+ty no(r) and ground state energy Eo. The states IYJ[n]) are generated via D- 1
+from the elements of the set .;v. By virtue of the Rayleigh-Ritz principle,
+
+Evo[n] has the obvious properties
+
+* Eo<Evo[n] for n no
+
+(2.8 a)
+
+and
+
+2.2 Degenerate Ground States
+
+7
+
+Eo = Evo[no] .
+
+(2.8b)
+
+Thus, the exact ground state density can be determined by minimisation of the functional Evo[n]; in short:
+
+Eo = minEv [n] . ne.Ai 0
+
+(2.9)
+
+The map D -, does not depend on the potential Vo of the particular system under consideration. Thus writing
+
+I EvJn] = FHdn] + d 3 r vo(r)n(r)
+
+(2.10)
+
+with
+FHdn] = (tp[n] IT+ WI tp[n]) ,
+
+(2.11)
+
+we can state that the functional FHK is universal in the sense that it does not depend on Vo. This means, for example, that FHK [n] is the same density func-
+tional for atoms, molecules and solids since W, in all cases, is the Coulomb
+repulsion between the electrons. The potential Vo which, in these cases, represents the interaction of the electrons with one nucleus; several nuclei, or a crystal lattice, respectively, appears only in the second term of (2.10).
+The three statements on invertibility, variational access, and universality constitute the classic formulation of the theorem of Hohenberg and Kohn. The theorem only sets the stage. It does not tell us how to construct the formal map D-' or the functional FHdn]. In view of the complexity of the manybody problem at hand, one would expect that explicit construction is only possible in some (hopefully adequate) approximation.
+
+2.2 Degenerate Ground States
+
+As pointed out by Kohn (1985) the basic formalism is easily extended to include degenerate ground states. In this case, each potential VE j/ leads to a subspace
+
+.f 'l'v= \1 tp) = c;1 tp;)]
+l 1='
+
+(2.12)
+
+spanned by an orthonormal system of degenerate ground states Itp,), ... , Itpq) of the Hamiltonian (2.1), i.e.,
+
+(T+W+V)ltpj)=Egsltpj) , i= 1, ... ,q.
+
+Potentials leading to a nondegenerate ground state are of course included here:
+'l'v then contains only the nondegenerate ground state (q = 1). The union of
+all subspaces 'l'v will be denoted by 'I' (Fig. 2.1):
+
+8
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+J('
+Fig. 2.1. Correspondence between external potentials, ground state wavefunctions, and ground state densities for the case of degenerate ground states
+
+'I' = U 'I'v .
+Ve 1"
+
+(2.13)
+
+Similarly, the ground state densities corresponding to a potential Ve l'are grouped together in a set denoted by
+
+JVv =(n(r)!n(r) = ('I'!ii(r)! P) , !'I')e'l'vl.
+
+(2.14)
+
+The union of all JVv constitutes the set JV (Fig. 2.1):
+
+JV= U JVv .
+Ve 1"
+
+(2.15)
+
+Since one potential is now associated, in general, with more than one ground state, the relation C between potentials and ground states is no longer a map. One can demonstrate, however (with a repeat of the argument given in the last section) that each element of 'I'v differs from each element of 'I'v" if V and V' differ by more than a constant, i.e.,
+
+C- t : '1'-+ l '
+
+is a proper map. In the second step, one considers the map of ground state wave functions
+on the set of densities:
+
+D:'I'-+JV .
+
+Once again, one can show in complete analogy to the previous argument that
+* two ground states! '1'), ! '1',) coming from different potentials, V V' +const, * always lead to different densities n (r) n I (r). In other words, two subsets JVv
+
+2.2 Degenerate Ground States
+
+9
+
+'* and .A"v· corresponding to different potentials, V V' + const, are always dis-
+joint (Fig. 2.1). Thus, the density of anyone of (possibly many) degenerate
+ground states uniquely determines the external potential [i.e., (CD)-I is a
+proper map]. There is, however, a subtle difference compared to the non-
+
+'* degenerate case: We can encounter a situation where a given external potential
+v(r) leads to two degenerate ground states I'P) IP) which have identical
+densities, i.e.,
+
+I ?' 'P) \.
+
+v(r) \.
+
+?' n(r) .
+
+I P)
+
+(2.16)
+
+As a simple example one may consider a noninteracting Li-atom with the four degenerate ground state configurations (1s)2(2s), (1sf(2p+), (1si(2p<),
+and (1 si (2p -). Then the two determinantal wavefunctions
+
+I 'P)
+
+=
+
+1 ,,r::;-;
+
+det
+
+[(1
+
+si(2p
+
++)}
+
+V 3!
+
+and
+
+I'P- )
+
+=
+
+1 ,,r::;-;
+
+det
+
+[(1
+
+s)2
+
+(2p
+
+-)}
+
+v3!
+
+lead to identical densities
+
+We conclude: In the presence of degeneracies, a given density does generally not correspond to a unique ground state. This means the map D is not invertible; there is no unique functional 'P[n].
+This fact has an important consequence: The ground state expectation value of a given operator may no longer be considered as a unique functional of the density. This confronts us with a difficulty in the derivation of the variational principle, since for the latter a unique analog of the functional
+FHdn] = ('P[n] It+ WI 'P[n]) is required. For this particular quantity, how-
+ever, a unique density functional can be defined: Following Kohn (1985), we first observe that the ground state energy corresponding to the unique external potential V[n] of a given density n(r) is of course the same for all the degenerate ground states that yield the prescribed density n (r), i.e.,
+('PI t + W+ V[n] I'P) = (PI t + W+ V[n] IP)=E
+with I'P) and IP) chosen according to the diagram (2.16). The value of E is
+fixed by the density to within a constant. Consequently, the quantity
+
+10
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+is a unique functional of the density; the ambiguity with respect to the additive constant cancels out. The functional FHK [n) may now, of course, be written as
+
+FHKln) =(P[n) It+ WI P[n» ,
+
+(2.17)
+
+where P[n) is allowed to be any of possibly many ground states yielding the prescribed density n (r). The total-energy functional
+
+(2.18)
+
+which is now defined for all densities nCr) corresponding to a ground state, degenerate or not, has the following variational properties: With the exact ground state energy Eo corresponding to vo(r), the equality
+
+(2.19a)
+
+is satisfied for all ground state densities, no(r), associated with vo(r); for all other densities one finds
+
+(2.19b)
+
+2.3 v-Representability and Related Questions
+A function nCr) is termed pure-state v-representable if it is the density of a (possibly degenerate) ground state of the Hamiltonian (2.1) with some suitably chosen local external potential vCr) (the number of particles, N, and their mutual interaction w(r,r') being specified). By construction, the functionals FHK[n) and Evo[n) [cf. (2.17, 2.18») are defined only for pure-state v-representable functions. At this point, two questions arise:
+(i) Given a "reasonably well behaved" non-negative function nCr), which is normalised to N, can one always find a local external potential vCr), so that n (r) is a ground state density of the Hamiltonian (2.1); in other words, are all "reasonably well behaved" non-negative functions pure-state v-representable?
+(ii) If the answer is negative, can one extend the domain of the HohenbergKohn functional FHK [n) to non-v-representable functions?
+These two questions lead to the so-called v-representability problem. The reader might wonder why those questions are of any importance: Since physicists believe in the universal validity of the SchrOdinger equation, all densities that actually occur in nature (for non-excited systems) must be v-representable. So why do we care at all about such unphysical non-v-representable densities? The reason is that in the implementation of the variational principle
+
+2.3 v-Representability and Related Questions
+
+11
+
+Eo = min Ev [n] ne.% 0
+
+one has to ascertain that each trial density belongs to the domain of pure-state v-representable densities. This task obviously requires some criterion for deciding whether a given non-negative function is v-representable or not. For practical purposes one would prefer to formulate the variational principle as
+
+l5 --Ev [n] =0. l5 n (r) 0
+
+In this case one has the task to demonstrate that there exists suitable norm convergence in the domain of definition, and that the functional is differentiable (at least in a vicinity of the supposed minimal point).
+In any case, a characterization of the set of pure-state v-representable densities is required. Unfortunately, the original hope (Hohenberg and Kohn, 1964) that all reasonably well behaved non-negative functions are pure-state v-representable turned out to be too optimistic. Essentially two groups of non-v-representable functions have been found so far. The first group was constructed independently by Levy (1982) and Lieb (1982): Consider a system with
+q independent degenerate ground states I'PI), ... , l'Pq). Then construct the
+statistical (von Neumann) density matrix
+
+q
+15 = L d;l 'P)('Pi I
+i= I
+with
+q
+dj = di~O, L di = 1 i =I
+and calculate the corresponding ensemble density
+
+(2.20)
+
+q
+nD(r) = tr{15n(r)} = L dini(r)
+i= I
+where
+
+(2.21)
+
+As demonstrated by Levy (1982) and Lieb (1982), the function nD(r) can not be derived from a single ground state (except for very special choices of the coefficients di ), i.e., nD(r) is not pure-state v-representable. However, nD(r) is still associated with an external potential. Functions of the form (2.21) are therefore termed ensemble v-representable.
+As far as the variational principle is concerned, this group of nonpure-state v-representable functions is easily handled. As pointed out by Englisch and Englisch (1983 a), the domain of the Hohenberg-Kohn functional FHK [n] is easily extended to include ensemble v-representable functions:
+
+12
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+Replace the subspace 'l'v of degenerate ground states associated with a potential Ve j'[cf. (2.12)] by the set of density matrices
+
+(2.22)
+
+and consider the resulting set JVv of ensemble v-representable densities nD(r). Following step by step the argument of Sect. 2.2, one readily demonstrates
+that JVv and JVv' are disjoint for potentials Vand V' differing by more than
+a constant. An extension of the functional FHK [n] to ensemble v-represent-
+able densities can therefore be defined by
+
+(2.23)
+
+where 15 [n] may be any of those density matrices associated with the unique
+potential V[n] that lead to the given ensemble v-representable density n(r). The corresponding total energy functional then has the usual variational properties.
+One could be tempted to believe that all well-behaved non-negative functions are ensemble v-representable. However, even this hope is too optimistic. As pointed out by Englisch and Englisch (1983a), there exist functions which do not correspond to the ground state of any external potential. For one parti-
+cle (N = 1) in one spatial dimension those are, e.g., all functions which for
+x-+O behave like
+
+= n(x) (a+blxl a + tl2)2 with a,b>O, Osa<1I2.
+
+(2.24)
+
+Chayes, Chayes and Ruskai (1985) have pointed out that a function behaving for x-+O like (2.24) may be the ground state density of a Hamiltonian with a distributional potential. For such potentials, however, the first step in the proof of the Hohenberg-Kohn theorem (invertibility of the map C) breaks down: the unique continuation theorem required in the proof (Sect. 2.1) is not valid for potentials of this kind.
+The examples of Englisch and Englisch rely on the fact that for one single particle the potential v(r) corresponding to a given density n(r) is uniquely determined as
+
+(2.25)
+The construction is then based on the observation that functions n (r) which themselves are well behaved (i.e., smooth, normalisable, and with finite kinetic energy) can lead to a singular potential via (2.25). On a lattice, where the kinetic energy operator is represented by some finite difference form, such examples can obviously not exist. In fact on a grid (finite or infinite) every density which is strictly positive, properly normalised, and consistent with the Pauli
+
+2.3 v-Representability and Related Questions
+
+13
+
+principle t is ensemble v-representable. This theorem, recently proven by Chayes, Chayes, and Ruskai (1985), extends former results for finite lattices (Epstein and Rosenthal, 1976; Kohn, 1983; Englisch and Englisch, 1983 b; Katriel, Appellof, and Davidson, 1981).
+In contrast to the lattice case, a simple characterisation of v-representable functions on the continuum is not available so far. Therefore, an extension of the domain of the functional FHdn] (or FEHdn], respectively) to arbitrary non-negative functions, integrating to the given particle number N, appears desirable. Two formulations, usually classified under the heading constrained search, are available.
+The first extension of this kind was proposed by Levy (1979) and further investigated by Lieb (1982) and Levy (1982). The functional is defined as
+
+FLdn] : = inf (1f'1 t + WIIf') . 'P .... n
+
+(2.26)
+
+The notation If'--+n indicates that the infimum be searched over all antisymmetric, normalised N-particle functions If'(Xt, ... ,XN) whose density equals the prescribed function n (r). The infimum can in fact be shown to be a minimum (Lieb, 1982).
+As an immediate consequence of the Rayleigh-Ritz principle, one finds
+
+FLL[n] = FHK[n]
+
+(2.27)
+
+for all pure-state v-representable functions n(r), i.e., FLdn] is an extensi<i>n of FHdn]. In order to demonstrate that FLdn] is a reasonable extension of FHK [n] for our purposes, one has to prove that the total-energy functional
+
+(2.28)
+
+assumes its minimum at (and only at) the correct ground state density no(r) corresponding to the potential vo(r) and that the minimum value equals the correct ground state energy Eo. This is most easily seen using the RayleighRitz principle in the form
+
+Eo = inf(1f'1 t+ W+ Vollf') , 'I'
+which allows one to split the infimum over all N-particle functions If'into two consecutive infima
+= inf [inf (1f'1 t + W+ Vo 11f')] n(r) 'P.... n
+J = inf [inf (1f'1 t+ WIIf')+ n(r)vo(r)d3r] n(r) 'P.... n
+J = inf [FLL[n]+ n(r)vo(r)d3 r] . n(r)
+
+1 For fermions, the Pauli principle ensures that the density n (r) at any lattice site r is smaller than the number of spin states.
+
+14
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+If one considers the functional FEHK [n] (2.23) another extension based on the density matrix suggests itself:
+
+Fdn]:= inf tr{15(T+ W)] •
+J5-n
+
+(2.29)
+
+In this functional, proposed by Lieb (1982) and Valone (1980a), the infimum is to be searched over all density matrices
+
+00
+15 = L d;llf'j)('.£';1 j =1
+
+with
+
+00
+
+L di = dj~O,
+
+dj = 1
+
+j =,
+
+which yield the prescribed function n (r) via
+
+(2.30)
+
+00
+n(r) = tr{15fl(r)] = L dj(lf';lfl(r)llf'j) . j =,
+
+(2.31)
+
+The N-particle functions Ilf'j) constitute an orthonormal basis in the Hilbert space considered. FL [n] is obviously an extension of FEHK [n], i.e.
+
+(2.32)
+
+for all ensemble v-representable functions n(r), and once again the corresponding total-energy functional
+
+(2.33)
+
+assumes the minimum value Eo at and only at the correct ground state ensemble densities corresponding to Vo (r).
+As demonstrated by Lieb (1982), Fdn] has some advantages of mathematical importance over the functional FLdn]:
+(i) Fdn] is convex. (ii) FL [n] is the Legendre transform
+J Fdn] = sup [E[v]- n(r)v(r)d3r] VE l'
+of the ground state energy E[v] = inf (1f'1 t + W+ VIif') if the latter is con'I'
+sidered as a functional of the external potential v(r).
+The functional FLdn] is defined for all functions n(r) which can be represented as the density of some antisymmetric N-particle function If'(x" ... ,XN) (not necessarily the ground state of any Hamiltonian). For historical reasons, such functions n (r) are termed (pure-state) N-representable
+
+2.3 u-Representability and Related Questions
+
+15
+
+(for a review of the general N-representability problem of density matrices, see Erdahl and Smith, 1987). In the last decade, however, it became clear (Gilbert, 1975; Harriman, 1981; March, 1982; Zumbach and Maschke, 1983) that all non-negative functions n (r) (normalised to N) are (pure-state) N-representable 2• The functionals FLdn] and Fdn] are thus defined for arbitrary nonnegative functions n (r) that integrate to the given particle number N.
+The easiest way to prove that all integrable non-negative functions are Nrepresentable, is by explicitly constructing an N-particle determinant that yields a prescribed function n(r) as its density. On the basis of Macke's pioneering work (1955), Harriman (1981) proposed the following construction for the one-dimensional case:
+Given a non-negative function n(x) with
+
+00
+S n(x)dx=N ,
+-00
+
+one defines an auxiliary function f(x) by the differential equation
+
+(2.34)
+
+Direct integration leads to
+
+2n
+f(x) = -
+
+x
+S
+
+n(y)dy
+
+.
+
+N-oo
+
+(2.35)
+
+With an arbitrary real-valued phase function f/>(x), one then defines a set of single-particle orbitals by
+
+~k(X):= ~nt) e'[kM+'~)]. k =integ", .
+
+(2.36)
+
+By means of (2.34) one readily demonstrates that these orbitals are orthonormal,
+
+I I I (fJk,(X)(fJk(X)dx= n(X)ei(k-k')!(X)dx= _l_df ei(k-k')!(X)dx
+
+-00
+
+N -00
+
+-00 2 n dx
+
+J =
+
+1
+-
+
+2"
+ei(k-k')!df =
+
+f5kk ,
+
+,
+
+2n 0
+
+2 This implies that all ensemble N-representable functions, i.e., alI densities derivable from a density matrix of the form (2.30), are also pure-state N-representable. Since, on the other hand, all pure-state N-representable functions are, by construction, also ensemble N-representable, the domain of pure-state and ensemble N-representable densities coincides.
+
+16
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+and complete [provided n(x) does not vanish on a set of finite measure, so that f(x) is a strictly monotonically increasing function]:
+
+ke"Z.
+
+ke"Z.
+
+=ei [Q'I(x)-Q'l(Y)1(2nIN) -Vn(x)n(y) <5([(x)-f(y»
+
+= -2n
+N
+
+n(x)
+
+<5 (x-y)
+Idf(x)ldx
+
+I
+
+= <5(x-y)
+
+Thus the Slater determinants
+
+with
+
+(2.37)
+
+constitute a complete orthonormal system of N-particle functions, each of which has a density identical with the prescribed function n(x):
+
+N
+<Xk, ... kNln(x)IXk, ... k)= L IqJk;(x)1 2 =n(x).
+i= 1
+
+(2.38)
+
+The analogous construction in three dimensions is based on the orbitals
+
+(2.39)
+
+In contrast to the one-dimensional case, where the condition (2.34) determines f(x) uniquely, the corresponding requirement for the Jacobian in three dimensions
+
+a([1,f2,j3) = (2 n )3 n (r)
+
+a(x,y,Z)
+
+N
+
+(2.40)
+
+leaves considerable freedom in the construction of f(r). A possible choice recently proposed by Zumbach and Maschke (1983) is:
+x
+S dx' n(x',y,z)
+-00
+fl(r)=2n----co S dx' n(x',y,z) -00
+
+2.3 v-Representability and Related Questions
+
+17
+
+y
+
+ex>
+
+J J dy' dx' n(x',y',Z)
+
+= --ex>
+
+-ex>
+
+f2(r) 27r - - - - - - - -
+
+ex>
+
+ex>
+
+J J dy' dx' n(x',y',Z)
+
+-ex>
+
+--ex>
+
+J J J 27r z
+
+ex>
+
+ex>
+
+f3(r) = -
+
+dz' dy' dx' n(x',y',Z')
+
+N _ex>
+
+-ex>
+
+-ex>
+
+(2.41)
+
+Besides their role in the N-representability proof, the equidensity orbitals (2.36) or (2.39) are useful to establish reliable estimates for the density functionals introduced above: With any N-particle function 'I'(rl ... rN) that
+yields a prescribed density n(r), the expectation value ('1'1 T+ WI '1') gives an
+upper bound for FLdn] [ef. (2.26)]. Being complete, the orthonormal system of Slater determinants (2.37) thus provides a systematic approach to the functional FLdn] (Nyden and Parr, 1983; Nyden, 1983; Zumbach and Maschke, 1983). As a simple example consider the case of vanishing interaction, W= 0, where the functional FLL [n] reduces to the kinetic energy Ts [n] of non-interacting particles. An upper bound for this functional is readily obtained by inserting the three-dimensional analog of the Slater determinant (2.37). This leads to
+
+Ts[n] ::5(xk, ... kN I Tlxk, ... kN ) = Tw[n]
+
++ - - J 112
+
+N
+
+L d 3 rn(r) (V[k;-f(r)+¢(r)]i
+
+2mN
+
+i= 1
+
+(2.42)
+
+with Tw [n] denoting the kinetic energy functional first proposed by von Weizsacker (1935):
+
+J Tw[n] = ~ d 3/'Vn(r)i
+
+8m
+
+n(r)
+
+(2.43)
+
+The phase function ¢ (r) can be used to minimise the right hand side of (2.42). This leads to (Zumbach and Maschke, 1983)
+
+1
+¢(r) = --
+
+L N
+
+(kj·f(r»
+
+.
+
+Ni=l
+
+Another application of the equidensity orbitals is the construction of density functionals that are rigorous bounds for parts of the exact ground state energy. As an example consider the exact kinetic energy contribution to the ground state energy of an interacting system which, in terms of the exact one-particle density matrix y(r,r'), is given by
+
+T
+
+=
+
+J d
+
+112
+3r -
+
+['V,. 'V"y(r,r')],,~,
+
+.
+
+2m
+
+(2.44)
+
+18
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+(For the definition of density matrices, Green's functions, and related quantities, see Appendix A.)
+Since the orthonormal system (2.39) is complete, the exact one-particle density matrix can be expanded as
+
+L y(r,r') =
+
+Yjk({Jj(r)qJ'1(r') ,
+
+j,kel3
+
+yielding
+
+y(r,r') = Vn(r) Vn(r')F(r,r')
+
+(2.45)
+
+with
+
+r(r,r') = ~ei[I/>(T)-I/>(T')] L YjkeiU'!(T)-k'!(T')]
+
+N
+
+j,kel3
+
+Insertion of (2.45) into (2.44) leads to (Ludeiia, 1984; Harriman, 1987):
+
+(2.46)
+
+where Tw [n] is again the von Weizsacker term (2.43), and A (r) denotes the "shape function"
+
+,,2
+A(r) =-n(r)[V,.VT,F(r,r')]T'''''T . 2m
+
+(2.47)
+
+I It is readily demonstrated that d 3r A (r) ~ 0 (Harriman, 1987). Therefore, as
+a consequence of (2.46), Tw [n] provides a rigorous lower bound for the exact
+kinetic energy
+
+Tw[n]sT.
+
+(2.48)
+
+Since the exact density matrix has the asymptotic form (March, 1982; Alonso and March, 1983)
+
+y(r,r') - -..... Vn(r)Vn(r') ,
+r,r' ..... oo
+r(r, r') is known exactly in this limit:
+
+(2.49)
+
+F(r, r') --_" 1 .
+r,r'-+oo
+
+(2.50)
+
+Furthermore, since y(r,r) = n(r), the diagonal elements are unity as well
+
+r(r,r) = 1 .
+
+(2.51)
+
+Sierraalta and Ludeiia (1986) have presented a detailed analysis of the function A (r) for light atoms. An explicit nonlocal-density approximation was recently
+
+2.4 Fractional Particle Number, Chemical Potential, and Derivative Discontinuities
+
+19
+
+derived by Herring (1986). A crude estimate is obtained from the homogeneous electron gas expression
+rhorn (r, r') = 3 [sin (kFy) - (kFy) cos (kFy )]I(kFy)3, Y = Ir-r'l (2.52)
+
+which leads to (Ludeiia, 1986):
+
+A(r) = -3nh 2(r)k~ .
+10m
+The replacement kF--+(3n 2n(r»1I3 then yields the classical expression of Thomas (1927) and Fermi (1927, 1928)
+
+ATF(r) = _3h_2 (3n 2)2/3 n(r)S/3
+10m
+
+(2.53)
+
+The corresponding density functional
+
+(2.54)
+
+can thus be interpreted as a correction to the Weizsacker functional (2.43). A somewhat different perspective will be developed in Chap. 5 in the context of gradient expansions.
+For the kinetic energy Ts of non-interacting particles in one spatial dimension, March and Young (1958) derived with a similar technique the rigorous inequality
+
+(2.55)
+
+which, in combination with (2.48), leads to
+
+(2.56)
+
+For densities which depart only slightly from uniformity, (2.56) was found to be true even in three dimensions (Herring, 1986). Whether the upper bound generally holds in the three-dimensional case is still an open question (Lieb, 1982). Further bounds, in particular also for the potential energy terms of Coulomb-interacting particles, are given by Lieb (1982) and Gadre, Bartolotti, and Handy (1980).
+
+2.4 Fractional Particle Number, Chemical Potential, and Derivative Discontinuities
+A point frequently overlooked is the question of the dependence of the functionals considered on the particle number N (Lieb, 1982). This is of interest, for instance, if one deals with the variational formulation
+
+20
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+(2.57)
+
+incorporating the subsidiary condition of a specific particle number via the Lagrange multiplier f.L In (2.57) one extends the domain of definition to nonnegative, integrable functions with arbitrary (i.e., not necessarily integer) values
+of N = Sd 3r n (r), and one is faced with the question of whether the energy
+functional can be defined and has the desired properties over this domain. Following Perdew, Parr, Levy and Balduz (1982), a suitable extension of the
+energy functional for densities integrating to fractional particle numbers
+Sn(r)d3r = M+ w, M = integer, O~w~ 1
+
+is provided by the definition
+
+(2.58)
+
+with
+
+Ffrac[n] :=
+
+min
+
+tr {.6(f+ W>} .
+
+fj .....n
+
+fj = aMI 'l'M><'l'MI +aM+11 'l'M+I><'l'M+11 aM+aM-t = 1
+
+The search runs over all statistical mixtures .6 consisting of an M- and an (M+ 1)-particle function yielding the prescribed density n (r) via
+
+Integrating this equation over all space, one obtains
+
+Thus we have aM+l = wand aM= l-w, resulting in the final expression
+
+Ffrac[n] =
+
+min
+
+tr {D(f+ W>} .
+
+fj ..... n
+
+fj = (1-w)1 'l'M><'l'MI +wl 'l'M+I><'l'M+tI
+
+(2.59)
+
+With the definitions (2.58, 59), the variational principle (2.57) is well defined and leads to the Euler equation
+
+oEv[n] • -.=...:....~=J.l on(r)
+
+(2.60)
+
+Now let nN(r) be the solution of (2.60) with particle number N, and let EN be the corresponding ground state energy, i.e.,
+
+2.4 Fractional Particle Number, Chemical Potential, and Derivative Discontinuities
+
+21
+
+For each solution nN(r), (2.60) is satisfied with a certain number f.l = f.l(N). It
+is easily seen that this Lagrangian multiplier is the exact chemical potential of the system, i.e.,
+
+f.l(N) = aEN •
+aN
+For a proof, consider the difference of ground state energies
+
+which yields, by use of (2.60),
+
+the desired statement in the limit e--+O. If f.l(N) is assumed to be a continuous function of N a paradox arises in
+the formalism. Following Perdew et al. (1982), we consider two neutral atoms with nuclear charges X and Y in an otherwise empty universe. If the atoms are well separated so that interaction is impossible, the total ground state energy will be given by
+
+Without restriction, we shall assume f.l(Y)<f.l(X). A small density shift which
+transfers JNy> () electrons from X to Y will lower the total energy by the
+amount (f.l(Y)-f.l(X»JNy<O. This leads to the obvious paradox that the energy is minimized with net positive charge on X and net negative charge on Y.
+If each atom is considered as an open system with possibly fractional electron number, the formalism described above is perfectly suited to resolve the puzzle. One merely has to calculate the actual energy minimum for a system
+with M + OJ particles: Using the definitions (2.58, 59), one obtains
+
+EM + w = min n(r)
+
+[In(r)v(r)d 3 r+mintr{D(T+W)}]
+D-+n
+
+fd 3 rn(r)=M+w
+
+min
+
+min
+
+n(r) fd 3rn(r)=M+w
+
+'I'M> 'l'M+1 (l-w)('I'MIIl(r)I'l'M>
+
++w('I'M+lln(r)1 'l'M+I> = n(r)
+
+22
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+The smallest possible value of the expression in square brackets is obviously
+obtained if 'PM and 'PM+ I are chosen to be the exact ground states of the M-
+and (M+ 1)-particle systems. For this choice, the minimising density is
+
+and the energy minimum is given by
+
+(2.61)
+
+We note in passing that the same result is obtained if Ffrac [n] is replaced by the alternative functional
+
+Ffrac[n] =
+
+min
+D-+n
+00
+D = E aJI'I'J)('I'JI
+J=I
+
+where the search runs over density matrices 15 containing antisymmetric J-par-
+ticle functions with an arbitrary (integer) number of particles. Although
+Ffrac [n] will in general be different from Ffrac [n] for certain densities, the
+minimum energy is again given by (2.61), provided EM for integer M is an upward convex (bowl-shaped) function. (This condition is known to be satisfied for all Coulomb systems although a general proof does not exist to the best of our knowledge.) In other words, the minimum energy (2.61) is independent of the particle reservoir.
+Equation (2.61) is the clue to understanding open systems with variable particle number: According to this equation, the ground state energy EN plotted as a function of the particle number N consists of straight line segments with possible derivative discontinuities at integer N (Fig. 2.2). This means that
+
+Wl EzlZl ------ -----
+
+-1
+
+a
+
+Am
+Z [J
+
+Fig. 2.2. Ground state energy of an atom
+with nuclear charge Z and (Z+ w) elec-
+trons
+
+2.4 Fractional Particle Number. Chemical Potential. and Derivative Discontinuities
+
+23
+
+f.1. (N) = aEN/aN can change discontinuously at integer N and, since the Euler
+equation (2.60) is satisfied, the same discontinuities will show up in the functional derivative
+
+I ' oEv[n]
+on(r) n N
+if N passes through an integer. Derivative discontinuities of this kind represent an important feature of the ground state energy functional. Consequences for the calculation of the band gap in an insulator, have been the subject of recent investigations by Sham and Schluter (1983), Perdew and Levy (1983), Perdew (1985 a), Sham (1985), Sham and Schluter (1985), Hanke, Meskini, and Weiler (1985), Kohn (1986a), and Perdew (1986b). Some details will be presented in Sect. 6.3.
+In order to resolve the paradox cited above, consider now the ground state energy EN(Z) of an atom with nuclear charge Z. The first ionisation potential feZ) and the electron affinity A (Z) are defined as
+
+feZ) =EZ_I (E)-Ez(Z)
+
+A (Z) = Ez(Z) - Ez+ 1(Z) .
+
+Equation (2.61) then leads to (Fig. 2.2)
+
+f.1.(N) = [-f(Z):Z-1 <N<,Z
+-A(Z):Z<N<Z+1 .
+
+(2.62)
+
+The paradox discussed arises from the assumption that f.1. (N) is a continuous function. Occurrence of the discontinuity (2.62) immediately resolves the puzzle: The total energy of the two separated atoms
+
+-1
+
+o
+
+z c.J
+
+Fig. 2.3. Total energy of two separated
+atoms with nuclear charges X and Y and
+electron numbers (X- w) and (Y+w). re-
+spectively
+
+24
+
+2. Basic Formalism for Stationary Non-Relativistic Systems
+
+minimises at w = 0 (Fig. 2.3) for arbitrary atoms since the largest electron af-
+finity in nature (A = 3.62 eV for CI) is still smaller than the smallest first
+ionisation potential (J = 3.89 eV for Cs).
+Further derivatives of the chemical potential such as
+
+or
+
+R~)=(~) = (an~»)
+
+~v(r) N
+
+aN v
+
+represent important concepts in the theoretical description of chemical reactions: f1 is termed the "hardness" of a species and R(r) is the "reactivity index". For a detailed discussion of these quantities, the reader is referred to Parr and Yang (1989).
+
+3. Extensions
+
+Besides the extensions of the Hohenberg-Kohn theorem due to mathematical expediency, a substantial number of extensions based on physical variety can be found in the literature. In this section we will give a (somewhat condensed) outline of those extensions, which can be classified under the heading of stationary, nonrelativistic systems.
+
+3.1 Spin-Polarised Systems
+
+If an external magnetic field is applied to an electronic system, it generally couples to both the electronic orbital currents as well as to the particle spin. In this section we shall develop the appropriate density functional framework for the description of spin coupling. An extension to include diamagnetic effects (associated with the coupling to orbital currents) was recently presented by Vignale and Rasolt (1987, 1988).
+We extend the Hamiltonian (2.1) to
+
+(3.1)
+
+where the single particle contribution 0 is specified in the form
+
+0= Sd 3r [u(r)n (r) - B(r)· rii (r)]
+
+(3.2)
+
+In addition to the density operator
+
+(3.3)
+a
+introduced before, we have the magnetic moment density
+
+rii(r) = -"'01: tlt-;(r)uaptltp(r).
+
+(3.4)
+
+ap
+
+"'0 The quantity U denotes the vector of Pauli matrices and =e;,12 m c is the
+Bohr magneton. In particular, note that
+
+(3.5)
+
+26
+
+3. Extensions
+
+Equivalently one may write for the single-particle operator (3.2)
+
+! t#: 0= L d 3 r (r)uaP(r) t#p(r)
+
+(3.6)
+
+ap
+
+with
+
+(3.7)
+
+Depending on preference for the form (3.2) or (3.6), one either deals with the ground state density and the ground state magnetisation
+n(r) =('l'lfi(r) I 'l')
+(3.8)
+m(r) =('l'lm(r)I 'l') ,
+
+or with the ground state spin density matrix
+
+(3.9)
+
+The two variants are related in simple fashion. In both cases one has four independent real functions.
+The possibility of extending the density functional approach to systems characterised by the Hamiltonian (3.1) is indicated already in the work of Kohn and Sham (1965). An explicit spin dependent functional was first used by Stoddart and March (1971) for a discussion of the magnetic instabilities in metals. The formal justification of spin density functional theory in the pattern of Hohenberg and Kohn was presented simultaneously by von Barth and Hedin (1972) and by Pant and Rajagopal (1972), as well as from a relativistic point of view by Rajagopal and Callaway (1973).
+The formal statement is: Two different non-degenerate ground states
+'* '* I 'l') I 'P,) always lead to different spin density matrices naP(r) n~p(r), or, '* equivalently, to different four-vectors (n(r),m(r)) (n'(r),m'(r)).
+This means that the map
+D: I'l') .... (n(r),m(r))
+
+is invertible. The statement can be demonstrated with minimal changes of the original proof, the only difference is the extension of the basic inequality to, e.g.,
+J J Egs<E~ + d 3r n'(r)[v(r)- v' (r)] - d 3 r m'(r)· [B(r)-B'(r)] .
+
+Invertibility of the map D is sufficient to establish a total-energy functional
+
+where
+
+(3.10)
+
+F[n,m] =('1'[n,m] It+ WI '1'[n,m»
+
+3.1 Spin-Polarised Systems
+
+27
+
+(3.11)
+
+is a universal functional of (n(r),m(r». Once again, the total-energy functional has the usual variational properties
+
+Eo = Evo.Bo [no, mo]
+and
+
+(3.12a) (3.12b)
+
+where Eo, no (r), and mo(r) denote the ground state energy, density, and magnetisation of the particular system characterised by the external fields (vo(r),Bo(r».
+Whether a given ground state I '1') always corresponds to a unique vector of external fields (v(r),B(r» seems to be an open question at present.
+Although the statement that two different potentials, 0 =1= 0' +const [both of
+the form of (3.6)] lead to different ground states, I '1') =1= I '1',), appears rather plausible, no rigorous proof is available to the best of our knowledge. Follow-
+ing the argument of Sect. 2.1, the assumption 1'1') = 1'1") leads to
+(0- 0') I '1') = (Egs - E~s) I 'l')
+
+which, in a two-component world, only implies
+
+This equation, however, is not a contradiction to U =1= U' +const. It should be noted that the argument given in Sect. 2.1 actually proves that two Hamiltonians (2.1) with different scalar external potentials cannot even have a common eigenstate. This stronger statement (which is not required for the HohenbergKohn theorem) is easily demonstrated to be false in the case of external magnetic fields: von Barth and Hedin (1972) have constructed an infinite set of external
+fields 0 so that the corresponding noninteracting Hamiltonians H = t + 0 have
+a common eigenstate.. It is not clear, however, whether this eigenstate can be a common ground state (Rajagopal, 1980). Fortunately, injectivity of the map D is sufficient to establish a Hohenberg-Kohn-like variational principle.. As indicated by Perdew and Zunger (1981), the Levy-Lieb constrained search formulation described in Sect. 2.3 is readily extended to the present situation.
+As a particularly attractive application of the Hohenberg-Kohn theorem for spin-polarised systems, Vosko and coworkers have derived and exploited a variational principle for the magnetic susceptibility (Vosko, Perdew, and MacDonald, 1975; Vosko and Perdew, 1975; MacDonald and Vosko, 1976; MacDonald, Perdew, and Vosko, 1976; Liu and Vosko, 1978; Vosko, MacDonald and Liu, 1978; Liu, MacDonald, and Vosko, 1978; Liu et al. 1979; Liu and Vosko, 1986).
+It should be emphasised that in the limit B-+O the formalism described above leads to a suitable density-functional description of systems having a
+
+28
+
+3. Extensions
+
+spin-polarised ground state without an external magnetic field. This class of systems includes, e.g., all atoms and molecules having an odd number of electrons. In principle, the original Hohenberg-Kohn formalism could be used for such systems since the magnetisation (by virtue of the Hohenberg-Kohn theorem) is a functional m [n] of the ground state density, so that F is a functional of the density alone. In practice, however, the spin-density functional formalism is advantageous because a purely local functional F[n,m] can adequately describe effects that would require a highly nonlocal functional F[n] in the original Hohenberg-Kohn formalism. A prime example for testing specific approximations to F[n, m] is the hydrogen atom, since it is the only inhomogeneous spin-polarised electron system that allows comparison with the exact solution (Gunnarsson, Lundqvist, and Wilkins, 1974).
+
+3.2 Finite Temperature Ensembles
+For the discussion of ground states of isolated atoms or molecules, the usual zero temperature formalism can be considered as constituting an adequate framework. If one attempts to establish equations of state, for instance for atomic plasmas, an extension to finite temperatures is required.
+Following earlier attempts to extend the Thomas-Fermi model to finite temperatures [for a summary see Cowan and Ashkin (1957), and Messer (1981)], the formal foundation of thermal density functional theory was given by Mermin (1965).
+In a grand canonical ensemble at given temperature r and chemical potential j,l, the grand canonical potential,
+Q=E-j,lN-rS,
+incorporating internal energy E, particle number N, and entropy S, is minimal in an equilibrium situation. (An explicit demonstration of this statement for the quantal case is given in the Appendix of Mermin's paper). The microscopic calculation of equilibrium properties involves the grand canonical statistical operator
+(3.13)
+with
+p = (kBr)-1
+N= L Sd3 r1j/:(r)/j/a(r) ,
+a
+and ii, e.g., of the form (2.1).
+The standard expression for the grand potential Q and the equilibrium density n (r) are
+
+D =tr [g (H-.uN+~lng)]
+
+and
+
+[g ( n(r) =tr
+
+~ /if;- (r)/ifa(r») ]
+
+3.2 Finite Temperature Ensembles
+
+29
+
+(3.14)
+
+(3.15)
+
+For an arbitrary density operator g' with unit trace, we now define the func-
+tional
+Dv-p[i>'] = tr [g, (H-.uN+~lng) ]
+
+which, for a specified particle-particle interaction, depends only on v(r)-.u at a given temperature. Since the exact grand potential (3.14) is obtained by insertion of (3.13), the minimal property can be stated explicitly as
+(3.16)
+If one now considers systems specified up to variations of the (scalar) single particle potential v(r) and the chemical potential.u, one is led to an investigation of the map
+F:v(r)-.u .... n(r) .
+The intermediate step (and the question of degeneracy) is not relevant in the present situation. For a Hamiltonian
+
+with a statistical density operator
+e' = exp [- P(H'-.u'N)]/tr (exp [- P(H'-.u' M])
+one can write
+N+~ Dv'_p' [i>'] = tr [g, ( H' -.u' In g)]
+J= d 3r[(v'(r)-.u')-(v(r)-.u)]n'(r)
++tr [g, (H-.uN+~lng)]
+J = d 3r [(v'(r)-.u')-(v(r)-.u)] n'(r)+ Dv-p[i>'] ,
+and by virtue of (3.16)
+J> d3r [(v' (r)- .u')-(v(r)-.u)] n' (r)+ Dv- p [i>]
+
+30
+
+3. Extensions
+
+In the same fashion one finds
+
+J .Qu-~ W] > d 3r [(v(r) -,u) - (v' (r) - ,u1] n (r)+ .Qu'-~' W']
+
+and, once again, the assumption n (r) = n' (r) leads to contradiction. Thus, dif-
+ferent combinations (v(r)-,u) and (v'(r)-,u1 always lead to different
+equilibrium densities, i.e., n (r) determines v (r) -,u uniquely. There is no am-
+biguity with respect to an additive constant. The statistical operator (3.13) can
+thus be considered as a functional of the equilibrium density ~ = ~ [n]. The
+resulting density functional for the grand potential
+
+J .Qu-~[n] = d 3r(v(r)-,u)n(r)+F[n] ,
+
+(3.17)
+
+where
+
+F[n] =tr [~[n] (t+ W+~ln~[n])}
+
+(3.18)
+
+is universal at any given temperature, and has the usual variational properties by virtue of (3.16).
+We will not pursue explicit applications of thermodynamic density functional theory at great length in the present review. For the interested reader we thus add a brief list of references (for a more complete update see Dreizler, 1990). The case of temperature dependence in a spin-polarised system is indicated by Gunnarsson and Lundqvist (1976). Perrot (1979) has addressed explicitly the kinetic energy gradient corrections for finite temperatures (cf. Brack, 1984) and has derived some specific approximations for exchange and correlation contributions at arbitrary temperatures. Applications to impurity problems have been studied by Gupta and Rajagopal (1982) and by Perrot (1982 a, 1982b) for a proton and a Ne-atom in an electron gas. A thermodynamic formulation based on a generalised grand canonical ensemble is given by Rajagopal (1985).
+
+3.3 Multicomponent Systems
+The question of a density functional approach to multicomponent systems is of interest in both the zero temperature limit as well as for thermodynamic situations. The extension of the zero temperature Hohenberg-Kohn formulation to such systems (with particular emphasis on the discussion of electronhole liquids) was initiated by Sander et al. (1973) and explored in length by Kalia and Vashishta (1978).
+In the most general case, one considers an A-component system in the presence of external potentials VI (r), ... , VA (r) which couple to the densities nl (r), ... , nA (r) of the different components. The Hamiltonian for such a system is
+
+3.4 Hartree-Fock Limit
+
+31
+
+with
+
+A
+
+t L J =
+
+d 3r Vt;- (r)[( - 1i212ma)V2] Vta(r)
+
+a=j
+
+A
+
+L J V =
+
+d 3r Vt;- (r) Va(r) Vta(r) .
+
+a =j
+
+Here waP(r,r') is the interaction potential between a particle of component a
+at point r and a particle of component P at point r'. In complete analogy to
+the one-component case, one finds that the vector of external potentials (vj(r), ... ,vA(r» is fixed uniquely up to a constant vector by the vector of densities (nj (r), ... , nA (r». This implies the existence of a functional E[nj (r), ... , nA (r)] which yields, for the exact ground state densities the exact ground state energy value as its minimum.
+The temperature dependent theory of multicomponent systems is studied by Dharma-Wardana and Perrot (1982) for the case of an electron-proton plasma.
+Finite systems of electrons and nuclei, i.e., molecules in a non-Born-Oppenheimer situation, have been discussed by Capitani, Nalewajski and Parr (1982); variational statements and stability criteria of the molecular ground state have been derived for various Legendre transforms of the ground state energy density functional (Nalewajski, Capitani 1982; Nalewajski, Parr 1982).
+
+3.4 Hartree-Fock Limit
+Besides the formally exact description of many-particle systems, the density functional representation of approximate theories, like Hartree-Fock (HF), is of some practical interest. Such approximate theories, provided they can be solved numerically, always represent a suitable framework where approximations applied in density functional theory (like, e.g., the local density approximation, Sect. 7.1) can be tested.
+The question of a formal density functional representation of HF has been investigated in some detail by Payne (1979) and Levy (1979). We consider the maps
+c: v(r) .... I<PHF)
+and
+I D: <PHF) .... nHF(r)
+
+32
+
+3. Extensions
+
+where Ic1>HF) is the HF ground state wave function corresponding to a given
+external potential v(r), and nHF(r) denotes the associated HF density. Following the classical argument of Hohenberg and Kohn (Sect. 2.1), bijectivity of
+the maps C and D is readily demonstrated. Due to the variational properties of the HF ground state, there exists an energy density functional E~F [n]
+which assumes its minimum, equal to the correct HF ground state energy, at
+the correct HF density nHF(r) corresponding to v(r). Thus, a complete density functional description of the HF limit is, in principle, possible.
+Again, one encounters a v-representability problem, since E~F [n] is de-
+fined only for those functions n(r) which are HF ground state densities of some external potential. An extension of E~F [n] to arbitrary densities is pro-
+vided by the Levy-Lieb construction
+
+inf
+t/J-+n
+
+where c1>-"'n indicates search over all Slater determinant c1> yielding the prescribed density n. Since the direct energy term depends only on the density, the functional can be written as
+
++
+
+inf
+
+t/J-+n
+
+(3.19)
+
+which displays the kinetic and exchange contributions explicitly.
+3.5 Excited States
+As an immediate consequence of the theorem of Hohenberg and Kohn one can make the following statement: A given ground state density n (r) determines v(r) (up to an additive constant) and, since knowledge of v(r) for a specified two-body interaction implies knowledge of the full Hamiltonian, one can, via solution of the SchrOdinger equation with this potential v = v[n], establish a connection between the ground state density and any excited state
+n(r) ..... Ic1>j[n]), j = 1,2, ....
+Thus, any expectation value with respect to an excited state, in particular every excited state energy, can be considered as a functional of the ground state den-
+
+3.5 Excited States
+
+33
+
+sity. There remains the question of how far these functionals can be realised in more explicit terms.
+A way of calculating excited states as well as long lived resonances is provided by the Green's function formalism (see, e.g., Hedin and Lundqvist, 1969). Being a ground state expection value, the one-particle Green's function defined as
+
+G(rt,r't'):= -i(PIT[(j;(rt)(j;+(rlt')JlP) ,
+
+is obviously a functional of the ground state density G = G [n]. (See Appendix
+A for a listing of definitions.) When Fourier transformed with respect to (1- t'), the poles of G in the
+complex w-plane at w = ±(Ei(N± 1)-Eo(N» can be identified with quasi-
+particle excitations where the real part corresponds to the energy value and the imaginary part describes damping. Thus, some information on excited states can be obtained from the ground state density, if it is possible to construct G [n] for a given n (r) explicitly, for instance via the Dyson equation
+
+:~ -w) ( -
+
+V2
+
+J G(r,r';w)+ d 3 r" 17[n](r,r";w)G(r",r';w) = o(r-r') ,
+
+where 17 denotes the proper self-energy insertion or mass operator. Work to find approximations for the density functional 17[n] has been initiated by Sham and Kohn (1966). Along these lines, Pickett and Wang (1984) have developed a specific model to account for the presence of the band gap in an insulator.
+For a given excited state density ni(r), the corresponding external potential is, in general, not uniquely determined. This fact has been demonstrated explicitly via finite dimensional counterexamples by Epstein and Rosenthal (1976). However, this does not exclude the possible existence of density functionals which allow the variational determination of certain excited state densities. First of all, the ground state energy functional Ev [n] itself could contain some information on excited states. Along these lines, Perdew and Levy (1985) have proven the following statements:
+(i) Every extremum density ni(r) of the ground state energy functional Ev [n] yields the energy Ei of an exact stationary state of the system. The absolute minimum corresponds to the ground state energy and density.
+(ii) Not every excited state density ni(r) corresponds to an extremum of Ev [n], i.e., the extrema of Ev [n] lying above the absolute minimum represent a proper subset of all excited states.
+(iii) If ni(r) is an arbitrary exact excited state density with energy Ei then the ground state energy functional provides a lower bound for the exact eigenvalue, i.e., Ev[nd ~Ei. The equality holds if and only if ni(r) is an extremum of Ev[n].
+
+34
+
+3. Extensions
+
+(iv) Those densities n;(r) which correspond to extrema above the absolute minimum are characterised by the feature of being not pure-state v-representable.
+Density functionals different from the ground state functional can be constructed for the lowest energy of a given symmetry (Gunnarsson and Lundqvist, 1976; von Barth, 1979; Englisch and Englisch, 1983 a). The situation is
+characterised by a set of symmetry operators 0; (e.g., total orbital angular
+momentum and spin) which commute with the Hamiltonian
+
+[H,O;] == 0 .
+
+Density functionals characterised by symmetry labels are most simply generated by means of the constrained search formulation, discussed in Sect. 2.3 (Englisch and Englisch, 1983a): restrict the search to wave functions of a given symmetry and obtain different functionals for the lowest energy of each symmetry label. This search might not be easy. The fact that fully consistent functionals (involving symmetry dependence of the exchange-correlation-contribution) are required, has been stressed by von Barth (1979); otherwise only rough estimates of the multiplet splitting are obtained.
+In order to treat arbitrary excited states, Valone and Capitani (1981) suggest the use of powers of the Hamiltonian, for which an extension of the RayleighRitz principle was established long ago (McDonald, 1934): If Eb is the exact
+excited-state energy which minimizes (E- A. i (A. being an arbitrary, fixed real
+constant), then the inequality
+
+(3.20)
+is satisfied for all normalized antisymmetric N-particle functions ItP). A den-
+sity functional for the quantity on the left-hand side of (3.20) can then be constructed by means of Levy-Lieb constrained search method. Obviously, the minimisation of this density functional for various values of A. allows a ready scan of the spectrum. The matrix element in (3.20), however, involves up to four-body terms, indicating that explicit construction of the density functional will constitute a difficult task.
+A different approach to arbitrary excited states has been developed on the basis of the Rayleigh-Ritz principle for ensembles (Theophilou, 1979; Katriel, 1980; Hadjisavvas and Theophilou, 1985; Kohn, 1986b; Gross, Oliveira, and Kohn, 1988a,b; Oliveira, Gross, and Kohn, 1988a; Englisch, Fieseler, and Haufe, 1988). In many respects, this approach follows the ground state Hohenberg-Kohn formalism very closely. For a brief outline of the method consider the lowest M eigenstates of the Hamiltonian (2.1),
+
+(3.21)
+
+with the eigenvalues ordered such that
+
+(3.22)
+
+3.5 Excited States
+
+35
+
+The general Rayleigh-Ritz principle for ensembles of unequally weighted states ensures (Gross, Oliveira, and Kohn, 1988a) that the inequality
+
+(3.23)
+holds with arbitrary weights 111 ... 11M satisfying
+(3.24)
+and mutually orthonormal but otherwise arbitrary trial functions 11J'1) ... IIJ'M). For notational simplicity, the following discussion will be restricted to
+two-state ensembles consisting of a nondegenerate ground state Icf>1) and a nondegenerate first excited state Icf>v [the extension to arbitrarily large
+ensembles including degenerate states is straightforward, see Gross, Oliveira, and Kohn, 1988b]. The weights 111 and 112 of the two-state ensemble are written as
+
+with O~11~ 112 .
+
+(3.25)
+
+By way of this choice, the condition (3.24) is automatically satisfied, and the exact ensemble density
+
+n(r) = (1-11 )(cf>11 fi (r) Icf>1)+11(cf>21 fi (r) Icf>v
+
+(3.26)
+
+is normalised to N. The corresponding ensemble energy is given by
+
+(3.27)
+
+The case 11 = 0 yields the ground state energy while 11 = 1/2 corresponds to the
+"equiensemble" of equally weighted states.
+w The functions Icf>1) and Icf>v are eigenstates of the Hamiltonian fi = t +
+W+ V. Now consider the Hamiltonian fil = t + + V' with ground state
+Icf>,) and first excited state Icf>2) (both assumed non-degenerate) and the
+ensemble density
+
+n I (r) = (1-11 )(cf>1I fi (r) Icf>t)+ 11(cf>21 fi (r) Icf>2) .
+
+(3.28)
+
+The analog of the Hohenberg-Kohn theorem then says: For any fixed value of 11, the densities n(r) and n'(r) are different,
+
+n(r) =1= n'(r) ,
+provided the local external potentials Vand V' differ by more than a constant
+
+36
+
+3. Extensions
+
+V'* V' +const .
+Thus, for f'lxed ", the external potential V, and hence its eigenstates Ir/J j ) and Ir/Ji), are uniquely determined by the ensemble density, so that the ensemble expectation value of rt+ W) is a unique and universal functional of the den-
+sity:
+t t I p(T/) [n] = (1-" )(r/J1 [n] + WI r/J1 [n])+ ,,(r/J2 [n] I + WI r/J2[n]). (3.29)
+It then follows from the Rayleigh-Ritz principle cited above that the totalenergy functional
+
+(3.30)
+
+has the variational properties
+
+and
+'* E~~) [n] > 6'0(") for n (r) no(r) ,
+
+(3.31 a) (3.31 b)
+
+where no(r) and 6'0(") denote the exact ensemble density and ensemble energy associated with vo(r).
+,,> If the ensemble energy 6'0(") is known (within a suitable approximation)
+for " = 0 (i.e., the ground state) and some 0, the first excitation energy is
+obtained from
+
+(3.32)
+
+An alternative expression for the excitation energy follows from the def'lnition (3.27) of the ensemble energy by straightforward differentiation
+
+(3.33)
+
+This formula will be useful if one is able to derive a reasonable approximation for the ,,-dependence of the ensemble energy. In the context of the Kohn-Sham formalism, (3.33) will lead to a connection with the Slater transition state (Sects. 4.4, 5).
+
+3.6 Density Matrix Functionals
+Instead of the maps described in the discussion of the theorem of Hohenberg and Kohn, one might consider the maps
+V.... IIfI) .... y(x,x')
+
+3.7 Momentum Space
+
+37
+
+involving the one-particle density matrix rather than the density. (The definitions of density matrices, Green's functions, and related quantities are summarized in Appendix A). Gilbert (1975), Berrondo and Goscinski (1975), Donnelly and Parr (1978), Levy (1979), Valone (1980b), and Ludefta (1987) have demonstrated that existence theorems of the Hohenberg-Kohn or Levy-Lieb type are valid for one-particle density matrix functionals. These functionals would offer the advantages that (i) the kinetic energy is represented more directly, (ii) exchange (and hence selfenergy) effects can be treated exactly, and (iii) nonlocal single-particle potentials are readily included in the discussion. The possible advantages are, unfortunately, offset by the fact that (i) no explicit functionals for the correlation energy in terms of the one-particle density matrix are available and that (ii) the resulting variational equations are expected to be more difficult to handle.
+
+3.7 Momentum Space
+
+In terms of the 3N-dimensional Fourier transform of the ground state wavefunction,
+f f 'l'(k" ... ,kN) = d 3r, ... d 3rNe- ik ,.r, ... e-ikN·rN'l'(r" ... ,rN) , (3.34)
+
+the one-particle density matrix in momentum space is given by
+
+=Nf f y(k,k')
+
+d3k~ ... d3k~ '1'* (k',k2, .. . ,kN)'l'(k,k2, ... ,kN) (3.35)
+
+(2 7r)
+
+(2 7r)
+
+(spin degress of freedom are suppressed for simplicity). Insertion of (3.34) into (3.35) leads to an equivalent expression in terms of the real-space density matrix
+
+(3.36)
+
+Since both the kinetic and the external potential part of the ground state energy depend in simple linear fashion on the density matrix,
+
+(3.37)
+one recovers complete parallelism between the position space and the momentum space formulations on the level of density matrix functionals.
+The situation becomes more complicated if one attempts to derive a formulation only in terms of the momentum density:
+
+38
+
+3. Extensions
+
+(3.38)
+
+This quantity is of interest in the description of Compton profiles (Sect. 5.7). In contrast, the Fourier transform of the real-space density
+
+(3.39)
+
+is sampled in X-ray scattering experiments. While the momentum space wavefunctions as well as the momentum space
+density matrices are related to their counterparts in position space just by Fourier transformations, there is no simple connection between the real-space density n (r) and the momentum density y(k). The situation is sketched in the following diagram:
+
+Fourier transform
+
+'P(rl'" .,rN) ..
+
+• 'P(kl , ... ,kN)
+
+~
+
+~
+
+Fourier transform
+
+y(r,r') .....- - - - . . . y(k,k')
+
+~
+
+?
+
+~
+
+n(r) = y(r,r) .....- - - -... y(k) = y(k,k)
+
+In principle of course, y (k) is a unique functional of n (r) by virtue of the Hohenberg-Kohn theorem. Whether conversely n(r) (and thus any other observable) is a unique functional of y(k) appears to be an open question at present.
+However, a variational principle for the momentum density is readily derived on the basis of the constrained search formulation (Henderson, 1981): Consider the functional
+
+(3.40)
+
+where the infimum is searched over all antisymmetric N-particle functions in momentum space that yield the prescribed momentum density y(k). The totalenergy functional
+
+(3.41)
+
+.then has the variational property
+Eo = min Ev[y(k)] ,
+y(k)
+the density at the minimum being identical with the exact ground state momentum density of the system. Due to the fact that in momentum space the kinetic and the external potential energies interchange their role, the functional Gv is not universal, and each physical system must be examined explicitly. A specific model for atoms was given by Pathak, Panat, and Gadre (1982). Approximate
+
+3.9 Superconducting Systems
+
+39
+
+transformations between real-space density and momentum-space density were studied by Coulson and March (1950), Lam and Platzman (1974a, b), Pathak and Gadre (1981), Gadre and Pathak (1981), Pathak, Gejji, and Gadre (1984), and Gadre and Chakravorty (1986).
+
+3.8 Bose Systems
+In spite of the fact that the bulk of many-body systems of interest is governed by Fermi-statistics, the question of a density functional description of manyboson systems is of conceptual and practical interest. As an explicit example one might envisage the description of an inhomogeneous He4-system. The question of statistics does not enter into the argument of Hohenberg and Kohn, thus one is led to the conclusion that the theorem holds for both the boson and the fermion case. Obviously, the two cases will be distinguished by the explicit form of the density functionals involved. This point is stressed if one applies the constrained search formulation to the case of bosons: The search is now restricted to the set of symmetric N-particle wavefunctions giving the specified density.
+The critique of the Hohenberg-Kohn theorem due to Kryachko (1980) is thus valid only in the sense that an explicit construction of the maps C -lor (CD)-I is to be supplemented by specification of the permutation symmetry of the system under consideration.
+
+3.9 Superconducting Systems
+
+Coherence phenomena such as superfluidity and superconductivity are characterised by the presence of "off-diagonal long-range order" (Yang, 1962; Anderson, 1984; Coleman, 1989). In the case of superconductqrs, off-diagonal long range order manifests itself in the two-particle density matrix as an exact asymptotic decoupling of the form
+
+* lim (PI 1/1: (r) 1/1 t (r) I/It (r') I/I~ (r') IP) = Ll *(r)' Ll (r') 0
+Ir-r'l--+oo
+
+(3.42)
+
+If the number of electrons in the superconducting sample is fixed, the quantity Ll (r) cannot be interpreted in simple terms. However, if the superconductor is coupled to an electron reservoir with fixed chemical potential /..l (rather than a fixed particle number), then Ll (r) can be represented as
+
+(3.43)
+
+Furthermore, the quantity Ll (r) can be identified (Gorkov, 1959), in the appropriate limits, with the order parameter of the Ginzburg-Landau (1950) theory;
+
+40
+
+3. Extensions
+
+i.e., the "anomalous density" L1 (r) defined by (3.43) is the order parameter that characterises the superconducting phase.
+In exactly the same way as the order parameter m (r) of spin-polarised systems is coupled to an external magnetic field B(r) via the Hamiltonian
+
+[cf. (3.2, 4)), the order parameter L1 (r) of superconducting systems is coupled to an external pair potential D(r) via the Hamiltonian
+(3.44)
+D(r) can be physically realised as a pair field introduced by the proximity of an adjacent "given" superconductor. Alternatively, the pair field D(r) may be considered as a mathematical device which is eventually allowed to go to zero. At the end of Sect. 3.1, this procedure was applied to an external magnetic field in order to provide a suitable description of systems having a spin-polarised ground state [i.e., non-vanishing m(r)] without external magnetic field. In the present context [i.e., for the potential D(r)), this procedure leads to the proper density functional framework for systems which have a non-vanishing order parameter L1 (r) in their ground state (i.e., which are superconducting) without an external pair field.
+More generally, off-diagonal long-range order holds for the full two-particle density matrix of four different arguments,
+
+= '* t (1f'11ji: (r+y!2) Iji (r-y!2) 11f')(lf'lljit(r'+y'!2} Iji~ (r' -y'!2) Iif') 0, (3.45) where
+
+One might therefore consider the nonlocal anomalous density
+L1 (r,r') = (1f'11jit (r) Iji~ (r') I If')
+
+(3.46)
+
+coupled to an external pair potential D(r,r'):
+I I t liD = - d l r d 3r' (D* (r,r') ljit (r) Iji~ (r'}+D(r,r') Iji: (r') Iji (r» .
+(3.47)
+Logically, a density functional formalism can be developed either for the local anomalous density L1 (r) (Kohn, Gross and Oliveira, 1989) or for the nonlocal quantity L1 (r,r') (Oliveira, Gross and Kohn, 1988b). The local version is formally much simpler. The nonlocal formalism, on the other hand, reduces
+
+3.9 Superconducting Systems
+
+41
+
+directly to the theory of Bardeen, Cooper, and Schrieffer (BCS) (1957), as we shall see in Sect. 4.8. We therefore concentrate in what follows on the nonlocal quantity LI (r, r').
+The total (grand canonical) Hamiltonian describing a superconductor coupled to an electron reservoir with fixed chemical potential f.I. then takes the form
+
+(3.48)
+
+HD is given by (3.47), and
+
+(3.49)
+
+is the basic Hamiltonian (2.1). As long as W represents the mutual Coulomb interaction between the electrons, Hsc refers to superconductivity of purely
+electronic origin. I The description of the traditional phonon-induced superconductivity requires an additional (attractive) electron-electron interaction.
+Then the total interaction Win (3.48, 49) is
+
+2
+
+=! rS L J W
+
+d 3 d 3r' rjI; (r) rjI; (r') _e_ rjlp(r') rjla(r)
+
+2a.p
+
+Ir-r'l
+
+- J J J t t d 3rl d 3rd d 3r3 d 3r4 rjI (rl) rjI (rz) w(rl, r2,r3,r4) rjI; (r3)rjlJ. (r4)
+(3.50)
+
+The second term represents a suitable (attractive) phonon-induced pairing interacLion. The simplest and best known examples are the local form of Gorkov (1958)
+
+(3.51)
+
+and the nonlocal BCS interaction which depends only on the relative coordinates (rl -rz) and (r3 -r4):
+
+J__ J__ = w (r -r,r -r)
+
+d 3q d 3p.
+
+.
+
+elq(r,-rz>elq(rJ-r.>w
+
+BCS I 2 3 4
+
+(2 1l )3 (2 1l )3
+
+qp
+
+where
+Wqp= [ A: if I1i 2q2I2m-f.I. I <1iwo and
+0: otherwise
+
+(3.52)
+
+with Wo being the Debye frequency.
+
+t It has been demonstrated that the Coulomb repulsion alone gives rise to superconductivity (Kohn and Luttinger, 1965). Also there is a widely held opinion that the principal pairing mechanism in the new high-Tc materials is of purely electronic origin.
+
+42
+
+3. Extensions
+
+Since fiD (3.47) does not conserve the particle number, the eigenfunctions
+'P» of fisc (and in particular the ground state wave function I are not simulta-
+neously eigenfunctions of N. This fact, however, does not lead to any problems
+in the derivation of a density functional formalism; the analysis of Sect. 2.1 can be repeated step by step for the Hamiltonian fisc. Once again there exists a one-to-one mapping between the pair of ground state densities [n(r),..1 (r,r')] and the pair of potentials [(v(r)-.u), D(r,r')]. As before, a variational principle can be derived which states that the exact ground state densities no(r), ..1o(r,r') of a particular system characterised by the external potentials (vo(r)-.uo), Do(r,r') can be obtained from the Euler-Lagrange equations
+
+t5
+
+-t5 n-(rE ) Vo
+
+-1'0'
+
+D
+0
+
+[n
+
+'
+
+..1]
+
+=0
+
+(3.53a)
+
+(3.53 b)
+
+where
+
+= E Vo -l'o.Do[n,..1] F[n,..1] + Sd 3 r(vo(r)- .uo)n(r)
+
+rJ - Sd 3 d 3r'(Dt(r,r')..1 (r,r')+Do(r,r')..1 *(r,r'» .
+
+The functional F, formally defined as
+
+(3.54)
+
+F[n,..1] = ('P[n,..1] It+ WI 'P[n,..1])
+
+(3.55)
+
+is universal, i.e., it does not depend on the external potentials (vo - .uo), Do, characterising the particular system considered.
+The formalism is easily extended to finite temperatures (Oliveira, Gross, and Kohn, 1988 b; Kohn, Gross, and Oliveira, 1989); the derivation follows closely the procedure described in Sect. 3.2. An extension to include the coupling of orbital currents to an external vector potential has been given by Kohn, Gross, and Oliveira (1989).
+
+4. The Koho-Sham Scheme
+The variational principle of Hohenberg and Kohn allows the determination of the exact ground state density of a specified many-particle system. Possible advantages of a replacement of the direct variation with respect to the density by the intermediary of an orbital picture were first emphasized by Kohn and Sham (1965). The resulting selfconsistent scheme has since become a mainstay of applications of the density functional formalism.
+In order to state the physical content and the mathematical implications of the Kohn-Sham scheme as clearly as possible, we start with the simplest situation in Sect. 4.1: The system is described by the Hamiltonian (2.1), spin degrees of freedom are neglected, and the variation is restricted to the set of v-representable densities. Problems concerning v-representability which will turn out to be related to the possibility of degenerate Kohn-Sham ground states are discussed in detail in Sect. 4.2. An extension of the formalism to spinpolarised systems is given in Sect. 4.3.
+In the subsequent Sect. 4.4. we shall present an alternative derivation of the Kohn-Sham scheme based on a variational principle different from the Hohenberg-Kohn principle. The derivation involves an energy functional depending on single-particle orbitals and their (fractional) occupation numbers. While the conventional Kohn-Sham scheme is recovered for a particular set of occupation numbers, the general scheme offers the possibility of calculating excitation energies with the concept of the so-called "transition state". This concept was introduced by Slater (1974) to calculate approximate excitation energies within the Hartree-Fock-Slater method. The Slater transition state can be interpreted as a precursor of the exact Kohn-Sham formalism for ensembles which will be discussed in Sect. 4.5.
+In Sect. 4.6, we shall derive a SchrOdinger-like equation for the square root of the ground state density involving a local effective single-particle potential. Investigation of this equation allows one to determine the asymptotic limit of the exact Kohn-Sham potential for localized systems. Further exact features like scaling and virial properties of density functionals are derived in Sect. 4.7.
+Finally, i~ Sect. 4.8, we shall discuss the generalisation of the Kohn-Sham scheme for superconducting systems. An extension of the Kohn-Sham scheme to the multicomponent case and to open systems with fractional particle number and/or finite temperature is rather straightforward and will not be pursued in this review. For details, the reader is referred to Kohn and Vashishta (1983) and to Perdew (1985a).
+
+44
+
+4. The Kahn-Sham Scheme
+
+4.1 The Basic Kohn-Sham Equations
+
+Consider an auxiliary system of N non-interacting particles described by the Hamiltonian
+
+According to the theorem of Hohenberg and Kohn, there exists a unique energy functional
+(4.1)
+for which the variational equation oEs [n] = 0 yields the exact ground state
+density ns(r) corresponding to lis. Ts[n] denotes the universal kinetic energy functional of non-interacting particles.
+The central assertion used in establishing the Kohn-Sham scheme is: For any interacting system, there exists a local single-particle potential vs(r) such that the exact ground state density n (r) of the interacting system equals the ground state density of the auxiliary problem,
+
+In other words, the interacting v-representable densities of interest are assumed to be also non-interacting v-representable. The validity of this assertion will be investigated in detail in Sect. 4.2.
+If the ground state of lis is nondegenerate, the ground state density ns(r) [and thus, by assumption, n(r)] possesses a unique representation
+
+N
+
+n(r) = L IlPi(r>t2
+
+(4.2)
+
+i= t
+
+in terms of the lowest N single-particle orbitals obtained from the Schrodinger equation
+
+(4.3)
+
+The (not uncommon) case of a degenerate level eN, leading to a number of degenerate ground states of lis will also be discussed in Sect. 4.2.
+Once the existence of a potential vs(r) generating a given density n(r) via (4.2, 3) is assumed, uniqueness of vs(r) follows from the Hohenberg-Kohn theorem. Thus the single-particle orbitals in (4.3) are unique functionals of the density n (r),
+lPi(r) = lPi([n];r) ,
+
+4.1 The Basic Kohn-Sham Equations
+
+45
+
+and the non-interacting kinetic energy
+
+(4.4)
+
+is a unique functional of n (r) as well. Now consider a particular interacting system with external potential vo(r)
+and ground state density no(r). The following analysis determines the auxiliary potential vs,o(r) which generates no(r) via
+
+N
+no(r) = L IIP;,o(r)1 2
+; = 1
+and
+
+(4.5)
+
+(4.6)
+
+First, we rewrite the total energy functional Evo[n] (2.10) by addition and subtraction of Ts [n] and a Hartree term as
+
+J Evo[n] = Ts[n] + d 3 r vo(r)n(r)
+
+H +-1 d 3 rd 3 r' n(r) w(r,r')n(r')+Exc [n] ,
+
+(4.7)
+
+2
+
+where the exchange-correlation functional Exc [n] is formally defined as
+
+H Exc[n]
+
+=
+
+1 FHKln]--
+
+d 3rd3r' n(r)w(r,r')n(r')-Ts[n] .
+
+2
+
+(4.8)
+
+The Hohenberg-Kohn variational principle (2.8) ensures that Evo[n] is stationary for small variations on (r) around the minimum density no (r), i.e.,
+
+q
+
+=
+
+oEvo
+
+=
+
+Ev 0
+
+[no+on]
+
+-Ev 0
+
+[no]
+
+J J =OTs+ d 3ron(r)[vo(r)+ w(r,r')no(r')d3r'+vxc ([no];r)] . (4.9)
+
+vxc([no];r) denotes the exchange-correlation potential, defined as
+
+(4.10)
+
+Since the Hohenberg-Kohn energy functional (4.7) is well defined only for interacting v-r~presentable densities, the density variations in (4.9) have to be restricted to this class of functions, i.e., [no(r)+on(r)] must be interacting v-representable. The central assumption stated above then ensures that [no(r)+on(r)] is also non-interacting v-representable by some (unique) poten-
+
+46
+
+4. The Kohn-Sham Scheme
+
+tial [vs,o(r)+ I5vs(r)] leading to a unique representation of the density in terms of normalised single-particle orbitals [(/Ji,O(r)+I5(/Ji(r)]. In terms of these orbital variations, the variation of Ts [n] is given by
+
+where the last equation follows from Green's theorem. Using the fact that the orbitals (/Ji,O(r) satisfy the SchrOdinger equation (4.6) one obtains
+
+N
+i I5Ts = L Sd 3 r [15(/J (r)(ei- vs,o(r»(/Ji,O(r) + l5(/Ji(r)(ei - vs,o(r» (/J to (r)]
+i= 1
+
+N
+
+N
+
+= LeiS d 3r151 (/Ji(r) 12_ L Sd 3r vs,o (r) 15 1(/Ji(r) 12 ,
+
+i= 1
+
+i= 1
+
+(4.11)
+
+where, by neglecting second order terms,
+
+The first term of (4.11) vanishes since both (/Ji,O and [(/Ji,O(r)+I5(/Ji(r)] are normalised to unity. Thus one is left with
+
+(4.12)
+
+In combination with (4.9) this leads to the final expression
+
+vs,o(r) = vo(r) + Sd 3 r' w(r,r')no(r')+ vxc([no];r) •
+
+(4.13)
+
+Equations (4.5, 6) with the potential (4.13) represent the classic Kohn-Sham scheme. Since the single-particle potential depends on the density, the whole set of equations has to be solved in self-consistent fashion. The scheme contains as particular approximations the Hartree-Fock-Slater and X a methods (Slater, 1951, 1974). As it incorporates the description of correlation effects, it goes beyond the Hartree-Fock approximation and offers the distinct advantage of being a local scheme. Moreover, if the central assumption stated in the beginning can be justified, it constitutes an exact scheme.
+The proximity to the popular X a method might lead one to expect that both the orbitals and the eigenValues of (4.6) can be endowed with a physical interpretation, for instance. as excitation or electron removal energies in the case of the latter quantities. As will be discussed below, this is in general not the case, the least from a purist's point of view. The formulation (as might be guessed from the arguments presented above) is tightly tailored to the calculation of the
+
+4.1 The Basic Kohn-Sham Equations
+
+47
+
+ground state density. Once this quantity has been obtained, all remaining properties of the system can be calculated provided the appropriate functionals are known.
+In order to illustrate this point as explicitly as possible, we reiterate the content of the Kohn-Sham scheme and compare it to consequences derived from
+the exact ground state wavefunction. The ground state of Hs corresponding to
+the density (4.2) is a Slater determinant
+
+(4.14)
+
+consisting of the N lowest Kohn-Sham orbitals. The one-particle density matrix ys(r,r') derived from this wavefunction is idempotent
+
+(spin degrees of freedom are neglected here for simplicity). Consider now the exact ground state wavefunction 'P of the interacting system. This wavefunction is certainly not representable in the form of a single determinant, but rather by a linear superposition of determinants. The corresponding one-particle density matrix is not idempotent but satisfies
+Sd 3r"y(r,r")y(r",r')<y(r,r') .
+This inequality follows immediately from the spectral representation of the density matrix
+go
+L y(r,r') = Qia(r')~i(r) ,
+i= I
+where the eigenfunctions ~i(r) are known as "natural orbitals" (LOwdin, 1955). The eigenvalues Qi satisfy the conditions
+
+and
+
+The density itself then takes the form
+
+go
+n(r) = L Qi~i(r)~i(r) .
+i = I
+
+(4.15)
+
+Comparing the two sets of statements one notes: The N-particle wavefunction implied by the Kohn-Sham scheme is not the exact ground state wavefunction, nor is the one-particle density matrix constructed from the Kohn-Sham or-
+
+48
+
+4. The Kohn-Sham Scheme
+
+bitals the exact one-particle density matrix. It can not even be assumed that the Kohn-Sham one-particle density matrix is a good approximation of the exact one.. The only statement that can be made is that the density (4.2) is identical with the density (4.15).
+We conclude this section with a remark on the exchange-correlation energy. The Hohenberg-Kohn functional FHdn] (2.11) is defined as
+
+FHdn] = (If'[n] Itllf'[n])+ (If'[n] IWIIf'[n]) =: T[n] +W[n] ,
+
+where T[n] and W[n] denote the density functionals corresponding to the total kinetic and the particle-particle interaction energies. Thus the exchangecorrelation functional (4.8) consists of a potential and a kinetic part:
+
+Exc[n] = (W[n]-tH d 3rd 3r' n(r)w(r,r')n(r'»+(T[n]-Ts[n]). (4.16)
+
+The kinetic contribution is always non-negative:
+
+(4.17)
+
+This statement is an immediate consequence of the Rayleigh-Ritz principle: Among all wavefunctions that yield a given ground state density n(r), If'[n]
+t is the one that minimises (If! I + WI If!), while the noninteracting ground state
+IPs [n] is the one that minimises I (If! tl If!); therefore
+Ts[n] = (lPs[n] ItllPs[n])~(If'[n] Itllf'[n]) = T[n]
+
+4.2 Degenerate Kohn-Sham Ground States and the Question of v-Representability
+The central assertion used in establishing the Kohn-Sham scheme is that all interacting v-representable densities are assumed to be also non-interacting v-representable.. The validity of this assumption will be investigated in the following.
+Consider the Hohenberg-Kohn functional of a non-interacting system:
+
+By construction, this functional is defined only for non-interacting v-representable densities. If it is possible to extend the domain of the functional Ts [n] to arbitrary densities in such a way that the functional derivative OI's[n]/Jn(r) is well defined, then the variational principle can be formulated as
+
+4.2 Degenerate Kohn-Sham Ground States and the Question of u-Representability
+
+49
+
+The solution of this equation is the exact ground state density ns(r) of the system, i.e.,
+
+t5Ts[n] I = -vs(r)+.u.
+t5n(r) n s
+
+(4.18)
+
+Now consider a particular interacting system with external potential vo(r) and
+
+ground state density no(r). If the functional derivative t5Ts[n]/t5n(r) is well
+
+defined at no( r) then, from (4.18), the single-particle potential vs,o(r) defined
+
+by
+
+I Vs o(r):= _t_5T_s[n_] +const
+
+,
+
+t5n(r) n
+
+o
+
+obviously yields the prescribed density no(r) as the noninteracting ground state density. Thus the question whether an interacting v-representable density is also non-interacting v-representable is equivalent to the question of whether an extension of Ts[n] can be constructed whose functional derivative is well defined at interacting v-representable densities. Three extensions of Ts [n] are found in the literature (e.g., Levy, 1979; Lieb, 1982; Englisch and Englisch, 1984a, b). Using the notation defined in Sect. 2.3, these functionals are given by
+
+(i) Tdet [n] =
+
+inf
+
+t/> .... n
+
+(4.19)
+
+(ii) TtL[n] = inf (PI tl P) , ' P .... n
+
+(4.20)
+
+(iii) TL [n]
+
+inf
+1).... n
+L 1) = dk I'Pk)('Pk I ,
+k
+
+tr{DT} .
+
+(4.21)
+
+In the last definition, (Pd denotes a complete set of antisymmetric orthonormal N-particle functions. Obviously, the relation
+
+(4.22)
+
+is satisfied for arbitrary n (r). It has been demonstrated that these functionals
+are not identical, i.e., there exist densities nl (r) and n2(r) with
+Tdedntl> TLL [ntl and TLdn21 > Tdn21 (Lieb, 1982; Englisch and Englisch,
+1984 a, b). However, for non-interacting ground state densities representable in
+
+50
+
+4. The Kohn-Sham Scheme
+
+terms of a single Slater determinant, the three functionals coincide and have the same value as the Hohenberg-Kohn functional Ts[n). Thus all three options represent extensions of Ts [n) to arbitrary nonnegative integrable functions n (r). However, functional differentiability remains an open question for Tdet[n) and TLdn). For the functional Tdn), and the corresponding exchange-correlation functional
+
+(4.23)
+
+functional differentiability has been demonstrated for all (interacting) ensemble v-representable densities (Englisch and Englisch, 1984a, b).
+We conclude: For any interacting v-representable density n(r) there exists a single-particle potential uniquely defined by
+
+de)I Vs (r ) .._- t5T
+
+,
+
+t5e (r) {} = n
+
+(4.24)
+
+such that the density n(r) is identical with the ground state density ns(r) of
+lis = t + Vs' If the ground state ItPs> of lis happens to be nondegenerate, the
+density matrix 15s that minimises (4.21) is just
+
+so that the non-interacting ground state density is given by
+N
+ns(r) = tr(15sn(r)] = (tPsln(r)ltPs> = L IlP;(r)1 2 •
+;= 1
+This proves the validity of the central assertion stated in Sect. 4.1 for the nondegenerate case.
+In general, however, there will be a number of degenerate determinantal ground states
+
+In that case, the minimising density matrix
+
+q
+
+15s = L dkl tPk>(tPkl, L dk = 1 ,
+
+k= 1
+
+k
+
+leads to the ground state ensemble density
+
+q
+L ns (r)=tr(15s n(r)]= (tPkln(r)ltPk >
+k=1
+
+= L IlP;(r)1 2 + L JillP;(r)1 2 ,
+
+;:e/<f.I
+
+;:e/=f.I
+
+4.2 Degenerate Kohn-Sham Ground States and the Question of v-Representability
+
+51
+
+where p denotes the highest occupied single-particie level. The coefficients fi are determined as follows: If Bki ( = 0 or 1) denotes the occupation number of
+orbital ({Ji(r) in the determinant cf>k>
+
+(cf>kl fl(r) Icf>k> = L Bik l({Ji(r)1 2 ,
+i
+the occupation numbers fi of the degenerate single-particle states follow from
+the weights dk as
+q
+fi = L dkBki .
+k=1
+
+Whether any interacting v-representable density is non-interacting v-representable by a single determinant remains an open question. (This would require a
+proof of functional differentiability for TdednJ.) However, since TdnJ is dif-
+ferentiable, the following extended version of the Kohn-Sham scheme is on rigorous grounds.
+
+Kohn-Sham Theorem: The exact ground state density n(r) of an arbitrary interacting system can be obtained by self-consistent solution of the following set of equations
+
+with
+00
+L n(r) = J';i({Ji(r)1 2 ,
+i= 1
+and occupation numbers J'i satisfying
+J'i = 1: Bi<P
+J'i=O: Bi>P and
+00
+L J'i = N .
+i= I
+The exchange-correlation potential is defined as
+
+(4.25) (4.26)
+(4.27) (4.28)
+
+52
+
+4. The Kohn-Sham Scheme
+
+= V ([n]· r) xc ,
+
+oE [n] onxc(r)
+
+(Fdn]-~ H =_0_
+
+d 3rd 3r' n(r)w(r,r')n(r')-Tdn]), (4.29)
+
+on(r)
+
+2
+
+where Fdn] and Tdn] are given by (2.29) and (~.21). We conclude this section with a useful formula for the correct ground state
+energy Eo of the interacting system. For ensemble v-representable densities, the noninteracting kinetic energy functional is given by
+
+Once a self-consistent solution of the Kohn-Sham equations has been obtained, the single-particle energies
+
+21i~ e;= Sd3r'Pi(r) ( - V2) 'P;(r) + Sd 3rl'P;(r)1 2 vs(r)
+
+(4.30)
+
+can be used to reexpress the kinetic energy as
+
+co
+Tdn] = L )I;e;-S d3 rn(r)vs(r) .
+;= 1
+
+(4.31)
+
+With the explicit expression (4.13) for vs(r), insertion of (4.31) into the total energy functional Ev [n] yields the result
+
+H Lco
+
+1
+
+Eo = )I;ei-- d 3rd3r' n(r) w(r, r')n (r')
+
+i=1
+
+2
+
++Exc[n]-S vxc ([n];r)n(r)d3 r,
+
+(4.32)
+
+where n(r) is given by (4.26-28).
+
+4.3 Spin.Polarised Systems
+The generalisation of the Kohn-Sham scheme for spin-polarised systems ~ first given by von Barth and Hedin (1972) and by Rajagopal and Callaway (1973) in conjunction with the extension of the Hohenberg-Kohn theorem. A formulation involving fractionally occupied orbitals is found in the contribution of Perdew and Zunger (1981).
+For notational simplicity, we shall restrict the following discussion to the case where both the external magnetic field B (r) and the magnetisation m (r) have only a nonvanishing z-component
+
+B(r) = (O,O,B(r»
+
+4.3 Spin-Polarised Systems
+
+53
+
+mer) = (O,O,m(r»
+
+The Hohenberg-Kohn functional F[n, m] defined by (3.11) may then be considered as a functional of the spin densities n+ (r) and n_ (r), (3.3), which are related to n (r) and m (r) via
+
+nCr) = n+ (r)+n_ (r)
+and
+
+On the basis of the variational principle (3.12), one can derive, in complete analogy to the spin-independent case, the following rigorous Kohn-Sham Scheme for Spin-Polarised Systems: The exact ground state spin densities n + (r) and n _ (r) of an interacting system can be computed by self-consistent solution of the set of equations
+
+r [( -1i 2I2m) V2 + v(r)- alloB(r)+ w(r,r ')n(r')d3r'
+
+where
+
++v~~)([n+;n_];r)] IPla)(r) = da)lPla)(r) ,
+
+(4.33)
+
+and
+00
+na(r) = L yla) IlPla)(r) 12 .
+i= I
+
+(4.34)
+
+Here a (= + or -) denotes the spin projection (up or down) in the z-direction,
+and the occupation numbers yla) satisfy the relations
+
+Osy~a)s 1: e~a) = fJ,(a)
+y}a) = 0: e}a»fJ,(a)
+and
+00
+Ly}a)=Na , N++N_=N.
+i= I
+The exchange-correlation potential v~~) and v~~) are given by
+
+(4.35) (4.36)
+
+54
+
+4. The Kohn-Sham Scheme
+
+and the functional Exc [n +' n _] is formally defined as
+
+(4.37)
+
+with and
+
+The extension of the expression (4.32) for the exact ground state energy reads
+
+- L Jv~~)([n+,n_];r)na(r)d3r .
+a
+
+(4.38)
+
+4.4 Fractional Occupation, Janak's Theorem, and the Slater Transition State
+
+The idea of fractional occupation in density functional theory and related methods has a long history (Slater, 1974; Gilbert, 1975; Almbladh and von Barth, 1976; Parr, Donnelly, Levy, and Palke, 1978; Janak, 1978; Harris, 1979; Gopinathan and Whitehead, 1980; Lannoo, Baraff, and Schluter, 1981; Perdew and Zunger, 1981; and Parr and Bartolotti, 1983). As discussed in Sect. 4.2, fractionally occupied Kohn-Sham orbitals arise quite naturally in the ground state formalism when the highest occupied level is degenerate.
+In this section we shall leave the traditional realm of density functional theory and take a first step towards the description of excited states. The starting point is the total energy functional corresponding to the extended KohnSham scheme (4.25 - 29):
+
+f Yd (_~V2) £[11'.. 11'2'" ';Y\,Y2,"'] =
+
+d3rIP1(r)
+
+lPi(r)
+
+i= \
+
+2m
+
+J H +
+
+d
+
+3r
+
+v(r
+
+)
+
+1 n(r)+-
+
+d 3rd3 r' n(r)w(r,r')n(r')+Exc[nJ
+
+2
+
+(4.39)
+
+with
+
+4.4 Fractional Occupation, Janak's Theorem, and the Slater Transition State
+
+55
+
+r n(r) = '" Y;!qJi(r)1 2
+i= 1
+
+(4.40)
+
+(spin degrees of freedom are neglected for simplicity). If the restriction (4.27) is released so that all occupation numbers Yi are
+allowed to be arbitrary in the interval
+
+(4.41)
+
+the quantity E can no longer be considered as a density functional. In particular, no Hohenberg-Kohn variational principle applies to E. Nevertheless
+there is an obvious variational connection with conventional density func-
+tional theory: If E is varied with respect to both the single-particle orbitals and
+the occupation numbers subject to the subsidiary conditions of orthonor-
+mality,
+
+(4.42)
+
+and fixed particle number,
+
+r'" Yi=N,
+i= 1
+
+(4.43)
+
+one recovers the general Kohn-Sham scheme (4.25 - 27). To prove this statement, we include the subsidiary conditions (4.42, 43) via Lagrangian multipliers and make the substitution
+
+in order to account for the restriction (4.41). tlPdependent variation of the functional
+
+- r Ad r '"
+
+qJi(r)rpj(r)d3r-J-l '" Yi
+
+i,j = 1
+
+i= 1
+
+with respect to qJk (r), qJk(r), and fh then leads to the three equations
+
+r Ykhs(r)rpk(r) = Akjrpj(r) ,
+j
+
+(4.44 a)
+
+(4.44 b)
+
+where the effective single-particle Hamiltonian is given by
+
+(4.45)
+
+S6
+
+4. The Kohn-Sham Scheme
+
+(4.46 a)
+
+with
+L n(r) = '" yillPi(r)1 2 •
+i =1
+
+(4.46 b)
+
+Since this Hamiltonian is manifestly Hermitian it has a system of orthonormal eigenstates,
+
+(4.47)
+
+satisfying (4.44) with Akj = Ykekt5kj. Equation (4.45) then implies that, for
+each level, we can have one of the three possibilities:
+
+(i) ek = /..l and (h arbitrary, i.e., Os YkS 1
+
+* (iii) ek /..l and ()k = nl2 ,
+
+i.e., Yk = 0 .
+
+In most cases (see, however, Levy and Perdew, 1985 a) the minimum total
+energy is obtained if one fills the "lowest" single-particle orbitals, i.e., sets
+Yk = 1 for ek</..l.
+Identifying in this case /..l with the Fermi energy, one notes that all orbitals
+degenerate with the Fermi energy can have fractional occupation, while the or-
+bitals above /..l are not occupied. In other words, the variation of E with respect
+to the numbers Yk leads back to the ground state Kohn-Sham occupational pattern (4.27).
+The functional E allows one to go beyond this limit if the variation with
+respect to the orbitals is carried out for an arbitrary butflXed set of occupation
+numbers Yi. The resulting variational equation (4.47) with the Hamiltonian (4.46) is formally identical with the Kohn-Sham scheme discussed in the last section. The given set of occupation numbers Yi only occurs in (4.46b). In what follows we shall assume that a set of self-consistent solutions (ei(J7),
+IP ~y) (r), i = 1 ... oo} can be found for any given set of occupation numbers y= (Y"Y2' .. .). Then the energy representing the stationary point of (4.39)
+
+(4.48)
+
+is a function of y" Y2, . •. • Straightforward differentiation of this function with respect to Yj yields the equation
+
+(4.49)
+
+known as Janak's theorem (Janak, 1978).
+
+4.4 Fractional Occupation, 1anak's Theorem, and the Slater Transition State
+
+57
+
+For the ground state occupation
+
+__ [Y;= 1: i= 1•.. .•N
+Ygs - Y; = o: ·I> N
+(nondegeneracy is assumed for simplicity in the following) the exact ground state energy (4.32) of the interacting system is recovered:
+
+Now consider the occupation
+Y_qp:= [Y;= 1: i= 1•.. .• (q-l).(q+l)•...• N and i=p(>N) y;=O: i=q and i>N. i*p
+corresponding to a "particle-hole excitation". If Exc; [n] is approximated by the Slater exchange energy. the self-consistent
+scheme (4.46. 47) is identical with the Hartree-Fock-Slater method. In that case, the self-consistent Slater determinant corresponding to the occupation Yqp can be considered as an approximate excited state of the many-particle system in question. so that
+(4.50)
+represents an approximate excitation energy. It should be noted that the determination of LJEqp requires two self-consistent calculations. one with Yqp and
+one with Ygs. Furthermore, LJEqp is the difference of two large and nearly
+equal numbers. In order to avoid this numerical inconvenience, Slater introduced the so-called transition state (Slater. 1974) which corresponds to the occupation
+_ {Y;= 1 : ~= 1•. : .• (q-O.(q+l)•...• N
+YT = Y; = 112: 1 = q. 1 =P
+y;=O : i>N. i*p .
+- - Writing LJEqp =E(YT-LJy)-E(YT+LJy)
+with _ {yq= 112
+* LJy= yp:~1~2 y; - 0.1 q.P
+and expanding both energies around YT' one obtains by means of Janak's
+theorem
+(4.51)
+
+58
+
+4. The Kohn-Sham Scheme
+
+The third order terms can be demonstrated to be very small (Slater, 1974) so that the excitation energy (4.50) is well represented by the difference of singleparticle energies. Only one self-consistent solution of (4.46, 47) is required in this case which involves the "transition state density"
+
+N
+L nT(r) = IqJi(r)1 2 +tlqJq(r)1 2 +tlqJp(r)1 2 •
+i= \
+i*q
+
+(4.52)
+
+The notion of a transition state is somewhat misleading in this context, since nT (r) can never be the density of a single determinantal state. Instead, nT (r) is an ensemble density corresponding to the density matrix
+
+(4.53)
+where I(])g~ and I(])qp) are Slater determinants corresponding to Ygs and Yqp.
+The transition state density then follows from
+
+In fact, the variational equations (4.46, 47) for the transition state density are closely related to the exact Kohn-Sham scheme for ensembles which will be discussed in the subsequent section.
+
+4.5 Excited States: The Kohn-Sham Scheme for Ensembles
+
+In this section we consider ensembles consisting of the ground state I(])\) and
+w the first excited state I(])z) (both assumed nondegenerate for simplicity) of a
+specified interacting system with Hamiltonian Ii = t + + Vo. The density
+matrix defining the ensemble is given by
+
+with
+o=:; '1 =:; 112 .
+
+(4.55) (4.56)
+
+As discussed in Sect. 3.5, the exact ensemble density,
+
+and the exact ensemble energy, can be obtained by minimisation of the density functional
+
+(4.58)
+
+4.5 Excited States: The Kohn-Sham Scheme for Ensembles
+
+59
+
+where the universal functional p(l1) [n] is given by (3.29). In order to derive a Kohn-Sham scheme for the ensemble density, we first rewrite the total-energy functional as
+
+D J E~~)[n] = I1 )[n] + vo(r)n(r)d 3 r H 1- + n (r) w(r, r')n(r')d 3 r d 3 r' +E~~) [n]
+
+(4.60)
+
+The exchange-correlation functional is formally defined as
+
+and
+
+denotes the kinetic energy of a non-interacting ensemble with ground state
+ICPI,s) and first excited state ICP2,s)' The external potential vs(r) of the non-
+interacting system is chosen to make the non-interacting ensemble density equal to the given interacting ensemble density, Le.,
+(4.63)
+For given n(r), uniqueness of vs(r), and thus of ICPI,s) ICP2,s), is guaranteed
+by the Hohenberg-Kohn theorem for ensembles discussed in Sect. 3.5. We are
+thus allowed to write ICPI,s) and ICP2,s) as functionals of n(r), as anticipated
+in (4.62). Existence of the potential vs(r), i.e., simultaneous interacting and non-interacting v-representability, is assumed. (For a discussion of the mathematical background see Hadjisavvas and Theophilou, 1985).
+The non-interacting N-particle functions ICPI,s) and ICP2,s) are Slater
+determinants consisting of single-particle orbitals which obey the SchrOdinger equation
+
+(4.64)
+
+In terms of these orbitals, the ensemble density (4.63) can be expressed as
+
+N-I
+n(r) = L IqJi(r)1 2+(1-1T>lqJN(r)1 2 +11lqJN+I(r)1 2 ,
+i= I
+
+(4.65)
+
+and the non-interacting kinetic energy is given by
+
+N-I
+L T~I1)[n] = ti+(1-11)tN+l1tN+I
+i= I
+
+. (4.66)
+
+60
+
+4. The Kohn-Sham Scheme
+
+(4.67)
+
+n With this representation of l1 ) [n], the variational principle (3.31) leads in
+complete analogy to the argument of Sect. 4.1 to the expression
+
+r vs(r) = vo(r)+ w(r,r')n(r')d 3r' + v~~)([n];r)
+
+(4.68)
+
+for the single-particle potential. Once again, the exchange-correlation potential is given by
+
+v(I1)([n];r)
+
+=
+
+bE(I1) xc
+
+[n]
+
+•
+
+xc
+
+bn(r)
+
+(4.69)
+
+Equations (4.64, 65, 68) represent the Kohn-Sham scheme for ensembles. Once a set of self-consistent solutions qJ~I1)(r), ej(rf) with density n (11) (r) is obtained
+for a given value of 1'/, the corresponding ensemble energy can be calculated from
+
+N-I
+I: <9'0(1'/) = ej(1'/)+(l-1'/)eN(1'/)+1'/eN+I(1'/)+E~)[n(I1)]
+j = I
+- t Hn(I1)(r) w(r,r')n(I1)(r')d3r d 3r'
+- rv~)([n(I1)];r)n(I1)(r)d3r .
+
+(4.70)
+
+This expression is derived in complete analogy to the ground state formula
+(4.32), to which it reduces for 1'/ = O. As discussed in Sect. 3.5, the first excita-
+tion energy can then be calculated either from
+
+(4.71)
+
+or, alternatively, from
+
+(4.72)
+
+By straightforward differentiation of (4.70), the second prescription leads to (Gross, Oliveira, and Kohn, 1988b):
+
+(4.73)
+
+4.5 Excited States: The Kohn-Sham Scheme for Ensembles
+
+61
+
+where the partial derivative with respect to " is to be taken at the fixed density
+n = n{rll.
+It should be noted that the two prescriptions given by (4.73) and by (4.70, 71), respectively, will generally lead to different results for the excitation energy if the exact exchange-correlation energy is replaced by some approximate functional. If, for instance, the exchange-correlation functional is approximated by the simple Slater exchange term (which is of course independent of ,,), then the last term in (4.73) vanishes and one obtains
+
+For" = 112, this equation becomes identical with the transition state formula
+(4.51) (for the first excitation energy), and the Kohn-Sham equations (4.64, 65, 68) reduce to the transition state scheme (4.46a, 47, 52) (Theophilou, 1979; Oliveira, Gross, and Kohn, 1988a). Thus, for ensembles consisting of a nondegenerate ground state and a non-degenerate first excited state, the transition state approach can be interpreted as a particular approximation to the exact Kohn-Sham formalism for ensembles.
+For ensembles consisting of a non-degenerate ground state and g degenerate first excited states, the Kohn-Sham formalism again reduces to the Slater transition state scheme if g is very large and if E~~> [n] is replaced by the
+Slater exchange term. For this particular limit, the term oEr:J:>/ 0" has been
+di!monstrated to be very small (Oliveira, Gross, and Kohn, 1988a), thus explaining the great success of the transition state formalism for atoms. Better approximations for E~rp[n] (based on Kohn, 1986b) allow systematic improvement of the transition state results (Oliveira, Gross, and Kohn, 1988a).
+For higher excited states there is no simple connection between the transition-state method and the Kohn-Sham scheme for ensembles; the orbital decompositions of the transition-state density and the ensemble density are irreconcilably different.
+We finally mention a very interesting generalisation of density functional theory proposed by Fritsche (1986) which encompasses both ground and excited states. This approach is based on a partitioning of the true many-particle eigenfunctions into two components such that the first component yields the correct one-particle density while the second does not contribute to the density at all. The usual variational properties of the exact many-particle eigenfunctions then imply that the density-related component is a determinant of singleparticle orbitals satisfying a set of Kohn-Sham-type equations. In the case of the ground state, the method reduces to the ordinary Kohn-Sham scheme. The formalism has been applied successfully to the calculation of atomic multiplet splittings (Cordes and Fritsche, 1989).
+
+62
+
+4. The Kohn-Sham Scheme
+
+4.6 Schrodinger Equation for the Square Root of the Ground State Density
+
+Besides the usual Kohn-Sham procedure of calculating the density self-consistently from a set of single-particle SchrOdinger equations, a more direct access to the density seems desirable in many situations. Hunter (1975a, b, 1981, 1987), and Levy, Perdew, and Sahni (1984) have demonstrated that the exact ground state density can be calculated, in principle, from a Schrodinger-like equation for n 112,
+
+(4.74)
+
+with the eigenvalue J.l being the exact chemical potential. I The local effective potential us(r) is different from the exact Kohn-Sham potential vs(r) given by (4.13). The potential us(r) can be expressed in terms of the exact many-particle wavefunction of the system
+
+(4.75)
+
+where N denotes the coordinates of electron 1 ... N. With an auxiliary function defined as
+
+)112 tfJ, (N-l):= ( - N
+
+'P(N) ,
+
+N
+
+n(rN)
+
+one obtains (Levy, Perdew, and Sahni, 1984):
+
+(4.76)
+
+Here v(r) is the external potential of the system, and n<t>(r,rN) denotes the
+
+density corresponding to the function tfJ, (N-1). Spin coordinates have been
+
+omitted for simplicity.
+
+N
+
+Although not very useful for practical purposes, the representation (4.76)
+
+is very helpful for proving some exact features of the ground state density and
+
+the Kohn-Sham potential. First of all, one readily recognizes that
+
+us(r)- v(r) ~O for all r
+
+(4.77)
+
+I Hunter (1987) has emphasized that a SchrOdinger equation ofthe form (4.74) also holds for the
+densities of arbitrary excited states. The potential uS<") can then be expressed in terms of the par-
+ticular (excited) state of the system.
+
+4.6 Schri:idinger Equation for the Square Root of the Ground State Density
+
+63
+
+since, apart from v(r), no term on the right-hand side of (4.76) is ever negative. Due to (4.74), the asymptotic behaviour of the exact ground state density is given by
+
+n(r) _
+
+e- 2ar
+
+r--+oo
+
+with
+In
+
+a= [ _2m(p._u(00» ]
+
+h2
+
+s
+
+(4.78) (4.79)
+
+In the following, we shall restrict ourselves to the case of asymptotically
+vanishing external potentials, i.e., v( 00) = O. Then, by means of (4.77), it
+V follows that a~ -(2mlh2)p. On the other hand, direct investigation of the
+SchrOdinger equation (4.75) yields a=::;V -(2mlh2)p (see Levy, Perdew, and
+Sahni, 1984). We thus conclude
+
+(4.80)
+
+which means (4.81)
+If the exact density is calculated from the Kohn-Sham scheme, the asymptotic decay is governed by the energy of the highest occupied level emax, Le., in place of (4.79), we obtain the relation
+(4.82)
+
+(compare also Almbladh and von Barth, 1985). Using Janak's theorem (4.49) for a Kohn-Sham system with fractional oc-
+cupation numbers Yl= ... =YM=l, YM+I=w(O<w<l), one obtains the important relation emax = oEolow = oEoloN, Le.,
+(4.83)
+Insertion of this result into (4.82) finally yields by comparison with (4.79, 80)
+
+In particular, this means for the exchange-correlation part of Vs:
+
+11·m vxc (r) = l1' m tJExc [n] =0.
+
+r--+oo
+
+r--+oo tJn(r)
+
+(4.84)
+
+64
+
+4. The Kohn-Sham Scheme
+
+An explicit connection between Us and Vs was recently established by March (1986 a): Solving (4.74) for us(r), one obtains
+
+us(r)
+
+=
+
+p
+
+/i 2 V2n(r) +---
+
+/i -
+
+2 (Vn)2 ---
+
+=
+
+p
+
+-
+
+0 -
+
+-
+
+Tw[n)
+
+4m n(r) 8m n(r)2
+
+on(r)
+
+where
+
+/i2
+
+2
+
+Tw[n) =_!(Vn) d 3r
+
+8m n(r)
+
+(4.85)
+
+is the von Weizsacker term introduced in Sect. 2.3. Substituting the exact KohnSham variational equation
+
+p = o_Ts[_n)+ vs([n);r)
+on(r)
+
+(4.86)
+
+for p in (4.85), one obtains the formally exact result
+o us(r) = vs([n);r)+--(Ts[n)-Tw[n)) , on(r)
+
+(4.87)
+
+valid for the correct ground state density of the system considered.
+
+4.7 Hellmann-Feynman, Virial, and Scaling Properties of Density Functionals
+
+Approximate density functional theories like the Thomas-Fermi model were known for a long time to satisfy coordinate scaling laws and virial properties (Gombas, 1949, 1956). Similar properties of the exact density functionals arising in the Hohenberg-Kohn-Sharn formalism, however, have attracted attention only recently (Sham, 1970; Ziesche, 1980; Averill and Painter, 1981; Bauer, 1983; Levy and Perdew, 1985b; Levy, Yang, and Parr, 1985; Bass, 1985; Levy and Perdew, 1986). Rigorous scaling laws and virial properties are obviously important features to be incorporated in approximate theories.
+w Let f/J(rl> ... ,rN) be a normalised eigenstate of the Hamiltonian
+B = t + + Vwhere Wand Vare the electronic and nuclear Coulomb poten-
+tials. Then the scaled function
+
+'n1o"'1 (rl> ... ,rN).._- Y3NI2 f/J (yrt,·· .,yrN)
+
+(4.88)
+
+is normalised to unity, and the Rayleigh-Ritz principle ensures that
+
+(4.89)
+
+4.7 Hellmann-Feynman, Virial, and Scaling Properties of Density Functionals
+
+65
+
+Using the scaling properties of the kinetic and Coulomb energies,
+(if>y ITI if>y) = y2(if> ITI if» (if>y I WI if>y) = Y(if> IWI if» (if>y I VI if>y) = Y(if> WI if» ,
+
+(4.90) (4.91) (4.92)
+
+(4.89) leads to the well known virial theorem for Coulomb systems
+2(if> ITlif» = -(if> IVI if»-(if> IWlif» .
+
+(4.93)
+
+If if> (rio' .. , rN) is the ground state of B with density n (r), the scaled ground state if>y (rio' .. ,rN) leads to the density
+
+(4.94)
+
+According to the Hohenberg-Kohn theorem, the ground state wavefunction, and thus the kinetic and particle-particle interaction energies, are unique and universal functionals of the ground state density
+T[n) = (if> [n) ITI if> [n)
+W[n) = (if> [n) I WI if> [n) .
+
+In view of (4.90, 91), one might expect similar scaling relations to be true for T[n) and W[n), i.e.,
+
+?
+W[ny) ,; y W[n) .
+
+(4.95) (4.96)
+
+As will be shown in the following, these relations can never be satisfied within
+the exact theory (except, of course, for y = 1).
+From the Levy-Lieb constrained search formulation (Sect. 2.3) one derives
+
+T[nyf+ W[ny) = FHdny) = inf (fill T+ WI fII)
+I/I-ny
+
+where the minimising function fIIn arises from a Schrodinger equation y (4.98)
+provided ny is v-representable. By means of the scaling properties (4.90, 91), the right-hand side of (4.97)
+can be transformed to give the fundamental inequality
+(4.99)
+
+66
+
+4. The Kohn-Sham Scheme
+
+Equations (4.97, 99) are strict inequalities because
+
+IJIn, ::j:: ¢y, y::j:: 1 .
+
+¢y is different from IJIn, since it obeys a different Schrodinger equation:
+
+E¢y(rt, ... ,rN) = H(yrt, ... , yrN)[y3NI2¢(y r t, ... , yrN)]
+( 1 _ 1_ 1_) = "2 T+- W+- V ¢y(rt,·· .,rN) . y yy
+Thus
+
+(t+y W+y V)¢y = (y2E)¢y .
+
+(4.100)
+
+This equation implies that ¢y in turn minimises the functional
+
+so that
+
+Using (4.90, 91) this inequality leads to
+
+y2(T[n]+W[n])<T[ny]+yW[ny] , y::j:: 1 .
+
+(4.101)
+
+Combination of (4.99, 101) finally yields
+
+T[n y]<y 2T[n] , y>l T[ny]>y 2T[n] , y<l
+and
+W[ny]<yW[n] , y<l
+
+(4.102 a) (4.102b)
+(4.103 a)
+
+W[ny]>yW[n] , y>l
+
+(4.103b)
+
+The relations (4.102) are valid only for interacting systems. For the noninteracting kinetic energy functional one obtains (Sham, 1970)
+
+(4.104)
+
+This follows from the fact that for W= 0 the SchrOdinger equations (4.98,
+100), and thus ¢y and IJIn' are identical. (Due to the Hohenberg-Kohn theo-
+rem, the external potential leading to ny is uniquely determined, i.e., V[ny] =
+yV.)
+In the context of the Kohn-Sham scheme, scaling properties of the exchange-correlation functional are of interest. Various splittings of the functional Exc [n] are found in the literature (for a detailed comparison see Sahni and Levy, 1986). The traditional definition
+
+4.7 Hellmann-Feynman. Virial. and Scaling Properties of Density FunctionaIs
+
+67
+
+is based on the Hartree-Fock method, i.e., the exchange energy functional E~F [n] is calculated from the self-consistent Hartree-Fock single-particle orbitals. As discussed in Sect. 3.4, E~F [n] is a unique and universal functional of the density. No scaling properties of E~F and E~F are known so far.
+Within the framework of density functional theory another splitting ap-
+pears more natural:
+
+Exc[n] = E~s[n]+E~s[n] .
+
+In this definition, the exchange energy functional E~s [n] is obtained by inser-
+tion of the exact Kohn-Sham orbitals in place of the Hartree-Fock single-particle wavefunctions_ Once again, E~s [n] is a universal functional of the density
+since the Kohn-Sham potential, and thus the Kohn-Sham orbitals, are uniquely determined by the density. Besides the fact that E~s [n] possesses a gradient expansion (while E~F [n] does not; see Sect. 7.6.3). E~s [n] and E~s [n] obey
+simple scaling laws (Levy and Perdew, 1985 b):
+
+E~s[ny] = yE~s[n]
+
+(4.105)
+
+and
+E~s[ny]<yE~s[n], y<l E~s[ny]>yE~s[n], y>l
+
+(4.106a) (4. 106 b)
+
+Addition of (4.105, 106) leads to the general inequalities
+
+Exc[ny]<yExc[n] , y<l
+
+(4.107a)
+
+Exc[ny] > yExc[n] , y>l,
+
+(4.107 b)
+
+which are valid independent of any splitting. In spite of the fact that the kinetic and interaction energy functionals never
+satisfy the scaling equalities (4.95, 96), they still satisfy the usual virial theorem
+
+r = 2T[n] -W[n]- v(r)n(r)d 3r .
+
+(4.108)
+
+This equation is immediately obtained if the ground state wavefunction
+¢ = ¢ [n] is inserted into (4.93). It should be emphasized, however, that (4.108)
+is not a universal equation: For a given density n (r), (4.108) is satisfied only
+with the particular external potential
+
+v(r) = v([n];r)
+
+that generates the prescribed density n (r). Exact relations involving the universal functionals can be derived on the basis of the general quantum mechanical virial theorem
+
+68
+
+4. The Kohn-Sham Scheme
+
+where U represents the sum of all potentials. Following the line of Averill and Painter (1981), Levy and Perdew (1985b) give the following rigorous equalities:
+
+J J 2 T[n]+ d 3r n(r)r· '1 oT[n] = - W[n]- d 3r n(r)r· '1 oW[n]
+
+on(r)
+
+on(r)
+
+J 2Ts[n] = d 3rn(r)r·'1vs([n];r) ,
+
+(4.109)
+(4.110)
+
+where vs([n];r) denotes the exact Kohn-Sham potential. The exchange-correlation funtional satisfies the equation
+
+(4.111)
+
+This equation establishes a connection between the full exchange-correlation functional (4.16) and its kinetic part
+
+Txc[n]:= T[n]-Ts[n] .
+
+(4.112)
+
+Since Txc [n] ~O (as demonstrated in Sect. 4.1), the left-hand side of (4.111) is less than or equal to zero. In terms of the (Kohn-Sham) exchange and correlation functionals one obtains
+
+J E~S [n] + d 3r n(r)r· '1 v~s([n];r) = 0
+
+(4.113)
+
+E~s[n]+J d3rn(r)r·'1v~([n];r) = Ts[n]-T[n] ,
+
+(4.114)
+
+where
+
+= v~s([n];r)
+
+oEKS[n]
+_",-x_ _
+
+on(r)
+
+= v~([n];r)
+
+oEKS [n]
+_.::..c-'--"
+
+on(r)
+
+Equation (4.114) implies that E~ [n] uniquely determines the functional
+Txc [n], Le., there is no (Kohn-Sham) exchange contribution to Txc [n J.
+An interesting application of the Hellmann-Feynman theorem is found in
+the work of Bauer (1983) who derives a general expression for the density func-
+tional A [n] corresponding to the ground state expectation value of an ar-
+bitrary operator A.
+The Hamiltonian Ii = t + W+ Vleading to the physical ground state densi-
+ty n (r) of the system considered is modified by introducing two parameters A.
+and g:
+
+1i(A.,g):= t+gW+ V+A.A+ VeCc([n];A.,g) .
+
+4.7 Hellrnann-Feynrnan, Virial, and Scaling Properties of Density Functionals
+
+69
+
+For all values of the parameters A. and g, the effective local potential veff([n];A.,g;r) is chosen to generate the physical ground state density n(r) of
+the interacting system. In particular, H(A. = O,g = 0) is the exact Kohn-Sham
+Hamiltonian. If the ground state energy (f/I,1.gIH(A.,g)lf/I).,g) is evaluated using coupling constant integration with respect to g and the Hellmann-Feynman theorem with respect to A. one obtains (Bauer, 1983) in the limit A.-+O:
+
+(4.115)
+
+<A~s denotes the expectation value of A with respect to the Slater determi-
+nant of Kohn-Sham orbitals. If this result is applied to A = t (Bass, 1985) one
+obtains an alternative expression for Txc[n] in terms of Exc[n]. The crucial observation is that the augmented Hamiltonian
+
+depends only on the combination [(1 +A.) ao] where ao is the Bohr radius, so
+that
+
+I dExc
+
+I dExc d [(1 + A. ) ao]
+
+dExc
+
+dA. ).=0 = d[(l+A.)ao]
+
+dA.
+
+).=0 = ao dao .
+
+Equation (4.115) then yields the useful formula
+
+T xc
+
+[n ]
+
+_ -
+
+ao
+
+dExc[n]
+
+.
+
+dao
+
+(4.116)
+
+If applied to the homogeneous electron gas, (4.116) leads to the well known virial result
+
+where exc and txc denote the exchange-correlation energies per particle and Vxc is the exchange-correlation potential
+vxc(n) = -d (nexc(n» .
+dn
+Since the exchange energy per particle ex = -(3e2/4)(3nhr)1/3 satisfies the
+equation
+(4.117)
+it is once again only the correlation energy ec that contributes to txc:
+(4.118)
+
+70
+
+4. The Kohn-Sham Scheme
+
+4.8 Single-Particle Equations for Superconductors: A Generalized Bogoliubov-deGennes Scheme
+
+Having discussed the scaling properties of normal-state density functionals we now turn to the Kohn-Sham formalism for superconductors (Oliveira, Gross, Kohn, 1988b). Once again we make the assumption of noninteracting v-representability, Le., it is assumed that the interacting densities n (r), .1 (r, r'), defined by (2.2) and (3.46) can be obtained as ground state densities of a noninteracting system described by the (grand canonical) Hamiltonian
+
+This Hamiltonian can be diagonalized by the Bogoliubov-Valatin transformation (Bogoliubov, 1958a, b; Valatin, 1958).
+
+L r,Vt(r) = [uk(r)Ykt- vk(r)y':.]
+k
+r,V.(r) = L [uk(r)Yu- v k(r)Y':t1,
+k
+
+(4.120)
+
+with functions uk(r) and vk(r) satisfying the eigenvalue equations
+
+21i~ v [-
+
+2 +vs(r)-.u] uk(r)+SDs(r,r;)vk(r')d3r'=Ekuk(r)
+
+;~ (4.121)
+- [ - V2+] vs(r)-.u vk(r) + SD:(r,r')uk(r')d3r' = Ekvk(r) .
+
+By virtue of the Hohenberg-Kohn theorem discussed in Sect. 3.9, the effective potentials vs(r) and Ds(r,r') are unique and can be determined from the variational principle (3.53). The result is
+
+(4.122)
+
+Ds(r,r') = Do(r,r')- Sw(r,r',x,x').1 (x,x')d3x d 3x' +Dxc(r,r') ,
+
+where
+
+Vxc ([n, .1],.r)
+
+-_
+
+bExc[n,.1]
+--';="'---"-
+
+bn(r)
+
+and
+
+(4.123) (4.124)
+
+4.8 Single-Particle Equations for Superconductors
+
+71
+
+Dxc([n,Li];r,r') =
+
+JExc[n,Li]
+JLi *(r, r')
+
+(4.125)
+
+The exchange-correlation energy is defined in analogy to (4.8) by subtracting a normal and an anomalous Hartree term as well as the noninteracting kinetic energy Ts [n, Li] from the functional F[n, Li]:
+
+xLi *(r,r')w(r,r',x,x')Li (x,x')-Ts[n,Li] ,
+
+(4.126)
+
+j):" where F[n,Li] is formally given by (3.55). The operators j):t and create quasi-particle excitations above the superconducting ground state. They obey the usual Fermi anticommutation relations so that
+
+(4.127)
+
+where !(Ek ) denotes the Fermi occupation numbers
+
+!(Ek) = [[1+eXP (EklkBr)]-': r*O
+
+()( -Ek ):
+
+r =0 .
+
+(4.128)
+
+The noninteracting ground state densities n(r),Li (r,r') (which, by construction, are identical with the interacting ones) are easily expressed in terms of the functions uk(r) and vk(r) by inserting the Bogoliubov-Valatin transformation (4.120) into the definitions (2.2) and (3.46) of n(r) and Li (r,r'). With (4.127) one obtains
+
+n(r)=2 L [I Uk(r) 12!(Ek) + 1Vk(r) 12!(-Ek)]
+k
+Li (r,r') = L [Vk (r') Uk (r)!( -Ek)- Vk (r)uk(r')!(Ek)]
+k
+
+(4.129) (4.130)
+
+Since the effective potentials vs(r) and Ds(r,r') depend on the densities n(r), Li (r,r'), the whole cycle of equations (4.121-125, 4.129, 130) has to be solved self-consistently. It is readily verified that if
+
+is a self-consistent solution with energy Ek , then
+tp~-)(r) = ( vk(r) )
+-uk(r)
+
+72
+
+4. The Kohn-Sham Scheme
+
+is a solution with energy - Ek • In other words, the spectrum is redundant: For any given set of quantum numbers denoted by "k", there are two solutions lI'k+} and lI'k-} with energies +Eko and -Eko respectively. For each k appearing in the summations in (4.129, 130), one may choose either the (lI'k+},Ek ) solution or the (lI'k-), -Ek ) solution. The structure of (4.129, 130) is such that the result for n (r) and LI (r, r') is independent of this choice. Which set of solutions corresponds to the physical spectrum of the system will be discussed in an example below.
+Neglecting the exchange-correlation potentials vxc(r) and Dxc(r,r') in the self-consistent equations (4.121-123) (i.e., taking the "Hartree limit" of these equations) one obtains the so-called Bogoliubov-deGennes equations. The local variant of these equations [involving the local anomalous density LI (r), (3.43), rather than LI (r,r')] has been applied to dirty superconductors and superconducting alloys (deGennes, 1966) as well as to normal-superconducting interfaces (Clinton, 1973 a). If the ordinary (i.e., normal-state) Fock exchange potential is added to the Hartree limit of (4.121-123), the resulting equations are usually termed Hartree-Fock-Bogoliubov equations (see, e.g. Clinton, 1973 b). These equations have mainly been used to discuss pairing effects in nuclei (see, e.g., Wolter, Faessler, and Sauer, 1971; Bengtsson and Schuck, 1980; Schuck, 1985).
+In the following we shall discuss the Kohn-Sham-like equations (4.121-125) for a homogeneous system. In that case we can set
+
+vs(r) = const = 0
+
+and
+
+= = D (r,r') D (r-r') S d 3q eiq(r-r')D (q) .
+
+s
+
+s
+
+(2 7r)3
+
+s
+
+It is readily verified that the Kohn-Sham equations are solved, in this limit, by the functions
+
+with constants Uk. Vk satisfying the equations
+(ek-J.l)Uk+Ds(k)Vk = EkUk
+-(ek-J.l)Vk +D;(k)uk = EkVk • where
+
+(4.131) (4.132)
+
+4.8 Single-Particle Equations for Superconductors
+
+73
+
+The eigenvalue equation (4.132) is easily solved. The solutions are (4.134) (4.135)
+
+(4.136)
+
+Insertion into (4.129, 130) yields the densities
+
+n
+
+=
+
+S d3 k
+(2n)3
+
+[
+
+Gk-f.J.
+
+]
+
+1- [(Gk-f.J.)2+ IDs(k) 12]112
+
+and
+
+LI (~ r/) = S d 3k ~ eik'(r-r')
+
+IDs(k) I
+
+,
+
+(2n)3
+
+2 [(Gk-f.J.i+ IDs(k)12]1I2
+
+(4.137) (4.138)
+
+Equation (4.134) shows the redundant nature of the spectrum explicitly. The physical spectrum is obtained by comparison with the normal (i.e., non-superconducting) limit Ds(k)-+O, where one should recover the electron-gas parabola (with f.J. being the zero of energy):
+
+Ek(Ds
+
+-
+-
+
+0) _
+-
+
+Gk-f.J_.-
+
+[-[(.Gk-f.J.i]1I2:
++ [(Gk-f.J.i]1I2:
+
+Gk<f.J. Gk>f.J..
+
+* The physical spectrum for Ds 0 is thus given by
+
+E _ [-[(Gk-f.J.i+ IDs(k) 12]112: Gk<f.J.
+k- + [(Gk-f.J.i+ IDs(k) 12]112: Gk>f.J..
+
+(4.139)
+
+This energy spectrum features a gap of width 2IDs(k)1 at the Fermi surface Gk = 1-1. In what follows, we shall calculate this energy gap (which is responsi-
+ble for a variety of experimental properties) in the limiting case where
+
+Do(r,r /) = 0
+
+and
+Dxc(r,r /) = 0 ,
+
+i.e., there is no external proximity-induced pair field present and the exchangecorrelation contribution to Ds(r,r/) is assumed to be negligible. Furthermore
+
+74
+
+4. The Kohn-Sham Scheme
+
+the pairing interaction W is approximated by the BCS form (3.52). Then, according to (4.123), the anomalous potential consists only of the Hartree part
+f Ds(r,r') = - wBCS(r, r',x,x')LI (x,x')d 3x d 3x'
+
+with the real-valued Fourier transform
+
+(4.140)
+
+LI (P) is the Fourier transform with respect to (r-r') of the anomalous density LI (r,r'). The latter is known from (4.138) and leads, by insertion into (4.140), to
+
+D ( )= _~r d 3p W
+
+Ds(P)
+
+s q
+
+2 J (21l)3 pq [(ep -J.l)2+Ds (pi]1I2 .
+
+(4.141)
+
+This integral equation is identical with the gap equation of the BCS theory. The Kohn-Sham equations (4.121-125, 129, 130) can thus be regarded as
+a generalisation of the BCS model which takes into account
+
+(i) the effects of exchange and correlation in a formally exact manner; (ii) the effects of inhomogeneities in both the normal density n (r) and the
+anomalous density LI (r, r'). The proper treatment of inhomogeneities in the anomalous density is expected to be of particular importance in the description of short-coherence-Iength superconductors.
+
+5. Explicit Functionals I: Kinetic and Exchange Energy Functionals Derived from the One-Particle Density Matrix
+
+5.1 Density-Gradient Expansions from Semiclassical Expansions: A Survey
+
+The major avenue towards the construction of explicit density functionals for the ground state energy is based on the theory of the electron gas. The most important and most widely used form, the local density approximation, is extracted from the theory of the homogeneous electron gas. Variants of the local density approximation found in the literature reflect, cum grano salis, the developing state of art in the solution of this many-body problem. Corrections to the local density approximation are mainly classified under the heading of gradient expansions, although alternative nonlocal schemes have been suggested. After a detailed discussion of the electron gas problem in Chap. 6, the local density approximation and its extensions will be reviewed in Chap. 7.
+In the current Chap. 5, we shall discuss a certain complementary approach to the generation of ground state energy density functionals which can be classified under the heading of semiclassical expansions. These methods are less ambitious in scope as a discussion of the correlation energy is not readily accessible. They can, however, be used to establish the simplest density functionals for the noninteracting kinetic energy Ts [n] and the Kohn-Sham exchange energy E~s [n] in a straightforward fashion.
+The starting point is the noninteracting Dirac density matrix
+
+= ys(r,r') L ({J/r) ({JNr')
+j: £j"-£F
+
+(5.1)
+
+calculated from the solutions of the single-particle Schrodinger equation
+
+( - ; ; V2+ vs(r») ((Jj(r) = ej({Jj(r) .
+
+(5.2)
+
+For simplicity we shall consider only systems with an even particle number and vanishing spin polarisation. For such systems, each orbital below the Fermi level eF appears twice on the right-hand side of (5.1), once for spin-up and once for spin-down electrons. (Further definitions concerning density matrices and Green's functions are given in Appendix A.)
+The single-particle potential vs(r) may either be a given external potential, or it may be viewed as the Kohn-Sham potential of some interacting system.
+
+76
+
+S. Explicit Functionals I
+
+In the latter case, the Kohn-Sham density matrix ys(r,r') has to be distinguished from the interacting one-particle density matrix y(r,r,) (Chap. 4). By virtue of the Hohenberg-Kohn theorem, both density matrices are unique functionals of the ground state density n(r):
+
+Ys=ys[n] ,
+y = y[n] •
+
+The noninteracting kinetic energy Ts [n] (Sect. 4.1) and the Kohn-Sham exchange E~ [n] (Sect. 4.7) are readily expressed in terms of the density matrix
+Ys as
+
+I Ts[n] = -h 2 d 3r [V,. Vr,ys(r,r')]r = r' 2m
+
+(S.3)
+
+and
+
+E~s[n] = _e2I d 3rf d 3r' IYs(r,r')1 2
+
+(S.4)
+
+4
+
+Ir-r'l
+
+Thus, any approximation for the density functional ys[n] leads directly to ap-
+proximate forms for the kinetic and the exchange energy functionals. As a matter of fact, Ts [n] and E~ [n] are completely determined by the spherical averages
+
+I ys(R,y) = _1 dQy ys(R+yl2,R-yl2) 41l
+
+(S.5)
+
+and
+
+- I -IY-sI2(R,y) = 1 dQy Iys(R+yl2,R-yl2) 12 ,
+
+(S.6)
+
+41l
+
+where Rand y are the average and relative coordinates
+
+R== (r+r')12
+
+(S.7)
+
+y =r-r' .
+
+(S.8)
+
+In terms of these averages, Ts [n] and E~ [n] are given by (Lee and Parr,
+
+1987)
+
+r Ts[n]
+
+=Id3R
+
+l
+
+_!!:.... 2m
+
+[(d22+~~)Ys(R'Y)]
+
+dy y dy
+
+y =
+
+0
+
++!8!:m....v~n(R)J1
+
+(5.9)
+
+(5.10)
+
+In order to construct the functional ys[n] in more explicit terms, we first rewrite the density matrix (5.1) as
+
+5.1 Density-Gradient Expansions from Semiclassical Expansions: A Survey
+
+77
+
+00
+L ys(r,r') = O(eF-ej)(rl tpj)(tpjlr')
+j=l
+
+where
+
+[1: O(x) =
+
+x>O
+
+0: x<O
+
+(5.11)
+
+denotes the usual Heaviside step function. By completeness of the single-particle orbitals, one finds
+
+(5 ..12)
+
+If the step function is further expressed in terms of an inverse Laplace transform
+
+(5.13)
+
+one obtains for the density matrix
+
+f - 1 c+ioo dP
+
+ys(r,r') =-.
+
+ePeFC(r,r';p)
+
+2m c-ioo P
+
+with
+
+(5.14) (5.15)
+
+Equation (5.12) [or, equivalently, (5.14)] provides a formally exact representation of the Kohn-Sham density matrix if Os is the Kohn-Sham potential of some interacting system,
+
+vs([n];r) = v(r)+ f. -n(-r')d3r'o+E~ .
+
+Ir-r'l
+
+on(r)
+
+(5.16)
+
+In that case, the diagonal of ys(r,r') is the exact interacting ground state density
+
+n(r) = (rl O(eF-t- vs[nDlr) .
+
+(5.17)
+
+Equations (5.16, 17), if solved in self-consistent fashion, are obviously equivalent to the Kohn-Sham scheme. These equations, however, do not involve any orbitals. We mention that this orbital-free formulation of the KohnSham method can be turned into a practical scheme if the right-hand side of (5.17) is computed from a path-integral representation of the propagator
+
+78
+
+5. Explicit Functionals I
+
+C(r,r,p) (Harris and Pratt, 1985; Yang, 1987; Hoffmann, Pratt, and Harris, 1988; Yang, 1988a, b,c).
+The semiclassical methods to be discussed in this chapter are also based on the representation (5.12) of the density matrix. In contrast to the orbital-free Kohn-Sham scheme, these methods do not require any previous knowledge of the density functional Vs [n). The basic procedure consists of three steps:
+(i) perform an n-expansion of the right-hand side of (5.14) up to a given
+maximum power of n. This leads to an expression for ys(r,r') in terms of
+the potential vs(r) and its derivatives:
+
+(5.18)
+
+(ii) Invert the resulting diagonal
+
+(5.19)
+consistently to the same maximum order in n. This yields an approxima-
+tion for the functional Vs [n):
+
+(5.20)
+
+(iii) Insert this expression in (5.18). In this fashion, one obtains approximations for the density functional Ys [n) and hence, by (5.3, 4), also for the functionals Ts [n) and E~s [n). The resulting expressions are traditionally termed "density-gradient expansions" of Ys' Ts' and E~.
+In Sect. 5.2 we shall describe in some detail the method of Kirzhnits, which was historically the first technique to provide a systematic gradient expansion of Ts[n). Wigner-Kirkwood expansions and related techniques will be discussed in Sect. 5.3. Those methods lead to the same final result as the Kirzhnits expansion. The technical details, however, are somewhat different. The Wigner-Kirkwood approach, in particular, is more suitable for partial resummations of the gradient series which will also be reviewed in Sect. 5.3. The discussion of the gradient expansion will be concluded in Sect. 5.4 with a critical review of empirical convergence studies. In the following Sects. 5.5 -7 we shall describe some alternative density functionals related to but not identical with the gradient expansions of Ts [n] and E~ [n]. Section 5.5 in particular contains a detailed analysis of the original von Weizsacker functional and its relation to the gradient expansion.
+The traditional density functional models of Thomas, Fermi, Dirac, and von Weizsacker are obtained if the lowest-order terms of the gradient expansion are used as approximations for the basic energy functional in the Hohenberg-Kohn variational principle. In Sect. 5.8 we shall discuss these variational models along with some applications to atoms and molecules.
+As noted above, all the approximate density functionals to be discussed in this chapter are based on expansions of the one-particle density matrix. Equivalent results can be derived from semiclassical expansions of the one-
+
+5.2 The Kirzhnits Method
+
+79
+
+body Green's function. This approach will not be described here in great detail. The interested reader is referred to the original work of Baraff and Borowitz (1961), Gross (1972), Peuckert (1974, 1976a, b), Voros (1977), Grammaticos and Voros (1979), and Yang (1986). Semiclassical expansions of Nbody Green's functions have been studied by Wilk, Fujiwara, and Osborn (1981), Fujiwara, Osborn, and Wilk (1982), Osborn and Fujiwara (1983), Tirapegui, Langouche, and Roekaerts (1983), Bolle and Roekaerts (1984), Osborn (1984), and Osborn and Molzahn (1986). Correlation functions were evaluated with similar techniques by Hynes, Deutch, Wang, and Oppenheim (1968), Hynes and Deutch (1969), Barocchi, Moraldi, and Zoppi (1982), and Dickman and O'Connell (1985). Ultimately, the semiclassical approach to Nbody Green's functions and correlation functions should also provide approximate density functionals for the correlation energy. This possibility, however, has not been explored so far.
+
+5.2 The Kirzhnits Method
+5.2.1 Semiclassical Expansion The starting point of the Kirzhnits expansion (Kirzhnits, 1957, Kompaneets and Pavlovskir, 1957; Kirzhnits, 1961, 1967) is the representation
+(5.21)
+of the noninteracting one-particle density matrix. In extension of (5.12) we
+have introduced here, for convenience, an operator EF which, in configuration
+space, represents the local Fermi energy
+
+In order to evaluate the formal expression (5.21), one first introduces the plane-wave decomposition
+
+J )ls(r,r') =
+
+~
+L
+
+-d-33 k (rIB(E-F--t)lka)(kalr')
+
+a = ± (21l)
+
+(5.22)
+
+which leads to a mathematical problem of the following general nature: Given
+the eigenfunction Ia) of an operator 0,
+
+ola)=ala) ,
+
+how can one compute the quantity
+
+1(0+6)la)
+
+(5.23)
+
+80
+
+s. Explicit Functionals I
+
+if the operator b does not commute with 0:
+* [0, b] 0 .
+
+e, (The kernel of (5.22) is recovered by setting 1 = 0 = - i, b = EF.)
+
+To tackle this problem one first rewrites (5.23) in terms of an inverse
+
+Laplace transformation
+
+.
+
+1 c+ioo l(o+b)la)=-. S dpF(J3)e P(d+6)la).
+2111 c-ioo
+
+(5.24)
+
+Next one introduces the operator
+
+(5.25)
+
+Insertion into (5.24) leads to
+1 c+ioo l(o+b)la)=-. S dpF(J3)eP(a+6)K(J3)la).
+2111 c-ioo
+
+(5.26)
+
+The crucial advantage of (5.26) [as opposed to (5.24)] is the fact that the eigenvalue a has now replaced the operator 0 in the argument of the exponential function. Expanding K(J3) in a power series with respect to p,
+
+00
+K(J3) = L pnOn ,
+n=O
+
+(5.27)
+
+one finds (Gross, 1980) by comparison with (5.25) the recurrence relation
+
+00 = 1, 01 =0
+
+([0, t On+l =_1_ On] + CiOn_i)
+
+n+ 1
+
+j= I
+
+(5.28)
+
+= -(_1)i
+
+[b,
+
+[b,
+
+[...
+
+A
+[b,a]
+
+...
+
+]
+
+j!, • )
+
+i times
+
+In the final step, the expansion (5.27) is inserted into (5.26). Interchanging summation and integration one obtains
+
+l(o+b)la)= L00 [ -1. c+Sioo dPF(J3)pn eP(a+6)] Onl a).
+n=O 2111 c-ioo
+
+(5.29)
+
+Since the inverse Laplace transform in square brackets formally represents the
+n-th derivative In) of the function lone is eventually led to the expansion
+
+5.2 The Kirzhnits Method
+
+81
+
+00
+1(0+6)la) = L fn)(a+6)Onla) .
+n=O
+
+(5.30)
+
+This is the central equation of the Kirzhnits formalism. The argument leading to (5.30) is not free of mathematical problems. Even
+if the Laplace transform of an operator-valued function and its derivatives can be justified, the term by term integration in (5.29) is likely to lead to an asymptotic expansion rather than a convergent series (Dingle, 1973).
+For the matrix element (rIB(EF-t)lka) in (5.22), the expansion (5.30) leads to the distributional series
+
+(rl B(EF-t) 1ka) = B[EF(r)-(h 2k 212m)](rl ka)
+00
++ L J(n)[EF(r)-(h 2 k 212m)](rIOn+tika).
+n=l
+
+(5.31)
+
+The first term on the right-hand side represents the classical limit, i.e., it is the only contribution of order O(h~. At the same time, this term constitutes the limit of "weak inhomogeneity" in the sense that it would be the only surviving
+term if the operators EF and t were to commute (which would be the case for
+a constant potential vs). The remaining terms represent inhomogeneity corrections in the form of a semiclassical expansion, i.e., an expansion in powers of h. The operators On are determined by the recurrrence relation (5.28) in-
+volving multiple commutators of EF and t which, in turn, lead to multiple
+derivatives of the local Fermi energy EF(r). Each derivative carries a power of h since it originates from the action of the momentum operator (-ihV) on
+EF(r). Insertion of (5.31) into (5.22) finally yields the semiclassical expansion of
+the density matrix )Is. To second order in h one obtains (Gross and Dreizler, 1981 a).
+
+(5.32)
+
+with
+
+)liO)(r,r') = 11. k~lt. (z)/z
+'It
+
+1[1. . 1. and
+
+(2) )Is
+
+(r
+
+,
+
+r,
+
+)
+
+=
+
+1
+
+.
+
+-[jo(z)-Zlt(z)]V-2-k-~-[Z}o(z)](VkF2 )·Y-
+
+'It 24
+
+kF 4
+
+Y
+
+Y) Y +1- [z 2}.o(z)] -1 V ( (V k F2)'- '-
+
+12
+
+kF
+
+Y Y
+
+(5.33)
+
+-
+
+-1
+
+[j.o(z)(1
+
++ Z 2 ) - Z.l t
+
+(z)]
+
+(VkW
+--3-
+
+96
+
+kF
+
+82
+
+5. Explicit Functionals I
+
+where
+
+z=kFlyl , y=r-r'.
+
+kF(r) denotes the local Fermi momentum associated with EF(r),
+
+kF(r)
+
+=
+
+[
+
+12m1
+
+]112
+EF(r)
+
+,
+
+(5.34) (5.35)
+
+and jo(z) and jl (z) are the spherical Bessel functions
+
+1.0(z) =s-izn-z
+
+(5.36)
+
+11. (z) =si-nz--c-os-z.
+
+Z2
+
+Z
+
+(5.37)
+
+For later reference, we also quote the result for the diagonal of (5.32), i.e., the density itself:
+
+n(r) =_1_k~+_1_V2k~ __l_(Vk~i .
+3n2 24n2 kF 96n 2 k~
+
+(5.38)
+
+The local Fermi momentum (5.35) is very convenient for notational brevity; the
+n, powers of however, become somewhat obscured if kF(r) [rather than EF(r)] n is used throughout. In order to display the relative orders of explicitly, we
+rewrite, as an example, the gradient expansion of (5.38) in terms of EF(r):
+
+n(r) = k~ (1+~ [~V2EF_-.!..(VEFi]) .
+
+3n 2
+
+2m 8 E~ 32 E~
+
+(5.38')
+
+Once the density matrix is known, expressions for the noninteracting kinetic energy Ts[n] and the Kohn-Sham exchange energy E~[n] are readily obtain-
+ed by insertion into (5.3, 4). In terms of the respective energy densities ts(r) and e~ (r) defined by
+
+Ts = Sd 3 rts(r)
+E~ = Sd3re~(r) t
+n one obtains to second order in (Gross and Dreizler, 1985):
+
+(5.39)
+
+5.2 The Kirzhnits Method
+
+83
+
+We note that the result for the exchange energy is obtained only after a suitable regularisation of divergent Coulomb integrals (Gross and Dreizler, 1981 a). The fourth-order contributions to n (r) and ts(r} have been given by Hodges (1973), correcting an error in the original result of Kirzhnits (1957). The sixthorder contributions to n (r) and ts(r} are derived in the work of Murphy (1981).
+Results at this level (the serniclassicallevel) are of use only if the potential vs(r} is given. The Fermi energy 8F can then be calculated by specification of
+J the particle number N = d 3r n(r}. Applications at his level are mainly found
+in the calculation of average nuclear properties (Schuck, 1985; Brack 1985; Brack, Guet, and HAkansson, 1985).
+It should be noted that the results (5.38, 40) involve a serious turning point
+problem: The local Fermi energy, EF(r} = 8F- vs(r}, and hence the argument
+of the square root in (5.35) becomes negative at the classical turning point. Therefore, the zero-order terms are defined only in a finite region of coordinate space and all but one of the gradient terms diverge at the boundary of this region. Structural interconnections with the WKB approximation have been investigated by Osborn and Molzahn (1986). A connection between the lowestorder (Thomas-Fermi) term and the WKB approximation is already indicated by March and Plaskett (1956).
+
+5.2.2 Density-Gradient Expansion
+In the context of density functional theory, (5.38 -40) represent only an intermediate step. Eventually, the kinetic and exchange energies are expressed as functionals of n(r}. This goal is achieved by inversion of (5.38) (order by order in the derivatives). Subsequent insertion of the approximate functional kF [n] into (5.39, 40) leads to the density-gradient expansions
+
+(5.41)
+
+and
+E~[n] =E~O)[n]+E~2)[n]+ ...
+
+(5.42)
+
+In terms of the associated energy densities,
+-rP) = Jd3rt~2/)(r}
+E~2/)=Jd3re~2/)(r) ,
+
+the results available can be summarized as
+
+(5.43)
+
+84
+
+5. Explicit Functionals I
+
+(Vn)2 = 1(2) C2
+
+s
+
+,
+
+n
+
+(5.44)
+
+1
+
+h2
+
+C4 = 540(3 n 2)213 m
+
+(5.45)
+
+(6)
+Is
+
+_-C6 n
+
+-1/3
+
+[13
+
+(V-V- 2n)2
+
++25-7-5
+
+(V-2-n)3
+
++24-9
+
+(v-n)2
+
+(V- 4n)
+
+n
+
+144 n
+
+16 n
+
+n
+
++ 1499 (Vn)2 (V2n)2_1307 (vn)2 (Vn.VV2n)
+
+18 n
+
+n
+
+36 n
+
+n2
+
++343 (vn.vvn)2 +8341 (V2n) (vn)4_1600495 (Vn)6] ,
+
+18
+
+n2
+
+72 n
+
+n
+
+2592 n
+
+1
+
+h2
+
+C6= 45360(3n2)4/3 m
+
+(5.46)
+
+(5.47)
+
+ex(2)-_
+
+-d (Vn)2
+2 ----;j/J
+
+,
+
+n
+
+(5.48)
+
+A number of comments can be made at this point.
+nO) (1) One immediately recognizes in [n ] and E~O) [nJ the density funcnO) tionals first introduced by Thomas (1927) and Fermi (1927, 1928) and by Dirac
+(1930). Depending on the context, either [nJ or TTF [n I will be used to
+n denote the Thomas-Fermi functional (compare Sect. 2.3). The second-order
+kinetic energy 2) [nJ differs from the functional Tw[n I first introduced by
+von Weizsacker (1935) (2.43) by a factor 119. A critical comparison of the two functionals will be given in Sect. 5.5.
+(2) The expressions (5.43-48) are valid for any point of coordinate space, indicating that the elimination of kF(r) also incorporates a continuation into the semiciassically forbidden region. This procedure can be justified by considering the gradient expansion at finite temperature (perrot, 1979; Bartel, Brack, and Durand, 1985). In this case, the step function representing the density operator (5.12) is replaced by a Fermi distribution:
+
+5.2 The Kirzhnits Method
+
+85
+
+The latter does not lead to a turning point problem at the semiclassical level, i.e., the semiclassical expansions are well-defined at all points of coordinate space. Taking the zero-temperature limit (fJ-+ 00) after elimination of the local Fermi momentum kF(r), one recovers the density-gradient expansion above while maintaining well-defined expressions throughout the whole procedure.
+(3) We remark further that the terms of the gradient expansion given above are simplified expressions obtained with Green's theorem under the assumption that n (r) and its gradients vanish for r-+ 00 or on an appropriate surface. Otherwise one would obtain, for instance, for the kinetic-energy gradient expansion (Brack, Jennings, and Chu, 1976)
+
+1(0) - t(O) s- s
+
+(5.49)
+
+(5.50)
+
+(5.51)
+We mention that the Green's function approach of Yang (1986) leads to a coefficient /i 2/12m rather than /i 2/6m for the (V2n)-term in (5.50).
+At this point it is important to note that there exist essentially two natural definitions of the noninteracting kinetic energy density:
+(5.52)
+and (5.53)
+For localised systems, of course both forms integrate to the same global kinetic energy. In their local behaviour, however, ts(r) and t~(r) are different. A detailed comparison will be given in Sect. 5.5. Here we anticipate that
+(5.54)
+which is readily verified by insertion of (5.1) into (5.52) and (5.53) (under the assumption of real orbitals). Equations (5.49-51) represent the gradient expansion of ts(r). In order to obtain the expansion of t~(r) one has to subtract (/i 2/4m)V2n on the right-hand side of (5.50), leading to
+
+86
+
+s. Explicit Functionals I
+
+(5.50')
+
+(Yang's method would give (-1i 2/6m)V2n in place of (-1i 2/12m)V2n.) We emphasize that (5.50') [rather than (5.50) or (5.44)] and (5.51) [rather than (5.45)] are mandatory for all applications involving extended systems (Santos and Villagni, 1972).
+(4) Using the exact scaling laws (4.104, 105), the terms of the gradient expansion are easily demonstrated to have the general structure
+
+= t~21) (r) n (r)(5-21)/3 r(21) [n]
+
+(5.55)
+
+and
+e~21)(r) = n(d4- 21)/3 e(21)[n] ,
+
+(5.56)
+
+where r(21) [n] and e(21) [n] are homogeneous functionals of n of degree zero. For the explicit expressions (5.43-48), as well as (5.49-51), this structure is immediately verified. A graphical representation of the terms contributing to r(21)[n] and e(2I)[n] has been derived by Kozlowski and Nalewajski (1986). Using this representation, it is very easy to predict the analytic structure of all contributing terms; the coefficients, however, remain undetermined. Kozlowski and Nalewajski also demonstrated that each contribution to r(21) or e(2I) can be written as
+
+(5.57)
+* with constants a, p O. As an immediate consequence of (5.57), r(21)(r) and
+e(2/) (r) tend to a constant for r-+ 00 if an exponentially decaying density is inserted. Due to the density factors mUltiplying r(21) and e(21) in (5.55, 56), t~21) (r) and e~2I) (r) increase exponentially as r-+ 00 for all contributions with
+I1 2/"2!6. Thus all energy terms 2/)[n] and E~2/)[n] with 2/"2!6 are divergent if
+exponentially decreasing densities are inserted. (5) The lowest-order exchange potential
+
+(0)
+Vx
+
+(
+
+r
+
+)
+
+_ -
+
+oE~O) [n]
+
+_- -4 don ()r113
+
+on(r) 3
+
+(5.58)
+
+has the same density dependence as the local exchange potential of the Hartree-Fock-Slater method (Slater, 1951), but differs in strength by a factor of 2/3. This difference arises from interchange of "averaging" and "variational" procedures. We emphasize that only the coefficient 4dol3 provides the correct exchange potential in the limit of slowly varying densities (Kohn and Sham, 1965). The Slater coefficient, however, might prove more appropriate in other density regimes. Yet another coefficient will be derived in Sect. 5.7.
+
+5.2 The Kirzhnits Method
+
+87
+
+We further note that the second-order exchange potential
+
+(5.59)
+
+diverges in atoms both at large and small r (Herman, Van Dyke, and Orten-
+burger, 1969). These undesirable features obviously call for improvement.
+(6) As mentioned above, the calculation of the second-order exchange
+coefficient, d2 = 0.001667 e2, involves a standard regularisation of divergent Coulomb integrals where the bare Coulomb interaction 111 r- r' 1is replaced by the screened interaction exp (- a Ir-r' 1)/ Ir-r' I, the limit a-+O being taken
+at the end of the calculation. This procedure is found already in Sham's (1971) derivation of E~2) [n], which was based on linear response theory. Recent recalculations of d2 employing linear response theory indicate however, that this procedure does not give the correct answer (Kleinman, 1984; Antoniewicz
+and Kleinman, 1985; Kleinman and Lee, 1988; Chevary and Vosko, 1988).
+There is little doubt that d2 should be replaced by (10/7)d2 = 0.OO2382e 2•
+Further details will be discussed in the context of linear response theory in
+Sect. 7.6.2.
+Imposing a number of exact conditions on the exchange charge density,
+Becke (1983) arrived at a coefficient d2 = 0.0036ge 2• I In Becke's derivation,
+the Taylor expansion of the exchange charge density is required to be correct
+through second order in the relative coordinate y, and the total exchange
+charge is forced to be exactly - 1. (7) The density-gradient expansions of Ts [n] and E~s [n] have no explicit
+dependence on the particle number N. Therefore OFsfon and oE~s/ on do not exhibit the required discontinuities as N passes through an integer [Sect. 2.4,
+and (6.30, 34)]. This shortcoming is likely to cause problems even if the varia-
+tions in n(r) are restricted to conserve a given (integer) particle number. Consider, for example, a system consisting of two separated parts a, b which interact only very weakly with each other (Herring, 1986). Such a system might
+have a ground state with nonintegral particle numbers N a, Nb in each part,
+but with N = Na +Nb being an integer. Variation of the density at constant N
+could cause Na to pass through an integer value. In that case, OFs/ On should go through a near discontinuity in region a. A behaviour of this kind is obviously not reproducible with the standard gradient expansion.
+(8) Up to this point we have restricted our considerations to spin-saturated
+systems with n+ (r) = n_ (r) = n(r)l2. In the spin-polarised case, the complete density matrix is a simple superposition of the spin-up-orbital and the
+spin-down-orbital contributions (4.33):
+
+1 The coefficient P= O.OO293e 2 given by Becke corresponds to the spin-polarized version of the gradient expansion (see point 8 below). P differs from dz by a factor 2113.
+
+88
+
+5. Explicit Functionals I
+
+L ys(r,r') = B(eF-e)+»IP)+)(r)IP)+)(r')*
+j
+L + B(eF-e~-»IP~-)(r)IP~-)(r')*
+I
+
+= y}+)(r,r')+ y}-)(r,r') .
+
+(5.60)
+
+Consequently, the spin-polarised functional for the kinetic energy is a simple superposition as well:
+
+(5.61)
+
+Now suppose we know the functional Ts [n 1 associated with unpolarised
+systems. Then, by (5.61),
+
+Ts[n] = Ts,pol [nI2, nl2] = Ts,pol [nl2, 0] +Ts,pol [0, nl2] = 2 Ts,pol [nl2, 0] = 2 Ts,pol [0, nl2]
+
+Reinsertion into (5.61) finally leads to the general formula (Oliver and Perdew, 1979)
+
+Ts,pol[n+,n_] = t Ts[2n+1+t Ts[2n-1
+
+(5.62)
+
+The same argument leads to
+E~~I[n+,n_1 = tE~s[2n+]+tE~s[2n_1
+
+(5.63)
+
+In terms of the spin polarisation function
+
+(r):= n+ (r)-n_ (r) , n+ (r)+n_ (r)
+
+(5.64)
+
+describing the degree of local magnetisation, the spin densities are readily expressed as
+
+so that
+
+(5.65)
+
+and E~~I[n,(] =tE~[(1+0n]+tE~[(1-0n1
+
+(5.66)
+
+Applying these formulae to the gradient expansion, one obtains, e.g., in lowest order
+
+5.2 The Kirzhnits Method
+
+89
+
+t~?bOI (r) = H(1 + «r»5/3 +(1- «r»5/3] t~O) (r)
+
+(5.67)
+
+and
+
+(5.68)
+
+The gradient terms take a particularly simple form if I;(r) = I; = const. In that case, one readily deduces from (5.55, 56)
+
+t~~~~l (r) = H(1 + 0(5-2/)/3 + (1- 0(5-21)/3] t~21) (r)
+
+(5.69)
+
+and
+e~:~OI(r) = H(1 + 0(4-21)/3 +(1- 0(4-21)/3]e~2/)(r) .
+
+(5.70)
+
+The second-order kinetic energy and the fourth-order exchange term are particularly simple:
+t(s2,)pol (r) -- t(s2) (r)
+e(x4,)pol (r) = e(x4) (r) •
+(9) Finally one could ask how the scenario changes if one considers the Hartree-Fock density matrix
+
+(5.71)
+
+rather than the Kohn-Sham density matrix ys(r,r'). Application of the Kirzhnits method to (5.71) should lead directly to a gradient expansion of THF[n] (rather than Ts[n]). The Hartree-Fock Hamiltonian
+hHF = (+0+ OH+A~B+A
+
+involves, besides the external and the Hartree potentials, the exchange operator
+A. The nonlocal character of A leads to considerable complications, however,
+a partial answer can be given (Schweitzer and Dreizler, 1985). Expanding the
+density operator in the form
+
+which corresponds to an inclusion of corrections of order e2, the expansion to second order gradients can be worked out. The dependence of the density and kinetic energy density on kF(r) is augmented by additional terms, elimination of kF(r) yields, however,
+
+to second order in the gradients and first order in e2• This result is consistent with the empirical observation that Hartree-Fock and Kohn-Sham orbitals
+
+90
+
+5. Explicit Functionals I
+
+lead to very similar energy contributions (Talman and Shadwick, 1976). (For a numerical comparison of Hartree-Fock and Kohn-Sham exchange energies see Table 5.3.)
+
+5.3 The Wigner-Kirkwood Approach and Partial Resummation of the Gradient Expansion
+
+The results of the preceding section can also be obtained on the basis of the Bloch density matrix
+
+C(r,r';p) = ~ 'Pj(r)'P;(r')e- PBj = (rle-P(f+O'>lr')
+j
+
+(5.72)
+
+rather than the Dirac density matrix )ls(r,r'). Depending on the nature of the
+parameter p, the Bloch density matrix is also referred to as thermal or heat
+kernel, and as canonical density matrix or propagator. As noted in Sect. 5.1,
+the Dirac and Bloch density matrices are related by an inverse Laplace transformation
+
+J 1 c+ioo 1
+
+)ls(r,r')=-.
+
+dp-C(r,r';p)e BFP .
+
+2m c-ioo P
+
+(5.73)
+
+As exactly the same transformation is used in the Kirzhnits method, although on a more formal level (5.24), the reproduction of results is no surprise. On the other hand, consideration of the structurally simpler Bloch density allows a certain amount of flexibility, which can be used for the purpose of resummation. The canonical density matrix C(r,r';p) satisfies the Bloch equation
+
+a ( -aCp (r,r';p)+
+
+--;,V2~+us(r)) C(r,r';p> = 0
+2m
+
+(5.74)
+
+with boundary condition
+C(r,r';O) =J(r-r') .
+
+For free particles (Us == 0), the Bloch density matrix is known exactly:
+
+3/2
+
+C (r. r"p) = ( ~)
+
+free"
+
+211:;' 2 P
+
+e-m(r-r')2I2ItlP •
+
+(5.75)
+
+If Us is a constant, the wave functions in (5.72) remain the same as for free
+particles, but all the energy levels are shifted by the same amount vs' Thus
+Cfree is mUltiplied by exp (- pUs). If this prescription is applied locally at the
+"center of mass" coordinate R = (r+r')I2, one obtains the classical or
+Thomas-Fermi approximation of the Bloch density matrix
+
+5.3 The Wigner-Kirkwood Approach and Partial Resummation
+
+91
+
+CTF(r,r';[J) = Cfree(r,r';[J)e-PvS<R) .
+
+(5.76)
+
+One easily verifies by executing the inverse Laplace transformation (5.73) that CTF corresponds to the lowest-order Dirac density matrix (5.33).
+The basic idea of Wigner (1932) and Kirkwood (1933) was to expand C(r,r';[J) around its classical value
+
+(5.77)
+
+The Bloch equation (5.74) then induces recurrence relations for the functions C[(r,r';[J) (Uhlenbeck and Beth, 1936) which ultimately lead to expressions for C[(r,r';[J) containing powers of [J and combinations of I derivatives acting on vs(r). As an example, we quote the result for the diagonal of the Bloch density matrix to second order in h:
+C(r,r;[J) = CTF(r,r,[J)
+. (5.78)
+
+For this expression, the inverse Laplace transformation (5.73) can be performed analytically. As ant~cipated, the result for the density is identical with (5.38'). The corresponding result for the kinetic energy density, in agreement with (5.39), is obtained from the relation
+(5.79)
+
+which follows directly from the Bloch equation (5.74). A third variant to generate the same results relies on the Wigner transform
+of the Bloch density matrix (Jennings, 1978),
+J Cw(R,k;[J) = d 3y C(R+yl2,R-yl2;[J)e-ik 'Y ,
+where R and y are the average and relative coordinates defined in (5.7, 8). The most efficient way to generate the semiclassical expansion of Cw is the exploitation of the relation between Cw and the one-particle Green's function (Grammaticos and Voros, 1979).
+The direct Wigner transform of the Dirac density matrix will be discussed from a somewhat different perspective in Sect. 5.7.
+The structure of the semiclassical expansion (5.77) is sufficiently transparent to allow the resummation of all powers of first-order derivatives of vs(r), to infinite order in h (Baltin, 1972; Bhaduri, 1977; March, 1977; Durand, Brack, and Schuck, 1978; Lawes and March, 1980).
+
+92
+
+5. Explicit Functionals I
+
+The result for the Bloch density matrix looks as follows: 2
+
+(5.80)
+
+A similar expression for one-dimensional systems has been obtained via a WKB-like argument by Balazs and Zipfel (1973, 1974). Their result, however, differs from (5.80) in that [VRvs(R)f is replaced by its value at the classical turning point (Kessler and Negele, 1976).
+The Dirac density matrix obtained from (5.80) via the inverse Laplace transformation (5.73) can be expressed in terms of the Airy function Ai(z). The final result takes the simple form (Durand, Brack, Schuck, 1978):
+
+(5.81)
+
+with
+
+;,2
+
+] -113
+
+a(R) = [ 8m (VRvs(R)i
+
+and
+
+y(O)(~r'·.u)=k!(R)jl(k,u(R)IYI) k (R)= [ 2m <.u_ V (R»]1I2
+
+s "
+
+n 2 k,u(R)lyl ',u
+
+;,2
+
+s.
+
+The expression (5.81) leads to well-behaved densities n(r) and ts(r) for all r. In particular, there are no singularities at the classical turning point. For a linear potential, (5.81) represents of course the exact density matrix.
+The complete resummation of all second-order derivatives of vs(r) is definitely more involved but feasible (Durand, Brack, and Schuck, 1978), even for non-local external potentials (Durand, Schuck, and Brack, 1980). The final result for the case of local potentials is conveniently expressed in terms of the
+eigenvalues Ai(R) and (normalised) eigenvectors Qi(R) = (ail (R), ai2(R),
+ai3(R» of the tensor vij(R) of partial derivatives
+
+2 The expression obtained by Baltin (1972) looks somewhat different from (5.80). For instance, [VRv.(R)f is replaced by [(Vv.(r)r+(Vv.(r,»2)I2, and v.(R), appearing in the expression for CTF(r,r';p), is replaced by [vs(r)+ vs(r'))/2. Also, some additional terms involving the difference [V vs(r)- Vv.(r'») appear in the exponent. However, since the density and the kinetic energy density (5.79) are completely determined by the diagonal, C(r,r.P), Baltin's results for n(r) and ts(r) must be identical with those obtained from (5.80).
+

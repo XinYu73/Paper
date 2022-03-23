@@ -1,0 +1,1223 @@
+PHYSICAL REVIEW A, VOLUME 61, 052306
+Distributed entanglement
+Valerie Coffman,1 Joydip Kundu,2 and William K. Wootters3 1Department of Physics, Johns Hopkins University, Baltimore, Maryland 21218
+2Department of Physics, MIT, Cambridge, Massachusetts 02139 3Department of Physics, Williams College, Williamstown, Massachusetts 01267 and Isaac Newton Institute, University of Cambridge, Cambridge CB3 0EH, United Kingdom
+͑Received 10 August 1999; published 10 April 2000͒
+Consider three qubits A, B, and C which may be entangled with each other. We show that there is a trade-off between A’s entanglement with B and its entanglement with C. This relation is expressed in terms of a measure of entanglement called the concurrence, which is related to the entanglement of formation. Speciﬁcally, we show that the squared concurrence between A and B, plus the squared concurrence between A and C, cannot be greater than the squared concurrence between A and the pair BC. This inequality is as strong as it could be, in the sense that for any values of the concurrences satisfying the corresponding equality, one can ﬁnd a quantum state consistent with those values. Further exploration of this result leads to a deﬁnition of an essential three-way entanglement of the system, which is invariant under permutations of the qubits.
+PACS number͑s͒: 03.67.Ϫa, 03.65.Bz, 89.70.ϩc
+
+Quantum entanglement has rightly been the subject of
+much study in recent years as a potential resource for com-
+munication and information processing. As with other re-
+sources such as free energy and information, one would like
+to have a quantitative theory of entanglement giving speciﬁc rules about how it can and cannot be manipulated; indeed, such a theory has begun to be developed. The ﬁrst step in building the theory has been to quantify entanglement itself. In the last few years a number of entanglement measures for bipartite states have been introduced and analyzed ͓1–7͔, the one most relevant to the present work being the ‘‘entanglement of formation’’ ͓2͔, which is intended to quantify the amount of quantum communication required to create a given state. In the present paper we draw on previous work on entanglement of formation ͓6,7͔ in order to explore another basic quantitative question: To what extent can an object be simultaneously entangled with two other objects?
+Unlike classical correlations, quantum entanglement cannot be freely shared among many objects. For example, given a triple of spin-1/2 particles A, B, and C, if particle A is fully entangled with particle B, e.g., if they are in the singlet state (1/&)(͉↑↓͘Ϫ͉↓↑͘), then particle A cannot be simultaneously entangled with particle C. ͑If A were entangled with C, then the pair AB would also be entangled with C and would therefore have a mixed-state density matrix, whereas the singlet state is pure.͒ One expects that a less extreme form of this restriction should also hold: if A is partly entangled with B, then A can have only a limited entanglement with C. The ﬁrst goal of this paper is to verify this intuition and express it quantitatively. We will see that the restriction on the sharing of entanglement takes a particularly elegant form in terms of a measure of entanglement called the ‘‘concurrence,’’ which is closely related to the entanglement of formation. Further analysis of this result will lead us naturally to a quantity that measures an essential three-way entanglement of the system and is invariant under all permutations of the particles ͓8͔.
+The present work is related to recent work on the characterization of multiparticle states in terms of invariants under
+
+local transformations ͓9–12͔; indeed, both the concurrence and our measure of three-way entanglement are invariants in this sense. Our work is also related to research exploring the connection between entanglement and cloning ͓13–17͔. An example along these lines was studied by Bruß, who asked, in the case of a singlet pair AB, to what extent particle B’s entanglement with particle A can be shared symmetrically and isotropically with a third particle, for a purpose such as teleportation where isotropy is desired ͓18͔. Our investigation is similar in spirit to that of Bruß but has a different focus in that we are looking for a general law that is independent of assumptions about symmetry or isotropy. Some of the results presented here have been mentioned in a recent paper by one of us ͓19͔, but the proofs and most of the details and observations have not been previously published. In this paper we conﬁne our attention to binary quantum objects ͑qubits͒ such as spin-1/2 particles—we will use the generic basis labels ͉0͘ and ͉1͘ rather than ͉↑͘ and ͉↓͘—but the same questions could be raised for larger objects.
+We begin by deﬁning concurrence. Let A and B be a pair of qubits, and let the density matrix of the pair be ␳AB , which may be pure or mixed. We deﬁne the ‘‘spin-ﬂipped’’ density matrix to be
+
+˜␳ABϭ͑ ␴y  ␴y ͒␳A*B͑ ␴y  ␴y ͒,
+
+͑1͒
+
+where the asterisk denotes complex conjugation in the standard basis ͕͉00͘, ͉01͘, ͉10͘, ͉11͖͘ and ␴y expressed in the same basis is the matrix
+ͩ ͪ 0 Ϫi . i0
+
+As both ␳AB and ˜␳AB are positive operators, it follows that the product ␳AB˜␳AB , though non-Hermitian, also has only real and non-negative eigenvalues. Let the square roots of
+these eigenvalues, in decreasing order, be ␭1 , ␭2 , ␭3 , and ␭4 . Then the concurrence of the density matrix ␳AB is deﬁned as
+
+1050-2947/2000/61͑5͒/052306͑5͒/$15.00
+
+61 052306-1
+
+©2000 The American Physical Society
+
+COFFMAN, KUNDU, AND WOOTTERS
+
+PHYSICAL REVIEW A 61 052306
+
+CA B ϭ max͕ ␭ 1 Ϫ ␭ 2 Ϫ ␭ 3 Ϫ ␭ 4 ,0͖ .
+
+͑2͒
+
+For the special case in which the state of AB is pure, one can
+show that CABϭ2ͱdet ␳A, where ␳A is the density matrix of
+qubit A, that is, the trace of ␳AB over qubit B. It is by no means obvious from the deﬁnition that the
+concurrence is a measure of entanglement for mixed states.
+This interpretation comes from earlier work, in which a spe-
+ciﬁc connection is established between the concurrence and the entanglement of formation of a pair of qubits ͓7͔. For the purpose of this paper it is sufﬁcient to note that Cϭ0 corresponds to an unentangled state, Cϭ1 corresponds to a completely entangled state, and the entanglement of formation is a monotonically increasing function of C.1 At present, the concurrence is deﬁned only for a pair of qubits, not for
+higher-dimensional systems.
+We now turn to the ﬁrst problem of this paper: given a
+pure state of three qubits A, B, and C, how is the concurrence
+between A and B related to the concurrence between A and
+C? For this special case—a pure state of three qubits—the
+formula for the concurrence simpliﬁes: each pair of qubits,
+being entangled with only one other qubit in a joint pure
+state, is described by a density matrix having at most two nonzero eigenvalues. It follows that the product ␳AB˜␳AB also has only two nonzero eigenvalues. We can use this fact and Eq. ͑2͒ to write the following inequality for the concurrence CAB between A and B.2
+
+CA2 B
+
+ϭ
+
+͑
+
+␭
+
+1
+
+Ϫ
+
+␭
+
+2
+
+͒2
+
+ϭ
+
+␭
+
+2 1
+
+ϩ
+
+␭
+
+2 2
+
+Ϫ
+
+2
+
+␭
+
+1␭
+
+2
+
+ϭTr͑ ␳AB˜␳AB͒Ϫ2␭1␭2рTr͑ ␳AB˜␳AB͒.
+
+͑3͒
+
+Here ␳AB is the density matrix of the pair AB, obtained from the original pure state by tracing over qubit C. Equation ͑3͒ and the analogous equation for CAC allow us to bound the sum CA2 BϩCA2 C:
+
+CA2 BϩCA2 CрTr͑ ␳AB˜␳AB͒ϩTr͑ ␳AC˜␳AC͒.
+
+͑4͒
+
+The next paragraph is devoted to evaluating the right-hand
+side of this inequality. Let us express the pure state ͉␰͘ of the three-qubit system
+in the standard basis ͕͉ijk͖͘, where each index takes the values 0 and 1:
+
+͚ ͉␰͘ϭ aijk͉i jk͘.
+
+͑5͒
+
+ijk
+
+In terms of the coefﬁcients ai jk , we can write Tr(␳AB˜␳AB) as
+
+1The
+
+entanglement
+
+of
+
+formation
+
+is
+
+given
+
+by
+
+E
+
+ϭ
+
+h
+
+(
+
+1 2
+
+ϩ
+
+1 2
+
+ͱ1
+
+Ϫ
+
+C2
+
+)
+
+,
+
+where
+
+h
+
+is
+
+the
+
+binary
+
+entropy
+
+function
+
+h(x)
+
+ϭϪx log2 xϪ(1Ϫx)log2(1Ϫx).
+
+2An alternative derivation of this inequality ͓20͔ demonstrates that
+
+it
+
+does
+
+not
+
+depend
+
+on
+
+the
+
+rank
+
+of
+
+the
+
+density
+
+matrix:
+
+CA2 B
+
+р
+
+␭
+
+2 1
+
+р
+
+␭
+
+2 1
+
+ϩ
+
+␭
+
+22ϩ
+
+␭
+
+32ϩ
+
+␭
+
+2 4
+
+ϭ
+
+Tr(
+
+␳
+
+A
+
+B˜␳
+
+A
+
+B
+
+)
+
+.
+
+We
+
+use
+
+the
+
+more
+
+specialized
+
+derivation because the intermediate steps will be useful later.
+
+͚ Tr͑ ␳AB˜␳AB͒ϭ
+
+a
+
+i
+
+jk
+
+a
+
+m* n k
+
+⑀
+
+m
+
+m
+
+Ј⑀
+
+nn
+
+Јa
+
+*
+mЈn
+
+Јp
+
+a
+
+i
+
+Ј
+
+jЈ
+
+p
+
+⑀
+
+i
+
+Јi⑀
+
+j
+
+Ј
+
+j
+
+,
+
+͑6͒
+
+where ⑀01ϭϪ⑀10ϭ1 and ⑀00ϭ⑀11ϭ0 and the sum is over all the indices. We now replace the product ⑀nnЈ⑀ jЈj with the equivalent expression ␦n jЈ␦nЈjϪ␦n j␦nЈjЈ , and in the ﬁrst of the two resulting terms ͑that is, the one associated with
+␦n jЈ␦nЈj͒ we perform a similar substitution for ⑀mmЈ⑀iЈi . These substitutions directly give us
+
+Tr͑
+
+␳ A B˜␳ A B
+
+͒ϭ2
+
+det
+
+␳ A Ϫ Tr͑
+
+␳
+
+2 B
+
+͒
+
+ϩ
+
+Tr͑
+
+␳
+
+2 C
+
+͒,
+
+͑7͒
+
+where ␳A , ␳B , and ␳C are the 2ϫ2 density matrices of the individual qubits. Because each of these matrices has unit
+trace, we can rewrite Eq. ͑7͒ as
+
+Tr͑ ␳AB˜␳AB͒ϭ2͑ det ␳Aϩdet ␳BϪdet ␳C͒.
+
+͑8͒
+
+By symmetry we must also have
+
+Tr͑ ␳AC˜␳AC͒ϭ2͑ det ␳Aϩdet ␳CϪdet ␳B͒.
+
+͑9͒
+
+Summing these last two equations, we ﬁnally get a simple expression for the right-hand side of Eq. ͑4͒, namely,
+
+Tr͑ ␳AB˜␳AB͒ϩTr͑ ␳AC˜␳AC͒ϭ4 det ␳A .
+
+͑10͒
+
+Equations ͑4͒ and ͑10͒ give us our ﬁrst main result:
+
+CA2 BϩCA2 Cр4 det ␳A .
+
+͑11͒
+
+We can interpret the right-hand side of Eq. ͑11͒ as fol-
+lows. If we regard the pair BC as a single object, it makes sense to speak of the concurrence CA(BC) between qubit A and the pair BC, because, even though the state space of BC
+is four dimensional, only two of those dimensions are necessary to express the state ͉␰͘ of ABC. ͑The two necessary dimensions are those spanned by the two eigenstates of ␳BC that have nonzero eigenvalues. That there are only two such
+eigenvalues follows from the fact that A is only a qubit and that the state of the whole system is pure.͒ We may thus treat
+A and BC, at least for this purpose, as a pair of qubits in a
+pure state. As we have mentioned before, the concurrence for
+this case is simply 2ͱdet ␳A. We can therefore rewrite our
+result as
+
+CA2 Bϩ CA2 Cр CA2 ͑BC͒.
+
+͑12͒
+
+Informally, Eq. ͑12͒ can be expressed as follows. Qubit A has a certain amount of entanglement with the pair BC. This amount bounds A’s entanglement with qubits B and C taken individually, and the part of the entanglement that is devoted to qubit B ͑as measured by the squared concurrence͒ is not available to qubit C.
+We will say more shortly about the case of three qubits in a pure state, but at this point it is worth mentioning a generalization to mixed states. If ABC is in a mixed state ␳, then CA(BC) is not deﬁned, because all four dimensions of BC might be involved, but we can deﬁne a related quantity
+
+052306-2
+
+DISTRIBUTED ENTANGLEMENT
+
+PHYSICAL REVIEW A 61 052306
+
+(
+
+C2
+
+)
+
+min A(BC)
+
+via
+
+the
+
+following
+
+prescription.3
+
+Consider
+
+all
+
+pos-
+
+sible pure-state decompositions of the state ␳, that is, all sets
+
+͕(␺i , pi)͖ such that ␳ϭ ͚ipi͉␺i͗͘␺i͉. For each of these decompositions, one can compute the average value of CA2 (BC):
+
+͚ ͗CA2 ͑BC͒͘ϭ piCA2 ͑BC͒͑ ␺i͒.
+
+͑13͒
+
+i
+
+The minimum of this average over all decompositions of ␳ is
+
+what
+
+we
+
+deﬁne
+
+to
+
+be
+
+(
+
+C2)
+
+min A(B
+
+C
+
+)(␳).
+
+The
+
+following
+
+analog
+
+of
+
+Eq. ͑12͒ then holds for mixed states:
+
+CA2
+
+B
+
+ϩ
+
+CA2
+
+Cр
+
+͑
+
+C2
+
+͒
+
+min A͑B
+
+C
+
+͒
+
+.
+
+͑14͒
+
+To prove this, consider the pure states ͉␺i͘ belonging to an optimal decomposition of ␳, that is, a decomposition that
+
+minimizes ͗CA2 (BC)͘. We can write our basic inequality, Eq. ͑12͒, for each such pure state and then average both sides of
+
+the inequality over the whole decomposition. The right-hand
+
+side
+
+of
+
+the
+
+resulting
+
+inequality
+
+is
+
+( C2 )
+
+min A(BC)
+
+(␳),
+
+which
+
+is
+
+what
+
+we want on the right-hand side. On the left-hand side we
+
+have two terms: ͑i͒ the average of the squared concurrence
+
+between A and B over a set of mixed states whose average is
+
+␳AB ͓i.e., TrC(␳)͔, and ͑ii͒ the average of the squared concurrence between A and C over a set of mixed states whose
+
+average is ␳AC . It is a fact that the squared concurrence is a convex function on the set of density matrices.4 That is, the average of C2 over the ensemble is greater than or equal to the value of C2 for the average density matrix. In this case
+
+the values of C2 for the average density matrices are CA2 B ϭC2(␳AB) and CA2 CϭC2(␳AC). The sum of these two quantities must thus be less than or equal to (C2)Am(inBC)(␳), which is what we wanted to prove.
+
+Returning to the case of pure states, one may wonder how
+
+tight the inequality ͑12͒ is. Could one ﬁnd, for example, a
+
+more stringent bound of the same form, based on a different
+
+measure of entanglement? To address this question, consider
+
+the following pure state of ABC:
+
+͉ ␾ ͘ ϭ ␣ ͉ 100͘ ϩ ␤ ͉ 010͘ ϩ ␥ ͉ 001͘ ,
+
+͑15͒
+
+where the three positions in the kets refer to qubits A, B, and C in that order. For this state, one ﬁnds that CABϭ2͉␣␤͉,
+CACϭ2͉␣␥͉, and CA(BC)ϭ2͉␣͉ͱ͉␤͉2ϩ͉␥͉2. Thus the in-
+equality ͑12͒ becomes in this case an equality: CA2 BϩCA2 C ϭCA2 (BC). This example shows that for any values of the concurrences satisfying this equality, there is a quantum state
+that is consistent with those values.
+
+Now let ⌫(C) be a monotonically increasing function of C
+
+that we might propose as an alternative measure of entangle-
+
+ment. For simplicity let us assume that ⌫(0)ϭ0 and ⌫(1)
+
+ϭ1. Because of the above example, ⌫ could satisfy the in-
+
+equality
+
+⌫
+
+2 AB
+
+ϩ
+
+⌫
+
+2 A
+
+C
+
+р
+
+⌫
+
+2 A(
+
+BC)
+
+only
+
+if
+
+⌫2(x)ϩ⌫2(y)
+
+р⌫2(ͱx2ϩy2) for all non-negative x and y such that x2
+
+ϩy2р1. Suppose ⌫ has this property. Then could there exist
+
+some
+
+quantum
+
+state
+
+for
+
+which
+
+⌫
+
+2 A
+
+Bϩ
+
+⌫
+
+2 A
+
+C
+
+ϭ
+
+⌫
+
+2 A
+
+(
+
+B
+
+C
+
+)
+
+but
+
+CA2 B
+
+ϩCA2 CϽCA2 (BC)? That is, could ⌫ yield an equality for some
+
+state for which C gives only an inequality? The answer is no,
+
+because
+
+if
+
+CA2 Bϩ CA2 CϽ CA2 (BC),
+
+then
+
+⌫
+
+2 AB
+
+ϩ
+
+⌫
+
+2 A
+
+C
+
+ϭ
+
+⌫
+
+2
+
+(
+
+CA
+
+B
+
+)
+
+ͱ ϩ ⌫ 2 ( CA C ) р ⌫ 2 (
+
+CA2 Bϩ
+
+CA2 C
+
+)
+
+Ͻ
+
+⌫
+
+2(
+
+CA
+
+(B
+
+C
+
+))
+
+ϭ
+
+⌫
+
+2 A
+
+(
+
+B
+
+C
+
+)
+
+.
+
+More-
+
+over, the only way ⌫ can match C in those cases where C
+
+gives an equality is for ⌫ to be equal to C. In this sense, C is
+
+an optimal measure of entanglement with respect to the in-
+
+equality given in Eq. ͑12͒. Note, however, that the above argument applies only to functions of C. There could in prin-
+
+ciple be other measures of entanglement that are not functions of C that could make an equal claim to optimality.
+The entanglement of formation is a function of C, but it is a concave function of C2 and therefore does not satisfy the
+
+inequality EABϩEACрEA(BC) . Consider, for example, the state (1/&)͉100͘ϩ(1/2)͉010͘ϩ(1/2)͉001͘. One ﬁnds that
+
+the relevant entanglements of formation are EABϭ0.601, EACϭ0.601, and EA(BC)ϭ1. Thus, contrary to what one
+might expect, the sum of the entanglements of formation
+
+between A and the separate qubits B and C is greater than the
+
+entanglement capacity of a single qubit. This is not a para-
+
+dox; it simply shows us that entanglement of formation does
+
+not exhibit this particular kind of additivity. ͑This sense of
+
+‘‘additivity’’ should not be confused with the additivity of
+
+entanglement when one combines pairs to make larger sys-
+
+tems ͓7͔. It is not known whether entanglement of formation
+
+satisﬁes the latter notion of additivity.͒
+
+We have just seen that there are some states for which the
+
+inequality ͑12͒ becomes an equality. Of course there are
+
+other states for which the inequality is strict. As we will see,
+
+it turns out to be very interesting to consider the difference
+
+between the two sides of Eq. ͑12͒. This difference can be
+
+thought of as the amount of entanglement between A and BC
+
+that cannot be accounted for by the entanglements of A with
+
+B and C separately. In the following paragraphs we refer to
+
+this quantity as the ‘‘residual entanglement.’’
+
+Let the system ABC be in a pure state ͉␰͘, and, as before,
+
+let the components of ͉␰͘ in the standard basis be aijk :
+
+͚ ͉␰͘ϭ aijk͉i jk͘.
+
+͑16͒
+
+ijk
+
+3According to Eq. ͑12͒, the quantity that is traded off between the pair AB and the pair AC is not the concurrence itself but rather the
+square of the concurrence. For this reason, it is convenient in this discussion of mixed states to take C2 rather than C as the quantity to be averaged and minimized.
+4It follows from Ref. ͓7͔ that the concurrence is a convex nonnegative function on the set of density matrices for two qubits. The
+square of the concurrence is therefore also convex.
+
+According to Eqs. ͑3͒ and ͑10͒ and the discussion following Eq. ͑11͒, the residual entanglement is equal to
+
+CA2
+
+͑
+
+B
+
+C
+
+͒Ϫ
+
+CA2 B
+
+Ϫ
+
+CA2
+
+C
+
+ϭ
+
+2
+
+͑
+
+␭
+
+A 1
+
+B␭
+
+A 2
+
+B
+
+ϩ
+
+␭
+
+AC 1
+
+␭
+
+AC 2
+
+͒,
+
+͑17͒
+
+where
+
+␭
+
+AB 1
+
+and
+
+␭
+
+A 2
+
+B
+
+are
+
+the
+
+square
+
+roots
+
+of
+
+the
+
+two
+
+eigenval-
+
+ues
+
+of
+
+␳AB˜␳AB ,
+
+and
+
+␭
+
+A 1
+
+C
+
+and
+
+␭
+
+A 2
+
+C
+
+are
+
+deﬁned
+
+similarly.
+
+We
+
+now derive an explicit expression for the residual entangle-
+
+ment in terms of the coefﬁcients ai jk .
+
+052306-3
+
+COFFMAN, KUNDU, AND WOOTTERS
+
+We
+
+focus
+
+ﬁrst
+
+on
+
+the
+
+product
+
+␭
+
+1A B ␭
+
+AB 2
+
+.
+
+This
+
+product
+
+can
+
+almost be interpreted as the square root of the determinant of
+
+␳AB˜␳AB . But ␳AB˜␳AB is an operator acting on a fourdimensional space, and two of its eigenvalues are zero; so its
+
+determinant is also zero. However, if we consider the action
+
+of
+
+␳ A B˜␳ A B
+
+only
+
+on
+
+its
+
+range,
+
+then
+
+␭
+
+A 1
+
+B
+
+␭
+
+A 2
+
+B
+
+will
+
+be
+
+the
+
+square
+
+root of the determinant of this restricted transformation.
+
+The range of ␳AB˜␳AB is spanned by the two vectors ͉v0͘ ϭ⌺i jai j0͉i j0͘ and ͉v1͘ϭ⌺i jai j1͉i j1͘. ͑These vectors also span the range of ␳AB .͒ To examine the action of ␳AB˜␳AB on
+this subspace, we consider its effect on vectors of the form
+
+ͩ ͪx
+x͉v1͘ϩy͉v2͘ϵ y .
+
+This effect is given by
+
+ͩ ͪ ͩ ͪ xЈ
+
+x
+
+yЈ ϭR y ,
+
+͑18͒
+
+where
+
+R
+
+is
+
+a
+
+2ϫ2
+
+matrix.
+
+The
+
+product
+
+␭
+
+A 1
+
+B
+
+␭
+
+A 2
+
+B
+
+is
+
+the
+
+square
+
+root of the determinant of R. One ﬁnds that
+
+PHYSICAL REVIEW A 61 052306
+
+tions.͒ This means in particular that we need not carry out a
+
+separate
+
+calculation
+
+to
+
+ﬁnd
+
+␭
+
+A 1
+
+C
+
+␭
+
+A 2
+
+C
+
+,
+
+since
+
+we
+
+know
+
+we
+
+will
+
+get the same result. We can now therefore write down an
+
+expression for the residual entanglement:
+
+CA2 ͑BC͒ϪCA2 BϪCA2 Cϭ4͉d1Ϫ2d2ϩ4d3͉.
+
+͑22͒
+
+Note that the residual entanglement does not depend on which qubit one takes as the ‘‘focus’’ of the construction. In our calculations we have focused on entanglements with qubit A, but if we had chosen qubit B instead, we would have found that
+
+CB2 ͑CA͒ϪCB2 CϪCB2 Aϭ4͉d1Ϫ2d2ϩ4d3͉.
+
+͑23͒
+
+The residual entanglement thus represents a collective prop-
+erty of the three qubits that is unchanged by permutations; it
+measures an essential three-qubit entanglement. If we call this quantity ␶ABC , we can summarize the main results of this paper in the following equation:
+
+͚ Ri jϭ akl jam*ni⑀mp⑀nqa*pqrastr⑀sk⑀tl ,
+
+͑19͒
+
+CA2 ͑BC͒ϭCA2 BϩCA2 Cϩ␶ABC .
+
+͑24͒
+
+where the sum is over all repeated indices. ͑We have ordered the factors so as to suggest the expression ␳AB˜␳AB from which R is derived.͒ Taking the determinant of R involves
+somewhat tedious but straightforward algebra, with the fol-
+lowing result:
+
+␭
+
+A 1
+
+B
+
+␭
+
+A 2
+
+B
+
+ϭ
+
+ͱdet
+
+R
+
+ϭ
+
+͉
+
+d
+
+1
+
+Ϫ
+
+2
+
+d
+
+2ϩ
+
+4
+
+d
+
+3͉
+
+,
+
+͑20͒
+
+where
+
+d 1ϭ a 0200a 1211ϩ a 0201a 1210ϩ a 0210a 1201ϩ a 1200a 0211;
+
+d 2ϭ a 000a 111a 011a 100ϩ a 000a 111a 101a 010 ϩ a 000a 111a 110a 001ϩ a 011a 100a 101a 010 ϩ a 011a 100a 110a 001ϩ a 101a 010a 110a 001 ;
+
+d 3ϭ a 000a 110a 101a 011ϩ a 111a 001a 010a 100 .
+
+͑21͒
+
+We can get a mental picture of this expression by imagining
+
+the eight coefﬁcients aijk attached to the corners of a cube. Then each term appearing in d1 , d2 , or d3 is a product of four of the coefﬁcients aijk such that the ‘‘center of mass’’ of the four is at the center of the cube. Such conﬁgurations fall
+
+into three classes: those in which the four coefﬁcients lie on
+
+a body diagonal and each one is used twice (d1), those in which they lie on a diagonal plane (d2), and those in which they lie on the vertices of a tetrahedron (d3). Within each category, all the possible conﬁgurations are given the same
+
+weight.
+
+This picture immediately yields an interesting fact: the
+
+quantity
+
+␭
+
+A 1
+
+B␭
+
+AB 2
+
+is
+
+invariant
+
+under
+
+permutations
+
+of
+
+the
+
+qu-
+
+bits. ͑A permutation of qubits corresponds to a reﬂection or
+
+rotation of the cube, but each di is invariant under such ac-
+
+In words, the entanglement of A with BC can be manifested
+in three forms—entanglement with B, entanglement with C,
+and an essential three-way entanglement of the triple—and
+these three forms must share the total entanglement. As an
+example, consider the Greenberger-Horne-Zeilinger state (1/&)(͉000͘ϩ͉111͘) ͓21͔. For this state the concurrence of each qubit with the rest of the system is 1, the quantity ␶ABC is also 1, and all the pairwise concurrences are zero ͑the
+qubits in each pair are classically correlated but not entangled͒. Thus Eq. ͑24͒ in this case becomes 1ϭ0ϩ0ϩ1.
+Finally, we note that the expression for ␶ABC in terms of d1 , d2 , and d3 ͓Eq. ͑22͔͒ can be rewritten, after a little more algebra, in a more standard form:
+
+ͯ ͚ ␶ A B C ϭ 2
+
+aijkaiЈjЈmanpkЈanЈpЈmЈ
+
+ͯ ϫ⑀iiЈ⑀ j jЈ⑀kkЈ⑀mmЈ⑀nnЈ⑀ ppЈ ,
+
+͑25͒
+
+where the sum is over all the indices. This form does not immediately reveal the invariance of ␶ABC under permutations of the qubits, but the invariance is there nonetheless.
+It would be very interesting to know which of the results of this paper generalize to larger objects or to larger collections of objects. At this point it is not clear how one might begin to generalize this approach to qutrits or higher dimensional objects, because the spin-ﬂip operation seems peculiar to qubits ͓22͔. On the other hand, it appears very likely that at least some of these results can be extended to larger collections of qubits. The one solid piece of evidence we can offer is the existence of a generalization of the state ͉␾͘ of Eq. ͑15͒ to n qubits:
+
+052306-4
+
+DISTRIBUTED ENTANGLEMENT
+
+͉␾͘ϭ␣1͉100 . . . 0͘ϩ␣2͉010 . . . 0͘ϩ␣3͉001 . . . 0͘ϩ¯
+
+ϩ␣n͉000 . . . 1͘.
+
+͑26͒
+
+One can show that for this state, the following equality holds:
+
+C122ϩC123ϩ¯ϩC12nϭC12͑23 . . . n͒,
+
+͑27͒
+
+where the qubits are now labeled by numbers rather than letters. We are willing to conjecture that the corresponding
+
+PHYSICAL REVIEW A 61 052306
+inequality, analogous to Eq. ͑12͒, is valid for all pure states of n qubits.
+This work was supported in part by the National Science Foundation’s Research Experiences for Undergraduates Program. W.K.W. is grateful for the support and hospitality of the Isaac Newton Institute. We would also like to thank Tony Sudbery, Noah Linden, and Michael Nielsen for helpful discussions that took place at the ESF-Newton workshop.
+
+͓1͔ C. H. Bennett, H. J. Bernstein, S. Popescu, and B. Schumacher, Phys. Rev. A 53, 2046 ͑1996͒.
+͓2͔ C. H. Bennett, D. P. DiVincenzo, J. Smolin, and W. K. Wootters, Phys. Rev. A 54, 3824 ͑1996͒.
+͓3͔ V. Vedral, M. B. Plenio, M. A. Rippin, and P. L. Knight, Phys. Rev. Lett. 78, 2275 ͑1997͒; V. Vedral, M. B. Plenio, K. Jacobs, and P. L. Knight, Phys. Rev. A 56, 4452 ͑1997͒; V. Vedral and M. B. Plenio, ibid. 57, 1619 ͑1998͒.
+͓4͔ M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev. Lett. 80, 5239 ͑1998͒.
+͓5͔ E. M. Rains, Phys. Rev. A 60, 173 ͑1999͒; 60, 179 ͑1999͒. ͓6͔ S. Hill and W. K. Wootters, Phys. Rev. Lett. 78, 5022 ͑1997͒. ͓7͔ W. K. Wootters, Phys. Rev. Lett. 80, 2245 ͑1998͒. ͓8͔ The problem of quantifying multiparticle entanglement has
+been discussed, for example, in M. Murao, M. B. Plenio, S.
+Popescu, V. Vedral, and P. L. Knight, Phys. Rev. A 57, 4075 ͑1998͒ and A. Thapliyal, ibid. 59, 3336 ͑1999͒. ͓9͔ N. Linden and S. Popescu, Fortsch. Phys. 46, 567 ͑1998͒; N. Linden, S. Popescu, and A. Sudbery, Phys. Rev. Lett. 83, 243 ͑1999͒. ͓10͔ J. Schleinz and G. Mahler, Phys. Lett. A 224, 39 ͑1996͒. ͓11͔ M. Grassl, M. Ro¨tteler, and T. Beth, Phys. Rev. A 58, 1833
+
+͑1998͒. ͓12͔ J. Kempe, Phys. Rev. A 60, 910 ͑1999͒. ͓13͔ V. Buzˇek, V. Vedral, M. B. Plenio, P. L. Knight, and M. H.
+Hillery, Phys. Rev. A 55, 3327 ͑1997͒. ͓14͔ N. Cerf, J. Mod. Opt. 47, 187 ͑2000͒. ͓15͔ D. Bruß, D. P. DiVincenzo, A. Ekert, C. A. Fuchs, C. Mac-
+chiavello, and J. A. Smolin, Phys. Rev. A 57, 2368 ͑1998͒. ͓16͔ A. Karlsson and M. Bourennane, Phys. Rev. A 58, 4394
+͑1998͒. ͓17͔ M. Murao, D. Jonathan, M. B. Plenio, and V. Vedral, Phys.
+Rev. A 59, 156 ͑1999͒. ͓18͔ D. Bruß, Phys. Rev. A 60, 4344 ͑1999͒. ͓19͔ W. K. Wootters, Philos. Trans. R. Soc. London, Ser. A 356,
+1717 ͑1998͒. ͓20͔ This alternative derivation was pointed out to us by Michael
+Nielsen. ͓21͔ D. M. Greenberger, M. Horne, and A. Zeilinger, in Bell’s
+Theorem, Quantum Theory, and Conceptions of the Universe, edited by M. Kafatos ͑Kluwer, Dordrecht, 1989͒. ͓22͔ K. G. H. Vollbrecht and R. F. Werner, e-print quant-ph/9910063.
+
+052306-5
+

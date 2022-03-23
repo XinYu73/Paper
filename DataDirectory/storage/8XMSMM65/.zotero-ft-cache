@@ -1,0 +1,516 @@
+PHYSICAL REVIEW A 96, 062310 (2017)
+Symmetric three-qubit-state invariants
+Alexander Meill* and David A. Meyer Department of Mathematics, University of California, San Diego, La Jolla, California 92093-0112, USA
+(Received 30 May 2017; published 8 December 2017)
+For pure symmetric three-qubit states there are only three algebraically independent entanglement measures; one choice is the pairwise concurrence C, the three-tangle τ , and the Kempe invariant κ. Using a canonical form for symmetric n-qubit states derived from their Majorana representation, we derive the explicit achievable region of triples (C,τ,κ).
+DOI: 10.1103/PhysRevA.96.062310
+
+I. INTRODUCTION
+Entanglement is a critical resource for quantum computational tasks such as teleportation [1] and cryptography [2] among many others, but analytic calculations of entanglement quickly become challenging as the dimension of the Hilbert space increases. Restricting these calculations to states which are symmetric under subgroups of permutations of party labels can greatly reduce the number of parameters and simplify the calculations considerably. Symmetric states are particularly useful for this reason; in addition, symmetric states are relevant in many experimental settings such as in measurement-based quantum computing [3], as an initial state for Grover’s algorithm [4], and as ground states of various translation invariant Hamiltonians [5]. In this paper, the restriction to completely symmetric states is used to simplify the calculation of three-qubit local unitary (LU) invariants.
+The entanglement of an n-qubit state, as deﬁned by any measure, remains invariant under LU operators of the form U = U1 ⊗ U2 ⊗ . . . ⊗ Un, where Ui ∈ U(2). Polynomial invariants of a multiqubit state are not limited to entanglement monotones, though these are a particularly relevant choice. In this paper, the invariants of an arbitrary three-qubit symmetric state are calculated explicitly and their full achievable region is calculated.
+
+invariant [10]. These quantities are deﬁned for a three-qubit
+
+state, |ψ =
+
+1 i,j
+
+,k=0
+
+cij
+
+k
+
+|ij
+
+k
+
+,
+
+as
+
+Ci,j = max{0,λ1 − λ2 − λ3 − λ4},
+
+(2)
+
+τ = 2| i1i2 i3i4 j1j2 j3j4 k1k3 k2k4 ci1j1k1 ci2j2k2 ci3j3k3 ci4j4k4 |, (3)
+
+κ = ci1j1k1 ci2j2k2 ci3j3k3 ci∗1j2k3 ci∗2j3k1 ci∗3j1k2 ,
+
+(4)
+
+where the λα in (2) are the square roots of the eigenvalues, in decreasing order, of ρi,j (σy ⊗ σy)ρi∗,j (σy ⊗ σy ). Here, ρi,j is the reduced density operator of the state having traced out all parties other than i and j . Note, also, that in (3) and (4) we have adopted the convention of summing over repeated indices. This choice of invariants is particularly useful as it uses some of the most prevalent entanglement measures in the concurrence and three-tangle.
+It would be interesting to completely map the space of these ﬁve invariants, but the calculations are difﬁcult for arbitrary states, and the ﬁve-dimensional picture would be unwieldy to describe or visualize. Instead, by examining a particular subset of states, the number of parameters and invariants can be reduced to be more manageable. In the next section this is done for the subset of states which are symmetric under permutation of the party labels.
+
+II. THREE-QUBIT POLYNOMIAL INVARIANTS
+
+Any multiparticle state has a set of polynomials in the coefﬁcients of the state which are invariant under the action of various local operators [6]. In particular, a three-qubit state, under the action of unitaries which act only locally on one qubit, is known to have ﬁve algebraically independent invariants (as well as the trace norm and Z2 invariant) [7]. There is some freedom in choosing ﬁve generators of the algebra of invariant polynomials, as any polynomial in invariants is additionally an invariant of the state. One set of generators that is particularly convenient for three-qubit states under local unitary operators is
+
+{C1,2, C2,3, C3,1, τ, κ},
+
+(1)
+
+where Ci,j is the pairwise concurrence between party i and party j [8], τ is the three-tangle [9], and κ is the Kempe
+
+*alexwmeill@gmail.com
+
+III. SYMMETRIC THREE-QUBIT STATES
+
+Symmetric states offer a signiﬁcant simpliﬁcation to the picture of three-qubit invariants. Clearly if a state is symmetric under relabeling of parties, each of the two-party reduced density operators, ρi,j , will be identical. This then causes C1,2 = C2,3 = C3,1 = C and effectively reduces the number of invariants to three, which is denoted
+
+{C ,τ ,κ }.
+
+(5)
+
+The goal now is to calculate these invariants for a general three-qubit symmetric state and describe the region of allowed and achievable values for these invariants. Before doing so, however, we can further simplify the problem by examining how the symmetric subspace of three-qubit states reduces the parameters on which the invariants depend.
+The most natural representation of an n-qubit symmetric state is in the Dicke basis [11],
+
+n
+
+|ψ = ai Si(n) ,
+
+(6)
+
+i=0
+
+2469-9926/2017/96(6)/062310(4)
+
+062310-1
+
+©2017 American Physical Society
+
+ALEXANDER MEILL AND DAVID A. MEYER
+
+PHYSICAL REVIEW A 96, 062310 (2017)
+
+where
+
+Si(n) =
+
+n −1/2 i
+
+π | 00 . . . 0 11 . . . 1
+
+(7)
+
+π ∈Sn
+
+n−i
+
+i
+
+are the Dicke basis states which represent an equal superposition of all possible states with i “0” entries and n − i “1” entries. They are obviously symmetric since π permutes the parties of the state and the sum is an equal superposition of all possible permutations. In this representation, thethree-qubit symmetric state has four complex coefﬁcients, ai, which reduce to six real parameters after normalization and the factoring-out of an overall phase. While the invariants can be calculated from these six real parameters, it is useful to apply a set of local unitaries to the state to reduce the number of parameters. The calculation of the invariants then becomes more concise while still containing the same information since the invariants should not change under local unitaries. Such a simpliﬁcation was investigated in [11]. Using almost the same argument, we show in the following that most three-qubit symmetric states are equivalent under local unitaries to states of the form
+
+|ψ = A(|000 + yeiφ|θ ⊗3),
+
+(8)
+
+where y ∈ [0,1), θ ∈ [0,π ], φ ∈ [0,2π ), |θ = cos(θ/2)|0 + sin(θ/2)|1 is a single-qubit state with purely real coefﬁcients, and A is a normalization constant. What follows is a proof of (8).
+Consider an arbitrary three-qubit symmetric state given by
+
+3
+
+|ψ = ai Si(3) .
+
+(9)
+
+i=0
+
+One can compute the Majorana polynomial [12] of |ψ by projecting it onto the unnormalized state |α = (|0 + α∗|1 )⊗3,
+
+where α is an arbitrary complex number. The resulting inner
+
+product is the following polynomial in α:
+
+√
+
+√
+
+α||ψ = a0 + 3a1α + 3a2α2 + a3α3. (10)
+
+By the ﬁrst fundamental theorem of algebra, the roots of this polynomial, αi, known as the Majorana roots, uniquely determine the coefﬁcients ai up to some overall scaling factor. So to show that two states are the same, it sufﬁces to show that they have the same Majorana roots. We exploit this fact to show that most states, |ψ , can be represented as
+
+|ψ = c0| 0 + c1| 1 ,
+
+(11)
+
+where | j = (cos θj |0 + eiφj sin θj |1 )⊗3 and cj ∈ C, by showing that (11) has the same Majorana roots as (9) for some
+
+choice of cj , θj , and φj . Before computing the Majorana roots of (11), we can factor out c0 from the state to express it as
+
+|ψ = A(| 0 + c| 1 ),
+
+(12)
+
+where A is a normalization constant and c = c1/c0 ∈ C. The Majorana polynomial of (12) can be expressed as
+
+α||ψ = (cos θ0 + α sin θ0eiφ0 )3 + c(cos θ1 + α sin θ1eiφ1 )3.
+
+(13)
+
+Note we have dropped the normalization factor, A, since we need only specify the polynomial up to a scaling factor. We
+
+can further simplify by dividing by cos θ0, which leaves
+
+α||ψ = (1 + αβ0)3 + c (1 + αβ1)3,
+
+(14)
+
+where βj = tan θj eiφj and c = c(cos θ1)/(cos θ0). The goal is to demonstrate that one can solve for a choice of βj and c that will satisfy (14) having the same roots as (10). This creates the
+following constraints on βj and c :
+
+0 = (1 + α1β0)3 + c (1 + α1β1)3,
+
+(15)
+
+0 = (1 + α2β0)3 + c (1 + α2β1)3.
+
+(16)
+
+Additionally, we can require that the projection of (12) onto |α be the same as (10) when evaluated at α = 0, which provides the third constraint,
+
+a0 = c0(cos θ0)3 + c1(cos θ1)3.
+
+(17)
+
+Equations (15)–(17) provide sufﬁcient constraints on βj and c to identify a representation, (11), which is the same state as
+(9) as long as no Majorana root αi is degenerate with degree 2 [13]. One can then construct a local unitary operator of the form U = U ⊗ U ⊗ U , where U (cos θ0|0 + sin θ0eiφ0 |1 ) = |0 . Applying this to (12) results in
+
+U|ψ = A(|000 + c|χ ),
+
+(18)
+
+where |χ = U | 1 = (cos θ/2|0 + sin θ/2eiχ |1 )⊗3. Lastly, one can apply the LU operator,
+
+V=
+
+1 0
+
+0 e−iχ
+
+⊗3
+,
+
+(19)
+
+to the state, (18), to arrive ﬁnally at the desired result,
+
+|ψ = A(|000 + yeiφ|θ ⊗3),
+
+(20)
+
+where |θ = cos θ/2|0 + sin θ/2|1 , and c = yeiφ. This canonical form is a useful tool in examining the
+local unitary invariants of three-qubit symmetric states. Other canonical forms and representations for three-qubit states are known, but this one provides considerable simpliﬁcation to symmetric states in particular and leaves them symmetric after the rotation. If one were to transform (20) into one of the general three-qubit canonical forms developed by Acín et al. in [14], one would get the state
+
+|χ1 = A[sin θ |000 + cos θ (e−iθ + y cos θ )|100 + y cos θ sin θ (|101 + |110 ) + y sin2 θ |111 ], (21)
+
+which is less obviously symmetric than (20). An effective
+canonical form utilizing the inner products of the vectors in
+the Majorana representation was presented in [15]. This form
+was used to calculate a slightly different set of invariants, {τ,κ,Tr(ρ12)}, where ρ1 is the single-party reduced density matrix of the symmetric state obtained by tracing out any
+two parties, and the states which maximize and minimize
+the various invariants were examined. In what follows, we calculate the {C,τ,κ} of (20) and describe the full achievable space of those variants.
+
+062310-2
+
+SYMMETRIC THREE-QUBIT-STATE INVARIANTS
+
+PHYSICAL REVIEW A 96, 062310 (2017)
+
+0.4 κ 0.6
+0.8 1.0
+
+κ
+
+1.0
+
+0.8
+
+0.6 0.4
+
+0.6 0.6
+
+0.4 0.4
+
+0.2 0.2
+
+1.0
+
+1.0
+
+0.5
+
+0.0
+
+0.5
+
+0.0
+
+0.0
+
+0.0
+
+FIG. 1. Scatterplot from two points of view of invariants of randomly generated symmetric three-qubit states.
+
+In terms of the parameters y, θ , and φ of (20), the invariants are
+
+τ
+
+=
+
+1 + y2
+
+2y
+
+sin3
+
+θ 2
+
++ 2y cos3
+
+θ 2
+
+, cos φ
+
+(22)
+
+C
+
+=
+
+1+
+
+y
+
+sin
+
+θ 2
+
+sin
+
+θ
+
+y2
+
++
+
+2y
+
+cos3
+
+θ 2
+
+, cos φ
+
+(23)
+
+1
+
+κ
+
+=
+
+8
+
+1
+
++ y2+2y cos3
+
+θ 2
+
+cos φ
+
+× (1 + y2)(8 + 19y2 + 8y4 + 9y2(4 cos θ + cos 2θ ))
+
++ 24y cos3 θ (2 + 3y2 + 2y4 + 3y2 cos θ ) cos φ 2
+
++ 48y2(1 + y2) cos6 θ cos 2φ+16y3 cos9 θ cos 3φ .
+
+2
+
+2
+
+(24)
+
+Figure 1 shows the invariants of 105 randomly generated symmetric three-qubit states, where the states were generated by sampling randomly over the allowed values of y, θ , and φ.
+At ﬁrst glance, it is interesting to note that the three-tangle and Kempe invariants achieve their maximum values of 1 in the symmetric subspace, but the concurrence does not due to its monogamy constraints [9]. A straightforward maximization over the state parameters reveals a maximum concurrence of 2/3 in the symmetric subspace, which conﬁrms the result of [16] for n = 3. The points in Fig. 1 appear to lie almost on a surface, but closer inspection reveals that they in fact ﬁll a narrow volume, the boundaries of which can be calculated. We can invert expressions (22)–(24) by a Gröbner basis calculation to ﬁnd
+
+θ cos
+
+=
+
+√
+
+C
+
+,
+
+(25)
+
+2
+
+C2 + τ2
+
+cos φ
+
+=
+
+4
+
+− 3τ 2
+
+− 9C2 3C3
+
+− 4κ ,
+
+(26)
+
+6τ 2 + 9C2 + 4κ − 4 y=
+3(τ 2 + C2)3/2
+
+−
+
+6τ 2 + 9C2 + 4κ − 4
+
+2
+− 1.
+
+(27)
+
+3(τ 2 + C2)3/2
+
+FIG. 2. View of a slice of the boundaries of the volume of symmetric three-qubit invariants superimposed over the points in Fig. 1. The contour-achieving equality in Eq. (28) is shown in green (upper-left surface); Eq. (29), in blue (lower-left surface); and Eq. (30), in red (upper-right surface).
+
+The constraints on the state parameters then provide constraints on these functions of the invariants. The extrema of these constraints are the surfaces which form the boundaries of the invariant space. The boundaries are formed when equality is achieved in the following relations:
+
+0 4 − τ 2 − 9C2 − 4κ + 3C3,
+
+(28)
+
+0 4 − τ 2 − 9C2 − 4κ − 3C3,
+
+(29)
+
+0 4 − 6τ 2 − 9C2 − 4κ + 3(τ 2 + C2)3/2. (30)
+
+These three surfaces, which are shown in Fig. 2, form boundaries for the possible space of the invariants and serve as additional monogamy relations for symmetric three-qubit entanglement. Note that the state parameter constraints lead to more constraints on the invariants, but (28)–(30) is the minimum set of constraints required to describe the region. Because there is a bijective map between the invariants and the state parameters, each invariant triple which lies within the region satisfying (28)–(30) can be mapped to a three-qubit symmetric state, and therefore the entire region is achievable.
+We should at this point address the states which do not admit a representation of the form of (8), which we denote |ψ¯ . It is shown in [13] that three-qubit states which have a degenerate Majorana root of degree 2 cannot be expressed in this canonical form. Instead, we parametrize states of that form and show that the invariants of this subset of state likewise satisfy (28)–(30). An arbitrary three-qubit state with a degenerate Majorana root of degree 2 can be expressed in the Majorana representation as
+
+|ψ¯ = 1 A
+
+π |φ1 ⊗ |φ1 ⊗ |φ2 ,
+
+(31)
+
+π ∈S3
+
+where φi are single-qubit states. We can again use local unitaries to simplify states of this form to
+
+|ψ¯ = 1 π |0 ⊗ |0 ⊗ |θ ,
+
+(32)
+
+A
+
+π ∈S3
+
+062310-3
+
+ALEXANDER MEILL AND DAVID A. MEYER
+
+PHYSICAL REVIEW A 96, 062310 (2017)
+
+where |θ is the same as in (8) for θ ∈ (0,π ]. The invariants of (32) are
+
+τ = 0,
+
+(33)
+
+κ
+
+=
+
+2
+
++
+
+48 cos2
+
+θ 2
+
++
+
+141
+
+cos4
+
+θ 2
+
++
+
+52
+
+cos6
+
+9
+
+1
+
++
+
+2
+
+cos2
+
+θ 2
+
+3
+
+θ 2
+
+,
+
+(34)
+
+C
+
+=
+
+2− 3+
+
+2 cos2 6 cos2
+
+θ 2 θ 2
+
+.
+
+(35)
+
+It is then easy to verify that (33)–(35) satisfy (28)–(30) for θ ∈ (0,π ]. This is perhaps unsurprising given that the states with a degenerate Majorana root of degree 2 are a limiting case of states which admit the canonical form. Now all three-qubit symmetric states have been considered and it can be concluded that (28)–(30) do indeed describe the full achievable region for three-qubit symmetric states.
+A similar approach could be used to analyze the invariants of n qubits for the symmetric subspace. The representation in [13] extends to symmetric n-qubit states resulting in 2n − 3 real parameters. Three-qubits, in particular, can be fully
+
+analyzed and visualized because the number of invariants and state parameters is suitably low. Additionally, in the three-qubit case, remarkably there is an invertible map between the state parameters and the invariants, allowing the calculation of the achievable region. Turning to the n > 3 qubit case, [15] and [17] use the Majorana state representation to examine the SLOCC classes and invariants of symmetric states, but the LU invariants remain less explored. The inner products of the vectors in the Majorana representation are themselves a set of 2n − 3 LU invariants, as used in [15]. It would be interesting to ﬁnd an alternate set of 2n − 3 algebraically independent LU invariants which includes pertinent entanglement measures. That set of invariants could potentially then be calculated in terms of the 2n − 3 state parameters. The remarkable fact that this map was invertible for three-qubits will not necessarily be true in the n-qubit case, though it is certainly worth examining.
+ACKNOWLEDGMENTS
+We thank the authors of [15] for bringing their work to our attention and NSF Grant No. PHY-1620846 for partial support of this research.
+
+[1] C. H. Bennett, G. Brassard, C. Crépeau, R. Jozsa, A. Peres, and W. K. Wootters, Teleporting an Unknown Quantum State via Dual Classical and Einstein-Podolsky-Rosen Channels, Phys. Rev. Lett. 70, 1895 (1993).
+[2] C. H. Bennett and G. Brassard, Quantum cryptography: Public key distribution and coin tossing, in Proceedings of IEEE International Conference on Computers, Systems and Signal Processing (IEEE, New York, 1984), p. 175.
+[3] M. Van den Nest, A. Miyake, W. Dür, and H. J. Briegel, Universal Resources for Measurement-Based Quantum Computation, Phys. Rev. Lett. 97, 150504 (2006).
+[4] S. S. Ivanov, P. A. Ivanov, I. E. Linington, and N. V. Vitanov, Scalable quantum search using trapped ions, Phys. Rev. A 81, 042328 (2010).
+[5] P. Ribeiro, J. Vidal, and R. Mosseri, Exact spectrum of the Lipkin-Meshkov-Glick model in the thermodynamic limit and ﬁnite-size corrections, Phys. Rev. E 78, 021106 (2008).
+[6] M. Grassl, M. Rötteler, and T. Beth, Computing local invariants of qubit systems, Phys. Rev. A 58, 1833 (1998).
+[7] H. A. Carteret, N. Linden, S. Popescu, and A. Sudbery, Multiparticle entanglement, Found. Phys. 29, 527 (1999).
+[8] W. K. Wootters, Entanglement of Formation of an Arbitrary State of Two Qubits, Phys. Rev. Lett. 80, 2245 (1998).
+
+[9] V. Coffman, J. Kundu, and W. K. Wootters, Distributed entanglement, Phys. Rev. A 61, 052306 (2000).
+[10] J. Kempe, Multi-particle entanglement and its applications to cryptography, Phys. Rev. A 60, 910 (1999).
+[11] R. H. Dicke, Coherence in spontaneous radiation processes, Phys. Rev. 93, 99 (1954).
+[12] E. Majorana, Atomi orientati in campo magnetico variabile, Nuovo Cimento 9, 43 (1932).
+[13] A. Mandilara, T. Coudreau, A. Keller, and P. Milman, Entanglement classiﬁcation of pure symmetric states via spin coherent states, Phys. Rev. A 90, 050302 (2014).
+[14] A. Acín, A. Adrianov, L. Costa, E. Jane, J. Latorre, and R. Tarrach, Generalized Schmidt decomposition and classiﬁcation of three-quantum-bit states, J. Phys. A: Math. Gen. 34, 6725 (2001).
+[15] P. Ribeiro and R. Mosseri, Entanglement in the Symmetric Sector of n Qubits, Phys. Rev. Lett. 106, 180502 (2011).
+[16] M. Koashi, V. Bužek, and N. Imoto, Entangled webs: Tight bound for symmetric sharing of entanglement, Phys. Rev. A 62, 050302 (2000).
+[17] M. Aulbach, Classiﬁcation of entanglement in symmetric states, Int. J. Quantum. Info. 10, 1230004 (2013).
+
+062310-4
+

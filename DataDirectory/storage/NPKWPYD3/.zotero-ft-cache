@@ -1,0 +1,2874 @@
+VESTA: a Three-Dimensional Visualization System for Electronic and Structural Analysis
+Koichi MOMMA1 National Museum of Nature and Science, 4-1-1 Amakubo, Tsukuba, Ibaraki 305-0005, Japan
+Fujio IZUMI2 Graduate School of Engineering, Kyoto University
+January 27, 2019
+1E-mail: vesta.dev@gmail.com 2E-mail: fizumi3776@gmail.com
+
+Contents
+
+LICENSE AGREEMENT
+
+xi
+
+1 INTRODUCTION AND BACKGROUND
+
+1
+
+1.1 Understanding Crystal and Electronic Structures in Three Dimensions . . . . . . 1
+
+1.2 Circumstances behind the Development of VESTA . . . . . . . . . . . . . . . . . 1
+
+1.3 What’s New in VESTA 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+
+1.4 Notes on this Manual . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+
+2 OVERVIEW OF THE PROGRAM
+
+4
+
+2.1 General Features . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+2.2 Visualization of Structural Models . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+2.2.1 A variety of structural information derived on selection of objects . . . . . 9
+
+2.3 Visualization of Volumetric Data . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+
+2.4 Visualization of Crystal Morphologies . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+2.5 Cooperation with External Programs . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+2.6 Input and Output Files . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+2.7 Programming Concept . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+2.7.1 Graphical user interface . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+2.7.2 Core libraries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+3 GETTING STARTED
+
+15
+
+3.1 Minimum requirements of hardware . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+3.2 Windows . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+3.3 macOS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+3.4 Linux . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+3.4.1 32-bit version . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+3.4.2 64-bit version . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+
+3.5 Trouble Shooting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+3.6 Loading Files . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+4 MAIN WINDOW
+
+19
+
+4.1 Components of the Main Window . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+
+4.2 Menus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+4.2.1 File menu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+4.2.2 Edit menu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+4.2.3 View menu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+4.2.4 Objects menu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+4.2.5 Utilities menu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+
+ii
+
+4.2.6 Help menu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 4.3 Tools in the Horizontal Toolbar . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+4.3.1 Alignment . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 4.3.2 Rotation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24 4.3.3 Translation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24 4.3.4 Scaling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24 4.4 Tools in the Vertical Toolbar . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 4.5 Text Area . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 4.5.1 Output tab . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 4.5.2 Summary tab . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26 4.5.3 Comment tab . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+
+5 DISPLAY STYLES
+
+27
+
+5.1 Structural Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+
+5.1.1 Objects to be displayed . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+
+5.1.2 Styles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+5.2 Volumetric Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+
+5.3 Crystal Shapes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+5.3.1 Styles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+6 GIVING PHASE DATA
+
+32
+
+6.1 Defining Phases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+6.2 Symmetry and Unit Cell . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+6.2.1 Crystal systems and space groups . . . . . . . . . . . . . . . . . . . . . . . 33
+
+6.2.2 Behavior when changing a space-group setting . . . . . . . . . . . . . . . 36
+
+6.2.3 Lattice parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+
+6.2.4 Customization of symmetry operations . . . . . . . . . . . . . . . . . . . . 36
+
+6.2.5 Reducing symmetry . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+
+6.2.6 Transformation of the unit cell . . . . . . . . . . . . . . . . . . . . . . . . 37
+
+6.2.7 Magnetic Structures . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+
+6.3 Structure Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+
+6.3.1 Symbols and Labels . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+
+6.3.2 Formal charge . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+
+6.3.3 Fractional coordinates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+
+6.3.4 Occupancy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+
+6.3.5 Atomic displacement parameters . . . . . . . . . . . . . . . . . . . . . . . 46
+
+6.3.6 Importing structure parameters . . . . . . . . . . . . . . . . . . . . . . . . 47
+
+6.3.7 Removing duplicate atoms . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+
+6.4 Volumetric Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+
+6.4.1 Volumetric data to draw isosurfaces . . . . . . . . . . . . . . . . . . . . . 49
+
+6.4.2 Volumetric data for surface coloring . . . . . . . . . . . . . . . . . . . . . 49
+
+6.5 Crystal Shape . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+
+6.5.1 Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+
+7 OVERLAYING MULTIPLE DATA
+
+54
+
+7.1 Positioning of Phases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+
+7.2 Relative Orientation of Phases . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+
+7.3 Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+
+iii
+
+8 CREATING BONDS AND POLYHEDRA
+
+57
+
+8.1 Specifications of Searching for Bonds . . . . . . . . . . . . . . . . . . . . . . . . . 58
+
+8.1.1 Search mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+
+8.1.2 Boundary mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+
+8.1.3 Options . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+
+8.1.4 A pair of atoms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+
+8.2 Operating Instructions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+
+8.2.1 Creating coordination polyhedra . . . . . . . . . . . . . . . . . . . . . . . 59
+
+8.2.2 Searching for molecules and clusters . . . . . . . . . . . . . . . . . . . . . 60
+
+8.2.3 Applications of the “Search molecules” mode to inorganic crystals . . . . . 60
+
+8.2.4 Searching for hydrogen bonds . . . . . . . . . . . . . . . . . . . . . . . . . 61
+
+8.2.5 Visualizing cage-like structures . . . . . . . . . . . . . . . . . . . . . . . . 61
+
+9 ADDITIONAL OBJECTS
+
+63
+
+9.1 Vectors on Atoms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+
+9.1.1 Creation and editing of a vector . . . . . . . . . . . . . . . . . . . . . . . 64
+
+9.1.2 Attachment of vectors to crystallographic sites . . . . . . . . . . . . . . . 66
+
+9.1.3 Attachment of vectors to individual atoms . . . . . . . . . . . . . . . . . . 66
+
+9.2 Lattice Planes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+
+9.2.1 Appearance of lattice planes . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+
+9.2.2 Calculate the best plane for selected atoms . . . . . . . . . . . . . . . . . 68
+
+10 DEFINING DRAWING BOUNDARIES AND VIEW DIRECTIONS
+
+69
+
+10.1 Drawing Boundaries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+
+10.1.1 Ranges of fractional coordinates . . . . . . . . . . . . . . . . . . . . . . . 70
+
+10.1.2 Cutoff planes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+
+10.2 View Direction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+
+10.2.1 Manner of specifying directions . . . . . . . . . . . . . . . . . . . . . . . . 71
+
+10.2.2 Orientation matrix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+
+10.2.3 View direction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+
+10.2.4 Viewing along crystallographic axes . . . . . . . . . . . . . . . . . . . . . 72
+
+11 INTERACTIVE MANIPULATIONS
+
+73
+
+11.1 Rotate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+
+11.1.1 Drag mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+
+11.1.2 Animation mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+
+11.2 Magnify . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+
+11.3 Translate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+
+11.4 Select . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+
+11.4.1 Atom . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+
+11.4.2 Bond . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+
+11.4.3 Coordination polyhedron . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+
+11.5 Distance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+
+11.6 Bond angle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+
+11.7 Dihedral angle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+
+11.8 Interfacial angle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 81
+
+iv
+
+12 PROPERTIES OF OBJECTS
+
+82
+
+12.1 Properties Dialog Box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 82
+
+12.1.1 General . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 82
+
+12.1.2 Atoms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83
+
+12.1.3 Bonds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+
+12.1.4 Polyhedra . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 87
+
+12.1.5 Isosurfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+
+12.1.6 Sections . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+
+12.2 Objects Tab in the Side Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+
+12.2.1 List of phases and objects . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+
+12.2.2 Atoms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+
+12.2.3 Bonds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+
+12.2.4 Polyhedra . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+
+12.2.5 Slices . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 96
+
+12.2.6 Shapes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 96
+
+13 OVERALL APPEARANCE
+
+97
+
+13.1 Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+
+13.2 Lighting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 98
+
+13.3 Projection Mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 98
+
+13.4 Depth-Cueing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+
+14 UTILITIES
+
+101
+
+14.1 Equivalent Positions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 101
+
+14.2 Geometrical Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 102
+
+14.3 Standardization of Crystal Data . . . . . . . . . . . . . . . . . . . . . . . . . . . 103
+
+14.4 Niggli-Reduced Cell . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 105
+
+14.5 Site Potentials and Madelung Energy . . . . . . . . . . . . . . . . . . . . . . . . . 106
+
+14.6 Powder Diffraction Pattern . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 108
+
+14.7 Structure Factors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 110
+
+14.8 Fourier Synthesis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 112
+
+14.9 Model Electron Densities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 112
+
+14.10Model Nuclear Densities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+
+14.11Patterson Densities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+
+14.122D Data Display . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 114
+
+14.13Line Profile . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 114
+
+14.14Peak Search . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+
+14.15Conversion of Electron Densities . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+
+15 TWO-DIMENSIONAL DATA DISPLAY
+
+117
+
+15.1 Components of the 2D Data Display Window . . . . . . . . . . . . . . . . . . . . 117
+
+15.2 Menus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+
+15.3 Tools in the Toolbar . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+
+15.3.1 Rotation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+
+15.3.2 Translation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+
+15.3.3 Scaling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+
+15.4 Tools in the Vertical Toolbar . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+
+15.5 Create and Edit a 2D Image . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+
+v
+
+15.5.1 (hkl) plane in the bounding box . . . . . . . . . . . . . . . . . . . . . . . 120 15.5.2 (hkl) plane defined by two vectors . . . . . . . . . . . . . . . . . . . . . . 120 15.5.3 Project along [hkl] axis . . . . . . . . . . . . . . . . . . . . . . . . . . . . 120 15.6 Controlling Properties of a 2D Image . . . . . . . . . . . . . . . . . . . . . . . . . 122 15.7 Exporting 2D data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+
+16 PREFERENCES
+
+125
+
+16.1 Settings for RIETAN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 125
+
+16.2 Font for Text Area . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+
+16.3 Open a New File in . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+
+16.4 Animation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+
+16.5 Start-up Search for Bonds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+
+16.6 A Setting for Raster Image Export . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+
+16.7 Default isosurface level . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 127
+
+16.8 History level . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 127
+
+17 INPUT AND OUTPUT FILES
+
+128
+
+17.1 File Formats of Volumetric Data . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+
+17.2 Directories for User Settings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+
+17.2.1 Windows . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+
+17.2.2 macOS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+
+17.2.3 Linux . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+
+17.3 Files Used by VESTA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 130
+
+17.4 Input Files . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 130
+
+17.4.1 Structural data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 130
+
+17.4.2 Volumetric data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 135
+
+17.4.3 Structural and volumetric data . . . . . . . . . . . . . . . . . . . . . . . . 137
+
+17.5 Output Files . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 139
+
+17.5.1 Data files . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 139
+
+17.5.2 Raster images . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 142
+
+17.5.3 Vector images . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 143
+
+17.5.4 Output text . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 143
+
+APPENDIX
+
+145
+
+A Keyboard Shortcuts
+
+145
+
+vi
+
+List of Figures
+2.1 Screenshots of VESTA running on three kinds of operating systems . . . . . . . . 5 2.2 Crystal structure of masutomilite represented as the ball-and-stick model . . . . 6 2.3 Crystal structure of a polymorph of vitamin B1 represented as the space-filling
+model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6 2.4 Crystal structure of beryl . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7 2.5 Crystal structure of sodalite . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7 2.6 Crystal structure of the tetragonal form of melanophlogite . . . . . . . . . . . . . 8 2.7 A displacement ellipsoid model of 17-(2H -indazol-2-yl)androsta-5,16-dien-3β-ol
+having an indazole substituent at the C17 position . . . . . . . . . . . . . . . . . 8 2.8 Electron-density distribution in MgB2 . . . . . . . . . . . . . . . . . . . . . . . . 10 2.9 A (001) slice illustrating electron-density distribution in MgB2 . . . . . . . . . . 10 2.10 Nuclear-density distribution in the paraelectric phase of KH2PO4. . . . . . . . . 11 2.11 An external morphology of an Al2O3 crystal composed of {001}, {110}, and {113}
+faces. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12 2.12 A crystal morphology of anatase-type TiO2 superimposed on its structural model,
+where blue and red balls represent Ti and O atoms, respectively. . . . . . . . . . 12 2.13 Crystal morphologies of adularia . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+4.1 Main window of VESTA running on Windows 10 . . . . . . . . . . . . . . . . . . 19
+5.1 The Structural model frame box in the Style tab of the Side Panel . . . . . . . . . 27 5.2 Crystal structure of quartz represented as stick model with dot surfaces . . . . . 27 5.3 The Volumetric data frame box in the Style tab of the Side Panel . . . . . . . . . . 29 5.4 The Crystal shapes frame box in the Style tab of the Side Panel . . . . . . . . . . 30
+6.1 New Data dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32 6.2 Unit cell page in the Edit Data dialog box . . . . . . . . . . . . . . . . . . . . . . 33 6.3 Equivalent Positions dialog box with editing mode . . . . . . . . . . . . . . . . . . 37 6.4 Unit Cell Transformation dialog box. . . . . . . . . . . . . . . . . . . . . . . . . . . 37 6.5 A warning dialog box for conversion of structure handedness . . . . . . . . . . . . 38 6.6 An example of lattice transformation between primitive and face-centered-cubic
+lattices . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41 6.7 A dialog box for confirmation of unit cell transformation . . . . . . . . . . . . . . 42 6.8 A dialog box showing options for how to create a larger unit cell . . . . . . . . . 42 6.9 The Unit cell page in the Edit Data dialog box, with the “Magnetic structure”
+option checked. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43 6.10 Structure parameter page in the Edit Data dialog box . . . . . . . . . . . . . . . . 44 6.11 Periodic Table dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45 6.12 Crystal structure of Cs6C60, with C60 represented by translucent polyhedra . . . 46
+vii
+
+6.13 Volumetric data page in the Edit Data dialog box . . . . . . . . . . . . . . . . . . 48 6.14 A dialog box to choose operations for volumetric data . . . . . . . . . . . . . . . 49 6.15 Distributions of electron densities and effective spin densities in an O2 molecule . 50 6.16 Crystal shape page in the Edit Data dialog box . . . . . . . . . . . . . . . . . . . . 51 6.17 Crystal morphologies of anatase-type TiO2 crystals . . . . . . . . . . . . . . . . . 51 6.18 The Objects tab of the Side Panel showing a list of crystallographic faces . . . . . 52 6.19 Crystal morphologies of anatase having faces that do not follow symmetry operations 53
+7.1 Phase page in the Edit Data dialog box . . . . . . . . . . . . . . . . . . . . . . . . 54 7.2 Molecules of L-aspartic acid and 2,4,6-trichlorobenzoic acid on the (10¯14) surface
+of calcite . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55 7.3 A moire pattern of graphene on the (111) surface of Ir . . . . . . . . . . . . . . . 56 7.4 Crystal structures of Ca-olivine (Ca2SiO4) and isostrucural monticellite (CaMgSiO4)
+overlapped with each other. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+8.1 Bonds dialog . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57 8.2 Crystal structure of δ-AlOOH . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59 8.3 “Search molecules” mode with and without “Beyond the boundary” option enabled 60 8.4 Crystal structure of tetrakis(di-4-pyridylsulfane)dinitratocopper(II) . . . . . . . . 61 8.5 Crystal structure of the tetragonal variant of chibaite . . . . . . . . . . . . . . . . 62
+9.1 Vectors dialog box displaying a list of atoms in SrFeO2 . . . . . . . . . . . . . . . 63 9.2 A dialog box to create or edit a vector . . . . . . . . . . . . . . . . . . . . . . . . 64 9.3 Results of applying a mirror operation to magnetic moments µ and polarization
+vectors p . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65 9.4 Effects of two options for vector styles . . . . . . . . . . . . . . . . . . . . . . . . 66 9.5 Lattice Plane dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67 9.6 A section of a difference Fourier map inserted in a ball-and-stick model of δ−AlOOH 67 9.7 The best plane calculated for an aromatic ring in anthraquinone . . . . . . . . . 68
+10.1 Boundary dialog . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69 10.2 Electron density distribution in D-sorbitol . . . . . . . . . . . . . . . . . . . . . . 70 10.3 Crystal structure of diamond drawn in ranges from (−8, −8, −8) to (8, 8, 8) with
+and without a cutoff plane 111 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71 10.4 Orientation dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+11.1 The Tools tab of the Side Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73 11.2 Calculation of a dihedral angle for four carbon atoms in an aromatic ring in
+3-[4-(dimethylamino)phenyl]-1-(2-hydroxyphenyl)-prop-2-en-1-one . . . . . . . . . 80 11.3 Calculation of an interfacial angle between (100) and (511) faces in quartz. . . . 81
+12.1 General page in the Properties dialog box . . . . . . . . . . . . . . . . . . . . . . 83 12.2 Atoms page in the Properties dialog box . . . . . . . . . . . . . . . . . . . . . . . 84 12.3 Displacement ellipsoids of an atom (A) with principal ellipses and (B) without
+them . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85 12.4 A displacement ellipsoid model of a structure with some atoms having negative
+mean square displacements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85 12.5 General-position diagrams of space group F d¯3m with (A) light disabled and (B)
+light enabled . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+viii
+
+12.6 Bonds page in the Properties dialog . . . . . . . . . . . . . . . . . . . . . . . . . 87 12.7 Polyhedra page in the Properties dialog . . . . . . . . . . . . . . . . . . . . . . . 88 12.8 Isosurfaces page in the Properties dialog box . . . . . . . . . . . . . . . . . . . . . 89 12.9 Comparison between the two modes of rendering isosurfaces . . . . . . . . . . . . 90 12.10The 64a1g orbital for the {Cd(S4Mo3(Hnta)3)2}4− ion with a ball-and-stick model 91 12.11Composite images of isosurfaces and a ball-and-stick model for albatrossene . . . 91 12.12Relations between orientation of isosurface and the two parameters for opacity
+setting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92 12.13Sections page in the Properties dialog box . . . . . . . . . . . . . . . . . . . . . . 93 12.14Distribution of nuclear densities obtained for KOD at 580 K by MEM from single-
+crystal neutron diffraction data . . . . . . . . . . . . . . . . . . . . . . . . . . . . 94 12.15Relations among saturation levels, data values, and colors of sections . . . . . . . 94 12.16The Objects tab of the Side Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . 95 12.17A list of bond specifications in the Objects tab of the Side Panel . . . . . . . . . . 95 12.18A list of polyhedra in the Objects tab of the Side Panel . . . . . . . . . . . . . . . 95 12.19A list of slices in the Objects tab of the Side Panel . . . . . . . . . . . . . . . . . . 96 12.20A list of forms and faces of crystal morphologies in the Objects tab of the Side Panel 96
+13.1 Overall Appearance dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97 13.2 Crystal structure of milarite drawn with light effects (A) enabled and (B) disabled
+dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 98 13.3 Crystal structure of post-perovskite, MgSiO3, rendered by parallel and perspec-
+tive projections . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99 13.4 Crystal structure of mordenite rendered with and without depth-cueing . . . . . 100
+14.1 Equivalent Positions dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 101 14.2 The Equivalent Positions dialog box showing magnetic data . . . . . . . . . . . . . 102 14.3 Geometrical Parameters dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . 103 14.4 Simulation of an X-ray powder diffraction pattern of YBa2Cu4O8 . . . . . . . . . 109 14.5 Structure Factors dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 110 14.6 Fourier Synthesis dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+15.1 2D Data Display window . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117 15.2 A dialog box for three different modes to draw a 2D image . . . . . . . . . . . . . 120 15.3 Three modes of creating a 2D image . . . . . . . . . . . . . . . . . . . . . . . . . 121 15.4 Schematic image of the relation between the center of the projection and the
+center of the slice . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122 15.5 Bird’s eye view of a (001) slice of rutile-type TiO2 . . . . . . . . . . . . . . . . . 123 15.6 Electron-density distribution on the (001) plane in rutile-type TiO2 with and
+without grid edges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 123 15.7 Contours page in the Side Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+16.1 Preferences dialog box . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 125
+17.1 Two types of the grids for volumetric data . . . . . . . . . . . . . . . . . . . . . . 128
+ix
+
+List of Tables
+6.1 Non-standard settings in two triclinic space groups . . . . . . . . . . . . . . . . . 35 6.2 Setting numbers of monoclinic space groups . . . . . . . . . . . . . . . . . . . . . 35 6.3 Axis choices in the orthorhombic space groups . . . . . . . . . . . . . . . . . . . . 35 14.1 Units of converted volumetric data . . . . . . . . . . . . . . . . . . . . . . . . . . 116 17.1 Files used by VESTA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 130 A.1 Keyboard shortcuts. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 145
+x
+
+LICENSE AGREEMENT
+VESTA LICENSE
+Version 3 Copyright © 2006–2019, Koichi Momma and Fujio Izumi VESTA is currently copyrighted with its source code not open to the public; we wish to control the development and future of VESTA by ourselves. This software is distributed free of charge for academic, scientific, educational, and non-commercial users. Users belonging to commercial enterprises may also use this software at no cost until a license for business users is established. Permission to use this software is hereby granted under the following conditions: 1. Drawings produced by VESTA may be used in any publications (original and review articles) provided that its use is explicitly acknowledged. A suitable reference for VESTA is: K. Momma and F. Izumi, “VESTA 3 for three-dimensional visualization of crystal, volumetric and morphology data,” J. Appl. Crystallogr., 44, 1272–1276 (2011). 2. You should not redistribute any copy of the distributed files including MADEL and STRUCTURE TIDY unless you have a written permission from us. Part of these terms may be changed without any prior announcement. This software is provided “as is” without any expressed or implied warranty.
+xi
+
+Chapter 1
+INTRODUCTION AND BACKGROUND
+1.1 Understanding Crystal and Electronic Structures in Three Dimensions
+Progress in modern structure-refinement techniques of the maximum-entropy method (MEM) [1, 2, 3, 4] and MEM-based pattern fitting (MPF) [5, 6, 7, 8, 9], has made it easier and more popular to determine three-dimensional (3D) distribution of electron densities from X-ray diffraction data and densities of coherent-scattering lengths (nuclear densities) [10], bc, from neutron diffraction data. On the other hand, rapid developments of computer hardware and software have accelerated and facilitated electronic-structure calculations affording physical quantities including electron densities, wave functions, and electrostatic potentials.
+Such technological advances in recent years bring demands for integrated 3D visualization systems to deal with both structural models and volumetric data such as electron and nuclear densities. The crystal structures and spatial distribution of various physical quantities obtained experimentally and by computer simulations should be understood three-dimensionally. Despite the availability of many structure-drawing programs, cross-platform free software capable of visualizing both crystal and electronic structures in three dimensions is very few; if any, they are not very suitable for displaying those of inorganic and metallic compounds.
+To improve such a situation, we have developed a new integrated system VESTA (Visualization for Electronic and STructural Analysis) for 3D visualization of crystal structures and volumetric data on personal computers.
+1.2 Circumstances behind the Development of VESTA
+VESTA [11, 12, 13, 14] is a successor to two visualization programs, VICS and VEND, in the VENUS (Visualiza-tion of Electron/NUclear and Structures) software package1 [15, 16], which was developed by Dilanian, Izumi, and Kawamura with help from Ohki and Momma during 2001–2006. VENUS comprises the following six programs:
+1. VICS (VIsualization of Crystal Structures) for displaying and manipulating crystal structures [15, 16],
+2. VEND (Visualization of Electron/Nuclear Densities) for displaying and manipulating volumetric data [15, 16],
+1http://fujioizumi.verse.jp/visualization/VENUS.html
+1
+
+3. PRIMA (PRactice Iterative MEM Analyses) for MEM analysis from X-ray and neutron diffraction data [5],
+4. Dysnomia [7, 8, 9] which is a successor to PRIMA,
+5. ALBA (After Le Bail Analysis) for the maximum-entropy Patterson method [17],
+6. Alchemy: A file converter to make it possible to analyze observed structure factors and their estimated standard uncertainty, which result from Rietveld analysis using GSAS [18] and FullProf [19], by MEM with Dysnomia [7, 8, 9].
+VICS and VEND are programs for 3D visualization of crystal and electronic structures, respectively. They were written in the ANSI C language with the full use of the OpenGL2 technology. The graphical user interfaces (GUIs) of VICS and VEND were constructed by using GLUT and GLUI libraries.
+VICS and VEND saw the light of day at the end of 2002, and since then, continued their growth to be used widely in a variety of studies. However, we never get full satisfaction from their usability and performance. First, the combined use of VICS and VEND to visualize both crystal and electronic structures via text files is rather troublesome; on-the-fly visualization of these two kinds of images is highly desired. Second, their GUIs are not very user-friendly because they are based on the old-fashioned toolkits, GLUT and GLUI, which have been no longer upgraded. Above all things, they lack scalability and require large system resources owing to unrefined programming.
+To overcome the faults described above, we at first upgraded VICS to VICS-II employing a modern C++ GUI framework wxWidgets3 [20]. Later, we further integrated VICS-II and VEND into VESTA.
+1.3 What’s New in VESTA 3
+Main new features implemented in VESTA 3, which is a successor to VESTA v2.1.X, are listed below:
+• Visualization of crystal morphologies
+• Superimposition of multiple structural models, volumetric data, and crystal faces on the same Graphic Area
+• Visualization of isosurfaces with multiple levels
+• An extended bond-search algorithm to allow more sophisticated search in complex molecules, cage-like structures, etc.
+• Calculations of electron and nuclear densities from structure parameters
+• Calculations of Patterson-function densities from structure parameters or volumetric data
+• Integration of electron and nuclear densities by Voronoi tessellation [21]
+• Significant performance improvements in rendering of isosurfaces and calculation of slices
+• Output information about principal axes and mean square displacements for anisotropic atomic displacements
+2http://www.opengl.org/ 3http://www.wxwidgets.org/
+2
+
+• Determination of the best plane for selected atoms • Displaying labels of atoms • Customization of styles per sites or bond types • Customization of symmetry operations • Improvements in inputting files with various formats • Support of undo and redo in GUI operations
+
+1.4 Notes on this Manual
+
+Throughout this document, the following symbols are used to show kinds of input data:
+
+[Button] : “Option” :
+{Text Box} : Tab :
+<Key> :
+
+A button (dotted lines appear after clicking it). A radio button and a check box (words following it may be clicked to select it). An input item (e.g., a value or a name) including spinners and list boxes. A page in a multiple-page user interface (an underscore is drawn below the tab name). A key in the keyboard.
+
+The text box supports four types of basic arithmetic operations: +, −, ×, and /, which means that you can input, for example, “1/3” instead of “0.333333.” Pressing the <Tab> or <Enter> key will focus a next control, i.e., text box, button, ratio button, or check box, in a dialog box. Press <Shift> + <Tab> to focus the preceding control.
+
+3
+
+Chapter 2
+OVERVIEW OF THE PROGRAM
+2.1 General Features
+VESTA [11, 12, 13, 14] is a 3D visualization system for structural models, volumetric data (“voxel” data), and crystal morphologies. A variety of physical quantities such as electron densities, densities of coherent-scattering lengths bc (nuclear densities) [10], wave functions, and electrostatic potentials can be superimposed on atomistic structures and external morphology of crystals. Objects (atoms, bonds, coordination polyhedra, isosurfaces, etc.) can be rotated, scaled, and translated fast in three dimensions, particularly in the presence of graphics cards supporting the OpenGL instruction set. The scalability of VESTA is very high; it enables us to deal with a practically unlimited numbers of objects such as atoms, bonds, polyhedra, and polygons on isosurfaces so long as memory capacity is enough. Drawing boundaries are defined by ranges along x, y, and z axes as well as lattice planes.
+As Fig. 2.1 illustrates, VESTA runs on Microsoft Windows (hereafter referred to as Windows), macOS, and Linux. With VESTA, we can deal with multiple data in the same window, using a “tab” user interface. VESTA further supports multiple windows, each of which may contain multiple tabs corresponding to files.
+2.2 Visualization of Structural Models
+Structural models are represented as ball-and-stick (Fig. 2.2), space-filling (Fig. 2.3), polyhedral (Fig. 2.4), wireframe (Fig. 2.5), stick (Fig. 2.6), and displacement ellipsoid (Fig. 2.7) models. Ball-and-stick, wireframe, and stick models can be overlapped with dotted surfaces to accentuate outer surfaces of atoms. Polyhedra may be made translucent so as to make inside atoms and bonds visible.
+Lattice planes with variable opacity can be inserted into a structural model. Vectors (arrows) can be attached to atoms to represent magnetic moments or directions of static and dynamic displacements.
+You can superimpose multiple structural models in the same Graphic area to deal with grain boundary structures, absorption of atoms, molecules, nanosheet on a surface of cyrstal, or absorbed molecules in porous materials and layered structures.
+Bond-search algorithm in VESTA is highly sophisticated; a variant of the cell index method by Quentrec and Brot [22, 23] was adopted. This approach is widely used in programs for molecular dynamics simulation that needs to deal with a large number of atoms.
+4
+
+A
+
+B
+
+C
+
+Figure 2.1: Screenshots of VESTA running on the three different operating systems: (A) Windows, (B) Linux, and (C) macOS.
+5
+
+Figure 2.2: Crystal structure of a variant of mica group minerals, masutomilite K(Li,Al,Mn2+)3[(Si,Al)4O10](F,OH)2 [24].
+Figure 2.3: Crystal structure of a polymorph of vitamin B1 [25]. 6
+
+Figure 2.4: Crystal structure of beryl, Be3Al2Si6O18 [26].
+Figure 2.5: Crystal structure of sodalite, Na4Al3(SiO4)3Cl [27]. 7
+
+Figure 2.6: Crystal structure of the tetragonal form of melanophlogite, 46SiO2·6M14·2M12 (M14 = N2, CO2; M12 = CH4, N2) [28]. Bright-blue and pink spheres in cages of the SiO4 framework represent M14 and M12 sites for guest molecules, respectively.
+Figure 2.7: A displacement ellipsoid model of 17-(2H -indazol-2-yl)androsta-5,16-dien-3β-ol having an indazole substituent at the C17 position [29]. C: brown, N: green, O: red, H: sky-blue. The probability for atoms to be included in the ellipsoids was set at 50 % except for the small and spherical H atoms.
+8
+
+2.2.1 A variety of structural information derived on selection of objects
+Selection of objects (atoms, bonds, and coordination polyhedra) by clicking with a mouse provides us with a variety of structural information:
+• fractional coordinates,
+• symmetry operations and translation vectors,
+• site multiplicities and Wyckoff letters [30],
+• site symmetries,
+• principal axes and mean square displacements of anisotropic atomic displacements,
+• interatomic distances, bond angles, and dihedral angles,
+• information about coordination polyhedra including volumes [31], Baur’s distortion indices [32], quadratic elongations [33], bond angle variances [33, 34, 35, 36], effective coordination number [34, 35, 36], charge distribution [35, 36, 37], bond valence sums of central metals [38, 39, 40], and bond lengths expected from bond valence parameters.1
+2.3 Visualization of Volumetric Data
+Electron and nuclear densities, wave functions, electrostatic potentials, Patterson functions, etc. are visualized as isosurfaces, bird’s-eye views, and two-dimensional (2D) maps. Multiple levels of translucent isosurfaces can be overlapped with a structural model. VESTA has a feature of surface coloring to illustrate another kind of a physical quantity at each point on isosurfaces; this feature has been thoroughly redesigned to improve the quality of images [11]. In VESTA, the visibility of both outlines of isosurfaces and an internal structural model has been surprisingly improved by introducing two opacity parameters. Further, we can add 2D slices of volumetric data in their 3D image. The quality of rendering isosurfaces, boundary sections, and slices by VESTA is very high even when the resolution of data is relatively low [11]. The calculation of isosurface geometry has been appreciably accelerated in VESTA by virtue of new algorithm adopted in VESTA [11].
+VESTA has a feature to calculate electron and nuclear density distributions from structure parameters and atomic scattering factors. This feature is useful for comparison of the results of MEM with model densities.
+Figure 2.8 illustrates isosurfaces of electron densities calculated with WIEN2k [41] for a superconductor MgB2 [42]. A network of highly covalent B–B bonds on the z = 1/2 plane and the ionic nature of bonds between Mg2+ ions (z = 0) and B atoms are clearly visualized in this figure. A (001) slice of electron densities at the z = 1/2 level is depicted in Fig. 2.9. Such a kind of 2D maps are very useful particularly when part of atoms form 2D sheets e.g., CuO2 conduction sheets in high-Tc superconducting oxides.
+1http://fujioizumi.verse.jp/rietan/book/book.html#BVP
+9
+
+B
+
+Mg
+
+b
+
+a
+
+0
+
+Figure 2.8: Electron-density distribution in MgB2. Four hexagonal unit cells are shown with an isosurface level of 0.11a−0 3 (a0: Bohr radius).
+
+0.5 0.45 0.4 0.35 0.3 0.25 0.2 0.15 0.1 0.05 0.0a0-3
+Figure 2.9: A (001) slice illustrating electron-density distribution on the z = 1/2 plane in MgB2. Contours are plotted up to 0.5a−0 3 with an interval of 0.05a−0 3 (a0: Bohr radius).
+
+10
+
+b
+
+O
+
+H
+
+0O
+
+a
+
+c
+
+Figure 2.10: Nuclear-density distribution in the paraelectric phase of KH2PO4.
+
+Figure 2.10 shows isosurfaces of scattering-length densities determined from neutron powder diffraction data of KH2PO4 (paraelectric phase, space group: I¯42d) at room temperature by MEM-based pattern fitting [43]. In this way, two different colors are assigned to positive and negative isosurfaces. Blue isosurfaces (density: −2.5 fm/Å3) for H atoms are elongated toward yellow ones (density: 2.5 fm/Å3) for O atoms because of double minimum potential with an H–H distance of about 0.36 Å.
+2.4 Visualization of Crystal Morphologies
+Crystal morphologies can be drawn by inputting Miller indices of faces (see section 6.5). Crystal faces can be overlapped with structural models as well as isosurfaces of volumetric data, as exemplified by Fig. 2.11. Thus, VESTA facilitates understanding of the relationship between crystal morphologies and chemical bonds, for example, by application of the periodic bond chain (PBC) theory [44]. For example, Fig. 2.12 illustrates an external morphology of anatase-type TiO2 superimposed on its ball-and-stick model. According to Hartman [44], the {101} face of anatase is an F face, where two PBCs are parallel to the plane. All the other {h0l} faces are S faces, where only one PBC is parallel to the plane. The PBC along [010] is intuitively recognized by interactive rotation of the model in three dimensions.
+Morphologies of twinned crystals or epitaxial intergrowths of two or more crystals are visualized by inputting multiple crystal data (Fig. 2.13). After morphological data have been given, information about Miller indices, distances from the center of the crystal to faces, and the surface area of each face are output to the text area.
+11
+
+Figure 2.11: An external morphology of an Al2O3 crystal composed of {001}, {110}, and {113} faces.
+Figure 2.12: A crystal morphology of anatase-type TiO2 superimposed on its structural model, where blue and red balls represent Ti and O atoms, respectively.
+12
+
+A
+
+B
+
+C
+
+Figure 2.13: Crystal morphologies of adularia, a variant of orthoclase (KAlSi3O8). (A) A single crystal. (B) A Hypothetical morphology composed of four individual crystals twinned after the Babeno law. (C) An idealized morphology of repeated twins, which were found from Kobushi mine, Japan, composed of eight individual crystals twinned after the Babeno and Manebach laws.
+2.5 Cooperation with External Programs
+VESTA collaborates closely with external programs such as ORFFE [45], STRUCTURE TIDY [46], RIETAN-FP [12], and MADEL (see section 14.5). On selection of a bond (2 atoms) or a bond angle (3 atoms) in a dialog box relevant to geometrical parameters output by ORFFE, the corresponding object in a ball-and-stick model is highlighted in a graphic window, and vice versa. STRUCTURE TIDY allows us to standardize crystal-structure data and transform the current unit cell to a Niggli-reduced cell. RIETAN-FP makes it possible to simulate powder diffraction patterns from lattice and structure parameters. With MADEL, electrostatic site potentials and a Madelung energy can be calculated from occupancies, fractional coordinates, and oxidation states of all the sites.
+2.6 Input and Output Files
+VESTA can read in files with 42 kinds of formats such as CIF, ICSD, and PDB and output files with 15 kinds of formats such as CIF and PDB (see chapter 17). Users of RIETAN-FP [12] must be pleased to learn that standard input files, *.ins, can be both input and output by VESTA. In addition, program ELEN [47] was built into VESTA for conversion of 3D electron densities into electronic-energy densities and Laplacians [48].
+The entire crystal data and various settings can be saved in a small text file, *.vesta, without incorporating huge volumetric data. File *.vesta with the VESTA format contains relative paths to external data files of volumetric-data and optionally of structure-data that are automatically read in when *.vesta is reopened. VESTA also makes it possible to export graphic-data files with 14 image formats including 4 vector-graphic ones (see section 17.5).
+2.7 Programming Concept
+The source code of VESTA comprises GUI and core parts. In this section, only the fundamental concept of programming is briefly described. For further details in algorithmic techniques adopted in VESTA, please refer to Ref. [11].
+13
+
+2.7.1 Graphical user interface
+The GUI of VESTA is built on top of a cross-platform application framework (toolkit), wxWidgets, written in the C++ language. The wxWidgets libraries are one of the best toolkits for cross-platform GUI programming. It provides us with a consistent look-and-feel inherent in each operating system. The license agreement of wxWidgets,2 an LGPL-like license with some exceptions allowing binary distribution without source code and copyright, is flexible enough to permit us to develop any types of applications incorporating wxWidgets.
+2.7.2 Core libraries
+In contrast to the GUI framework, the core parts of VESTA are carefully separated from the GUI parts to make it easier to reuse the former code. The core libraries are basically independent of the wxWidgets libraries. However, few classes and functions proviced by wxWidgets are exceptionally used in some core parts. In such a case, the function is wrapped by another function in a separate file to make the core parts quite independent of GUI toolkits and to make clear which functions depend on external libraries.
+2http://www.wxwidgets.org/about/newlicen.htm
+14
+
+Chapter 3
+GETTING STARTED
+3.1 Minimum requirements of hardware
+CPU: MMX Pentium 233 MHz or faster. RAM: 64 MB or more. Video RAM: 16 MB or more is desirable. Video card: A graphics card capable of hardware acceleration of the OpenGL instruction set is recommended. Display: A minimum resolution of 1024 × 768 pixels with ca. 65,000 or ca. 16.7 million colors.
+Because VESTA utilizes OpenGL technology, the use of an OpenGL-capable graphics processing unit (GPU) is highly recommended but not always mandatory. All the versions of VESTA were built with Intel C++ Composer XE 2011 and linked with the MKL library.1
+3.2 Windows
+Both 32- and 64-bit versions of VESTA are available for Windows. They were tested on Windows 10, 8, 7, Vista, and XP. VESTA does not run on Windows ME or older.
+The Windows versions of VESTA are archived in the zip format. To get the 32-bit version of VESTA for Windows, download http://jp-minerals.org/vesta/archives/VESTA.zip To get the 64-bit version of VESTA for Windows, download http://jp-minerals.org/vesta/archives/VESTA-win64.zip Note that the 32-bit version of VESTA can also be used on 64-bit Windows. Extract the whole contents of the archive file in the same directory. VESTA can be launched in the following four fashions:
+1. Double click the icon of VESTA.exe. 2. Type a command in a command line:
+VESTA file1 file2 ...
+This command will start VESTA and open specified files, file1, file2, etc. Input files may be omitted. When the current directory is different from the directory of VESTA, you
+1http://software.intel.com/en-us/articles/intel-sdp-products/
+15
+
+must input the absolute path of the executable binary file of VESTA. To execute VESTA by simply typing VESTA regardless of the current directory, set environment variable PATH to include absolute path of the directory where VESTA is placed.
+3. Drag & drop file icons of supported file types on the icon of VESTA.exe.
+4. Double click files with extensions associated with VESTA.
+To associate an extension with VESTA, right click a file with the extension and select “Properties.” Then change the “Program” section in the Properties dialog box.
+Beware that VESTA cannot be executed unless the zip file is decompressed. By default, double-clicking a zip file on Windows XP or later will open it with Explore, i.e., the standard file manager of Windows. However, the contents of the archive file seen in the Explore window are actually not extracted but just ‘previewed’. In such a case, copy the whole contents of the ‘previewed’ archive into an appropriate directory, typically in C:\Program Files. Then, VESTA.exe in the VESTA folder can be executed as described above.
+3.3 macOS
+The macOS version of VESTA runs on OS X 10.9 or later using Macs equipped with Intel CPUs that support 64 bit instruction sets. For those using older machines, VESTA v3.4.4 or earlier runs on OS X 10.6 or later and Intel 64 bit CPU. VESTA 2.1.6 or earlier runs on Macs (Mac OS X 10.4) equipped with PowerPC or Intel 32 bit CPUs.
+The macOS version is contained in VESTA.dmg with a disc image format. Download http://jp-minerals.org/vesta/archives/VESTA.dmg and mount its disc image by double-clicking the icon of VESTA.dmg. Copy the whole contents of the disc image into an appropriate directory, typically /Applications/VESTA.
+VESTA can be launched in the following four fashions:
+1. Double click the icon of VESTA (or VESTA.app).
+2. Type a command in a command line:
+open -a VESTA file1 file2 ...
+3. Drag and drop file icons of supported file types on the icon of VESTA.
+4. Double click files with extensions associated with VESTA.
+3.4 Linux
+Both 32- and 64-bit versions are available for Linux platforms.
+3.4.1 32-bit version
+1. Dependency
+(a) Gkt+ > 2.10 (b) Cairo > 1.0 (c) libstdc++.so.6 (d) Mesa OpenGL library
+16
+
+2. Distributions where VESTA is known to work
+(a) Fedora 10, 11, 12, 13, 14 (b) openSUSE 11.2, 11.3 (c) Red Hat Enterprise Linux 5, 6 (d) Ubuntu 9.10, 10.10
+3.4.2 64-bit version
+1. Dependency
+(a) Gkt+ > 2.10 (b) Cairo > 1.0 (c) libstdc++.so.6 (d) Mesa OpenGL library
+2. Distributions where VESTA is known to work
+(a) Fedora 10, 11, 12, 13, 14 (b) openSUSE 11.2, 11.3 (c) Red Hat Enterprise Linux 5, 6, 7 (d) Ubuntu 9.10, 10.10, 12.04, 16.04
+Linux versions of VESTA are archived in the tar.bz2 format. For 32-bit OSs running on PCs equipped with Intel x86 CPUs, download
+http://jp-minerals.org/vesta/archives/VESTA-i686.tar.bz2
+For 64-bit OSs running on PCs equipped with AMD 64 CPUs, download
+http://jp-minerals.org/vesta/archives/VESTA-x86_64.tar.bz2
+Extract the whole contents of the archive file to a directory. Then, execute VESTA in that directory by double-clicking the “VESTA” file on a file manager or by typing the following command in a command line:
+VESTA file1 file2 ...
+This command will start VESTA to open the specified files, file1, file2, etc. Of course, the input files may be omitted. When the current directory is different from that of VESTA, you must input the absolute path of the executable binary file of VESTA. To launch VESTA by simply typing VESTA regardless of the current directory, create a symbolic link of VESTA in a directory where environment variable path is set. You can optionally add VESTA to a panel, dock, or the application menu.
+VESTA always uses “.” (period) as decimal points regardless of locale settings of OSs, even though some languages use “,” (comma) as decimal points. Such behavior is achieved by internally changing locale settings on execution of the VESTA program. This is necessary because most of file formats, such as Crystallographic Information Framework (CIF), use period as decimal points.
+VESTA crashes on Ubuntu 6.06 with some locale settings. In this case, try the following command:
+GTK_IM_MODULE=xim VESTA
+17
+
+3.5 Trouble Shooting
+VESTA may not function properly with part of graphics cards; most of such troubles seem to arise from bugs of their drivers. Updating drivers to latest ones may solve the problems. If some troubles are encountered on the use of VESTA, please try to run it on another machine to check whether or not the trouble is caused by a bug in it.
+If you fail in executing VESTA on a Linux platform, try to execute it in a command line. Then you will probably get some information about the cause of the problem. Most likely, the failure is caused by missing libraries. In such a case, the names of missing libraries are output to the terminal.
+3.6 Loading Files
+Files can be loaded in four different fashions. Files to be opened can be specified on execution of VESTA in a command line. Files can be specified in a file selection dialog box, which is opened from the “Open” item in the “File” menu. In the file selection dialog box, only files with supported formats can be selected. You can also drag and drop a file icon onto the main window of VESTA from a file manager (Finder in macOS or Explorer in Windows). If VESTA has been associated with some file extensions, files having these extensions can be opened with a file manager by double-clicking their icons.
+18
+
+Chapter 4
+MAIN WINDOW
+4.1 Components of the Main Window
+Figure 4.1 shows the main window of VESTA running on Windows 7. The Main Window consists of the following seven parts:
+1. Menu Bar
+
+2. Horizontal Toolbar
+
+6. Graphics Area
+
+3. Vertical Toolbar
+
+7. Text Area
+
+4. Side Panel
+
+5. Status Bar
+
+Figure 4.1: Main window of VESTA running on Windows 10.
+
+19
+
+1. Menu bar: “File”, “Edit”, “View”, “Objects”, “Utilities”, and “Help” menus are placed on the menu bar. The menu bar is placed at the top of the Main Window in Windows and Linux while the menus are displayed at the top of the screen in macOS.
+2. Horizontal Toolbar: Tools used frequently (see section 4.3).
+3. Vertical Toolbar: Other tools used frequently (see section 4.4).
+4. Side Panel: Composed of three tab pages. The Tools tab contains options for GUI tools in the Vertical Toolbar (see chapter 11). The Style tab contains GUI tools for display styles (see chapter 5). The Objects tab shows a list of phases and objects in each phase (see chapter 12.2).
+5. Status Bar: An area to show brief information in a line of text.
+6. Graphics Area: An area where various objects are displayed in three dimensions.
+7. Text Area: Two types of texts are displayed here (see section 4.5). A variety of information related to users’ operations is displayed in the Output tab. In the Comment tab, comments on data displayed currently can be input.
+4.2 Menus
+4.2.1 File menu
+• New Structure...: Open a Edit Data dialog box to input crystal data of a new structure.
+• New Window...: Open a new Main Window.
+• Open...: Open files with a file selection dialog box.
+• Save...: Save current data to a file, *.vesta, with the VESTA format. If the current data has been input from *.vesta or once saved as *.vesta, *.vesta is overwritten. Otherwise, a file selection dialog box will appear to prompt you to input a new file name.
+• Save As...: Save current data to a new file, *.vesta, with the VESTA format. A file selection dialog box will appear to prompt you to input a new file name.
+• Export Data...: Export current data to a file with formats other than the VESTA format.
+• Export Raster Image...: Export a graphic image to a file with a raster (pixel-based) format.
+• Export Vector Image...: Export a graphic image to a file with a vector format.
+• Save Output Text...: Save text data in the Text Area as a text file.
+• Close: Close the current page. When no data are displayed, this menu is practically the same as the Exit menu.
+• Exit: Exit VESTA.
+20
+
+4.2.2 Edit menu
+• Undo: Undo the last action. • Redo: Redo an action that has just been undone. • Edit Data:
+− Phase…: Open an Edit Data dialog box to select the Phase page. − Unit Cell…: Open an Edit Data dialog box to select the Unit Cell page. − Structure Parameters…: Open an Edit Data dialog box to select the Structure parameters
+page. − Volumetric Data…: Open an Edit Data dialog box to select the Volumetric data
+page. − Crystal Shape…: Open an Edit Data dialog box to select the Crystal shape page. • Bonds...: Open a Bonds dialog box to create or edit data related to bonds. • Vectors...: Open a Vectors dialog box. • Lattice Planes...: Open a Lattice Planes dialog box. • Preferences...1: Open a Preferences dialog box.
+4.2.3 View menu
+• Antialiasing: Enable or disable antialiasing in the Graphics Area. • Parallel: Switch to parallel representation. • Perspective: Switch to perspective representation. • Zoom In: Zoom in objects. • Zoom Out: Zoom out objects. • Fit to Screen: Scale and center justify objects to fit to the Graphics Area. • Overall Appearance...: Open an Overall Appearance dialog box. • Clear Text Are: Clear all the text in the Text Area.
+4.2.4 Objects menu
+• Structural Model: items of this menu can be also selected in the Side Panel. − Show Model: Show or hide a structural model. − Show Dot Surface: Show or hide outer surfaces of atoms as dotted surfaces. − Ball-and-Stick: Show a ball-and-stick model. − Space-filling: Show a space-filling model. − Polyhedral: Show a a polyhedral model. − Wireframe: Show a wireframe model. − Stick: Show a stick model.
+1In the macOS version, the Preferences item is placed under the VESTA menu.
+21
+
+• Volumetric Data: items of this menu can be also selected in the Side Panel.
+− Show Isosurfaces: Show or hide isosurfaces. − Show Sections: Show or hide sections of isosurfaces. − Surface Coloring: Enable or disable the surface coloring of isosurfaces. − Smooth Shading: Show isosurfaces with a smooth-shading model. − Wireframe: Show isosurfaces with a wireframe model. − Dot Surface: Show isosurfaces as dotted surface.
+• Properties
+− General...: Open a Properties dialog box to select the General page. − Atoms...: Open a Properties dialog box to select the Atoms page. − Bonds...: Open a Properties dialog box to select the Bonds page. − Polyhedra...: Open a Properties dialog box to select the Polyhedra page. − Isosurfaces...: Open a Properties dialog box to select the Isosurfaces page. − Sections...: Open a Properties dialog box to select the Sections page.
+• Boundary...: Open a Boundary dialog box.
+• Orientation...: Open an Orientation dialog box.
+4.2.5 Utilities menu
+• Equivalent Positions...: Open an Equivalent Positions dialog box to list general equivalent positions.
+• Geometrical Parameters...: Open a Geometrical Parameters dialog box.
+• Standardization of Crystal Data...: Standardize the space-group setting and fractional coordinates.
+• Niggli-Reduced Cell: Transform the current unit cell to a Niggli-reduced cell.
+• Site Potentials and Madelung Energy...: Calculate site potentials and the Madelung energy of the currently displayed crystal by an external program, MADEL.
+• Powder Diffraction Pattern...: Simulate a powder diffraction pattern with RIETANFP [12] and display the result with an external graph-plotting program.
+• Structure Factors...: Calculate structure factors.
+• Fourier Synthesis...: Calculate electron/nuclear densities from structure factors.
+• Model Electron Densities: Calculate electron densities from structure parameters.
+• Model Nuclear Densities: Calculate nuclear densities from structure parameters.
+• Patterson Densities:
+− From Model Electron Densities…: Calculate and display density distributions of Patterson function from model electron densities.
+− From Model Nuclear Densities…: Calculate and display density distributions of Patterson function from model nuclear densities.
+22
+
+− From Volumetric Data…: Calculate and display density distributions of Patterson function from the currently displayed volumetric data.
+• 2D Data Display...: Open a 2D Data Display window.
+• Line Profile...: Calculate a line profile of volumetric data between two positions and output them in a text file.
+• Peak Search...: Search peaks in volumetric data.
+• Conversion of Electron Densities...: Convert 3D electron densities into electronicenergy densities and Laplacians.
+4.2.6 Help menu
+• Manual...: Open the user’s manual of VESTA in a PDF viewer.2
+• Check for Updates...: Open the web page of VESTA3 with a browser to check whether or not a new version of VESTA has been released.
+• About VESTA...4: Show information about VESTA.
+4.3 Tools in the Horizontal Toolbar
+4.3.1 Alignment
+View along the a axis View along the b axis View along the c axis View along the a* axis View along the b* axis View along the c* axis The above six buttons are used to align objects parallel to the a, b, or c axis, or parallel to the a∗, b∗, or c∗ axis, respectively.
+2The present PDF file, VESTA_Manual.pdf, need to share the same folder with a binary executable file of VESTA.
+3http://jp-minerals.org/vesta/ 4In the macOS version, this item is placed under the VESTA menu.
+23
+
+4.3.2 Rotation
+Rotate around the x axis Rotate around the x axis Rotate around the y axis Rotate around the y axis Rotate around the z axis Rotate around the z axis These six buttons are used to rotate objects around the x, y, or z axis. The step width of rotation (in degrees) is specified in the text box next to the sixth button:
+4.3.3 Translation
+Translate upward Translate downward Translate leftward Translate rightward These four buttons are used to translate objects upward, downward, leftward, and rightward, respectively. The step width of translation (in pixels) is specified in the text box next to the fourth button:
+4.3.4 Scaling
+Zoom in Zoom out Fit to the screen These three buttons are used to change object sizes. The step width of zooming (in %) is specified in a text box next to the third button:
+24
+
+4.4 Tools in the Vertical Toolbar
+Rotate Select Translate Magnify Measure distance Measure angle Measure dihedral angle Measure an interfacial angle
+
+4.5 Text Area
+
+4.5.1 Output tab
+The Output area is a standard-output window corresponding to the Command Prompt window on Windows and a Terminal window on macOS or Linux. Just after launching VESTA, the Output area displays information about the PC you are using. OpenGL version denotes the version of OpenGL implementation supported by the system. Video configuration provides information about the GPU. For example, in a Windows PC equipped with Quadro FX 4600, a message
+
+Video configuration: Quadro FX 4600/PCI/SSE2
+is displayed in the Text Area. SSE2 means that Streaming SIMD Extensions 2 is supported in this graphics card. In the case of a Power Mac G5 (Dual 2.5 GHz) equipped with ATI Radeon 9600 XT, a message
+
+Video configuration: ATI Radeon 9600 XT OpenGL Engine
+
+is issued in the Text Area. If the GPU of your PC does not support any hardware acceleration of OpenGL, Video configuration would be GDI Generic on Windows, and Software Rasterizer or Mesa GLX Indirect on Linux.
+When a new file is loaded, a summary of data appears in the Output area, including the absolute path of the file and the title of the data. For crystal-structure data, lattice parameters, a unit-cell volume, and structure parameters (element names, site names, fractional coordinates, occupancies, isotropic atomic displacement parameters, multiplicities plus Wyckoff letters, and site symmetries) are output. In the case of volumetric data, lattice parameters, number of grids along each axis, and number of polygons and unique vertices on slices and isosurfaces are displayed. For instance, a CIF of PbSO4 affords the following output:
+
+Title
+
+O4 Pb1 S1
+
+Lattice type Space group name
+
+P Pnma
+
+25
+
+Space group number 62
+
+Setting number
+
+1
+
+Lattice parameters
+
+a
+
+b
+
+c
+
+alpha beta
+
+gamma
+
+8.51600 5.39900 6.98900 90.0000 90.0000 90.0000
+
+Unit-cell volume = 321.339447
+
+Structure parameters
+
+1 Pb Pb1 2 S S1 3 O O1 4 O O2 5 O O3
+
+x 0.18820 0.43700 0.59500 0.31900 0.41500
+
+y 0.25000 0.75000 0.75000 0.75000 0.97400
+
+z 0.16700 0.18600 0.10000 0.04300 0.30600
+
+g 1.000 1.000 1.000 1.000 1.000
+
+Occ 1.200 0.700 1.600 1.600 1.600
+
+Site 4c 4c 4c 4c 8d
+
+Sym. .m. .m. .m. .m. 1
+
+Such a type of a list is also output when pressing [OK] button in the Edit Data dialog box.
+
+4.5.2 Summary tab
+
+The Summary tab gives a brief summary of data including data name, space group, unit cell parameters, unit cell volume, and number of grids of volumetric data. An example output is as follows.
+
+NaV6O11
+
+Space Group: P 63/m m c (#194-1)
+
+a = 5.70918 Å
+
+α = 90.0000°
+
+b = 5.70918 Å
+
+β = 90.0000°
+
+c = 13.08744 Å
+
+γ =120.0000°
+
+V = 369.4305 Å^3
+
+grid(x) = 120 grid(y) = 120 grid(z) = 240
+
+4.5.3 Comment tab
+You can input any comments relevant to data displayed currently. VESTA also reads in some information on the data from files (*.amc) of the American Mineralogist Crystal Structure Database format. For example, the following information is read in from *.amc for anatase-type TiO2 and displayed in the Comment area.
+Horn M, Schwerdtfeger C F, Meagher E P Zeitschrift fur Kristallographie 136 (1972) 273-281 Refinement of the structure of anatase at several temperatures Sample: T = 25 C Locality: Legenbach quarry, Binnatal, Switzerland _database_code_amcsd 0010735
+
+26
+
+Chapter 5
+DISPLAY STYLES
+
+Display styles of structural models, volumetric data, and crystal shapes are controlled either from the Style tab of the Side Panel or from the “Objects” menu. Both of the methods allow us to use the same options.
+
+5.1 Structural Models
+The Structural model frame box in the Style tab of the Side Panel (Fig. 5.1) contains frequently used tools to control representation of structural models. The same options can also be used by selecting the Model item under the “Objects” menu. This frame box is disabled for data containing no structural model.
+
+5.1.1 Objects to be displayed
+Show model
+This option controls the visibility of a structural model. When this option is checked (default), a structural model is visible; otherwise, no structural model is shown. Uncheck this option when you want to see only isosurfaces and sections for data containing both structural and volumetric ones.
+
+Figure 5.1: The Structural model frame box in the Style tab of the Side Panel.
+
+Show dot surface
+In ball-and-stick, wireframe, and stick models, dot-surface spheres are added with radii corresponding to 100 % of user specified ones in the same manner as with a space-filling model if Show dot surface is checked (Fig. 5.2). This mode is designed to accentuate outer surfaces of atoms. Each sphere is represented as though it were a hollow shell with numerous dots placed on the surface. The combination of dot surface with a stick model is useful for understanding how atoms are combined with each other in a molecule. The density of dots is controlled by two parameters, {Stacks} and {Slices} in the Atoms page of the Properties dialog box as with the same manner as solid spheres.
+27
+
+Figure 5.2: Crystal structure of quartz [49] represented by a stick model with dot surfaces. Si: blue, O: red.
+
+5.1.2 Styles
+As described in 2.2, VESTA represents crystal structures by the five different styles: ball-andstick, space-filling, polyhedral, wireframe, and stick models. When atoms are drawn as spheres, they are rendered with radii corresponding to 40 % of actual atomic radii in all but the spacefilling model, where atoms are rendered with the actual atomic radii. Default radii of atoms are selected from three types: atomic, ionic, and van der Waals radii. The radius of each element and a type of radii are specified at the Atoms page in the Properties dialog box (see section 12.1.2). Features in each structural model are described below with screenshots of the structure for quartz [49] on the right side.
+“Ball-and-stick” In the “Ball-and-stick” model, all the atoms are expressed as solid spheres or displacement ellipsoids. Bonds are expressed as either cylinders or lines.
+“Space-filling” In the “Space-filling” model, atoms are drawn as interpenetrating solid spheres, with radii specified at the Atoms tab in the Properties dialog box (see section 12.1.2). This model is useful for understanding how atoms are packed together in the structure.
+“Polyhedral” In the polyhedral model, crystal structures are represented by coordination polyhedra where central atoms, bonds, and apex atoms may also be included. Bonds between central and apex atoms have to be searched with the Bonds dialog box to display coordination polyhedra comprising them. Atoms are expressed as solid spheres or displacement ellipsoids. Bonds are expressed as either cylinders or lines. Needless to say, the transparency of the coordination polyhedra must be high enough to make it possible to see the central atoms and bonds. One of six different styles for representing polyhedra is specified at the Polyhedra tab in the Properties dialog box (see section 12.1.4).
+28
+
+“Wireframe” In the “Wireframe” model, atoms having no bonds are drawn as wireframe spheres whereas those bonded to other atoms are never drawn. All the bonds are presented as lines with gradient colors. This model is useful for seeing and manipulating complex and/or large structures because this is usually the fastest model for rendering structures on the screen.
+“Stick” In the “Stick” model, atoms with no bonds are drawn as solid spheres while atoms bonded to other atoms are never drawn. All the bonds are expressed as cylinders, whose properties can be changed at the Bonds tab in the Properties dialog box (see section 12.1.3). This model serves to see frameworks or molecular geometry.
+Displacement ellipsoids In the ball-and-stick and polyhedral models, atoms can be rendered as displacement ellipsoids. The probability for atoms to be included in the ellipsoids is also specified in the Properties dialog box (see section 12.1.2).
+
+5.2 Volumetric Data
+The Volumetric data frame box in the Style tab of the Side Panel (Fig. 5.3) contains frequently used tools to control representation of volumetric data. The same options can also be used by selecting the “Volumetric Data” item under the “Objects” menu. This frame box is disabled for data containing no volumetric ones.
+
+• Show sections
+
+This option controls whether or not sections of isosurfaces
+
+are visible. When this option is checked (default), sections Figure 5.3: The Volumetric
+
+are visible, otherwise they are not shown.
+
+data frame box in the Style
+
+• Show isosurfaces
+
+tab of the Side Panel.
+
+This option controls whether or not isosurfaces of volu-
+
+metric data are visible. When this option is checked (default), isosurfaces are visible,
+
+otherwise they are not shown. To see only a structural model for data containing both
+
+29
+
+structural and volumetric ones, uncheck this option in addition to the “Show sections” option.
+• Surface coloring “Surface coloring” means that colors of isosurfaces drawn from one data set are determined by a secondary data set. A typical example is coloring of electron-density isosurfaces on the basis of electrostatic potentials (see Fig. 12.9). This option is enabled only when the secondary volumetric data for surface coloring has been loaded with the Volumetric data tab in the Edit Data dialog box (see 6.4.2).
+Styles of isosurfaces are chosen from the following three representations:
+• Smooth shading
+• Wireframe
+• Dot surface
+Isosurfaces are drawn as solid surfaces with variable opacity in the Smooth shading mode whereas isosurfaces are represented by lines and points, respectively, in the Wireframe and Dot surface modes.
+
+5.3 Crystal Shapes
+The Crystal Shapes frame box in the Style tab of the Side Panel (Fig. 5.4) provides us with tools to control representation of crystal morphologies. The same options can also be used by selecting the “Crystal Shapes” item under the “Objects” menu. This frame box is disabled for data containing no morphology data (faces).
+• Show shapes This option controls whether or not the external morphology of crystals are visible. When this option is checked (default), morphologies are visible, otherwise they are not shown.
+
+Figure 5.4: The Crystal shapes frame box in the Style tab of the Side Panel.
+
+5.3.1 Styles
+VESTA represents crystal morphologies by the following three styles:
+
+“Unicolor”
+All the faces of a crystal are filled with a single color, as the right figure (quartz) illustrates.
+
+30
+
+“Custom color” Each face is filled with a color assigned to symmetrically equivalent {hkl} faces specified in the Edit Data dialog box (see section 6.5) or in the Side Panel. “Wireframe” Only edges of a crystal shape are drawn with lines.
+31
+
+Chapter 6
+GIVING PHASE DATA
+To create a new structure, choose the “File” menu ⇒ “New Structure…”. To edit current data, choose “Edit” menu ⇒ “Edit Data” ⇒ “Phase…”. In both of the cases, the same dialog box named New Data or Edit Data appears (Fig. 6.1). This dialog box consists of the following five tab pages:
+• Phase • Unit cell • Structure parameters • Volumetric data • Crystal shape At the top of the dialog box, a serial number and a title are displayed for the selected phase.
+Figure 6.1: New Data dialog box. 32
+
+6.1 Defining Phases
+In the Phase tab (Fig. 6.1) of the Edit Data dialog box, you can add, delete, copy, or import phase data that are overlaid on the same Graphics Area. To edit the title of a phase, select a row in the list and click on the Title column. When dealing with a single phase, you have nothing to do with this tab except for editing the title. The Positioning and Orientation frame boxes are used when superimposing two or more phases. See chapter 7 for how to visualize multiple phase data in the same Graphics Area.
+6.2 Symmetry and Unit Cell
+The Unit cell tab in the Edit Data dialog box is used to give lattice parameters and the symmetry of a structure (Fig. 6.2).
+Figure 6.2: Unit cell page in the Edit Data dialog box.
+6.2.1 Crystal systems and space groups
+Selection of crystal systems The System list box is used to filter a list of space-group symbols in the Space group list box. When an item in this list box is selected, only space groups belonging to the selected crystal system will be highlighted in the Space group list box. The following ten items are listed in the System list box.
+• Molecule • Custom
+33
+
+• Triclinic • Monoclinic • Orthorhombic • Tetragonal • Trigonal • Hexagonal • Cubic • Rhombohedral On selection of Molecule, a Cartesian-coordinate system is used instead of fractional-coordinate system, which leads to the absence of “unit cell”. Therefore, text boxes and list boxes for settings of a space group and lattice parameters are disabled. When Custom is selected, spacegroup settings cannot be specified, but symmetry operations can be manually customized (see page 36).
+Selection of a space group Space group numbers and standard symbols are listed in the Space Group list box. Only space groups of a selected crystal system is highlighted in the list but you can select any space group. On selection of a space group, the list boxes of System and Setting will be updated.
+Settings for a space group The number of available settings for the selected space group is listed in list box Setting. Settings available in the list box are basically those compiled in International Tables for Crystallography, volume A [30].
+In some space groups, additional settings are contained in list box {Setting}. In the triclinic system, complex lattices, A, B, C, I, F , and R, may be selected with setting numbers of 2, 3, 4, 5, 6, and 7, respectively (Table 6.1). In the monoclinic system, settings with unique axes a, b, and c are all available as built-in settings (Table 6.2).
+In the orthorhombic system, any of six settings, i.e., abc, bac, cab, cba, bca, and acb listed in Table 4.3.2.1 in Ref. [30] may be selected with setting numbers of 1, 2, 3, 4, 5, and 6, respectively. In orthorhombic space groups having two origin choices, odd and even setting numbers adopts origin choices 1 and 2, respectively. Then, settings 1 and 2 are of axis choice abc, settings 3 and 4 are of bac, and so on (Table 6.3).
+On changes in crystal axes, e.g., rhombohedral or hexagonal axes in a trigonal crystal, lattice parameters are automatically converted.
+When changing a setting number, consider whether you need to keep structure parameters or 3D geometries (see the following subsection).
+34
+
+Table 6.1: Non-standard settings in two triclinic space groups.
+
+Setting number
+1 2 3 4 5 6 7
+
+Space group (P 1)
+P1 A1 B1 C1 I1 F1 R1
+
+Space group (P ¯1)
+P ¯1 A¯1 B¯1 C ¯1 I ¯1 F ¯1 R¯1
+
+Table 6.2: Setting numbers of monoclinic space groups.
+
+Axis choice Cell choice
+P2 P 21 C2 Pm Pc Cm Cc P 2/m P 21/m C 2/m P 2/c P 21/c C 2/c
+
+abc
+
+cba
+
+123 1 2 3
+
+Unique axis b
+
+1
+
+1
+
+123
+
+1
+
+123
+
+123
+
+1 2 3 10 11 12
+
+1
+
+1
+
+123
+
+123
+
+123
+
+1 2 3 10 11 12
+
+abc
+
+bac
+
+123 1 2 3
+
+Unique axis c
+
+2
+
+2
+
+456
+
+2
+
+456
+
+456
+
+4 5 6 13 14 15
+
+2
+
+2
+
+456
+
+456
+
+456
+
+4 5 6 13 14 15
+
+abc
+
+acb
+
+123 1 2 3
+
+Unique axis a
+
+3
+
+3
+
+789
+
+3
+
+789
+
+789
+
+7 8 9 16 17 18
+
+3
+
+3
+
+789
+
+789
+
+789
+
+7 8 9 16 17 18
+
+Table 6.3: Axis choices in the orthorhombic space groups.
+
+Axis choice
+
+Space groups No. 48, 50, 59, 68, and 70
+
+Others
+
+Origin choice 1 Origin choice 2
+
+abc
+
+1
+
+bac
+
+3
+
+cab
+
+5
+
+cba
+
+7
+
+bca
+
+9
+
+acb
+
+11
+
+2
+
+1
+
+4
+
+2
+
+6
+
+3
+
+8
+
+4
+
+10
+
+5
+
+12
+
+6
+
+35
+
+6.2.2 Behavior when changing a space-group setting
+The list box below the Setting controls the behavior when changing a space-group setting. There are two options:
+• Update structure parameters to keep 3D geometry
+• Keep structure parameters unchanged
+On the use of the first option (default), lattice parameters and fractional coordinates are converted to keep the structural geometry of a crystal when the setting number of a space group is changed or a transformation matrix is specified. When the second option is used, lattice parameters and fractional coordinates remain unchanged instead of the geometry.
+If a correct structure is displayed in the Graphic Area but another space-group setting is preferred to the current one, choose Update structure parameters to keep 3D geometry and change the space-group setting. The second option is typically used to change a setting number when the correct setting number is not recognized by VESTA after reading in a file such as CIF. In such a case, lattice parameters and fractional coordinates are correct whereas symmetry operations are incorrect. Then, choose Keep structure parameters unchanged and select the correct setting number. When a setting number cannot be uniquely determined from data recorded in a structural-data file, VESTA assumes setting number 2 (a setting with the inversion center at the origin) in centrosymmetric space groups with two origin choices, and setting number 1 in all the other space groups.
+Note that even if structure parameters remain unchanged, some lattice parameters may be changed in conformity with constraints imposed on them in the current space-group setting.
+6.2.3 Lattice parameters
+In the Lattice parameters frame box, lattice parameters are input in the unit of Å (a, b, and c) and degrees (α, β, and γ). Lattice parameters input by the user are automatically constrained on the basis of a crystal system. Standard uncertainties (s.u.’s) of lattice parameters are used to calculate s.u.’s of geometrical parameters. For structural data based on the Cartesian coordinates (when Molecule is selected as the Crystal system), text boxes in this frame box are disabled.
+6.2.4 Customization of symmetry operations
+To customize symmetry operations, click the [Customize…] button. Then, the Equivalent Positions dialog box appears with an editing mode (Fig. 6.3), and a list of general equivalent positions is displayed in this dialog box. When one of the equivalent positions in the list is selected, the corresponding symmetry operation is displayed in a matrix form at the upper left of the dialog box. If you input a value in one of the text boxes, representation of the corresponding equivalent position in the list is updated. To add a new symmetry operation, click the [New] button. To remove a symmetry operation, select an item in the list and click the [Delete] button. Clicking the [Clear] button removes all the symmetry operations other than the identity operation.
+6.2.5 Reducing symmetry
+Clicking the [Remove symmetry] button generates all the atoms in the unit cell as virtual independent sites by reducing the symmetry of the crystal to P 1. When the space group is changed to that with higher symmetry, or when the unit cell is transformed to a smaller one (see 6.2.6), the same atomic position may result from two or more sites. In such a case, the redundant sites can
+36
+
+Figure 6.3: Equivalent Positions dialog box with an editing mode. be removed by clicking the [Remove duplicate atoms] button in the Structure parameters tab (see page 48).
+6.2.6 Transformation of the unit cell
+Clicking the [Transform...] button opens the Unit Cell Transformation dialog box (Fig. 6.4). This dialog box allow you to transform crystal axes by specifying 3 × 3 rotation matrix P and 3 × 1 translation vector p. The [View general positions] button in the dialog box is used to open the Equivalent Positions dialog box to check the general equivalent positions and symmetry operations of the transformed unit cell (see 14.1). Clicking the [Initialize current matrix] button resets the transformation matrix to the identity matrix. Currently, this operation cannot be canceled. When option “Normalize the fractional coordinates” is checked, new atomic coordinates of the transformed unit cell will be normalized within a range of 0 to 1.
+In what follows, a more detailed explanation and use cases of the Unit Cell Transformation dialog box will be given.
+Figure 6.4: Unit Cell Transformation dialog box. 37
+
+Non-conventional space-group settings
+
+To convert a structure from a conventional setting to a non-conventional one, you have to select
+
+a mode Update structure parameters to keep 3D geometry in the Unit cell tab of the Edit Data
+
+dialog box before opening the Unit Cell Transformation dialog box. With this mode, both lattice
+
+parameters and fractional coordinates are automatically transformed into new ones to keep the
+
+current geometry of the crystal structure. When the mode Keep structure parameters unchanged
+
+is selected, only symmetry operations are transformed to those of the new setting, whereas
+
+lattice parameters and fractional coordinates remain unchanged.
+
+The new origin of the transformed unit cell is specified as the origin shift p. For instance, if
+
+you specify (0.25, 0.25, 0.25) as an origin shift, a coordinate of (0.25, 0.25, 0.25) of a conventional
+
+setting becomes (0, 0, 0) of the transformed non-conventional unit-cell.
+
+Orientations of the transformed crystal axes a′, b′, and c′ are specified as column vectors in
+
+the 3 × 3 rotation matrix P , i.e., the first, second, and third columns of P represent a′, b′, and
+
+c′ respectively. For example, the following transformation matrix is used to swap the a and b
+
+axes.
+
+
+
+
+
+01 0 P = 1 0 0  .
+
+(6.1)
+
+0 0 −1
+
+Note that the orientation of the c axis is inverted in this case, or otherwise the transformed structure becomes enantiomorphic with respect to the original structure in non-centrosymmetric space groups. In general, when the determinant of P , det(P ), is negative, the crystal-coordinate system is transformed from right-handed to left-handed, and vice versa. When such a matrix is specified as P , a warning dialog box will appear to confirm whether or not you proceed to the next step.
+
+Figure 6.5: A warning dialog box for conversion of structure handedness.
+
+The unit-cell volume, V , is transformed to V ′ by V ′ = det(P )V.
+
+(6.2)
+
+Therefore, the unit-cell volume changes on the transformation unless det(P ) is 1. The entire transformation including both a rotation and an origin shift can be expressed by
+single 4 × 4 transformation matrix P, which consists of the 3 × 3 rotation matrix P , the 3 × 1 translation vector p, and the row vector o = (0, 0, 0) [50]:
+
+
+
+
+
+( P= P
+o
+
+) p
+1
+
+=
+
+PPP321111
+
+P12 P22 P32
+
+P13 P23 P33
+
+ppp213 .
+
+0 0 01
+
+(6.3)
+
+38
+
+Then each of the following crystallographic variables, i.e., primitive translation vectors a, b, c, reciprocal lattice vectors a∗, b∗, c∗, metric tensor G, metric tensor of reciprocal lattice G∗, atomic coordinate X, symmetry operation W, and anisotropic atomic displacement parameters β, are transformed as described below.
+Primitive translation vectors a, b and c are transformed by P as
+
+(a′, b′, c′) = (a, b, c)P
+
+
+
+
+
+= (a, b, c) PP2111
+
+P12 P22
+
+PP1233
+
+P31 P32 P33
+
+(6.4)
+
+= (P11a + P21b + P31c, P12a + P22b + P32c, P13a + P23b + P33c).
+
+The shift of the origin, i.e., (0, 0, 0), is defined with a shift vector t as
+
+t = (a, b, c)p 
+= (a, b, c) pp12
+p3
+
+(6.5)
+
+= p1a + p2b + p3c.
+
+Let A be the representation matrix of primitive translation vectors, a, b, and c, on the basis
+
+of a set of orthonormal vectors, x, y, and z:
+
+
+
+
+
+A = (a, b, c) = aaxy
+
+bx by
+
+ccxy .
+
+(6.6)
+
+az bz cz
+
+Then the transformation by Eq. (6.4) can be rewritten as
+
+A′ = AP .
+
+(6.7)
+
+Alternatively, the use of the metric tensor, G, is often preferable to the direct use of A owing to the unique definition of G. On the other hand, the number of representations for A is infinite because the orthonormal bases, x, y, and z, may be arbitrarily chosen. The metric tensor (matrix) of the direct lattice is defined as
+
+
+
+
+
+
+
+a·a a·b a·c
+
+a2 ab cos γ ac cos β
+
+G = AtA = b · a b · b b · c = ba cos γ b2 bc cos α ,
+
+c·a c·b c·c
+
+ca cos β cb cos α c2
+
+(6.8)
+
+where t denotes transposition. Then, G is transformed into G′ by G′ = (A′)tA′ = (AP )t(AP ) = P t(AtA)P = P tGP .
+
+(6.9)
+
+Similarly, the representation matrix of the reciprocal basis vectors a∗, b∗, and c∗ is defined as
+
+
+
+
+
+A∗ = (a∗, b∗, c∗) = aa∗x∗y
+
+b∗x b∗y
+
+cc∗x∗y .
+
+a∗z b∗z c∗z
+
+(6.10)
+
+39
+
+The direct and reciprocal basis vectors are related by A∗ = (A−1)t = (At)−1
+
+(6.11)
+
+and
+
+(A∗)tA = A(A∗)t = A∗At = AtA∗ = E,
+
+(6.12)
+
+where E is the identity matrix:
+
+
+
+
+
+100 E = 0 1 0 .
+
+001
+
+(6.13)
+
+The metric tensor of the reciprocal lattice is defined as
+
+ a∗ · a∗
+G∗ = (A∗)tA∗ = b∗ · a∗ c∗ · a∗
+
+a∗ · b∗ b∗ · b∗ c∗ · b∗
+
+
+
+a∗ · c∗
+
+a∗2
+
+b∗ · c∗  = b∗a∗ cos γ∗
+
+c∗ · c∗
+
+c∗a∗ cos β∗
+
+The transformation of G∗ into G∗′ is represented by
+
+a∗b∗ cos γ∗ b∗2
+c∗b∗ cos α∗
+
+ a∗c∗ cos β∗ b∗c∗ cos α∗ .
+c∗2
+(6.14)
+
+G∗′ = (A∗′)tA∗′ = (AP )−1((AP )t)−1 = P −1((A∗)tA∗)(P −1)t = QG∗Qt,
+
+(6.15)
+
+where Q = P −1.
+
+The coordinates x, y, and z in the direct space are transformed by the 4 × 4 transformation
+
+matrix Q as
+
+  
+
+x′
+
+x
+
+yz′′ = Q yz ,
+
+(6.16)
+
+1
+
+1
+
+where
+
+(
+
+)
+
+Q = P −1 −P −1p
+
+o
+
+1
+
+() Qq
+= o1
+
+
+
+
+
+= QQQ231111
+
+Q12 Q22 Q32
+
+Q13 Q23 Q33
+
+qqq123
+
+0 0 01
+
+(6.17)
+
+= P−1.
+
+In short, Eq. (6.16) can be expressed as:
+
+X′ = QX.
+
+(6.18)
+
+The 4 × 4 symmetry operation matrix W transforms the coordinates x, y, and z, of point X to
+
+40
+
+a symmetrically equivalent point X with the coordinates, x˜, y˜, and z˜, by
+
+ 
+
+ 
+
+x˜ yz˜˜
+
+=
+
+WWW231111
+
+W12 W22 W32
+
+W13 W23 W33
+
+www123
+
+x yz 
+
+1
+
+0 0 01 1
+
+
+
+
+
+=
+
+WWW321111xxx
+
++ + +
+
+W12y W22y W32y
+
++ + +
+
+W13z W23z W33z
+
++ + +
+
+w1 w2 w3
+
+
+
+,
+
+1
+
+(6.19)
+
+or in short notation,
+
+X = WX.
+
+The matrix Q transforms both X and X to X′ and X′, respectively:
+
+(6.20)
+
+X′ = W′X′, QWX = W′QX.
+
+(6.21) (6.22)
+
+Then, the symmetry operation W is transformed with the relation
+
+W′ = QWP.
+
+(6.23)
+
+Let Qt be the transposed matrix of Q defined in Eq. (6.17). Then, anisotropic atomic
+
+displacement parameters, β, are transformed by
+
+
+
+
+
+β′ = ββ11′′ 12
+
+β1′ 2 β2′ 2
+
+β1′ 3 β2′ 3
+
+
+
+β1′ 3 β2′ 3 β3′ 3
+
+
+
+
+
+
+
+
+
+= QQ1211
+
+Q12 Q22
+
+QQ1233 ββ1112
+
+β12 β22
+
+ββ1233 QQ1112
+
+Q21 Q22
+
+QQ3312
+
+(6.24)
+
+Q31 Q32 Q33 β13 β23 β33 Q13 Q23 Q33
+
+= QβQt.
+
+Figure 6.6: An example of lattice transformation between primitive and face-centered-cubic lattices.
+41
+
+Creation of superstructures and substructures The transformation matrix is also used to convert (primitive lattice)⇄(complex lattice) (Fig. 6.6), and to create superstructures and averaged substructures. To convert a structure, you have to select mode Update structure parameters to keep 3D geometry in the Unit cell tab of the Edit Data dialog box before opening the Unit Cell Transformation dialog box.
+When the determinant of P , det(P ) is larger than 1, the transformed unit-cell becomes larger than the original one, and when det(P ) is smaller than 1, the transformed unit-dell becomes smaller than the original one. In such cases, a dialog box appears to confirm whether you intend to change the unit cell volume (Fig. 6.7).
+Figure 6.7: A dialog box for confirmation of unit cell transformation.
+When a rotation matrix with det(P ) > 1 is specified, or the transformed unit cell contains additional lattice points even when det(P ) = 1, a dialog box appears to ask you how to convert the structure (Fig. 6.8). There are the following three options:
+• “Add new equivalent positions to a list of symmetry operations” • “Search atoms in the new unit cell and add them as new sites” • “Do nothing”
+
+Figure 6.8: A dialog box showing options for how to create a larger unit cell.
+
+In the first and second options, the structural geometry of the original data will remain
+
+unchanged. On the other hand, on selection of the third option, some atoms in the new unit cell
+
+will be missing. On selection of the first option, a superstructure will be created by examining the following equation to find additional symmetry operations W′ having a translational component in between (0, 0, 0) and (1, 1, 1):
+
+ W′ = WWW123′′′111
+0
+
+W1′2 W2′2 W3′2
+0
+
+W1′3 W2′3 W3′3
+0
+
+
+
+w1′ w2′ w3′
+
+
+
+=
+
+Q
+
+WWW321111
+
+1
+
+0
+
+W12 W22 W32
+0
+
+W13 W23 W33
+0
+
+
+
+w1 w2 w3
+
++ + +
+
+nnnxyz 
+
+P,
+
+1
+
+(6.25)
+
+(nx, ny, nz = 0, ±1, ±2, . . . ).
+
+42
+
+On selection of the second option, a superstructure will be created by examining the following
+
+equation to find additional sites lying in between (0, 0, 0) and (1, 1, 1):
+
+ 
+
+
+
+x′ yz ′′ 
+
+=
+
+Q
+
+x yz
+
++ + +
+
+nnnyzx
+
+.
+
+(nx, ny, nz = 0, ±1, ±2, . . . )
+
+(6.26)
+
+1
+
+1
+
+Note that the transformed new unit-cell should be symmetrically consistent with the space group currently in use. Otherwise, reduce symmetry to P 1 by clicking [Remove symmetry] before creating a superstructure, and input a new space group after the superstructure has been created. If det(P ) < 1, the same position may result from two or more sites. In such a case, the redundant sites can be removed by clicking [Remove duplicate atoms] button in the Structure parameters tab (see page 48).
+
+6.2.7 Magnetic Structures
+VESTA fully supports 1651 magnetic space groups. Check the “Magnetic structure” check box to use magnetic space groups. Then, the title of the Setting list box changes to BNS Setting, which shows a list of magnetic space groups for a selected space group. There are two types of notations of magnetic space groups: the Belov–Neronova–Smirnova (BNS) notation [51] and the Opechowski–Guccione (OG) notation [52]. VESTA uses the BNS notation because symmetry operations of the BNS notation are described with respect to the magnetic unit-cell with translational parts never exceeding 1. Atomic coordinates, displacement parameters, and occupancies of a magnetic structure are specified exactly the same way as conventional structure (see Section 6.3). Magnetic moments of atoms are specified in the Vectors dialog box (see Section 9.1).
+
+Figure 6.9: The Unit cell page in the Edit Data dialog box, with the “Magnetic structure” option checked.
+43
+
+6.3 Structure Parameters
+The Structure parameters tab in the Edit Data dialog box (Fig. 6.10) is used to input and edit parameters related to atomistic structures. The following structural information is input or edited by using text boxes at the upper half of the page:
+• [Symbol...]: Symbol of an element (up to two characters). • {Label}: Site name (up to six characters). • {Charge}: Formal charge (oxidation number; optional) • {x}, {y}, and {z}: Fractional coordinates, x, y, and z (dimensionless). • {s.u.(x)}, {s.u.(y)}, and {s.u.(z)}: Standard uncertainties of the fractional coordinates
+(default values: zero). • {Occ}: Occupancy (dimensionless; optional). • {B} or {U}: Isotropic atomic displacement parameter, B or U (in Å2; optional). • {U11}, {U22}, {U33}, {U12}, {U13}, and {U23}: Anisotropic atomic displacement param-
+eters, Uij (in Å2, optional). • {beta11}, {beta22}, {beta33}, {beta12}, {beta13}, and {beta23}: Anisotropic atomic dis-
+placement parameters, βij (dimensionless; optional).
+Figure 6.10: Structure parameter page in the Edit Data dialog box. A list of sites in the asymmetric unit is shown at the lower half of the page. Text boxes are disabled when no site is selected in the list. When an item in the list is selected, the text boxes are updated to show data relevant to the selected site. In-place editing of a list item is also supported, as Fig. 6.10 shows.
+44
+
+To add a new site, click the [New] button at first, and edit texts in the text boxes. A modification in a text box is applied to the selected site immediately after the focus (caret) has moved to another text box or another GUI control. In the case of text boxes for numerical values, modifications will be discarded if an input text is not a valid numerical value, or if the text box is empty. Therefore, if you have accidentally changed a value in a text box, the original value can be restored by erasing the entire text in the text box before moving the focus to another GUI control.
+To delete a site, select an item in the list, and click the [Delete] button or press the <Delete> key. Clicking the [Clear] button will delete all the sites in the list.
+6.3.1 Symbols and Labels
+Up to two characters are input as an element symbol while up to nine characters are input as a label of a site. Click the [Symbol…] button to select an element symbol from the Periodic Table dialog box (Fig. 6.11).
+Figure 6.11: Periodic Table dialog box.
+6.3.2 Formal charge
+Strictly speaking, formal charges are not structure parameters. They are, however, used to estimate a bond length from a bond valence parameter [38, 39, 40] (see 11.4.3), evaluate charge distribution from bond lengths [35, 36, 37] (see 11.4.3), and calculate electrostatic site potentials and a Madelung energy by the Fourier method (see 14.5).
+6.3.3 Fractional coordinates
+For special positions, input fractional numbers, e.g., 1/4, 1/2, and 1/3, or a sufficient number of digits should be given, e.g., 0.333333 and 0.666667.
+When displacement ellipsoids are drawn from anisotropic atomic displacement parameters refined with RIETAN-FP [12], fractional coordinates corresponding to the first equivalent position described in International Tables for Crystallography, volume A [30] for each Wyckoff position have to be entered. For example, input not (1/2, 0, z) but (0, 1/2, z) for a 4i site in space group P 4/mmm (No. 123).
+45
+
+Figure 6.12: Crystal structure of Cs6C60 [53], with C60 represented by translucent polyhedra. A virtual site X with an
+occupancy of g = 0 was added at the center of C60. Polyhedra of C60 were created by specifying X–C bonds in the Bonds dialog box. C–C bonds are also searched by a “Search molecules”
+mode to represent polyhedral edges by solid cylinders. See
+chapter 8 for details in creating bonds and polyhedra.
+
+6.3.4 Occupancy
+The occupancy is unity for full occupation and zero for virtual sites. If the occupancy of a site is less than unity, atoms occupying there are displayed as circle graphs for occupancies. If unicolor balls are preferred to bicolor ones, change the occupancy to unity for convenience.
+If the occupancy of a site is zero, the site is treated as a virtual site that is not occupied by any atoms in the real structure. Neither the virtual sites nor bonds connecting them are displayed on the screen. Virtual sites are used to visualize, for example, cage structures of porous crystals as solid polyhedra without creating a large number of unnecessary bonds (Fig. 6.12).
+
+6.3.5 Atomic displacement parameters
+The Debye–Waller factor, Tj(h), which is often referred to as the temperature factor, is included in formulae for structure factors, F (h), to represent the effect of static and dynamic displacement of atom j (see Eqs. 14.8 and 14.11). The displacement of atom is formulated in two different ways: anisotropic and isotropic atomic displacement.
+
+Anisotropic models
+
+The anisotropic Debye–Waller factor, T (h), is defined as
+
+T
+
+(h)
+
+=
+
+exp
+
+[−2π2
+
+(h2a∗2U11
+
++
+
+k2b∗2U22
+
++
+
+l2c∗2U33
+
++
+
+2hka∗b∗U12
+
++
+
+2hla∗c∗U13
+
++
+
+2klb∗c∗
+
+)] U23
+
+=
+
+exp
+
+[ −
+
+(h2β11
+
++
+
+k2β22
+
++
+
+l2β33
+
++
+
+2hkβ12
+
++
+
+2hlβ13
+
++
+
+)] 2klβ23
+
+,
+
+(6.27)
+
+46
+
+where a∗, b∗, c∗, α∗, β∗, and γ∗ are reciprocal lattice parameters.
+The type of anisotropic atomic displacement parameters must be specified in list box {Anisotropic}:
+‘None’ to omit anisotropic atomic displacement parameters, ‘U’ to input Uij (U11, U22, U33, U12, U13, and U23), and ‘beta’ to input βij (β11, β22, β33, β12, β13, and β23). Using this list box, we can convert Uij into βij and vice versa.
+Anisotropic atomic displacement parameters defined in different ways must be converted into
+Uij or βij defined above. On refinement of βij’s by the Rietveld method with RIETAN-FP [12], βij’s for each site have
+to satisfy linear constraints imposed on them [54, 55].
+
+Isotropic models
+
+The isotropic Debye–Waller factor, T (h), is given by
+
+T
+
+(h)
+
+=
+
+exp
+
+[ −B
+
+(
+
+sin
+
+θ
+
+)2]
+
+λ
+
+()
+
+= exp
+
+B − 4d2
+
+=
+
+exp
+
+( −
+
+2π2U d2
+
+)
+
+,
+
+(6.28)
+
+where B and U are the isotropic atomic displacement parameters (U = B/8π2), θ is the Bragg
+
+arenlgaltee,dλtoisthtehemXea-nrasyquoarrne eduistprolancewmavenelte,n⟨gut2h⟩,,
+
+and d along
+
+is the lattice-plane spacing. the direction perpendicular to
+
+B and U are the reflection
+
+plane with
+
+B = 8π2U = 8π2⟨u2⟩.
+
+(6.29)
+
+For example, a B value of 3 Å2 corresponds to a displacement of about 0.2 Å. The type of isotropic atomic displacement parameters must be specified in list box {Isotropic}.
+Using this list box, we can convert U into B and vice versa. Isotropic atomic displacement parameters defined in different ways must be converted into
+B or U defined above. In crystallographic sites for which anisotropic atomic displacement parameters, Uij or βij,
+have been input, equivalent isotropic atomic displacement parameters, Beq or Ueq, are calculated from Uij, a∗, b∗, c∗, and the metric tensor G [56, 57]:
+
+Beq = 8π2Ueq
+
+(6.30)
+
+with
+
+Ueq
+
+=
+
+1 3
+
+∑
+i
+
+∑
+j
+
+Uij
+
+a∗i
+
+a∗j ai
+
+· aj
+
+=
+
+1 3 +
+
+[ U11
+
+(aa∗)2
+
+2U12a∗b∗ab
+
++ U22 (bb∗)2 + U33 (cc∗)2 cos γ + 2U13a∗c∗ac cos β
+
++
+
+2U23b∗c∗bc
+
+cos
+
+] α.
+
+(6.31)
+
+Beq and Ueq are regarded as B and U in the Structure parameters tab of the Edit Data dialog box after reopening it.
+
+6.3.6 Importing structure parameters
+Structure parameters can be imported from a file storing structure parameters by clicking the [Import…] button at the bottom right of the Structure parameters page. Then, select a file with a format supported by VESTA in the file selection dialog box.
+
+47
+
+Option “Link” specifies the manner of outputting current structure data in a file, *.vesta, with the VESTA format. Structure data are usually recorded in *.vesta. On the other hand, for volumetric data, relative paths (including a file name) of data files are recorded in *.vesta instead of recording the volumetric data directly in it. When option “Link” is checked, structural data are also recorded as the relative path of the data file. Then, even if the structural-data file is changed after saving *.vesta, the changes are reflected in VESTA when *.vesta is reopened. This option is useful in preparing a file, *.vesta, with the VESTA format as a template file for setting objects and overall appearances. This option disables text boxes and list boxes in the Structure parameters tab to prohibit users from editing structure data because any modifications to structure data will not be saved to a file when this option is enableld.
+6.3.7 Removing duplicate atoms
+When the space group is changed to that with higher symmetry, or when the unit cell is transformed to a smaller one (see 6.2.6), the same atomic position may result from two or more sites. In such a case, the redundant sites can be removed by clicking the [Remove duplicate atoms] button. Then, a dialog box (right figure) opens, prompting you to input a threshold of distances between two atoms to be regarded as a single site. The threshold value is input in the unit of Å. Increasing the threshold value enables us, for example, to extract an average structure from a large cell calculated by computational simulations.
+6.4 Volumetric Data
+To input volumetric data for drawing isosurfaces with or without surface coloring, click the Volumetric data tab in the Edit Data dialog box (Fig. 6.13):
+Figure 6.13: Volumetric data page in the Edit Data dialog box.
+48
+
+6.4.1 Volumetric data to draw isosurfaces
+VESTA enables us to deal with more than two volumetric data sets. Clock [Import...] to select a file in the file selection dialog box. Only files with extensions of supported formats are visible in the file selection dialog box. After selecting a volumetric data file, a Choose operations dialog box appears (Fig. 6.14).
+Figure 6.14: A dialog box to choose operations for volumetric data.
+Operation In the Operation radio box, one of the following five data operations can be selected in addition to conversion of data units.
+• “Add to current data” • “Subtract from current data” • “Replace current data” • “Multiply to current data” • “Divide current data by new data” “Multiply to current data” is convenient when squaring wave functions to obtain electron densities (existing probabilities for electrons). The last two options are not displayed when no volumetric data are contained in the current data. In such a case, the first and third options have also the same effect.
+Convert the unit In the Convert the unit radio box, the unit of data can be converted from Å−3 to bohr−3, and vice versa. Select option “Other factor” to multiply the data by an arbitrary factor. Then, click [OK] to import data. Repeating the above procedures allows you to import multiple data, as exemplified in Fig. 6.15.
+6.4.2 Volumetric data for surface coloring
+Volumetric data for surface coloring can be imported in the same manner as with data for isosurfaces. A typical application of surface coloring is to color isosurfaces of electron densities according to electrostatic potentials.
+49
+
+A
+
+B
+
+C
+
+Figure 6.15: Distributions of electron densities and effective spin densities in an O2 molecule. (A) up-spin electron densities, ρ↑, (B) down-spin electron densities, ρ↓, and (C) effective spin densities, ∆ρ = ρ↑ − ρ↑, calculated with VESTA. Both ρ↑ and ρ↓ were calculated with DVSCAT [58]. Isosurface levels were set at 0.01a−0 3 in (A) and (B), and at 0.001a−0 3 in (C). where a0 is the Bohr radius.
+Interpolation The spacial resolution of volumetric data can be increased using the algorithm of cubic spline interpolation. The interpolation level is specified in the {Interpolation} text box.
+6.5 Crystal Shape
+The Crystal Shape tab in the Edit Data dialog box (Fig. 6.16) is used to input and edit the external morphology of crystals. To add a new crystal face, click the [New] button at first, input Miller indices hkl, and the distance from the origin, (0, 0, 0). The distance may be specified in the unit of either its lattice-plane spacing, d, or Å. The color and opacity of the face are specified either as four integers ranging from 0 to 255, or using a color selection dialog box and a slider, which are opened after clicking the square buttons on the right side of the text boxes. When option “Apply symmetry operations” is checked, all the symmetrically equivalent faces are automatically generated.
+To delete a face, select an item in the list, and click the [Delete] button or press the <Delete> key. Clicking the [Clear] button will delete all the faces in the list.
+50
+
+Figure 6.16: Crystal shape page in the Edit Data dialog box.
+
+A
+
+B
+
+Figure 6.17: Crystal morphologies of anatase-type TiO2 crystals. In the inner crystal in (B), distances from the origin are set at 3.5 Å for both {101} and {103}. In the outer crystal, distances from the origin are set at 3.8 Å for {101} and 5 Å for {103}.
+51
+
+6.5.1 Examples
+Figure 6.17 shows morphologies of anatase-type TiO2 crystals composed of {101} and {103} faces. To visualize crystal morphologies, make sure that specified faces compose a closed polyhedron. For example, if only {100} is specified for a tetragonal crystal, it has to form a prismatic shape having an infinite length along the c axis. In this case, no objects are visible in the Graphics Area.
+To adjust relative sizes of faces, edit the distance from the origin to the face. In general, the relative area of the face decreases with increasing distance as Fig. 6.17B illustrates. When the distance of {103} faces is set at a larger value of 5 Å, these faces become smaller with respect to {101} faces. The origin of the crystal shape is just the same as that of a structural model, i.e., a position with the fractional coordinate of (0, 0, 0) is placed at the center of the crystal shape.
+When option “Apply symmetry operations” is unchecked, faces that do not follow space-group symmetry may be inserted (Fig. 6.19A). If multiple faces with the same indices are specified, the face with the smallest distance from the origin is visible (Fig. 6.19B, C). These features make it possbile to represent crystal habits of real crystals.
+To display indices of faces as demonstrated in Fig. 6.17B, select the Objects tab in the Side Panel (Fig. 6.18, a), choose “Shape” in the list of phases at the upper half of the page (Fig. 6.18, b), and then click check boxes labeled as “L” (Fig. 6.18, c). See also section 12.2 for the function of the Objects tab.
+
+a b c
+Figure 6.18: The Objects tab of the Side Panel showing a list of crystallographic faces.
+
+52
+
+A
+
+B
+
+C
+
+Figure 6.19: Crystal morphologies of anatase having faces that do not follow symmetry operations. (A) Option “Apply symmetry operations” is unchecked for a (¯103) face. (B) The distance from the origin was set at 3.8 Å for {101} and 5 Å for {103}, and a (¯103) lattice plane was inserted by setting a distance from the origin at 3.8 Å. (C) A (¯103) face, which overlaps with the (¯103) lattice plane in (B), was further added.
+
+53
+
+Chapter 7
+OVERLAYING MULTIPLE DATA
+To display multiple-phase data in a single Graphics Area, set positioning and orientation of each phase after clicking the Phase tab in the Edit Data dialog box (Fig. 7.1). The positioning and orientation of a phase are specified relative to another phase or the Cartesian coordinate system that is commonly used as internal representation of all phases. By default, the origin, (0, 0, 0), of a phase is placed at that of the internal coordinate system. The orientation of a phase is set such that the [1 0 0] axis of a phase is parallel to the x axis of the internal coordinate system with the [0 1 0] axis parallel to the x–y plane.
+To avoid the circular reference of phases, positioning and orientation must be set in descending order of the phase list.
+7.1 Positioning of Phases
+At first, select a phase to edit in the phase list (Fig. 7.1, a). In the Positioning frame box, select another phase (layer) which is used as a reference of positioning (Fig. 7.1, b). Layer 0 denotes
+
+a
+
+b c
+
+d
+
+e
+
+f
+
+g
+
+h
+
+Figure 7.1: Phase page in the Edit Data dialog box. 54
+
+the internal Cartesian coordinate system. Then, input (x, y, z) coordinates of the selected and reference layers; they are exactly overlapped with each other (Fig. 7.1, c).
+
+7.2 Relative Orientation of Phases
+
+Select a phase to edit in the phase list, and select ID’s of another phase (layer) in the Orientation
+
+frame box (Fig. 7.1, d). As described above, layer 0 represents the internal Cartesian coordinate
+
+system. A set of a lattice vector and a reciprocal-lattice vector is specified for both of the current
+
+and reference layers. When the first vector is specified by a vector, [u v w], in the direct space,
+
+the other one is specified by a reciprocal-lattice vector, [h k l]∗, and vise versa. The direct- and
+
+reciprocal-lattice vectors must be perpendicular to each other; in other words, the lattice vector,
+
+[u v w], must be parallel to the lattice plane, (h k l). Thus, the following condition must be
+
+satisfied:
+
+hu + kv + lw = 0.
+
+(7.1)
+
+The type of the first vector is set by a pull down menu (Fig. 7.1, d, g). If a vector of the current layer is parallel to that of the reference layer, select ∥ in the pull down menu (Fig. 7.1, f). If the two vectors are perpendicular to each other, select ⊥ in the pull down menu. Then input indices in text boxes (Fig. 7.1, h).
+
+7.3 Examples
+Figure 7.2 shows two kinds of organic molecules approaching a surface of calcite-type CaCO3. Figure 7.3 illustrates graphene on a (111) surface of Ir [59]. An example of overlaying isosturactural crystals is displayed in Fig. 7.4.
+
+Figure 7.2: Molecules of L-aspartic acid and 2,4,6-trichlorobenzoic acid near a (10¯14) surface of calcite (CaCO3) having a [44¯1] step.
+55
+
+Figure 7.3: A moire pattern of graphene on the (111) surface of Ir.
+Figure 7.4: Crystal structures of Ca-olivine (Ca2SiO4) and isostrucural monticellite (CaMgSiO4) overlapped with each other.
+56
+
+Chapter 8
+CREATING BONDS AND POLYHEDRA
+To search for bonds and atoms connected by them, and to create coordination polyhedra, choose the “Edit” menu ⇒ “Bonds…”. At the top of the Bonds dialog box (Fig. 8.1), select a phase to edit. A list of bond specifications is shown at the lower half of the dialog box. GUI controls in the Search bonds and atoms frame box are used to edit a bond specification. They are disabled when no bond specification is selected in the list.
+To add a new bond specification, click the [New] button at first, select atoms relevant to the bond, and edit minimum and maximum lengths. Modifications in the GUI control are applied to the list either immediately or after the focus (caret) has moved from a text box to another GUI control. To delete a bond specification, select it in the list, and then click the [Delete] button or press the <Delete> key. Clicking the [Clear] button deletes all the bond specifications in the list. Press the [OK] or [Apply] button to reflect editing results in the Graphics Area.
+Figure 8.1: Bonds dialog.
+57
+
+8.1 Specifications of Searching for Bonds
+8.1.1 Search mode
+Bonds and, in turn, atoms connected by them are searched in one of the following three search modes:
+• “Search A2 bonded to A1” A2 atoms bonded to A1 atoms are searched on the basis of user-specified minimum and maximum interatomic distances: {Min. length} and {Max. length}.
+• “Search atoms bonded to A1” All the atoms bonded to A1 atoms are searched on the basis of user-specified {Min. length} and {Max. length} regardless of the species of the A2 atoms.
+• “Search molecules” All the pairs of atoms are searched on the basis of user-specified {Min. length} and {Max. length}. Neither A1 nor A2 is specified in this option. This mode best meets searching for atoms and bonds in molecular crystals.
+8.1.2 Boundary mode
+The Boundary mode specifies the extent of searching for atoms. Basically, atoms and bonds are searched within a drawing boundary defined by ranges along x, y, and z axes, and by optional cutoff planes (see chapter 10.1). However, on selection of a proper Boundary mode, atoms and bonds outside the drawing boundary are also searched so that all the atoms in coordination polyhedra or molecules are included.
+• “Do not search atoms beyond the boundary” Only atoms within the drawing boundary are searched.
+• “Search additional atoms if A1 is included in the boundary” All the A2 atoms bonded to A1 atoms are searched even if A2 atoms are placed outside the drawing boundary. If the A2 and A1 atoms are, respectively, located inside and outside the boundary, the A1 atom is not searched. This mode is the default for the “Search A2 bonded to A1” and “Search atoms bonded to A1” modes.
+• “Search additional atoms recursively if either A1 or A2 is visible” All the pairs of A1 and A2 atoms are searched if either A1 or A2 has already been found. When using this mode in inorganic crystals, beware lest bonds are infinitely connected. This mode is the default for the “Search molecules” mode.
+8.1.3 Options
+• “Search by label” On selection of this option, a pair of atoms is specified by labels of sites. When this option is unchecked, a pair of atoms is specified by elemental symbols.
+• “Show polyhedra” This option specifies that A1 atoms are central atoms of coordination polyhedra. This option has no effect on bond specifications in the “Search molecules” mode because no coordination polyhedra are searched in that mode.
+58
+
+8.1.4 A pair of atoms
+Atoms A1 and A2 may be specified by entering either elemental symbols or site names. The {A1} and {A2} list boxes list elemental symbols of atoms if option “Search by label” is unchecked (default). On the other hand, {A1} and {A2} list site labels if option “Search by label” is checked.
+The minimum and maximum bond lengths, {Min. length} and {Max. length}, are input in the unit of Å. Though {Min. length} is usually set at zero, it may be positive when dealing with a disordered structure whose split-atom model gives seemingly very short bonds.
+8.2 Operating Instructions
+8.2.1 Creating coordination polyhedra
+To build up coordination polyhedra, either the “Search A2 bonded to A1” or “Search atoms bonded to A1” mode should be selected. The central atoms of the coordination polyhedra must be specified as A1. In the “Search molecules” mode, no coordination polyhedra are created because VESTA does not have any information about central atoms. In the first two bond search modes, the Boundary mode 2 (“Search additional atoms if A1 is included in the boundary”) enables us to search for all the A2 atoms bonded to A1 atoms so that no coordination polyhedra are truncated even if A2 atoms lie outside the boundary. A1 atoms lying outside the boundary are never searched.
+To search for additional atoms bonded to A2 atoms, use the Boundary mode 3 (“Search additional atoms recursively if either A1 or A2 is visible”). For example, if hydrogen atoms are coordinated to some A2 atoms, those hydrogen atoms can be searched even if A2 atoms lie outside the boundary (Fig. 8.2).
+
+A
+
+B
+
+Figure 8.2: Crystal structure of δ-AlOOH, a high-pressure modification of aluminum oxide hydroxide, with displacement ellipsoids at a 99 % probability level [60]. The structures were drawn in a coordinate range from (0, 0, 0) to (1, 1.5, 1). O–H bonds were searched (A) in the “Search additional atoms if A1 is included in the boundary” mode and (B) in the “Search additional atoms recursively if either A1 or A2 is visible” mode. In (A), some H atoms were omitted when O atoms lay outside of the boundary specified in the Boundary dialog box. On the hand, all the H atoms bonded to O atoms displayed in the screen were searched in (B).
+59
+
+A
+
+B
+
+Figure 8.3: Crystal structure of anthraquinone [61]. Bonds are searched in the “Search molecules” mode with the boundary modes (A) “Do not search atoms beyond the boundary” and (B) “Search additional atoms recursively if either A1 or A2 is visible”. In both cases, the bounding box has a range of coordinates from (0, 0, 0) to (1, 1, 1).
+8.2.2 Searching for molecules and clusters
+The “Search molecules” mode is similar to 406 instruction in ORTEP-III1 [62], i.e., “reiterative convoluting sphere of enclosure add.” This mode is generally used in combination with the Boundary mode 3 to avoid some atoms in molecules being “truncated” (omitted) even if they lie outside the boundary (Fig. 8.3). In this mode, neither A1 nor A2 is specified; only {Min. length} and {Max. length} are input.
+A maximum distance of 1.6 Å is appropriate in typical organic compounds containing H, C, N, O, and F atoms having covalent radii of 0.32, 0.77, 0.74, 0.66, and 0.72 Å, respectively. Inputting a larger value may generates unreal bonds. To search for atoms and bonds in molecules and clusters containing larger atoms such as P, S, Cl, and Br having covalent radii of 1.10, 1.04, 0.99, and 1.14 Å, respectively, add bond specifications in the “Search A2 bonded to A1” mode in combination with the Boundary mode 3 (Fig. 8.4).
+8.2.3 Applications of the “Search molecules” mode to inorganic crystals
+In general, combination of the “Search molecules” mode and the Boundary mode 3 is unsuitable for inorganic compounds or metals because a network of bonds may continue infinitely in their structures. In practice, an infinite number of atoms must be searched in such a case. Nevertheless, VESTA actually searches and shows a huge number of atoms and bonds in a finite range
+1http://www.ornl.gov/sci/ortep/doc/i400.html
+60
+
+Figure 8.4: Crystal structure of tetrakis(di-4-pyridylsulfane)dinitratocopper(II) [63]. Bonds are searched in the “Search molecules” mode with a maximum distance of 1.6 Å in combination with the “Search A2 bonded to A1” mode for Cu–N and S–C bonds. The Boundary mode 3 was used.
+because searching within a certain area ensures that all the atoms contained in molecules in the boundary are searched in cases of periodic structures.
+There are exceptions where the combination of such modes is well-suited to search for bonds in inorganic crystals, e.g., searching for O−H bonds. Usually, no bonds are shorter than O−H ones; thus, the use of this mode is safe with a small value of {Max. length}. The maximum bond length of ca. 1.1 Å leads to a search for all the H atoms bonded to O atoms in the Graphics Area.
+8.2.4 Searching for hydrogen bonds
+To display X−H· · · Y hydrogen bonds, select the “Search A2 bonded to A1” mode in the Search mode frame box, set A1 at H and A2 at Y, and input the minimum and maximum distances of H· · · Y bonds in {Min. length} and {Max. length}. Styles of the H· · · Y bonds can be set at Objects tab in the Side Panel.
+8.2.5 Visualizing cage-like structures
+To represent cage-like voids in porous crystals by a polyhedral model, put a virtual site at the center of a cage (see page 46) and add a bond specification between the virtual site and atoms at corners of the cage. Then, to visualize framework structures with solid bonds, add a bond specification between the corner atoms. If Y atoms are bonded to X atoms at the corners, add X–Y bonds. All of these bond specifications should be given with the Boundary mode 2 so that neither atoms nor bonds in cages displayed are omitted (Fig. 8.5).
+61
+
+Figure 8.5: Crystal structure of the tetragonal variant of chibaite represented by a polyhedral model [64].
+62
+
+Chapter 9
+ADDITIONAL OBJECTS
+9.1 Vectors on Atoms
+To attach vectors (arrows) to part of atoms, choose “Edit” menu ⇒ “Vectors…”. These arrows serve to represent magnetic moments or directions of static and dynamic displacements of atoms. At the top of the Vectors dialog box (Fig. 9.1), select a phase to edit. When option “Preview” is checked (default), changes in the dialog box are reflected in the Graphics Area in real time.
+Figure 9.1: Vectors dialog box showing a list of atoms in SrFeO2 [65], with the atom list filtered by elements. Atoms selected in the dialog box are highlighted in the underlying Graphics Area displaying the magnetic structure of SrFeO2.
+63
+
+Vectors can be assigned to either crystallographic sites or individual atoms in the Graphic Area. When a vector is attached to a crystallographic site, all of its symmetrically equivalent atoms will bear the same vector, which is properly rotated in accordance with symmetry operations applied to the atoms. When a vector is assigned to each atom, only that atom will have the vector whereas no other symmetrically equivalent atoms will bear the vector. Multiple numbers of vectors can be attached to atoms and sites, and a vector can be attached to more than two atoms and sites. The length of arrows, which are vectors rendered in the Graphics Area, is scaled by moduli of the vectors multiplied by the input value of the {Scale factor for modulus}. For more details about the scaling of vectors, see 9.1.1 and Fig. 9.4.
+9.1.1 Creation and editing of a vector
+At the right pane of the Vectors dialog box, all the vectors are listed with the following three buttons placed above the list (Fig. 9.1):
+[New]: Add a new vector. [Edit]: Edit the selected vector. [Delete]: Delete the selected vector. The [Edit] and [Delete] buttons cannot be clicked unless a vector in the list has been selected. Click the [New] button to create a new vector. Select a vector in the list of vectors, and click the [Edit] button to edit it. Then, a dialog box appears to edit properties of the selected vector (Fig. 9.2).
+Figure 9.2: A dialog box to create or edit a vector.
+Two types of vectors can be specified: {Axial vector} and {Polar vector}. Because these two differ from each other in the mode of applying symmetry operations, the vector type affects only vectors attached to crystallographic sites. When a vector is attached to individual atoms, no symmetry operation is applied to the vector, with no differences between the two types of the vectors.
+Typical examples of axial and polar vectors are magnetic moment, µ, and electrostatic polarization vector, p, respectively. The magnetic moment is induced by tiny electrical currents resulting from electrons moving around the nucleus of an atom. The direction of the moment vector is determined by that of the current. For example, counter-clockwise and clockwise currents generate upward and downward moment vectors, respectively. A mirror plane perpendicular to the moment vector does not change the current direction, while a mirror plane parallel to the moment vector inverses the current direction. As a result, magnetic moments are transformed by a mirror plane as Fig. 9.3A illustrates. In the case of the electrostatic polarization vector,
+64
+
+A
+μ Mirror plane
+
+B
+p Mirror plane
+
+Figure 9.3: Results of applying a mirror operation to (A) magnetic moments µ and (B) polarization vectors p
+
+on the other hand, a mirror plane perpendicular to the moment vector inverses the polarization
+
+vector, while a mirror plane parallel to the polarization vector does not change the polarization vector (Fig. 9.3B). To be more specific, p is transformed to p′ by a 3 × 3 operator matrix, M , as
+
+p′ = M p
+
+(9.1)
+
+while µ is transformed to µ′ as
+
+µ′ = P M µ,
+
+(9.2)
+
+where P is the determinant of M and referred to as the “parity” of the operator M . Note that the term P M is a scalar-matrix multiplication.
+Aside from conventional symmetry operations M , there is another important symmetry element for vectors, i.e. time reversal. In view of time reversal, the current direction around an atom is changed, with a result that the direction of µ is reversed. Let the time reversal be T (= 1 or −1), then the transformation of µ is represented by
+
+µ′ = T P M µ.
+
+(9.3)
+
+For the polarization vector, time reversal has no effect at all.
+In the Edit a Vector dialog box, three different representations of vector components are shown: {Lattice vector notation (u, v, w)}, {Modulus along crystallographic axes}, and {Cartesian vector notation (x, y, z)}. Editing one representation of the vector components updates the rest of the representations as well as the {Modulus} of the vector. After the {Modulus} has been edited, vector components are linearly scaled.
+When the “Penetrate atoms” check box is on (default), the length of an arrow (vector drawn in the Graphic Area) is doubled with its center placed at the center of an atom (Figs. 9.4A and 9.4B). When this option is off, one end of an arrow is placed at the center of an atom so that it appears only one side above the atom sphere (Figs. 9.4C and 9.4D).
+When option “Add atom radius to the vector modulus” is checked, the length of an arrow appearing above an atom sphere is linearly scaled by the vector modulus, regardless of the radius of the atom sphere (Figs. 9.4B and 9.4D). Even if a vector with a very small modulus is attached to an atom having a very large sphere, the arrow will not be hidden by the atom sphere. If this option is disabled (default behavior), the arrow length including the part hidden by an atom sphere is linearly correlated to the vector modulus (Figs. 9.4A and 9.4C); consequently, a very short arrow may be completely hidden by the atom sphere.
+
+65
+
+A
+
+s × μ
+
+B
+
+s × μ
+
+s × μ
+
+C
+
+D
+
+s × μ
+
+Figure 9.4: Effects of two options for vector styles. Option “Penetrate atoms”: on (A, B) and off (C, D), and option “Add atom radius to the vector modulus”: off (A, C) and on (B, D). When the latter option is on, the length of an arrow appearing above an atom sphere is linearly scaled by µ multiplied by the {Scale factor for modulus}, s.
+9.1.2 Attachment of vectors to crystallographic sites
+To attach a vector to crystallographic sites, select the Crystallographic sites tab at the left pane of the Vectors dialog box. Then, select sites in the left pane, select a vector in the right pane, and click the [<< Set] button. In a similar manner, select crystallographic sites in the left pane, and click the [>> Remove] button to detach a vector from the sites.
+9.1.3 Attachment of vectors to individual atoms
+To attach a vector to individual atoms in the Graphics Area, select the Individual atoms tab at the left pane of the Vectors dialog box. Select atoms from a list in the left pane or by clicking atoms in the Graphics Area. Then, select a vector in the right pane of the Vectors dialog box, and click the [<< Set] button. In a similar manner, select atoms in the left pane, and click the [>> Remove] button to detach a vector from the atoms. When atoms in the list in the left pane are selected, the corresponding ones are highlighted in the Graphics Area, and vice versa.
+9.2 Lattice Planes
+To insert lattice planes in structural models, or to add 2D slices of volumetric data in 3D images, choose “Edit” menu ⇒ “Lattice Planes…”. At the top of the Lattice Planes dialog box (Fig. 9.5), select a phase to edit. A list of lattice planes is shown at the lower half of the dialog box. Some of buttons and text boxes are disabled when no lattice plane is selected in the list. On selection of an item in the list, the text boxes are updated to show data relevant to the selected lattice plane. When option “Preview” is checked (default), changes in the dialog box are reflected in the Graphics Area in real time.
+To add a new lattice plane, click the [New] button at first, input Miller indices hkl, and the distance from the origin, (0, 0, 0). The distance may be specified in the unit of either its lattice-plane spacing, d, or Å. The color and opacity of the lattice plane is specified either as four integers ranging from 0 to 255 or from a color selection dialog box, which is opened after clicking the square button on the right side of the text boxes.
+To delete a lattice plane, select an item in the list, and then click the [Delete] button or press the <Delete> key. Clicking the [Clear] button deletes all the lattice planes in the list.
+66
+
+Figure 9.5: Lattice Plane dialog box.
+Figure 9.6: A section of a difference Fourier map inserted in a ball-and-stick model of δ−AlOOH [60]. The maximum in the section corresponds to a position of an H atom, which is not included in the structural model.
+9.2.1 Appearance of lattice planes
+When volumetric data are included in the current data, lattice planes are colored according to volumetric data on the lattice planes. Saturation levels of colors are specified at Sections page in the Properties dialog box (Fig. 9.6; see 12.1.6). When only structural information is included in the current data, lattice planes are drawn with colors specified in this dialog box. To draw lattice planes with specified colors for data having both structural and volumetric information, volumetric data should be deleted at the Edit Data dialog box (see 6.4).
+Material settings of lattice planes, i.e. specular color and shininess are input in the Material 67
+
+frame box. Drawing of edges for lattice planes can be controlled in the Edge frame box. These settings are common to all the lattice planes.
+9.2.2 Calculate the best plane for selected atoms
+To calculate the best plane for a group of atoms (Fig. 9.7), add a new lattice plane at first, select three or more atoms in the Graphics Area, and press [Calculate the best plane for the selected atoms] button.
+Figure 9.7: The best plane calculated for an aromatic ring in anthraquinone [61].
+68
+
+Chapter 10
+DEFINING DRAWING BOUNDARIES AND VIEW DIRECTIONS
+10.1 Drawing Boundaries
+To change the size of a drawing boundary (box), select the [Boundary] button in the Side Panel, or choose “Objects” menu ⇒ “Boundary…”. Then, the Boundary dialog box appears as Fig. 10.1 illustrates. This dialog box can also be opened with a keyboard shortcut of <Ctrl> + <Shift> + <B>. At the top of the dialog box, select a phase to edit. Press the [OK] or [Apply] button to reflect editing results in the Graphics Area.
+Changing the boundary regenerates all the atoms in the Graphics Area and reset all the properties of objects to default values. Selected or hidden states of atoms, bonds, and polyhedra are reset to the default states.
+Figure 10.1: Boundary dialog box. 69
+
+Figure 10.2: Electron density distribution determined for D-sorbitol [66] by the maximum-entropy method from synchrotron X-ray powder diffraction data. Drawn in ranges from (0, 0, 0) to (1, 1, 1) with a cutoff plane (1 1 0).
+10.1.1 Ranges of fractional coordinates
+Drawing boundaries are fundamentally specified by inputting ranges of fractional coordinates along x, y, and z axes.
+10.1.2 Cutoff planes
+In addition to ranges of fractional coordinates, we can further specify “cutoff planes,” as exemplified in Fig. 10.2. After atoms, bonds, and isosurfaces within the x, y, and z ranges have been generated, those lying outside of the cutoff planes are excluded. Even though atoms, bonds, and polyhedra can be hidden by another procedure described in 11.4, this is the only way to remove part of isosurfaces and sections. This feature is, therefore, particularly useful for visualizing 2D distribution of volumetric data on lattice planes in addition to isosurfaces. Each cutoff plane is specified as Miller indices hkl and a distance from the origin, (0, 0, 0). The distance of a cutoff plane from the origin may be specified in the unit of either its lattice-plane spacing, d, or Å.
+When option “Apply symmetry operations” is checked, all the symmetrically equivalent Miller planes are used as cutoff planes (Fig. 10.3). To define a cutoff plane with selected atoms, select three or more atoms in the Graphics Area and press the [Calculate the best plane for the selected atoms] button.
+The Cutoff planes frame box lists cutoff planes. Some of buttons and text boxes are disabled when no cutoff plane is selected in the list. On selection of an item in the list, the text boxes are updated to show data relevant to the selected cutoff plane. To add a new cutoff plane, click the [New] button at first, and input Miller indices, hkl, and the distance from the origin. To delete a cutoff plane, select an item in the list, and then click the [Delete] button or press the <Delete> key. Clicking the [Clear] button deletes all the cutoff planes in the list.
+70
+
+Figure 10.3: Crystal structure of diamond drawn in ranges from (−8, −8, −8) to (8, 8, 8) with and without a cutoff plane {111}. The drawing boundaries are displayed as transparent faces.
+10.2 View Direction
+To specify a direction of viewing objects, select the [Orientation] button in Side Panel, or choose “Objects” menu ⇒ “Orientation…”. Then, the Orientation dialog box appears as Fig. 10.4 shows. This dialog box can also be opened with a keyboard shortcut of <Ctrl> + <Shift> + <O>. At the top of the dialog box, specify a phase to which the viewing direction is applied. To change relative orientation of each phase, use the Phase tab in the Edit Data dialog box (see chapter 7).
+10.2.1 Manner of specifying directions
+Either a lattice vector, [uvw], or a reciprocal-lattice vector, [hkl]∗, perpendicular to a lattice plane (hkl) is specified as the direction of projection.
+• Project along [uvw] The direction of projection is a lattice vector ua + vb + wc.
+• Project along the normal to (hkl) The direction of projection is a reciprocal-lattice vector ha∗ + kb∗ + lc∗.
+10.2.2 Orientation matrix
+A 3 × 3 rotation matrix of the current orientation is displayed.
+71
+
+Figure 10.4: Orientation dialog box.
+
+10.2.3 View direction
+Two directions, i.e., the direction of projection (direction from the viewpoint to the screen) and the upward direction on the screen are specified by a set of a lattice vector and a reciprocal-lattice vector. The two vectors are perpendicular to each other. When the lattice vector, ua + vb + wc, lies on the (hkl) plane, u, v, w, h, k, and l must satisfy the condition:
+
+hu + kv + lw = 0.
+
+(10.1)
+
+This condition must, therefore, be satisfied in order to specify the upward direction on the screen, otherwise the upward direction on the screen is automatically determined by VESTA.
+
+• Projection vector: Direction of projection. In the “Project along [uvw]” mode, this vector is u, v, and w in ua + vb + wc. In the “Project along the normal to (hkl) plane” mode, this vector is h, k, and l in ha∗ + kb∗ + lc∗.
+• Upward vector: Upward direction on the screen. In the “Project along [uvw]” mode, this vector is h, k, and l in ha∗ + kb∗ + lc∗. In the “Project along the normal to (hkl) plane” mode, this vector is u, v, and w in ua + vb + wc.
+
+10.2.4 Viewing along crystallographic axes
+
+To view the contents of Graphics Area along basis vectors of a unit cell or a reciprocal cell, simply press one of the above buttons in the Horizontal Toolbar. When two or more phases are visualized in the same Graphics Area, the above buttons set the viewing direction relative to the first phase. To set a viewing direction relative to a phase other than the first one, use the Orientation dialog box.
+
+72
+
+Chapter 11
+INTERACTIVE MANIPULATIONS
+
+11.1 Rotate
+In the Rotation mode, mouse behavior can be changed after clicking the Tools tab in the Side Panel (Fig. 11.1).
+
+11.1.1 Drag mode
+In the “Drag” mode, drag the mouse while pressing the left mouse button to rotate objects in the Graphics Area. The objects are rotated while dragging with the mouse. They are never rotated after releasing the mouse button. In the [Free rotation] mode, the rotation axis becomes normal to the direction along which the mouse is moved. To restrict the rotation axis, select [Around X axis], [Around Y axis], or [Around Z axis] in the pull-down menu of the Rotation modes frame box.
+
+11.1.2 Animation mode
+Three types of animation modes can be used in VESTA: “Click”, “Push”, and “Random” modes. The step width of rotation (in degrees/frame) and intervals between frames (in ms) are specified in the Preferences dialog box (see chapter 16).
+
+Figure 11.1: The Tools tab of the Side Panel.
+
+“Click” mode
+In the “Click” mode, click the left mouse button to rotate the objects. In the “Click” plus [Free] rotation modes, the rotation axis is perpendicular to a line connecting the clicked position and the central point. To restrict the rotation axis, select [Around X axis], [Around Y axis], or [Around Z axis] in the pull down menu of the Rotation modes frame box. To stop rotating the objects, select either the “Drag” or “Push” mode. The animation speed (intervals between frames in ms) is specified in the Preferences dialog box.
+
+“Push” mode
+In the “Push” mode, press the left mouse button at point 1 and drag the mouse to point 2. In the [Free rotation] mode, objects are rotated around an axis perpendicular to a line connecting points 1 and 2. The rotation speed is proportional to the speed of moving the mouse. The objects stop rotating immediately after releasing the left mouse button. To restrict the rotation
+
+73
+
+axis, select [Around X axis], [Around Y axis], or [Around Z axis] in the pull down menu of the Rotation modes frame box.
+“Random” mode
+In the “Random” mode, the rotation axis is automatically set and it changes dynamically. To stop the rotation of the objects, select either the “Drag” or “Push” mode.
+11.2 Magnify
+Objects are magnified in proportion to the distance of dragging the mouse upward. On the other hand, they are shrunk in inverse proportion to the distance of dragging the mouse downward.
+11.3 Translate
+Drag the mouse in the Graphics Area to translate objects. When a lattice plane with a color specified in the Lattice Planes dialog box is selected and dragged in this mode, it is interactively moved. Otherwise the entire objects are translated with the mouse along the same direction.
+11.4 Select
+Several ways of selecting objects can be used. On the use of the select mode in the Vertical Toolbar, left click on an object to select it. To select all the objects in a certain area, press the left mouse button and drag the mouse to specify an area. On selection of new objects, objects that have previously been selected are reset to the normal state. To select additional objects while keeping the present objects alive, press <Shift> while clicking or dragging the Graphics Area. Regardless of the current manipulation mode, two or more objects can be selected by clicking or dragging on them while pressing the <Shift> key. A single object is selectable by double-clicking on it. Objects other than atoms, bonds, and polyhedra cannot be selected. For example, atoms behind isosurfaces can be selected.
+After a single object has been selected, a variety of information about it is output in the Text Area. The estimated standard uncertainty is also displayed for interatomic distance, bond angle, and dihedral angle if those of lattice parameters and fractional coordinates have been supplied. However, note that VESTA gives only rough estimates of standard uncertainties by neglecting off-diagonal elements of the variance-covariance matrix because no off-diagonal elements are included in crystal-data files.
+Objects can also be selected by using the Objects tab in the Side Panel (see section 12.2), the Vectors dialog box (see section 11.4), and the Geometrical Parameters dialog box (see section 14.2).
+Press the <Delete> key to hide selected objects. The hidden objects are not actually deleted but just made invisible. To restore all the hidden objects, press the <Esc> key. By hiding part of coordination polyhedra, you can easily mix polyhedra with a ball-and-stick model.
+11.4.1 Atom
+On selection of an atom, site number, site name, symbol of the element, fractional coordinates (x, y, z), translation vector, symmetry operations (coordinate triplet), occupancy, isotropic atomic displacement parameter, site multiplicity plus Wyckoff symbol, and site symmetry are displayed for the atom. For example, selection of Al and O atoms connected with each other in a ball-and-stick model of α-Al2O3 gives the following lines:
+74
+
+Atom: 1 Atom: 2
+
+Al Al 0.00000 Occ. = 1.000
+O O 0.33333 Occ. = 1.000
+
+1.00000 -0.15000 Ueq = 0.17370
+0.97667 -0.08333 Ueq = 0.19915
+
+( 0, 1,-1)+ -y, -x, z+1/2
+
+12c
+
+3.
+
+( 0, 0,-1)+ -y+1/3, x-y+2/3, z+2/3
+
+18e
+
+.2
+
+When atoms are rendered as displacement ellipsoids, information about principal axes and mean square displacements are also output:
+
+Atom: 2
+
+O O 0.97667 0.64333 0.08333 ( 0, 0, 0)+ x-y+2/3, x+1/3, -z+1/3
+
+Occ. = 1.000
+
+Ueq = 0.19915
+
+18e
+
+.2
+
+Principal axes of the anisotropic atomic displacement parameters
+
+MSD (Å^2)
+
+x
+
+y
+
+z
+
+u
+
+v
+
+w
+
+1
+
+0.003223 -0.043986 0.027435 -0.023150 -0.005924 0.006668 -0.001785
+
+2
+
+0.002471
+
+0.027516 0.041255 -0.003390
+
+0.010805 0.010027 -0.000261
+
+3
+
+0.001873 -0.013219 0.012054 0.039403 -0.001318 0.002930 0.003038
+
+11.4.2 Bond
+When a bond is selected, its length is displayed with its estimated standard uncertainty, if any, in the Text Area as well as the Status Bar. Site number, site name, symbol of the element, fractional coordinates (x, y, z), translation vector, and symmetry operations are also displayed for two atoms connected with the bond. For example, on selection of an Al−O bond in the ball-and-stick model of α-Al2O3, the following three lines are output:
+
+Bond: l(Al-O) = 1.96249(0) Angstrom
+
+1
+
+Al Al 1.00000 0.00000 0.15000 ( 1, 0, 0)+ y, x, -z+1/2
+
+2
+
+O O 1.00000 0.31000 0.25000 ( 1, 0, 0)+ -y, x-y, z
+
+11.4.3 Coordination polyhedron
+When a coordination polyhedron with a coordination number of n is selected, information on the central atom and coordinating atoms (ligands), distances between the central atom and coordinating atoms are listed in the Text Area. Further, geometric information described below is displayed in the Text Area; the polyhedral volume, D, <λ>, and σ2 are useful when investigating structural changes under high/low temperature and high pressure [67].
+
+Polyhedral volume
+The volume of the selected coordination polyhedron is calculated as a fundamentally important physical quantity [31]. For example, distortion in perovskite-type compounds, ABO3 can be quantified with polyhedral volume ratios, VA/VB, rather than with tilting angles [68].
+
+Distortion index
+
+A distortion index, D, based on bond lengths was defined by Baur [32] as
+
+D = 1 ∑n |li − lav| ,
+
+n
+i=1
+
+lav
+
+(11.1)
+
+where li is the distance from the central atom to the ith coordinating atom, and lav is the average bond length.
+
+75
+
+Quadratic elongation
+
+The quadratic elongation, <λ> [33], is defined only for tetrahedra, octahedra, cubes, dodecahe-
+
+dra, and icosahedra:
+
+<λ> = 1 ∑n ( li )2 ,
+
+n
+i=1
+
+l0
+
+(11.2)
+
+where l0 is the center-to-vertex distance of a regular polyhedron of the same volume. <λ> is dimensionless, giving a quantitative measure of polyhedral disortion which is independent of the
+
+effective size of the polyhedron.
+
+Bond angle variance
+
+The bond angle variance, σ2 [33], is calculated only for tetrahedra, octahedra, cubes, dodecahe-
+
+dra, and icosahedra:
+
+σ2
+
+=
+
+1 m−
+
+1
+
+∑ m (ϕi
+
+−
+
+ϕ0)2,
+
+i=1
+
+(11.3)
+
+where m is (number of faces in the polyhedron)×3/2 (i.e., number of bond angles), ϕi is the ith bond angle, and ϕ0 is the ideal bond angle for a regular polyhedron (for example, 90◦ for an octahedron or 109◦28′ for a tetrahedron).
+
+Effective coordination number
+
+The coordination number denotes the number of atoms coordinated to a central atom in a
+
+coordination polyhedron. However, stating the coordination of the central atom as a single
+
+number is somewhat difficult in relatively distorted coordination polyhedra. Several proposals
+
+are made for calculation of a mean or ‘effective’ coordination number (ECoN) by adding all surrounding atoms with a weighting scheme, where the atoms are not counted as full atoms but
+
+as fractional atoms with numbers between 0 and 1. This number gets closer to zero with an increase in distance from the central atom to a surrounding atom.
+
+VESTA adopts ECoN [33, 34, 35, 36] defined as
+
+∑ ECoN = wi,
+
+(11.4)
+
+i
+
+where the quantity
+
+wi
+
+=
+
+[ exp 1
+
+−
+
+(
+
+li lav
+
+)6]
+
+(11.5)
+
+is called the “bond weight” of the ith bond. In Eq. (11.5), lav represents a weighted average
+
+bond length defined as
+
+∑
+
+li
+
+[ exp 1
+
+−
+
+] (li/lmin)6
+
+lav =
+
+i
+∑
+
+[ exp 1
+
+−
+
+(li
+
+/lmin)6
+
+]
+
+,
+
+(11.6)
+
+i
+
+where lmin is the smallest bond length in the coordination polyhedron.
+
+Charge distribution
+
+Let qX be the formal charge (oxidation number) of the central atom, X. Then, the fraction of the charge received by an ion at a corner of a coordination polyhedron is calculated as
+
+∆qi
+
+=
+
+wiqX ECoNX
+
+.
+
+(11.7)
+
+76
+
+The total charge, QA, received by an ion A is obtained by summing the relevant charge fractions, −∆qi’s, over its n bonds. Similarly, the charge, QX, received by the ion at the center of a coordination polyhedron is calculated by
+
+[
+
+]
+
+QX =
+
+∑ wi(qA/QA)i i ECoNX
+
+qX.
+
+(11.8)
+
+Calculation of the charge distribution [35, 36, 37] in the crystal structure depends on the current bond specifications. In other words, the fraction of the charge is not given to or received by ions that are not bonded to each other. Formal charges of ions are read in from data files when ICSD files or CIFs (see 17.4.1) including oxidation states (oxidation numbers) are opened. For other file formats, formal charges of ions have to be input in the Structure parameters tab of the Edit Data dialog box to calculate the charge distribution. Note that charge distribution in nonstoichiometric compounds can be calculated because occupancies are used in the calculation.
+
+Bond valence sum
+
+In addition to the above physical quantities, the bond valence sum, V , defined as
+
+V
+
+=
+
+∑n
+
+( exp
+
+l0
+
+) − li
+
+b
+
+i=1
+
+(11.9)
+
+is also obtainable from the bond valence parameter, l0, of the central atom [38, 39, 40]. In VESTA, the empirical constant, b, in Eq. (11.9) is fixed at a typical value of 0.37 Å.
+The bond valence model, which is a development of Pauling’s rules, has been theoretically described in terms of classical electrostatic theory without resorting to quantum mechanics. Nevertheless, V serves, in practice, to estimate the oxidation state of the central atom only from bond lengths determined by X-ray or neutron diffraction.
+A CIF, bvparm2011.cif, storing bond valence parameters of most chemical species is available for download from
+http://www.iucr.org/resources/data/datasets/bond-valence-parameters
+This CIF is also included in the folder where the executable binary file of VESTA is located so as to refer to it when l0 values are required. In bvparm2009.cif, an l0 value for a pair of a cation and an anion is obtained, e.g., l0 = 1.620 Å for Al3+ and O2− and l0 = 2.172 Å for La3+ and O2− (b = 0.37 Å). Never select an l0 value for which b ̸= 0.37 Å.
+If a coordination polyhedron is clicked in the Graphic Area while pressing the <Ctrl> key in the manipulation mode of Select, you are asked to input a bond valence parameter, l0, for the central metal of the selected coordination polyhedron. After entering l0, the bond valence sum [38, 39, 40] for the central atom is calculated and displayed in the Text Area from all the bond lengths, li, for the current polyhedron and l0.
+
+Expected bond length
+Unless oxidation states of sites have been input in the Structure parameters tab of the Edit Data dialog box or from some kinds of structural files, VESTA prompts you to enter an oxidation number corresponding to V in Eq. (11.9); pressing the <Enter> key skips the subsequent calculation. After entering the value, an bond length expected with Eq. (11.9) is calculated and given in the Text Area.
+77
+
+An example of getting information on a coordination polyhedron
+Suppose that a TiO6 octahedron is selected in a structural model of perovskite (CaTiO3) [69] while pressing the <Ctrl> key. You are asked to enter the bond valence parameter of Ti4+ (l0 = 1.815 Å) and the oxidation state of Ti (= +4) unless it has already been input in the Structure parameters tab of the Edit Data dialog box. Then, the following data including the physical quantities described above are output to the Text Area:
+
+POLYHEDRON:
+
+1
+
+Ti1 Ti 1.00000 0.50000 0.00000 ( 1, 0, 0)+ x, y, z
+
+----------------------------------------------------------------------------
+
+4
+
+O2 O 0.71030 0.71120 -0.03730 ( 1, 1, 0)+ -x, -y, -z
+
+4
+
+O2 O 0.78970 0.21120 -0.03730 ( 0, 0, 0)+ x+1/2, -y+1/2, -z
+
+3
+
+O1 O 0.92890 0.48390 0.25000 ( 1, 0, 0)+ -x+1/2, y+1/2, z
+
+3
+
+O1 O 1.07110 0.51610 -0.25000 ( 0, 0, 0)+ x+1/2, -y+1/2, -z
+
+4
+
+O2 O 1.28970 0.28880 0.03730 ( 1, 0, 0)+ x, y, z
+
+4
+
+O2 O 1.21030 0.78880 0.03730 ( 1, 0, 0)+ -x+1/2, y+1/2, z
+
+----------------------------------------------------------------------------
+
+l(Ti1-O2) = 1.9571(11) Å l(Ti1-O2) = 1.9569(11) Å l(Ti1-O1) = 1.9497(4) Å l(Ti1-O1) = 1.9497(4) Å l(Ti1-O2) = 1.9571(11) Å l(Ti1-O2) = 1.9569(11) Å --------------------------------------Average bond length = 1.9546 Å Polyhedral volume = 9.9546 Å^3 Distortion index (bond length) = 0.00168 Quadratic elongation = 1.0001 Bond angle variance = 0.3773 deg.^2 Effective coordination number = 5.9994
+
+Charge distribution
+
+----------------------------------------------------------------------------
+
+delta_q: Fraction of the charge received by the ion
+
+Q: Total charge received by the ion
+
+q: Formal charge (oxidation number)
+
+----------------------------------------------------------------------------
+
+x
+
+y
+
+z
+
+delta_q Q
+
+q
+
+4
+
+O2 O 0.71030 0.71120 -0.03730 0.661 -1.994 -2.000
+
+4
+
+O2 O 0.78970 0.21120 -0.03730 0.662 -1.994 -2.000
+
+3
+
+O1 O 0.92890 0.48390 0.25000 0.677 -2.013 -2.000
+
+3
+
+O1 O 1.07110 0.51610 -0.25000 0.677 -2.013 -2.000
+
+4
+
+O2 O 1.28970 0.28880 0.03730 0.661 -1.994 -2.000
+
+4
+
+O2 O 1.21030 0.78880 0.03730 0.662 -1.994 -2.000
+
+----------------------------------------------------------------------------
+
+1
+
+Ti1 Ti 1.00000 0.50000 0.00000
+
+4.000 4.000
+
+Input a bond valence parameter: 1.815000 Bond valence sum = 4.115 Oxidation state of the cation: +4 Expected bond length = 1.965 Angstrom
+
+All the fractional coordinates, translations, equivalent positions, bond lengths with their estimated standard uncertainties for the TiO6 octahedron are output before the polyhedral volume.
+78
+
+11.5 Distance
+
+To calculate an interatomic distance, select the fifth button in the Vertical Toolbar. In this mode, only atoms can be selected. Select a pair of atoms, A and B, to obtain the interatomic distance between A and B. Then, the two atoms are highlighted, and a dashed line connecting them is plotted on the screen. The A–B distance is displayed on the Status Bar with its estimated standard uncertainty [70], if any, enclosed by a pair of parentheses. The estimated standard uncertainty is calculated only when those of lattice parameters and fractional coordinates have been input.
+To obtain a bond length in a ball-and-stick model, selecting the relevant bond (see 11.4.2) is faster than clicking two atoms. More information on the interatomic distance is displayed in the Text Area, where site number, site name, symbol of the element, fractional coordinates (x, y, z), symmetry operations, and translation vector are displayed for each of atoms A and B.
+For example, an interatomic distance for A = C7 and B = O2 in 2′-Hydroxyl-4′′-dimethylaminochalcone [71] is output as follows:
+
+l(C7-O2) = 1.254(4) Angstrom
+
+15
+
+C7 C 0.75640 0.11620
+
+4
+
+O2 O 0.80530 0.04440
+
+0.34510 ( 1,-1, 0)+ -x, y+1/2, -z+1/2 0.43470 ( 1,-1, 0)+ -x, y+1/2, -z+1/2
+
+11.6 Bond angle
+
+To calculate a bond angle, select the sixth button in the Vertical Toolbar. Then select three atoms A, B, and C to calculate the bond angle (in degrees) with atom B at the apex. The angle is displayed on the Status Bar with its estimated standard deviation, if any, in a pair of parentheses. The estimated standard uncertainty [70] is calculated only when those of lattice parameters and fractional coordinates have been input.
+More information on the bond angle is displayed in the Text Area, where site number, site name, symbol of the element, fractional coordinates (x, y, z), translation vector, and symmetry operations are displayed for each of atoms A, B, and C.
+For example, a bond angle for A = O1, B = Al1, and C = O1 in Al2O3 [72] is output as follows:
+
+phi(O1-Al1-O1) = 86.37(3) deg.
+
+1
+
+O1 O 1.33333 -0.02698
+
+2
+
+Al1 Al 1.00000 0.00000
+
+1
+
+O1 O 1.00000 -0.30635
+
+0.41667 ( 1, 0, 0)+ y+1/3, -x+y+2/3, -z+2/3 0.35217 ( 1, 0, 0)+ x, y, z 0.25000 ( 1,-1, 0)+ -y, x-y, z
+
+11.7 Dihedral angle
+
+To calculate a dihedral angle defined by four atoms, select the seventh button in the Vertical Toolbar. For a sequence of four atoms A, B, C, and D, the dihedral angle, ω, is defined as the positive angle between ABC and BCD planes. Let α = ∠(B−C−D), β = ∠(B−A−D′), and γ = ∠(A−B−C), where D′ denotes the D atom when C−D is translated in such a way that the C atom overlaps with the A atom. Then, cos ω is formulated as [73]
+
+cos
+
+ω
+
+=
+
+cos
+
+α cos γ − cos β sin α sin γ
+
+.
+
+(11.10)
+
+Select four atoms, A, B, C, and D. The dihedral angle (in degrees) for atom D and a plane on which atoms A, B, and C lie is displayed on the Status Bar with its estimated standard uncertainty, if any, in a pair of parentheses. The estimated standard uncertainty [70] is calculated only when those of lattice parameters and fractional coordinates have been input.
+
+79
+
+More information about the dihedral angle is output in the Text Area, where site number, site name, symbol of the element, fractional coordinates (x, y, z), symmetry operations, and translation vector are displayed for each of atoms A, B, C, and D. For examples, in the case of C1 (= A), C2 (= B), C3 (= C), and C4 (= D) atoms contained in an aromatic ring of 3[4-(dimethylamino)phenyl]-1-(2-hydroxyphenyl)prop-2-en-1-one [71] (Fig. 11.2), the following five lines are output in the text area:
+Figure 11.2: Calculation of a dihedral angle for four carbon atoms in an aromatic ring in 3-[4-(dimethylamino)phenyl]-1-(2-hydroxyphenyl)-prop-2-en-1-one
+80
+
+omega(C1-C2-C3-C4) = 2.36(8) deg.
+
+5
+
+C1 C 0.58190 0.79990 0.21900 ( 0, 0, 0)+ x, y, z
+
+7
+
+C2 C 0.52280 0.72240 0.11990 ( 0, 0, 0)+ x, y, z
+
+9
+
+C3 C 0.41240 0.66560 0.09830 ( 0, 0, 0)+ x, y, z
+
+10
+
+C4 C 0.36010 0.68130 0.17850 ( 0, 0, 0)+ x, y, z
+
+Data in lines No. 2−5 (selected lines in the Text Area in Fig. 11.2) can be used when imposing nonlinear restraints on the dihedral angle in Rietveld refinement with RIETAN-FP [12].
+
+11.8 Interfacial angle
+To calculate an interfacial angle, i.e., an angle between two crystal faces, select the eighth button in the Vertical Toolbar. In this mode, only crystal faces can be selected. Selection of a pair of faces A and B gives an angle between their normal vectors (Fig. 11.3).
+
+Figure 11.3: Calculation of an interfacial angle between (100) and (511) faces in quartz. 81
+
+Chapter 12
+PROPERTIES OF OBJECTS
+Properties of various objects are edited in the Properties dialog box and the Objects tab of the Side Panel.
+12.1 Properties Dialog Box
+To open the Properties dialog box, press the [Properties] button in the Style tab of the Side Panel. The same dialog box can be open by choosing one of submenus in the “Objects” menu ⇒ “Properties”. When “Preview” is checked, changes in the Properties dialog box are reflected on the Graphics Area in real time. Click [OK] to apply all the changes or [cancel] to discard the changes. Current properties are saved as default values in VESTA by clicking the [Save as default] button.
+12.1.1 General
+The first page in the Properties dialog box is General (Fig. 12.1).
+Unit cell The display of Unit cell edges in the Graphics Area is controlled with the following three radio buttons:
+• “Do not show”: Do not show unit cell edges.
+• “Single unit cell”: Show edges of a single unit cell.
+• “All unit cells”: Show all the edges of unit cells within the drawing boundary.
+Line styles of the unit cell edges are selected from three styles: “Solid lines”, “Dotted lines”, and “Dashed lines”. The width of lines is input in text box {Line width}. The color of lines is specified either (A) by entering R, G, and B values ranging from 0 to 255 or (B) by picking a color from a color selection dialog box opened after clicking the [Select] button.
+Axes “Show Compass” is used to turn on or off a display of three arrows indicating a, b, and c axes (or x, y, and z axes in the case of Cartesian coordinates). “Show Axis Labels” is used to turn on or off a display of axis labels, ‘a’, ‘b’, and ‘c’ (or ‘x’, ‘y’, and ‘z’ in the case of Cartesian coordinates).
+82
+
+Figure 12.1: General page in the Properties dialog box.
+Shapes The visibility, line width, and color of edges of crystal morphologies are input in the Shapes frame box.
+12.1.2 Atoms
+The second page in the Properties dialog box is Atoms (Fig. 12.2).
+Material • {Specular} is a color of reflected light that bounces sharply in a particular direction in the manner of a mirror. A highly specular light tends to cause a bright spot on the surface it shines upon, which is called the specular highlight.
+• {Shininess} is a property, which specifies how small and focused the specular highlight. A value of 0 specifies an unfocused specular highlight.
+Resolution {Stacks} and {Slices} are parameters common to all the atoms, allowing you to change the resolution (quality) of atoms displayed on the screen. {Stacks} denotes the numbers of subdivisions along the Z axis (similar to lines of latitude) while {Slices} denotes the number of subdivisions around the Z axis (similar to lines of longitude). {Stacks} and {Slices} should be equal to each other in ball-and-stick and space-filling models where atoms are represented by perfect spheres. In general, decreasing {Stacks} and {Slices} accelerates the rendering of objects in the Graphics Area.
+83
+
+Figure 12.2: Atoms page in the Properties dialog box.
+Atom style
+Select either of the following two radio buttons for the mode of displaying atoms on the Graphics Area: (1) “Show as balls” or (2) “Show as displacement ellipsoids”.
+• “Show as balls”: Atoms are rendered as spheres. List box {Radii type} is used to select a type of default atomic radii from the following three:
+– Atomic: Metallic or covalent radii, whose values were mostly taken from Refs. [74, 75, 76].
+– Ionic: Effective ionic radii compiled by Shannon [77] for representative oxidation states and coordination numbers.
+– van der Waals: van der Waals radii [78].
+The user may modify default values of atomic, ionic, and van der Waals radii by editing a text file, elements.ini, in the program folder of VESTA.
+• “Show as displacement ellipsoids”: Atoms are rendered as ellipsoids to represent anisotropic displacement of atoms whose shapes are calculated from anisotropic atomic displacement parameters, βij or Uij (see 6.3.5). The probability (in percentage) for atomic nuclei to be included in the ellipsoids is input in text box {Probability}. It is common to all the atoms when drawing displacement ellipsoids. If option “Show principal ellipses” is checked, three principal ellipses corresponding to three principal planes are plotted on the surface of each ellipsoid (Fig. 12.3). The line width of the principal ellipses is input in text box {Line width}.
+84
+
+A
+
+B
+
+Figure 12.3: Displacement ellipsoids of an atom (A) with principal ellipses and (B) without them.
+
+Figure 12.4: A displacement ellipsoid model of a structure with four atoms having negative mean square displacements.
+If one or more of principal axes have negative mean square displacements, atoms are represented by cuboids so that the unusual atomic displacement parameters can easily be recognized (Fig. 12.4). Each cuboid is oriented in accordance with principal axes with the dimension of the cuboid scaled according to the absolute value of the mean-square displacement.
+• “Hide non-bonding atoms”: This option hides atoms that are connected by no bonds but the crystallographic site for those atoms have a coordination number larger than 0. In other words, atoms are made invisible if all the coordinated atoms are lying outside of the drawing boundary.
+Radius and color
+Select a symbol of an element from list box {Symbol} and then specify its {Radius}. The color of an atom (element) is specified either (a) by entering R, G, and B values ranging from 0 to 255 or (b) by picking a color from a color selection dialog box opened when clicking the [Select] button.
+85
+
+A
+
+B
+
+Figure 12.5: General-position diagrams of space group F d¯3m with (A) light disabled and (B) light enabled.
+Labels Select either of the following two types for atom labels: (1) “Names of elements” or (2) “Names of sites”. Labels are displayed near atoms with an offset along the z axis, which is specified in the unit of Å. When option “Mark enantiomorphic sites” is checked, atoms generated by symmetry operations of inversion, rotoinversion, or mirror are marked with a ‘,’ symbol. These positions are enantiomorphs with respect to non-marked positions. This option can be used to draw general position diagrams (Fig. 12.5) similar to those illustrated in “International Tables for Crystallography,” Vol. A [30]. When an atom position coincides with an a enantiomorphic symmetry element, the original and enantiomorphic positions coincide. Such an atom is represented by a ‘,’ mark on the left half of the atom separated with ‘|’ at its center.
+12.1.3 Bonds
+The third page in the Properties dialog box is Bonds (Fig. 12.6).
+Material It is the same as that in Atoms (see 12.1.2).
+Resolution It is the same as that in Atoms (see 12.1.2).
+Bond style One of the following six types of bonds are specified in this frame box:
+• “Unicolor cylinder”: Each bond is drawn as a cylinder, whose color can be changed in the Color panel.
+86
+
+Figure 12.6: Bonds page in the Properties dialog box.
+• “Bicolor cylinder”: Each bond is drawn as a cylinder with colors of two atoms connected with each other. The two colors of the bond are just the same as those of atoms connected by bonds.
+• “Color line”: Each bond is drawn as a straight line, whose color is changed in the Color panel.
+• “Gradient line”: Each bond is drawn as a line connecting two atoms with gradient distribution of colors. Colors of each bond at the ends of the line are the same as those of the atoms.
+• “Dotted line”
+• “Dashed line”
+Radius and color The radius of each cylindrical bond in the stick model is changed in text box {Radius (cylinder)}. The actual radius of cylinders is 40 % of the input value. The line width of line-style bonds is changed in text box, {Width (line)}. The color of bonds in the single color style is changed in the Color tool below these two text boxes.
+12.1.4 Polyhedra
+The fourth page in the Properties dialog box is Polydedra (Fig. 12.7).
+87
+
+Figure 12.7: Polyhedra page in the Properties dialog box.
+Material {Specular} and {Shininess} are just the same as those in Atoms page (see 12.1.2). The {Opacity} of coordination polyhedra is input with 255 corresponding to opaque planes (the inside of each coordination polyhedron is invisible) and 0 corresponding to fully transparent planes (coordination polyhedra are invisible).
+Polyhedral style Styles of coordination polyhedra are selected from the following six types of expressions that are schematically illustrated in the Polyhedral style frame box:
+• Show atoms and bonds without any coordination polyhedra. • Show atoms, bonds, and coordination polyhedra (default). • Show atoms and coordination polyhedra. • Show central atoms and coordination polyhedra. • Show only coordination polyhedra. • Show only bonds.
+Planes The surface color of each coordination polyhedron is specified here. Select an element from list box {Central atom} to specify its color. Default colors of coordination polyhedra are the same as those of the central atoms.
+88
+
+Edges The visibility, line width, and color of edges of coordination polyhedra are input in the Edges frame box.
+12.1.5 Isosurfaces
+The fifth page in the Properties dialog box is Isosurface (Fig. 12.8). Material It is the same as that in Atoms (see 12.1.2).
+Figure 12.8: Isosurfaces page in the Properties dialog box. Isosurfaces At the top of the Isosurfaces frame box, the minimum and maximum data values are displayed in the unit of the raw data. Data values such as electron and nuclear densities, and wave functions on isosurfaces are equal to {Isosurface level}, d(iso). All the points with densities larger than d(iso) lie inside the isosurfaces whereas those with densities smaller than d(iso) are situated outside the isosurfaces.
+At the lower half of the frame box, a list of isosurface levels is shown. To add a new isosurface level, add the [New] button, and edit the isosurface level and color. To delete an isosurface level, select an item in the list, and press the [Delete] button. Pressing the [Clear] button deletes all the isosurfaces. Order of rendering polygons The sequence of drawing polygons can be changed with option “Render from front to back.” By default, polygons are rendered from behind so that isosurfaces
+89
+

@@ -1,0 +1,1716 @@
+VASP: Basics (DFT, PW, PAW, … )
+University of Vienna, Faculty of Physics and Center for Computational Materials Science,
+Vienna, Austria
+
+Outline
+● Density functional theory ● Translational invariance and periodic boundary conditions ● Plane wave basis set ● The Projector-Augmented-Wave method ● Electronic minimization
+
+The Many-Body Schrödinger equation
+
+Hˆ (r1, ..., rN ) = E (r1, ..., rN )
+
+0
+
+1
+
+@
+
+1X 2
+i
+
+i
+
+X
+
+X
+
++ V (ri) +
+
+i
+
+i6=j
+
+|ri
+
+1
+
+A rj |
+
+(r1, ..., rN ) = E
+
+(r1, ..., rN )
+
+For instance, many-body WF storage demands are prohibitive:
+
+(r1, ..., rN )
+
+N
+(#grid points)
+
+5 electrons on a 10×10×10 grid ~ 10 PetaBytes !
+A solution: map onto “one-electron” theory:
+(r1, ..., rN ) ! { 1(r), 2(r), ..., N (r)}
+
+Hohenberg-Kohn-Sham DFT
+
+Map onto “one-electron” theory:
+(r1, ..., rN ) ! { 1(r), 2(r), ..., N (r)}
+
+YN
+
+(r1, ..., rN ) =
+
+i(ri)
+
+i
+
+Total energy is a functional of the density:
+
+E[⇢] = Ts[{ i[⇢]}] + EH [⇢] + E [⇢] + EZ [⇢] + U [Z]
+xc
+
+The density is computed using the one-electron orbitals:
+
+X N ⇢(r) = | i(r)|2
+i
+
+The one-electron orbitals are the solutions of the Kohn-Sham equation:
+
+⇣1
+
+⌘
+
+2
+
++ VZ (r) + VH [⇢](r) + V [⇢](r)
+xc
+
+i(r) = ✏i i(r)
+
+BUT:
+
+E [⇢] =??? V [⇢](r) =???
+
+xc
+
+xc
+
+Exchange-Correlation
+
+E [⇢] =??? V [⇢](r) =???
+
+xc
+
+xc
+
+• Exchange-Correlation functionals are modeled on the uniform-electron-gas (UEG): The correlation energy (and potential) has been calculated by means of MonteCarlo methods for a wide range of densities, and has been parametrized to yield a density functional.
+• LDA: we simply pretend that an inhomogeneous electronic density locally behaves like a homogeneous electron gas.
+• Many, many, many different functionals available: LDA, GGA, meta-GGA, van-der-Waals functionals, etc etc
+
+An N-electron system: N = O(1023)
+
+Hohenberg-Kohn-Sham DFT takes us a long way:
+
+(r1, ..., rN ) ! { 1(r), 2(r), ..., N (r)}
+
+N
+(#grid points)
+
+N ⇥ (#grid points)
+
+Nice for atoms and molecules, but in a realistic piece of solid state material N= O(1023)!
+
+Translational invariance: Periodic Boundary Conditions
+Translational invariance implies:
+nk(r + R) = nk(r)eikR
+and
+nk(r) = unk(r)eikr
+unk(r + R) = unk(r)
+All states are labeled by Bloch vector k and the band index n: • The Bloch vector k is usually constrained to lie within the first Brillouin zone of the reciprocal space lattice.
+• The band index n is of the order if the number of electrons per unit cell.
+
+Reciprocal space & the first Brillouin zone
+
+z L
+a2 a1
+a3 x
+
+4pi/L
+
+z
+
+b2
+
+x y
+b3
+
+b1 y
+
+b2 x
+
+z b1 y
+b3
+
+A
+
+B
+
+C
+
+2⇡
+
+2⇡
+
+2⇡
+
+b1 = ⌦ a2 ⇥ a3 b2 = ⌦ a3 ⇥ a1 b3 = ⌦ a1 ⇥ a2
+
+⌦ = a1 · a2 ⇥ a3 ai · bj = 2⇡ ij
+
+Sampling the 1st BZ
+
+The evaluation of many key quantities involves an integral over the 1st BZ. For instance the charge density:
+
+⇢(r)
+
+=
+
+1 ⌦BZ
+
+XZ
+n BZ
+
+fnk|
+
+nk(r)|2dk
+
+We exploit the fact that the orbitals at Bloch vectors k that are close together are almost identical and approximate the integral over the 1st BZ by a weighted sum over a discrete set of k-points:
+X ⇢(r) = wkfnk| nk(r)|2dk,
+nk
+
+Fazit: the intractable task of determining (r1, ..., rN ) with N=1023, has been reduced to calculating nk(r) at a discrete set of k-points in the 1st BZ, for a
+number of bands that is of the order if the number of electrons in the unit cell.
+
+Idea: equally spaced mesh in the 1st Brillouin zone
+
+Example: a quadratic 2D lattice
+• q1=q2=4, i.e., 16 points in total • Only 3 symmetry inequivalent points:
+
+11
+
+1
+
+4 ⇥ k1 = ( 8 , 8 ) ) !1 = 4
+
+33
+
+1
+
+4
+
+⇥
+
+k2
+
+=
+
+(, 8
+
+) 8
+
+)
+
+!2
+
+=
+
+4
+
+31
+
+1
+
+8
+
+⇥
+
+k3
+
+=
+
+(, 8
+
+) 8
+
+)
+
+!3
+
+=
+
+2
+
+Z
+
+1
+
+1
+
+1
+
+1
+
+⌦BZ F (k)dk ) 4 F (k1) + 4 F (k2) + 2 F (k3)
+
+BZ
+
+r b 44
+0
+
+k1 k2 k3 r
+b
+IBZ
+BZ
+
+Algorithm:
+• Calculate equally spaced mesh. • Shift the mesh if desired. • Apply all symmetry operations of the Bravais lattice to all k-points. • Extract the irreducible k-points (IBZ). • Calculate the proper weighting.
+Common meshes: Two different choices for the center of the mesh.
+• Centered on Γ • Centered around Γ (can break the symmetry!)
+
+before
+
+after
+
+symmetrization
+
+r
+
+shifted to r
+
+• In certain cell geometries (e.g. hexagonal cells) even meshes break the symmetry. • Symmetrization results in non-uniform distributions of k-points. • Γ-point centered meshes preserve the symmetry.
+
+A
+
+B
+
+C
+
+The total energy
+
+E[⇢, {R, Z}] = Ts[{ nk[⇢]}] + EH [⇢, {R, Z}] + E [⇢] + U ({R, Z})
+xc
+
+The kinetic energy
+X Ts[{ nk[⇢]}] = wkfnkh nk|
+nk
+
+1 2 | nki
+
+The Hartree energy
+
+ZZ 1 EH[⇢, {R, Z}] = 2
+
+⇢eZ (r)⇢eZ (r0) |r r0|
+
+dr0dr
+
+where
+
+X ⇢eZ (r) = ⇢(r) + Zi (r Ri)
+i
+
+X ⇢(r) = wkfnk| nk(r)|2dk
+nk
+
+The Kohn-Sham equations
+
+⇣1
+
+⌘
+
+2
+
++ VH [⇢eZ ](r) + V [⇢](r)
+xc
+
+nk(r) = ✏nk nk(r)
+
+The Hartree potential
+
+Z VH [⇢eZ ](r) =
+
+⇢eZ |r
+
+(r0) r0|
+
+dr0
+
+A plane wave basis set
+
+nk(r) = unk(r)eikr
+
+unk(r + R) = unk(r)
+
+All cell-periodic functions are expanded in plane waves (Fourier analysis):
+
+unk(r)
+
+=
+
+1 ⌦1/2
+
+X CGnkeiGr
+
+G
+
+X ⇢(r) = ⇢GeiGr
+
+G
+
+nk(r)
+
+=
+
+1 ⌦1/2
+
+X CGnkei(G+k)r
+
+G
+
+X V (r) = VGeiGr
+
+G
+
+The basis set includes all plane waves for which
+
+1
+
+|G + k|2 < E
+
+2
+
+cuto↵
+
+Transformation by means of FFT between “real” space and “reciprocal” space:
+
+X
+
+Crnk =
+
+CGnkeiGr
+
+G
+
+FF!T
+
+1X
+
+CGnk = NFFT
+
+Crnke
+r
+
+iGr
+
+Why use plane waves?
+• Historical reason: Many elements exhibit a band-structure that can be interpreted in a free electron picture (metallic s and p elements). Pseudopotential theory was initially developed to cope with these elements (pseudopotential perturbation theory).
+• Practical reason: The total energy expressions and the Hamiltonian are easy to implement.
+• Computational reason: The action of the Hamiltonian on the orbitals can be efficiently evaluated using FFTs.
+
+real space
+
+FFT reciprocal space
+G cut
+
+τ2
+
+01 23
+
+b2 N−1 0 5 −4 −3 −2 −1 0 1 2 3 4 5
+
+τ1
+
+b1 −N/2+1
+
+N/2
+
+x1= n 1 / N τ1
+
+g1= n 1 2 π / τ1
+
+X
+
+Crnk =
+
+CGnkeiGr
+
+G
+
+FF!T
+
+1X
+
+CGnk = NFFT
+
+Crnke
+r
+
+iGr
+
+real space
+
+FFT reciprocal space
+G cut
+
+τ2
+
+01 23
+
+b2 N−1 0 5 −4 −3 −2 −1 0 1 2 3 4 5
+
+τ1
+
+b1 −N/2+1
+
+N/2
+
+x1= n 1 / N τ1
+
+g1= n 1 2 π / τ1
+
+X
+
+Crnk =
+
+CGnkeiGr
+
+G
+
+FF!T
+
+1X
+
+CGnk = NFFT
+
+Crnke
+r
+
+iGr
+
+X
+
+Crnk =
+
+CGnkeiGr
+
+G
+
+FF!T
+
+1X
+
+CGnk = NFFT
+
+Crnke
+r
+
+iGr
+
+real space
+
+FFT reciprocal space
+G cut
+
+τ2
+
+01 23
+
+b2 N−1 0 5 −4 −3 −2 −1 0 1 2 3 4 5
+
+τ1
+
+b1 −N/2+1
+
+N/2
+
+x1= n 1 / N τ1
+
+g1= n 1 2 π / τ1
+
+X
+
+Crnk =
+
+CGnkeiGr
+
+G
+
+FF!T
+
+1X
+
+CGnk = NFFT
+
+Crnke
+r
+
+iGr
+
+The charge density
+Gcut
+
+FFT
+
+ψG 2 Gcut
+
+ψr
+
+ψr
+
+FFT
+
+ρG
+
+ρr
+
+The action of the Hamiltonian
+
+The action H| nki
+
+✓
+
+◆
+
+1
+
+2 + V (r) nk(r)
+
+Using the convention
+
+hr|G
+
++
+
+ki
+
+=
+
+1 ⌦1/2
+
+ei(G+k)r
+
+!
+
+hG
+
++
+
+k|
+
+nki = CGnk
+
+• Kinetic energy:
+
+hG + k|
+
+1 2
+
+|
+
+nki
+
+=
+
+1 |G 2
+
++
+
+k|2CGnk
+
+NNPLW
+
+• Local potential: V = VH[⇢] + V [⇢] + Vext xc
+
+•
+
+Exchange-correlation: easily obtained in real space
+
+Vxc,r
+
+=
+
+V [⇢r]
+xc
+
+• • •
+
+FFT to reciprocal space {Vxc,r} ! {Vxc,G}
+
+4⇡
+
+Hartree potential: solve Poisson eq. in reciprocal space VH,G = |G|2 ⇢G
+
+Add all contributions VG = VH,G + Vxc,G + Vext,G
+
+• FFT to real space {VG} ! {Vr}
+
+The action
+
+hG + k|V |
+
+1X
+
+nki = NFFT
+
+VrCrnke
+r
+
+iGr
+
+NFFT log NFFT
+
+The action of the local potential
+2Gcut
+
+4π e2
+
+FFT
+
+G 2
+
+ρG
+
+VG
+
+Vr
+
+ψr
+
+G cut
+
+3Gcut
+
+add ψG
+
+FFT RG
+
+Rr (residual vector)
+
+The Projector-Augmented-Wave method
+The number of plane waves needed to describe • tightly bound (spatially strongly localized) states, • and rapid oscillations (nodal features) of the orbitals near the nucleus exceeds any practical limit, except maybe for Li and H.
+The common solution: • Introduce the frozen core approximation:
+Core electrons are pre-calculated in an atomic environment and kept frozen in the course of the remaining calculations.
+• Use of pseudopotentials instead of exact potentials: • Norm-conserving pseudopotentials • Ultra-soft pseudopotentials • The Projector-Augmented-Wave (PAW) method [P. E. Blöchl, Phys. Rev. B 50, 17953 (1994)]
+
+Pseudopotentials: the general idea
+
+Ψ~
+
+Ψ
+
+rc
+
+V~
+
+V
+
+Pseudopotentials: cont.
+
+Al
+
+Al
+
+Exact potential (interstitial)
+
+2.5 2.0 1.5 1.0 0.5 0.0
+0
+Pseudopotential
+
+wave-function
+
+s : E= -0.576 R c=1.9
+p : E= -0.205 R c=1.9
+1234 R (a.u.)
+
+Al
+
+effective Al atom
+
+PAW Al atom
+
+3p
+
+2p
+
+3p
+
+3s
+
+1s
+
+3s
+
+2p
+
+2p and 1s are nodeless
+
+nodal structure retained
+
+2s
+
+12
+
+The PAW orbitals
+X | ni = | eni + (| ii | eii)hpei| eni
+i
+
+| eni
+
+X
+
+| eni
+
+| eiihpei| eni
+
+i
+
+| eni
+
+X | eiihpei| ˜ni
+iX + | iihpei| eni
+i
+
+PW
+=
+
+PS-LCAO
+-
+
+AE-LCAO
++
+
+AE
+
+pseudo
+
+pseudo-onsite AE-onsite
+
+The PAW orbitals (cont.)
+
+X | ni = | eni + (| ii | eii)hpei| eni
+i
+• | eni is the pseudo (PS) orbital, expressed in a plane wave basis set
+• | ii, | ˜ii, and |p˜ii are atom-centered localized functions
+
+• The all-electron partial waves are solutions to the radial scalar relativistic non-spinpolarized Schrödinger equation:
+
+(1 2
+
++ ve↵ )| ii = ✏i| ii
+
+• A pseudization procedure yields:
+
+| ii ! | eii
+
+ve↵ ! vee↵
+
+hpei| ej i = ij
+
+The PAW orbitals (cont.)
+
+• The pseudo partial waves obey:
+
+⇣
+
+1 2
+
+X
+
+⌘
+
+⇣X
+
+⌘
+
++ vee↵ + |peiiDijhpej| | eki = ✏k 1 + |peiiQijhpej| | eki
+
+ij
+
+ij
+
+• with the so-called PAW strength parameters and augmentation charges:
+
+Dij = h i|
+
+1 2 + ve↵ | j i
+
+h ei|
+
+1 2
+
++ vee↵ | ej i
+
+Qij = h i| j i h ei| ej i
+
+The all-electron and pseudo eigenvalue spectrum is identical! All-electron scattering properties are reproduced over a wide energy-range.
+
+1
+
+( 2
+
++ ve↵ )| ii = ✏i| ii
+
+⇣
+
+1 2
+
+X
+
+⌘
+
+⇣X
+
+⌘
+
++ vee↵ + |peiiDijhpej| | eki = ✏k 1 + |peiiQijhpej| | eki
+
+ij
+
+ij
+
+Si: Troullier-Martins
+
+Si: PAW
+
+@ el(r, ✏) @r
+
+1 el(r, ✏)
+
+r=rc
+
+⇡
+
+@
+
+l(r, ✏) @r
+
+1 l(r, ✏) r=rc
+
+• 1st s-channel in Mn: ε1 4s “bound” state
+• 2nd s-channel in Mn: ε2 “non-bound” state
+
+• And we use the frozen core approximation:
+ve↵ [⇢v] = vH [⇢v] + vH [⇢Zc] + vxc[⇢v + ⇢c]
+vee↵ [⇢ev] = vH [⇢ev] + vH [⇢eZc] + vxc[⇢ev + ⇢ec]
+
+X ⇢v(r) = ai| i(r)|2
+i
+X ⇢ev(r) = ai| ei(r)|2
+i
+
+The PAW orbitals (cont.)
+
+| ni
+
+| eni
+
+X | ˜lm✏iclm✏
+
+X + | lm✏iclm✏
+
+PW
+=
+
+PS-LCAO
+-
+
+AE-LCAO
++
+
+AE
+
+pseudo
+
+where clm✏ = hp˜lm✏| ˜ni
+
+pseudo-onsite AE-onsite
+
+This decomposition in three contributions can be achieved for all relevant quantities, e.g. orbitals, densities, and energies.
+
+The kinetic energy
+
+For instance the kinetic energy:
+X Ekin = fnh n|
+n
+
+1 2 | ni
+
+Inserting the PAW transformation (where i=lmε):
+X | ni = | ˜ni + (| ii | ˜ii)hp˜i| ˜ni
+i
+
+and assuming completeness of the one-center basis, we have
+
+Ekin = E˜ E˜1 + E1
+
+X fnh ˜n|
+
+|n
+
+{z
+
+1 2
+
+| ˜ni }
+
+E˜
+
+XX ⇢ij h ˜i|
+
+site (i,j)
+
+|
+
+{z
+
+E˜ 1
+
+1 2
+
+XX
+
+| ˜ji +
+
+⇢ij h i|
+
+site (i,j)
+
+}|
+
+{z
+
+E1
+
+Where
+
+X ⇢ij = fnh ˜n|p˜iihp˜j | ˜ni
+n
+
+are the one-center occupancies, or on-site density matrix.
+
+1 2
+
+| ji
+
+}
+
+Local operators
+
+To any (semi)-local operator A, that acts on the true all-electron orbital,
+
+the PAW method associates a pseudo operator:
+X⇣ A˜ = A + |p˜ii h i|A| ji
+ij
+
+⌘ h ˜i|A| ˜ji hp˜j|
+
+that acts on the pseudo-orbital, such that
+
+h |A| i = h e|A˜| ei
+
+For instance the PS operator associated with the density operator (|rihr|)
+
+X⇣
+
+⌘
+
+|rihr| + |p˜ii h i|rihr| ji h ˜i|rihr| ˜ji hp˜j|
+
+ij
+
+and the density
+
+X
+
+⇣
+
+h |rihr| i = h e|rihr| ei + h e|p˜ii h i|rihr| ji
+
+ij
+
+= ⇢e(r) ⇢e1(r) + ⇢1(r)
+
+⌘ h ˜i|rihr| ˜ji hp˜j| ei
+
+Non-local operators are more complicated.
+
+The Hartree energy
+• The PS orbitals do not have the same norm as the AE orbitals inside of the PAW spheres.
+• To correctly describe the long-range electrostatic interactions between the PAW spheres, a soft compensation charge is introduced in the spheres (like in the FLAPW method):
+
+=
+
+-
+
++
+
+AE
+
+pseudo + compens. pseudo+comp. onsite AE-onsite
+
+EH [⇢˜ + ⇢ˆ]
+
+X
+
+X
+
+EH [⇢˜1 + ⇢ˆ1] + EH [⇢1]
+
+sites
+
+sites
+
+• This way the Hartree energy (a non-local operator!) decomposes in the same manner as a (semi)-local operator:
+
+EH = E˜H E˜H1 + EH1
+
+The PAW total energy
+
+The same three-way decomposition holds for the total energy
+
+where
+
+E = E˜ E˜1 + E1
+
+X E˜ = fnh ˜n|
+n
+
+1 2
+
+| ˜ni + Exc[⇢˜ + ⇢ˆ + ⇢˜c]+
+
+Z
+
+EH [⇢˜ + ⇢ˆ] + vH [⇢˜Zc] (⇢˜(r) + ⇢ˆ(r)) d3r + U (R, Z )
+ion
+
+X⇢X
+
+E˜1 =
+
+⇢ij h ˜i|
+
+sites
+
+i,j ()
+
+Z
+
+1 2
+
+| ˜ji + Exc[⇢˜1 + ⇢ˆ + ⇢˜c]+
+
+EH [⇢˜1 + ⇢ˆ] + vH [⇢˜Zc] ⇢˜1(r) + ⇢ˆ(r) d3r
+
+X⇢X
+
+⌦r
+1
+
+E1 =
+
+⇢ij h i| 2 | j i + Exc[⇢1 + ⇢c]+
+
+sites
+
+i,j
+( )Z
+
+EH [⇢1] + vH [⇢Zc]⇢1(r) d3r
+
+⌦r
+
+The PAW total energy (cont.)
+
+• E˜ is evaluated on a regular grid: The Kohn-Sham functional evaluated in a plane wave basis set
+with additional compensation charge to account for the incorrect norm of the PS-orbitals and to correctly describe long-range electrostatics
+
+X
+
+⇢e =
+
+fn
+
+e n
+
+e ⇤
+n
+
+n
+
+PS charge density
+
+⇢ˆ
+
+Compensation charges
+
+• E˜1 and E1 are evaluated on atom-centered radial logarithmic grids: The Kohn-Sham energies evaluated using localized basis sets
+These terms correct for the difference in the shape of the all-electron and pseudo orbitals:
+) AE nodal features near the core ) Orthogonality between core and valence states
+
+The essence of the PAW method: there are no cross-terms between quantities on the regular grid (PW part) and the quantities on the radial grids (LCAO part)!
+
+The PAW total energy (cont.)
+
+The PS orbitals (plane waves!) are the self-consistent solutions of
+
+⇣
+
+1 2
+
+X
+
+⌘
+
+⇣X
+
+⌘
+
++ Vee↵ + |peii(Dij + ...)hpej| | eni = ✏n 1 + |peiiQijhpej| | eni
+
+ij
+
+ij
+
+where
+
+Dij = h i|
+
+1 2
+
++ ve1↵ [⇢1v]| j i
+
+Qij = h i| j i
+
+h ei|
+
+1 2
+
+h ei| eji
+
++ vee1↵ [⇢e1v]| ej i
+
+and with
+
+X ⇢e1v(r) = ⇢ijh ei|rihr| eji
+ij
+
+X ⇢1v(r) = ⇢ijh i|rihr| ji
+ij
+
+X ⇢ij = fnh en|peiihpej | eni
+
+n
+
+• The PS orbitals are the variational quantity of the PAW method! • If the partial waves constitute a complete (enough) basis inside the PAW spheres,
+The all-electron orbitals will remain orthogonal to the core states.
+
+Accuracy of the PAW method
+Δ-evaluation (PAW vs. FLAPW) K. Lejaeghere et al., Critical Reviews in Solid State and Materials Sciences 39,1 (2014)
+
+Accuracy of the PAW method (cont.)
+Subset of the G2-1 testset of small molecules: deviation of PAW w.r.t. GTO (in kcal/mol)
+
+Electronic minimization: Reaching the groundstate
+
+Direct minimization of the DFT functional (e.g. Car-Parrinello): start with a set of trial orbitals (random numbers) and minimize the energy by propagating the orbitals along the gradient:
+
+Gradient:
+
+✓ Fn(r) =
+
+~2 r2 + V e↵ (r, { 2me
+
+n(r0)})
+
+◆ ✏n n(r)
+
+The Self-Consistency-Cycle: start with a trial density, construct the corresponding Hamiltonian. Solve it to obtain a set of orbitals:
+
+✓
+
+~2
+
+◆ r2 + V e↵ (r, {⇢(r0)})
+
+2me
+
+n(r) = ✏n n(r)
+
+n = 1, ..., Ne/2
+
+These orbitals define a new density, that defines a new Hamiltonian, … iterate to self-consistency
+
+L
+
+n=8
+
+n=1
+
+log 10 |F-F 0 |
+
+log 10 E-E0
+
+Direct minimization vs. SCC
+
+disordered diamond, insulator
+
+disordered fcc Fe, metal
+
+0
+
+energy
+
+-2
+
+-4
+
+direct
+
+Car−Parrinello
+
+-6
+
+n=1,2,4,8
+-8
+
+1
+
+self.consistent
+
+log 10 E-E0
+
+2
+
+0
+
+n=4
+
+-2
+
+direct
+
+Car−Parrinello
+
+-4
+
+-6
+
+n=1
+
+n=1
+
+n=8
+
+-8
+
+1
+
+self.consistent
+
+0
+
+0
+
+log 10 |F-F 0 |
+
+-1
+
+-1
+
+-2
+
+-2
+
+-3
+
+-3
+
+-4 0
+
+-4
+
+5 10 15 iteration
+
+20
+
+forces
+
+0
+
+10 20 30 40 iteration
+
+Direct minimization and charge sloshing
+
+The gradient of the total energy with respect to an orbital is given by:
+
+⇣ |gni = fn 1
+
+X |
+
+mih
+
+⌘ m| Hˆ |
+
+ni
+
++
+
+X
+
+1 2
+
+Hnm(fn
+
+m
+
+m
+
+where
+
+Hnm = h m|Hˆ | ni
+
+E
+
+unoccupied
+
+fm)| mi
+
+charge
+
+Consider two states
+
+occupied
+
+n = ei(kF k)r m = ei(kF + k)r
+
+potential
+
+and a small sub-space rotation (2nd comp. of the gradient):
+
+0 n
+
+=
+
+n+
+
+s m
+
+0 m
+
+=
+
+m
+
+s n
+
+slowly varying charge 2
+4 πe / G strong change in potential
+
+This leads to a long-wavelength change in the density and a very strong change
+
+in the electrostatic potential (charge sloshing):
+
+⇢(r) = 2 sRe ei2 k·r
+
+VH(r)
+
+=
+
+2
+
+s |2
+
+4⇡e2 k|2
+
+Re
+
+ei2
+
+k·r
+
+Stable step size Δs (for a simulation box with largest dimension L):
+
+| k| / 1/L
+
+VH / L2
+
+s / 1/L2
+
+The Self-Consistency-Cycle (cont.)
+Two sub-problems:
+• Optimization of { n} Iterative Diagonalization e.g. RMM-DIIS or Blocked Davidson
+• Construction of ⇢in Density Mixing e.g. Broyden mixer
+
+The self-Consistency-Cycle
+
+A naïve algorithm: express the Hamilton matrix in a plane wave basis and diagonalize it:
+
+H hG|Hˆ ⇢ |G0i !
+
+H!{
+
+= []
+
+diagonalize
+
+i, ✏i}
+
+i
+
+=
+
+, 1
+
+..,
+
+NFFT
+
+Self-consistency-cycle:
+⇢0 ! H0 ! ⇢0 ! ⇢1 = f (⇢0, ⇢0) ! H1 ! ...
+Iterate until: ⇢ = ⇢0
+
+BUT: we do not need NFFT eigenvectors of the Hamiltonian (at a cost of O(NFFT3)). Actually we only the Nb lowest eigenstates of H, where Nb is of the order of the number of electrons per unit cell (Nb << NFFT).
+
+Solution: use iterative matrix diagonalization techniques to find the Nb lowest Eigenvector of the Hamiltonian: RMM-DIIS, blocked-Davidson, etc.
+
+Key ingredients: Subspace diagonalization and the Residual
+
+• Rayleigh-Ritz: diagonalization of the Nb x Nb subspace
+
+with
+
+X
+
+X
+
+H¯nmBmk =
+
+✏akppS¯nmBmk
+
+m
+
+m
+
+H¯nm = h n|Hˆ | mi
+
+S¯nm = h n|Sˆ| mi
+
+X
+yields Nb eigenvectors | ¯ki = Bmk| mi with eigenvalues εapp.
+m
+
+These eigenstates are the best approximation to the exact Nb lowest eigenstates of H within the subspace spanned by the current orbitals.
+
+• The Residual:
+|R( n)i = (Hˆ ✏appSˆ)| ni
+
+✏app =
+
+h h
+
+n|Hˆ | n|Sˆ|
+
+ni ni
+
+(its norm is measure for the error in the eigenvector)
+
+Blocked-Davidson
+
+• Take a subset of all bands:
+
+{
+
+n|n = 1, .., N } ) {
+
+1 k
+
+|k
+
+=
+
+1,
+
+..,
+
+n1}
+
+• Extend this subset by adding the (preconditioned) residual vectors to the presently considered subspace:
+
+{ k1/gk1 = K(H
+
+✏appS)
+
+1 k
+
+|k
+
+=
+
+1,
+
+..,
+
+n1}
+
+• Rayleigh-Ritz optimization (“sub-space rotation”) in the 2n1 dimensional subspace to determine the n1 lowest eigenvectors:
+
+diag{
+
+1 k
+
+/gk1
+
+}
+
+{ k2|k = 1, .., n1}
+
+•
+
+Extend subspace with the residuals of
+
+{
+
+2 k
+
+}
+
+{ k1/gk1/gk2 = K(H
+
+✏appS)
+
+2 k
+
+|k
+
+=
+
+1,
+
+..,
+
+n1}
+
+• Rayleigh-Ritz optimization ) { k3|k = 1, .., n1}
+
+• Etc …
+
+• The optimized set replaces the original subset:
+
+{ km|k = 1, .., n1}
+
+{ n|n = 1, .., n1}
+
+•
+
+Continue with next subset:
+
+{
+
+1 k
+
+|k
+
+=
+
+n1
+
++
+
+1,
+
+..,
+
+n2},
+
+etc,
+
+…
+
+After treating all bands: Rayleigh-Ritz optimization of { n|n = 1, .., N }
+
+Charge density mixing
+
+We want to minimize residual vector
+
+with
+
+R[⇢ ] = ⇢ [⇢ ] ⇢
+
+in
+
+out in
+
+in
+
+X
+
+⇢ (~r) =
+out
+
+wkfnk| nk(~r)|2
+
+occupied
+
+Linearization of the residual around the self-consistent density ⇢sc (linear response theory):
+
+R[⇢] = J(⇢ ⇢sc)
+where J is the charge dielectric function.
+
+J=1
+
+|{Uz}
+4⇡e2 q2
+
+Provided we have a good approximation for the charge dielectric function, minimization of the residual is trivial:
+
+R[⇢ ] = ⇢ [⇢ ] ⇢ = J(⇢ ⇢ )
+
+in
+
+out in
+
+in
+
+in sc
+
+⇢sc = ⇢in + J 1R[⇢in]
+
+The charge dielectric function
+
+• Use a model dielectric function that is a good initial approximation for most systems
+
+J
+
+1
+
+⇡
+
+G1q
+
+=
+
+q2AMIX max( q2 BMIX
+
+,
+
+AMIN)
+
++
+
+• This is combined with a convergence accelerator
+The initial dielectric function is improved using the information accumulated in each electronic mixing step.
+
+The End
+Thank you!
+

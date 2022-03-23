@@ -1,0 +1,690 @@
+Accelerat ing t he world's research.
+
+BBA: A binary bat algorithm for feature selection
+Joao Paulo Papa
+
+Cite this paper
+Get the citation in MLA, APA, or Chicago styles
+
+Downloaded from Academia.edu ÔÇé
+
+Related papers
+
+Download a PDF Pack of t he best relat ed papers ÔÇé
+
+Nat ure-Inspired Framework for Hyperspect ral Band Select ion Joao Paulo Papa
+
+A nat ure-inspired approach t o speed up opt imum-pat h forest clust ering and it s applicat ion t o int rusio‚Ä¶ Joao Paulo Papa
+A wrapper approach for feat ure select ion based on Bat Algorit hm and Opt imum-Pat h Forest Joao Paulo Papa
+
+BBA: A Binary Bat Algorithm for Feature Selection
+
+R. Y. M. Nakamura, L. A. M. Pereira, K. A. Costa, D. Rodrigues, J. P. Papa Department of Computing SaÀúo Paulo State University Bauru, Brazil
+
+X.-S. Yang National Physical Laboratory
+London, UK
+
+Abstract‚ÄîFeature selection aims to Ô¨Ånd the most important information from a given set of features. As this task can be seen as an optimization problem, the combinatorial growth of the possible solutions may be in-viable for a exhaustive search. In this paper we propose a new nature-inspired feature selection technique based on the bats behaviour, which has never been applied to this context so far. The wrapper approach combines the power of exploration of the bats together with the speed of the Optimum-Path Forest classiÔ¨Åer to Ô¨Ånd the set of features that maximizes the accuracy in a validating set. Experiments conducted in Ô¨Åve public datasets have demonstrated that the proposed approach can outperform some well-known swarmbased techniques.
+Keywords-Feature Selection, Bat Algorithm, Optimum-Path Forest
+I. INTRODUCTION
+Feature selection attempts to Ô¨Ånd the most discriminative information in several application domains. It is often desirable to Ô¨Ånd features that are simple to extract, invariant to geometric and afÔ¨Åne transformations, insensitive to noise and also useful for characterizing patterns in different categories [1]. The choice of such features is a critical step and strongly depends on the nature of the problem.
+Once an exhaustive search for the optimal set of features in a high dimensional space may be impracticable, several works attempt to model the feature selection as a combinatorial optimization problem, in which the set of features that leads to the best feature space separability is then employed to map the original dataset to a new one. The objective function can be the accuracy of a given classiÔ¨Åer or some other criterion that may consider the best trade-off between feature extraction computational burden and effectiveness.
+Several heuristic algorithms derived from the behaviour of biological and/or physical systems in the nature have been proposed as powerful methods for global optimizations. Kennedy and Eberhart [2] proposed a binary version of the well-known Particle Swarm Optimization (PSO) [3] called BPSO, in which the traditional PSO algorithm was modiÔ¨Åed in order to handle binary optimization problems. Further, Firpi and Goodman [4] extended BPSO to the context of feature selection.
+Further, Rashedi et al. [5] proposed a binary version of the Gravitational Search Algorithm (GSA) [6] called BGSA for feature selection, and Ramos et al. [7] presented their version of the Harmony Search (HS) [8] for the same purpose in the context of theft detection in power distribution systems. In
+
+addition, several works have addressed the same problem with a wide range of nature-inspired techniques [9], [10], [11].
+Very recently, Yang [12] proposed a new meta-heuristic method for continuous optimization namely Bat Algorithm (BA), which is based on the fascinating capability of microbats in to Ô¨Ånd their prey and discriminate different types of insects even in complete darkness. Such approach has demonstrated to outperform some well-known nature-inspired optimization techniques. In this paper, we propose a binary version of the Bat Algorithm for feature selection purposes called BBA, in which the search space is modelled as a Ì±õcube, where Ì±õ stands for the number of features. In such case, the optimal (near-optimal) solution is chosen among the 2Ì±õ possibilities, and it corresponds to one hypercube‚Äôs corner.
+The main idea is to associate for each bat a set of binary coordinates that denote whether a feature will belong to the Ô¨Ånal set of features or not. The function to be maximized is the one given by a supervised classiÔ¨Åer‚Äôs accuracy. As the quality of the solution is related with the number of bats, we need to evaluate each one of them by training a classiÔ¨Åer with the selected features encoded by the bat‚Äôs position and also to classifying an evaluating set. Thus, we need a fast and robust classiÔ¨Åer, since we have one instance of it for each bat. As such, we opted to use the Optimum-Path Forest (OPF) classiÔ¨Åer [13], [14], which has been demonstrated to be so effective as Support Vector Machines, but faster for training. The experiments have been performed in Ô¨Åve public datasets against Particle Swarm Optimization, Harmony Search, Gravitational Search Algorithm and FireÔ¨Çy Algorithm in order to evaluate the robustness of the proposed technique.
+The remainder of the paper is organized as follows. In Section II we revisit the Bat Algorithm and the OptimumPath Forest theory background. Section III presents the BBA for feature selection and experimental results are discussed in Section IV. Finally, conclusions are stated in Section V.
+II. FEATURE SELECTION USING BAT ALGORITHM
+In this section we describe the BA and BBA approaches as well as the OPF classiÔ¨Åer.
+A. Bat Algorithm
+Bats are fascinating animals and their advanced capability of echolocation have attracted attention of researchers from different Ô¨Åelds. Echolocation works as a type of sonar: bats, mainly micro-bats, emit a loud and short pulse of sound, wait
+
+it hits into an object and, after a fraction of time, the echo returns back to their ears [15]. Thus, bats can compute how far they are from an object [16]. In addition, this amazing orientation mechanism makes bats being able to distinguish the difference between an obstacle and a prey, allowing them to hunt even in complete darkness [17].
+Based on the behaviour of the bats, Yang [12] has developed a new and interesting meta-heuristic optimization technique called Bat Algorithm. Such technique has been developed to behave as a band of bats tracking prey/foods using their capability of echolocation. In order to model this algorithm, Yang [12] has idealized some rules, as follows:
+1) All bats use echolocation to sense distance, and they also ‚Äúknow‚Äù the difference between food/prey and background barriers in some magical way;
+2) A bat Ì±èÌ±ñ Ô¨Çy randomly with velocity Ì±£Ì±ñ at position Ì±•Ì±ñ with a Ô¨Åxed frequency Ì±ìmin, varying wavelength ÌºÜ and loudness Ì∞¥0 to search for prey. They can automatically adjust the wavelength (or frequency) of their emitted pulses and adjust the rate of pulse emission Ì±ü ‚àà [0, 1], depending on the proximity of their target;
+3) Although the loudness can vary in many ways, Yang [12] assume that the loudness varies from a large (positive) Ì∞¥0 to a minimum constant value Ì∞¥Ì±öÌ±ñÌ±õ.
+Algorithm 1 presents the Bat Algorithm (adapted from [12]):
+
+Algorithm 1. ‚Äì BAT ALGORITHM
+
+Objective function Ì±ì (Ì±•), Ì±• = (Ì±•1, ..., Ì±•Ì±õ). Initialize the bat population Ì±•Ì±ñ and Ì±£Ì±ñ, Ì±ñ = 1, 2, ..., Ì±ö. DeÔ¨Åne pulse frequency Ì±ìÌ±ñ at Ì±•Ì±ñ, ‚àÄÌ±ñ = 1, 2, . . . , Ì±ö. Initialize pulse rates Ì±üÌ±ñ and the loudness Ì∞¥Ì±ñ, Ì±ñ = 1, 2, . . . , Ì±ö.
+
+1. While Ì±° < Ì±á
+
+2.
+
+For each bat Ì±èÌ±ñ, do
+
+3.
+
+Generate new solutions through Equations (1),
+
+4.
+
+(2) and (3).
+
+5.
+
+If Ì±üÌ±éÌ±õÌ±ë > Ì±üÌ±ñ, then
+
+6.
+
+Select a solution among the best solutions.
+
+7.
+
+Generate a local solution around the
+
+8.
+
+best solution.
+
+9.
+
+If Ì±üÌ±éÌ±õÌ±ë < Ì∞¥Ì±ñ and Ì±ì (Ì±•Ì±ñ) < Ì±ì (Ì±•ÀÜ), then
+
+10.
+
+Accept the new solutions.
+
+11.
+
+Increase Ì±üÌ±ñ and reduce Ì∞¥Ì±ñ.
+
+12. Rank the bats and Ô¨Ånd the current best Ì±•ÀÜ.
+
+Firstly, the initial position Ì±•Ì±ñ, velocity Ì±£Ì±ñ and frequency Ì±ìÌ±ñ are initialized for each bat Ì±èÌ±ñ. For each time step Ì±°, being Ì±á the maximum number of iterations, the movement of the virtual bats is given by updating their velocity and position using Equations 1, 2 and 3, as follows:
+
+Ì±ìÌ±ñ = Ì±ìmin + (Ì±ìmin ‚àí Ì±ìmax)ÌªΩ,
+
+(1)
+
+Ì±£Ì±ñÌ±ó(Ì±°) = Ì±£Ì±ñÌ±ó(Ì±° ‚àí 1) + [Ì±•ÀÜÌ±ó ‚àí Ì±•Ì±óÌ±ñ (Ì±° ‚àí 1)]Ì±ìÌ±ñ,
+
+(2)
+
+Ì±•Ì±óÌ±ñ (Ì±°) = Ì±•Ì±óÌ±ñ (Ì±° ‚àí 1) + Ì±£Ì±ñÌ±ó(Ì±°),
+
+(3)
+
+where ÌªΩ denotes a randomly generated number within the interval [0, 1]. Recall that Ì±•Ì±óÌ±ñ (Ì±°) denotes the value of decision
+variable Ì±ó for bat Ì±ñ at time step Ì±°. The result of Ì±ìÌ±ñ (Equation 1)
+
+is used to control the pace and range of the movement of the bats. The variable Ì±•ÀÜÌ±ó represents the current global best location (solution) for decision variable Ì±ó, which is achieved comparing all the solutions provided by the Ì±ö bats.
+In order to improve the variability of the possible solutions, Yang [12] has proposed to employ random walks. Primarily, one solution is selected among the current best solutions, and then the random walk is applied in order to generate a new solution for each bat that accepts the condition in Line 5 of Algorithm 1:
+
+Ì±•Ì±õÌ±íÌ±§ = Ì±•Ì±úÌ±ôÌ±ë + ÌºñÌ∞¥(Ì±°),
+
+(4)
+
+in which Ì∞¥(Ì±°) stands for the average loudness of all the bats at time Ì±°, and Ìºñ ‚àà [‚àí1, 1] attempts to the direction and strength of the random walk. For each iteration of the algorithm, the loudness Ì∞¥Ì±ñ and the emission pulse rate Ì±üÌ±ñ are updated, as follows:
+
+Ì∞¥Ì±ñ(Ì±° + 1) = ÌªºÌ∞¥Ì±ñ(Ì±°)
+
+(5)
+
+and
+
+Ì±üÌ±ñ(Ì±° + 1) = Ì±üÌ±ñ(0)[1 ‚àí Ì±íÌ±•Ì±ù(‚àíÌªæÌ±°)],
+
+(6)
+
+where Ìªº and Ìªæ are ad-hoc constants. At the Ô¨Årst step of the
+algorithm, the emission rate Ì±üÌ±ñ(0) and the loudness Ì∞¥Ì±ñ(0) are often randomly chosen. Generally, Ì∞¥Ì±ñ(0) ‚àà [1, 2] and Ì±üÌ±ñ(0) ‚àà [0, 1] [12].
+
+B. BBA: Binary Bat Algorithm
+
+As the reader can observe, each bat moves in the search space towards continuous-valued positions. However, in case of feature selection, the search space is modelled as a Ì±õdimensional boolean lattice, in which the bat moves across the corners of a hypercube. Since the problem is to select or not a given feature, the bat‚Äôs position is then represented by binary vectors.
+This paper proposes a binary version of the Bat Algorithm restricting the new bat‚Äôs position to only binary values using a sigmoid function:
+
+Ì±Ü(Ì±£Ì±ñÌ±ó )
+
+=
+
+1 1 + Ì±í‚àíÌ±£Ì±ñÌ±ó
+
+.
+
+(7)
+
+Therefore, Equation 3 can be replaced by:
+
+Ì±•Ì±óÌ±ñ
+
+=
+
+{1 0
+
+if Ì±Ü(Ì±£Ì±ñÌ±ó) > Ìºé, otherwise
+
+(8)
+
+in which Ìºé ‚àº Ì±à (0, 1). Therefore, Equation 8 can provide only binary values for each bat‚Äôs coordinates in the boolean lattice, which stand for the presence of absence of the features.
+
+C. Supervised ClassiÔ¨Åcation Through Optimum-Path Forest
+The OPF classiÔ¨Åer works by modelling the problem of pattern recognition as a graph partition in a given feature space. The nodes are represented by the feature vectors and the edges connect all pairs of them, deÔ¨Åning a full connectedness graph. This kind of representation is straightforward, given that the graph does not need to be explicitly represented, allowing
+
+us to save memory. The partition of the graph is carried out by a competition process between some key samples (prototypes), which offer optimum paths to the remaining nodes of the graph. Each prototype sample deÔ¨Ånes its optimum-path tree (OPT), and the collection of all OPTs deÔ¨Ånes an optimumpath forest, which gives the name to the classiÔ¨Åer [13], [14].
+The OPF can be seen as a generalization of the well known Dijkstra‚Äôs algorithm to compute optimum paths from a source node to the remaining ones [18]. The main difference relies on the fact that OPF uses a set of source nodes (prototypes) with any smooth path-cost function [19]. In case of Dijkstra‚Äôs algorithm, a function that summed the arc-weights along a path was applied. In regard to the supervised OPF version addressed here, we have used a function that gives the maximum arcweight along a path, as explained below.
+Let Ì±ç = Ì±ç1 ‚à™ Ì±ç2 ‚à™ Ì±ç3 ‚à™ Ì±ç4 be a dataset labelled with a function ÌºÜ, in which Ì±ç1, Ì±ç2, Ì±ç3 and Ì±ç4 are, respectively, a training, learning, evaluating and test sets. Let Ì±Ü ‚äÜ Ì±ç1 a set of prototype samples. Essentially, the OPF classiÔ¨Åer creates a discrete optimal partition of the feature space such that any sample Ì±† ‚àà Ì±ç2 ‚à™ Ì±ç3 ‚à™ Ì±ç4 can be classiÔ¨Åed according to this partition. This partition is an optimum path forest (OPF) computed in ‚ÑúÌ±õ by the Image Foresting Transform (IFT) algorithm [19].
+The OPF algorithm may be used with any smooth path-cost function which can group samples with similar properties [19]. Particularly, we used the path-cost function Ì±ìmax, which is computed as follows:
+
+Ì±ìmax(‚ü®Ì±†‚ü©)
+
+=
+
+{0 +‚àû
+
+if Ì±† ‚àà Ì±Ü, otherwise
+
+Ì±ìmax(Ìºã ‚ãÖ ‚ü®Ì±†, Ì±°‚ü©) = max{Ì±ìmax(Ìºã), Ì±ë(Ì±†, Ì±°)}, (9)
+
+in which Ì±ë(Ì±†, Ì±°) means the distance between samples Ì±† and Ì±°, and a path Ìºã is deÔ¨Åned as a sequence of adjacent samples. In such a way, we have that Ì±ìmax(Ìºã) computes the maximum distance between adjacent samples in Ìºã, when Ìºã is not a trivial path.
+The OPF algorithm works with a training and a testing phase. In the former step, the competition process begins with the prototypes computation. We are interested into Ô¨Ånding the elements that fall on the boundary of the classes with different labels. For that purpose, we can compute a Minimum Spanning Tree (MST) over the original graph and then mark as prototypes the connected elements with different labels. Figure 1b displays the MST with the prototypes at the boundary. After that, we can begin the competition process between prototypes in order to build the optimum-path forest, as displayed in Figure 1c. The classiÔ¨Åcation phase is conducted by taking a sample from the test set (blue triangle in Figure 1d) and connecting it to all training samples. The distance to all training nodes are computed and used to weight the edges. Finally, each training node offers to the test sample a cost given by a path-cost function (maximum arc-weight along a path - Equation 9), and the training node that has offered the minimum path-cost will conquer the test sample. This procedure is shown in Figure 1e.
+
+1.1
+
+0.4 0.3
+1.5 0.5
+
+0.7
+1.4 0.9
+1.1
+
+1.8
+(a)
+0.0 0.4
+
+0.7 0.0 0.4
+(c)
+0.4
+
+0.7 0.4
+
+0.3
+
+0.9
+
+(b)
+0.0 0.4
+1.1
+
+0.0
+
+0.9
+
+0.4 0.7
+0.6
+
+(d)
+0.0
+
+0.7 0.5
+
+0.7 0.0
+0.4 0.6
+
+(e)
+Fig. 1. OPF pipeline: (a) complete graph, (b) MST and prototypes bounded, (c) optimum-path forest generated at the Ô¨Ånal of training step, (d) classiÔ¨Åcation process and (e) the triangle sample is associated to the white circle class. The values above the nodes are their costs after training, and the values above the edges stand for the distance between their corresponding nodes.
+
+III. BATS FOR FEATURE SELECTION
+In this section, we present our proposed approach using Bat Algorithm (Sections II-A and II-B) together with OPF classiÔ¨Åer (Section II-C) to Ô¨Ånd the best combination of features.
+Ramos et al. [7], [20] have proposed a wrapper approach with HS [8] and GSA [6] techniques in order to Ô¨Ånd a subset of features that maximize the OPF accuracy over a validation set. In such case, the classiÔ¨Åcation accuracy of OPF classiÔ¨Åer has been used as the Ô¨Åtness function of the optimization problem.
+In this paper, we present two main contributions: (i) the Ô¨Årst one is the BBA algorithm, which can be used with any other classiÔ¨Åcation technique, and the latter contribution is (ii) to use BBA as the heuristic algorithm to improve OPF effectiveness. We have that each bat‚Äôs position in the search space encodes the subset of features that it represents. Thus, for each one of them, an OPF classiÔ¨Åer is trained in Ì±ç1 and evaluated over Ì±ç2 in order to assess the Ô¨Åtness value of each bat. Note that the training and evaluating sets may be different among the bats, since each one of them may encode a different set of features. Algorithm 2 presents in details the proposed technique.
+The Ô¨Årst loop in Lines 1‚àí7 initializes the population of bats. The bats‚Äô position are then initialized with randomly chosen binary values in Lines 2 ‚àí 3, which corresponds whether a feature will be selected or not to compose the new dataset. Lines 11 ‚àí 15 compose the new training and evaluating sets with the selected features, and Lines 17 ‚àí 22 evaluate each bat in order to update its Ô¨Åtness value. Furthermore, the loudness Ì∞¥Ì±ñ and the rate of pulse emission Ì±üÌ±ñ are updated if a new solution has been accepted. While the loudness usually
+
+decreases once a bat has found its prey, the rate pulse emission increases (Equations 5 and 6).
+
+Algorithm 2. ‚Äì FEATURE SELECTION THROUGH BA
+
+INPUT:
+OUTPUT: AUXILIARY:
+
+Labelled training Ì±ç1 and evaluating set Ì±ç2, population size Ì±ö, number of features Ì±õ, number of iterations Ì±á , loudness Ì∞¥, pulse emission rate Ì±ü, Ìºñ, Ìªº and Ìªæ values. Subset of features Ì∞π that gives the maximum accuracy over Ì±ç2. Fitness vector Ì±ì Ì±ñÌ±° of size Ì±ö, initial frequency vector Ì±ü0 of size Ì±ö, global best position vector ‚ÉóÌ±• of size Ì±õ, and variables Ì±éÌ±êÌ±ê, Ì±üÌ±éÌ±õÌ±ë, Ì±öÌ±éÌ±•Ì±ì Ì±ñÌ±°, Ì±öÌ±éÌ±•Ì±ñÌ±õÌ±ëÌ±íÌ±•, Ì±îÌ±ôÌ±úÌ±èÌ±éÌ±ôÌ±ì Ì±ñÌ±°, ÌªΩ, Ì±ìmax, Ì±ìmin.
+
+1. For each bat Ì±èÌ±ñ (‚àÄÌ±ñ = 1, . . . , Ì±ö), do
+
+2.
+
+For each feature Ì±ó (‚àÄÌ±ó = 1, . . . , Ì±õ), do
+
+3.
+
+Ì±•Ì±óÌ±ñ ‚Üê Random{0, 1}
+
+4.
+
+Ì±£Ì±ñÌ±ó ‚Üê 0
+
+5.
+
+Ì∞¥Ì±ñ ‚Üê Ì±ÖÌ±éÌ±õÌ±ëÌ±úÌ±ö[1, 2]
+
+6.
+
+Ì±üÌ±ñ ‚Üê Ì±ÖÌ±éÌ±õÌ±ëÌ±úÌ±ö[0, 1]
+
+7.
+
+Ì±ì Ì±ñÌ±°Ì±ñ ‚Üê ‚àí‚àû
+
+8. Ì±îÌ±ôÌ±úÌ±èÌ±éÌ±ôÌ±ì Ì±ñÌ±° ‚Üê ‚àí‚àû
+
+9. For each iteration Ì±° (Ì±° = 1, . . . , Ì±á ), do
+
+10.
+
+For each bat Ì±èÌ±ñ (‚àÄÌ±ñ = 1, . . . , Ì±ö), do
+
+11.
+
+Create Ì±ç1‚Ä≤ and Ì±ç2‚Ä≤ from Ì±ç1 and Ì±ç2, respectively,
+
+12.
+
+such that both contains only features in Ì±èÌ±ñ in
+
+13.
+
+which Ì±•Ì±óÌ±ñ ‚àï= 0, ‚àÄÌ±ó = 1, . . . , Ì±õ.
+
+14.
+
+Train classiÔ¨Åer over Ì±ç1‚Ä≤ , evaluate its over Ì±ç2‚Ä≤ and
+
+15.
+
+stores the accuracy in Ì±éÌ±êÌ±ê.
+
+16.
+
+Ì±üÌ±éÌ±õÌ±ë ‚Üê Random[0, 1]
+
+17.
+
+If (Ì±üÌ±éÌ±õÌ±ë < Ì∞¥Ì±ñ and Ì±éÌ±êÌ±ê > Ì±ì Ì±ñÌ±°Ì±ñ), then
+
+18.
+
+Ì±ì Ì±ñÌ±°Ì±ñ ‚Üê Ì±éÌ±êÌ±ê
+
+19.
+
+Ì∞¥Ì±ñ ‚Üê ÌªºÌ∞¥Ì±ñ
+
+20.
+
+Ì±üÌ±ñ ‚Üê Ì±üÌ±ñ0[1 ‚àí Ì±íÌ±•Ì±ù(‚àíÌªæÌ±°)]
+
+21.
+
+[Ì±öÌ±éÌ±•Ì±ì Ì±ñÌ±°, Ì±öÌ±éÌ±•Ì±ñÌ±õÌ±ëÌ±íÌ±•] ‚Üê Ì±öÌ±éÌ±•(Ì±ì Ì±ñÌ±°)
+
+22.
+
+If(Ì±öÌ±éÌ±•Ì±ì Ì±ñÌ±° > Ì±îÌ±ôÌ±úÌ±èÌ±éÌ±ôÌ±ì Ì±ñÌ±°), then
+
+23.
+
+Ì±îÌ±ôÌ±úÌ±èÌ±éÌ±ôÌ±ì Ì±ñÌ±° ‚Üê Ì±öÌ±éÌ±•Ì±ì Ì±ñÌ±°
+
+24.
+
+For each dimension Ì±ó (‚àÄÌ±ó = 1, . . . , Ì±ö), do
+
+25.
+
+Ì±•ÀÜÌ±ó ‚Üê Ì±•Ì±óÌ±öÌ±éÌ±•Ì±ñÌ±õÌ±ëÌ±íÌ±•
+
+26.
+
+For each bat Ì±èÌ±ñ (‚àÄÌ±ñ = 1, . . . , Ì±ö), do
+
+27.
+
+ÌªΩ ‚Üê Random[0, 1]
+
+28.
+
+Ì±üÌ±éÌ±õÌ±ë ‚Üê Random[0, 1]
+
+29.
+
+If (Ì±üÌ±éÌ±õÌ±ë > Ì±üÌ±ñ)
+
+30.
+
+For each feature Ì±ó (‚àÄÌ±ó = 1, . . . , Ì±õ), do
+
+31.
+
+Ì±•Ì±óÌ±ñ = Ì±•Ì±óÌ±ñ + ÌºñÌ∞¥
+
+32.
+
+Ìºé ‚Üê Random{0, 1}
+
+33.
+
+If
+
+(Ìºé
+
+<
+
+11 1+Ì±í‚àíÌ±•Ì±óÌ±ñ
+
+),
+
+then
+
+34.
+
+Ì±•Ì±óÌ±ñ ‚Üê 1
+
+35.
+
+else Ì±•Ì±óÌ±ñ ‚Üê 0
+
+36.
+
+Ì±üÌ±éÌ±õÌ±ë ‚Üê Random[0, 1]
+
+37.
+
+If (Ì±üÌ±éÌ±õÌ±ë < Ì∞¥Ì±ñ and Ì±ì Ì±ñÌ±°Ì±ñ < Ì±îÌ±ôÌ±úÌ±èÌ±éÌ±ôÌ±ì Ì±ñÌ±°), then
+
+38.
+
+For each feature Ì±ó (‚àÄÌ±ó = 1, . . . , Ì±õ), do
+
+39.
+
+Ì±ìÌ±ñ ‚Üê Ì±ìmin + (Ì±ìmax ‚àí Ì±ìmin)ÌªΩ
+
+40.
+
+Ì±£Ì±ñÌ±ó ‚Üê Ì±£Ì±ñÌ±ó + (Ì±•ÀÜÌ±ó ‚àí Ì±•Ì±óÌ±ñ )Ì±ìÌ±ñ
+
+41.
+
+Ì±•Ì±óÌ±ñ ‚Üê Ì±•Ì±óÌ±ñ + Ì±£Ì±ñÌ±ó
+
+42.
+
+Ìºé ‚Üê Random{0, 1}
+
+43.
+
+If
+
+(Ìºé
+
+<
+
+1 1+Ì±í‚àíÌ±•Ì±óÌ±ñ
+
+),
+
+then
+
+44.
+
+Ì±•Ì±óÌ±ñ ‚Üê 1
+
+45.
+
+else Ì±•Ì±óÌ±ñ ‚Üê 0
+
+46. For each feature Ì±ó (‚àÄÌ±ó = 1, . . . , Ì±õ), do
+
+47.
+
+Ì∞π Ì±ó ‚Üê Ì±•ÀÜÌ±ó
+
+48. Return Ì∞π .
+
+In Line 21, the function max outputs the index and the Ô¨Åtness value of the bat that maximizes the Ô¨Åtness function. Lines 22 ‚àí 25 update the global best position, i.e., Ì±•ÀÜ, with the position of the bat that has achieved the highest Ô¨Åtness function. The loop in Lines 26‚àí45 is responsible for updating the bats‚Äô position and velocity.
+The source code in Lines 29 ‚àí 35 performs the local search as described in Lines 5 ‚àí 8 of Algorithm 1. The source code in Lines 37 ‚àí 45 corresponds to the Lines 9 ‚àí 11 of of Algorithm 1. At Line 39, we update the frequency of each bat as described by Equation 1. In regard to Ì±ìmin and Ì±ìmax values, we have used Ì±ìmin = 0 and Ì±ìmax = 1. Finally, the output vector Ì∞π with the selected features is generated in Lines 46 ‚àí 47 and returned by the algorithm in Line 48.
+IV. EXPERIMENTAL RESULTS
+In this section we discuss the experiments conducted in order to assess the robustness of the Bat Algorithm for feature selection.
+In regard to the datasets, we have employed Ô¨Åve public datasets: Breast Cancer, Australian, German Numer, DNA and Mushrooms1. Table I presents the main characteristics of them.
+
+TABLE I DESCRIPTION OF THE DATASETS USED IN THIS WORK.
+
+Dataset Australian Breast Cancer DNA German Numer Mushrooms
+
+# samples 690 683 2,000 1,000 8,124
+
+# features 14 10 180 24 112
+
+# classes 2 2 3 2 2
+
+As aforementioned in Section II-C, we partitioned the datasets in four disjoint subsets Ì±ç1, Ì±ç2, Ì±ç3 and Ì±ç4, which correspond to the training, learning, validation and test sets, respectively. We conducted two rounds of experiments: (i) in the Ô¨Årst one we have assessed the robustness of OPF classiÔ¨Åer over the original datasets, i.e., without feature selection, and (ii) in the latter we have validated the proposed Binary BA against Binary PSO, Binary FFA, HS and Binary GSA.
+For the Ô¨Årst round of experiments, we have employed only the training and test sets, being 30% of the whole dataset for Ì±ç1 and 30% for Ì±ç4. In the second round, we have used the training and learning sets to Ô¨Ånd the subset of features that maximizes the accuracy of the learning set (Ì±ç2). The main idea is, for each bat/particle/harmony/Ô¨ÅreÔ¨Çy/mass in case of BA/PSO/HS/FFA/GSA, to train OPF over Ì±ç1 and classify Ì±ç2. Therefore, the optimization techniques will be guided by the OPF accuracy over Ì±ç2 in order to Ô¨Ånd the most informative set of features. Notice that the same training and test sets were used for both experiments.
+In order to compute the mean accuracy and standard deviation, for the Ô¨Årst round of experiments we conducted a cross-validation over 10 running. In regard to the second round, we have proposed an approach to retrieve the most
+1http://www.csie.ntu.edu.tw/‚àºcjlin/libsvmtools/datasets/
+
+informative features: the idea is to establish a threshold that ranges from 10% to 90%, and for each value of this threshold we marked the features that were selected at least a minimum percentage of the running over this learning process in Ì±ç1 and Ì±ç2. For instance, a threshold of 40% means we choose the features that were selected by the technique at least 40% of the running. For each threshold, we computed the OPF accuracy over the validating Ì±ç3 in order to evaluate the generalization capability of the selected features. Therefore, the Ô¨Ånal subset of features will be the one that maximizes the curve over the range of values, i.e., the features that maximizes the accuracy over Ì±ç3. Finally, this subset of features will be used to train OPF over Ì±ç1 and to classify the test set Ì±ç4, which did not participate from any learning process. In this latter experiment, we employed 30% for training and 20% for learning the most informative set of features, 20% to compose the validating set and the remaining 30% for the test set. Table II displays the mean OPF classiÔ¨Åcation accuracy over the original datasets, i.e., without feature selection. We have used an accuracy measure that considers unbalanced classes, as proposed by Papa et al. [13].
+
+TABLE II CLASSIFICATION ACCURACY OVER THE ORIGINAL DATASETS, I.E.,
+WITHOUT FEATURE SELECTION.
+
+Dataset Australian Breast Cancer DNA German Numer Mushrooms
+
+Accuracy 76.16%¬±0.25 93.08%¬±1.55 75.98%¬±1.06 57.65%¬±2.37 98.61%¬±0.2
+
+Classification Accuracy
+
+Classification Accuracy
+
+Fig. 3. OPF accuracy curve over Ì±ç3 for Australian dataset.
+
+BA
+
+FFA
+
+GSA
+
+PSO
+
+HS
+
+90 85 80 75 70 65 60 55 50
+10 20 30 40 50 60 70 80 90 Threshold
+
+Fig. 4. OPF accuracy curve over Ì±ç3 for German Numer dataset.
+
+BA
+
+FFA
+
+GSA
+
+PSO
+
+HS
+
+70
+
+65
+
+60
+
+55
+
+50
+
+45
+
+40 10 20 30 40 50 60 70 80 90
+Threshold
+
+Figure 2 displays the curve of the second round of experiments for Breast Cancer dataset. We can see, for instance, that GSA with a threshold equals to 50% has selected the features that maximizes the accuracy over Ì±ç3 (96.79%). Figure 3 shows the curve for Australian dataset, in which FFA with a threshold equals to 60% has maximized the Ô¨Åtness function (85.60%).
+
+Fig. 2. OPF accuracy curve over Ì±ç3 for Breast Cancer dataset.
+
+BA
+
+FFA
+
+GSA
+
+PSO
+
+HS
+
+performance with threshold equals to 80% and classiÔ¨Åcation accuracy of 66.25%. For DNA dataset, BA outperformed all techniques with threshold equals to 90% and recognition rate of 84.02%. In respect to Mushrooms dataset, BA, PSO and GSA have achieved 100% of classiÔ¨Åcation rate with threshold equals to 60%, 70% and 60%, respectively.
+Table III shows the OPF accuracy over Ì±ç4 using the selected
+features that maximized the above curves. As one can see,
+
+Classification Accuracy
+
+100 95 90 85 80 75 70 65 60 55 50 10 20 30 40 50 60 70 80 90 Threshold
+Figure 4, 5 and 6 display the OPF accuracy curve for German Numer, DNA and Mushrooms datasets, respectively. In respect to German Numer dataset, GSA has achieved the best
+
+Classification Accuracy
+
+Fig. 5. OPF accuracy curve over Ì±ç3 for DNA dataset.
+
+BA
+
+FFA
+
+GSA
+
+PSO
+
+HS
+
+85 80 75 70 65 60 55 50
+10 20 30 40 50 60 70 80 90 Threshold
+
+Classification Accuracy
+
+Fig. 6. OPF accuracy curve over Ì±ç3 for Mushrooms dataset.
+
+BA
+
+FFA
+
+GSA
+
+PSO
+
+HS
+
+100 90 80 70 60 50 40 30 10 20 30 40 50 60 70 80 90 Threshold
+
+BA performs better than the other algorithms for Australian, Breast Cancer and Mushrooms datasets. In regard to DNA and German Numer datasets, BA has achieved the second best accuracy. Table IV displays the mean computational load in seconds for each optimization technique. As the Bat Algorithm has common properties with respect to PSO, it is expected that their execution times be similar to each other.
+
+TABLE III CLASSIFICATION ACCURACY WITH THE BEST SUBSET OF FEATURES OVER
+Ì±ç4
+
+Dataset Australian Breast Cancer DNA German Numer Mushrooms
+
+BA 77.25% 96.31% 83.02% 70.24% 100.0%
+
+PSO 76.12% 94.28% 79.31% 59.52% 99.96%
+
+FFA 76.63% 92.85% 76.63% 53.41% 100.0%
+
+HS 76.53% 94.23% 83.23% 55.24% 99.95%
+
+GSA 76.12% 95.74% 81.46% 70.87% 100.0%
+
+TABLE IV COMPUTATIONAL LOAD IN SECONDS REGARDING THE OPTIMIZATION
+ALGORITHMS FOR THE FEATURE SELECTION TASK.
+
+Dataset Australian Breast Cancer DNA German Numer Mushrooms
+
+BA 25.3 21.9 533.0 55.6 5369.3
+
+PSO 24.9 19.9 461.3 53.7 5238.8
+
+FFA 25.1 21.7 518.3 56.2 5431.1
+
+HS 2.8 2.6 53.8 6.4 579.5
+
+GSA 26.5 23.4 488.4 57.6 5324.1
+
+Table V states the values of the thresholds used for each optimization technique that maximized the classiÔ¨Åcation accuracy over Ì±ç3. We can see that there is not a consensus about the threshold values chosen by each optimization technique for some datasets, such as DNA and Mushrooms. In the opposite side, for Australian dataset BA and FFA have used the same threshold, while PSO, HS and GSA employed another one. We can conclude that there are similar features, and each group of optimization techniques have chosen a different set of them.
+Finally, Table VI displays the number of selected features for each optimization technique. It is interesting to shed light over that BA has selected fewer samples than all techniques, except for German Numer dataset.
+
+TABLE V THRESHOLD VALUES WITH RESPECT TO THE HIGHEST CLASSIFICATION
+ACCURACIES OVER Ì±ç3 .
+
+Dataset
+
+BA PSO FFA HS GSA
+
+Australian
+
+60% 40% 60% 40% 40%
+
+Breast Cancer 30% 40% 60% 50% 50%
+
+DNA
+
+90% 60% 30% 80% 80%
+
+German Numer 40% 80% 80% 30% 90%
+
+Mushrooms
+
+60% 70% 70% 20% 60%
+
+The information about the number of selected samples has a correlation with the thresholds shown in Table V. In case of Mushrooms dataset, for instance, HS has selected 106 features against only 53 features chosen by BA. We can observe in Table V that the thresholds for the same dataset have been 20% and 60% for HS and BA techniques, respectively. Thus, as HS has selected a high number of features, it is much easier to them to appear only 20% of the running than the 60% employed by BA, which has used a half of the features when compared with HS.
+
+TABLE VI NUMBER OF FEATURES SELECTED FOR EACH OPTIMIZATION TECHNIQUE.
+
+Dataset
+
+BA PSO FFA HS GSA
+
+Australian
+
+8 12 12 9 12
+
+Breast Cancer
+
+7
+
+8
+
+7
+
+7
+
+8
+
+DNA
+
+18 25 75 67 28
+
+German Numer 7
+
+4
+
+5 19 3
+
+Mushrooms
+
+53 76 106 106 57
+
+V. CONCLUSIONS
+In this paper we addressed the problem of the high dimensionality in object‚Äôs description by means of Ô¨Ånding the most informative features in a search space given by a boolean hypercube.
+As the feature selection can be seen as an optimization problem, we have proposed a bat-inspired algorithm for this task. A binary version of the well-known continuous-valued Bat Algorithm was derived in order to position the bats in binary coordinates along the corners of the search space, which represents a string of bits that encodes whether a feature will be selected or not.
+We conducted experiments against several meta-heuristic algorithms to show the robustness of the proposed technique and also the good generalization capability of the bat-inspired technique. We have employed Ô¨Åve public datasets to accomplish this task, in which BA has been compared against PSO, FFA and GSA. The proposed algorithm has outperformed the compared techniques in 3 out of 5 datasets, being the second best in the remaining two datasets. For future works, we intend to apply BA for feature weighting.
+ACKNOWLEDGEMENTS
+The authors would like to thank FAPESP grants #2009/16206-1, #2011/14058-5 and #2011/14094-1, and also CNPq grant #303182/2011-3.
+
+REFERENCES
+[1] R. O. Duda, P. E. Hart, and D. G. Stork, Pattern ClassiÔ¨Åcation (2nd Edition). Wiley-Interscience, 2000.
+[2] J. Kennedy and R. C. Eberhart, ‚ÄúA discrete binary version of the particle swarm algorithm,‚Äù in IEEE International Conference on Systems, Man, and Cybernetics, vol. 5, 1997, pp. 4104‚Äì4108.
+[3] J. Kennedy and R. Eberhart, Swarm Intelligence. M. Kaufman, 2001. [4] H. A. Firpi and E. Goodman, ‚ÄúSwarmed feature selection,‚Äù in Pro-
+ceedings of the 33rd Applied Imagery Pattern Recognition Workshop. Washington, DC, USA: IEEE Computer Society, 2004, pp. 112‚Äì118. [5] E. Rashedi, H. Nezamabadi-pour, and S. Saryazdi, ‚ÄúBGSA: binary gravitational search algorithm,‚Äù Natural Computing, vol. 9, pp. 727‚Äì 745, 2010. [6] E. Rashedi, H. Nezamabadi-pour, and S. Saryazdi, ‚ÄúGSA: A gravitational search algorithm,‚Äù Information Sciences, vol. 179, no. 13, pp. 2232‚Äì2248, 2009. [7] C. Ramos, A. Souza, G. Chiachia, A. FalcaÀúo, and J. Papa, ‚ÄúA novel algorithm for feature selection using harmony search and its application for non-technical losses detection,‚Äù Computers & Electrical Engineering, vol. 37, no. 6, pp. 886‚Äì894, 2011. [8] Z. W. Geem, Music-Inspired Harmony Search Algorithm: Theory and Applications, 1st ed. Springer Publishing Company, Incorporated, 2009. [9] H. R. Kanan, K. Faez, and S. M. Taheri, ‚ÄúFeature selection using ant colony optimization (ACO): a new method and comparative study in the application of face recognition system,‚Äù in Proceedings of the 7th industrial conference on Advances in data mining: theoretical aspects and applications. Berlin, Heidelberg: Springer-Verlag, 2007, pp. 63‚Äì76. [10] J. Huang, Y. Cai, and X. Xu, ‚ÄúA hybrid genetic algorithm for feature selection wrapper based on mutual information,‚Äù Pattern Recognition Letters, vol. 28, no. 13, pp. 1825‚Äì1844, 2007. [11] H. Banati and M. Bajaj, ‚ÄúFire Fly Based Feature Selection Approach,‚Äù International Journal of Computer Science Issues, vol. 8, no. 4, pp. 473‚Äì480, 2011. [12] X.-S. Yang., ‚ÄúBat algorithm for multi-objective optimisation,‚Äù International Journal of Bio-Inspired Computation, vol. 3, no. 5, pp. 267‚Äì274, 2011. [13] J. P. Papa, A. X. FalcaÀúo, and C. T. N. Suzuki, ‚ÄúSupervised pattern classiÔ¨Åcation based on optimum-path forest,‚Äù International Journal of Imaging Systems and Technology, vol. 19, no. 2, pp. 120‚Äì131, 2009. [14] J. P. Papa, A. X. FalcaÀúo, V. H. C. Albuquerque, and J. M. R. S. Tavares, ‚ÄúEfÔ¨Åcient supervised optimum-path forest classiÔ¨Åcation for large datasets,‚Äù Pattern Recognition, vol. 45, no. 1, pp. 512‚Äì520, 2012. [15] D. R. GrifÔ¨Ån, F. A. Webster, and C. R. Michael, ‚ÄúThe echolocation of Ô¨Çying insects by bats,‚Äù Animal Behaviour, vol. 8, no. 34, pp. 141 ‚Äì 154, 1960. [16] W. Metzner, ‚ÄúEcholocation behaviour in bats.‚Äù Science Progress Edinburgh, vol. 75, no. 298, pp. 453‚Äì465, 1991. [17] H.-U. Schnitzler and E. K. V. Kalko, ‚ÄúEcholocation by insect-eating bats,‚Äù BioScience, vol. 51, no. 7, pp. 557‚Äì569, July 2001. [18] E. W. Dijkstra, ‚ÄúA note on two problems in connexion with graphs,‚Äù Numerische Mathematik, vol. 1, pp. 269‚Äì271, 1959. [19] A. FalcaÀúo, J. StolÔ¨Å, and R. Lotufo, ‚ÄúThe image foresting transform theory, algorithms, and applications,‚Äù IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 26, no. 1, pp. 19‚Äì29, 2004. [20] C. C. O. Ramos, A. N. de Souza, A. X. FalcaÀúo, and J. P. Papa, ‚ÄúNew insights on non-technical losses characterization through evolutionarybased feature selection,‚Äù IEEE Transactions on Power Delivery, vol. 27, no. 1, pp. 140‚Äì146, 2012.
+

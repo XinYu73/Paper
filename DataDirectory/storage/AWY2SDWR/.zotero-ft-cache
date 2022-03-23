@@ -1,0 +1,3225 @@
+PHYSICAL REVIEW B
+
+VOLUME 60, NUMBER 24
+
+15 DECEMBER 1999-II
+
+Orbital-free kinetic-energy density functionals with a density-dependent kernel
+
+Yan Alexander Wang, Niranjan Govind, and Emily A. Carter Department of Chemistry and Biochemistry, Box 951569, University of California, Los Angeles, California 90095-1569
+͑Received 26 May 1999; revised manuscript received 10 August 1999͒
+We report linear-response kinetic-energy density functionals, which show signiﬁcant improvement over the Wang-Teter, Perrot, Smargiassi-Madden, Wang-Govind-Carter functionals, yet still maintain O(N ln N) scaling. Numerical tests show that these functionals, which contain a double-density-dependent kernel, can reproduce the Kohn-Sham results almost exactly for several aluminum bulk phases. We further show that with a sensible choice of the uniform background density, energies of formation for the low-index aluminum surfaces, where the density variations are very large, can be reproduced to within reasonable accuracy. ͓S0163-1829͑99͒01848-2͔
+
+I. BACKGROUND
+Among all linear-scaling O(N) density-functional methods,1–7 the orbital-free Hohenberg-Kohn scheme2–8 is potentially the most attractive. Without any orbital dependence, the complication and cost associated with orbital manipulation, including orbital localization and orbital orthonormalization, are avoided. For metals, the orbital-free scheme is even more rewarding, because the need for Brillouin-zone ͑k-point͒ sampling9 is completely eliminated. However, all these positive features come at a price: accurate, transferable orbital-free kinetic-energy density functionals do not, as yet, exist in our O(N) arsenal. We set our task toward surmounting this problem in this paper.
+The Wang-Teter ͑WT͒, Perrot, Smargiassi-Madden ͑SM͒, Wang-Govind-Carter ͑WGC͒ kinetic-energy density functionals ͑KEDF’s͒ can be conveniently written as3–7
+
+T
+
+vW͓
+
+␳
+
+͔
+
+ϭ
+
+Ϫ
+
+1 4
+
+͗
+
+␳
+
+1/2͑
+
+r͉͒
+
+␦
+
+͑
+
+rϪ
+
+rЈ͒
+
+ٌ
+
+2ϩ
+
+ٌ
+
+2␦͑
+
+rϪ
+
+rЈ͒
+
+͉
+
+␳
+
+1/2͑
+
+rЈ͒͘
+
+.
+
+͑6͒
+
+It is well known that TTF͓␳͔ is only exact at the free-electron gas limit and TvW͓␳͔ is only exact for those systems that can be described by a single spatial orbital, i.e., the one- and two-electron ground-state systems.13 Any realistic system
+that falls between these two extremes will have to be bridged
+somehow by a third term, which can also smoothly recover
+the two extreme cases if appropriate conditions are met. Eq. ͑4͒ is then a natural choice for this functional because it possesses the same form as Eqs. ͑5͒ and ͑6͒. Second, there is no reason to go beyond the double-integration form because
+the highest rank of the operators in the quantum mechanical
+Hamiltonian for isolated Coulomb systems is two. This sim-
+ply means that for any second-rank operator of the form
+
+͚ ͚ T͕s␣͖͓␳͔ϭ ␣ Ts␣͓␳͔ϭTTF͓␳͔ϩTvW͓␳͔ϩ ␣ ␭␣TX␣͓␳͔,
+͑1͒
+
+TTF͓ ␳͔ϭ͗tTF͑ r͒͘ϭCTF͗␳5/3͑ r͒͘,
+
+͑2͒
+
+ͳ ʹ 1 ٌ͉␳͑r͉͒2
+TvW͓␳͔ϭ͗tvW͑ r͒͘ϭ8 ␳͑ r͒ ,
+
+͑3͒
+
+T
+
+␣ X
+
+͓
+
+␳
+
+͔
+
+ϭ
+
+C
+
+TF͗
+
+␳
+
+␣
+
+͑
+
+r͉͒
+
+w
+
+␣͑
+
+rϪ
+
+rЈ͉͒
+
+␳
+
+␣͑
+
+rЈ͒
+
+͘
+
+.
+
+͑4͒
+
+Here, TTF͓␳͔ is the Thomas-Fermi ͑TF͒ functional,10 CTF
+
+ϭ
+
+3 10
+
+(
+
+3
+
+␲
+
+2
+
+)
+
+2/3,
+
+and
+
+TvW͓ ␳ ͔
+
+is
+
+the
+
+von
+
+Weizsa¨cker
+
+͑vW͒
+
+functional.11 ͕␣͖ are positive parameters which deﬁne
+
+X ϭ Wang-Teter-Perrot3,4
+
+for
+
+␣
+
+ϭ
+
+5 6
+
+,
+
+X ϭ Perrot4
+
+for
+
+␣ϭ1,
+
+X
+
+ϭ
+
+SM5,7
+
+for
+
+␣
+
+ϭ
+
+1 2
+
+,
+
+and
+
+X ϭ WGC6
+
+for
+
+other
+
+choices
+
+of
+
+␣.
+
+͕␭␣͖ are the corresponding expansion weights that satisfy
+
+͚␣␭␣ϭ1.6 The original WT, Perrot, and SM KEDF’s only
+
+had one term in the sum in Eq. ͑1͒, and were generalized to
+
+have more terms recently.6
+
+The speciﬁc form of Eq. ͑4͒ is chosen based on the fol-
+
+lowing analysis. First, one can rewrite TTF͓␳͔ and TvW͓␳͔ in double-integration form12
+
+TTF͓␳͔ϭCTF͗␳5/6͑ r͉͒␦͑ rϪrЈ͉͒␳5/6͑ rЈ͒͘,
+
+͑5͒
+
+0163-1829/99/60͑24͒/16350͑9͒/$15.00
+
+PRB 60
+
+͚ Oˆ ϭ oˆ ij ,
+
+͑7͒
+
+i,j
+
+its expectation value can be described by the second-order reduced density matrix14 ⌫2
+
+͗⌿͉Oˆ ͉⌿͘ϭ͗oˆ 12⌫2͘,
+
+͑8͒
+
+where ⌿ is the total normalized wave function. One step further, one instantly has
+
+ͳ ͯ ͯ ʹ ͗⌿͉Oˆ ͉⌿͘ϭ
+
+␳ ␣͑ r͒
+
+oˆ 12⌫2 ␳␣͑ r͒␳␤͑ rЈ͒
+
+␳␤͑ rЈ͒
+
+,
+
+͑9͒
+
+where ␣ and ␤ are positive parameters. Aside from the ex-
+
+plicit density-dependence in the kernel, Eq. ͑9͒ is clearly of
+
+the same form as Eq. ͑4͒ when ␣ϭ␤. Third, a more detailed analysis based on Natural Variable arguments15 reveals a
+
+deeper understanding about the mathematical structure of the
+
+kernel in Eq. ͑9͒. Historically, the KEDF’s in Eq. ͑1͒ were designed solely on the grounds of point 1 above.3–8 We in-
+
+tend in this paper to coherently take all three points into
+
+consideration.
+
+To comply with the ﬁrst point, the kernel w␣(rϪrЈ) is
+
+chosen
+
+such
+
+that
+
+each
+
+term
+
+in
+
+the
+
+sum
+
+in
+
+Eq.
+
+͑1͒,
+
+T
+
+␣ s
+
+,
+
+satis-
+
+16 350
+
+©1999 The American Physical Society
+
+PRB 60
+
+ORBITAL-FREE KINETIC-ENERGY DENSITY . . .
+
+16 351
+
+ﬁes the known exact linear response ͑LR͒ for a uniform Hartree electron gas without exchange,
+
+ͩ ͯ ͪ Fˆ
+
+␦2Ts␣͓ ␳ ͔ ␦␳͑ r͒␦␳͑ rЈ͒ ␳0
+
+1 ␲2 ϭϪ ␹Lind ϭ kF F͑ ␩ ͒,
+
+͑10͒
+
+ͩ ͯ ͯͪ 1 1Ϫ␩2 1ϩ␩ Ϫ1
+F͑␩ ͒ϭ 2 ϩ 4␩ ln 1Ϫ␩ ,
+
+͑11͒
+
+where Fˆ denotes the Fourier transform, ␳0 is the average
+electron density, ␹Lind is the Lindhard susceptibility function in reciprocal space,16 kFϭ(3␲2␳0)1/3 is the Fermi wave vector, and ␩ϭq/(2kF) is a dimensionless momentum. In other words, w␣(rϪrЈ) can be expressed in reciprocal space as4–7
+
+Fˆ w
+
+␣͑ rϪrЈ͒ϭw˜ ␣͑
+
+q͒ϭϪ
+
+␹
+
+LϪin1dϪ
+
+␹
+
+vϪW1 Ϫ
+
+␹
+
+Ϫ1 TF
+
+2
+
+␣
+
+2
+
+C
+
+TF␳
+
+2 0
+
+(
+
+␣
+
+Ϫ
+
+1)
+
+ϭ
+
+9
+
+5G͑␩͒
+
+␣
+
+2
+
+␳
+
+2 0
+
+␣
+
+Ϫ 5/3
+
+,
+
+͑12͒
+
+G͑␩͒ϭF͑␩͒Ϫ3␩2Ϫ1,
+
+͑13͒
+
+where ␹TFϭϪ(kF /␲2) is the TF LR function and ␹vW ϭ␹TF /(3␩2) is the vW LR function. To keep the exact LR
+intact for the total KEDF in Eq. ͑1͒, the expansion weights have to satisfy the normalization constraint ͚␣␭␣ϭ1.6
+
+II. FUNCTIONAL WITH A DENSITY-INDEPENDENT KERNEL
+The previous discussion motivates the following more general trial KEDF:
+
+T
+
+␣ s
+
+,␤͓
+
+␳
+
+͔
+
+ϭ
+
+T
+
+TF͓
+
+␳
+
+͔
+
+ϩ
+
+T
+
+vW͓
+
+␳
+
+͔
+
+ϩ
+
+T
+
+␣, Y
+
+␤
+
+͓
+
+␳
+
+͔
+
+,
+
+͑14͒
+
+ͩ ͪ ͩ ͪ T
+
+␣ s
+
+,␤→
+
+T
+
+vWϩ
+
+8 1Ϫ 9␣␤
+
+8 TTFϪ 9␣␤
+
+5 ␣ϩ␤Ϫ 3
+
+͗ ␦ ␴ ͉ t TF͘
+
+ͩ ͪͩ ͪ 4
+
+5
+
+Ϫ 9␣␤ ␣ϩ␤Ϫ 3
+
+8 ␣ϩ␤Ϫ 3
+
+͗ ␦ ␴ 2 ͉ t TF͘
+
+ϩO͑ ␦␴3͒,
+
+͑18͒
+
+where ␦␴ϭ␳(r)/␳0Ϫ1. For the nearly free electron gas, ͉␦␴͉Ӷ1.
+
+Unlike the original KEDF’s in Eq. ͑1͒, it is now possible
+
+for a single set of ͕␣,␤͖ to simultaneously remove all spu-
+
+rious ␦␴ terms from Eq. ͑18͒, and reduce it to the correct
+
+large-q
+
+limit6
+
+͑CLQL͒:
+
+T
+
+vWϪ
+
+3 5
+
+T
+
+TF
+
+.
+
+Since
+
+the
+
+CLQL
+
+of
+
+T
+
+␣ s
+
+approximates ␹Lind well for most ␩ values larger than 1, while the second-order conventional gradient expansion17
+
+͑CGE͒ is only good for a small area close to ␩ϭ0,6 it is
+
+reasonable to focus our attention on eliminating all the spu-
+
+rious ␦␴ terms in Eq. ͑18͒. Thus, we simply require the
+
+solution of the following two equations:
+
+8
+
+3
+
+5
+
+1Ϫ 9␣␤ ϭϪ 5 and ␣ϩ␤ϭ 3 ,
+
+͑19͒
+
+which is
+
+5 ͱ5
+
+␣,␤ϭ 6 Ϯ 6 ,
+
+͑20͒
+
+symmetrically
+
+displaced
+
+around
+
+5 6
+
+.
+
+We note that the general KEDF in Eq. ͑14͒ has been
+
+suggested previously by Wang and Teter3 with
+
+ͭ ͮ 5 4ͱ2Ϫ5
+͕␣,␤͖ϭ 6 Ϯ 6 ,
+
+via a different approach.
+
+T
+
+␣, Y
+
+␤
+
+͓
+
+␳
+
+͔
+
+ϭ
+
+C
+
+TF͗
+
+␳
+
+␣
+
+͑
+
+r͉͒
+
+w
+
+␣,
+
+␤͑
+
+rϪ
+
+rЈ͒
+
+͉␳
+
+␤
+
+͑
+
+rЈ͒͘
+
+,
+
+͑15͒
+
+where ␣ and ␤ are positive parameters. By enforcing the exact LR as done in Eq. ͑10͒, we can express the kernel w␣,␤(rϪrЈ) in reciprocal space as
+
+w˜ ␣,␤͑
+
+q͒ϭ
+
+Ϫ
+
+␹
+
+LϪin1dϪ
+
+␹
+
+vϪW1 Ϫ
+
+␹
+
+Ϫ1 TF
+
+2
+
+␣
+
+␤
+
+C
+
+TF␳
+
+␣ 0
+
+ϩ
+
+␤
+
+Ϫ
+
+2
+
+ϭ
+
+5G͑␩͒
+
+9
+
+␣
+
+␤
+
+␳
+
+␣ 0
+
+ϩ␤
+
+Ϫ 5/3
+
+,
+
+͑16͒
+
+which is fully consistent with Eq. ͑12͒ when ␣ϭ␤. Following the same procedure as given before,6 one can arrive at equations similar to Eqs. ͑24͒ and ͑25͒ of Ref. 6. For slowly varying densities or the q→0 limit,
+
+T
+
+␣ s
+
+,␤→
+
+T
+
+TFϩ
+
+1 9
+
+8 TvWϪ 9 ͑ ␣ϩ␤Ϫ1 ͒͗␦␴͉tvW͘
+
+Ϫ
+
+4 9
+
+͑
+
+␣
+
+ϩ
+
+␤
+
+Ϫ
+
+1
+
+͒
+
+͑
+
+␣
+
+ϩ
+
+␤
+
+Ϫ
+
+2
+
+͒
+
+͗
+
+␦
+
+␴
+
+2͉
+
+t
+
+vW͘
+
+ϩ
+
+O͑
+
+␦
+
+␴
+
+3
+
+͒
+
+͑17͒
+
+and for rapidly varying densities or the q→ϱ limit,
+
+III. FUNCTIONALS WITH A DOUBLE-DENSITY-DEPENDENT KERNEL
+
+So far, we have only considered KEDF’s without any
+density dependence in the kernels. We can of course intro-
+duce density-dependence into the kernels, in the same spirit as Chaco´n and co-workers.8 Unfortunately, this comes at the
+expense of greatly complicating the derivation and making a
+straightforward numerical implementation computationally expensive, scaling quadratically with grid size.8 Nonetheless,
+we will introduce a way around this problem in Sec. IV, and the scheme still scales as O(N ln N).
+Introducing two ␳(r)’s in the kernel of Eq. ͑14͒,8,15 one
+has
+
+T
+
+␣ s
+
+,
+
+␤͓
+
+␳
+
+͔
+
+ϭ
+
+T
+
+TF͓
+
+␳
+
+͔
+
+ϩ
+
+T
+
+vW͓
+
+␳
+
+͔
+
+ϩ
+
+T
+
+␣ Z
+
+,␤͓
+
+␳
+
+͔
+
+,
+
+͑21͒
+
+T
+
+␣ Z
+
+,␤͓
+
+␳
+
+͔
+
+ϭ
+
+C
+
+TF͗
+
+␳
+
+␣͑
+
+r͉͒
+
+w
+
+␣,
+
+␤
+
+͓
+
+␰
+
+␥͑
+
+r,
+
+rЈ͒
+
+,
+
+rϪ
+
+rЈ͔
+
+͉
+
+␳
+
+␤
+
+͑
+
+rЈ͒
+
+͘
+
+,
+
+͑22͒
+
+ͩ ͪ ␰␥͑r,rЈ͒ϭ
+
+k
+
+F␥ ͑
+
+r͒
+
+ϩ
+
+k
+
+␥ F
+
+͑
+
+rЈ͒
+
+2
+
+1/␥
+,
+
+͑23͒
+
+kF͑ r͒ϭ͓ 3␲2␳͑ r͔͒1/3,
+
+͑24͒
+
+16 352
+
+WANG, GOVIND, AND CARTER
+
+PRB 60
+
+Eq. ͑22͒, Fourier transforming the resultant expression, and then grouping terms in various orders of ␦␴. We obtain, at the q→0 limit,
+
+T
+
+␣, s
+
+␤
+
+→
+
+T
+
+TFϩ
+
+͑
+
+1
+
+Ϫ
+
+a
+
+0
+
+͒
+
+T
+
+vWϪ
+
+a
+
+0͑
+
+␣
+
+ϩ
+
+␤
+
+Ϫ
+
+1
+
+͒͗
+
+␦
+
+␴
+
+͉
+
+t
+
+vW͘
+
+Ϫ
+
+a0 2
+
+͑
+
+␣
+
+ϩ␤Ϫ1 ͒͑ ␣ϩ␤Ϫ2 ͒͗␦␴2͉tvW͘ϩO͑ ␦␴3͒,
+
+͑27͒
+
+FIG. 1. Kernels in momentum space for the uniform electron
+
+gas
+
+␳0.
+
+The
+
+KEDF
+
+is
+
+T
+
+5/6Ϯ s
+
+ͱ5/6
+
+for
+
+both
+
+curves.
+
+The
+
+broken
+
+line
+
+is
+
+the density-independent kernel; the solid line is the density-
+
+dependent kernel with ␥ϭ2.7
+
+where kF(r) and ␰␥(r,rЈ) are local one-body and nonlocal two-body Fermi wave vectors, respectively. For the KEDF in
+Eq. ͑21͒ to recover TTF͓␳͔ at the uniform electron gas limit, the kernel has to be normalized to zero
+
+͗w␣,␤͓␰␥͑ r,rЈ͒,rϪrЈ͔͘ϭ0.
+
+͑25͒
+
+The speciﬁc choice of the two-body Fermi wave vector ␰␥(r,rЈ) is based on natural variable arguments;15 Eq. ͑22͒ clearly resembles Eq. ͑9͒.
+After enforcing the exact LR at the uniform electron gas
+limit as done in Eq. ͑10͒, one obtains the following universal
+second-order differential equation for every ﬁxed value of q:
+
+␩2w˜ ␣Љ ,␤͑ ␩,␳0͒ϩ͓␥ϩ1Ϫ6͑ ␣ϩ␤ ͔͒␩w˜ ␣Ј ,␤͑ ␩,␳0͒
+
+ϩ
+
+36␣
+
+␤
+
+w˜
+
+␣
+
+,
+
+␤͑
+
+␩
+
+,
+
+␳
+
+0
+
+͒ϭ
+
+20G
+
+͑
+
+␩
+
+͒
+
+␳
+
+5/3Ϫ 0
+
+(
+
+␣
+
+ϩ
+
+␤
+
+)
+
+,
+
+͑26͒
+
+where w˜ ␣Ј ,␤(␩,␳0) and w˜ ␣Љ ,␤(␩,␳0) are the ﬁrst and the second derivatives of w˜ ␣,␤(␩,␳0) with respect to ␩, respectively. Note that ␥ is explicitly involved in the determination
+
+of
+
+the
+
+kernel,
+
+and
+
+if
+
+␣
+
+ϩ
+
+␤
+
+ϭ
+
+5 3
+
+,
+
+the
+
+term
+
+involving
+
+␳0
+
+on
+
+the
+
+right-hand side of Eq. ͑26͒ disappears. Also note that Eq.
+
+͑26͒ is fully consistent with Eq. ͑16͒ if the kernel is density-
+
+independent, which simply removes the ﬁrst two terms in-
+
+volving derivatives in the left-hand side of Eq. ͑26͒. Solving
+
+this universal second-order differential equation is straight-
+
+forward via standard techniques, such as a power series solution.18,19 Figure 1 compares one such density-dependent
+
+kernel
+
+in
+
+momentum
+
+space
+
+for
+
+͕
+
+␣
+
+,
+
+␤
+
+͖
+
+ϭ
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5/6͖
+
+and
+
+␥
+
+ϭ2.7 with its density-independent counterpart. Note the siz-
+
+able effect of the density-dependence on the kernel. Following the same procedure as given before,6 one can
+consider the limits of the new KEDF for q→0 and q→ϱ.
+
+This involves substituting the exact solution of Eq. ͑26͒ into
+
+32␣ ␤ a0ϭ36␣␤Ϫ9͑␣ϩ␤Ϫ1 ͒͑␣ϩ␤ϩ1Ϫ␥/3͒ , ͑28͒
+
+and at the q→ϱ limit,
+
+ͩ ͪ T
+
+␣ s
+
+,
+
+␤→
+
+T
+
+vWϩ
+
+͑
+
+1
+
+Ϫ
+
+a
+
+ϱ
+
+͒
+
+T
+
+TFϪ
+
+a
+
+ϱ
+
+5 ␣ϩ␤Ϫ 3
+
+͗ ␦ ␴ ͉ t TF͘
+
+ͩ ͪͩ ͪ Ϫ
+
+aϱ 2
+
+5 ␣ϩ␤Ϫ 3
+
+8 ␣ϩ␤Ϫ 3
+
+͗␦␴2͉tTF͘ϩO͑ ␦␴3͒,
+
+͑29͒
+
+32 aϱϭ36␣␤Ϫ9͑␣ϩ␤Ϫ5/3͒͑␣ϩ␤ϩ5/3Ϫ␥/3͒ . ͑30͒
+One can easily see the differences between Eqs. ͑17͒ and ͑27͒ and between Eqs. ͑18͒ and ͑29͒; the density-dependence in the kernel is responsible for the second terms in the denominators in Eqs. ͑28͒ and ͑30͒. Once again, we ﬁnd no single set of ͕␣,␤,␥͖ that simultaneously removes all spurious ␦␴ terms in Eqs. ͑27͒ and ͑29͒ and makes them reduce to the second-order CGE and the CLQL, respectively. How-
+ever, the set ͕␣,␤͖ϭ͕5/6Ϯͱ5/6͖ is particularly attractive
+because it forces Eq. ͑29͒ to yield the CLQL, which is more important than the q→0 limit ͑the second-order CGE͒.6 We can then use the third parameter ␥ to ﬁne-tune the behavior around the q→0 limit so that the effect of the spurious ␦␴ terms and the leading terms in Eq. ͑27͒ can be well balanced. Of course, for this given set of ͕␣,␤͖, enforcing the secondorder CGE can provide a value for ␥, but the effect of these spurious ␦␴ terms then cannot be simply controlled. This will be discussed further in Sec. V.
+
+IV. NUMERICAL IMPLEMENTATIONS
+A. Hohenberg-Kohn self-consistent optimization The Hohenberg-Kohn20 ͑HK͒ total energy functional in
+terms of ␳(r) is written as
+
+Etot͓ ␳͔ϭTs͓ ␳͔ϩVne͓ ␳͔ϩJ͓ ␳͔ϩExc͓ ␳͔ϩVnn , ͑31͒
+where Vne , J, Exc , and Vnn are the electron-nuclear attraction ͑including pseudopotentials͒, electron-electron Coulomb repulsion, electron exchange-correlation, and nuclear-nuclear Coulomb repulsion energy functionals, respectively. For a system with a ﬁxed number of electrons N, one can write down the functional ⌸͓␳͔:
+
+⌸͓␳͔ϭEtot͓␳͔Ϫ␮͗␳͑ r͒͘,
+
+͑32͒
+
+PRB 60
+
+ORBITAL-FREE KINETIC-ENERGY DENSITY . . .
+
+16 353
+
+where ␮ is the Lagrange multiplier. To determine the ground-state of the system, ⌸͓␳͔ must be minimized with respect to ␳(r). However, during the minimization process, it is absolutely necessary to maintain the positivity of ␳(r). This is not guaranteed in general if ␳(r) is used as the gen-
+eralized coordinate in conventional optimization algorithms19 such as the steepest-descent or conjugate-
+gradient methods. To circumvent this problem, one can work with a new variable ␸(r)
+
+␳ ͑ r͒ ϭ ␸ 2͑ r͒ ,
+
+͑33͒
+
+which ensures a positive ␳(r) during the entire minimization. Based on a ﬁrst-order differential equation with a ﬁcti-
+tious time ␶
+
+d␸͑r͒ ␦⌸
+
+d␶ ϩ␦␸͑r͒ ϭ0,
+
+͑34͒
+
+the steepest-descent approach is the simplest scheme2
+
+␦⌸
+
+␸nϩ1͑r͒ϭ␸n͑r͒Ϫ⌬␦␸n͑r͒ ,
+
+͑35͒
+
+ͩ ͪ ␦⌸ ␦⌸
+␦␸n͑r͒ ϭ␦␳n͑r͒
+
+␦ ␳ n͑ r͒ ␦ ␸ n͑ r͒
+
+ϭ
+
+2
+
+␸
+
+n͑
+
+r͒
+
+␦ E tot ␦ ␳ n͑ r͒
+
+Ϫ
+
+␮
+
+,
+
+͑36͒
+
+where ⌬ is the step size and ␦⌸/␦␸n(r) is the steepestdescent vector at the nth iteration. In this work, we have
+
+formulated the energy minimization in terms of a damped second-order equation of motion21 for the generalized coor-
+dinate ␸(r)
+
+d2␸͑r͒ d␸͑r͒ ␦⌸
+
+d␶2 ϩ␨ d␶ ϩ␦␸͑r͒ ϭ0,
+
+͑37͒
+
+which yields
+
+␸
+
+nϩ1
+
+͑
+
+r͒ϭ
+
+͑
+
+1
+
+ϩ
+
+⍀
+
+͒
+
+␸
+
+n͑
+
+r͒
+
+Ϫ
+
+⍀
+
+␸
+
+n
+
+Ϫ
+
+1͑
+
+r͒
+
+Ϫ
+
+⍀
+
+⌬
+
+2
+
+␦
+
+␦⌸ ␸ n͑ r͒
+
+,
+
+͑38͒
+
+1
+
+⍀ϭ 1ϩ␨⌬ .
+
+͑39͒
+
+Here ␨ is a damping or friction coefﬁcient. We have found that this scheme is not only easy to implement, but also offers greater stability even when ⌬ becomes much larger than that of the simple steepest-descent method. We have also found that minimization algorithms based on the conjugate-gradient method actually converge faster, but require very accurate line minimizations that can be difﬁcult to implement. The Lagrange multiplier ␮ is determined dynamically by multiplying both sides of Eq. ͑38͒ by ␸n(r) and integrating over all space:
+
+␮
+
+ϭ
+
+͗
+
+␸
+
+n
+
+͉
+
+␸
+
+n
+
+ϩ1
+
+͘
+
+Ϫ
+
+͑
+
+1
+
+ϩ
+
+⍀
+
+͒͗
+
+␸
+
+n͉
+
+␸
+
+n͘
+
+ϩ⍀͗␸n͉␸nϪ1 2͗␸n͉␸n͘
+
+͘
+
+ϩ
+
+2
+
+⍀
+
+⌬
+
+2
+
+͗
+
+␸
+
+n
+
+͉
+
+␦
+
+E
+
+tot
+
+/
+
+␦
+
+␳
+
+n͉
+
+␸
+
+n͘
+
+.
+
+͑40͒
+
+Conventional plane-wave-basis techniques22,23 were used to set up the various potential terms in the self-consistent ThomasFermi-like equation10,13,20
+
+␦Etot͓ ␳ ␦ ␳ ͑ r͒
+
+͔
+
+ϭ
+
+␮
+
+.
+
+͑41͒
+
+Note that since this scheme is purely based on ␳(r), only local pseudopotentials24,25 can be used to calculate the Vne term.
+
+B. Evaluation of the density-dependent kernel
+The presence of density-dependent terms inside the kernels in Eq. ͑21͒ makes a straightforward application of a fast Fourier transform ͑FFT͒ impossible. However, one can use a Taylor series expansion18 to factor out the density-dependence in the kernel. For example, the double-density-dependent kernel in real space can be written as ͑up to second order͒,
+
+ͯ ͯ w
+
+␣,
+
+␤
+
+͓
+
+␰
+
+␥͑
+
+r,
+
+rЈ͒
+
+,
+
+rϪ
+
+rЈ͔
+
+ϭ
+
+w
+
+␣,
+
+␤͑
+
+k
+
+F*
+
+,
+
+rϪ
+
+rЈ͒ϩ
+
+‫ץ‬
+
+w
+
+␣
+
+,
+
+␤͓
+
+␰
+
+␥͑ r,rЈ͒ ‫ ͑ ␳ ץ‬r͒
+
+,
+
+rϪ
+
+rЈ͔
+
+␪͑ r͒ϩ ‫ץ‬w␣,␤͓␰␥͑ r,rЈ͒,rϪrЈ͔
+
+␳*
+
+‫ ͑ ␳ ץ‬rЈ͒
+
+␪ ͑ rЈ͒
+␳*
+
+ͯ ϩ
+
+‫ץ‬
+
+2w
+
+␣,
+
+␤
+
+͓
+
+␰␥͑ r,rЈ͒ ‫ ␳ ץ‬2͑ r͒
+
+,
+
+rϪ
+
+rЈ͔
+
+␳
+
+*
+
+␪
+
+2͑ 2
+
+r͒
+
+ϩ
+
+‫ץ‬
+
+2
+
+w
+
+␣
+
+,␤͓␰␥͑ r,rЈ͒ ‫␳ץ‬2͑ rЈ͒
+
+,
+
+rϪ
+
+rЈ͔
+
+␪2͑ rЈ͒ 2
+␳*
+
+ϩ
+
+‫ץ‬
+
+2w
+
+␣,␤͓ ‫␳ץ‬
+
+␰␥͑ r,rЈ͒,rϪ ͑ r͒ ‫ ͑ ␳ ץ‬rЈ͒
+
+rЈ͔
+
+␳
+
+*
+
+␪
+
+͑
+
+r͒
+
+␪
+
+͑
+
+rЈ͒
+
+ϩ
+
+•
+
+•
+
+•
+
+,
+
+͑42͒
+
+16 354
+
+WANG, GOVIND, AND CARTER
+
+PRB 60
+
+T
+
+␣, Y
+
+␤
+
+͓
+
+␳
+
+͔
+
+ϭ
+
+C
+
+TF͗
+
+␳
+
+␣
+
+͑
+
+r͒
+
+͉
+
+w
+
+␣
+
+,
+
+␤͑
+
+rϪ
+
+rЈ͉͒
+
+␳
+
+␤͑
+
+rЈ͒͘
+
+͚ ϭ
+
+C TF V
+
+q
+
+w˜ ␣,␤͑ q͒͗␳␣͑ r͉͒eϪiq•(rϪrЈ)͉␳␤͑ rЈ͒͘
+
+͚ ϭ
+
+C TF V
+
+q
+
+w˜ ␣,␤͑ q͒͗␳␣͑ r͒eϪiq•r͗͘␳␤͑ r͒eiq•r͘
+
+͚ ϭ
+
+C TF V
+
+q
+
+w˜ ␣,␤͑ q͒˜␳␣͑ Ϫq͒˜␳␤͑ q͒,
+
+͑46͒
+
+FIG. 2. Double-density-dependent kernel and its derivatives in
+
+momentum space for the uniform electron gas ␳0. The KEDF is
+
+T
+
+5/6Ϯ s
+
+ͱ5/6
+
+with
+
+␥ ϭ 2.7.
+
+where ␪(r)ϭ␳ tion from, and
+
+( r) Ϫ ␳ Fermi
+
+*w,avaendvekcF*toϭr
+
+(m3a␲g2n␳it*u)d1e/3oafr,eathreefedreevnicae-
+
+uabnsifoorrbmeddienntsoitsyim␳*pl.eIpt oiswcelresarotfh␪at(
+
+the r) ,
+
+density-dependence is and that all the partial
+
+differentials an FFT
+
+are
+
+functions
+
+of
+
+␳*
+
+,
+
+which
+
+can
+
+be
+
+evaluated
+
+via
+
+ͩ ͯ ͪ Fˆ
+
+‫ץ‬w␣,␤͓␰␥͑ r,rЈ͒,rϪrЈ͔ ‫ ͑ ␳ ץ‬r͒
+
+␳*
+
+ϭ
+
+Ϫ
+
+␩
+
+*w˜
+
+␣Ј
+
+,␤͑␩* 6␳*
+
+,
+
+␳
+
+*
+
+͒
+
+,
+
+͑43͒
+
+ͩ ͯ ͪ Fˆ ‫ץ‬2w␣,␤͓␰␥͑r,rЈ͒,rϪrЈ͔
+
+‫ ␳ ץ‬2͑ r͒
+
+␳*
+
+ϭ
+
+␩
+
+*2 w˜
+
+␣Љ ,
+
+␤͑
+
+␩
+
+*
+
+,
+
+␳
+
+*
+
+͒
+
+ϩ͑7Ϫ␥
+
+36␳
+
+2
+*
+
+͒
+
+␩
+
+*
+
+w˜
+
+␣Ј
+
+,␤
+
+͑
+
+␩
+
+*
+
+,
+
+␳
+
+*
+
+͒
+
+,
+
+͑44͒
+
+ͩ ͯ ͪ Fˆ ‫ץ‬2w␣,␤͓␰␥͑r,rЈ͒,rϪrЈ͔
+
+‫ ͑ ␳ ץ‬r͒ ‫ ͑ ␳ ץ‬rЈ͒
+
+␳*
+
+ϭ
+
+␩
+
+*2 w˜
+
+␣Љ ,
+
+␤͑
+
+␩
+
+*
+
+,
+
+␳
+
+*
+
+͒
+
+ϩ͑1ϩ␥
+
+36␳
+
+2
+*
+
+͒
+
+␩
+
+*
+
+w˜
+
+␣Ј
+
+,␤
+
+͑
+
+␩
+
+*
+
+,
+
+␳
+
+*
+
+͒
+
+,
+
+͑45͒
+
+where ␩*ϭq/(2kF*), and w˜ ␣Ј ,␤(␩* ,␳*) and w˜ ␣Љ ,␤(␩* ,␳*)
+
+are the respect
+
+ﬁrst and the second derivatives of w˜ ␣ to ␩* , respectively. Figure 2 shows
+
+,␤(␩ one
+
+*su,c␳h*k) ewrnitehl
+
+and
+
+its
+
+derivatives
+
+in
+
+momentum
+
+space
+
+for
+
+͕
+
+␣
+
+,
+
+␤
+
+͖
+
+ϭ
+
+͕
+
+5 6
+
+Ϯͱ5/6͖ and ␥ϭ2.7.
+
+For maximum numerical efﬁciency, all derivative terms
+
+of the kernel are kept in momentum space so that one FFT is
+
+saved for each of their evaluations. For example, during the
+
+evaluation of Eq. ͑15͒, the ﬁrst FFT can be avoided:
+
+where V is the volume of the simulation cell. Now, the com-
+
+putational cost has been reduced from scaling quadratically with grid size8 to scaling essentially linearly with the system size O(N ln N). The current scheme is only three times as
+
+expensive as the conventional one based on the densityindependent kernel and linear-response theory.3–6 By contrast, the KEDF’s based on quadratic-response theory3,7 are
+
+over ten times as expensive as the KEDF’s based on linearresponse theory with density-independent kernels.3–6
+
+For bulk solids, the However, this scheme
+
+natural is only
+
+cvhaoliidcefofor rth␳e*
+
+is obviously ␳0. nearly free elec-
+
+tron gas, where ␳(r) does not differ too much from ␳0. For other systems such as atoms, molecules, and surfaces, this
+
+scheme might suffer severely because ␳0 is no longer welldeﬁned and ␳(r) can have large oscillations and decays to
+
+zero asymptotically. On the other chosen to treat high-density regions
+
+hsaantids,faicfto␳r*ilyi,sthcearberfeualkly-
+
+down might
+
+in those regions not be so severe
+
+where ␳(r) because the
+
+iesrrsomramllaadnedinfatrhbeesleocwon␳d*-
+
+order Taylor series expansion of Eq. ͑42͒ might be sup-
+
+pressed by the smallness of ␳(r) in these regions. In the next
+
+section, we will show how this can be achieved even for
+
+realistic surfaces.
+
+TABLE I. Calculated lattice parameters ͑Å͒ for bulk aluminum, compared with Kohn-Sham calculation results. sc stands for simple cubic and dia for diamond. Lattice parameters refer to cell size in cubic unit cells: fcc cell, 4 atoms, bcc cell, 2 atoms; sc cell, 4 atoms; dia cell, 8 atoms.
+
+Model a
+
+fcc
+
+bcc
+
+sc
+
+dia
+
+Kohn-Sham
+
+␳ independent
+
+͕
+
+5 6
+
+Ϯ
+
+0
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+(
+
+4
+
+ͱ2
+
+Ϫ
+
+5
+
+/
+
+6
+
+)
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+1 6
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+1 3
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5
+
+/
+
+6
+
+͖
+
+␳ dependent
+
+͕
+
+5 6
+
+Ϯ
+
+0
+
+͖
+
+1.9
+
+͕ 65Ϯ͑4ͱ2Ϫ5/6 ͖͒2.0
+
+͕
+
+5 6
+
+Ϯ
+
+1 6
+
+͖
+
+2.1
+
+͕
+
+5 6
+
+Ϯ
+
+1 3
+
+͖
+
+2.5
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5
+
+/
+
+6
+
+͖
+
+2.7
+
+4.03
+
+3.23
+
+5.33
+
+5.84
+
+4.04
+
+3.23
+
+5.33
+
+5.94
+
+4.04
+
+3.23
+
+5.33
+
+5.94
+
+4.04
+
+3.23
+
+5.33
+
+5.95
+
+4.04
+
+3.23
+
+5.33
+
+5.97
+
+4.03
+
+3.23
+
+5.33
+
+5.97
+
+4.04
+
+3.22
+
+5.37
+
+5.92
+
+4.04
+
+3.22
+
+5.37
+
+5.92
+
+4.03
+
+3.22
+
+5.37
+
+5.92
+
+4.03
+
+3.22
+
+5.37
+
+5.92
+
+4.03
+
+3.22
+
+5.38
+
+5.92
+
+aFor the ␳ independent, ͕␣,␤͖ is shown; for the ␳ dependent, ͕␣,␤͖␥ is shown.
+
+PRB 60
+
+ORBITAL-FREE KINETIC-ENERGY DENSITY . . .
+
+16 355
+
+TABLE II. Calculated energy per atom ͑eV͒ for bulk aluminum, compared with Kohn-Sham calculation results. The last two columns are the vacancy formation ͑vf͒ energies, the ﬁrst column is the energy for the fcc structure, while other columns are energy deviations from the fcc structure. sc stands for simple cubic and dia for diamond.
+
+Model a
+
+fcc
+
+hcp b
+
+bcc
+
+sc
+
+dia
+
+vf4 c
+
+vf32 c
+
+Kohn-Sham
+
+␳ independent
+
+͕
+
+5 6
+
+Ϯ
+
+0
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+(
+
+4
+
+ͱ2
+
+Ϫ
+
+5
+
+/
+
+6
+
+)
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+1 6
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+1 3
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5
+
+/
+
+6
+
+͖
+
+␳ dependent
+
+͕
+
+5 6
+
+Ϯ
+
+0
+
+͖
+
+1.9
+
+͕
+
+5 6
+
+Ϯ
+
+(
+
+4
+
+ͱ2
+
+Ϫ
+
+5
+
+/
+
+6
+
+)
+
+͖
+
+2.0
+
+͕
+
+5 6
+
+Ϯ
+
+1 6
+
+͖
+
+2.1
+
+͕
+
+5 6
+
+Ϯ
+
+1 3
+
+͖
+
+2.5
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5
+
+/
+
+6
+
+͖
+
+2.7
+
+Ϫ 58.336
+Ϫ 58.331 Ϫ 58.331 Ϫ 58.331 Ϫ 58.333 Ϫ 58.334
+Ϫ 58.328 Ϫ 58.328 Ϫ 58.328 Ϫ 58.331 Ϫ 58.331
+
+0.060
+0.050 0.050 0.050 0.050 0.050
+0.058 0.058 0.058 0.058 0.058
+
+0.068
+0.060 0.061 0.061 0.061 0.061
+0.065 0.067 0.065 0.066 0.066
+
+0.250
+0.227 0.226 0.226 0.221 0.219
+0.225 0.224 0.224 0.219 0.217
+
+0.599
+0.673 0.669 0.664 0.636 0.626
+0.592 0.595 0.596 0.585 0.584
+
+0.646
+1.104 1.101 1.100 1.079 1.077
+0.693 0.693 0.689 0.658 0.650
+
+0.626
+1.371 1.369 1.363 1.346 1.350
+0.610 0.620 0.624 0.614 0.628
+
+aFor the ␳ independent, ͕␣,␤͖ is shown; for the ␳ dependent, ͕␣,␤͖␥ is shown. bThe hcp calculations were performed using the fcc nearest neighbor distance for each case. Four atoms were
+set up in an orthogonal system in the ratio a:b:cϭ1:ͱ3:ͱ8/3.
+cvf4 is for four-site simulation cell ͑3 atoms ϩ 1 vacancy͒; vf32 is for 32-site simulation cell ͑31 atoms ϩ 1
+vacancy͒. The experimental vf number is 0.66 eV ͑Ref. 32͒.
+
+V. RESULTS AND DISCUSSION
+After the publication of our previous paper,6 we found that the real-space evaluation of ٌ␳(r) ͑needed for the evaluation of TvW͓␳͔) was strongly affected by the ﬁneness of the mesh chosen for a given simulation cell, the planewave cutoff ͑400 eV͒ used for the Goodwin-Needs-Heine local pseudopotential for aluminum25 was not sufﬁcient, and the Kohn-Sham ͑KS͒ calculations26 ͑used for comparison with the HK orbital-free calculations͒ had not been fully converged with respect to the k-point sampling.9 To remedy the ﬁrst problem, we now evaluate ٌ␳(r) in momentum space.27 This scheme is very stable ͑up to 0.001 eV͒ against changes of the mesh beyond a certain minimum mesh size. We also
+increased the plane-wave cutoff to 600 eV, and converged the KS calculations with respect to the k-point sampling.9
+The KS calculations were performed using the plane-wave DFT code CASTEP ͑Ref. 23͒ with the ﬁnest k-point sampling allowed by the code. The exchange-correlation effects were treated at the local-density approximation level.28 The corrections to our previous paper6 will be published as an erratum.29
+As before, the hcp structure is included in the comparison,
+since its energy is only slightly above the more stable fcc
+structure and slightly below the less stable bcc structure,
+making it an excellent test case for our trial KEDF’s. The experimentally well-characterized vacancy formation ͑vf͒ energy30 was also computed to further assess the quality of
+the trial KEDF’s. The vf energy was calculated using both a four-site cell ͑3 atoms ϩ 1 vacancy͒ and a 32-site cell ͑31 atoms ϩ 1 vacancy͒ via the expression31
+ͩ ͪ NϪ1 NϪ1
+EvfϭE NϪ1,1, N V Ϫ N E͑ N,0,V ͒, ͑47͒
+
+where E(N,n,V) is the energy of the system of N atoms and
+
+n vacancies occupying (Nϩn) sites in a volume V. As the change in the vf energy due to ionic relaxation is minimal,31
+
+we kept the lattice ﬁxed. Since our plane-wave cutoff and
+
+k-point sampling are converged further than previous reports,31 we will use our KS vf numbers as the benchmark.
+
+Tables I and II demonstrate that the inclusion of the
+
+density-dependence in the kernel improves the performance
+
+of KEDF’s. We do not include other KEDF’s whose ␣ϩ␤
+
+5 3
+
+,
+
+because
+
+of
+
+their
+
+poor
+
+performance.
+
+For
+
+KEDF’s
+
+with
+
+density-dependent kernels, only those with the optimal ␥
+
+values ͑up to the second decimal point͒ are shown. As dis-
+
+cussed
+
+in
+
+Sec.
+
+III,
+
+only
+
+T
+
+5/6Ϯ ͱ5/6 s
+
+satisﬁes
+
+the
+
+q→ϱ
+
+limit;
+
+all
+
+others shown in Tables I and II display the delicate interplay
+
+between the effects of the fulﬁllment of the q→ϱ and q
+
+→0 limits and the elimination of those spurious ␦␴ terms.
+
+The speciﬁc choices of other ͕␣,␤͖ are mainly for compari-
+
+son purposes, except for the one suggested by Wang and
+
+Teter,3
+
+͕
+
+␣
+
+,
+
+␤
+
+͖
+
+ϭ
+
+͕
+
+5 6
+
+Ϯ
+
+(
+
+4
+
+ͱ2
+
+Ϫ
+
+5
+
+)
+
+/6͖
+
+.
+
+Without
+
+the
+
+density-
+
+dependence in the kernel, the KEDF’s do not even approach
+
+the KS vf energies, since the order-of-magnitude change in
+
+␳(r) in the vacancy region is most certainly not nearly-free-
+
+electron-like. However, after the inclusion of the density-
+
+dependence in the kernel, the KEDF’s show signiﬁcant im-
+
+provement, especially for the vf energies, if the free
+
+parameter ␥ is carefully tuned. Note also the tiny gaps be-
+
+tween the fcc, hcp, and bcc structures are faithfully repro-
+
+duced, and even the absolute total energies are very close to
+
+the
+
+KS
+
+results.
+
+At
+
+a
+
+ﬁner
+
+scale,
+
+T
+
+5/6Ϯ ͱ5/6 s
+
+with
+
+␥ ϭ 2.7
+
+stands
+
+out clearly as the best KEDF; any deviation from ͕␣,␤͖
+
+ϭ
+
+͕
+
+5 6
+
+Ϯ ͱ5/6͖ ,
+
+however
+
+small,
+
+degrades
+
+the
+
+performance.
+
+The next logical step is testing our new KEDF’s on sys-
+
+16 356
+
+WANG, GOVIND, AND CARTER
+
+PRB 60
+
+TABLE III. Calculated surface energy (mJ/m2) for aluminum
+low-index fcc surfaces, compared with Kohn-Sham calculation results. The vacuum has the same thickness as the slab. The fcc-͑110͒ slab has seven layers of atoms, and both of the fcc-͑100͒ and the fcc-͑111͒ slabs have ﬁve layers of atoms, respectively.
+
+Model a
+
+͑110͒
+
+͑100͒
+
+͑111͒
+
+Kohn-Sham
+
+␳ independent
+
+͕
+
+5 6
+
+Ϯ
+
+0
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+(
+
+4
+
+ͱ2
+
+Ϫ
+
+5
+
+/
+
+6
+
+)
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+1 6
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+1 3
+
+͖
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5
+
+/
+
+6
+
+͖
+
+␳ dependent
+
+͕
+
+5 6
+
+Ϯ
+
+0
+
+͖
+
+1.9
+
+͕
+
+5 6
+
+Ϯ
+
+(
+
+4
+
+ͱ2
+
+Ϫ
+
+5
+
+/
+
+6
+
+)
+
+͖
+
+2.0
+
+͕
+
+5 6
+
+Ϯ
+
+1 6
+
+͖
+
+2.1
+
+͕
+
+5 6
+
+Ϯ
+
+1 3
+
+͖
+
+2.5
+
+͕
+
+5 6
+
+Ϯ
+
+ͱ5
+
+/
+
+6
+
+͖
+
+2.7
+
+986
+1910 1907 1902 1877 1868
+1203 1205 1196 1074 1053
+
+889
+1921 1919 1915 1894 1887
+1183 1186 1178 1060 1043
+
+820
+1775 1773 1769 1751 1744
+1001 1008 1000 876 857
+
+aFor the ␳ independent, ͕␣,␤͖ is shown; for the ␳ dependent, ͕␣,␤͖␥ is shown.
+
+tems with even more drastic density changes, e.g., realistic
+
+surfaces. Those KEDF’s without the density-dependence in
+
+the kernel can be readily applied to such systems without any
+
+numerical instability. However, Table III reveals that for the
+
+same group of KEDF’s with density-independent kernels, the
+
+surface energies are off by a factor of 2 compared with KS
+
+predictions and the ͑110͒–͑100͒ ordering is reversed. A more
+
+troublesome ﬁnding is that the surface energy strongly de-
+
+pends on the size of the vacuum, which directly dictates the
+
+value
+
+for
+
+the
+
+average
+
+surface
+
+density,
+
+␳
+
+surf 0
+
+.
+
+This
+
+is
+
+certainly
+
+FIG. 4. Density cross section for aluminum fcc-͑110͒ surface.
+
+The
+
+KEDF
+
+is
+
+T
+
+5/6Ϯ ͱ5/6 s
+
+for
+
+both
+
+nonsolid
+
+curves.
+
+The
+
+long-dashed
+
+line is for the density-dependent kernel with ␥ϭ2.7; the dot-dashed
+
+line
+
+is
+
+for
+
+the
+
+density-independent
+
+kernel.
+
+␳
+
+*ϭ
+
+␳
+
+bulk 0
+
+.
+
+a highly undesirable feature. However, Figs. 3–5 clearly
+
+show that ␳(r) obtained from the solution of the selfconsistent Thomas-Fermi-like equation,10,13,20 Eq. ͑41͒,
+
+closely matches the KS ␳(r) for every case of the aluminum
+
+low-index fcc surfaces ͑100͒, ͑110͒, and ͑111͒. This suggests
+
+that the kinetic-energy potentials, ␦Ts͓␳͔/␦␳(r), of the simpler KEDF’s based on a density-independent kernel are of
+
+high quality. This further supports the utility of such KEDF’s in the recently proposed embedding formalism32 that uses
+
+␦ T s ͓ ␳ ͔ / ␦ ␳ ( r) .
+
+Unfortunately,
+
+with
+
+the
+
+vacuum-size-dependent
+
+␳
+
+surf 0
+
+as
+
+␳* , a straightforward application of those KEDF’s with the
+
+FIG. 3. Density cross section for aluminum fcc-͑100͒ surface.
+
+The
+
+KEDF
+
+is
+
+T
+
+5/6Ϯ s
+
+ͱ5/6
+
+for
+
+both
+
+nonsolid
+
+curves.
+
+The
+
+long-dashed
+
+line is for the density-dependent kernel with ␥ϭ2.7; the dot-dashed
+
+line
+
+is
+
+for
+
+the
+
+density-independent
+
+kernel.
+
+␳
+
+*
+
+ϭ
+
+␳
+
+bulk 0
+
+.
+
+FIG. 5. Density cross section for aluminum fcc-͑111͒ surface.
+
+The
+
+KEDF
+
+is
+
+T
+
+5 s
+
+/
+
+6
+
+Ϯ
+
+ͱ5 / 6
+
+for
+
+both
+
+nonsolid
+
+curves.
+
+The
+
+long-dashed
+
+line is for the density-dependent kernel with ␥ϭ2.7; the dot-dashed
+
+line
+
+is
+
+for
+
+the
+
+density-independent
+
+kernel.
+
+␳
+
+*ϭ
+
+␳
+
+bulk 0
+
+.
+
+PRB 60
+
+ORBITAL-FREE KINETIC-ENERGY DENSITY . . .
+
+16 357
+
+TABLE IV. Contributions of different orders in the Taylor se-
+
+ries expansion of the kernel, Eq. ͑42͒, to the surface energy
+
+(mJ/m2) for aluminum low-index fcc surfaces. The KEDF is
+
+T
+
+5/6Ϯ s
+
+ͱ5/6
+
+with
+
+␥ ϭ 2.7.
+
+Surface
+͑110͒ ͑100͒ ͑111͒
+
+0th
+
+1st
+
+2nd
+
+Total
+
+561
+
+484
+
+8
+
+1053
+
+671
+
+386
+
+Ϫ 14
+
+1043
+
+395
+
+446
+
+16
+
+857
+
+density-dependent kernels refuses to converge because the
+
+second-order Taylor series expansion in Eq. ͑42͒ makes too
+
+big an error in regions where ␳(r) is large. To our surprise,
+
+we found that
+
+density
+
+␳
+
+bulk 0
+
+,
+
+tihf e␳*KEisDcFh’osswenithto
+
+be the
+
+the bulk-phase average density-dependent ker-
+
+nels not only converge properly, but also bring the surface
+
+energies much closer to the KS results ͑Table III͒, including
+
+reproducing the correct ordering of the surface stabilities.
+
+Figures 3–5 also depict some non-trivial improvements in
+
+the density proﬁles. This surprising success stems from the
+
+smallness of the fast-decaying density outside the surface
+
+slab, which actually suppresses the error made in the ﬁnite
+
+Taylor series expansion in Eq. ͑42͒.
+
+It is also intriguing to see relative contributions of differ-
+
+ent orders in the Taylor series expansion of the kernel, Eq.
+
+͑42͒, to the surface energy. Table IV shows that zeroth and
+
+ﬁrst orders contribute most while second order only accounts
+
+for less than 2% of the total surface energy. This is a clear
+
+sign of convergence of the second-order Taylor series expan-
+
+sion, even for large density variations.
+
+Of course, there is still room for further improvement. It
+
+remains to be seen whether the free parameter ␥ is system-
+
+independent. More applications and tests are surely neces-
+
+sary. Ideally, struction of
+
+one the
+
+would KEDF
+
+lciokme ptoletreelmy,ovbeut␳*mafrionmtainthinegcothne-
+
+O(N ln N) scaling may then be impossible. More likely, one
+
+would end up with a method with O(N2) scaling, as Chaco´n
+
+and co-workers have developed.8 An O(N ln N) method without ␳0 in the construction is under development at this time; the details of which will be reported later.33
+VI. CONCLUSION
+In conclusion, we have devised a family of kinetic-energy density functionals which further generalize and improve upon the Wang-Teter, Perrot, Smargiassi-Madden, and Wang-Govind-Carter kinetic-energy density functionals.3–7 These functionals are still based on linear-response theory. The simple, effective implementation scheme for the nearly free electron gas delivers O(N ln N) scaling even for the double-density-dependent kernel. Numerical tests show that, compared with those kinetic-energy density functionals based on quadratic-response theory,3,7 our functionals can yield similar results for bulk solids, but with a lower computational cost and simpler implementation. More interestingly, all KEDF’s regardless of their kernels’ density dependence are seen to have very high-quality ␦Ts͓␳͔/␦␳(r), even for large density variations as at realistic surfaces. This lends credence to their use in the recently developed embedding method that offers a systematic means of improving upon the Kohn-Sham description13,26 in a local region.32 In addition, we have shown how the surface energy can be greatly improved by a simple, yet reasonable choice of average density. Finally, utilizing our functionals in O(N ln N) methods of ﬁrst-principles molecular dynamics2,5,7 has a promising future.
+ACKNOWLEDGMENTS
+We thank Dr. Stuart C. Watson for his help in calibrating our code and for his constructive comments on this manuscript. We thank Professor Paul A. Madden for helpful discussions. Financial support for this project was provided by the National Science Foundation, the Army Research Ofﬁce, and the Air Force Ofﬁce of Scientiﬁc Research.
+
+1 O. F. Sankey and D. J. Niklewski, Phys. Rev. B 40, 3979 ͑1989͒; W. Yang, Phys. Rev. Lett. 66, 1438 ͑1991͒; G. Galli and M. Parrinello, ibid. 69, 3547 ͑1992͒; S. Baroni and P. Giannozzi, Europhys. Lett. 17, 547 ͑1992͒; W. Kohn, Chem. Phys. Lett. 208, 167 ͑1993͒; F. Mauri, G. Galli, and R. Car, Phys. Rev. B 47, 9973 ͑1993͒; X. P. Li, W. Nunes, and D. Vanderbilt, ibid. 47, 10 891 ͑1993͒; M. S. Daw, ibid. 47, 10 895 ͑1993͒; P. Ordejo´n, D. A. Drabold, M. P. Grumbach, and R. M. Martin, ibid. 48, 14 646 ͑1993͒; P. Ordejo´n, D. A. Drabold, R. M. Martin, and M. P. Grumbach, ibid. 51, 1456 ͑1995͒; E. B. Stechel, A. R. Williams, and P. J. Feibelman, ibid. 49, 10 088 ͑1994͒; W. Hierse and E. B. Stechel, ibid. 50, 17 811 ͑1994͒; W. Kohn, Phys. Rev. Lett. 76, 3168 ͑1996͒.
+2 N. Govind, J. Wang, and H. Guo, Phys. Rev. B 50, 11 175 ͑1994͒; N. Govind, J. L. Mozos, and H. Guo, ibid. 51, 7101 ͑1995͒; D. Nehete, V. Shah, and D. G. Kanhere, ibid. 53, 2126 ͑1996͒; V. Shah, D. Nehete, and D. G. Kanhere, J. Phys.: Condens. Matter 6, 10 773 ͑1994͒; V. Shah, D. G. Kanhere, C. Majumder, and D. G. Das, ibid. 9, 2165 ͑1997͒.
+
+3 L.-W. Wang and M. P. Teter, Phys. Rev. B 45, 13 196 ͑1992͒. 4 F. Perrot, J. Phys.: Condens. Matter 6, 431 ͑1994͒; M. Pearson, E.
+Smargiassi, and P. A. Madden, ibid. 5, 3321 ͑1993͒. 5 E. Smargiassi and P. A. Madden, Phys. Rev. B 49, 5220 ͑1994͒;
+E. Smargiassi and P. A. Madden, ibid. 51, 117 ͑1995͒; M. Foley,
+E. Smargiassi, and P. A. Madden, J. Phys.: Condens. Matter 6,
+5231 ͑1994͒. 6 Y. A. Wang, N. Govind, and E. A. Carter, Phys. Rev. B 58,
+13 465 ͑1998͒. 7 M. Foley and P. A. Madden, Phys. Rev. B 53, 10 589 ͑1996͒; B.
+J. Jesson, M. Foley, and P. A. Madden, ibid. 55, 4941 ͑1997͒. 8 E. Chaco´n, J. E. Alvarellos, and P. Tarazona, Phys. Rev. B 32,
+7868 ͑1985͒; P. Garc´ıa-Gonza´lez, J. E. Alvarellos, and E. Chaco´n, ibid. 53, 9509 ͑1996͒; P. Garc´ıa-Gonza´lez, J. E. Alvarellos, and E. Chaco´n, ibid. 57, 4857 ͑1998͒; P. Garc´ıa-Gonza´lez, J. E. Alvarellos, and E. Chaco´n, Phys. Rev. A 54, 1897 ͑1996͒; P. Garc´ıa-Gonza´lez, J. E. Alvarellos, and E. Chaco´n, ibid. 57, 4192
+͑1998͒. 9 A. Baldereschi, Phys. Rev. B 7, 5215 ͑1973͒; D. J. Chadi and M.
+
+16 358
+
+WANG, GOVIND, AND CARTER
+
+PRB 60
+
+L. Cohen, ibid. 8, 5747 ͑1973͒; H. J. Monkhorst and J. D. Pack, ibid. 13, 5188 ͑1976͒; R. A. Evarestov and V. P. Smirnov, Phys. Status Solidi B 119, 9 ͑1983͒. 10 L. H. Thomas, Proc. Cambridge Philos. Soc. 23, 542 ͑1927͒; E. Fermi, Rend. Accad., Lincei 6, 602 ͑1927͒; E. Fermi, Z. Phys. 48, 73 ͑1928͒. 11 C. F. von Weizsa¨cker, Z. Phys. 96, 431 ͑1935͒. 12 Z.-Z. Yang, S. Liu, and Y. A. Wang, Chem. Phys. Lett. 258, 30
+͑1996͒. 13 For example, R. G. Parr and W. Yang, Density-Functional Theory
+of Atoms and Molecules ͑Oxford University Press, New York, 1989͒; R. M. Dreizler and E. K. U. Gross, Density Functional
+Theory: An Approach to the Quantum Many-Body Problem
+͑Springer-Verlag, Berlin, 1990͒. 14 For example, E. R. Davidson, Reduced Density Matrices in
+Quantum Chemistry ͑Academic, New York, 1976͒. 15 Y. A. Wang, Phys. Rev. A 55, 4589 ͑1997͒. 16 For example, D. G. Pettifor, Bonding and Structure of Molecules
+and Solids ͑Clarendon Press, Oxford, 1995͒; N. W. Ashcroft and N. D. Mermin, Solid State Physics ͑Holt Rinehart & Winston, Philadelphia, 1976͒; W. A. Harrison, Solid State Theory ͑Dover, New York, 1980͒; J. Lindhard, K. Dan. Vidensk. Selsk. Mat. Fys. Medd. 28, 8 ͑1954͒. 17 D. A. Kirzhnits, Zh. E´ ksp. Teor. Fiz. 32, 115 ͑1957͒ ͓ Sov. Phys. JETP 5, 64 ͑1957͔͒; C. H. Hodges, Can. J. Phys. 51, 1428 ͑1973͒; M. Brack, B. K. Jennings, and Y. H. Chu, Phys. Lett. 65B, 1 ͑1976͒; B. Grammaticos and A. Voros, Ann. Phys. ͑N.Y.͒ 123, 359 ͑1979͒; D. R. Murphy, Phys. Rev. A 24, 1682 ͑1981͒. 18 For example, G. B. Arfken and H. J. Weber, Mathematical Meth-
+
+ods for Physicists, 4th ed. ͑Academic, San Diego, California,
+1995͒. 19 W. H. Press, S. A. Teukolsky, W. T. Vetterling, and B. P. Flan-
+nery, Numerical Recipes in Fortran; The Art of Scientiﬁc Com-
+puting, 2nd ed. ͑Cambridge University, New York, 1992͒. 20 P. Hohenberg and W. Kohn, Phys. Rev. 136, B864 ͑1964͒. 21 M. C. Payne, J. D. Joannopoulos, D. C. Allan, M. P. Teter, and D.
+H. Vanderbilt, Phys. Rev. Lett. 56, 2656 ͑1986͒; F. Tassone, F.
+Mauri, and R. Car, Phys. Rev. B 50, 10 561 ͑1994͒. 22 W. E. Pickett, Comput. Phys. Rep. 9, 115 ͑1989͒. 23 M. C. Payne, M. P. Teter, D. C. Allan, T. A. Arias, and J. D.
+Joannopoulos, Rev. Mod. Phys. 64, 1045 ͑1992͒. 24 T. Starkloff and J. D. Joannopoulos, Phys. Rev. B 16, 5212
+͑1977͒. 25 L. Goodwin, R. J. Needs, and V. Heine, J. Phys.: Condens. Matter
+2, 351 ͑1990͒. 26 W. Kohn and L. J. Sham, Phys. Rev. 140, A1133 ͑1965͒. 27 J. A. White and D. M. Bird, Phys. Rev. B 50, 4954 ͑1994͒. 28 D. J. Ceperley and B. J. Alder, Phys. Rev. Lett. 45, 566 ͑1980͒; J.
+P. Perdew and A. Zunger, Phys. Rev. B 23, 5048 ͑1981͒. 29 Y. A. Wang, N. Govind, and E. A. Carter, this issue, Phys. Rev.
+B 60, 17 162 ͑1999͒. 30 M. Triftsha¨user, Phys. Rev. B 12, 4634 ͑1975͒; A. S. Berger, S.
+T. Ockers, and R. W. Siegel, J. Nucl. Mater. 69&70, 734 ͑1978͒;
+M. J. Fluss, L. C. Smedskjaer, M. K. Chason, D. G. Legnini, and
+R. W. Siegel, Phys. Rev. B 17, 3444 ͑1978͒. 31 M. J. Gillan, J. Phys.: Condens. Matter 1, 689 ͑1989͒. 32 N. Govind, Y. A. Wang, A. J. R. da Silva, and E. A. Carter,
+Chem. Phys. Lett. 295, 129 ͑1998͒; N. Govind, Y. A. Wang, and
+E. A. Carter, J. Chem. Phys. 110, 7677 ͑1999͒. 33 Y. A. Wang and E. A. Carter ͑unpublished͒.
+

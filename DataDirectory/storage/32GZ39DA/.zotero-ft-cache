@@ -1,0 +1,1215 @@
+RAPID COMMUNICATIONS
+
+PHYSICAL REVIEW A, VOLUME 65, 050301͑R͒
+
+Entanglement-enhanced information transmission over a quantum channel with correlated noise
+
+Chiara Macchiavello1 and G. Massimo Palma2 1Istituto Nazionale per la Fisica della Materia (INFM) and Dipartimento di Fisica ‘‘A. Volta,’’ Via Bassi 6, I-27100 Pavia, Italy 2NEST – Istituto Nazionale per la Fisica della Materia (INFM) and Dipartimento di Scienze Fisiche ed Astronomiche, Via Archiraﬁ 36,
+I-90123 Palermo, Italy
+͑Received 10 July 2001; published 17 April 2002͒
+
+We show that entanglement is a useful resource to enhance the mutual information of the depolarizing channel when the noise on consecutive uses of the channel has some partial correlations. We obtain a threshold in the degree of memory above which a higher amount of classical information is transmitted with entangled signals.
+
+DOI: 10.1103/PhysRevA.65.050301
+
+PACS number͑s͒: 03.67.Hk, 05.40.Ca
+
+The classical capacity of quantum channels, i.e., the
+
+amount of classical information that can be reliably transmit-
+
+ted by quantum states in the presence of a noisy environment
+
+has received renewed interest in recent years ͓1͔. One of the
+
+main focuses of such interest is the study of entanglement as
+
+a useful resource to enhance the classical channel capacity.
+
+Indeed, the theory does not rule out the possibility that by
+
+entangling multiple uses of the channel, a larger amount of
+
+classical information per use can be reliably transmitted.
+
+This property is known as superadditivity ͑a more precise
+
+deﬁnition will be provided later in the text͒. Attention so far
+
+has been paid to memoryless channels, i.e., channels in
+
+which independent noise acts on each use. The absence of
+
+superadditivity has been ﬁrst proved analytically for the case
+
+of two entangled uses of the depolarizing channel ͓2͔, and
+
+then extended to a broader class of memoryless channels ͓3͔.
+
+A different related problem, which we will not consider here,
+
+is the entanglement-assisted classical capacity. In ͓4͔ it has
+
+been shown that prior entanglement between sender and re-
+
+ceiver can increase the classical capacity of some noisy
+
+memoryless quantum channels.
+
+In this paper we will turn our attention to a different class
+
+of channels, in which correlated noise acts on consecutive
+
+uses, i.e., to channels with partial memory. For such channels
+
+our results show that a higher mutual information can indeed
+
+be achieved above a certain memory threshold by entangling
+
+two consecutive uses of the channel. In the following, each
+
+use of the channel will be a qubit, i.e., it will be a quantum
+
+state belonging to a two-dimensional Hilbert space. The ac-
+
+tion of transmission channels is described by Kraus operators
+
+͓5͔
+
+Ai ,
+
+satisfying
+
+͚
+
+i
+
+A
+
+† i
+
+A
+
+i
+
+ϭ
+
+1,
+
+such
+
+that
+
+if
+
+we
+
+send
+
+through
+
+the channel a qubit in a state described by the density opera-
+
+tor ␲, the corresponding output state is given by the map
+
+͚ ␲ → ⌽ ͑ ␲ ͒ ϭ
+
+A
+
+i
+
+␲
+
+A
+
+† i
+
+.
+
+͑1͒
+
+i
+
+An interesting class of Kraus operators acting on individual qubits can be expressed in terms of the Pauli operators ␴x,y,z
+
+Aiϭͱpi␴i ,
+
+͑2͒
+
+with ͚ipiϭ1, iϭ0,x,y,z and ␴0ϭ1. A noise model for these Kraus operators is, for instance, a random rotation of an
+
+angle ␲ around axes xˆ,yˆ,zˆ with probability px , py , pz on the qubit state, or the identity with probability p0.
+In the simplest scenario the transmitter can send one qubit at a time along the channel. In this case the codewords will be restricted to be the tensor products of the states of the individual qubits. Quantum mechanics, however, allows also the possibility to entangle multiple uses of the channel. For this more general strategy it has been shown that the amount of reliable information that can be transmitted per use of the channel is given by ͓1͔
+
+C
+
+nϭ
+
+1 n
+
+supE
+
+I
+
+n
+
+͑
+
+E͒
+
+,
+
+͑3͒
+
+where Eϭ͕Pi ,␲i͖ with Piу0, ͚ Piϭ1 is the input ensemble of states ␲i , transmitted with a priori probabilities Pi , of n—generally entangled—qubits, and In(E) is the mutual in-
+formation
+
+͚ In͑ E͒ϭS͑ ␳ ͒Ϫ PiS͑ ␳i͒,
+
+͑4͒
+
+i
+
+where the index n stands for the number of uses of the channel. In the above equation
+
+S͑ ␹ ͒ϭϪTr͑ ␹ log2 ␹ ͒
+
+͑5͒
+
+is the von Neumann entropy, ␳iϭ⌽(␲i) are the density operators describing the output states, and ␳ϭ ͚iPi␳i . The advantage of the expression ͑4͒ is that it includes an optimization over all possible POVMs ͑positive operator value measures͒ at the output, including collective ones. Therefore
+no explicit maximization procedure for the decoding at the
+output of the channel is needed.
+The interest for the possibility of using entangled states as
+channel inputs is motivated by the fact that it cannot generally be excluded that In(E) is superadditive in the presence of entanglement, i.e., we might have InϩmϾInϩIm and, therefore, CnϾC1. In this scenario, the classical capacity C of the channel is deﬁned as
+
+Cϭ lim Cn .
+
+͑6͒
+
+n→ϱ
+
+So far the main objects of investigation have been memoryless channels. By deﬁnition, a channel is memoryless when
+
+1050-2947/2002/65͑5͒/050301͑4͒/$20.00
+
+65 050301-1
+
+©2002 The American Physical Society
+
+CHIARA MACCHIAVELLO AND G. MASSIMO PALMA
+
+RAPID COMMUNICATIONS PHYSICAL REVIEW A 65 050301͑R͒
+
+its action on arbitrary signals ␲s , consisting of n qubits ͑including entangled ones͒, is given by
+
+1
+͉⌿Ϯ͘ϭ ͱ2 ͕͉01͘Ϯ͉10͖͘,
+
+͚ ⌽ ͑ ␲ s ͒ ϭ i1•••in
+
+͑
+
+A
+
+i
+
+n
+
+
+
+•
+
+•
+
+•
+
+
+
+A
+
+i
+
+1
+
+͒
+
+␲
+
+s
+
+͑
+
+A
+
+† i1
+
+
+
+•
+
+•
+
+•
+
+
+
+A
+
+† in
+
+͒
+
+.
+
+͑7͒
+
+In the case of Pauli channels a more general situation is described by Kraus operators of the following form:
+
+ͱ A k 1
+
+.
+
+.
+
+.
+
+k
+
+ϭ
+n
+
+pk1 . . . kn␴k1 . . . ␴kn,
+
+͑8͒
+
+with ͚k1 . . . knpk1 . . . knϭ1. The quantity pk1 . . . kn can be interpreted as the probability that a given random sequence of
+
+rotations of an angle ␲ along axes k1 . . . kn is applied to the sequence of n qubits sent through the channel. For a memo-
+
+ryless
+
+channel,
+
+pk1
+
+.
+
+.
+
+.
+
+k
+
+ϭ
+n
+
+p
+
+k
+
+1
+
+p
+
+k
+
+2
+
+•
+
+•
+
+•
+
+p
+
+k
+
+.
+n
+
+An
+
+interesting
+
+gen-
+
+eralization is described by Markov chains deﬁned as
+
+pk1
+
+.
+
+..
+
+k
+
+n
+
+ϭ
+
+p
+
+k
+
+1
+
+p
+
+k2
+
+͉
+
+k
+
+1
+
+•
+
+•
+
+•
+
+p
+
+k
+
+n͉
+
+k
+
+n
+
+Ϫ
+
+,
+1
+
+͑9͒
+
+where pkn͉knϪ1 can be interpreted as the conditional probability that a ␲ rotation around the kn axis is applied to the nth qubit given that a ␲ rotation around the knϪ1 axis was applied on the (nϪ1)th qubit. Here we will consider the case
+of two consecutive uses of a channel with partial memory, i.e., we will assume pkn͉knϪ1ϭ(1Ϫ␮) pknϩ␮␦kn ,knϪ1. This means that with probability ␮ the same rotation is applied to both qubits while with probability 1Ϫ␮ the two rotations are uncorrelated.
+This noise model can describe situations in which time correlations are present in the system. For instance, ␮ could depend on the time lapse between the two channel uses. If
+the two qubits are sent at a very short time interval, the
+properties of the channel, which determine the direction of
+the random rotations, will be unchanged, and it is, therefore,
+reasonable to assume that the action on both qubits will take
+the form
+
+A
+
+c k
+
+ϭ
+
+ͱp
+
+k
+
+␴
+
+k␴
+
+k
+
+.
+
+͑10͒
+
+If on the other hand, the time interval between the channel uses is such that the channel properties have changed, then the actions will be
+
+ͱ ͱ A
+
+u k1
+
+,
+
+k
+
+2
+
+ϭ
+
+pk1
+
+pk2␴k1␴k2.
+
+͑11͒
+
+are
+
+eigenstates
+
+of
+
+the
+
+operators
+
+A
+
+c k
+
+and,
+
+therefore,
+
+will
+
+pass
+
+undisturbed through the channel. If used as equiprobable sig-
+
+nal states they maximize I2, as we will have I2ϭ2. Furthermore, it is immediate to verify that the value I2ϭ2 cannot be
+achieved by any ensemble of tensor product input states.
+
+This situation is reminiscent of the so-called noiseless codes,
+
+where collective states are used to encode and protect quan-
+
+tum information against collective noise ͓6͔.
+
+In the following we will concentrate our attention to the
+
+depolarizing channel, for which p0ϭ1Ϫ p and piϭ p/3, i ϭx,y,z. We will consider an ensemble of orthogonal input
+
+states parametrized as follows
+
+͉␲1͘ϭcos ␽͉00͘ϩsin ␽͉11͘, ͉␲2͘ϭsin ␽͉00͘Ϫcos ␽͉11͘,
+
+͉␲3͘ϭcos ␽͉01͘ϩsin ␽͉10͘,
+
+͉␲4͘ϭsin ␽͉01͘Ϫcos ␽͉10͘.
+
+͑14͒
+
+Although it is not a priori certain that this is the optimal
+choice for all values of ␮, we know that it maximizes C2 with ␽ϭ0 for ␮ϭ0 ͑uncorrelated noise͒, and with ␽ϭ␲/4
+for ␮ϭ1 ͑fully correlated noise͒. We will, therefore, opti-
+mize the ansatz ͑14͒ by looking for the value ␽(␮), which
+maximizes I2 as a function of ␮. We will now show that there is a threshold value ␮t for
+which I2(␽ϭ␲/4,␮t)ϭI2(␽ϭ0,␮t). Below the threshold value, I2(␽ϭ0, ␮Ͻ␮t)ϾI2(␽ϭ␲/4, ␮Ͻ␮t), while above it I2(␽ϭ␲/4, ␮Ͼ␮t)ϾI2(␽ϭ0, ␮Ͼ␮t). To this goal, it is useful to use the Bloch representation ͓7͔ for the input states
+
+ͭ ͚ ͚ 1
+␲ϭ 4
+
+1 1ϩ1
+k
+
+␤
+
+(2 k
+
+)␴
+
+kϩ
+
+k
+
+␤
+
+(1 k
+
+)
+
+␴
+
+k
+
+
+
+1
+
+ͮ ͚ ϩ ␹kl␴k  ␴l ,
+
+͑15͒
+
+kl
+
+where the Bloch vectors and tensor are deﬁned, respectively,
+as ␤iϭTr(␲␴i), ␹i jϭTr(␲␴i␴ j). We will express the action of the channel in terms of the so-called shrinking factor ͓8͔ ␩ ϭ 1 Ϫ 4 p /3.
+It is straightforward to verify that for ␮ϭ0,
+
+An intermediate case, as mentioned above, is described by actions of the form
+
+͚k1 ,k2
+
+A
+
+k
+
+1
+
+,
+
+k
+
+1
+2
+
+
+
+␴
+
+j
+
+A
+
+† k1
+
+,
+
+k
+
+2
+
+ϭ
+
+␩
+
+1
+
+
+
+␴
+
+j
+
+,
+
+ͱ A
+
+i k
+
+1
+
+,
+
+k
+
+ϭ
+2
+
+p
+
+k
+
+͓
+1
+
+͑
+
+1
+
+Ϫ
+
+␮
+
+͒
+
+p
+
+k2
+
+ϩ
+
+␮
+
+␦
+
+k
+
+2͉
+
+k
+
+1
+
+͔
+
+␴
+
+k2
+
+␴
+
+k
+
+2
+
+.
+
+͑12͒
+
+It is straightforward to verify that the Bell states, deﬁned in
+
+͚k1 ,k2
+
+A
+
+k1
+
+,
+
+k
+
+2
+
+␴
+
+j
+
+
+
+1A
+
+† k1
+
+,
+
+k2
+
+ϭ
+
+␩
+
+␴
+
+j
+
+
+
+1,
+
+the basis ͉0͘,͉1͘ of the eigenstates of the ␴z operators as
+
+1
+
+͚k1 ,k2
+
+A
+
+k
+
+1
+
+,
+
+k
+
+2
+
+␴
+
+k
+
+
+
+␴
+
+j
+
+A
+
+† k1
+
+,
+
+k
+
+2
+
+ϭ
+
+␩
+
+2
+
+␴
+
+k
+
+
+
+␴
+
+j
+
+,
+
+͑16͒
+
+͉⌽Ϯ͘ϭ ͱ2 ͕͉00͘Ϯ͉11͖͘,
+
+͑13͒ while for ␮ϭ1
+
+050301-2
+
+ENTANGLEMENT-ENHANCED INFORMATION . . .
+
+RAPID COMMUNICATIONS PHYSICAL REVIEW A 65 050301͑R͒
+
+͚k1 ,k2
+
+A
+
+k
+
+1
+
+,
+
+k
+
+1
+2
+
+
+
+␴
+
+j
+
+A
+
+† k1
+
+,
+
+k
+
+2
+
+ϭ
+
+␩
+
+1
+
+
+
+␴
+
+j
+
+,
+
+͚k1 ,k2
+
+A
+
+k1
+
+,
+
+k
+
+2
+
+␴
+
+j
+
+
+
+1A
+
+† k1
+
+,
+
+k2
+
+ϭ
+
+␩
+
+␴
+
+j
+
+
+
+1,
+
+͚k1 ,k2
+
+A
+
+k
+
+1
+
+,k
+
+␴
+2
+
+k
+
+
+
+␴
+
+j
+
+A
+
+† k1
+
+,
+
+k
+
+ϭ
+2
+
+␦
+
+k
+
+j
+
+␴
+
+k
+
+
+
+␴
+
+j
+
+ϩ
+
+͑
+
+1
+
+Ϫ
+
+␦
+
+k
+
+j
+
+͒
+
+␩
+
+␴
+
+k
+
+
+
+␴
+
+j
+
+.
+
+͑17͒
+
+It is interesting to note that both for ␮ϭ0 and for ␮ϭ1, the
+
+components
+
+of
+
+the
+
+Bloch
+
+vectors
+
+␤
+
+(i k
+
+)
+
+of
+
+the
+
+input
+
+states
+
+are
+
+shrunk isotropically by the shrinking factor ␩. The difference
+
+between the two cases is the action on the Bloch tensor ␹.
+
+The input state ␲1 is transformed by the action of the depolarizing channel with partial memory deﬁned in Eq. ͑12͒ into
+
+the output density operator ␳1,
+
+␳
+
+1
+
+ϭ
+
+1 4
+
+͕
+
+1
+
+
+
+1ϩ
+
+␩
+
+cos
+
+2
+
+␽
+
+͑
+
+1
+
+
+
+␴
+
+z
+
+ϩ
+
+␴
+
+z
+
+
+
+1͒
+
+ϩ
+
+͓
+
+␮
+
+ϩ
+
+͑
+
+1
+
+Ϫ
+
+␮
+
+͒
+
+␩
+
+2
+
+͔
+
+ϫ͓ ␴z  ␴zϩsin 2␽͑ ␴x  ␴xϪ␴y  ␴y͔͖͒,
+
+͑18͒
+
+whose eigenvalues are
+
+1
+
+␭1,2ϭ4 ͑ 1Ϫ␮ ͒͑ 1Ϫ␩2͒,
+
+͑19͒
+
+␭
+
+3,4ϭ
+
+1 4
+
+͕
+
+1
+
+ϩ
+
+␮
+
+ϩ
+
+␩
+
+2͑
+
+1
+
+Ϫ
+
+␮
+
+͒
+
+Ϯ2ͱ␩2 cos2 2␽ϩ͓␩2͑ 1Ϫ␮ ͒ϩ␮͔2 sin2 2␽͖.
+
+͑20͒
+
+FIG. 1. Mutual information for product states and for maximally entangled states as a function of the degree of memory of the channel, for ␩ϭ0.8.
+
+have used so far the z axis as the axis of quantization for the
+system; however, due to the symmetry of the channel, we
+would have obtained the same results using x or y as the axis
+of quantization.
+Notice that so far we have restricted our attention to input states of the form ͑14͒. We will now show that the product states that are less deteriorated when transmitted through the channel are the eigenstates of ␴z1␴z2 or ␴y1␴y2 or ␴x1␴x2. This suggests that no different choice of product signal states can achieve a higher I2 than our ansatz ͑14͒. From Eqs. ͑16͒ and ͑17͒ it follows that the output density operator corresponding to an arbitrary input product state takes the form
+
+ͫ ͩ ͪ ͚ ͚ 1
+⌽͑␲͒ϭ 4
+
+1 1ϩ␩
+
+1
+
+i
+
+␤2i␴2iϩ
+i
+
+␤1i␴1i 1
+
+Notice that the ﬁrst two eigenvalues are degenerate and do
+not depend on ␽. The same eigenvalues are obtained for the
+output states ␳2 ,␳3 ,␳4. The von Neumann entropy S(␳i) is minimized as a function of ␽ when the term under the square
+root in the expression for ␭3,4 is maximum. The mutual information is then maximized for equiprobable states ␲i cor-
+responding to the minimum von Neumann entropy. Therefore for ␩2Ͼ͓␩2(1Ϫ␮)ϩ␮͔2 the mutual information is maximal for uncorrelated states ␽ϭ0, while for ␩2 Ͻ͓␩2(1Ϫ␮)ϩ␮͔2 it is maximal for the Bell states. The
+threshold value ␮t is a function of the shrinking factor and for 0Ͻ␩Ͻ1 takes the form
+
+␩
+
+␮tϭ1ϩ␩ .
+
+͑21͒
+
+Therefore, for channels with ␮Ͻ␮t the most convenient choice within the ansatz ͑14͒ corresponds to uncorrelated states, while for ␮Ͼ␮t , to maximally entangled states. At the threshold value, any set of states of the form ͑14͒ leads to
+the same value for the mutual information. As an example,
+the behavior of the mutual information is plotted in Fig. 1. It is interesting to notice that, within the ansatz ͑14͒, for any value of ␮, the mutual information is optimized by either
+maximally entangled or completely unentangled states. We
+
+͚ ϩ„␮ϩ͑ 1Ϫ␮ ͒␩2… ␤1i␤2i␴1i  ␴2i i
+
+͚ ͬ ϩ
+
+„␮
+
+␩
+
+ϩ
+
+͑
+
+1
+
+Ϫ
+
+␮
+
+͒
+
+␩
+
+2
+…
+
+␤1i␤2 j␴1i  ␴2 j . ͑22͒
+
+ij
+
+A measure of the degree of purity of the state at the output of the channel is given by Tr(␳2). It is straightforward to show
+that for the above state we have
+
+ͫ ͚ Tr͓
+
+⌽
+
+͑
+
+␲
+
+͒2
+
+͔
+
+ϭ
+
+1 4
+
+1ϩ2␩2ϩ͓␮ϩ͑1Ϫ␮͒␩2͔2
+
+i
+
+␤
+
+2 1
+
+i
+
+␤
+
+2 2i
+
+͚ ͬ ϩ͓␮␩ϩ͑1Ϫ␮͒␩2͔2
+
+␤
+
+2 1
+
+i
+
+␤
+
+2 2
+
+j
+
+.
+
+͑23͒
+
+ij
+
+The above expression is maximized when both Bloch vectors point in the same x, y, or z direction. It is straightforward to verify that these states maximize also the ﬁdelity, deﬁned as Tr͓␲⌽(␲)͔. Moreover, we have numerical evidence that for any value of ␮ and ␩, the input product states that maximize the mutual information are still of this form. Therefore, no better choice of product states leads to a higher mutual information than that achieved by the ansatz ͑14͒. Finally we
+
+050301-3
+
+RAPID COMMUNICATIONS
+
+CHIARA MACCHIAVELLO AND G. MASSIMO PALMA
+
+PHYSICAL REVIEW A 65 050301͑R͒
+
+would like to point out that for input product states, the mutual information I2 is larger for ␮ϭ1 than for ␮ϭ0,
+1 I2͑ ␮ϭ1, ␽ϭ0 ͒ϭ1ϩ 2 ͕͑ 1ϩ␩ ͒log2͑ 1ϩ␩ ͒
+ϩ͑1Ϫ␩ ͒log2͑1Ϫ␩ ͖͒,
+I2͑ ␮ϭ0, ␽ϭ0 ͒ϭ͕͑ 1ϩ␩ ͒log2͑ 1ϩ␩ ͒
+ϩ͑1Ϫ␩ ͒log2͑1Ϫ␩ ͖͒. ͑24͒
+This is due to the fact that the Bloch tensor ␹ is multiplied by a larger shrinking factor when the noise is collective. In other words, in the presence of perfect memory with two uses of the channel, it is possible to achieve a higher mutual information than in the case of memoryless channels even if we restrict to product states.
+In conclusion, in this paper we have analyzed for the ﬁrst time, to the best of our knowledge, the problem of the clas-
+
+sical capacity of quantum channels with time correlated noise. This problem is of great interest not only from the theoretical viewpoint but also from the experimental one as time correlated noise is not rare in real physical quantum transmission channels. For the speciﬁc case of a quantum depolarizing channel with collective noise, we have shown that the transmission of classical information can be enhanced by employing maximally entangled states as carriers of information rather than product states. This result broadens the class of situations in which the use of entanglement enhances the efﬁciency in communications and information processing.
+We would like to thank R. Jozsa for useful comments. This work was supported in part by the EU under Contract No. IST-1999-11053-EQUIP, ‘‘Entanglement in Quantum Information Processing and Communication,’’ and by Ministero dell’Universita` e della Ricerca Scientiﬁca e Tecnologica under the project ‘‘Quantum Information Transmission and Processing: Quantum Teleportation and Error Correction.’’
+
+͓1͔ B. Schumacher and M.D. Westmoreland, Phys. Rev. A 56, 131 ͑1997͒; A.S. Holevo, IEEE Trans. Inf. Theory 44, 269 ͑1998͒; Quantum Computation and Quantum Information Theory, edited by C. Macchiavello, G.M. Palma, and A. Zeilinger ͑World Scientiﬁc, Singapore 2001͒.
+͓2͔ D. Bruss, L. Faoro, C. Macchiavello, and G.M. Palma, J. Mod. Opt. 47, 325 ͑2000͒.
+͓3͔ C. King and M.B. Ruskai, IEEE Trans. Inf. Theory 47, 192 ͑2001͒; C. King, e-print quant-ph/0103156.
+͓4͔ C.H. Bennett, P.W. Shor, J.A. Smolin, and A.V. Thapliyal, Phys. Rev. Lett. 83, 3081 ͑1999͒.
+͓5͔ K. Kraus, States, Effects, and Operations: Fundamental Notions of Quantum Theory ͑Springer, Berlin, 1983͒; M. Nielsen
+
+and I. Chuang, Quantum Computation and Quantum Information ͑Cambridge University Press, Cambridge, 2000͒; J. Preskill, Quantum Information and Computation, Lecture Notes on Physics Vol. 229 ͑Caltech, Pasadena, 1998͒; A. Peres, Quantum Theory: Concepts and Methods ͑Kluwer Academic, Dordrecht, 1995͒. ͓6͔ G.M. Palma, K.-A. Suominen, and A.K. Ekert, Proc. R. Soc. London, Ser. A 452, 567 ͑1996͒; for a recent review see J. Kempe, D. Bacon, D.A. Lidar, and K.B. Whaley, Phys. Rev. A 63, 042307 ͑2001͒. ͓7͔ J. Schlienz and G. Mahler, Phys. Rev. A 52, 4396 ͑1995͒. ͓8͔ D. Bruss, A. Ekert, and C. Macchiavello, Phys. Rev. Lett. 81, 2598 ͑1998͒.
+
+050301-4
+

@@ -1,0 +1,644 @@
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+Robustness of highly entangled multiqubit states under decoherence
+
+A. Borras,1,* A. P. Majtey,1,† A. R. Plastino,2,3,4,‡ M. Casas,1,§ and A. Plastino3,ʈ
+1Departament de Física and IFISC, Universitat de les Illes Balears, 07122 Palma de Mallorca, Spain 2Instituto Carlos I de Física Teórica y Computacional, Universidad de Granada, E-18071 Granada, Spain
+3National University La Plata CREG-UNLP-Conicet, C.C. 727, 1900 La Plata, Argentina 4Department of Physics, University of Pretoria, 0002 Pretoria, South Africa
+͑Received 14 July 2008; published 9 February 2009͒
+
+We investigate the decay of entanglement, due to decoherence, of multiqubit systems that are initially prepared in highly ͑in some cases maximally͒ entangled states. We assume that during the decoherence processes each qubit of the system interacts with its own independent environment. We determine, for systems with a small number of qubits and for various decoherence channels, the initial states exhibiting the most robust entanglement. We also consider a restricted version of this robustness-optimization problem that only involves states equivalent, under local unitary transformations, to the Greenberger-Horne-Zeilinger ͉GHZ͘ state.
+
+DOI: 10.1103/PhysRevA.79.022108
+
+PACS number͑s͒: 03.65.Yz
+
+I. INTRODUCTION
+Entanglement and decoherence are two intimately related phenomena that lie at the heart of quantum physics ͓1–3͔. Entanglement is probably the most distinctive feature of quantum mechanics, its many manifestations being the focus of an intense and increasing research activity. From the fundamental point of view entanglement plays an important role, for instance, in explaining the origin of the classical macroscopic world from a quantum-mechanical background ͓3͔ and also in connection with the foundations of statistical mechanics ͓4,5͔. On the other hand, the creation and manipulation of multipartite entangled states have important technological applications, such as quantum computation ͓2͔ and quantum metrology ͓6͔. The phenomenon of decoherence consists, basically, of a set of effects arising from the interaction ͑and concomitant entanglement development͒ between quantum systems and their environments ͓2,3͔. Almost every physical system is immersed in an environment and interacts with it in some way. The associated entanglement developed between the system and the environment leads to the suppression of typical quantum features of the system, such as the interference between different system’s states. This constitutes the basis of the “decoherence program” for explaining quantum-to-classical transition ͓3͔.
+The ͑internal͒ entanglement exhibited by a composite system undergoing decoherence tends to decrease as the process of decoherence takes place. This decay of entanglement has recently attracted the interest of many researchers ͓7–16͔ because it constitutes one of the main obstacles for the development of quantum technologies based on the controlled manipulation of entangled states ͓2͔. It has been shown that in some cases entanglement can vanish in ﬁnite times. This
+*toni.borras@uib.es †ana.majtey@uib.es ‡angel.plastino@up.ac.za §montse.casas@uib.es ʈplastino@ﬁsica.unlp.edu.ar
+
+phenomenon is known as entanglement sudden death ͓7,8͔. Numerous works have been devoted to the study of the robustness of various multipartite entangled states under the inﬂuence of different decoherence models, paying special attention to their scaling behavior with the size of the system ͓9–14͔. The dynamics of simple systems interacting with different environments has been experimentally studied using an all-optical device ͓15,16͔.
+Some of these investigations ͓9͔ have suggested that the entanglement of multiqubit systems may become more robust as the number of qubits increases. It was found that, in some cases, the time it takes for the entanglement of a multiqubit system to vanish due to decoherence increases with the number of qubits of the system. Alas, recent results reported by Aolita et al. ͓13͔ clearly indicate that, even in those cases where entanglement takes a long time to entirely disappear, it soon becomes too small to be of any practical use. Even worse, the larger the number of qubits of the system, the sooner this happens. Interestingly enough, the ﬁndings of Aolita et al. ͓13͔ are fully consistent with the fast decoherence processes invoked ͑within the decoherence program͒ to explain the quantum-to-classic transition ͓3͔.
+Aolita et al. ͓13͔ studied the decrease in entanglement of an N-qubit system, initially in a Greenberger-HorneZeilinger ͉GHZ͘ state, which experiences decoherence through the interaction of each of its qubits with an indepen-
+dent environment. Following this interesting and promising
+line of enquiry, the aim of the present contribution is to explore the entanglement robustness of highly ͑in some cases maximally͒ entangled multiqubit states, i.e., the ones that may be of technological utility.
+The paper is organized as follows. In Sec. II we brieﬂy
+review the local decoherence models for multiqubit systems
+that we use in the present work. In Sec. III we investigate the
+entanglement robustness of highly entangled multiqubit
+states. In Sec. IV we consider the entanglement decay corresponding to initial states equivalent under local unitary ͑LU͒ transformations to the ͉GHZ͘ state. In Sec. V we investigate whether the decoherence process leads to multiqubit states
+exhibiting bound entanglement. Finally, some conclusions
+are drawn in Sec. VI.
+
+1050-2947/2009/79͑2͒/022108͑7͒
+
+022108-1
+
+©2009 The American Physical Society
+
+BORRAS et al.
+
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+II. DECOHERENCE MODELS
+
+The systems under consideration in the present study consist of an array on N independent qubits initially entangled due to a previous, arbitrary, interacting process. Each qubit in the composite system is coupled to its own environment; in this local environment formulation there is no communication and the entanglement between the subsystems cannot increase because of the locality of the involved operations. We assume that all qubits are affected by the same decoherence process. The dynamics of any of these qubits is governed by a master equation from which one can obtain a completely positive trace-preserving map ␧ which describes the corresponding evolution: ␳i͑t͒ = ␧␳i͑0͒. In the BornMarkovian approximation these maps ͑or channels͒ can be described using its Kraus representation,
+
+M
+
+͚ ␧i␳i͑0͒ = Eji␳i͑0͒E†ji,
+
+͑1͒
+
+j=1
+
+where Ej, j = 1 , . . . , M are the so-called Kraus operators, M being the number of operators needed to completely characterize the channel ͓17͔. There are other approaches to describe noisy channels such as the quantum Liouville equation ͓8͔. Using the Kraus operator formalism it is possible to describe the evolution of the entire N-qubit system,
+
+͚ ␳͑t͒ = ␧␳͑0͒ = Ei1  ¯  EjN␳͑0͓͒Ei1  ¯  EjN͔†. i¯j ͑2͒
+
+We consider the following ﬁve paradigmatic noisy chan-
+
+nels.
+
+͑i͒ Phase damping. This process describes the loss of
+
+quantum information with probability p without any ex-
+
+change of energy. Physical examples of this process are
+
+given by the random scattering of a photon while traveling
+
+through a waveguide or the perturbation of the electronic
+
+states in an atom when interacting with distant electrical
+
+charges ͓2͔. The Kraus operators for this channel are
+
+ͩ ͪ ͩ ͪ 1 0
+
+00
+
+E0 = 0 ͱ1 − p , E1 = 0 ͱp .
+
+͑3͒
+
+͑ii͒ Depolarizing. This one can be viewed as a process in which the initial state is mixed with a source of white noise with probability p. Because the channel is highly symmetric, all output states are unitarily equivalent. For a d-dimensional quantum system, it can be expressed as
+
+p
+
+␧␳ = I + ͑1 − p͒␳,
+
+͑4͒
+
+d
+
+where I stands for the d ϫ d identity matrix. The Kraus op-
+
+erators for this process, including all Pauli matrices, are
+
+ͱ E0 = ͱ1 − pЈI, Ei =
+
+pЈ 3
+
+␴i
+
+,
+
+͑5͒
+
+where
+
+pЈ
+
+=
+
+3p 2
+
+,
+
+i = 1 , 2 , 3,
+
+and
+
+␴i
+
+are
+
+the
+
+corresponding
+
+Pauli
+
+matrices ␴x , ␴y , ␴z.
+
+͑iii͒ Bit ﬂip, phase ﬂip, and bit-phase ﬂip. These channels
+
+represent all the possible errors in quantum computation, the
+
+usual bit ﬂip ͑BF͒ 0 ↔ 1, the phase ﬂip ͑PF͒, and the combi-
+
+nation of both, bit-phase ﬂip ͑BPF͒. The corresponding pair
+
+of Kraus operators E0 − E1 for each channel is given by
+
+E0 = ͱ1 − p/2I, E1i = ͱp/2␴i,
+
+͑6͒
+
+where i = x gives us the bit ﬂip, i = z is the phase ﬂip, and i = y is the bit-phase ﬂip. Following Salles et al. ͓16͔, the factor of 2 in Eq. ͑6͒ guarantees that at p = 1 the ignorance about the occurrence of an error is maximal, and as a conse-
+quence, the information about the state is minimum.
+
+III. ROBUST MAXIMALLY ENTANGLED STATES
+
+A. Preliminaries
+
+In this section we study the decay of entanglement of maximally entangled multiqubit pure states. There exist various measures that aim to quantify and characterize different features of the multipartite entanglement phenomenon. We stress that by maximally entangled states we mean those states maximizing an appropriate entanglement measure under the requirement that entanglement is ͑at least approximately͒ uniformly shared among all the system’s components. These states may seem easy to characterize: all their reduced density matrices must be maximally mixed. A good example of a state complying with this requirement is the three-qubit ͉GHZ͘ state. Alas, for systems with more than three qubits the ͉GHZ͘ or cat state is no longer the maximally entangled state ͑at least, not in the aforementioned sense͒. The characterization and quantiﬁcation of maximally entangled states for systems of N Ͼ 3 qubits has recently been the focus of an intensive research activity ͓18–23͔.
+One of the most popular measures proposed to quantify such multipartite entanglement is based on the use of a bipartite measure, which is averaged over all possible bipartitions of the system. It is mathematically expressed by
+
+͓N/2͔
+
+͚ 1
+E=
+
+E͑m͒ ,
+
+͓N/2͔ m=1
+
+͑7͒
+
+͚ E͑m͒
+
+=
+
+1 Nbmipart Nbmipart i=1
+
+E͑i͒.
+
+͑8͒
+
+Here, E͑i͒ stands for the entanglement associated with one, single bipartition of the N-qubit system. The quantity E͑m͒
+
+gives the average entanglement between subsets of m qubits
+
+and the remaining N − m qubits constituting the system. The average is performed over the Nb͑mip͒art nonequivalent bipartitions, which are given by
+
+ͩ ͪ Nbmipart =
+
+N n
+
+if n N/2,
+
+͑9͒
+
+ͩ ͪ NbNi/p2art
+
+=
+
+1 2
+
+N N/2
+
+if n = N/2.
+
+͑10͒
+
+The total number of bipartitions is equal to
+
+022108-2
+
+ROBUSTNESS OF HIGHLY ENTANGLED MULTIQUBIT …
+
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+TABLE I. Number of nonequivalent bipartitions as a function of the number of qubits of the system N, and the dimension m of the smaller subsystem that results from the bipartition.
+
+N
+
+3
+
+4
+
+5
+
+6
+
+7
+
+m
+
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+2
+
+0
+
+3
+
+10
+
+15
+
+21
+
+3
+
+0
+
+0
+
+0
+
+10
+
+35
+
+Ncuts
+
+3
+
+7
+
+15
+
+31
+
+63
+
+͓N/2͔
+
+͚ Ncuts =
+
+Nbi ipart = 2N−1 − 1.
+
+i=1
+
+͑11͒
+
+Different E͑m͒ represent different entanglement features of
+the state. Two states may, for instance, share the same value of E͑1͒ and have very different values of E͑2͒. A state may even maximize E͑1͒ while exhibiting very low values of E͑2͒. It is clear that all the entanglement measures E͑m͒ have to be
+computed in order to describe the entanglement properties of
+a multipartite state as comprehensively as permitted by the
+present bipartition-based approach. However, it is also desir-
+able to try to characterize with one single number the “total”
+amount of entanglement associated with the state. Alas, any
+such attempt will inevitably exhibit some degree of arbitrari-
+ness for the very fact that multipartite entanglement is a
+highly complex phenomenon whose description cannot be
+“compressed” into a single number. In the present work we adopted the global multiqubit entanglement measure ͓Eq. ͑7͔͒ given by the average of the ͓N / 2͔ different E͑m͒ associated with a state ␳. An alternative procedure would be to compute the entanglement corresponding to each of the Ncuts possible bipartitions and then evaluate directly their average,
+skipping the intermediate step of computing the quantities E͑m͒. However, this scheme implies a strong bias toward the
+most balanced bipartitions because they are more numerous than the unbalanced ones ͑see Table I͒. We have performed numerical experiments using both the aforementioned ways
+of computing the global amount of entanglement of a multi-
+qubit state and found that the main conclusions reported in
+the present work are valid in both cases.
+We will use the negativity as our bipartite measure of
+entanglement because we are dealing with mixed states. Any
+set of unitary local operations applied to a maximally en-
+tangled state will result in a different state with the same
+amount of entanglement. When a given decoherence model
+is applied to this family of locally equivalent states quite
+different entanglement evolutions may arise. Our interest is
+focused on maximally entangled states that are able to retain
+during their dynamical evolution a larger amount of en-
+tanglement E than the one kept by other states with the same
+initial E amount. Following the robustness deﬁnition introduced in Ref. ͓24͔, we will refer to these states as robust entangled ones and use the notation ͉⌿rNob͘ for them, where N is the number of qubits of the system. We compute the en-
+tanglement dynamics of these states under the inﬂuence of
+
+the various decoherence channels discussed in Sec. II and compare such dynamics with that of the entanglement decay of the N-qubit ͉GHZ͘ and ͉W͘ states.
+To ﬁnd initial states ␳͑0͒ exhibiting robust entanglement under a decoherence channel ␧ we use an iterative numerical search scheme akin to the well-known simulating annealing algorithm. During the search process a series of initial states ␳͑i͒͑0͒, i = 1 , 2 , 3 , . . ., of increasing robustness is generated ͑here the word “initial” refers to the decoherence evolution and not to the search algorithm͒. At each step of the search process, a ͑random͒ new state ␳͑k+1͒͑0͒ slightly different from the previous one ␳͑k͒͑0͒ is generated. If the entanglement of the state ␧␳͑k+1͒͑0͒ is larger than the entanglement of ␧␳͑k͒͑0͒, the new state ␳͑k+1͒͑0͒ is kept. Otherwise, the new state is rejected and a new tentative state is generated. This iterative process is repeated until it converges to an initial state ␳͑0͒ maximizing the entanglement of the corresponding evolved state ␧␳͑0͒. Notice that the entanglement that we are maximizing is not the entanglement of ␳͑0͒ itself but the entanglement of the state ␧␳͑0͒ resulting from the action of the decoherence channel ␧ upon ␳͑0͒. Since we use the negativity as our measure of entanglement, the quantity to be maximized is the negativity of the mixed state obtained after applying the decoherence channel ␧ to the initial state ␳͑0͒. Instead of studying states ␳͑0͒ that maximize the entanglement E͓␳͑t͔͒ present at a latter time t, one could consider initial states ␳͑0͒ optimizing the ratio E͓␳͑t͔͒ / E͓␳͑0͔͒. However, this ratio may adopt large values ͑that is, values close to 1͒ for states with little initial ͑and ﬁnal͒ entanglement that are not interesting as resources for quantum-information processes.
+B. Present results
+As a result of the above numerical search process we were able to ascertain that some of the maximally entangled multiqubit states that can be found in the literature are already robust. However, for some systems we have found new states exhibiting a higher degree of entanglement robustness than the one associated with previously known states.
+At this point we begin the explanation of our results for the highest dimensional system studied in this work, which is composed of six qubits. We ﬁnd that the robust state ͉⌿r6ob͘ turns out to be precisely that maximally entangled state encountered by some of the authors on a previous work ͓21͔. No pure state of six qubits has been found that evolves to a mixed state with a higher amount of entanglement. In Fig. 1͑a͒ one observes that for the phase damping ͑PD͒ channel the negativity of ͉⌿r6ob͘ is almost a straight line, and a similar behavior is observed for the ͉W͘ state. Instead, ͉GHZ͘ quickly loses entanglement vis-à-vis the preceding examples. A qualitatively similar decay of entanglement is obtained in the case of the PF channel. For the BF one ͓plotted in Fig. 1͑b͔͒ and also for the BPF channel, the entanglement of the ͉GHZ͘ is more robust than that for the preceding channels. It remains always higher than the one associated to ͉W͘, although lower than that of ͉⌿r6ob͘. Finally, the depolarizing channel is the only one for which the initial entanglement seems to be the only important factor in our scenario, the
+
+022108-3
+
+BORRAS et al.
+
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+(a)
+
+(b)
+
+FIG. 1. Entanglement evolution of the six qubit representative states under phase damping and bit ﬂip decoherence models. All depicted quantities are dimensionless.
+
+entanglement decay of all our states ͑equally entangled initially͒ sharing such a behavior. This means that any state
+belonging to the set of initially maximally entangled states, those equivalent under LU operations to ͉⌿r6ob͘, is robust according to the depolarizing channel.
+For lower dimensional systems the overall picture re-
+sembles that for the six-qubit case, but some particularities
+must be pointed out. For ﬁve-qubit systems, the robust state ͉⌿r5ob͘ that we ﬁnd is not so good as the one for six qubits. Its entanglement decay is just maximal for four out of the six channels under analysis. For the two channels ͑BF and BPF͒,
+which are not maximal, its entanglement becomes lower than
+that of other states for large p values. The explicit form of ͉⌿r5ob͘ is given by
+
+͉⌿r5ob͘ = ͱ116͓− ͉5͘ + ͉6͘ − ͉9͘ + ͉10͘ + ͉17͘ + ͉18͘ − ͉29͘
+
+− ͉30͘ + ı͑− ͉0͘ + ͉3͘ − ͉12͘ + ͉15͘ − ͉20͘
+
+− ͉23͘ + ͉24͘ + ͉27͔͒͘.
+
+͑12͒
+
+In this equation the ket ͉i͘ denotes a member of the computational basis for a system of ﬁve qubits, which can be iden-
+tiﬁed by expressing the integer i in binary notation. For instance, ͉3͘ is a short hand notation for ͉00 011͘.
+For systems of four qubits, it was proved in ͓18͔ that a pure state exhibiting the theoretically maximum amount of entanglement ͑that is, having all its marginal density matrices maximally mixed͒ does not exist. In Ref. ͓18͔, a promising candidate for the maximally entangled status was also proposed by Higuchi and Sudbery ͑HS͒, namely,
+
+͉⌿r4ob͘
+
+=
+
+͉HS͘
+
+=
+
+1
+ͱ6
+
+͓͉1100͘
+
++
+
+͉0011͘
+
++
+
+␻͉͑1001͘
+
++
+
+͉0110͒͘
+
++ ␻2͉͑1010͘ + ͉0101͔͒͘,
+
+͑13͒
+
+with
+
+␻
+
+=
+
+−
+
+1 2
+
++
+
+ı
+
+ͱ3 2
+
+.
+
+This
+
+conjecture
+
+has
+
+later
+
+received
+
+support
+
+from several numerical studies ͓21–23͔. The entanglement
+
+decay of Eq. ͑13͒ resembles that of ͉⌿r6ob͘ and its entangle-
+
+ment is always larger than that of any other state tested in our samplings.
+Contrary to what could be expected, the three-qubit case is the most complex one. The small number of parameters needed to characterize a three-qubit state is low enough to perform the numerical optimization process in a very short time, allowing us to identify states which are robust for different channels. The main difference between three-qubit systems and the higher dimensional systems considered previously is that there is no three-qubit robust state that simultaneously maximizes the entanglement for all the decoherence channels. All three-qubit states optimizing the entanglement robustness for a given channel quickly lose their entanglement when evolving under other decoherence maps. The ͉GHZ͘ provides a clear illustration of the peculiar features exhibited by three-qubit systems. The entanglement of this state is robust under the action of the BF channel. However, for example, in the BPF channel’s instance, the entanglement of the ͉GHZ͘ remains large for small p values, but it then decays below the expected pattern until it almost vanishes for p Ӎ 0.7. A similar behavior occurs with other channels even when using alternative states which are robust for some channels but whose entanglement very quickly decays under the action of other decoherence processes.
+IV. DECOHERENCE OF INITIAL STATES EQUIVALENT UNDER LOCAL UNITARY OPERATIONS
+TO THE ͦGHZ‹ STATE
+In this section we are going to consider the decoherence behavior of systems initially prepared in states equivalent ͑under local unitary operations͒ to the ͉GHZ͘ state. In particular, we are going to determine ͑for different decoherence channels͒ which one of the aforementioned states exhibits the most robust entanglement.
+By recourse to a numerical survey of the behavior of states equivalent to the ͉GHZ͘ one, we found that ͑among the alluded states͒ the one exhibiting the most robust entanglement for the phase damping and phase ﬂip decoherence channels is the N-qubit state,
+
+022108-4
+
+ROBUSTNESS OF HIGHLY ENTANGLED MULTIQUBIT …
+
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+FIG. 2. ͉H͘4 vs ͉GHZ͘ states for a four-qubit system. In all subﬁgures the vertical lines correspond to the entanglement dynamics for 1000 states obtained from the ͉GHZ͘ by applying unitary local transformations. All depicted quantities are dimensionless.
+
+͉H͘N = UH 
+
+¯
+
+
+
+UH͉GHZ͘
+
+=
+
+1
+ͱ2
+
+͉͑
+
++
+
+͘N
+
+−
+
+͉−
+
+͘  N͒ ,
+
+͑14͒
+
+obtained by applying the Hadamard gate UH on each of the qubits of an N-qubit ͉GHZ͘ state. In Eq. ͑14͒, ͉ + ͘ and ͉−͘
+
+stand
+
+for
+
+states
+
+1 ͱ2
+
+͉͑0͘
+
++
+
+͉1͒͘
+
+and
+
+1 ͱ2
+
+͉͑0͘
+
+−
+
+͉1͒͘,
+
+respectively.
+
+The decay of the amount of entanglement corresponding
+
+to various initial four-qubit states is depicted in Fig. 2 for the
+
+phase damping, depolarizing, bit ﬂip, and bit-phase ﬂip de-
+
+coherence channels. The four-qubit states considered in Fig.
+
+2 are the ͉GHZ͘, the ͉H͘4 provided by Eq. ͑14͒, as well as 1000 states generated applying random local unitary trans-
+
+formations to the ͉GHZ͘ states. We also plot the decay of
+
+entanglement for the robust state ͉HS͘ previously introduced
+
+in Eq. ͑13͒. Excepting the ͉HS͘ state, all these states are
+
+equivalent under local unitary transformations to ͉GHZ͘. As
+
+we mentioned in Sec. III B, the ͉HS͘ state is the most robust
+
+four-qubit state for all the considered channels. We note that
+
+for the depolarizing channel the decay of entanglement only
+
+depends on the initial amount of entanglement. The decay of
+
+entanglement for the ͉GHZ͘ and ͉H͘4 states under the PF, BF, and BPF channels is somehow equivalent in the sense that the decay for the ͉GHZ͘ for the PF is the same than the decay of the ͉H͘4 for the BF. This is the reason why we only plot one of these channels, as the other one is equivalent. This
+behavior is easily explained because the unitary transformation UH that maps the state ͉GHZ͘ into the ͉H͘4 is the same that transforms the BF channel into the PF.
+It is worth noticing that the states ͉H͘N can be deﬁned in terms of the recurrence relation,
+
+͉H͘N
+
+=
+
+1
+ͱ2
+
+͉͑0͘
+
+
+
+͉H͘N−1
+
++
+
+͉1͘
+
+
+
+͉H¯ ͘N−1͒,
+
+͉H¯ ͘N
+
+=
+
+1
+ͱ2 ͉͑1͘
+
+
+
+͉H͘N−1
+
++
+
+͉0͘
+
+
+
+͉H¯ ͘N−1͒,
+
+͑15͒
+
+with
+
+1
+͉H͘2 = ͱ2 ͉͑00͘ + ͉11͒͘,
+
+022108-5
+
+BORRAS et al.
+
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+(a)
+
+(b)
+
+FIG. 3. Entanglement evolution of different bipartitions for the ͑a͒ robust and ͑b͒ GHZ states of ﬁve qubits for the depolarizing channel. The insets show a magniﬁcation of the region in which the entanglement vanishes. All depicted quantities are dimensionless.
+
+͉H¯ ͘2
+
+=
+
+1
+ͱ2
+
+͉͑01͘
+
++
+
+͉10͒͘ .
+
+͑16͒
+
+V. BOUND ENTANGLEMENT
+A multipartite entangled state has bound entanglement if it is globally entangled but is separable according to any of its possible bipartitions ͓25͔. Aolita et al. ͓13͔ investigated the existence of bound entanglement in the ﬁnal states resulting from decoherence processes acting upon initial states of the generalized ͉GHZ͘ form ͓13͔. They found that the action of the depolarizing channel on a generalized ͉GHZ͘ state leads, for a certain range of p values, to states for which the entanglement of the most unbalanced partitions 1 : N − 1 vanishes while the state is still entangled according to the most balanced partitions, as, for instance, N / 2 : N / 2. This kind of states are said to have “bound entanglement” because no entanglement can be distilled from them by means of local operations, notwithstanding the fact that the system is globally entangled.
+We are now going to investigate the presence of bound entanglement in the N-qubit states generated by the decoherence process when the initial states are the robust ones introduced in Sec. III B. In order to address this issue we calculate ͑on the states resulting from the action of the decoherence channel͒ the negativity corresponding to different partitions of the system. We concentrate our efforts on the depolarizing environment because in this case the phenomenon of entanglement’s sudden death occurs in a ﬁnite time. Figure 3 shows that bound entanglement is observed both for the robust ͉⌿rob͘ and ͉GHZ͘ states. Actually, for all the initial states studied in this work ͑including a sample of 1000 randomly generated states͒ the decoherence process leads to states endowed with bound entanglement. This typical behavior indicates a remarkable capacity of the environment to create bound entanglement. However, special initial states exhibit interesting differences when the decay of entanglement associated with different types of bipartitions is
+
+considered. For the robust states ͉⌿rob͘ introduced in this work, as well as for all the random states that we have generated, the entanglement of the most balanced partitions N / 2 : N / 2 vanishes sooner than the entanglement corresponding to the most unbalanced partitions 1 : N − 1. This is in contraposition to what happens with the generalized ͉GHZ͘ states, as was found by Aolita et al. ͓13͔. The ͉W͘ and the ͉H͘N states also share this uncommon behavior: the p values for which the entanglement of the most unbalanced partitions 1 : N − 1 vanish corresponds to states that are still entangled according to more balanced partitions.
+VI. CONCLUSIONS
+In the present effort we investigated the decay of the amount of entanglement of a multiqubit system experiencing a decoherence process. We considered models of decoherence characterized by independent environments interacting with each of the system’s qubits. We performed a systematic numerical search of the initial pure states exhibiting the most robust entanglement under decoherence scenarios described by ﬁve different channels: phase damping, depolarizing, bit ﬂip, phase ﬂip, and bit-phase ﬂip. For systems of four qubits we found that the state having the most robust entanglement is the ͉HS͘ state introduced by Higuchi and Sudbery ͓18͔, which was conjectured to correspond to a global maximum of entanglement for four-qubit systems ͓18–22͔. In the case of six qubits the state maximizing entanglement robustness again coincides with an already known state of maximum entanglement that had been the subject of previous studies ͓21,22͔. The behavior of the states optimizing robustness for four and six qubits is similar: both states maximize entanglement robustness for each of the six decoherence channels considered in the present work.
+We also were able to determine a ﬁve-qubit state with highly robust entanglement. However, this state exhibits optimal robustness only for four of the decoherence channels considered here. Under the effect of the remaining decoherence channels and for large enough values of the “time”
+
+022108-6
+
+ROBUSTNESS OF HIGHLY ENTANGLED MULTIQUBIT …
+
+PHYSICAL REVIEW A 79, 022108 ͑2009͒
+
+parameter p, this initial state evolves into a state with less entanglement than that obtained from other initial states. When this happens, however, the entanglement exhibited by the system ͑regardless of the initial state͒ is already too small to be of any practical use.
+Unexpectedly, the case of three qubits turned out to be the most complex one. Our numerical results indicate that for three-qubit systems there is no state simultaneously maximizing the entanglement robustness for all ͑or, at least, for most of͒ the decoherence channels studied here. In other words, each state exhibiting optimal robustness for one of the channels was found to be nonoptimal for some of the
+other channels.
+We also discussed a restricted version of the robustness’
+optimization problem involving only states equivalent to the ͉GHZ͘ one under local unitary transformations. A state ͉H͘N obtained by applying the Hadamard gate to each of the qubits of a multiqubit system in the ͉GHZ͘ state was found to play an interesting role. This special state maximizes the
+entanglement robustness for four decoherence channels.
+
+Finally, we studied the phenomenon of bound entanglement determining whether initially entangled multiqubit states evolve ͑as the decoherence process takes place͒ into states characterized by bound entanglement. We focused our attention on the depolarizing channel, this being the channel leading to entanglement sudden death in a ﬁnite time. We found that the ability of the environment to create bound entanglement is a quite general feature that appears for all the states studied in this work.
+ACKNOWLEDGMENTS
+This work was partially supported by the MEC under Grant No. FIS2008-02796 ͑Spain͒, by the Projects No. FQM-2445 and No. FQM-207 of the Junta de Andalucia ͑Spain͒, by the FEDER ͑EU͒, and by the Conicet ͑Argentina Agency͒. A.B. was partially supported by Spanish MECFPU Grant No. AP-2004-2962 and A.P.M. acknowledges support of MEC under Contract No. SB-2006-0165.
+
+͓1͔ I. Bengtsson and K. Zyczkowski, Geometry of Quantum States: An Introduction to Quantum Entanglement ͑Cambridge University Press, Cambridge, 2006͒.
+͓2͔ M. A. Nielsen and I. L. Chuang, Quantum Computation and Quantum Information ͑Cambridge University Press, Cambridge, 2000͒.
+͓3͔ M. Schlosshauer, Rev. Mod. Phys. 76, 1267 ͑2005͒. ͓4͔ J. Gemmer, M. Michel, and G. Mahler, Quantum Thermody-
+namics ͑Springer-Verlag, Berlin, 2004͒. ͓5͔ S. Popescu, A. J. Short, and A. Winter, Nat. Phys. 2, 754
+͑2006͒. ͓6͔ V. Giovannetti, S. Lloyd, and L. Maccone, Phys. Rev. Lett. 96,
+010401 ͑2006͒. ͓7͔ T. Yu and J. H. Eberly, Phys. Rev. Lett. 93, 140404 ͑2004͒. ͓8͔ A. Al-Qasimi and D. F. V. James, Phys. Rev. A 77, 012117
+͑2008͒. ͓9͔ C. Simon and J. Kempe, Phys. Rev. A 65, 052327 ͑2002͒. ͓10͔ A. R. R. Carvalho, F. Mintert, and A. Buchleitner, Phys. Rev.
+Lett. 93, 230501 ͑2004͒. ͓11͔ W. Dür and H. J. Briegel, Phys. Rev. Lett. 92, 180403 ͑2004͒. ͓12͔ M. Hein, W. Dür, and H. J. Briegel, Phys. Rev. A 71, 032350
+͑2005͒. ͓13͔ L. Aolita, R. Chaves, D. Cavalcanti, A. Acín, and L. Davidov-
+ich, Phys. Rev. Lett. 100, 080501 ͑2008͒.
+
+͓14͔ O. Gühne, F. Bodoky, and M. Blaauboer, Phys. Rev. A 78, 060301͑R͒ ͑2008͒.
+͓15͔ M. P. Almeida, F. de Melo, M. Hor-Meyll, A. Salles, S. P.
+Walborn, P. H. Souto Ribeiro, and L. Davidovich, Science 316, 579 ͑2007͒. ͓16͔ A. Salles, F. de Melo, M. P. Almeida, M. Hor-Meyll, S. P.
+Walborn, P. H. Souto Ribeiro, and L. Davidovich, Phys. Rev. A 78, 022322 ͑2008͒. ͓17͔ K. Kraus, States, Effect, and Operation: Fundamental Notions in Quantum Theory ͑Springer-Verlag, Berlin, 1983͒. ͓18͔ A. Higuchi and A. Sudbery, Phys. Lett. A 273, 213 ͑2000͒. ͓19͔ I. D. K. Brown, S. Stepney, A. Sudbery, and S. L. Braunstein, J. Phys. A 38, 1119 ͑2005͒. ͓20͔ S. Brierley and A. Higuchi, J. Phys. A 40, 8455 ͑2007͒. ͓21͔ A. Borras, A. R. Plastino, J. Batle, C. Zander, M. Casas, and A. Plastino, J. Phys. A 40, 13407 ͑2007͒. ͓22͔ A. Borras, M. Casas, A. R. Plastino, and A. Plastino, Int. J. Quantum Inf. 6, 605 ͑2008͒. ͓23͔ P. Facchi, G. Florio, G. Parisi, and S. Pascazio, Phys. Rev. A 77, 060304͑R͒ ͑2008͒. ͓24͔ S. Bandyopadhyay and D. A. Lidar, Phys. Rev. A 72, 042339 ͑2005͒. ͓25͔ W. Dür and J. I. Cirac, Phys. Rev. A 61, 042314 ͑2000͒.
+
+022108-7
+

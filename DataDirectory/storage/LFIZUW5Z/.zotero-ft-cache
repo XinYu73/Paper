@@ -1,0 +1,727 @@
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+Nonequivalence of the generalized gradient approximations PBE and PW91
+
+Ann E. Mattsson,1,* Rickard Armiento,2,† Peter A. Schultz,1,‡ and Thomas R. Mattsson3,§
+1Multiscale Computational Materials Methods, MS 1110, Sandia National Laboratories, Albuquerque, New Mexico 87185-1110, USA
+2Department of Physics, Royal Institute of Technology, AlbaNova University Center, SE-106 91 Stockholm, Sweden 3HEDP Theory/ICF Target Design, MS 1186, Sandia National Laboratories, Albuquerque, New Mexico 87185-1186, USA
+͑Received 20 September 2005; revised manuscript received 20 December 2005; published 30 May 2006͒
+Two of the most popular generalized gradient approximations used in the applications of the density functional theory, PW91 and PBE, are generally regarded as essentially equivalent. They produce similar numerical results for many simple properties, such as lattice constants, bulk moduli, and atomization energies. We examine more complex properties of systems with electronic surface regions, with the speciﬁc application of the monovacancy formation energies of Pt and Al. A surprisingly large and consistent discrepancy between PBE and PW91 results is obtained. This shows that despite similarities found between some simple material properties, PBE and PW91 are not equivalent. The differences obtained for the monovacancy formation energies are related to differences in surface intrinsic errors which are substantiated using the idealized, well-controlled, jellium surface model. In view of the differences obtained with the PW91 and PBE functionals we develop separate surface intrinsic error corrections for these and revisit some earlier results.
+
+DOI: 10.1103/PhysRevB.73.195123
+
+PACS number͑s͒: 71.15.Mb, 61.72.Ji, 73.90.ϩf
+
+I. INTRODUCTION
+The Kohn-Sham ͑KS͒ density-functional theory1 ͑DFT͒ is a widely used and successful method for electronic structure calculations. The accuracy of DFT calculations depends on the choice of approximation of the universal exchangecorrelation ͑XC͒ functional. Besides the simplest ͑but surprisingly effective͒ functional, the local density approximation ͑LDA͒,1 many other functionals have been suggested. Among the most popular functionals today are two generalized gradient approximations ͑GGAs͒, PW91 ͑Ref. 2͒ and PBE,3 of Perdew and co-workers. The purpose of this paper is to study an unexpected difference between these two functionals for applications where surface effects are present.
+Despite the fact that PW91 and PBE have different analytical forms and are derived in different ways, it is a commonly held view that they are mostly interchangeable functionals and are expected to produce virtually identical results. The original PBE work presents a ﬁgure ͑Fig. 1 in Ref. 3͒ showing only minor differences between the exchange correlation reﬁnement functions of the two functionals. Computer source code implementing PBE, distributed by Burke, states among its comments: “PBE is a simpliﬁcation of PW91, which yields almost identical numerical results with simpler formulas from a simpler derivation.” Test calculations on usual test systems, such as lattice constants, bulk moduli, and atomization energies, indeed give results that are essentially identical. Since the differences that do exist between the functionals do not have any impact on these simple test systems, the differences have been widely regarded as irrelevant. The view of PW91 and PBE as interchangable is so deeply rooted that many DFT codes implement only one of these functionals. Partially because of this, it is rare for papers to present results for both PW91 and PBE in otherwise equivalent calculations. It is thus hard to assess from the literature whether the functionals indeed give equal results beyond simple test systems. In this paper we show that PW91 and PBE do not give the same results for systems involving surfaces.
+
+Based on the view of PW91 and PBE as very similar, it is a common practice to mix results from these functionals as if they were equivalent and to quote interchangeably, “GGA.” While this might be justiﬁed for simpler properties, or if not too high an accuracy is needed, this practice, in general, is not well founded. While testing functionals for surface effects,4 two of us ͑R.A. and A.E.M.͒ recently encountered differences between PW91 and PBE results much larger than differences obtained by using different codes and/or different types of pseudopotentials. In fact, PW91 and PBE results for the monovacancy formation energy can differ more than LDA and PBE results. It is thus not generally appropriate to quote just GGA for both PW91 and PBE results.
+In Sec. II, we show that there is a signiﬁcant difference between the PW91 and PBE computational results for the monovacancy formation energy of Pt and Al. It has previously been shown5,6 that the differences in monovacancy formation energies of metals obtained with different functionals is connected to how well the different functionals describe surfaces, that is, the size of their surface intrinsic error. In order to explore the differences of PW91 and PBE for surface properties we examine the idealized, well-controlled, jellium surface model7 in Sec. III. We show that a discrepancy between PW91 and PBE results is also present in the jellium surface model and that PW91 and PBE, thus, have different surface intrinsic errors. Section IV quantiﬁes the difference in surface intrinsic error between PW91 and PBE and revisits some previous results for monovacancy formation energies of metals where the surface intrinsic errors have been corrected. We end the paper with a summary and conclusions.
+II. MONOVACANCY FORMATION ENERGIES
+To ensure that the differences we obtain with PW91 and PBE are due to the functionals and not an artifact due to other errors,8 we use several different codes with different pseudopotentials and basis sets in our calculations. We com-
+
+1098-0121/2006/73͑19͒/195123͑7͒
+
+195123-1
+
+©2006 The American Physical Society
+
+MATTSSON et al.
+
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+pute the lattice constant, bulk modulus, and monovacancy formation energies of Pt and Al. We take great care in converging all our results, with respect to basis sets and with respect to k points. To the maximum possible extent we treat all functionals the same within the same combination of code and type of pseudopotential.
+We use three different DFT codes in our vacancy calculations. SOCORRO is a plane-wave pseudopotential DFT code, developed at Sandia National Laboratories.9 For these calculations, norm conserving separable pseudopotentials are used. With the FHI98PP software package10–12 we created both Trouillier-Martin11 ͑TM͒ and Hamann12 type pseudopotentials with the default settings and, for comparison, also TM type pseudopotentials intentionally made “harder” than default. VASP13 is a widely used plane-wave pseudopotential DFT code. In the VASP calculations we use the provided projector augmented-wave ͑PAW͒ pseudopotentials14 and, for comparison, we also used the provided ultrasoft ͑US͒ pseudopotentials15 ͑which are not available for PBE͒.16 SEQQUEST is a contracted-Gaussian basis set pseudopotential DFT code17 using norm-conserving nonseparable Hamann
+pseudopotentials. These pseudopotentials are generated using Hamann’s GNCPP code ͑LDA͒ and the FHI98PP code ͑PBE and PW91͒. In all calculations the number of k points used are 43 for Pt and 63 for Al, which corresponds to 10 and 28
+special k points, respectively, in the Monkhorst-Pack scheme.18 Additional details of the calculations are given in
+the Appendix.
+We ﬁrst examine bulk properties of Pt and Al. Results for
+the equilibrium lattice constant a0 and bulk modulus B0 are shown in the upper two parts of Tables I and II. As men-
+tioned above, the results of PW91 and PBE are virtually
+identical for these simple properties. Different pseudopoten-
+tials and different codes give very similar results. Since most
+pseudopotentials and code implementations typically are
+tested against these properties, this is expected.
+We now turn to the monovacancy formation enthalpy HVF = EV − ͑N − 1͒E / N, where EV and E are total energies for the system with and without a vacancy, and N is the number of atoms in the fully populated ͑perfect crystal͒ supercell. The results for the Pt vacancy are listed in the lower part of
+Table I. Although PW91 and PBE give similar results for the
+perfect Pt crystal, the computed vacancy formation energies
+with the two functionals are surprisingly different. Although
+the difference is not dramatic, it is signiﬁcant, the PBE re-
+sults being almost 0.1 eV larger than the PW91 results, and
+independent of code, pseudopotential, and basis set. The ex-
+ception is the VASP PAW results where the difference is only 0.03 eV.22
+All of the results, LDA, PW91, or PBE, signiﬁcantly un-
+derestimate the experimental vacancy formation energy of 1.35 eV.20 The 64-site cells used here are too small for con-
+verged results for the Pt vacancy, but using larger cells results in even smaller computed vacancy formation energies.6
+Despite the fact that the bulk properties are converged, the
+electronic temperature, 0.015 Ry, used in the SOCORRO and
+one of the SEQQUEST calculations is too large for the vacancy
+calculations to be converged. In fact even the temperatures
+used in one of the VASP PAW calculations, 0.007 Ry, is too
+large. Reducing the temperature to 0.003 Ry, a more reason-
+
+TABLE I. Results from different DFT electronic structure codes with different pseudopotentials for calculations of bulk properties and the monovacancy formation energy of Pt. The VASP calculations with US pseudopotentials are the same as in Ref. 6.
+
+LDA
+
+PW91
+
+PBE
+
+Pt lattice constant of bulk crystal a0 ͑Å͒ ͑Exp: 3.92a͒
+
+AE FPc
+
+3.90
+
+3.97
+
+SOCORRO TM
+
+3.90
+
+3.99
+
+3.98
+
+SOCORRO hard TM
+
+3.90
+
+3.99
+
+3.98
+
+SOCORRO Hamann
+
+3.92
+
+4.00
+
+4.00
+
+VASP US
+
+3.91
+
+3.99
+
+VASP PAW 0.007 Ry
+
+3.91
+
+3.99
+
+3.98
+
+VASP PAW 0.003 Ry
+
+3.91
+
+3.99
+
+3.98
+
+SEQQUEST 0.015 Ry
+
+3.88
+
+3.97
+
+3.96
+
+SEQQUEST 0.003 Ry
+
+3.89
+
+3.97
+
+3.96
+
+Pt bulk modulus of bulk crystal B0 ͑GPa͒ ͑Exp: 283a͒
+
+AE FPc
+
+312
+
+247
+
+SOCORRO TM
+
+313
+
+252
+
+255
+
+SOCORRO hard TM
+
+313
+
+254
+
+255
+
+SOCORRO Hamann
+
+317
+
+252
+
+254
+
+VASP US
+
+291
+
+230
+
+VASP PAW 0.007 Ry
+
+305
+
+242
+
+246
+
+VASP PAW 0.003 Ry
+
+305
+
+244
+
+247
+
+SEQQUEST 0.015 Ry
+
+318
+
+259
+
+260
+
+SEQQUEST 0.003 Ry
+
+316
+
+257
+
+259
+
+Pt monovacancy formation energy HVF ͑eV͒ ͑Exp: 1.35b͒
+
+SOCORRO TM
+
+0.91
+
+0.64
+
+0.72
+
+SOCORRO hard TM
+
+0.91
+
+0.66
+
+0.73
+
+SOCORRO Hamann
+
+0.92
+
+0.64
+
+0.69
+
+VASP US
+
+0.99
+
+0.72
+
+VASP PAW 0.007 Ry
+
+0.93
+
+0.66
+
+0.69
+
+VASP PAW 0.003 Ry
+
+0.87
+
+0.62
+
+0.64
+
+SEQQUEST 0.015 Ry
+
+1.18
+
+0.88
+
+0.96
+
+SEQQUEST 0.003 Ry
+
+1.10
+
+0.82
+
+0.89
+
+aSee Ref. 19. bSee Ref. 20. cAll electron, full potential results from Ref. 21.
+
+able value, in the SEQQUEST and VASP calculations causes the vacancy formation energy to get ͑signiﬁcantly͒ smaller, and away from experiment, rather than larger. The difference between PBE and PW91 results is still evident.
+The SEQQUEST vacancy formation energies are substantially larger ͑and, hence, in better agreement with experiment͒ than results from the other codes. The local atomic orbital basis set used in these calculations has been augmented with an extensive set of ﬂoating orbitals ͑see the Appendix͒ to achieve basis convergence and, therefore, we expect that only a small portion of the difference is due to basis set insufﬁciency ͑less than 0.02 eV͒. The SEQQUEST vacancy calculations froze the volume of the vacancy cell at the optimal crystal volume, while the other calculations relaxed the volume of the vacancy cell. The volume relaxation reduces EV by less than 0.05 eV. Other differences between
+
+195123-2
+
+NONEQUIVALENCE OF THE GENERALIZED GRADIENT¼
+
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+TABLE II. Results from different DFT electronic structure codes for calculations of bulk properties and the monovacancy formation energy of Al.
+
+LDA
+
+PW91
+
+PBE
+
+Al lattice constant of bulk crystal a0 ͑Å͒ ͑Exp: 4.03a͒
+
+AE FPb
+
+3.98
+
+4.04
+
+SOCORRO
+
+3.96
+
+4.05
+
+4.05
+
+VASP PAW
+
+3.99
+
+4.05
+
+4.04
+
+Al bulk modulus of bulk crystal B0 ͑GPa͒ ͑Exp: 77.3a͒
+
+AE FPb
+
+84
+
+77
+
+SOCORRO
+
+82
+
+73
+
+75
+
+VASP PAW
+
+84
+
+74
+
+78
+
+Al monovacancy formation energy HVF ͑eV͒ ͑Exp: 0.68a͒
+
+SOCORRO
+
+0.67
+
+0.53
+
+0.61
+
+VASP PAW
+
+0.68
+
+0.54
+
+0.63
+
+aSee Ref. 5. bAll electron, full potential results from Ref. 21.
+
+the calculations are responsible for the remaining discrepancy and will be the subject of another article. Despite these variations between the different calculations, the difference between the results with the PW91 and PBE functionals is the same. The variability in the monovacancy formation energies reported in Table I illustrates the point in Ref. 8 that it is important to document all salient details about a calculations for it to reproducible, and for the results to be potentially useful for later analyses such as this one.
+In Table II, the results for Al are presented. Just as for Pt, the bulk properties using PBE and PW91 are essentially the same. But, once again, the PBE and PW91 values for the monovacancy formation energy are different, with the PBE value being almost 0.1 eV larger than the PW91 value. Note that for Al, unlike for Pt, the substantial difference between PBE and PW91 is seen also in the VASP PAW results. This might not appear to be a dramatic difference between two different functionals, but it is larger than expected for functionals that are commonly regarded as more or less identical. Indeed, the difference between PBE and PW91 is a good fraction of the difference between LDA and PBE, in particular for Al. It is thus clear that it is as important to distinguish if PW91 or PBE has been used in a calculation as it is to distinguish either of them from LDA.
+For Al, the cell size and electronic temperatures used give converged monovacancy formation energies. As seen in Table II, LDA gives the monovacancy formation energy closest to the experimental value. However, the bulk properties are clearly best calculated with PW91 or PBE. This has been previously discussed and explained in Ref. 5, but will be revisited in the following sections. We will now return to the main focus of this paper, the differences in results obtained with the PW91 and the PBE functionals.
+Removing an atom to create a vacancy in a bulk metal can be seen as creating an internal surface. Thus, it is reasonable to expect some similarities in the physics of vacancies and the physics of surfaces.4–6 That PBE and PW91 give consistently different results for vacancies suggest that the cause lies in their treatment of surface regions.
+
+Surface regions are low-density regions where the dimensionless gradient, s ͑Refs. 2 and 3͒, becomes large. It should be noted, however, that very low-density regions, that is, regions where s can be very large, do not contribute substantially to the total energy. This indicates that the differences in monovacancy formation energies obtained with PW91 and PBE, are due to differences in the functionals for moderate values of s, typically around s = 1, and densities of typically 40% of the average bulk densities. Indeed, examining Fig. 1 in Ref. 3 closely, it is clear that the enhancement factors of PW91 and PBE do differ for these values of s, even if it is not a very large difference. We can note, however, that compared to the LDA value at s = 0, the differences between PBE and PW91 are on the same scale as the differences between LDA and PBE. This is indeed seen in the values we present here for the monovacancy formation energy. These values of density and dimensionless gradient are not substantially different from values possible in a bulk calculation, still no differences show up in bulk properties. The resolution of this puzzle most likely lies in that bulk properties tend to be less sensitive to these small differences while properties connected to the surface region, like surface energies, directly pick up those differences. In order to further explore the differences between PW91 and PBE for surface properties we next compare the performance of PW91 and PBE for surface energy calculations using an idealized, well-controlled, model surface system.
+III. SURFACE MODEL: THE JELLIUM SURFACE
+To better understand the difference between the PW91 and PBE results for the monovacancy formation energy of metals, we will now examine a more abstract model system, the jellium surface. This model system has been used extensively before for evaluating and comparing functionals, such as PW91 and PBE.4,21 The purpose is to use a wellcontrolled system where differences in pseudopotentials and/or other computational details will not inﬂuence the results. This study gives us clean, uncontaminated, information about the real differences between PW91 and PBE. For a functional ⑀xc͑r ; ͓n͔͒, the jellium surface energy ␴xc = ͐n͑z͓͒⑀xc͑r ; ͓n͔͒ − ⑀xLcDA͑¯n͔͒dz, where n͑r͒ is from a selfconsistent LDA calculation on a three dimensional, halfinﬁnite system with uniform background of positive charge ¯n for z ഛ 0 and 0 for z Ͼ 0 ͑Ref. 7͒. The value of ¯n is commonly expressed in terms of rs = ͓3 / ͑4␲¯n͔͒1/3. The most accurate XC jellium surface energies are given by the “improved random-phase approximation” ͑RPA+ ͒.23 In Table III we show the results for LDA, PW91, PBE, and RPA+.
+A ﬁrst observation in Table III is that LDA performs better than both PW91 and PBE for the jellium surface despite the individual exchange and correlation components being far off. Thus, there is a very large cancellation of errors between the exchange and correlation for LDA. The causes are well known. The LDA exchange-correlation combination is derived from a real model system ͑the uniform electron gas͒, making exchange and correlation approximations “compatible.” To be more speciﬁc, there is a family of systems, the uniform electron gas, spanned by the free parameter of LDA
+
+195123-3
+
+MATTSSON et al.
+
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+TABLE III. Jellium XC surface energies, in erg/ cm2, calculated with LDA, PW91, and PBE, and mean absolute relative errors ͑mare͒ compared to the RPA+ values that are taken as exact.
+
+rs ͑Bohr radius͒
+
+LDA
+
+PW91
+
+PBE
+
+2.00 2.07 2.30 2.66 3.00 3.28 4.00 5.00 Mare
+2.00 2.07 2.30 2.66 3.00 3.28 4.00 5.00 Mare
+2.00 2.07 2.30 2.66 3.00 3.28 4.00 5.00 Mare
+
+Total exchange-correlation
+
+3354
+
+3216
+
+3264
+
+2961
+
+2837
+
+2880
+
+2019
+
+1929
+
+1960
+
+1188
+
+1131
+
+1151
+
+764
+
+725
+
+739
+
+549
+
+521
+
+531
+
+261
+
+247
+
+252
+
+111
+
+104
+
+107
+
+2%
+
+7%
+
+5%
+
+Exchange
+
+3037
+
+2402
+
+2437
+
+2674
+
+2094
+
+2126
+
+1809
+
+1371
+
+1394
+
+1051
+
+755
+
+769
+
+669
+
+454
+
+464
+
+477
+
+308
+
+316
+
+222
+
+124
+
+128
+
+92
+
+38
+
+40
+
+30%
+
+15%
+
+13%
+
+Correlation
+
+317
+
+815
+
+827
+
+287
+
+742
+
+754
+
+210
+
+558
+
+567
+
+136
+
+376
+
+382
+
+95
+
+271
+
+275
+
+72
+
+212
+
+215
+
+39
+
+123
+
+124
+
+19
+
+66
+
+67
+
+63%
+
+7%
+
+9%
+
+RPA+
+3413 3015 2060 1214 781 563 268 113
+2624 2296 1521 854 526 364 157 57
+789 719 539 360 255 199 111 56
+
+͑the density͒, where LDAs exchange-correlation is exact. When LDA is applied to a non-uniform system, the errors in exchange and correlation tend to cancel. This beneﬁt from using model systems as a basis for functional development is central in the subsystem functional approach for constructing functionals.4,24 The basic principle is to divide a system into subsystems where one type of physics dominates the behavior and, in each subsystem, to use a functional based on a model system that captures the essential physics. In Ref. 4 a functional is presented that can be used where parts of a solid state system can be considered to exhibit typical surface behavior, vacancies being a good example.
+In contrast, PW91 and PBE are constructed from other principles. LDA fulﬁlls a number of “exact constraints” that also hold for the exact exchange-correlation functional. PW91 and PBE satisfy additional exact constraints beyond those of LDA, but they do not satisfy the same set of constraints. PW91 is constructed to fulﬁll the second-order
+
+density-gradient expansion approximation for the exchangecorrelation hole around an electron and to be a close ﬁt to a numerical GGA obtained from a real-space cutoff procedure2,25 while PBE is motivated from that it reproduces a number of other known limits.3 These fundamentally different derivations produce analytical forms of the resulting functionals that are very different. This is thoroughly discussed in Ref. 3. We have not been able to clearly isolate a speciﬁc difference in the constructions of PW91 and PBE that accounts for the discrepancies studied here.
+Focusing on the performance of PW91 and PBE in Table III, we see that some cancellation of errors is present also for these functionals. Their performance at surfaces are different, however, both for exchange and correlation. Judging from the RPA+ values, PBE’s performance at surfaces is better than PW91’s, but still not as good as LDA’s performance. As has been mentioned above, the differences in jellium surface energies are closely connected to the differences found in the monovacancy results. In the following, this connection is further enlightened by using the jellium data in Table III to derive simple PW91 and PBE surface intrinsic error26 corrections to be used for correcting monovacancy formation energies of metals calculated with PW91 and PBE. We are using methods similar to those used in Refs. 5 and 6.
+IV. SURFACE INTRINSIC ERROR CORRECTIONS
+A functional’s surface intrinsic error, evident in Table III, was ﬁrst discussed in Ref. 26, where a scheme for correcting this error was also outlined. In modiﬁed form, this correction scheme has been used to correct monovacancy formation energies5,6 and the work of adhesion of Pd on ␣-alumina.27 However, it had been assumed that PW91 and PBE had the same surface intrinsic error and PBE corrections were applied to PW91 results. Given that the two GGA functionals behave differently for surface related properties, it is likely that these differences will express themselves in different correction terms for the surface intrinsic error. In this section we derive a surface intrinsic error correction speciﬁc for PW91, and also derive new simpliﬁed surface corrections for LDA and PBE. We ﬁnd that the surface corrections for PW91 and PBE are indeed markedly different. We apply these corrections to monovacancy formation energy results presented here and in previous publications, conﬁrming the conclusions in the previous works and providing a simple mechanism to remove both the surface error in the functionals and mitigate the effects of the differences between PBE and PW91 on surface-related systems.
+The key concept of the correction scheme for the surface intrinsic error is to use the known error of a functional in one system as a correction for the results, using the same functional, in a similar system with an unknown error. Here, we will use the known errors in surface energies for the jellium surface model system presented in Table III, that is, the surface intrinsic errors or ⌬␴xc= ͑␴xc− ␴xRcPA+͒, as corrections for surface energies in general. For this purpose we construct functions that take ˜rs = rs / aB as input, where aB is the Bohr radius, and give ⌬␴xc as output. The expression to ﬁt to the numbers in Table III is based on Ref. 28’s assertion that ␴xcϳ˜rs−7/2 + O͑˜rs−5/2͒ for low ˜rs, and Ref. 6’s assertion that in
+
+195123-4
+
+NONEQUIVALENCE OF THE GENERALIZED GRADIENT¼
+
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+TABLE IV. Corrected Al monovacancy formation energy ͑in eV͒. The correction is applied to the values in Table II, for details see the text. The experimental value is 0.68± 0.03 eV ͑see Ref. 5͒. We estimate that the DFT calculation based value is 0.75± 0.03 eV.
+
+LDA
+
+PW91
+
+PBE
+
+SOCORRO
+
+0.73
+
+0.73
+
+0.76
+
+VASP PAW
+
+0.74
+
+0.74
+
+0.78
+
+FIG. 1. ͑Color online͒ Relative jellium surface energy error of LDA ͑solid͒, PBE ͑dashed͒, and PW91 ͑dash-dotted͒ functionals. The error bars represent the roundoff errors of the integer RPA+ values. While one can be certain that the data is not more accurate than this, actual errors are likely larger. We use the interpolation/ extrapolation formula of Ref. 28 for the values of ␴xRcPA+.
+this limit the relative difference vanishes, ͑␴xc− ␴xRcPA+͒ / ␴xRcPA+ → 0. Using the two lowest order terms gives the form: ⌬␴xc͑˜rs͒ = A˜rs−5/2 + B˜rs−3/2. Least squares ﬁts give for LDA: A = 448.454 erg/ cm2 and B = −55.845 erg/ cm2, for PW91: A = 1577.2 erg/ cm2 and B = −231.29 erg/ cm2, and for PBE: A = 1193.7 erg/ cm2 and B = −174.37 erg/ cm2. Figure 1 shows the relative jellium surface energy error versus rs, and it is indeed seen that PW91 and PBE have quite different surface intrinsic errors and that different surface energy corrections are needed for these two functionals. A transformation of units from erg/ cm2 to eV/ Å2 results in Fig. 2, where we have also renamed the jellium surface model system’s surface energy error to a general surface energy correction. The dimensionless parameter ˜rs can be transformed to a density which is the electron density inside the jellium system very far from the surface. We call this density the “bulk density” and in Fig. 2 we use Å−3 as its unit.29
+In order to be able to correct monovacancy formation energies, two additional quantities need to be determined. First, we need to decide what rs, or bulk density, we should use to obtain a value for the surface intrinsic error correction ͑see
+
+Fig. 2͒. We have argued5,6,27 that the actual bulk density is a good value to use in a metal vacancy system. Second, we need to estimate a surface area for the vacancy, to transform the surface energy correction to a vacancy formation energy correction. Here, we use the same estimates for these quantities that we have used previously.
+The bulk density corresponding to Pt is 0.669 Å−3 ͑Ref. 6͒. The corresponding surface energy corrections are 0.038 eV/ Å2 for PW91, and 0.028 eV/ Å2 for PBE. Using the rather rough vacancy area estimates of Ref. 6 yields formation energy corrections of 0.64 eV for PW91, and 0.47 eV for PBE. Hence, the theoretically predicted difference between PW91 and PBE Pt monovacancy formation energies is 0.17 eV. This is larger than the actual difference found in the DFT calculations ͑see Table I͒, but this is not surprising since we are operating at the limit of accuracy for this rather simple correction scheme. The fact that the correction is in the right direction and on the correct energy scale is a clear indication that the differences in monovacancy formation energy and jellium surface energy are strongly correlated.
+The simple correction scheme should, however, work very well for the free-electronlike Al charge density, and in Table IV we show corrected values for all three functionals and two different codes. All corrected monovacancy formation energies are between 0.05 and 0.1 eV larger than the experimental value ͑which has an errorbar of ±0.03 eV͒. The small spread in the corrected monovacancy formation energies indicates that the surface intrinsic error of the present functionals is the main culprit for errors in this quantity.
+In Ref. 6 a correction derived for PBE was applied to PW91 monovacancy formation energy results. In Table V we instead use the PW91 correction derived in this paper to correct the PW91 monovacancy formation energy results of that paper. Note, however, that these monovacancy formation energies are calculated using ultrasoft pseudopotentials,15 which possibly have affected the vacancy formation energy results as much as the difference between PW91 and PBE
+
+FIG. 2. ͑Color online͒ Surface energy correction per area ͑eV/ Å2͒ for LDA ͑solid͒, PBE ͑dashed͒, and PW91 ͑dash-dotted͒.
+
+TABLE V. PW91 monovacancy formation energies ͑in eV͒ from Ref. 6 when recorrected using the PW91 correction derived in the present paper. For comparison, unmodiﬁed LDA values are cited from the reference.
+
+ELreDlaAx
+
+ELcoDrrAected
+
+EPreWlax91
+
+EPcoWrr9e1cted
+
+Pt
+
+0.95
+
+1.15
+
+0.68
+
+1.34
+
+Pd
+
+1.50
+
+1.71
+
+1.20
+
+1.85
+
+Mo
+
+2.89
+
+3.00
+
+2.67
+
+3.05
+
+195123-5
+
+MATTSSON et al.
+
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+corrections ͑see Table I͒. We do not apply any corrections to the Pt monovacancy formation energies presented in Table I since the Pt cell size we use in this work is too small for the result, even corrected, to be compared to the experimental value.
+Finally, we want to point out that the PW91 results in Refs. 5 and 27 are corrected with the PBE correction, which results in too low corrected values for the PW91 monovacancy formation energy and the PW91 work of adhesion, respectively. This does not, however, affect any of the major conclusions in either paper.
+V. DISCUSSION AND CONCLUSIONS
+In this paper we have shown that the differences between the PW91 and PBE functionals indeed can give noticeable differences in calculated properties of real systems. In particular we have presented surprisingly large discrepancies in results using PW91 and PBE for calculation of properties where surface effects are present. Speciﬁcally, we have studied the monovacancy formation energy of Pt and Al, and jellium surface energies. Furthermore, we have shown how the results for these two types of systems are connected. The difference between PW91 and PBE is evident in Figs. 1 and 2. In view of the fact that PW91 and PBE do not give the same results in all calculations, we conclude that: ͑1͒ for calculations to be reproducible, the use of PW91 or PBE must be clearly documented, i.e., to only state GGA is not sufﬁcient; ͑2͒ the functionals are not similar enough to motivate the use of pseudopotentials constructed for one of them in calculations with the other; and ͑3͒ when testing functionals, one should include test systems where surface effects are present.
+ACKNOWLEDGMENTS
+R.A. was funded by the project ATOMICS at the Swedish research council SSF. Sandia is a multiprogram laboratory operated by Sandia Corporation, a Lockheed Martin Company, for the United States Department of Energy’s National Nuclear Security Administration under Contract No. DEAC04-94AL85000.
+APPENDIX: DETAILS OF THE CALCULATIONS
+1. SOCORRO
+The Perdew-Wang correlation30 is used in the LDA calculations. For the pseudopotentials ͑PPs͒ we used a scalarrelativistic calculation on an ordinary nonionic reference conﬁguration. No nonlinear core correction was used. For Al we use a Hamann type PP with l = 2 as the local component. The s, p, and d core cutoff radii in Bohr radius for Al are 1.2419, 1.5469, and 1.3692. For Pt we use two TM type PPs and one Hamann type PP. The l = 0 is used as the local component for all three types of Pt PPs. The s, p, and d core cutoff radii in Bohr radius are 2.4935, 2.6182, and 2.4935 for Pt TM, 2.4935, 2.6182, and 1.7719 for Pt hard TM, and 1.4226, 1.7719, and 0.7543 for Pt Hamann. The equilibrium lattice constant a0 and bulk modulus B0 = −V‫ץ‬2E / ‫ץ‬V2͉V0 are
+
+obtained from the energy minimum given by a ﬁt of seven points, in a range of about ±10% of the cell volume at equilibrium V = V0, to the Murnaghan equation of state.31 The vacancy cell is geometrically relaxed, and both vacancy and bulk cells are volume relaxed. The structural optimization was terminated when the root-mean-square of the force components was below 5.0ϫ 10−4 Ry/͑Bohr radius͒. Wave function/density cutoffs were 60 Ry/ 240 Ry for Pt and 20 Ry/ 80 Ry for Al. The number of bands used in the Pt calculation needed to be very high in order to converge the calculations. We used 430 bands for Pt and 144 for Al. We used a Fermi smearing temperature of 1.5ϫ 10−2 Ry for Pt and 3 ϫ 10−3 Ry for Al. All bulk property and the Al vacancy calculations used a density based convergence criteria for the electronic iterations. The self-consistent ͑SC͒ loop was terminated when the root-mean-square distance between the new and old density ﬁelds was less than 1 ϫ 10−6 ͑Bohr radius͒−3. For the Pt vacancy calculations we used an energy based convergence criteria; the SC loop was terminated when the cell energy of consecutive steps changed less than 1 ϫ 10−5 Ry.
+2. VASP
+The Perdew-Zunger correlation32 is used in the LDA calculations. The ofﬁcial VASP pseudopotentials are used. The equilibrium lattice constant a0 and bulk modulus B0 are obtained from the energy minimum given by a ﬁt of at least seven points, centered around the cell volume at equilibrium V = V0, to the Murnaghan equation of state.31 The vacancy cell is geometrically relaxed and both vacancy and bulk cells are volume relaxed.
+Common settings for all the Pt PAW calculations are: plane wave cutoff 300 eV, augmentation 600 eV, electronic iteration cutoff 10−5 eV, and a Fermi smearing of 0.10 or 0.0408 eV as indicated in Table I. The calculations use a PAW potential with recommended cutoff energy ͑ENMAX͒ 230.228 eV for LDA, ENMAX 230.277 eV for PW91, and a PAW potential dated 05Jan2001 with ENMAX 230.283 eV for PBE. We here use ENMAX to identify the potential used. The LDA and PW91 calculations use an ionic relaxation cutoff of 0.005 eV/ Å while for PBE 0.01 eV/ Å was used. Remaining forces on the ions were less than 0.006 eV/ Å, even for PBE, and thus this difference does not explain the deviating result for VASP PAW PBE in Table I. The Pt US calculations are taken from Ref. 6.
+For the Al PAW calculations, common settings are: plane wave cutoff 320 eV, augmentation 640 eV, electronic iteration cutoff 10−5 eV, a Fermi smearing of 0.10 eV, and an ionic relaxation cutoff of 0.005 eV/ Å. The calculations use a PAW potential with ENMAX 240.957 eV for LDA, ENMAX 240.437 eV for PW91, and the Al_h 08Apr2002 potential with ENMAX 294.838 eV for PBE.
+3. SEQQUEST
+We used SEQQUEST only for Pt calculations. The PerdewZunger correlation32 is used in the LDA calculations. The atomic conﬁguration for the PP generation is d9s0.5 ͑i.e., net charge +0.5͒. We include up to l = 2, with the l = 2 channel
+
+195123-6
+
+NONEQUIVALENCE OF THE GENERALIZED GRADIENT¼
+
+PHYSICAL REVIEW B 73, 195123 ͑2006͒
+
+used as the local potential. The l = 0 and l = 2 channels use Hamann’s default settings. For the l = 1 channel a linearization energy ep = 0.01 Ry is used with Rp = 1.56 Bohr radius for LDA and 1.57 Bohr radius for PBE and PW91. The basis set used is a “valence double zeta plus polarization” ͑DZP͒ one, that is, two radial degrees of freedom are used for s and d, while one is used for p. The Pt basis, designated 4s2p5d / 2s1p2d, has four Gaussians functions for the s-orbital contracted into two independent radial functions, two Gaussian functions for the p-orbital contracted into a single radial function, and ﬁve Gaussian functions for the d-orbital contracted into two independent radial functions, multiplied by appropriate angular factors. This equals 15 total basis functions/atom ͑2s + 3p + 10d͒. The speciﬁc Gauss-
+ian functions are different for LDA, PBE, and PW91, but are approximately equal. For all functionals the outermost ͑smallest͒ Gaussian function is for s ϳ 0.08, for p ϳ 0.12, and for d ϳ 0.16. A ﬂoating basis was added in the vacant site in the vacancy calculations. The ﬂoating basis consists of two
+
+sets of single Gaussian functions. The ﬁrst set roughly con-
+sists of the outermost Gaussian functions of the missing Pt atom ͑s: 0.08, p: 0.12 and d: 0.16͒, while the second set of
+single Gaussian functions have 2.5 times the exponents of the ﬁrst set ͑s: 0.20, p: 0.30, and d: 0.40͒. Various improvements ͑Pt triple-zeta d, more-zeta s and/or p, and other modiﬁcations of ﬂoating orbitals͒ on top of this all change the results by no more than ϳ0.01 eV. The bulk lattice parameter a0 was optimized in 1-atom cells with a k-mesh= 163 and an r-mesh= 183, equivalent to a k-mesh= 43 and an r -mesh= 723 for the 64-atom cell. By performing 64-atom
+bulk crystal reference calculations at optimal a0 for a given PP/functional/basis we veriﬁed that E͑64-atom cell͒/ 64ϳ E͑1-atom cell͒ with a difference less than 10 ␮Ry/ Pt. A
+Fermi smearing temperature of 0.003 Ry was used. Increas-
+ing the temperature from 0.003 to the 0.015 Ry used in the
+SOCORRO plane-wave calculations increases the monova-
+cancy formation energy, see Table I.
+
+*Electronic address: aematts@sandia.gov †Electronic address: armiento@mailaps.org ‡Electronic address: paschul@sandia.gov §Electronic address: trmatts@sandia.gov 1 P. Hohenberg and W. Kohn, Phys. Rev. 136, B864 ͑1964͒; W.
+Kohn and L. J. Sham, Phys. Rev. 140, A1133 ͑1964͒. 2 J. P. Perdew, J. A. Chevary, S. H. Vosko, K. A. Jackson, M. R.
+Pederson, D. J. Singh, and C. Fiolhais, Phys. Rev. B 46, 6671 ͑1992͒; 48, 4978 ͑1993͒. 3 J. P. Perdew, K. Burke, and M. Ernzerhof, Phys. Rev. Lett. 77, 3865 ͑1996͒. 4 R. Armiento and A. E. Mattsson, Phys. Rev. B 72, 085108 ͑2005͒. 5 K. Carling, G. Wahnström, T. R. Mattsson, A. E. Mattsson, N.
+Sandberg, and G. Grimvall, Phys. Rev. Lett. 85, 3862 ͑2000͒. 6 T. R. Mattsson and A. E. Mattsson, Phys. Rev. B 66, 214110
+͑2002͒. 7 N. D. Lang and W. Kohn, Phys. Rev. B 1, 4555 ͑1970͒. 8 A. E. Mattsson, P. A. Schultz, M. P. Desjarlais, T. R. Mattsson,
+and K. Leung, Modell. Simul. Mater. Sci. Eng. 13, R1 ͑2005͒. 9 SOCORRO is developed at Sandia National Laboratories and avail-
+able from http://dft.sandia.gov/Socorro/. 10 M. Fuchs and M. Schefﬂer, Comput. Phys. Commun. 119, 67
+͑1999͒; X. Gonze, R. Stumpf, and M. Schefﬂer, Phys. Rev. B 44, 8503 ͑1991͒. 11 N. Troullier and J. L. Martins, Phys. Rev. B 43, 1993 ͑1991͒. 12 D. R. Hamann, Phys. Rev. B 40, 2980 ͑1989͒. 13 G. Kresse and J. Hafner, Phys. Rev. B 47, R558 ͑1993͒; 49, 14251 ͑1994͒; G. Kresse and J. Furthmüller, ibid. 54, 11169 ͑1996͒. 14 G. Kresse and D. Joubert, Phys. Rev. B 59, 1758 ͑1999͒. 15 D. Vanderbilt, Phys. Rev. B 41, R7892 ͑1990͒; G. Kresse and J. Hafner, J. Phys.: Condens. Matter 6, 8245 ͑1994͒. 16 Note, however, that the use of the US pseudopotentials in VASP is
+discouraged in favor of the PAW ones by the VASP developers. 17 P. A. Schultz, SEQQUEST code, http://dft.sandia.gov/quest/. 18 H. J. Monkhorst and J. D. Pack, Phys. Rev. B 13, 5188 ͑1976͒. 19 A. Khein, D.J. Singh, and C.J. Umrigar, Phys. Rev. B 51, 4105
+
+͑1995͒. 20 P. Ehrhart, P. Jung, H. Schultz, and H. Ullmaier, Atomic Defects
+in Metal, Landolt-Börnstein, New Series, Group III, Vol. 25 Condensed Matter ͑Springer-Verlag, Heidelberg, 1991͒. 21 S. Kurth, J. P. Perdew, and P. Blaha, Int. J. Quantum Chem. 75, 889 ͑1999͒. 22 The PW91 implementation in VASP is somewhat different from
+standard implementations, and VASP PW91 results should in gen-
+eral not be compared to other PW91 results. This is, in particu-
+lar, true for spin-resolved calculations. It seems unlikely, though,
+that this is the only reason for the small difference in PW91 and
+PBE results for VASP PAW, compared to results from other
+codes, for the monovacancy formation energy of Pt. In fact,
+comparing to the results from the other codes it instead seems
+like it is the VASP PBE monovacancy formation energy for Pt
+that is somewhat low. Note also that all VASP PAW monovacancy
+formation energies for Al are in agreement with the SOCORRO
+results. 23 Z. Yan, J. P. Perdew, and S. Kurth, Phys. Rev. B 61, 16430
+͑2000͒; J. M. Pitarke and A. G. Eguiluz, ibid. 63, 045116 ͑2001͒. 24 R. Armiento and A. E. Mattsson, Phys. Rev. B 66, 165117 ͑2002͒; W. Kohn and A. E. Mattsson, Phys. Rev. Lett. 81, 3487 ͑1998͒. 25 J. P. Perdew, Phys. Rev. Lett. 55, 1665 ͑1985͒. 26 A. E. Mattsson and W. Kohn, J. Chem. Phys. 115, 3441 ͑2001͒. 27 A. E. Mattsson and D. R. Jennison, Surf. Sci. Lett. 520, L611 ͑2002͒. 28 L. M. Almeida, J. P. Perdew, and C. Fiolhais, Phys. Rev. B 66, 075115 ͑2002͒. 29 A web calculator where the input parameter “bulk density” can be
+given in several different units and the output “surface energy
+corrections for LDA, PW91, and PBE” are given in several dif-
+ferent units is available at http://dft.sandia.gov. 30 J. P. Perdew and Y. Wang, Phys. Rev. B 45, 13244 ͑1992͒. 31 F.D. Murnaghan, Proc. Natl. Acad. Sci. U.S.A. 30, 244 ͑1944͒. 32 J.P. Perdew and A. Zunger, Phys. Rev. B 23, 5048 ͑1981͒.
+
+195123-7
+

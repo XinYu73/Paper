@@ -1,0 +1,1618 @@
+Table of Contents
+1. Introduction 1. Who Should Read This Book 2. How This Book Is Organized 3. Minimum Requirements 4. Where to Go from Here
+2. Part I: The Linux Command Line 3. Chapter 1: Starting with Linux Shells
+1. What Is Linux? 2. Linux Distributions 3. Summary 4. Chapter 2: Getting to the Shell 1. Reaching the Command Line 2. Accessing CLI via a Linux Console Terminal 3. Accessing CLI via Graphical Terminal Emulation 4. Using the GNOME Terminal Emulator 5. Using the Konsole Terminal Emulator 6. Using the xterm Terminal Emulator 7. Summary 5. Chapter 3: Basic bash Shell Commands 1. Starting the Shell 2. Using the Shell Prompt 3. Interacting with the bash Manual 4. Navigating the Filesystem 5. Listing Files and Directories 6. Handling Files 7. Managing Directories 8. Viewing File Contents 9. Summary 6. Chapter 4: More bash Shell Commands 1. Monitoring Programs 2. Monitoring Disk Space 3. Working with Data Files 4. Summary 7. Chapter 5: Understanding the Shell 1. Exploring Shell Types 2. Exploring Parent and Child Shell Relationships
+
+3. Understanding Shell Built-In Commands 4. Summary 8. Chapter 6: Using Linux Environment Variables 1. Exploring Environment Variables 2. Setting User-Defined Variables 3. Removing Environment Variables 4. Uncovering Default Shell Environment Variables 5. Setting the PATH Environment Variable 6. Locating System Environment Variables 7. Learning about Variable Arrays 8. Summary 9. Chapter 7: Understanding Linux File Permissions 1. Linux Security 2. Using Linux Groups 3. Decoding File Permissions 4. Changing Security Settings 5. Sharing Files 6. Summary 10. Chapter 8: Managing Filesystems 1. Exploring Linux Filesystems 2. Working with Filesystems 3. Managing Logical Volumes 4. Summary 11. Chapter 9: Installing Software 1. Package Management Primer 2. The Debian-Based Systems 3. The Red Hat–Based Systems 4. Installing from Source Code 5. Summary 12. Chapter 10: Working with Editors 1. Visiting the vim Editor 2. Navigating the nano Editor 3. Exploring the emacs Editor 4. Exploring the KDE Family of Editors 5. Exploring the GNOME Editor 6. Summary 13. Part II: Shell Scripting Basics
+
+14. Chapter 11: Basic Script Building 1. Using Multiple Commands 2. Creating a Script File 3. Displaying Messages 4. Using Variables 5. Redirecting Input and Output 6. Pipes 7. Performing Math 8. Exiting the Script 9. Summary
+15. Chapter 12: Using Structured Commands 1. Working with the if-then Statement 2. Exploring the if-then-else Statement 3. Nesting ifs 4. Trying the test Command 5. Considering Compound Testing 6. Working with Advanced if-then Features 7. Considering the case Command 8. Summary
+16. Chapter 13: More Structured Commands 1. The for Command 2. The C-Style for Command 3. The while Command 4. The until Command 5. Nesting Loops 6. Looping on File Data 7. Controlling the Loop 8. Processing the Output of a Loop 9. Practical Examples 10. Summary
+17. Chapter 14: Handling User Input 1. Passing Parameters 2. Using Special Parameter Variables 3. Being Shifty 4. Working with Options 5. Standardizing Options 6. Getting User Input
+
+7. Summary 18. Chapter 15: Presenting Data
+1. Understanding Input and Output 2. Redirecting Output in Scripts 3. Redirecting Input in Scripts 4. Creating Your Own Redirection 5. Listing Open File Descriptors 6. Suppressing Command Output 7. Using Temporary Files 8. Logging Messages 9. Practical Example 10. Summary 19. Chapter 16: Script Control 1. Handling Signals 2. Running Scripts in Background Mode 3. Running Scripts without a Hang-Up 4. Controlling the Job 5. Being Nice 6. Running Like Clockwork 7. Summary 20. Part III: Advanced Shell Scripting 21. Chapter 17: Creating Functions 1. Basic Script Functions 2. Returning a Value 3. Using Variables in Functions 4. Array Variables and Functions 5. Function Recursion 6. Creating a Library 7. Using Functions on the Command Line 8. Following a Practical Example 9. Summary 22. Chapter 18: Writing Scripts for Graphical Desktops 1. Creating Text Menus 2. Doing Windows 3. Getting Graphic 4. Summary 23. Chapter 19: Introducing sed and gawk
+
+1. Manipulating Text 2. Commanding at the sed Editor Basics 3. Summary 24. Chapter 20: Regular Expressions 1. What Are Regular Expressions? 2. Defining BRE Patterns 3. Extended Regular Expressions 4. Regular Expressions in Action 5. Summary 25. Chapter 21: Advanced sed 1. Looking at Multiline Commands 2. Holding Space 3. Negating a Command 4. Changing the Flow 5. Replacing via a Pattern 6. Placing sed Commands in Scripts 7. Creating sed Utilities 8. Summary 26. Chapter 22: Advanced gawk 1. Using Variables 2. Working with Arrays 3. Using Patterns 4. Structured Commands 5. Formatted Printing 6. Built-In Functions 7. User-Defined Functions 8. Working through a Practical Example 9. Summary 27. Chapter 23: Working with Alternative Shells 1. What Is the dash Shell? 2. The dash Shell Features 3. Scripting in dash 4. The zsh Shell 5. Parts of the zsh Shell 6. Scripting with zsh 7. Summary 28. Part IV: Creating Practical Scripts
+
+29. Chapter 24: Writing Simple Script Utilities 1. Performing Archives 2. Managing User Accounts 3. Monitoring Disk Space 4. Summary
+30. Chapter 25: Producing Scripts for Database, Web, and E-Mail 1. Using a MySQL Database 2. Using the Web 3. Using E-Mail 4. Summary
+31. Chapter 26: Creating Fun Little Shell Scripts 1. Sending a Message 2. Obtaining a Quote 3. Generating an Excuse 4. Summary
+32. Appendix A: Quick Guide to bash Commands 1. Reviewing Built-In Commands 2. Looking at Common bash Commands 3. Assessing Environment Variables
+33. Appendix B: Quick Guide to sed and gawk 1. The sed Editor 2. The gawk Program
+34. End User License Agreement
+
+List of Illustrations
+1. Figure 1.1 2. Figure 1.2 3. Figure 1.3 4. Figure 1.4 5. Figure 1.5 6. Figure 1.6 7. Figure 2.1 8. Figure 2.2 9. Figure 2.3 10. Figure 2.4 11. Figure 2.5 12. Figure 3.1 13. Figure 3.2 14. Figure 3.3 15. Figure 4.1 16. Figure 5.1 17. Figure 5.2 18. Figure 5.3 19. Figure 7.1 20. Figure 8.1 21. Figure 9.1 22. Figure 10.1 23. Figure 10.2 24. Figure 10.3 25. Figure 10.4 26. Figure 10.5 27. Figure 10.6 28. Figure 10.7 29. Figure 10.8 30. Figure 10.9 31. Figure 10.10 32. Figure 10.11
+
+33. Figure 10.12 34. Figure 10.13 35. Figure 10.14 36. Figure 11.1 37. Figure 11.2 38. Figure 18.1 39. Figure 18.2 40. Figure 18.3 41. Figure 18.4 42. Figure 18.5 43. Figure 18.6 44. Figure 18.7 45. Figure 18.8 46. Figure 18.9 47. Figure 18.10 48. Figure 18.11 49. Figure 18.12 50. Figure 18.13 51. Figure 20.1 52. Figure 21.1 53. Figure 24.1 54. Figure 25.1 55. Figure 25.2
+
+List of Tables
+1. Table 1.1 2. Table 1.2 3. Table 1.3 4. Table 1.4 5. Table 1.5 6. Table 1.6 7. Table 2.1 8. Table 2.2 9. Table 2.3 10. Table 2.4 11. Table 2.5 12. Table 2.6 13. Table 2.7 14. Table 2.8 15. Table 2.9 16. Table 2.10 17. Table 2.11 18. Table 2.12 19. Table 2.13 20. Table 2.14 21. Table 2.15 22. Table 2.16 23. Table 2.17 24. Table 2.18 25. Table 3.1 26. Table 3.2 27. Table 3.3 28. Table 4.1 29. Table 4.2 30. Table 4.3 31. Table 4.4 32. Table 4.5
+
+33. Table 4.6 34. Table 4.7 35. Table 4.8 36. Table 4.9 37. Table 5.1 38. Table 6.1 39. Table 6.2 40. Table 7.1 41. Table 7.2 42. Table 7.3 43. Table 7.4 44. Table 7.5 45. Table 7.6 46. Table 8.1 47. Table 8.2 48. Table 8.3 49. Table 8.4 50. Table 8.5 51. Table 8.6 52. Table 9.1 53. Table 9.2 54. Table 9.3 55. Table 9.4 56. Table 9.5 57. Table 9.6 58. Table 9.7 59. Table 10.1 60. Table 10.2 61. Table 10.3 62. Table 10.4 63. Table 10.5 64. Table 11.1 65. Table 11.2 66. Table 12.1
+
+67. Table 12.2 68. Table 12.3 69. Table 12.4 70. Table 14.1 71. Table 15.1 72. Table 15.2 73. Table 16.1 74. Table 16.2 75. Table 17.1 76. Table 18.1 77. Table 18.2 78. Table 18.3 79. Table 18.4 80. Table 19.1 81. Table 19.2 82. Table 20.1 83. Table 21.1 84. Table 22.1 85. Table 22.2 86. Table 22.3 87. Table 22.4 88. Table 22.5 89. Table 22.6 90. Table 23.1 91. Table 23.2 92. Table 23.3 93. Table 23.4 94. Table 23.5 95. Table 25.1 96. Table 25.2 97. Table A.1 98. Table A.2 99. Table A.3 100. Table B.1
+
+101. Table B.2 102. Table B.3 103. Table B.4
+
+Introduction
+Welcome to the third edition of Linux Command Line and Shell Scripting Bible. Like all books in the Bible series, you can expect to find both hands-on tutorials and real-world information, as well as reference and background information that provide a context for what you are learning. This book is a fairly comprehensive resource on the Linux command line and shell commands. By the time you have completed Linux Command Line and Shell Scripting Bible, you will be well prepared to write your own shell scripts that can automate practically any task on your Linux system.
+
+Who Should Read This Book
+If you’re a system administrator in a Linux environment, you’ll benefit greatly by knowing how to write shell scripts. The book doesn’t walk you through the process of setting up a Linux system, but after you have it running, you’ll want to start automating some of the routine administrative tasks. That’s where shell scripting comes in, and that’s where this book helps you out. This book demonstrates how to automate any administrative task using shell scripts, from monitoring system statistics and data files to generating reports for your boss.
+If you’re a home Linux enthusiast, you’ll also benefit from Linux Command Line and Shell Scripting Bible. Nowadays, it’s easy to get lost in the graphical world of pre-built widgets. Most desktop Linux distributions try their best to hide the Linux system from the typical user. However, sometimes you must know what’s going on under the hood. This book shows you how to access the Linux command line prompt and what to do when you get there. Often, performing simple tasks, such as file management, can be done more quickly from the command line than from a fancy graphical interface. You can use a wealth of commands from the command line, and this book shows you how to use them.
+
+How This Book Is Organized
+This book leads you through the basics of the Linux command line and into more complicated topics, such as creating your own shell scripts. The book is divided into four parts, each one building on the previous parts. Part I assumes that you either have a Linux system running or are looking into getting a Linux system. Chapter 1, “Starting with Linux Shells,” describes the parts of a total Linux system and shows how the shell fits in. After describing the basics of the Linux system, this part continues with the following:
+Using a terminal emulation package to access the shell (Chapter 2) Introducing the basic shell commands (Chapter 3) Using more advanced shell commands to peek at system information (Chapter 4) Understanding what the shell is used for (Chapter 5) Working with shell variables to manipulate data (Chapter 6) Understanding the Linux filesystem and security (Chapter 7) Working with Linux filesystems from the command line (Chapter 8) Installing and updating software from the command line (Chapter 9) Using the Linux editors to start writing shell scripts (Chapter 10)
+In Part II, you begin writing shell scripts. As you go through the chapters, you’ll do the following:
+Learn how to create and run shell scripts (Chapter 11) Alter the program flow in a shell script (Chapter 12) Iterate through code sections (Chapter 13) Handle data from the user in your scripts (Chapter 14) See different methods for storing and displaying data from your Script (Chapter 15) Control how and when your shell scripts run on the system (Chapter 16)
+Part III dives into more advanced areas of shell script programming, including these things:
+Creating your own functions to use in all your scripts (Chapter 17) Utilizing the Linux graphical desktop for interacting with your script users (Chapter 18) Using advanced Linux commands to filter and parse data files (Chapter 19) Using regular expressions to define data (Chapter 20)
+
+Learning advanced methods of manipulating data in your scripts (Chapter 21) Generating reports from raw data (Chapter 22) Modifying your shell scripts to run in other Linux shells (Chapter 23)
+The last section of the book, Part IV, demonstrates how to use shell scripts in real-world environments. In this part, you will learn these things:
+How to put all the scripting features together to write your own scripts (Chapter 24) How to store and retrieve data using databases, access data on the Internet, and send e-mail messages (Chapter 25) Write more advanced shell scripts to interact on your Linux system (Chapter 26)
+Cautions, Tips, and Notes
+You will find many different organizational and typographical features throughout this book designed to help you get the most of the information.
+
+Caution
+This information is important and is set off in a separate paragraph with a special icon. Cautions provide information about things to watch out for, whether simply inconvenient or potentially hazardous to your data or systems.
+
+Tip
+Tips provide helpful advice to make your work easier and more effective. Tips may suggest a solution to a problem or a better way to accomplish a task.
+
+Note
+Notes provide additional, ancillary information that is helpful, but somewhat outside of the current presentation of information.
+Downloadable code
+You can obtain the book’s code files at www.wiley.com/go/linuxcommandline.
+
+Minimum Requirements
+Linux Command Line and Shell Scripting Bible doesn’t focus on any specific Linux distribution, so you can follow along in the book using any Linux system you have available. The bulk of the book references the bash shell, which is the default shell for most Linux systems.
+
+Where to Go from Here
+After you’ve finished reading Linux Command Line and Shell Scripting Bible, you’re well on your way to incorporating Linux commands in your daily Linux work. In the everchanging world of Linux, it’s always a good idea to stay in touch with new developments. Often, Linux distributions change, adding new features and removing older ones. To keep your knowledge of Linux fresh, always stay well-informed. Find a good Linux forum site and monitor what’s happening in the Linux world. Many popular Linux news sites, such as Slashdot and Distrowatch, provide up-to-the-minute information about new advances in Linux.
+
+Part I
+
+The Linux Command Line
+
+In This Part
+1. Chapter 1 Starting with Linux Shells 1. Chapter 2 Getting to the Shell 1. Chapter 3 Basic bash Shell Commands 1. Chapter 4 More bash Shell Commands 1. Chapter 5 Understanding the Shell 1. Chapter 6 Using Linux Environment Variables 1. Chapter 7 Understanding Linux File Permissions 1. Chapter 8 Managing Filesystems 1. Chapter 9 Installing Software 1. Chapter 10 Working with Editors
+
+Chapter 1 Starting with Linux Shells
+
+In This Chapter
+1. What is Linux? 2. Parts of the Linux kernel 3. Exploring the Linux desktop 4. Visiting Linux distributions
+Before you can dive into working with the Linux command line and shells, you should first understand what Linux is, where it came from, and how it works. This chapter walks you through what Linux is and explains where the shell and command line fit in the overall Linux picture.
+
+What Is Linux?
+If you’ve never worked with Linux before, you may be confused about why so many different versions are available. I’m sure you have been confused by various terms such as distribution, LiveCD, and GNU when looking at Linux packages. Wading through the world of Linux for the first time can be a tricky experience. This chapter takes some of the mystery out of the Linux system before you start working on commands and scripts. First, four main parts make up a Linux system:
+The Linux kernel The GNU utilities A graphical desktop environment Application software Each of these parts has a specific job in the Linux system. No part is very useful by itself. Figure 1.1 shows a basic diagram of how the parts fit together to create the overall Linux system.
+Figure 1.1 The Linux system This section describes these four main parts in detail and gives you an overview of how they work together to create a complete Linux system.
+Looking into the Linux Kernel
+The core of the Linux system is the kernel. The kernel controls all the hardware and
+
+software on the computer system, allocating hardware when necessary and executing software when required.
+If you’ve been following the Linux world at all, no doubt you’ve heard the name Linus Torvalds. Linus is the person responsible for creating the first Linux kernel software when he was a student at the University of Helsinki. He intended it to be a copy of the Unix system, at the time a popular operating system used at many universities.
+After developing the Linux kernel, Linus released it to the Internet community and solicited suggestions for improving it. This simple process started a revolution in the world of computer operating systems. Soon Linus was receiving suggestions from students as well as professional programmers from around the world.
+Allowing anyone to change programming code in the kernel would result in complete chaos. To simplify things, Linus acted as a central point for all improvement suggestions. It was ultimately Linus’s decision whether or not to incorporate suggested code in the kernel. This same concept is still in place with the Linux kernel code, except that instead of just Linus controlling the kernel code, a team of developers has taken on the task.
+The kernel is primarily responsible for four main functions:
+System memory management Software program management Hardware management Filesystem management
+The following sections explore each of these functions in more detail.
+System Memory Management
+One of the primary functions of the operating system kernel is memory management. Not only does the kernel manage the physical memory available on the server, but it can also create and manage virtual memory, or memory that does not actually exist.
+It does this by using space on the hard disk, called the swap space. The kernel swaps the contents of virtual memory locations back and forth from the swap space to the actual physical memory. This allows the system to think there is more memory available than what physically exists, as shown in Figure 1.2.
+
+Figure 1.2 The Linux system memory map
+The memory locations are grouped into blocks called pages. The kernel locates each page of memory either in the physical memory or the swap space. The kernel then maintains a table of the memory pages that indicates which pages are in physical memory and which pages are swapped out to disk.
+The kernel keeps track of which memory pages are in use and automatically copies memory pages that have not been accessed for a period of time to the swap space area (called swapping out), even if there’s other memory available. When a program wants to access a memory page that has been swapped out, the kernel must make room for it in physical memory by swapping out a different memory page and swapping in the required page from the swap space. Obviously, this process takes time and can slow down a running process. The process of swapping out memory pages for running applications continues for as long as the Linux system is running.
+Software Program Management
+The Linux operating system calls a running program a process. A process can run in the foreground, displaying output on a display, or it can run in the background, behind the scenes. The kernel controls how the Linux system manages all the processes running on the system.
+The kernel creates the first process, called the init process, to start all other processes on the system. When the kernel starts, it loads the init process into virtual memory. As the kernel starts each additional process, it gives it a unique area in virtual memory to store the data and code that the process uses.
+Some Linux implementations contain a table of processes to start automatically on bootup. On Linux systems, this table is usually located in the special file /etc/inittabs.
+
+Other systems (such as the popular Ubuntu Linux distribution) utilize the /etc/init.d folder, which contains scripts for starting and stopping individual applications at boot time. The scripts are started via entries under the /etc/rcX.d folders, where X is a run level.
+The Linux operating system uses an init system that utilizes run levels. A run level can be used to direct the init process to run only certain types of processes, as defined in the /etc/inittabs file or the /etc/rcX.d folders. There are five init run levels in the Linux operating system.
+At run level 1, only the basic system processes are started, along with one console terminal process. This is called single-user mode. Single-user mode is most often used for emergency filesystem maintenance when something is broken. Obviously, in this mode, only one person (usually the administrator) can log in to the system to manipulate data.
+The standard init run level is 3. At this run level, most application software, such as network support software, is started. Another popular run level in Linux is run level 5. This is the run level where the system starts the graphical X Window software and allows you to log in using a graphical desktop window.
+The Linux system can control the overall system functionality by controlling the init run level. By changing the run level from 3 to 5, the system can change from a console-based system to an advanced, graphical X Window system.
+In Chapter 4, you’ll see how to use the ps command to view the processes currently running on the Linux system.
+Hardware Management
+Still another responsibility for the kernel is hardware management. Any device that the Linux system must communicate with needs driver code inserted inside the kernel code. The driver code allows the kernel to pass data back and forth to the device, acting as a middle man between applications and the hardware. Two methods are used for inserting device driver code in the Linux kernel:
+Drivers compiled in the kernel
+Driver modules added to the kernel
+Previously, the only way to insert device driver code was to recompile the kernel. Each time you added a new device to the system, you had to recompile the kernel code. This process became even more inefficient as Linux kernels supported more hardware. Fortunately, Linux developers devised a better method to insert driver code into the running kernel.
+Programmers developed the concept of kernel modules to allow you to insert driver code into a running kernel without having to recompile the kernel. Also, a kernel module could be removed from the kernel when the device was finished being used. This greatly simplified and expanded using hardware with Linux.
+The Linux system identifies hardware devices as special files, called device files. There
+
+are three classifications of device files:
+
+Character
+Block
+Network
+Character device files are for devices that can only handle data one character at a time. Most types of modems and terminals are created as character files. Block files are for devices that can handle data in large blocks at a time, such as disk drives.
+The network file types are used for devices that use packets to send and receive data. This includes network cards and a special loopback device that allows the Linux system to communicate with itself using common network programming protocols.
+Linux creates special files, called nodes, for each device on the system. All communication with the device is performed through the device node. Each node has a unique number pair that identifies it to the Linux kernel. The number pair includes a major and a minor device number. Similar devices are grouped into the same major device number. The minor device number is used to identify a specific device within the major device group.
+Filesystem Management
+Unlike some other operating systems, the Linux kernel can support different types of filesystems to read and write data to and from hard drives. Besides having over a dozen filesystems of its own, Linux can read and write to and from filesystems used by other operating systems, such as Microsoft Windows. The kernel must be compiled with support for all types of filesystems that the system will use. Table 1.1 lists the standard filesystems that a Linux system can use to read and write data.
+Table 1.1 Linux Filesystems
+
+Filesystem ext ext2 ext3 ext4 hpfs jfs
+iso9660 minix msdos ncp
+nfs
+
+Description Linux Extended filesystem — the original Linux filesystem Second extended filesystem, provided advanced features over ext
+Third extended filesystem, supports journaling Fourth extended filesystem, supports advanced journaling
+OS/2 high-performance filesystem IBM’s journaling filesystem
+ISO 9660 filesystem (CD-ROMs) MINIX filesystem Microsoft FAT16 Netware filesystem
+Network File System
+
+ntfs
+
+Support for Microsoft NT filesystem
+
+proc
+
+Access to system information
+
+ReiserFS Advanced Linux filesystem for better performance and disk recovery
+
+smb
+
+Samba SMB filesystem for network access
+
+sysv
+
+Older Unix filesystem
+
+ufs
+
+BSD filesystem
+
+umsdos
+
+Unix-like filesystem that resides on top of msdos
+
+vfat
+
+Windows 95 filesystem (FAT32)
+
+XFS
+
+High-performance 64-bit journaling filesystem
+
+Any hard drive that a Linux server accesses must be formatted using one of the filesystem types listed in Table 1.1.
+The Linux kernel interfaces with each filesystem using the Virtual File System (VFS). This provides a standard interface for the kernel to communicate with any type of filesystem. VFS caches information in memory as each filesystem is mounted and used.
+
+The GNU Utilities
+
+Besides having a kernel to control hardware devices, a computer operating system needs utilities to perform standard functions, such as controlling files and programs. While Linus created the Linux system kernel, he had no system utilities to run on it. Fortunately for him, at the same time he was working, a group of people were working together on the Internet trying to develop a standard set of computer system utilities that mimicked the popular Unix operating system.
+The GNU organization (GNU stands for GNU’s Not Unix) developed a complete set of Unix utilities, but had no kernel system to run them on. These utilities were developed under a software philosophy called open source software (OSS).
+The concept of OSS allows programmers to develop software and then release it to the world with no licensing fees attached. Anyone can use the software, modify it, or incorporate it into his or her own system without having to pay a license fee. Uniting Linus’s Linux kernel with the GNU operating system utilities created a complete, functional, free operating system.
+While the bundling of the Linux kernel and GNU utilities is often just called Linux, you will see some Linux purists on the Internet refer to it as the GNU/Linux system to give credit to the GNU organization for its contributions to the cause.
+The Core GNU Utilities
+The GNU project was mainly designed for Unix system administrators to have a Unix-like environment available. This focus resulted in the project porting many common Unix system command line utilities. The core bundle of utilities supplied for Linux systems is called the coreutils package.
+The GNU coreutils package consists of three parts:
+
+Utilities for handling files
+Utilities for manipulating text
+Utilities for managing processes
+Each of these three main groups of utilities contains several utility programs that are invaluable to the Linux system administrator and programmer. This book covers each of the utilities contained in the GNU coreutils package in detail.
+The Shell
+The GNU/Linux shell is a special interactive utility. It provides a way for users to start programs, manage files on the filesystem, and manage processes running on the Linux system. The core of the shell is the command prompt. The command prompt is the interactive part of the shell. It allows you to enter text commands, and then it interprets the commands and executes them in the kernel.
+The shell contains a set of internal commands that you use to control things such as copying files, moving files, renaming files, displaying the programs currently running on the system, and stopping programs running on the system. Besides the internal commands, the shell also allows you to enter the name of a program at the command prompt. The shell passes the program name off to the kernel to start it.
+You can also group shell commands into files to execute as a program. Those files are called shell scripts. Any command that you can execute from the command line can be placed in a shell script and run as a group of commands. This provides great flexibility in creating utilities for commonly run commands, or processes that require several commands grouped together.
+There are quite a few Linux shells available to use on a Linux system. Different shells have different characteristics, some being more useful for creating scripts and some being more useful for managing processes. The default shell used in all Linux distributions is the bash shell. The bash shell was developed by the GNU project as a replacement for the standard Unix shell, called the Bourne shell (after its creator). The bash shell name is a play on this wording, referred to as the “Bourne again shell.”
+In addition to the bash shell, we will cover several other popular shells in this book. Table 1.2 lists the different shells we will examine.
+Table 1.2 Linux Shells
+
+Shell
+
+Description
+
+ash
+
+A simple, lightweight shell that runs in low-memory environments but has full compatibility with the bash shell
+
+korn
+
+A programming shell compatible with the Bourne shell but supporting advanced programming features like associative arrays and floating-point arithmetic
+
+tcsh
+
+A shell that incorporates elements from the C programming language into shell scripts
+
+An advanced shell that incorporates features from bash, tcsh, and korn, providing
+
+zsh advanced programming features, shared history files, and themed prompts
+Most Linux distributions include more than one shell, although usually they pick one of them to be the default. If your Linux distribution includes multiple shells, feel free to experiment with different shells and see which one fits your needs.
+The Linux Desktop Environment
+In the early days of Linux (the early 1990s) all that was available was a simple text interface to the Linux operating system. This text interface allowed administrators to start programs, control program operations, and move files around on the system.
+With the popularity of Microsoft Windows, computer users expected more than the old text interface to work with. This spurred more development in the OSS community, and the Linux graphical desktops emerged.
+Linux is famous for being able to do things in more than one way, and no place is this more relevant than in graphical desktops. There are a plethora of graphical desktops you can choose from in Linux. The following sections describe a few of the more popular ones.
+The X Window System
+Two basic elements control your video environment: the video card in your PC and your monitor. To display fancy graphics on your computer, the Linux software needs to know how to talk to both of them. The X Window software is the core element in presenting graphics.
+The X Window software is a low-level program that works directly with the video card and monitor in the PC, and it controls how Linux applications can present fancy windows and graphics on your computer.
+Linux isn’t the only operating system that uses X Window; versions are written for many different operating systems. In the Linux world, several different software packages can implement it.
+The most popular package is X.org. It provides an open source software implementation of the X Window system and supports many of the newer video cards used today.
+Two other X Window packages are gaining in popularity. The Fedora Linux distribution is experimenting with the Wayland software, and the Ubuntu Linux distribution has developed the Mir display server for use with its desktop environment.
+When you first install a Linux distribution, it attempts to detect your video card and monitor, and then it creates an X Window configuration file that contains the required information. During installation, you may notice a time when the installation program scans your monitor for supported video modes. Sometimes, this causes your monitor to go blank for a few seconds. Because there are lots of different types of video cards and monitors, this process can take a while to complete.
+The core X Window software produces a graphical display environment, but nothing else. Although this is fine for running individual applications, it is not useful for day-to-day
+
+computer use. No desktop environment allows users to manipulate files or launch programs. To do that, you need a desktop environment on top of the X Window system software. The KDE Desktop The K Desktop Environment (KDE) was first released in 1996 as an open source project to produce a graphical desktop similar to the Microsoft Windows environment. The KDE desktop incorporates all the features you are probably familiar with if you are a Windows user. Figure 1.3 shows a sample KDE 4 desktop running in the openSUSE Linux distribution.
+Figure 1.3 The KDE 4 desktop on an openSUSE Linux system The KDE desktop allows you to place both application and file icons in a special area on the desktop. If you click an application icon, the Linux system starts the application. If you click a file icon, the KDE desktop attempts to determine what application to start to handle the file. The bar at the bottom of the desktop is called the Panel. The Panel consists of four parts:
+The K menu: Much like the Windows Start menu, the K menu contains links to start installed applications.
+
+Program shortcuts: These are quick links to start applications directly from the Panel. The taskbar: The taskbar shows icons for applications currently running on the desktop. Applets: These are small applications that have an icon in the Panel that often can change depending on information from the application.
+The Panel features are similar to what you would find in Windows. In addition to the desktop features, the KDE project has produced a wide assortment of applications that run in the KDE environment. The GNOME Desktop The GNU Network Object Model Environment (GNOME) is another popular Linux desktop environment. First released in 1999, GNOME has become the default desktop environment for many Linux distributions. (However, the most popular is Red Hat Linux.) Although GNOME chose to depart from the standard Microsoft Windows look-and-feel, it incorporates many features that most Windows users are comfortable with:
+A desktop area for icons A panel area for showing running applications Drag-and-drop capabilities
+Figure 1.4 shows the standard GNOME desktop used in the CentOS Linux distribution.
+
+Figure 1.4 A GNOME desktop on a CentOS Linux system
+Not to be outdone by KDE, the GNOME developers have also produced a host of graphical applications that integrate with the GNOME desktop.
+The Unity Desktop
+If you’re using the Ubuntu Linux distribution, you’ll notice that it’s somewhat different from both the KDE and GNOME desktop environments. Canonical, the company responsible for developing Ubuntu, has decided to embark on its own Linux desktop environment, called Unity.
+The Unity desktop gets its name from the goal of the project — to provide a single desktop experience for workstations, tablet devices, and mobile devices. The Unity desktop works the same whether you’re running Ubuntu on a workstation or a mobile phone! Figure 1.5 shows an example of the Unity desktop in Ubuntu 14.04 LTS.
+
+Figure 1.5 The Unity desktop on the Ubuntu Linux distribution
+Other Desktops
+The downside to a graphical desktop environment is that it requires a fair amount of system resources to operate properly. In the early days of Linux, a hallmark and selling feature of Linux was its ability to operate on older, less powerful PCs that the newer Microsoft desktop products couldn’t run on. However, with the popularity of KDE and GNOME desktops, this has changed, because it takes just as much memory to run a KDE or GNOME desktop as the latest Microsoft desktop environment.
+If you have an older PC, don’t be discouraged. The Linux developers have banded together to take Linux back to its roots. They’ve created several low-memory–oriented graphical desktop applications that provide basic features that run perfectly fine on older PCs.
+Although these graphical desktops don’t have a plethora of applications designed around them, they still run many basic graphical applications that support features such as word processing, spreadsheets, databases, drawing, and, of course, multimedia support.
+Table 1.3 shows some of the smaller Linux graphical desktop environments that can be used on lower-powered PCs and laptops.
+Table 1.3 Other Linux Graphical Desktops
+
+Desktop Fluxbox
+
+Description
+A bare-bones desktop that doesn’t include a Panel, only a pop-up menu to launch applications
+
+Xfce A desktop that’s similar to the KDE desktop, but with fewer graphics for lowmemory environments
+
+JWM
+
+Joe’s Window Manager, a very lightweight desktop ideal for low-memory and low-disk space environments
+
+Fvwm
+
+Supports some advanced desktop features such as virtual desktops and Panels, but runs in low-memory environments
+
+fvwm95
+
+Derived from fvwm, but made to look like a Windows 95 desktop
+
+These graphical desktop environments are not as fancy as the KDE and GNOME desktops, but they provide basic graphical functionality just fine. Figure 1.6 shows what the JWM desktop used in the Puppy Linux antiX distribution looks like.
+
+Figure 1.6 The JWM desktop as seen in the Puppy Linux distribution
+If you are using an older PC, try a Linux distribution that uses one of these desktops and see what happens. You may be pleasantly surprised.
+
+Linux Distributions
+Now that you have seen the four main components required for a complete Linux system, you may be wondering how you are going to get them all put together to make a Linux system. Fortunately, other people have already done that for you.
+A complete Linux system package is called a distribution. Many different Linux distributions are available to meet just about any computing requirement you could have. Most distributions are customized for a specific user group, such as business users, multimedia enthusiasts, software developers, or average home users. Each customized distribution includes the software packages required to support specialized functions, such as audio- and video-editing software for multimedia enthusiasts, or compilers and integrated development environments (IDEs) for software developers.
+The different Linux distributions are often divided into three categories:
+
+Full core Linux distributions Specialized distributions LiveCD test distributions
+The following sections describe these different types of Linux distributions and show some examples of Linux distributions in each category.
+Core Linux Distributions
+A core Linux distribution contains a kernel, one or more graphical desktop environments, and just about every Linux application that is available, precompiled for the kernel. It provides one-stop shopping for a complete Linux installation. Table 1.4 shows some of the more popular core Linux distributions.
+Table 1.4 Core Linux Distributions
+
+Distribution Slackware Red Hat
+Fedora
+Gentoo
+openSUSE Debian
+
+Description One of the original Linux distribution sets, popular with Linux geeks A commercial business distribution used mainly for Internet servers
+A spin-off from Red Hat but designed for home use A distribution designed for advanced Linux users, containing only Linux
+source code Different distributions for business and home use Popular with Linux experts and commercial Linux products
+
+In the early days of Linux, a distribution was released as a set of floppy disks. You had to download groups of files and then copy them onto disks. It would usually take 20 or more disks to make an entire distribution! Needless to say, this was a painful experience.
+Nowadays, with home computers commonly having CD and DVD players built in, Linux
+
+distributions are released as either a CD set or a single DVD. This makes installing Linux much easier.
+However, beginners still often run into problems when they install one of the core Linux distributions. To cover just about any situation in which someone might want to use Linux, a single distribution must include lots of application software. They include everything from high-end Internet database servers to common games. Because of the quantity of applications available for Linux, a complete distribution often takes four or more CDs.
+Although having lots of options available in a distribution is great for Linux geeks, it can become a nightmare for beginning Linux users. Most distributions ask a series of questions during the installation process to determine which applications to load by default, what hardware is connected to the PC, and how to configure the hardware. Beginners often find these questions confusing. As a result, they often either load way too many programs on their computer or don’t load enough and later discover that their computer won’t do what they want it to.
+Fortunately for beginners, there’s a much simpler way to install Linux.
+Specialized Linux Distributions
+A new subgroup of Linux distributions has started to appear. These are typically based on one of the main distributions but contain only a subset of applications that would make sense for a specific area of use.
+In addition to providing specialized software (such as only office products for business users), customized Linux distributions also attempt to help beginning Linux users by autodetecting and autoconfiguring common hardware devices. This makes installing Linux a much more enjoyable process.
+Table 1.5 shows some of the specialized Linux distributions available and what they specialize in.
+Table 1.5 Specialized Linux Distributions
+
+Distribution
+
+Description
+
+CentOS A free distribution built from the Red Hat Enterprise Linux source code
+
+Ubuntu
+
+A free distribution for school and home use
+
+PCLinuxOS
+
+A free distribution for home and office use
+
+Mint
+
+A free distribution for home entertainment use
+
+dyne:bolic
+
+A free distribution designed for audio and MIDI applications
+
+Puppy Linux
+
+A free small distribution that runs well on older PCs
+
+That’s just a small sampling of specialized Linux distributions. There are literally hundreds of specialized Linux distributions, and more are popping up all the time on the Internet. No matter what your specialty, you’ll probably find a Linux distribution made for you.
+
+Many of the specialized Linux distributions are based on the Debian Linux distribution. They use the same installation files as Debian but package only a small fraction of a fullblown Debian system.
+The Linux LiveCD
+A relatively new phenomenon in the Linux world is the bootable Linux CD distribution. This lets you see what a Linux system is like without actually installing it. Most modern PCs can boot from a CD instead of the standard hard drive. To take advantage of this, some Linux distributions create a bootable CD that contains a sample Linux system (called a Linux LiveCD). Because of the limitations of the single CD size, the sample can’t contain a complete Linux system, but you’d be surprised at all the software they can cram in there. The result is that you can boot your PC from the CD and run a Linux distribution without having to install anything on your hard drive!
+This is an excellent way to test various Linux distributions without having to mess with your PC. Just pop in a CD and boot! All the Linux software will run directly from the CD. You can download lots of Linux LiveCDs from the Internet and burn onto a CD to test drive.
+Table 1.6 shows some popular Linux LiveCDs that are available.
+Table 1.6 Linux LiveCD Distributions
+
+Distribution
+
+Description
+
+Knoppix A German Linux, the first Linux LiveCD developed
+
+PCLinuxOS
+
+Full-blown Linux distribution on a LiveCD
+
+Ubuntu A worldwide Linux project, designed for many languages
+
+Slax
+
+A live Linux CD based on Slackware Linux
+
+Puppy Linux
+
+A full-featured Linux designed for older PCs
+
+You may notice a familiarity in this table. Many specialized Linux distributions also have a Linux LiveCD version. Some Linux LiveCD distributions, such as Ubuntu, allow you to install the Linux distribution directly from the LiveCD. This enables you to boot with the CD, test drive the Linux distribution, and then if you like it, install it on your hard drive. This feature is extremely handy and user-friendly.
+As with all good things, Linux LiveCDs have a few drawbacks. Because you access everything from the CD, applications run more slowly, especially if you’re using older, slower computers and CD drives. Also, because you can’t write to the CD, any changes you make to the Linux system will be gone the next time you reboot.
+But advances are being made in the Linux LiveCD world that will help to solve some of these problems. These advances include the ability to:
+
+Copy Linux system files from the CD to memory Copy system files to a file on the hard drive
+
+Store system settings on a USB memory stick
+Store user settings on a USB memory stick
+Some Linux LiveCDs, such as Puppy Linux, are designed with a minimum number of Linux system files. The LiveCD boot scripts copy them directly into memory when the CD boots. This allows you to remove the CD from the computer as soon as Linux boots. Not only does this make your applications run much faster (because applications run faster from memory), but it also gives you a free CD tray to use for ripping audio CDs or playing video DVDs from the software included in Puppy Linux.
+Other Linux LiveCDs use an alternative method that allows you to remove the CD from the tray after booting. It involves copying the core Linux files onto the Windows hard drive as a single file. After the CD boots, it looks for that file and reads the system files from it. The dyne:bolic Linux LiveCD uses this technique, which is called docking. Of course, you must copy the system file to your hard drive before you can boot from the CD.
+A very popular technique for storing data from a live Linux CD session is to use a common USB memory stick (also called a flash drive or a thumb drive). Just about every Linux LiveCD can recognize a plugged-in USB memory stick (even if the stick is formatted for Windows) and read and write files to and from it. This allows you to boot a Linux LiveCD, use the Linux applications to create files, store those files on your memory stick, and then access them from your Windows applications later (or from a different computer). How cool is that?
+
+Summary
+This chapter discussed the Linux system and the basics of how it works. The Linux kernel is the core of the system, controlling how memory, programs, and hardware all interact with one another. The GNU utilities are also an important piece in the Linux system. The Linux shell, which is the main focus of this book, is part of the GNU core utilities. The chapter also discussed the final piece of a Linux system, the Linux desktop environment. Things have changed over the years, and Linux now supports several graphical desktop environments.
+The chapter also discussed the various Linux distributions. A Linux distribution bundles the various parts of a Linux system into a simple package that you can easily install on your PC. The Linux distribution world consists of full-blown Linux distributions that include just about every application imaginable, as well as specialized Linux distributions that include applications focused only on a special function. The Linux LiveCD craze has created another group of Linux distributions that allow you to easily test-drive Linux without even having to install it on your hard drive.
+In the next chapter, you look at what you need to start your command line and shell scripting experience. You’ll see what you need to do to get to the Linux shell utility from your fancy graphical desktop environment. These days, that’s not always an easy thing.
+
+Chapter 2 Getting to the Shell
+
+In This Chapter
+1. Accessing the command line 2. Reaching CLI via a Linux console terminal 3. Reaching CLI via a graphical terminal emulator 4. Using the GNOME terminal emulator 5. Using the Konsole terminal emulator 6. Using the xterm terminal emulator
+In the old days of Linux, all you had to work with was the shell. System administrators, programmers, and system users all sat at something called a Linux console terminal entering shell commands and viewing text output. These days, with graphical desktop environments, it’s getting harder to find a shell prompt on the system in order to enter shell commands. This chapter discusses what is required to reach a command line environment. It walks you through the terminal emulation packages that you may run into in the various Linux distributions.
+
+Reaching the Command Line
+Before the days of graphical desktops, the only way to interact with a Unix system was through a text command line interface (CLI) provided by the shell. The CLI allowed text input only and could display only text and rudimentary graphics output.
+Because of these restrictions, output devices were not very fancy. Often, you needed only a simple dumb terminal to interact with the Unix system. A dumb terminal was usually nothing more than a monitor and keyboard connected to the Unix system via a communication cable (usually a multi-wire serial cable). This simple combination provided an easy way to enter text data into the Unix system and view text results.
+As you well know, things are significantly different in today’s Linux environment. Just about every Linux distribution uses some type of graphical desktop environment. However, to enter shell commands, you still need a text display to access the shell’s CLI. The problem now is getting to one. Sometimes finding a way to get a CLI in a Linux distribution is not an easy task.
+Console Terminals
+One way to get to a CLI is to take the Linux system out of graphical desktop mode and place it in text mode. This provides nothing more than a simple shell CLI on the monitor, just like the days before graphical desktops. This mode is called the Linux console because it emulates the old days of a hard-wired console terminal and is a direct interface to the Linux system.
+When the Linux system starts, it automatically creates several virtual consoles. A virtual console is a terminal session that runs in Linux system memory. Instead of having several dumb terminals connected to the computer, most Linux distributions start five or six (or sometimes even more) virtual consoles that you can access from a single computer keyboard and monitor.
+Graphical Terminals
+The alternative to using a virtual console terminal is to use a terminal emulation package from within the Linux graphical desktop environment. A terminal emulation package simulates working on a console terminal, but within a desktop graphical window. Figure 2.1 shows an example of a terminal emulator running in a Linux graphical desktop environment.
+
+Figure 2.1 A simple terminal emulator running on a Linux desktop
+Graphical terminal emulation is responsible only for a portion of the Linux graphical experience. As a whole, the experience is accomplished via several components, including graphical terminal emulation software (called a client). Table 2.1 shows the different components in the Linux graphical desktop environment.
+Table 2.1 Graphical Interface Elements
+
+Name
+
+Examples
+
+Description
+
+Graphical terminal emulator, Client desktop environment, network
+browser
+
+An application that requests graphical services
+
+Display Server
+
+Mir, Wayland Compositor, Xserver
+
+Element that manages the display (screen) and the input devices (keyboard, mouse, touch screen)
+
+Window Manager
+
+Compiz, Metacity, Kwin
+
+Element that adds borders to windows and provides features to move and manage windows
+
+Widgets Library
+
+Athena(Xaw), X Intrinsics
+
+Element that adds menus and appearance items for desktop environment clients
+
+For dealing with the command line from the desktop, the focus is on the graphical terminal emulator. You can think of graphical terminal emulators as CLI terminals “in the
+
+GUI” and virtual console terminals as CLI terminals “outside the GUI.” Understanding the various terminals and their features can enhance your command line experience.
+
+Accessing CLI via a Linux Console Terminal
+In the early days of Linux, when you booted up your system you would see a login prompt on your monitor, and that’s all. As mentioned earlier, this is called the Linux console. It was the only place you could enter commands for the system.
+Even though several virtual consoles are created at boot time, many Linux distributions switch to a graphical environment after the boot sequence completes. This provides the user with a graphical login and desktop experience. Therefore, in this case, accessing a virtual console is done manually.
+In most Linux distributions, you can access one of the Linux virtual consoles using a simple keystroke combination. Usually, you must hold down the Ctrl+Alt key combination and then press a function key (F1 through F7) for the virtual console you want to use. Function key F2 produces virtual console 2, key F3 produces virtual console 3, key F4 produces virtual console 4, and so on.
+
+Note
+Linux distributions typically use the Ctrl+Alt key combination with either F1 or F7 to reach the graphical interface. Ubuntu uses F7, while RHEL uses F1. It is best to test and see where your distribution puts the graphical interface. Text mode virtual consoles use the whole screen and start with the text login screen displayed. An example of a text login screen from a virtual console is shown in Figure 2.2.
+Figure 2.2 Linux virtual console login screen Notice in Figure 2.2 the words tty2 at the end of the first text line. The 2 in tty2 indicates that it is virtual console 2 and was reached by pressing the Ctrl+Alt+F2 key sequence. tty stands for teletypewriter. Teletypewriter is an old term, indicating a machine used for sending messages.
+
+Note
+Not all Linux distributions show the virtual console’s tty number at the login screen. You log into a console terminal by entering your user ID after the login: prompt and typing your password after the Password: prompt. If you have never logged in this way before, be aware that typing your password is a different experience than in a graphical environment. In a graphical environment, you may see dots or asterisks indicating the password characters as you type. However, at the virtual console, nothing is displayed when you type your password. After logging into a virtual console, you are taken to the Linux CLI. Keep in mind that, within the Linux virtual console, you do not have the ability to run any graphical programs. After you have logged in to a virtual console, you can keep it active and switch to another virtual console without losing your active session. You can switch between all the virtual consoles, with multiple active sessions running. This feature provides a great deal of flexibility while you work at the CLI. Additional flexibility deals with the virtual console’s appearance. Even though it is a text mode console terminal, you can modify the text and background colors. For example, it may be easier on your eyes to set the background of the terminal to white and the text to black. After you have logged in, you can accomplish this modification in a couple of ways. One way is to type in the command setterm -inversescreen on and press the Enter key, as shown in Figure 2.3. Notice in the figure that the inversescreen feature is being turned on using the option on. You can also turn it off using the off option.
+Figure 2.3 Linux virtual console with inversescreen being turned on
+
+Another way is to type two commands, one after the other. Type setterm -background white and press Enter, and then type setterm -foreground black and press Enter. Be careful because, when you change your terminal background first, it may be hard to see the commands you are typing.
+With the commands in the preceding paragraph, you are not turning features on and off, as with inversescreen. Instead, you have a choice of eight colors. The choices are black, red, green, yellow, blue, magenta, cyan, and white (which looks gray on some distributions). You can get rather creative with your plain text mode console terminals. Table 2.2 shows some options you can use with the setterm command to help improve your console terminal’s readability or appearance.
+Table 2.2 setterm Options for Foreground and Background Appearance
+
+Option
+
+Parameter Choices
+
+Description
+
+-background
+
+black, red, green, yellow, blue, magenta,
+
+Changes the terminal’s background color to
+
+cyan, or white
+
+the one specified
+
+black, red, green, -foreground yellow, blue, magenta,
+
+Changes the terminal’s foreground color,
+
+cyan, or white
+
+specifically text, to the one specified
+
+inversescreen
+
+on or off
+
+Switches the background color to the foreground color and the foreground color
+to the background color
+
+-reset
+
+None
+
+Changes the terminal appearance back to its default setting and clears the screen
+
+-store
+
+None
+
+Sets the current terminal’s foreground and background colors as the values to be used
+for -reset
+
+Virtual console terminals are great for accessing the CLI outside the GUI. However, sometimes, you need to access the CLI and run graphical programs. Using a terminal emulation package solves this problem and is a popular way to access the shell CLI from within the GUI. The following sections describe common software packages that provide graphical terminal emulation.
+
+Accessing CLI via Graphical Terminal Emulation
+The graphical desktop environment offers a great deal more variety for CLI access than the virtual console terminal does. Many graphical terminal emulator packages are available for the graphical environment. Each package provides its own unique set of features and options. Some popular graphical terminal emulator packages are shown in Table 2.3 along with their websites.
+Table 2.3 Popular Graphical Terminal Emulator Packages
+
+Name
+
+Website
+
+Eterm
+
+http://www.eterm.org
+
+Final Term
+
+http://finalterm.org
+
+GNOME Terminal
+
+https://help.gnome.org/users/gnome-terminal/stable
+
+Guake
+
+https://github.com/Guake/guake
+
+Konsole Terminal
+
+http://konsole.kde.org
+
+LillyTerm
+
+http://lilyterm.luna.com.tw/index.html
+
+LXTerminal
+
+http://wiki.lxde.org/en/LXTerminal
+
+mrxvt
+
+https://code.google.com/p/mrxvt
+
+ROXTerm
+
+http://roxterm.sourceforge.net
+
+rxvt
+
+http://sourceforge.net/projects/rxvt
+
+rxvt-unicode
+
+http://software.schmorp.de/pkg/rxvt-unicode
+
+Sakura
+
+https://launchpad.net/sakura
+
+st
+
+http://st.suckless.org
+
+Terminator
+
+https://launchpad.net/terminator
+
+Terminology
+
+http://www.enlightenment.org/p.php?p=about/terminology
+
+tilda
+
+http://tilda.sourceforge.net/tildaabout.php
+
+UXterm http://manpages.ubuntu.com/manpages/gutsy/man1/uxterm.1.html
+
+Wterm
+
+http://sourceforge.net/projects/wterm
+
+xterm
+
+http://invisible-island.net/xterm
+
+Xfce4 Terminal
+
+http://docs.xfce.org/apps/terminal/start
+
+Yakuake
+
+http://extragear.kde.org/apps/yakuake
+
+Although many graphical terminal emulator packages are available, the focus in this chapter is on three commonly used ones. Often installed in Linux distributions by default, they are GNOME Terminal, Konsole Terminal, and xterm.
+
+Using the GNOME Terminal Emulator
+GNOME Terminal is the GNOME desktop environment’s default terminal emulator. Many distributions, such as RHEL, Fedora, and CentOS, use the GNOME desktop environment by default, and therefore use GNOME Terminal by default. However, other desktop environments, such as Ubuntu Unity, also use the GNOME terminal as their default terminal emulator package. It is fairly easy to use and a good terminal emulator for individuals who are new to Linux. This chapter section walks you through the various parts of accessing, configuring and using the GNOME terminal emulator.
+Accessing the GNOME Terminal
+Each graphical desktop environment has different methods for accessing the GNOME terminal emulator. This section looks at accessing the GNOME Terminal in the GNOME, Unity, and KDE desktop environments.
+
+Note
+If you are using a different desktop environment than the ones listed in Table 2.3, you must look through the various menus offered in your environment to find the GNOME terminal emulator. In the menus, it is typically named Terminal
+In the GNOME desktop environment, accessing the GNOME Terminal is fairly straightforward. From the menu system in the upper-left corner of the window, click Applications, then select System Tools from the drop-down menu, and finally click Terminal. Written in shorthand, the directions look like the following: Applications⇨System Tools⇨ Terminal.
+Refer to Figure 2.1 to see a picture of the GNOME Terminal. It was accessed in a GNOME desktop environment on a CentOS distribution.
+In the Unity desktop environment, accessing the GNOME terminal takes a little more effort. The simplest access method is Dash⇨Search and type Terminal. The GNOME terminal shows up in the Dash home area as an application named Terminal. Click that icon to open the GNOME terminal emulator.
+
+Tip
+In some Linux distribution desktop environments, such as Ubuntu’s Unity, you can quickly access the GNOME terminal using the shortcut key combination Ctrl+Alt+T.
+In the KDE desktop environment, the Konsole terminal emulator is the default emulator. Therefore, you must dig down through the menus to access GNOME Terminal. Start with the icon labeled Kickoff Application Launcher in the lower-left corner of the screen and then click Applications⇨Utilities⇨Terminal.
+In most desktop environments, you can create a launcher for accessing GNOME Terminal. A launcher is an icon you create on your desktop that allows you to start a chosen application. This is a great feature that allows you to quickly access a terminal emulator in the graphical desktop. It is especially helpful if you do not want to use shortcut keys or the shortcut key feature is not available in your desktop environment of choice.
+For example, in the GNOME desktop environment, to create a launcher, right-click your mouse in the middle of the desktop area; a drop-down menu appears. Select Create Launcher… from the menu; the Create Launcher application window opens. In the Type field, select Application. Type a name for your icon in the Name field. In the Command field, type gnome-terminal. Click Ok to save your new launcher. An icon with the name you gave the launcher now appears on your desktop. Double-click it to open the GNOME terminal emulator.
+
+Note
+When you type gnome-terminal in the Command field, you are typing the shell command for starting the GNOME terminal emulator. You learn in Chapter 3 how to add special options to commands, such as gnome-terminal, to provide special configuration options, and how to view all the options available to you.
+Several configuration options are provided by menus and short-cut keys in the application, which you can apply after you get the GNOME terminal emulation started. Understanding these options can enhance your GNOME Terminal CLI experience.
+The Menu Bar
+The GNOME Terminal menu bar contains the configuration and customization options you need to make your GNOME Terminal just the way you want it. The following tables briefly describe the different configuration options in the menu bar and shortcut keys associated with the options.
+
+Note
+As you read through these GNOME Terminal menu options, keep in mind that your Linux distribution’s GNOME Terminal may have slightly different menu options available. This is because several Linux distributions use older versions of GNOME Terminal.
+Table 2.4 shows the configuration options available within the GNOME Terminal File menu system. The File menu item contains items to create and manage your overall CLI terminal sessions.
+Table 2.4 The File Menu
+
+Name Shortcut Key
+
+Open Terminal
+
+Shift+Ctrl+N
+
+Open Tab Shift+Ctrl+T
+
+New Profile
+
+None
+
+Save Contents
+
+None
+
+Close Tab Shift+Ctrl+W
+
+Close Window
+
+Shift+Ctrl+Q
+
+Description Starts a new shell session in a new GNOME Terminal
+window Starts a new shell session in a new tab in the existing
+GNOME Terminal window Customizes a session and saves as a profile, which can be
+recalled for later use
+Saves the scrollback buffer contents to a text file
+Closes the current tab session
+Closes the current GNOME Terminal session
+
+Notice that, as in a network browser, you can open new tabs within the GNOME Terminal session to start a whole new CLI session. Each tab session is considered to be an independent CLI session.
+
+Tip
+You do not have to click through the menu to reach options in the File menu. Most of the items are also available by right-clicking in the session area. The Edit menu contains items, shown in Table 2.5, for handling text within the tabs. You can use your mouse to copy and paste text anywhere within the session window. Table 2.5 The Edit Menu
+
+Name
+
+Shortcut Key
+
+Description
+
+Copy
+
+Shift+Ctrl+C Copies selected text to the GNOME clipboard
+
+Paste
+
+Shift+Ctrl+V Pastes text from the GNOME clipboard into a session
+
+Paste Filenames
+
+Properly pastes copied filenames and their paths
+
+Select All
+
+None
+
+Selects output in the entire scrollback buffer
+
+Profiles
+
+None Adds, deletes, or modifies GNOME Terminal profiles
+
+Keyboard Shortcuts
+
+None
+
+Creates key combinations to quickly access GNOME Terminal features
+
+Profile Preferences
+
+None
+
+Edits the current session profile
+
+The Paste Filenames menu option is available only in later versions of GNOME Terminal. Therefore, you may not see that menu option on your system.
+The View menu, shown in Table 2.6, contains items for controlling how the CLI session windows appear. These options can be helpful for individuals with visual impairment.
+Table 2.6 The View Menu
+
+Name
+Show Menubar
+
+Shortcut Key
+None
+
+Full Screen
+
+F11
+
+Zoom In Zoom Out Normal Size
+
+Ctrl++ Ctrl+Ctrl+0
+
+Description
+Toggles on/off the menu bar display
+Toggles on/off the terminal window filling the entire desktop
+Enlarges the font size in the window incrementally Reduces the font size in the window incrementally
+Returns the font size to default
+
+Be aware that if you toggle off the menu bar display, the session’s menu bar disappears. However, you can easily get the menu bar to display again by right-clicking in any terminal session window and toggling on the Show Menubar option.
+The Search menu, shown in Table 2.7, contains items for conducting simple searches
+
+within the terminal session. These searches are similar to ones you may have conducted in a network browser or word processor.
+Table 2.7 The Search Menu
+
+Name Shortcut Key
+
+Description
+
+Find Shift+Ctrl+F Opens Find window to provide designated text search options
+
+Find Next
+
+Shift+Ctrl+H
+
+Searches forward from current terminal session location for designated text
+
+Find Previous
+
+Shift+Ctrl+G
+
+Searches
+
+backward
+
+from current terminal designated text
+
+session
+
+location
+
+for
+
+The Terminal menu, shown in Table 2.8, contains options for controlling the terminal emulation session features. There are no shortcut keys to access these items.
+Table 2.8 The Terminal Menu
+
+Name
+Change Profile Set Title
+Set Character Encoding Reset
+Reset and Clear
+Window Size List
+
+Description Switches to a new profile configuration
+Modifies session tab title bar setting
+Selects character set used to send and display characters
+Sends reset terminal session control code Sends reset terminal session control code and clears terminal
+session screen Lists window sizes for adjusting the current terminal window size
+
+The Reset option is extremely useful. One day, you may accidently cause your terminal session to display random characters and symbols. When this occurs, the text is unreadable. It is typically caused by displaying a non-text file to the screen. You can quickly get the terminal session back to normal by selecting Reset or Reset and Clear.
+The Tabs menu, shown in Table 2.9, provides items for controlling the location of the tabs and selecting which tab is active. This menu displays only when you have more than one tab session open.
+Table 2.9 The Tabs Menu
+
+Name Shortcut Key
+
+Next Tab Ctrl+Page Down
+
+Previous Tab
+
+Ctrl+Page Up
+
+Move Tab Shift+Ctrl+Page
+
+Left
+
+Up
+
+Description Makes the next tab in the list active Makes the previous tab in the list active Shuffles the current tab in front of the previous tab
+
+Move Tab Shift+Ctrl+Page
+
+Right
+
+Down
+
+Shuffles the current tab in front of the next tab
+
+Detach Tab
+
+None
+
+Removes the tab and starts a new GNOME Terminal window using this tab session
+
+Tab List
+
+None
+
+Lists the currently running tabs (Select a tab to jump to that session.)
+
+Terminal List
+
+None
+
+Lists the currently running terminals (Select a terminal to jump to that session. This is displayed only if multiple window sessions are open.)
+
+Finally, the Help menu contains two menu options. Contents provides a full GNOME Terminal manual so you can research individual GNOME Terminal items and features. The About option shows you the current GNOME Terminal version that’s running.
+Besides the GNOME terminal emulator package, another commonly used package is Konsole Terminal. In many ways, Konsole Terminal is similar to GNOME Terminal. However, enough differences exist to warrant its own section.
+
+Using the Konsole Terminal Emulator
+The KDE Desktop Project created its own terminal emulation package called Konsole Terminal. The Konsole package incorporates basic terminal emulation features, along with more advanced ones expected from a graphical application. This section describes Konsole Terminal features and shows you how to use them.
+Accessing the Konsole Terminal
+The Konsole Terminal is the default terminal emulator for the KDE desktop environment. You can easily access it via the KDE environment’s menu system. In other desktop environments, accessing the Konsole Terminal can be a little more difficult.
+In the KDE desktop environment, you can access the Konsole Terminal by clicking the icon labeled Kickoff Application Launcher in the lower-left corner of the screen. Then click Applications⇨System⇨Terminal (Konsole).
+
+Note
+You may see two terminal menu options within the KDE menu environment. If you do, the Terminal menu option with the words Konsole beneath it is the Konsole terminal.
+In the GNOME desktop environment, the Konsole terminal is typically not installed by default. If Konsole Terminal has been installed, you can access it via the GNOME menu system. In the upper-left corner of the window, click Applications⇨System Tools⇨Konsole.
+
+Note
+You may not have the Konsole terminal emulation package installed on your system. If you would like to install it, read through Chapter 9 to learn how to install software via the command line. In the Unity desktop environment, if Konsole has been installed, you can access it via Dash⇨Search and type Konsole. The Konsole Terminal shows up in the Dash home area as an application named Konsole. Click that icon to open the Konsole terminal emulator. Figure 2.4 shows the Konsole Terminal. It was accessed on a KDE desktop environment in a CentOS Linux distribution.
+Figure 2.4 The Konsole Terminal Remember that, in most desktop environments, you can create a launcher to access applications such as the Konsole Terminal. The command you need to type for the launcher to start up the Konsole terminal emulator is konsole. Also, if the Konsole Terminal is installed, you can start it from another terminal emulator by typing konsole and pressing Enter. The Konsole Terminal, similar to GNOME Terminal, has several configuration options provided by menus and shortcut keys. The following section describes these various options.
+The Menu Bar
+The Konsole Terminal menu bar contains the configuration and customization options you need to easily view and change features in your terminal emulation session. The following tables briefly describe the menu options and associated shortcut keys.
+
+Tip
+The Konsole Terminal provides a simple menu when you right-click in the active session area. Several menu items are available in this easy-to-access menu. The File menu, shown in Table 2.10, provides options for starting a new tab in the current window or in a new window. Table 2.10 The File Menu
+
+Name
+New Tab
+
+Shortcut Key Ctrl+Shift+N
+
+New Window Ctrl+Shift+M
+
+Shell
+
+None
+
+Open Browser Here
+
+None
+
+Close Tab Ctrl+Shift+W
+
+Quit
+
+Ctrl+Shift+Q
+
+Description Starts a new shell session in a new tab in the existing
+Konsole Terminal window Starts a new shell session in a new Konsole Terminal
+window Opens the default profile, Shell
+Opens the default file browser application
+Closes the current tab session Quits the Konsole Terminal emulation application
+
+When you first start the Konsole Terminal, the only profile listed in the menu is Shell. As more profiles are created and saved, their names appear in the menu list.
+
+Note
+As you read through these Konsole Terminal menu options, keep in mind that your Linux distribution’s Konsole Terminal may have very different menu options available. This is because some Linux distributions have kept older versions of the Konsole Terminal emulation package.
+The Edit menu, shown in Table 2.11, provides options for handling text in the session. Also, managing tab names is in this options list.
+Table 2.11 The Edit Menu
+
+Name Shortcut Key
+
+Description
+
+Copy Ctrl+Shift+C
+
+Copies selected text to the Konsole clipboard
+
+Paste Ctrl+Shift+V Pastes text from the Konsole clipboard into a session
+
+Rename Tab Ctrl+Alt+S
+
+Modifies session tab title bar setting
+
+Copy Input To
+
+None
+
+Starts/stops session input copies to chosen additional sessions
+
+Clear Display
+
+None
+
+Clears the terminal session screen
+
+Clear & Reset
+
+None
+
+Clears the terminal session screen and sends the reset terminal session control code
+
+Konsole provides an excellent method for tracking what function is taking place in each tab session. Using the Rename Tab menu option, you can name a tab to match its current task. This helps in tracking which open tab session is performing what function.
+The View menu, shown in Table 2.12, contains items for controlling individual session views in the Konsole Terminal window. In addition, options are available that aid in monitoring terminal session activity.
+Table 2.12 The View Menu
+
+Name
+Split View
+
+Shortcut Key None
+
+Detach View Ctrl+Shift+H
+
+Show Menu Bar
+
+None
+
+Full Screen Mode
+
+Ctrl+Shift+F11
+
+Monitor for Ctrl+Shift+I
+Silence
+
+Description Controls the multiple tab session display within the
+current Konsole Terminal window Removes a tab session and starts a new Konsole
+Terminal window using this tab session Toggles on/off Menu bar display
+Toggles on/off the terminal window filling the entire monitor display area
+Toggles on/off a special message for tab silence
+
+Monitor for Ctrl+Shift+A
+Activity
+
+Character Encoding
+
+None
+
+Increase Text Size
+Decrease Text Size
+
+Ctrl++ Ctrl+-
+
+Toggles on/off a special message for tab activity
+Selects the character set used to send and display characters
+Enlarges the font size in the window incrementally
+Reduces the font size in the window incrementally
+
+The Monitor for Silence menu option is used for indicating tab silence. Tab silence occurs when no new text appears in the current tab session for 10 seconds. This allows you to switch to another tab while waiting for application output to stop.
+Tab activity, toggled by the Monitor for Activity option, issues a special message when new text appears in the tab session. This option allows you to be notified when output from an application occurs.
+Konsole retains a history, formally called a scrollback buffer, for each tab. The history contains output text that has scrolled out of the terminal viewing area. By default, the last 1,000 lines in the scrollback buffer are retained. The Scrollback menu, shown in Table 2.13, contains options for viewing this buffer.
+Table 2.13 The Scrollback Menu
+
+Name Shortcut Key
+
+Description
+
+Search Output Ctrl+Shift+F
+
+Opens the Find window at the bottom of the Konsole Terminal window to provide scrollback text search
+options
+
+Find Next
+
+F3
+
+Finds the next text match in more recent scrollback buffer history
+
+Find Previous Shift+F3
+
+Finds the next text match in older scrollback buffer history
+
+Save Output
+
+None
+
+Saves scrollback buffer contents to a text or HTML file
+
+Scrollback Options
+
+None
+
+Opens the Scrollback Options window to configure scrollback buffer options
+
+Clear Scrollback
+
+None
+
+Removes scrollback buffer contents
+
+Clear
+Scrollback & Ctrl+Shift+X
+Reset
+
+Removes scrollback buffer contents and resets the terminal window
+
+You can scroll back through the scrollback buffer by simply using the scrollbar in the viewing area. Also, you can scroll back line by line by pressing the Shift+Up Arrow or scroll back a page (24 lines) at a time by pressing Shift+Page Up.
+The Bookmarks menu options, shown in Table 2.14, provide a way to manage bookmarks set in the Konsole Terminal window. A bookmark enables you to save your active session’s directory location and then easily return there in either the same session or a new
+
+session. Table 2.14 The Bookmarks Menu
+
+Name
+
+Shortcut Key
+
+Description
+
+Add Bookmark
+
+Ctrl+Shift+B
+
+Creates a new bookmark at the current directory location
+
+Bookmark Tabs as Folder
+
+None
+
+Creates a new bookmark for all current terminal tab sessions
+
+New Bookmark Folder None
+
+Creates a new bookmark storage folder
+
+Edit Bookmarks
+
+None
+
+Edits existing bookmarks
+
+The Settings menu, shown in Table 2.15, allows you to customize and manage your profiles. Also, you can add a little more functionality to your current tab session. There are no shortcut keys to access these items.
+Table 2.15 The Settings Menu
+
+Name
+
+Description
+
+Change Profile
+
+Applies to the current tab a selected profile
+
+Edit Current Profile Opens the Edit Profile window to provide profile configuration options
+
+Manage Profiles
+
+Opens the Manage Profile window to provide profile management options
+
+Configure Shortcuts Creates Konsole Terminal command keyboard shortcuts
+
+Configure Notifications
+
+Creates custom Konsole Terminal schemas and sessions
+
+Configure Notifications allows you to associate specific events that can occur within a session with different actions. When one of the events occurs, the defined action (or actions) is taken.
+The Help menu, shown in Table 2.16, provides the full Konsole handbook (if KDE handbooks were installed in your Linux distribution) and the standard About Konsole dialog box.
+Table 2.16 The Help Menu
+
+Name
+Konsole Handbook What’s This? Report Bug
+
+Shortcut Key None
+Shift+F1 None
+
+Description
+Contains the full Konsole Handbook Contains help messages for terminal widgets
+Opens the Submit Bug Report form
+
+Switch Application Language
+About Konsole
+About KDE
+
+None None
+
+Opens the Switch Application’s Language form
+Displays the current Konsole Terminal version Displays the current KDE desktop environment
+version
+
+Rather extensive documentation is provided to help you use the Konsole terminal emulator package. In addition to help items, you are provided with a Bug Report form to submit to the Konsole Terminal developers when you encounter a program bug.
+The Konsole terminal emulator package is young compared to another popular package, xterm. In the next section, we explore the “old-timer” xterm.
+
+Using the xterm Terminal Emulator
+The oldest and most basic of terminal emulation packages is xterm. The xterm package has been around since before the original days of X Window, a popular display server, and it’s often included by default in distributions.
+Although xterm is a full terminal emulation package, it doesn’t require many resources (such as memory) to operate. Because of this, the xterm package is still popular in Linux distributions designed to run on older hardware. Some graphical desktop environments use it as the default terminal emulation package.
+Although it doesn’t offer many fancy features, the xterm package does one thing extremely well: It emulates older terminals, such as the Digital Equipment Corporation (DEC) VT102, VT220, and Tektronix 4014 terminals. For the VT102 and VT220 terminals, xterm can even emulate the VT series of color control codes, allowing you to use color in your scripts.
+
+Note
+The DEC VT102 and VT220 were dumb text terminals popular for connecting to Unix systems in the 1980s and early 1990s. A VT102/VT220 could display text and display rudimentary graphics using block mode graphics. This style of terminal access is still used in many business environments today, thus keeping VT102/VT220 emulation popular. Figure 2.5 shows what the basic xterm display looks like running on a graphical Linux desktop. You can see it is very basic.
+Figure 2.5 The xterm Terminal The xterm terminal emulator can be tricky to find these days. Often, it is not included in a desktop environment graphical menu arrangement.
+Accessing xterm
+In Ubuntu’s Unity desktop, xterm is installed by default. You can access it via Dash⇨Search and type xterm. xterm shows up in the Dash home area as an application named XTerm. Click that icon to open the xterm terminal emulator.
+
+Note
+You may see another terminal called UXTerm when you search for xterm on Ubuntu. This is simply the xterm emulator package with Unicode support.
+In the GNOME and KDE desktop environment, xterm is not installed by default. You must install it first (see Chapter 9 for help on installing software packages). After it’s installed, you must start xterm from another terminal emulator. Open a terminal emulator for CLI access, type xterm, and press Enter. Also, remember that you can create your own desktop launcher to startup xterm.
+The xterm package allows you to set individual features using command line parameters. The following sections discuss these features and how to change them.
+Command Line Parameters
+The list of xterm command line parameters is extensive. You can control lots of features to customize the terminal emulation features, such as enabling or disabling individual VT emulations.
+
+Note
+xterm has a huge number of configuration options — so many that they cannot all be covered here. Extensive documentation is available via the bash manual. Accessing the bash manual is covered in Chapter 3. In addition, the xterm development team provides some excellent help on its website: http://invisible-
+island.net/xterm/.
+You can invoke certain configuration options by adding a parameter to the xterm command. For example, to have the xterm emulate a DEC VT100 terminal, type the command xterm -ti vt100 and press Enter. Table 2.17 shows some parameters you can include when invoking the xterm terminal emulator software.
+Table 2.17 xterm Command Line Parameters
+
+Parameter
+
+Description
+
+-bg color
+
+Specifies the color to use for the terminal background
+
+-fb font
+
+Specifies the font to use for bold text
+
+-fg color
+
+Specifies the color to use for the foreground text
+
+-fn font
+
+Specifies the font to use for text
+
+-fw font
+
+Specifies the font to use for wide text
+
+-lf filename
+
+Specifies the filename to use for screen logging
+
+-ms color
+
+Specifies the color used for the text cursor
+
+-name name Specifies the name of the application that appears in the title bar
+
+-ti terminal
+
+Specifies the terminal type to emulate
+
+Some xterm command line parameters use a plus sign (+) or minus sign (-) to signify how a feature is set. A plus sign may turn a feature on, while a minus sign turns it off. However, the opposite can be true as well. A plus sign may disable a feature, while a minus sign enables it, such as when using the bc parameter. Table 2.18 lists some of the more common features you can set using the +/- command line parameters.
+Table 2.18 xterm +/- Command Line Parameters
+
+Parameter
+
+Description
+
+ah
+
+Enables/disables highlighted text cursor
+
+aw
+
+Enables/disables auto-line-wrap
+
+bc
+
+Enables/disables text cursor blinking
+
+cm Enables/disables recognition of ANSI color change control codes
+
+fullscreen
+
+Enables/disables full screen mode
+
+j
+
+Enables/disables jump scrolling
+
+l
+
+Enables/disables logging screen data to a log file
+
+mb
+
+Enables/disables margin bell
+
+rv
+
+Enables/disables reverse video colors
+
+t
+
+Enables/disables Tektronix mode
+
+It is important to note that not all implementations of xterm support all these command line parameters. You can determine which parameters your xterm implements by using the -help parameter when you start xterm on your system.
+Now that you have been introduced to three terminal emulator packages, the big question is which is the best terminal emulator to use? There is no definite answer to that question. Which terminal emulator package you use depends upon your individual needs and desires. But it is great to have so many choices.
+
+Summary
+To start learning Linux command line commands, you need access to a CLI. In the world of graphical interfaces, this can sometimes be challenging. This chapter discussed different interfaces you should consider to get to the Linux command line.
+First, this chapter discussed the difference between accessing the CLI via a virtual console terminal (a terminal outside the GUI) and a graphical terminal emulation package (a terminal inside the GUI). We took a brief look at the basic differences between these two access methods.
+Next, we explored in detail accessing the CLI via a virtual console terminal, including specifics on how to change console terminal configuration options such as background color.
+After looking at virtual console terminals, the chapter traveled through accessing the CLI via a graphical terminal emulator. Primarily, we covered three different types of terminal emulators: GNOME Terminal, Konsole Terminal, and xterm.
+This chapter also covered the GNOME desktop project’s GNOME terminal emulation package. GNOME Terminal is typically installed by default on the GNOME desktop environment. It provides convenient ways to set many terminal features via menu options and shortcut keys.
+We also covered the KDE desktop project’s Konsole terminal emulation package. The Konsole Terminal is typically installed by default on the KDE desktop environment. It provides several nice features, such as the ability to monitor a terminal for silence.
+Finally, we covered the xterm terminal emulator package. xterm was the first terminal emulator available for Linux. It can emulate older terminal hardware such as the VT and Tektronix terminals.
+In the next chapter, you start looking at the Linux command line commands. It walks you through the commands necessary to navigate around the Linux filesystem, and to create, delete, and manipulate files.
+
+Chapter 3 Basic bash Shell Commands
+
+In This Chapter
+1. Interacting with the shell 2. Using the bash manual 3. Traversing the filesystem 4. Listing files and directories 5. Managing files and directories 6. Viewing file contents
+The default shell used in many Linux distributions is the GNU bash shell. This chapter describes the basic features available in the bash shell, such as the bash manual, tab auto-completion and how to display a file’s contents. You will walk through how to work with Linux files and directories using the basic commands provided by the bash shell. If you’re already comfortable with the basics in the Linux environment, feel free to skip this chapter and continue with Chapter 4 to see more advanced commands.
+
+Starting the Shell
+The GNU bash shell is a program that provides interactive access to the Linux system. It runs as a regular program and is normally started whenever a user logs in to a terminal. The shell that the system starts depends on your user ID configuration.
+The /etc/passwd file contains a list of all the system user accounts, along with some basic configuration information about each user. Here’s a sample entry from a /etc/passwd file:
+christine:x:501:501:Christine Bresnahan:/home/christine:/bin/bash
+Each entry has seven data fields, with fields separated by colons. The system uses the data in these fields to assign specific features for the user. Most of these entries are discussed in more detail in Chapter 7. For now, just pay attention to the last field, which specifies the user’s shell program.
+
+Note
+Though the focus is on the GNU bash shell, additional shells are reviewed in this book. Chapter 23 covers working with alternative shells, such as dash and tcsh.
+In the earlier /etc/passwd sample entry, the user christine has /bin/bash set as her default shell program. This means when christine logs into the Linux system, the bash shell program is automatically started.
+Although the bash shell program is automatically started at login, whether a shell command line interface (CLI) is presented depends on which login method is used. If a virtual console terminal is used to log in, the CLI prompt is automatically presented, and you can begin to type shell commands. However, if you log into the Linux system via a graphical desktop environment, you need to start a graphical terminal emulator to access the shell CLI prompt.
+
+Using the Shell Prompt
+After you start a terminal emulation package or log in to a Linux virtual console, you get access to the shell CLI prompt. The prompt is your gateway to the shell. This is the place where you enter shell commands.
+The default prompt symbol for the bash shell is the dollar sign ($). This symbol indicates that the shell is waiting for you to enter text. Different Linux distributions use different formats for the prompt. On this Ubuntu Linux system, the shell prompt looks like this:
+christine@server01:∼$
+On the CentOS Linux system, it looks like this:
+[christine@server01 ∼]$
+Besides acting as your access point to the shell, the prompt can provide additional helpful information. In the two preceding examples, the current user ID name, christine, is shown in the prompt. Also, the name of the system is shown, server01. You learn later in this chapter about additional items shown in the prompt.
+
+Tip
+If you are new to the CLI, keep in mind that, after you type in a shell command at the prompt, you need to press the Enter key for the shell to act upon your command.
+The shell prompt is not static. It can be changed to suit your needs. Chapter 6, “Using Linux Environment Variables,” covers modifying your shell CLI prompt configuration.
+Think of the shell CLI prompt as a helpmate, assisting you with your Linux system, giving you helpful insights, and letting you know when the shell is ready for new commands. Another helpful item in the shell is the bash Manual.
+
+Interacting with the bash Manual
+Most Linux distributions include an online manual for looking up information on shell commands, as well as lots of other GNU utilities included in the distribution. You should become familiar with the manual, because it’s invaluable for working with commands, especially when you’re trying to figure out various command line parameters. The man command provides access to the manual pages stored on the Linux system. Entering the man command followed by a specific command name provides that utility’s manual entry. Figure 3.1 shows an example of looking up the xterm command’s manual pages. This page was reached by typing the command man xterm.
+Figure 3.1 Manual pages for the xterm command Notice the xterm command DESCRIPTION paragraphs in Figure 3.1. They are rather sparse and full of technical jargon. The bash manual is not a step-by-step guide, but instead a quick reference.
+
+Tip
+If you are new to the bash shell, you may find that the man pages are not very helpful at first. However, get into the habit of using them, especially to read the first paragraph or two of a command’s DESCRIPTION section. Eventually, you will learn the technical lingo, and the man pages will become more helpful to you.
+When you use the man command to view a command’s manual pages, they are displayed with something called a pager. A pager is a utility that allows you to page through displayed text. Thus, you can page through the man pages by pressing the spacebar, or you can go line by line using the Enter key. In addition, you can use the arrow keys to scroll forward and backward through the man page text (assuming that your terminal emulation package supports the arrow key functions).
+When you are finished with the man pages, press the q key to quit. When you quit the man pages, you receive a shell CLI prompt, indicating the shell is waiting for your next command.
+
+Tip
+The bash manual even has reference information on itself. Type man man to see manual pages concerning the man pages The manual page divides information about a command into separate sections. Each section has a conventional naming standard as shown in Table 3.1. Table 3.1 The Linux man Page Conventional Section Names
+
+Section
+
+Description
+
+Name Displays command name and a short description
+
+Synopsis
+
+Shows command syntax
+
+Configuration
+
+Provides configuration information
+
+Description
+
+Describes command generally
+
+Options
+
+Describes command option(s)
+
+Exit Status
+
+Defines command exit status indicator(s)
+
+Return Value
+
+Describes command return value(s)
+
+Errors
+
+Provides command error messages
+
+Environment Describes environment variable(s) used
+
+Files
+
+Defines files used by command
+
+Versions
+
+Describes command version information
+
+Conforming To
+
+Provides standards followed
+
+Notes Describes additional helpful command material
+
+Bugs
+
+Provides the location to report found bugs
+
+Example
+
+Shows command use examples
+
+Authors Provides information on command developers
+
+Copyright
+
+Defines command code copyright status
+
+See Also
+
+Refers similar available commands
+
+Not every command’s man page has all the section names described in Table 3.1. Also, some commands have section names that are not listed in the conventional standard.
+
+Tip
+What if you can’t remember the command name? You can search the man pages using keywords. The syntax is man -k keyword. For example, to find commands dealing with the terminals, you type man -k terminal.
+In addition to the conventionally named sections for a man page, there are man page section areas. Each section area has an assigned number, starting at 1 and going to 9; they are listed in Table 3.2.
+Table 3.2 The Linux man Page Section Areas
+
+Section Number
+
+Area Contents
+
+1
+
+Executable programs or shell commands
+
+2
+
+System calls
+
+3
+
+Library calls
+
+4
+
+Special files
+
+5
+
+File formats and conventions
+
+6
+
+Games
+
+7
+
+Overviews, conventions, and miscellaneous
+
+8
+
+Super user and system administration commands
+
+9
+
+Kernel routines
+
+Typically, the man utility provides the lowest numbered content area for the command. For example, looking back to Figure 3.1 where the command man xterm was entered, notice that in the upper-left and upper-right display corners, the word XTERM is followed by a number in parentheses, (1). This means the man pages displayed are coming from content area 1 (executable programs or shell commands).
+Occasionally, a command has man pages in multiple section content areas. For example, there is a command called hostname. The man pages contain information on the command as well as an overview section on system hostnames. To see the pages desired, you type man section# topic. For the command’s man pages in section 1, type man 1 hostname. For the overview man pages in section 7, type man 7 hostname.
+You can also step through an introduction to the various section content areas by typing man 1 intro to read about section 1, man 2 intro to read about section 2, man 3 intro to read about section 3, and so on.
+The man pages are not the only reference. There are also the information pages called info pages. You can learn about the info pages by typing info info.
+In addition, most commands accept the -help or —help option. For example, you can type hostname -help to see a help screen. For more information on using help, type help help. (See a pattern here?)
+
+Obviously, several helpful resources are available for reference. However, many basic shell concepts still need detailed explanation. In the next section, we cover navigating through the Linux filesystem.
+
+Navigating the Filesystem
+When you log into the system and reach the shell command prompt, you are usually placed in your home directory. Often, you want to explore other areas in the Linux system besides just your home directory. This section describes how to do that using shell commands. To start, you need to take a tour of just what the Linux filesystem looks like so you know where you are going.
+Looking at the Linux filesystem
+If you’re new to the Linux system, you may be confused by how it references files and directories, especially if you’re used to the way the Microsoft Windows operating system does that. Before exploring the Linux system, it helps to have an understanding of how it’s laid out.
+The first difference you’ll notice is that Linux does not use drive letters in pathnames. In the Windows world, the physical drives installed on the computer determine the pathname of the file. Windows assigns a letter to each physical disk drive, and each drive contains its own directory structure for accessing files stored on it.
+For example, in Windows you may be used to seeing the file paths such as:
+c:\Users\Rich\Documents\test.doc
+The Windows file path tells you exactly which physical disk partition contains the file named test.doc. For example, if you saved test.doc on a flash drive, designated by the J drive, the file path would be J:∖test.doc. This path indicates that the file is located at the root of the drive assigned the letter J.
+This is not the method used by Linux. Linux stores files within a single directory structure, called a virtual directory. The virtual directory contains file paths from all the storage devices installed on the computer, merged into a single directory structure.
+The Linux virtual directory structure contains a single base directory, called the root. Directories and files beneath the root directory are listed based on the directory path used to get to them, similar to the way Windows does it.
+
+Tip
+You’ll notice that Linux uses a forward slash (/) instead of a backward slash (∖) to denote directories in file paths. The backslash character in Linux denotes an escape character and causes all sorts of problems when you use it in a file path. This may take some getting used to if you’re coming from a Windows environment. In Linux, you will see file paths similar to the following:
+/home/Rich/Documents/test.doc
+This indicates the file test.doc is in the directory Documents, under the directory rich, which is contained in the directory home. Notice that the path doesn’t provide any information as to which physical disk the file is stored on. The tricky part about the Linux virtual directory is how it incorporates each storage device. The first hard drive installed in a Linux system is called the root drive. The root drive contains the virtual directory core. Everything else builds from there. On the root drive, Linux can use special directories as mount points. Mount points are directories in the virtual directory where you can assign additional storage devices. Linux causes files and directories to appear within these mount point directories, even though they are physically stored on a different drive. Often system files are physically stored on the root drive. User files are typically stored on a separate drive or drives, as shown in Figure 3.2.
+Figure 3.2 The Linux file structure Figure 3.2 shows two hard drives on the computer. One hard drive is associated with the root of the virtual directory (indicated by a single forward slash). Other hard drives can be mounted anywhere in the virtual directory structure. In this example, the second hard drive is mounted at the location /home, which is where the user directories are located. The Linux filesystem structure originally evolved from the Unix file structure. In a Linux filesystem, common directory names are used for common functions. Table 3.3 lists some
+
+of the more common Linux virtual top-level directory names and their contents. Table 3.3 Common Linux Directory Names
+
+Directory
+
+Usage
+
+/
+
+root of the virtual directory, where normally, no files are placed
+
+/bin
+
+binary directory, where many GNU user-level utilities are stored
+
+/boot
+
+boot directory, where boot files are stored
+
+/dev
+
+device directory, where Linux creates device nodes
+
+/etc
+
+system configuration files directory
+
+/home
+
+home directory, where Linux creates user directories
+
+/lib
+
+library directory, where system and application library files are stored
+
+/media media directory, a common place for mount points used for removable media
+
+/mnt
+
+mount directory, another common place for mount points used for removable media
+
+/opt
+
+optional directory, often used to store third-party software packages and data files
+
+/proc process directory, where current hardware and process information is stored
+
+/root
+
+root home directory
+
+/sbin system binary directory, where many GNU admin-level utilities are stored
+
+/run
+
+run directory, where runtime data is held during system operation
+
+/srv
+
+service directory, where local services store their files
+
+/sys
+
+system directory, where system hardware information files are stored
+
+/tmp temporary directory, where temporary work files can be created and destroyed
+
+/usr
+
+user binary directory, where the bulk of GNU user-level utilities and data files are stored
+
+/var
+
+variable directory, for files that change frequently, such as log files
+
+The common Linux directory names are based upon the Filesystem Hierarchy Standard (FHS). Many Linux distributions maintain compliance with FHS. Therefore, you should be able to easily find files on any FHS-compliant Linux systems.
+
+Note
+The FHS is occasionally updated. You may find that some Linux distributions are still using an older FHS standard, while other distributions only partially implement the current standard. To keep up to date on the FHS standard, visit its official home at http://www.pathname.com/fhs/.
+When you log in to your system and reach a shell CLI prompt, your session starts in your home directory. Your home directory is a unique directory assigned to your user account. When a user account is created, the system normally assigns a unique directory for the account (see Chapter 7).
+You can move around the virtual directory using a graphical interface. However, to move around the virtual directory from a CLI prompt, you need to learn to use the cd command.
+Traversing directories
+You use the change directory command (cd) to move your shell session to another directory in the Linux filesystem. The cd command syntax is pretty simplistic: cd destination.
+The cd command may take a single parameter, destination, which specifies the directory name you want to go to. If you don’t specify a destination on the cd command, it takes you to your home directory.
+The destination parameter can be expressed using two different methods. One method is using an absolute directory reference. The other method uses a relative directory reference.
+The following sections describe each of these methods. The differences between these two methods are important to understand as you traverse the filesystem.
+Using absolute directory references
+You can reference a directory name within the virtual directory system using an absolute directory reference. The absolute directory reference defines exactly where the directory is in the virtual directory structure, starting at the root. Think of the absolute directory reference as the full name for a directory.
+An absolute directory reference always begins with a forward slash (/), indicating the virtual directory system’s root. Thus, to reference user binaries, contained within the bin directory stored within the usr directory, you would use an absolute directory reference as follows:
+/usr/bin
+With the absolute directory reference, there’s no doubt as to exactly where you want to go. To move to a specific location in the filesystem using the absolute directory reference, you just specify the full pathname in the cd command:
+christine@server01:∼$ cd /usr/bin
+
+christine@server01:/usr/bin$
+Notice in the preceding example that the prompt originally had a tilde (∼) in it. After the change to a new directory occurred, the tilde was replaced by /usr/bin. This is where a CLI prompt can help you keep track of where you are in the virtual directory structure. The tilde indicates that your shell session is located in your home directory. After you move out of your home directory, the absolute directory reference is shown in the prompt, if the prompt has been configured to do so.
+
+Note
+If your shell CLI prompt does not show your shell session’s current location, then it has not been configured to do so. Chapter 6 shows you how to make configuration changes, if you desire modifications to your CLI prompt.
+If your prompt has not been configured to show the shell session’s current absolute directory location, then you can display the location via a shell command. The pwd command displays the shell session’s current directory location, which is called the present working directory. An example of using the pwd command is shown here.
+christine@server01:/usr/bin$ pwd /usr/bin christine@server01:/usr/bin$
+
+Tip
+It is a good habit to use the pwd command whenever you change to a new present working directory. Because many shell commands operate on the present working directory, you always want to make sure you are in the correct directory before issuing a command.
+You can move to any level within the entire Linux virtual directory structure from any level using the absolute directory reference:
+christine@server01:/usr/bin$ cd /var/log christine@server01:/var/log$ christine@server01:/var/log$ pwd /var/log christine@server01:/var/log$
+You can also quickly jump to your home directory from any level within the Linux virtual directory structure:
+christine@server01:/var/log$ cd christine@server01:~$ christine@server01:∼$ pwd /home/christine christine@server01:∼$
+However, if you’re just working within your own home directory structure, often using absolute directory references can get tedious. For example, if you’re already in the directory /home/christine, it seems somewhat cumbersome to have to type the command:
+cd /home/christine/Documents
+just to get to your Documents directory. Fortunately, there’s a simpler solution.
+Using relative directory references
+Relative directory references allow you to specify a destination directory reference relative to your current location. A relative directory reference doesn’t start with a forward slash (/).
+Instead, a relative directory reference starts with either a directory name (if you’re traversing to a directory under your current directory) or a special character. For example, if you are in your home directory and want to move to your Documents subdirectory, you can use the cd command along with a relative directory reference:
+christine@server01:∼$ pwd /home/christine christine@server01:~$ christine@server01:∼$ cd Documents christine@server01:∼/Documents$ pwd /home/christine/Documents christine@server01:~/Documents$
+In the preceding example, note that no forward slash (/) was used. Instead a relative
+
+directory reference was used and the present work directory was changed from /home/christine to /home/christine/Documents, with much less typing.
+Also notice in the example that if the prompt is configured to display the present working directory, it keeps the tilde in the display. This shows that the present working directory is in a directory under the user’s home directory.
+
+Tip
+If you are new to the command line and the Linux directory structure, it is recommended that you stick with absolute directory references for a while. After you become more familiar with the directory layout, switch to using relative directory references.
+You can use a relative directory reference with the cd command in any directory containing subdirectories. You can also use a special character to indicate a relative directory location.
+The two special characters used for relative directory references are:
+The single dot (.) to represent the current directory
+The double dot (..) to represent the parent directory
+You can use the single dot, but it doesn’t make sense to use it with the cd command. Later in the chapter, you will see how another command uses the single dot for relative directory references effectively.
+The double dot character is extremely handy when trying to traverse a directory hierarchy. For example, if you are in the Documents directory under your home directory and need to go to your Downloads directory, also under your home directory, you can do this:
+christine@server01:∼/Documents$ pwd /home/christine/Documents christine@server01:∼/Documents$ cd ../Downloads christine@server01:∼/Downloads$ pwd /home/christine/Downloads christine@server01:∼/Downloads$
+The double dot character takes you back up one level to your home directory; then the /Downloads portion of the command takes you back down into the Downloads directory. You can use as many double dot characters as necessary to move around. For example, if you are in your home directory (/home/christine) and want to go to the /etc directory, you could type the following:
+christine@server01:∼$ cd ../../etc christine@server01:/etc$ pwd /etc christine@server01:/etc$
+Of course, in a case like this, you actually have to do more typing rather than just typing the absolute directory reference, /etc. Thus, use a relative directory reference only if it makes sense to do so.
+
+Note
+It’s helpful to have a long informative shell CLI prompt, as used in this chapter section. However, for clarity purposes, a simple $ prompt is used in the rest of the book’s examples.
+Now that you know how to traverse the directory system and confirm your present working directory, you can start to explore what’s contained within the various directories. The next section takes you through the process of looking at files within the directory structure.
+
+Listing Files and Directories
+
+To see what files are available on the system, use the list command (ls). This section describes the ls command and options available to format the information it can display.
+
+Displaying a basic listing
+
+The ls command at its most basic form displays the files and directories located in your current directory:
+
+$ ls Desktop Documents $
+
+Downloads examples.desktop
+
+Music my_script
+
+Pictures Public
+
+Templates test_file
+
+Videos
+
+Notice that the ls command produces the listing in alphabetical order (in columns rather than rows). If you’re using a terminal emulator that supports color, the ls command may also show different types of entries in different colors. The LS_COLORS environment variable controls this feature. (Environment variables are covered in Chapter 6). Different Linux distributions set this environment variable depending on the capabilities of the terminal emulator.
+
+If you don’t have a color terminal emulator, you can use the -F parameter with the ls command to easily distinguish files from directories. Using the -F parameter produces the following output:
+
+$ ls -F
+
+Desktop/ Downloads/
+
+Music/
+
+Pictures/ Templates/ Videos/
+
+Documents/ examples.desktop my_script* Public/ test_file
+
+$
+
+The -F parameter flags the directories with a forward slash (/), to help identify them in the listing. Similarly, it flags executable files (like the my_script file in the preceding code) with an asterisk (*), to help you more easily find files that can be run on the system.
+
+The basic ls command can be somewhat misleading. It shows the files and directories contained in the current directory, but not necessarily all of them. Linux often uses hidden files to store configuration information. In Linux, hidden files are files with filenames starting with a period (.). These files don’t appear in the default ls listing. Thus, they are called hidden files.
+
+To display hidden files along with normal files and directories, use the -a parameter. Here is an example of using the -a parameter with the ls command.
+
+$ ls -a . .. .bash_history .bash_logout .bashrc .cache $
+
+.compiz .config Desktop .dmrc Documents Downloads
+
+examples.desktop .gconf .gstreamer-0.10 .ICEauthority .local .mozilla
+
+Music my_script Pictures .profile Public Templates
+
+test_file Videos .Xauthority .xsession-errors .xsession-errors.old
+
+All the files beginning with a period, hidden files, are now shown. Notice that three files begin with .bash. These are hidden files that are used by the bash shell environment.
+
+These features are covered in detail in Chapter 6.
+
+The -R parameter is another option the ls command can use. Called the recursive option, it shows files that are contained within subdirectories in the current directory. If you have lots of subdirectories, this can be quite a long listing. Here’s a simple example of what the -R parameter produces. The -F option was tacked on to help you see the file types:
+
+$ ls -F -R
+
+.:
+
+Desktop/ Downloads/
+
+Music/
+
+Pictures/ Templates/ Videos/
+
+Documents/ examples.desktop my_script* Public/ test_file
+
+./Desktop:
+
+./Documents:
+
+./Downloads:
+
+./Music:
+
+ILoveLinux.mp3*
+
+./Pictures:
+
+./Public:
+
+./Templates:
+
+./Videos:
+
+$
+
+Notice that the -R parameter shows the contents of the current directory, which are the files from a user’s home directory shown in earlier examples. It also shows each subdirectory in the user’s home directory and their contents. The only subdirectory containing a file is the Music subdirectory, and it contains the executable file, ILoveLinux.mp3.
+

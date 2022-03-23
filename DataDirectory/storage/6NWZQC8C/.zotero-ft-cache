@@ -1,0 +1,1696 @@
+Taming multiparticle entanglement
+Bastian Jungnitsch,1 Tobias Moroder,1 and Otfried Gu¨hne2, 1 1Institut fu¨r Quantenoptik und Quanteninformation,
+O¨sterreichische Akademie der Wissenschaften, Technikerstraße 21A, A-6020 Innsbruck, Austria 2Fachbereich Physik, Universita¨t Siegen, Walter-Flex-Straße 3, D-57068 Siegen, Germany (Dated: October 25, 2018)
+We present an approach to characterize genuine multiparticle entanglement using appropriate approximations in the space of quantum states. This leads to a criterion for entanglement which can easily be calculated using semideﬁnite programming and improves all existing approaches signiﬁcantly. Experimentally, it can also be evaluated when only some observables are measured. Furthermore, it results in a computable entanglement monotone for genuine multiparticle entanglement. Based on this, we develop an analytical approach for the entanglement detection in cluster states, leading to an exponential improvement compared with existing schemes.
+PACS numbers: 03.67.Mn, 03.65.Ud
+
+arXiv:1010.6049v2 [quant-ph] 12 May 2011
+
+Introduction — The characterization of multiparticle quantum correlations is relevant for many physical systems like atoms in optical lattices, superconducting qubits or nitrogen-vacancy centers in diamond, to only name some recent examples [1]. In the ﬁeld of quantum information, multiparticle entanglement is viewed as a resource, enabling tasks like measurement-based quantum computation [2] or high-precision metrology [3]. In spite of many eﬀorts, the characterization of these correlations turns out to be diﬃcult. Especially genuine multipartite entanglement, which is most important from the experimental point of view, remains unruly and only scattered results concerning its characterization are known [4–7].
+In this Letter, we derive a general method to characterize genuine multiparticle entanglement using suitable relaxations. This relaxed problem turns out to be good-natured, can be tackled with diﬀerent methods and results in a criterion that can be considered as a generalization of the Peres-Horodecki criterion [8] to the multipartite case. The goal of our work is two-fold: First, we present powerful criteria for genuine multiparticle entanglement, which can be eﬃciently evaluated using semideﬁnite programming and improve existing conditions signiﬁcantly. They work for multi-qubit systems, continuous-variable or hybrid systems and can be evaluated, even if the mean values of only a few observables are known. Furthemore, they lead to a computable entanglement monotone for genuine multiparticle entanglement.
+Second, our method allows to analytically derive entanglement conditions for the family of cluster states [9], which are important states for tasks like measurementbased quantum computation. The sensitivity of these conditions improves exponentially with the number of qubits, which is an exponential gain compared with the existing conditions. As a sideproduct of our investigations, we will also estimate the volume of the set of genuinely multipartite entangled states and gain insight into the geometrical form of the set of biseparable states.
+Situation — We start by considering a three-particle
+
+FIG. 1: For three qubits, there are three convex sets of states that are separable with respect to a ﬁxed bipartition, namely the bipartitions A|BC, B|AC and C|AB (blue, dashed lines). Their convex hull (thick blue, dashed line) is the set of biseparable states. Each of the three sets is contained within the set of states that are PPT with respect to the corresponding bipartition (red, solid lines). Their convex hull forms the set of PPT mixtures (thick red, solid line).
+
+quantum state ̺. This state is separable with respect to some bipartition, say, A|BC, if it is a mix-
+ture of product states with respect to this bipartition, ̺ = k qk|φkA φkA| ⊗ |ψBk C ψBk C |, where the qk form a probability distribution. We denote these states by ̺sAe|pBC. Similarly, we can deﬁne the separable states for the two other possible bipartitions, ̺sBe|pAC and ̺sCe|pAB.
+Then, a state is called biseparable if it can be written
+as a mixture of states which are separable with respect
+to diﬀerent bipartitions [4]. That is, one has
+
+̺bs = p1̺sAe|pBC + p2̺sBe|pAC + p3̺sCe|pAB .
+
+(1)
+
+On the other hand, a state that is not biseparable is called genuinely multipartite entangled. Whenever we talk about multipartite entangled states in the following, we refer to genuinely multipartite entangled states.
+To characterize multipartite entanglement, we apply
+
+2
+
+the method illustrated by Fig. 1. Instead of states like ̺sAe|pBC that are separable with respect to a ﬁxed bipartition, we consider a larger set of states, which can be
+more easily characterized. For instance, for the biparti-
+tion A|BC we may consider states which have a positive
+partial transpose (PPT) [10]. It is well-known that sep-
+arable states are also PPT [8]. We denote such states by ̺pAp|Bt C (and analogously for the other bipartitions).
+Thus, we ask whether a state can be written as
+
+̺pmix = p1̺pAp|Bt C + p2̺pBp|At C + p3̺pCp|At B.
+
+(2)
+
+We call states of this form PPT mixtures. Clearly, any biseparable state is a PPT mixture, so proving that a state is no PPT mixture implies genuine multipartite entanglement. There are examples of states, which are PPT with respect to any bipartition, but nevertheless multipartite entangled [11]. Hence, not all multipartite entangled states can be detected in this way, but, as we will see, often the set of PPT mixtures is a very good approximation to the set of biseparable states. Finally, note that all deﬁnitions can be extended to N particles. Also, one may use other relaxations of bipartite separability, e.g. apply the criterion of Doherty et al. [12].
+The advantage of considering PPT mixtures instead of biseparable states is that the set of PPT mixtures can be fully characterized with the method of linear semidefinite programming (SDP) [13] — a standard problem of constrained convex optimization theory. Moreover, PPT mixtures can also be characterized analytically.
+Characterization via entanglement witnesses — An entanglement witness is an observable W that is nonnegative on all biseparable states, but has a negative expectation value on at least one entangled state. Let us ﬁrst consider two particles, A and B. Then a decomposable witness is a witness W that can be written as W = P + QTA, where P and Q have no negative eigenvalues, (they are positive semideﬁnite, P, Q ≥ 0) and TA is the partial transpose with respect to A [14].
+For more than two particles, we call a witness W fully decomposable if, for every subset M of all systems, it is decomposable with respect to the bipartition given by M and its complement M . This means, there exist positive semideﬁnite operators PM and QM , such that
+
+for all M : W = PM + QTMM .
+
+(3)
+
+This observable is positive on all PPT mixtures, as it is non-negative on all states which are PPT with respect to some bipartition. But also the converse holds:
+Observation. If ̺ is not a PPT mixture, then there exists a fully decomposable witness W that detects ̺.
+Proof — The set of PPT mixtures is convex and compact. Therefore, for any state outside of it, there is a witness that is positive on all PPT mixtures. Furthermore, positivity on all states that are PPT with respect to a ﬁxed (but arbitrary) bipartition implies that the witness
+
+is decomposable with respect to this ﬁxed (but arbitrary) bipartition [14]. Thus, W = PM + QTMM for any M .
+Practical evaluation — To ﬁnd a fully decomposable witness for a given state, the convex optimization technique SDP becomes important, since it allows us to optimize over all fully decomposable witnesses. Given a multipartite state ̺, the search is given by
+
+min Tr(W ̺)
+
+(4)
+
+s.t. Tr(W ) = 1 and for all M :
+
+W = PM + QTMM , QM ≥ 0, PM ≥ 0 .
+
+The free parameters are given by W and the operators
+
+PM for every subset M . If the minimum in Eq. (4) is negative, ̺ is not a PPT mixture and hence genuinely
+
+multipartite entangled. The operator W for which the
+
+negative minimum is obtained is a fully decomposable witness. Note that, due to XTM = (XT )TM and X ≥ 0 ⇔ XT ≥ 0, a witness that is decomposable with respect to
+
+M is also decomposable with respect to M . Thus, one
+
+needs to check only half of all subsets in practice.
+
+Eq. (4) has the form of a semideﬁnite program [13].
+
+In contrast to usual optimization problems, global opti-
+
+mality of an SDP can be certiﬁed and the solution can
+
+eﬃciently be computed via interior-point methods. In
+
+practice, Eq. (4) can be solved with few lines of code, us-
+
+ing e.g. the parser YALMIP [16] and, as solvers, SeDuMi
+
+[17] or SDPT3 [18]. Our implementation in MATLAB
+
+named PPTMixer can be found online [15].
+
+Let us discuss two variations of Eq. (4). First, in order
+
+to reduce the number of free parameters, one can restrict oneself to witnesses W that obey W TM ≥ 0 for all M ,
+
+i.e., PM = 0 for all M . In the following, we will call these witnesses fully PPT witnesses. For bipartite sys-
+
+tems, decomposable witnesses and fully PPT witnesses
+
+detect the same states. For the multipartite case, fully
+
+PPT witnesses are not as good as fully decomposable
+
+witnesses, but they are easier to characterize.
+
+Second, this SDP can also be modiﬁed to account
+
+for the case that, instead of a full tomography, only
+
+a restricted set of observables is measured. Let O =
+
+{O1, ...Ok} be such a set of observables. Then, adding
+
+W=
+
+k i=1
+
+λi
+
+Oi
+
+to
+
+the
+
+constraints
+
+in
+
+Eq.
+
+(4)
+
+results
+
+in
+
+an SDP that searches for witnesses which can be evalu-
+
+ated knowing these observables. Note that for this pro-
+
+gram the free parameters are given by the real numbers λi and their number might be considerably smaller than in
+
+Eq. (4). If the minimum in Eq. (4) is non-negative, there
+
+exists a PPT mixture with expectation values Oi . However, one may then add further observables to O and run
+
+the SDP again. Repeating this procedure gives more and
+
+more sensitive tests. We will discuss an example later.
+
+In practice, this program can even decide separability if
+
+the Oi have already been measured, so it can be used to gain new insights into already performed experiments.
+
+3
+
+state white noise tolerances ptol
+
+fully decomposable before
+
+|GHZ3 ⋆ |GHZ4 ⋆
+|W3 ⋆
+
+0.571 0.533 0.521
+
+0.571 [7] 0.533 [7] 0.421 [7]
+
+|W4
+
+0.526
+
+0.444 [7]
+
+|Cl4 ⋆
+
+0.615
+
+0.533 [25]
+
+|D2,4
+
+0.539
+
+0.471 [26]
+
+|ΨS,4
+
+0.553
+
+0.317 [27]
+
+TABLE I: White noise tolerances of the fully decomposable witnesses obtained by the SDP of Eq. (4) compared with the corresponding tolerances of the most robust criteria known so far. For the states marked by ⋆, we veriﬁed that adding
+more white noise than what is tolerated by Eq. (4) results in a biseparable state, so the values are optimal.
+
+But before proceeding to the examples, let us note three more facts. First, in the formulation no dimension of the Hilbert space is ﬁxed. Consequently, our approach is valid for any dimension and combined with the methods of Ref. [19] it can be directly used to study multipartite entanglement in continuous-variable or hybrid systems [20]. For continuous variables, it can be employed complementary to the methods of Ref. [21].
+Second, our approach can also be used to quantify genuine multipartite entanglement. If in Eq. (4) the trace normalization Tr(W ) = 1 is replaced by 0 ≤ PM ≤ 11 and 0 ≤ QM ≤ 11, the negative witness expectation value is a multipartite entanglement monotone, since it obeys the following properties: (i) It vanishes on all biseparable states. (ii) It is convex. (iii) The quantity does not increase under protocols that consist of local operations of each party and classical communication between them. (iv) It is invariant under local basis changes. While most of these properties are straightforward to see — in particular, (iv) is implied by (iii) —, the proof of property (iii) is more technical (cf. Appendix A). Note that, in the bipartite case, this monotone becomes the negativity [22].
+Third, as mentioned before, there are other possible choices of supersets for the set of separable states, e.g. the set of states that have a symmetric extension on a larger Hilbert space (cf. Appendix B and [12]).
+Numerical examples — We test the criterion of Eq. (4) for important pure three- and four-qubit states prepared in many experiments [23], using the white noise tolerance as a ﬁgure of merit. It is given by the maximal amount ptol of white noise for which the state ̺(ptol) = (1 − ptol)|ψ ψ| + ptol11/2n is still detected as entangled [24]. Table I shows the white noise tolerances of our criterion, compared with the most robust criteria so far.
+Strikingly, the tolerances of the witnesses obtained by our SDP are signiﬁcantly higher than previous ones. For
+
+the GHZ and the W state of three qubits and the GHZ and the linear cluster state of four qubits, we even obtain the best white noise tolerance possible, since we are able to show that for a larger amount of white noise the state becomes biseparable (see Appendix C). This shows that our criterion is indeed optimal for these cases.
+To show that the criterion of Eq. (4) works well for a restricted set of observables, we consider the four-qubit Dicke state with two excitations |D2,4 [23]. For this state, the SDP yields a witness WD (see Appendix D) that consists of the observables O = {X ⊗4, Y ⊗4, Z⊗4, X1X2Y3Y4, X1X2Z3Z4, Y1Y2Z3Z4}, their distinct permutations and other observables that can be measured in the same run. For example, a local measurement of X1X2X3X4 yields knowledge of the expectation value of X1X2113X4. The SDP ﬁnds a witness consisting of O1 = X⊗4, O2 = Y ⊗4 and observables obtained by replacing some Paulis by the identity. Already with these observables, the white noise tolerance is p(t2o)l ≈ 0.29495. We can proceed in this way and use additional observables Oi from the set O — including their permutations and observables obtained by replacing Pauli operators by 11— to produce strictly stronger witnesses WD(i). Their white noise tolerances pt(io)l are p(t3o)l ≈ 0.38379, p(t4o)l ≈ 0.38383, p(t5o)l ≈ 0.45200 and ﬁnally p(t6o)l ≈ 0.53914 as in Table I, since WD = WD(6).
+Third, we compute a lower bound on the volume of genuinely multipartite entangled states. We created samples of 104 random mixed three-qubit states uniformly distributed with respect to the Hilbert-Schmidt distance (or the Bures distance) and check whether they are genuinely multipartite entangled. 6.28 % (Bures: 10.32 %) were detected by fully decomposable and 0.44 % (Bures: 1.06 %) by fully PPT witnesses. As expected, fully PPT witnesses detect fewer states.
+While the problem can still be tackled numerically for six or seven qubits, in recent experiments up to 14 ions have been coherently manipulated [28]. Therefore, we study analytical witnesses which can be generalized to an arbitrary number of qubits in the following.
+Analytical results — A fully decomposable witness for the four-qubit linear cluster state |Cl4 [23] that is obtained by the SDP of Eq. (4) is given by
+
+WCl4
+
+=
+
+1 2
+
+11
+
+−
+
+|C
+
+l4
+
+C l4 |
+
+−
+
+1 8
+
+(11
+
+−
+
+g1) (11
+
+−
+
+g4)
+
+,
+
+(5)
+
+where g1 = Z1Z2113114 and g4 = 111112Z3Z4 are two of the
+
+generators of the cluster state’s so-called stabilizer group.
+
+This witness detects more states than the usual projector
+
+witness
+
+Wproj
+
+=
+
+1 2
+
+11
+
+−
+
+|C
+
+ln
+
+Cln|, since WCl4 is obtained
+
+from Wproj by subtracting a positive operator P+. For
+
+n qubits, the generators are, after a local basis change,
+
+g1 = X1Z2, gi = Zi−1XiZi+1 for 1 < i < n and gn =
+
+Zn−1Xn. Then, the n-qubit linear cluster state is deﬁned
+
+by |Cln Cln| = 2−n
+
+n i=1
+
+(11
+
++
+
+gi).
+
+The
+
+construction
+
+of
+
+4
+
+the four-qubit cluster state witness can be generalized to an arbitrary number of qubits (see Appendix E). For seven qubits, e.g., a witness is given by
+
+WCl7
+
+=
+
+1 2
+
+11
+
+−
+
+|C l7
+
+C l7 |
+
+−
+
+1 16
+
+[(11
+
+−
+
+g1)
+
+(11
+
+−
+
+g4)
+
+(11
+
+−
+
+g7)
+
++ (11 + g1) (11 − g4) (11 − g7)
+
++ (11 − g1) (11 + g4) (11 − g7)
+
++ (11 − g1) (11 − g4) (11 + g7)] .
+
+(6)
+
+For the case of n qubits, the white noise tolerance is
+
+ptol = 1 − 2−n+1 + (k + 1)2−k −1 −n−→−−∞→ 1 (7)
+
+where
+
+k
+
+=
+
+⌊
+
+n+2 3
+
+⌋.
+
+This result is remarkable for sev-
+
+eral reasons. First, WCln is the ﬁrst example of a wit-
+
+ness for genuine multipartite entanglement so far whose
+
+white noise tolerance converges to one for an increasing
+
+number of qubits. Thus, the volume of the largest ball
+
+inside the biseparable states around the totally mixed
+
+state approaches zero. A similar scaling behavior of the
+
+entanglement in the cluster state has been found in Ref.
+
+[30]. Note that, however, they considered full separa-
+
+bility and not genuine multipartite entanglement. For
+
+full separability, this scaling behavior is not surprising,
+
+since it is known that the largest ball of fully separable
+
+states around the totally mixed states shrinks with in-
+
+creasing particle number [29]. Moreover, the white noise
+
+tolerance of Eq. (7) corresponds to a required ﬁdelity Freq ≈ 1 − ptol ≈ k2−k for large n and therefore decreases
+exponentially fast with growing n. In contrast, the ﬁ-
+
+delity needed to detect entanglement using Wproj equals one half, independent of the particle number. Interest-
+
+ingly, this exponential improvement comes with very low
+
+experimental costs, since the additional term P+ can be measured with only one experimental setting. Finally,
+
+note that our construction induces a similar construction
+
+for the 2D cluster state.
+
+Discussion — In this Letter, we presented an easily im-
+
+plementable criterion for genuine multipartite entangle-
+
+ment. We demonstrated its high robustness, connected
+
+it to entanglement measures and provided powerful wit-
+
+nesses for an arbitrary number of qubits.
+
+Due to its versatility, the criterion can be used to
+
+characterize the entanglement in various physical sys-
+
+tems, e.g. in ground states of spin models undergoing
+
+a quantum phase transition. Moreover, it is a promising
+
+tool to study multipartite entanglement in continuous-
+
+variable systems. Finally, we believe that, as an easy-to-
+
+use scheme, it will be valuable for the analysis of experi-
+
+mental data that do not constitute a whole tomography.
+
+We thank M. Kleinmann, T. Monz, S. Niekamp, A. Os-
+
+terloh, M. Piani and G. T´oth for discussions and acknowl-
+
+edge support by the FWF (START Prize and SFB FO-
+
+QUS).
+
+[1] M. Neeley et al., Nature 467, 570 (2010); L. DiCarlo
+
+et al., Nature 467, 574 (2010); G. D. Fuchs et al., Nat.
+
+Phys. 6, 668 (2010).
+
+[2] H. J. Briegel et al., Nat. Phys. 5, 19 (2009).
+
+[3] V. Giovannetti et al., Science 306, 1330 (2004).
+
+[4] A. Ac´ın et al., Phys. Rev. Lett. 87, 040401 (2001).
+
+[5] D. Collins et al., Phys. Rev. Lett. 88, 170405 (2002);
+
+R. Horodecki et al., Rev. Mod. Phys. 81, 865 (2009); O.
+
+Gu¨hne and G. T´oth, Phys. Rep. 474, 1 (2009); M. Huber
+
+et al., Phys. Rev. Lett. 104, 210501 (2010).
+
+[6] M. Seevinck and J. Uﬃnk, Phys. Rev. A 78, 032101
+
+(2008).
+
+[7] O. Gu¨hne and M. Seevinck, New J. Phys. 12, 053002
+
+(2010).
+
+[8] A. Peres, Phys. Rev. Lett. 77, 1413 (1996); M. Horodecki
+
+et al., Phys. Rev. Lett. A 223, 1 (1996).
+
+[9] H. J. Briegel and R. Raussendorf, Phys. Rev. Lett 86,
+
+910 (2001).
+
+[10] A state ̺ = ijkl ̺ij,kl|i j| ⊗ |k l| is PPT, if its partial transpose ̺TA = ijkl ̺ji,kl|i j| ⊗ |k l| has no negative eigenvalues.
+
+[11] M. Piani and C. E. Mora, Phys. Rev. A 75, 012305
+
+(2007); G. T´oth and O. Gu¨hne, Phys. Rev. Lett. 102,
+
+170503 (2009).
+
+[12] A. C. Doherty, P. A. Parrilo, and F. M. Spedalieri, Phys.
+
+Rev. Lett. 88, 187904 (2002); A. C. Doherty, P. A. Par-
+
+rilo, and F. M. Spedalieri, Phys. Rev. A 69, 022308
+
+(2004).
+
+[13] L. Vandenberghe and S. Boyd, SIAM Rev. 38, 49 (1996).
+
+[14] M. Lewenstein et al., Phys. Rev. A 62, 052310 (2000).
+
+[15] http://www.mathworks.com/matlabcentral/
+
+fileexchange/30968
+
+[16] J. L¨ofberg, Proceedings of the CACSD Conference,
+
+Taipei, Taiwan (2004).
+
+[17] J. F. Sturm, Opt. Meth. and Softw. 11, 625 (1999).
+
+[18] K. C. Toh et al., Opt. Meth. and Softw. 11, 545 (1999);
+
+R. H. Tutuncu et al., Math. Prog. Ser. B 95, 189 (2003).
+
+[19] E. Shchukin and W. Vogel, Phys. Rev. Lett. 95, 230502
+
+(2005); A. Miranowicz et al., Phys. Rev. A 80, 052303
+
+(2009).
+
+[20] H. H¨aseler, T. Moroder, and N. Lu¨tkenhaus, Phys. Rev.
+
+A 77, 032303 (2008).
+
+[21] P. Hyllus and J. Eisert, New J. Phys. 8, 51 (2006).
+
+[22] G. Vidal and R. F. Werner, Phys. Rev. A 65, 032314
+
+(2002); M. B. Plenio, Phys. Rev. Lett. 95, 090503 (2005).
+
+[23] The co√nsidered states are given by |GHZ3 √= (|000 + |111 )/ 2, |W3 = (|001 + |010 + |100 )/ 3, |W4 =
+
+(|0001 + |0010 + |0100 + |1000 )/2, |Cl4 = (|0000 +
+
+|0011 + |1100 − |1111 )/2, |D2,4 =√(|0011 + |1100 +
+
+|0101 (|0011
+
++ |0110 + |1001
+
++|1100
+
+−
+
+1 2
+
+(|0101
+
++ |1010 )/ 6 +|0110 +|1001
+
+and |ΨS,4 √= +|1010 ))/ 3.
+
+[24] This quantity is commonly used to characterize the ro-
+
+bustness of entanglement or nonlocality criteria against
+
+noise [e.g. D. Kaszlikowski et al., Phys. Rev. Lett. 85,
+
+4418 (2000); M. Bourennane et al., Phys. Rev. Lett. 92,
+
+087902 (2004)].
+
+[25] Y. Tokunaga et al., Phys. Rev. A 74, 020301(R) (2006).
+
+[26] M. Huber et al., arXiv: 1011.4579.
+
+[27] O. Gu¨hne et al., Phys. Rev. A 76, 030305(R) (2007).
+
+[28] T. Monz et al., Phys. Rev. Lett. 106, 130506 (2011).
+
+[29] S.L. Braunstein et al., Phys. Rev. Lett. 83, 1054 (1999).
+
+5
+
+[30] M. Hajduˇsek et al., New J. Phys. 12, 053015 (2010).
+
+APPENDIX
+This appendix consists of ﬁve sections. In Appendix A, we prove the properties (i) to (iv) of the entanglement monotone given in the main text. Appendix B gives an example for another superset that can be used to approximate the set of states which are separable with respect to a ﬁxed bipartition. In the third section of the Appendix, we prove the optimality of some white noise tolerances given in Table I in the main text. Afterwards, we write down a fully decomposable witness for the Dicke state with two excitations in Appendix D. In the main text, this witness was used to illustrate the case in which one considers only witnesses that consist of a restricted set of observables. Finally, in Appendix E we provide a general theory for witnesses of linear cluster states. Examples for these witnesses have been given in the main text.
+
+Appendix A
+
+In this appendix, we introduce an entanglement monotone for genuine multipartite entanglement that is motivated by the notion of fully decomposable entanglement witnesses. Let us point out that this deﬁned quantity equals the negativity for the bipartite case [1], hence it can be considered as an extension of the negativity to the multipartite case.
+
+Proposition 1. For a generic multipartite state ̺, consider
+
+N (̺) = − min Tr(̺W ),
+
+(8)
+
+W ∈W
+
+W = W ∀M : ∃ 0 ≤ PM , QM ≤ ½ : W = PM + QTMM ,
+
+where M stands for a possible partition of the subsystems. Then N (̺) has the following properties:
+• N (̺bs) = 0 for all biseparable states ̺bs.
+
+• N [ΛLOCC(̺)] ≤ N (̺) for all full LOCC operations.
+• N (Uloc̺Ul†oc) = N (̺) for local basis changes Uloc.
+• N ( i pi̺i) ≤ i piN (̺i) holds for all convex combinations i pi̺i.
+Proof. The ﬁrst statement follows directly from the fact that any fully decomposable witness can only detect genuine multipartite entanglement, hence the expectation value satisﬁes Tr(̺bsW ) ≥ 0 and vanishes for W = 0.
+For the second property we eﬀectively show N [Λ(̺)] ≤ N (̺) for all trace-preserving, completely positive oper-
+ations Λ(̺) = i Ki̺Ki† with i Ki†Ki = ½ that ad-
+mit a fully separable operator-sum representation, which
+
+means that each operator Ki = Ai ⊗ Bi ⊗ · · · ⊗ Fi has a tensor product form. This set of operations deﬁnes a
+
+superset to the set of full LOCC operations, so we verify
+
+the above property for an even larger set of possible op-
+
+erations [2]. Let us point out that for each operation Λ,
+
+there exists an adjoint operation that satisﬁes the identity Tr[Λ(X
+
+Λ†(Y ) )Y ] =
+
+= Tr[X
+
+Λi†K(Yi†Y)]
+
+Ki, for
+
+all linear operators X, Y . The trace-preserving condition
+
+for Λ translates to a unital condition for the adjoint map
+
+Λ†(½) = ½.
+
+Let us ﬁrst prove the following statement: For each
+trace-preserving, separable operation Λ and for any decomposable operator W the observable Λ†(W ) is decomposable as well. Suppose that W = P + QTM is an
+appropriate decomposition [3] with respect to a chosen partition M . Because of linearity we obtain Λ†(W ) = Λ†(P ) + Λ†(QTM ). First, we want to check “normal-
+ization” 0 ≤ Λ†(P ) ≤ ½. Complete positivity provides
+Λ†(P ) ≥ 0 since P ≥ 0 is positive semideﬁnite itself. If
+one applies the adjoint map to (½ − P ) ≥ 0 and employs
+the unital condition one obtains
+
+Λ†(½ − P ) = Λ†(½) − Λ†(P ) = ½ − Λ†(P ) ≥ 0, (9)
+
+hence the upper bound Λ†(P ) ≤ ½ holds as well. We can
+apply the same argument to Λ†(Q) if we can fulﬁl the identity Λ†(QTM ) = [Λ˜ †(Q)]TM with Λ˜ being completely positive and unital. Using the assumed tensor product structure of each operator Ki it is straightforward to deduce the Kraus operators of the liner map Λ˜ satisfying this identity. These operators K˜i = A˜i ⊗ B˜i ⊗ · · · ⊗ F˜i are given by A˜i = Ai if A ∈ M and A˜i = A∗i if A ∈ M , and similar relations for all other operators. Let us point out that this is the only step where one explicitly needs the separable operator structure.
+Via this statement one ﬁnally obtains
+
+N [Λ(̺)] = − min Tr[Λ(̺)W ] = − min Tr[̺Λ†(W )]
+
+W ∈W
+
+W ∈W
+
+≤ − min Tr[̺W ] = N [̺].
+
+(10)
+
+W ∈W
+
+The inequality holds since Λ†(W ) is decomposable again, hence the optimization over the complete set of decomposable entanglement witnesses can only produce a lower (negative) expectation value.
+Invariance under local basis changes is a direct consequence of the previous property. Since any local basis change Uloc represents an invertible full LOCC operation, one obtains
+
+N (̺) ≥ N (Uloc̺Ul†oc) ≥ N [Ul†oc(Uloc̺Ul†oc)Uloc] = N (̺). Thus a local basis does not change the value of N (̺).
+
+6
+
+The convexity statement
+
+N
+
+pi̺i
+
+= − min
+W
+
+piTr(̺iW )
+
+i
+
+i
+
+≤
+
+pi
+
+−
+
+min
+W
+
+Tr(̺i
+
+W
+
+)
+
+i
+
+= piN (̺i),
+
+(11)
+
+i
+
+follows from linearity of the trace and the fact that if one performs independent optimizations then the obtained expectation value can only be smaller. This completes the proof.
+
+Appendix B
+
+Here, we would like to give another example of a superset that one can use to approximate the separable states of a given bipartition. For the bipartition A|BC, one
+can consider states that possess a symmetric extension to k copies of system A, cf. Refs. [4]. This means that
+the given state ̺A|BC can be written as the reduced state of a multipartite state ̺A1...Ak|BC that is invariant under all possible permutations of the copied subsystems.
+Every separable state necessarily satisﬁes this extension condition for any number of copies and we denote states of this class by ̺sAy|mBkC . Consequently, we ask whether a three-particle state can be decomposed as
+
+̺ = p1̺sAy|mBkC + p2̺sBy|mAkC + p3̺sCy|mAkB .
+
+(12)
+
+Any biseparable state can be written in this way, hence if this expansion fails, genuine multipartite entanglement is detected. This approach has appealing properties: With increasing number of copies, these supersets converge to the set of separable states [4]. Moreover, it is again possible to characterize such decompositions using entanglement witnesses that can be tackled via SDP. These witnesses are such that for all possible bipartitions M , the operator W must be a bipartite entanglement witness for the case of k symmetric extensions as given in Ref. [4].
+
+Appendix C
+In this appendix, we prove that our criterion is optimal for three-qubit GHZ and W states and for four-qubit GHZ and cluster states (cf. marked states of Table I).
+First, for the GHZ states mixed with white noise, the noise thresholds at which the states become biseparable were already derived in Ref. [5] and the values of ptol for our criterion coincide with these values.
+Second, for the three-qubit W state |W3 we introduce a variation of our relaxation idea, in order to show that
+
+for a white noise contribution of p ≈ 0.521 the corresponding state is biseparable.
+Consider the tripartite case. Instead of supersets to approximate separable states for bipartition A|BC, we now consider a strictly smaller set of states, i.e., any state of this subset must necessarily be separable. States of this restricted class are denoted as ̺˜A|BC , and similar for other bipartitions. If a given state has a decomposition
+
+̺ = p1̺˜A|BC + p2̺˜B|AC + p3̺˜C|AB,
+
+(13)
+
+then it is clearly biseparable. The main diﬃculty is
+to ﬁnd operational subset approximations, though results have been obtained along this direction recently [6–
+8]. For the three-qubit case we employ an approximation that exploits the low dimensionality of the problem. Instead of all separable states of a 2 ⊗ 4 system
+we consider only separable states ̺˜A|BC that are supported on the symmetric subspace of system BC. Since Sym(HBC ) ≃ 3, one eﬀectively has a 2 ⊗ 3 system for which the PPT condition ̺˜TAA|BC ≥ 0 becomes necessary and suﬃcient for separability [9]. Similar deﬁnitions are
+used for the other bipartitions. The search for an explicit decomposition as given by Eq. (13) can be cast into the
+form of a SDP again.
+The solution for ̺(p) = (1 − p)|W3 W3| + p½/8 is as
+follows: The separable states for B|AC and C|AB are the same as for the bipartition A|BC but with appropriate permutations of the subsystems. All probabilities equal
+pi = 1/3. Thus, it is left to characterize ̺˜A|BC . The corresponding eigenspectrum is given by λ1 = λ2 = p/8, λ3 = 3p/8 and λ4 = 1 − 5p/8 with respect to the eigenstates |χ1 = |000 , |χ2 = |111 ,
+
+√
+
+|χ3 = 2 2|1 ⊗ |ψ+ − |011 /3,
+
+(14)
+
+|χ4 = a|0 ⊗ |ψ+ + 1 − a2|100 ,
+
+(15)
+
+√ with the abbreviation |ψ+ = (|01 + |10 )/ 2. The pa-
+rameter a ∈ Ê is determined by the linear condition given
+
+by Eq. (13) and will be the root of a non-linear function. The only remaining condition is ̺˜TAA|BC ≥ 0 which is satisﬁed if p ≥ p¯ with a critical white noise level given by
+
+p¯
+
+=
+
+1 382
+
+√ 367 − 71 3 −
+
+√ 2894 3 − 2988 ≈ 0.52102.
+
+(16)
+
+At this white noise level one has a ≈ 0.98716. The noise
+
+level p¯ coincides with the maximal ptol for our criterion.
+
+Finally, for the four-qubit cluster state |Cl4 we used
+
+the algorithm of Ref. [10], that can be used to prove dif-
+
+ferent forms of multipartite separability. We found that
+
+a state with a noise contribution of p = 0.616 is bisepa-
+
+rable, while the witness WCl4 of Eq. (6) in the main text detects it for p < 8/13 ≈ 0.6154 as genuine multipartite
+
+entangled.
+
+7
+
+Appendix D
+The fully decomposable witness for the Dicke state |D2,4 which was used in the main text to demonstrate
+
+entanglement detection by measuring a restricted set of observables is given by
+
+WD =
+
+1 16
+
+11 + α1X⊗4 + α1Y ⊗4 + α2Z⊗4 + α3 (X1X2Y3Y4 + perms) + α4 (Z1Z2Y3Y4 + perms)
+
+(17)
+
++α4 (Z1Z2X3X4 + perms)+ α5 (X1X2113114 + perms)+ α5 (Y1Y2113114 + perms)+ α6 (Z1Z2113114 + perms)] .
+
+Here, X1X2Y3Y4 + perms is the sum over all distinct permutations of X1X2Y3Y4. Moreover, α1 = 0.014, α2 = −0.095, α3 = 0.0046, α4 = 0.16, α5 = −0.14, α6 = −0.15.
+
+Appendix E
+
+Here, we prove the generalized n-qubit version WCln of the cluster state witnesses given in the main text to be fully decomposable witnesses. For four and seven qubits, WCln reduces to forms of Eqs. (6) and (8) of the main text, respectively. First, let us brieﬂy introduce the notation that we use. Consider an arbitrary graph G = (V, E) that is deﬁned by a set V of vertices which correspond to qubits and a set E of edges that connect some of these vertices. Then, by N (i) we denote the neighborhood of qubit i, i.e., the set of all vertices that are connected to i by an edge. Moreover, we deﬁne N (i) = N (i) ∪ {i}. The commuting operators deﬁned by
+
+gi = Xi
+
+Zk, i = 1, . . . , n
+
+(18)
+
+k∈N (i)
+
+are the generators of the so-called stabilizer group, i.e., {S1, . . . , S2n } = g1, . . . , gn . In other words, every stabilizer Si can be written as a product of some (or all) of these generators gi. The graph state |G associated to the given graph G is
+then uniquely deﬁned by
+
+gi|G = |G , ∀ i = 1, . . . , n .
+
+(19)
+
+One can also associate an orthonormal basis to a graph G. The elements |a1 . . . an G of this so-called graph state basis are deﬁned by
+
+gi|a1 . . . an G = (−1)ai |a1 . . . an G, ∀ i = 1, . . . , n . (20)
+
+Consequently, |G = |0 . . . 0 G. Also, note that projectors on these vectors can be written as
+
+G|a1 . . . an
+
+a1 . . . an|G =
+
+n
+
+(−1)ai gi + 11 . 2
+
+i=1
+
+(21)
+
+For better readability, we will drop the subscript G in the following and write |a1 . . . an G = |a . Thus, except for a
+
+single exception that we will explicitly mention, all vectors in the following have to be understood in the graph state basis. However, it is important to note that all partial transpositions will be done w.r.t the computational basis. A partition M is a subset of the set of all qubits, while we refer to the set made up of partition M and its complement M as bipartition M |M . With the notation clariﬁed, we ﬁrst prove three lemmas to prepare the proof that the operator WCl presented in the paper is a fully decomposable witness. The ﬁrst of these lemmas starts from two orthogonal graph state basis vectors and shows which kind of partial transpositions one can apply to one of these vectors such that the two resulting vectors are orthogonal. Lemma 3 supplies an upper bound on the eigenvalues of any partially transposed state in terms of the state’s Schmidt coefﬁcients. Finally, Lemma 4 provides some kind of construction manual. Given a qubit and starting from a graph state basis vector, it tells us how we can construct expressions out of this basis vector which are invariant under a partial transposition on the given qubit. These lemmas will then be used in Proposition 5 to prove that the presented operator WCln is a fully decomposable witness.
+
+Lemma 2. Given a graph G = (V, E) of n qubits and an arbitrary bipartition M |M of these qubits. Let |a
+and |b be two arbitrary states in the associated graph state basis. Let UM be the set of all qubits that lie in the same partition as their neighbors, i.e., UM = {i | N (i) ⊆ M ∨ N (i) ⊆ M }. If there is a qubit i ∈ UM , s.t. bi = ai, then
+
+b| (|a a|)TM |b = 0
+
+(22)
+
+Proof. Let gi, i = 1 . . . n be the generators deﬁned by Eq. (18). Since XT = X, Y T = −Y , ZT = Z and 11T = 11, the partial transposition of a product of generators only changes the product’s sign. Thus, we can describe the action of the partial transpose TM w.r.t partition M
+
+8
+
+on products of generators by
+
+n
+
+TM
+
+n
+
+gixi
+
+= (−1)f(x)
+
+gixi ,
+
+i=1
+
+i=1
+
+(23)
+
+where xi ∈ {0, 1}. Here, f depends on M and is a Boolean function deﬁned by
+
+f : {0, 1}n → {0, 1}
+
+(24)
+
+
+
+0, if
+
+n
+
+TM
+
+n
+
+gixi
+
+=
+
+gixi
+
+x → f (x) = 1,
+
+if
+
+i=1
+
+i=1
+
+n
+
+TM
+
+n
+
+.
+
+gixi
+
+= − gixi
+
+i=1
+
+i=1
+
+Note that the support supp(f ) of a Boolean function contains the bits that the function depends on, i.e.,
+
+supp(f ) = {i | ∃ x, s.t.f (x1, . . . , xi, . . . , xn) = f (x1, . . . , xi ⊕ 1, . . . , xn)} .
+
+(25)
+
+Due to the explicit form of the gi, ﬂipping the value of xi cannot change f (x), if i ∈ UM . Therefore, UM ∩supp(f ) = {}.
+
+For this reason, we can pull qubits in UM out of the partial transposition TM in the following way (using also Eq. (21)).
+
+b| (|a
+
+a|)TM |b
+
+
+
+= Tr  n
+
+(−1)bj gj + 11 2
+
+ (−1)ai gi + 11 
+2
+
+TM 
+
+(−1)ai gi + 11  2
+
+
+
+j=1
+
+i∈UM
+
+i∈/ UM
+
+(26)
+
+Since
+
+gi+11 −gi+11
+
+2
+
+2
+
+=
+
+0,
+
+the
+
+last
+
+expression vanishes
+
+if
+
+there is an i ∈ UM , such that bi = ai.
+
+Lemma 3. Given a state |ψ and its Schmidt decompo-
+
+sition |ψ =
+
+d1 i=1
+
+λi|µi
+
+⊗ |νi
+
+with respect to some bipar-
+
+tition M |M , where λi ≥ 0, d1 = dim(M ), d2 = dim(M )
+
+and w.l.o.g. d1 ≤ d2. Note that, here, |µi ⊗ |νi is not to
+
+be understood in a graph state basis. Then, for any state
+
+|φ ,
+
+φ| (|ψ
+
+ψ|)TM |φ
+
+≤
+
+max
+i
+
+λ2i
+
+(27)
+
+Proof. Writing down (|ψ ψ|)TM in the basis {|µi ⊗
+|νi }i=1...d1,j=1...d2 , one obtains a matrix with two different kinds of submatrices. First, a diagonal one with
+diagonal elements λ2i or zero. Second, anti-diagonal submatrices of the form
+
+0 λiλj .
+
+(28)
+
+λiλj 0
+
+Thus, the eigenvalues of the total matrix are {±λiλj , λ2i , 0} and the maximum of these eigenvalues has the form λ2i .
+
+For the following lemma, we need to keep in mind that the application of the Pauli operator Zk to a graph state
+
+basis vector creates a bit ﬂip on bit k, i.e.,
+
+Zk|a = |a1 . . . ak−1 ak ⊕ 1 ak+1 . . . an . (29)
+
+Lemma 4. Given a graph G. Then, in the associated graph state basis,
+
+Tk
+
+|a a| + |b b| = |a a| + |b b| ,
+
+(30)
+
+if |b is obtained from |a in one of the two following ways.
+(i) |b = Zk|a .
+(ii) |b = i∈N (k) Zi|a . Proof. (i) With Eq. (21) and Eq. (29), we have
+
+|a a| + |b b|
+
+=
+
+gk
+
++ 2
+
+11
+
++
+
+−gk + 2
+
+11
+
+=
+
+n
+
+(−1)ai gi 2
+
++
+
+11
+
+.
+
+i=1
+
+i=k
+
+n (−1)ai gi + 11 2
+i=1 i=k
+
+(31)
+
+Since gk cancels in Eq. (31), the explicit form of the generators gi implies that, in this equation, there is
+
+9
+
+no Y on qubit k. Since Y is the only Pauli matrix that changes under partial transposition, |a a| +
+
+Zk|a a|Zk is invariant under Tk.
+
+(ii) Using again Eqs. (21) and (29) yields
+
+
+
+
+
+|a a| + |b b| = 
+
+(−1)ai gi + 11 +
+
+(−1)ai+1gi + 11  (−1)ak gk + 11
+
+(−1)ai gi + 11 .
+
+2
+
+2
+
+2
+
+2
+
+i∈N (k)
+
+i∈N (k)
+
+i∈/N (k)
+
+(32)
+
+The expression in the ﬁrst brackets can be simpliﬁed to
+
+
+
+(−1)ai gi 2
+
++
+
+11
+
++
+
+(−1)ai +1 gi 2
+
++ 11
+
+= 2−N
+
+
+
+(−1)ax
+
+gixi +
+
+(−1)ax+
+
+i∈N (k)
+
+i∈N (k)
+
+x∈{0,1}N
+
+i∈N (k)
+
+x∈{0,1}N
+
+
+
+
+
+
+
+i xi
+
+gixi 
+
+i∈N (k)
+
+= 2−N+1  (−1)ax
+
+gixi  ,
+
+even
+
+i∈N (k)
+
+(33)
+
+where we deﬁned N = |N (k)| and
+
+even is the sum over all x ∈ {0, 1}N for which
+
+N i=1
+
+xi
+
+is
+
+even.
+
+Combining Eqs. (32) and (33) yields
+
+
+
+
+
+|a a| + |b b| = 2−N  (−1)ax
+
+gixi (−1)ak gk
+
+(−1)ai gi + 11 2
+
+even
+
+i∈N (k)
+
+i∈/N (k)
+
+
+
+
+
++ 2−N  (−1)ax
+
+gixi 
+
+(−1)ai gi 2
+
++
+
+11
+
+.
+
+even
+
+i∈N (k)
+
+i∈/N (k)
+
+(34)
+
+In Eq. (34), the right-hand side is invariant under Tk. To see this, consider the ﬁrst part of the sum, in which all terms contain gk and an even number of generators in N (k). Together with the form of the generators [see Eq. (18)], this implies that there is no Y on qubit k. The second part of the right-hand side of Eq. (34) does not have a Y on qubit k either, since it does not contain gk. Consequently, Eq. (34) is invariant under Tk.
+
+Let us now return to the main proof in which we will need Lemmas 2, 3 and 4.
+
+Proposition 5. Let |Cln Cln| be an n-qubit linear clus-
+
+ter state with n > 3 and gi the generators of its stabilizer
+
+group. Let B = {βi} be a subset of all qubits such that
+
+N (βi) ∩ N (βj ) = {} for i = j. We deﬁne m = |B|. Let
+
+s be the sum over all vectors s of length m with ele-
+
+ments si = ±1 that contain at least two elements that
+
+are −1, i.e.,
+
+m i=1
+
+si
+
+≤
+
+m − 4.
+
+Then,
+
+WCln
+
+=
+
+1 2
+
+11
+
+−
+
+|C
+
+ln
+
+C ln |
+
+−
+
+1 2
+
+sigi + 11 2
+
+(35)
+
+s i∈B
+
+is a fully decomposable witness for |Cln Cln|, i.e., for any strict subset M of all qubits, it can be written in the form WCl = PM + QTMM , where PM ≥ 0, QM ≥ 0.
+
+For the sake of brevity, we deﬁne P+ =
+
+s
+
+i∈B
+
+si
+
+gi +11
+2
+
+.
+
+Note that P+ is a sum of all projec-
+
+tors onto graph state basis vectors that contain at least
+
+two excitations in B, i.e., two bits that equal one. For
+
+example, if we choose B = {1, 4, 7, . . . } for the sake of
+
+illustration,
+
+P+ =
+
+(|0x1x21x3x41 . . . 0x1x21x3x41 . . . |
+
+x∈{0,1}n−m
+
++ |1x1x20x3x41 . . . 1x1x20x3x41 . . . |
+
++ |1x1x21x3x40 . . . 1x1x21x3x40 . . . |
+
++ |1x1x21x3x41 . . . 1x1x21x3x41 . . . |
+
++ ...)
+
+(36)
+
+This also illustrates why the presented construction does not work for linear cluster states that consist of three or less qubits. In such a case, B could only have one element, since the elements’ neighborhoods cannot overlap. Then, however, one cannot fulﬁll the condition that there must always be two bits in B that equal one. Note that sets
+
+10
+
+B = {1, 4} and B = {1, 4, 7} for four and seven qubits, respectively, result in the witnesses WCl4 and WCl7 of Eqs. (6) and (8) of the main text. Moreover, these choices of B lead to the noise tolerance of Eq. (9) of the main text.
+
+Proof. First, we will provide a way to construct an appropriate operator PM ≥ 0 for every M . The main trick is to do this in such a way that this operator is invariant under certain partial transpositions. Second, we will use these PM to show that QM = (W − PM )TM ≥ 0 for every M . Note that we order the qubits βi in a canonical way such that βi < βi+1. To simplify notation, we deﬁne bitstring wi for every N (βi) (of |N (βi)| bits length) in such a way that its bits deﬁne to which partition the correspoding qubits belongs. wi = (ω−1, ω0, ω+1), ωj ∈ {0, 1}, means that qubit βi + j does not belong to M if ωj = 0 and it belongs to M if ωj = 1. For βi being the ﬁrst qubit, we consider wi = (ω0, ω+1); for βi being the last qubit, we use wi = (ω−1, ω0). Given M , we proceed in the following way to construct PM .
+1. Start with PM(0) = |Cln Cln| = |0 . . . 0 0 . . . 0|.
+2. Loop through the values of i = 1, 2, . . . , m and update PM(i) until you reach i > m. Then proceed with step 3. The update of PM(i) is carried out in the following way.
+
+(i) If |N (βi)| = 2:
+I If wi = 01 or wi = 10, then PM(i) = PM(i−1) + ZkPM(i−1)Zk, where k ∈ N (βi).
+II If wi = 11 or wi = 00, let PM(i) = PM(i−1).
+(ii) If |N (βi)| = 3:
+I If wi = 110 or wi = 001, then PM(i) = PM(i−1) + Zβi+1PM(i−1)Zβi+1.
+II If wi = 010 or wi = 101, then PM(i) = PM(i−1) + Zβi−1Zβi+1PM(i−1)Zβi−1Zβi+1.
+III If wi = 100 or wi = 011, then PM(i) = PM(i−1) + Zβi−1PM(i−1)Zβi−1.
+IV In all other cases, let PM(i) = PM(i−1).
+3. Let r be the number of times that one of the cases 2.(i).I, 2.(ii).I, 2.(ii).II or 2.(ii).III occurred, i.e., the number of steps in which PM(i) changed. If r ≤ 1, deﬁne
+
+PM = 0 .
+
+(37)
+
+Let t be the value of i for which PM(i) was changed the last time, i.e., PM(i) = PM(t) ∀ i > t. If r > 1, deﬁne
+
+PM = PM(t−1) − |Cln Cln| .
+
+(38)
+
+In other words, r equals the number of bits βi ∈ B which do not lie at the border of M (or M ), i.e. they do not obey
+
+N (βi) ⊆ M or N (βi) ⊆ M .
+
+(39)
+
+Thus, for r = 0, all βi ∈ B obey this property, for r = 1, there is one exception. Note that the operator PM constructed via the given algorithm is either zero or a sum of one-dimensional projectors onto basis states, i.e.,
+
+PM = |a a| .
+
+(40)
+
+a
+
+This can be seen by the fact that PM(0) = |Cln Cln| = |0 . . . 0 0 . . . 0|, the application of Z only ﬂips a bit and ﬁnally |Cln Cln| is subtracted again. Let us illustrate the algorithm by a concrete example. Example of the algorithm: Consider an eight-qubit cluster state and M = {2, 3, 5}. We choose B = {1, 4, 7}. Then, the algorithm proceeds as follows.
+
+• PM(0) = |Cl8 Cl8| = |00000000 00000000|
+• Step i = 1, i.e., β1 = 1: Since w1 = 01, case 2.(i).I applies and
+
+PM(1) = |00000000 00000000| + Z2|00000000 00000000|Z2
+= |00000000 00000000|
+
++ |01000000 01000000| .
+
+(41)
+
+• Step i = 2, i.e., β2 = 4: Since w2 = 101, case 2.(ii).II applies and
+
+PM(2) = PM(1) + Z3Z5PM(1)Z3Z5 = |00000000 00000000|
+
++ |01000000 01000000|
+
++ |00101000 00101000|
+
++ |01101000 01101000| .
+
+(42)
+
+• Step i = 3, i.e., β3 = 7: We have w3 = 000. Thus, case 2.(ii).IV applies and PM(3) = PM(2).
+• As i = 4 > m = 3, we abort the loop. PM(i) changed in two steps, i.e., r = 2. Moreover, since PM(i) did not change in the last step, i.e., the third step, t = 2. Then,
+
+PM = PM(t−1) − |Cl7 Cl7|
+
+= PM(1) − |00000000 00000000|
+
+= |01000000 01000000|
+
+(43)
+
+11
+
+Let us now return to the general case and understand the properties of the operator PM for an arbitrary M . The construction uses Lemma 4 to ensure that, in every step, either
+
+PM(i) TMi =
+
+P (i) TN (βi)
+M
+
+(44a)
+
+or
+
+PM(i) TMi = PM(i)
+
+(44b)
+
+hold, where we deﬁned Mk = M ∩ N (βk). To see that Eqs. (44) hold, it is best to consider an ex-
+ample: Assume that wi = 010. Then, case 2.(ii).II of the algorithm applies. As seen above, PM(i−1) has the form PM(i−1) = b |b b|. Thus,
+
+PM(i) =
+
+|b b| + Zi−1Zi+1|b b|Zi+1Zi−1 .
+
+b
+
+(45)
+
+Then, Lemma 2.(ii) implies that Eq. (44b) holds. Eqs. (44) hold in every step, i.e., for i = j and for i = k, where j = k. According to the premise of nonoverlapping neighborhoods of the qubits in B, we have N (βj ) ∩ N (βk) = {}. Therefore, the partial transpositions in Eqs. (44) for i = j always aﬀect qubits diﬀerent from the ones that are aﬀected by the partial transpositions for i = k. For this reason, Eqs. (44) for PM(t−1) hold with respect to to every value of k, except for k = t. More precisely,
+
+PM(t−1) TMk =
+
+P (t−1) TN (βk )
+M
+
+(46a)
+
+or
+
+PM(t−1) TMk = PM(t−1)
+
+(46b)
+
+is true for every k = t. We will use this important prop-
+
+erty later.
+
+Let us proceed with the proof. Since PM is zero or has
+
+the form of Eq. (40), we know that PM ≥ 0. Thus, it
+
+remains to show that (WCl − PM )TM = QM ≥ 0, ∀ M .
+
+Operators that are diagonal in a graph state basis can
+
+be written in the form
+
+x
+
+n i=1
+
+gixi ,
+
+where
+
+the
+
+sum
+
+runs
+
+over binary strings x that depend on the operator. Since
+
+any partial transposition can at most introduce minus
+
+signs in some terms of this sum, such operators remain
+
+diagonal under any partial transposition. Therefore, it is
+
+enough to prove that
+
+k| (WCl − PM )TM |k ≥ 0, ∀ M, |k .
+
+(47)
+
+Note that P+ =
+
+s
+
+i∈B
+
+si gi +11
+2
+
+is
+
+invariant
+
+under
+
+any
+
+partial transposition, since it does not contain any Y op-
+
+erators due to the form of the generators and the fact that
+
+no two qubits in B have a common neighbor. Therefore,
+
+together with the explicit form of the witness given in Eq. (35), we can rewrite Eq. (47) as
+
+1 2
+
+−
+
+1 2
+
+k|P+|k
+
+−
+
+k| (|Cln
+
+Cln| + PM )TM |k
+
+≥ 0, ∀M, |k .
+
+(48)
+
+In order to prove this, we distinguish two diﬀerent cases:
+
+1. k|P+|k = 0 ⇔ k|P+|k = 1
+
+Note that the equivalence can best be see in Eq. (36). Also, Eq. (36) implies that there must be at least two bits of k, say ki0 , kj0 ∈ B, with i0 = j0, such that ki0 = kj0 = 1. In the case PM = 0, Eq. (48) and k|P+|k = 1 are equivalent to
+− k| (|Cln Cln|)TM |k ≥ 0 ∀ M, |k . (49)
+
+To see that the left-hand side always vanishes, one uses that PM = 0 is equivalent to r ≤ 1, i.e., cases 2.(i).I or 2.(ii).I or 2.(ii).II or 2.(ii).III in the algorithm occurred at most once. This means that N (βi) ⊆ M or N (βi) ⊆ M holds for all qubits βi ∈ B with at most one exception, namely βt. With ki0 = kj0 = 1, Lemma 1 can be applied to see that Eq. (49) vanishes. In the case PM = 0, Eq. (48) can be simpliﬁed using
+k|P+|k = 1 to
+
+− k| (|Cln Cln| + PM )TM |k ≥ 0 ∀ M, |k
+
+⇔−
+
+k|
+
+PM(t−1)
+
+TM
+|k
+
+≥ 0 ∀ M, |k
+
+.
+
+(50)
+
+Here, the deﬁnition of PM , Eq. (38), has been used. Now, PM and therefore PM(t−1) consists of a sum of projectors onto graph basis states |a (see Eq. (40)). Since the algorithm starts with PM(0) = |0 . . . 0 0 . . . 0| and never ﬂips any bits on the qubits βi ∈ B, these states |a obey aβi = 0, ∀ i = 1, . . . , m. Also, depending on whether i0 = t or j0 = t, Eqs. (46) can be applied to whichever of these two qubits is diﬀerent from t. The invariance
+given by Eqs. (46) then implies that this qubit can
+be treated as if it lay on the border of M (or M )
+and therefore Lemma 2 yields
+
+k|
+
+PM(t−1)
+
+TM
+|k
+
+=0
+
+(51)
+
+and therefore Eq. (50) holds.
+
+2. k|P+|k = 0
+
+To show that Eq. (48) holds, we need to prove that
+
+k| (|Cln
+
+Cln| + PM )TM |k
+
+≤
+
+1 2
+
+.
+
+(52)
+
+12
+
+In the case PM = 0, PM is given by Eq. (40) and Eq. (52) is equivalent to
+
+k| |Cln Cln| +
+
+|a
+
+a|
+
+TM
+|k
+
+≤1.
+
+2
+
+(53)
+
+a
+
+Note that |Cln Cln| + a |a a| = PM(t−1) consists of 2r−1 terms, as one starts with one term and doubles this number (r − 1) times to obtain PM(t−1). Therefore, it is enough to show that
+
+k| (|Cln Cln|)TM |k ≤ 2−r
+
+(54)
+
+and
+
+k| (|a a|)TM |k ≤ 2−r ∀ |a
+
+(55)
+
+holds. We will do this by using Lemma 3. However, since the vectors |a are basis vectors of the graph state basis of |Cln , |a and |Cln are LUequivalent. Therefore, they have the same Schmidt coeﬃcients and Lemma 3 results in the same upper bounds. For this reason, it suﬃces to show only one of these upper bounds, namely
+
+k| (|Cln Cln|)TM |k ≤ 2−r .
+
+(56)
+
+The idea behind the subsequent proof of Eq. (56) is that, every time PM(i) changes in our algorithm, r is increased, but at the same time, a Bell pair which has Schmidt coeﬃcients { √1 , √1 } is created
+22
+which results in a smaller upper bound according to Lemma 3. To easily calculate the Schmidt coeﬃcients of |Cln with respect to bipartition M |M , we transform |Cln via local transformations into disconnected Bell pairs whose qubits are in diﬀerent partitions. In order not to change the Schmidt coeﬃcients during this transformation, we apply the following two operations to the graph.
+• Local Complementation (LC): Pick a qubit j and invert its neighborhood graph. In other words, if between two neighbors of j there is an edge, delete it. If between two neighbors of j there is no edge, add an edge between them. Since this operation corresponds to the application of local unitaries, the Schmidt coeﬃcients remain unchanged.
+• Controlled-Z (CZ): Apply a controlled-Z operation to two qubits in the same partition. If they are connected by an edge, this will delete the edge. If they are not connected, this will create an edge. As this unitary operation is only applied on qubits in the same partition, it does not change the Schmidt coeﬃcients.
+
+FIG. 2: For every case in which PM(i) changes in the algorithm, we explicitly demonstrate that it is possible to create a Bell pair via a sequence of local transformations. Note that the cases wk = 100 and wk = 011 follow from wk = 110 or wk = 001 due to symmetry reasons.
+
+Since these transformations can be applied to each set N (βj ) individually to create a Bell pair between the two partitions (see Fig. 2) it is possible to end up with distinct Bell pairs between the two partitions. Moreover, the number q of Bell pairs that one can create by transforming the qubits in each N (βj) separately obeys q ≥ r, as every time that PM(i) is changed in the algorithm (including step i = t) corresponds to a conﬁguration shown in Fig. 2. Furthermore, each of these conﬁgurations allow for the creation of a disconnected Bell pair. Since the Schmidt coeﬃcients of a single Bell pair are { √1 , √1 }, Lemma 3 yields
+22
+
+k| (|Cln Cln|)TM |k ≤ 2−q ,
+
+(57)
+
+With q ≥ r, this implies that Eq. (56) holds.
+
+13
+
+In the case PM = 0, we need to show that
+
+k| (|Cln
+
+Cln|)TM |k
+
+≤
+
+1 2
+
+.
+
+(58)
+
+Note that PM = 0 is equivalent to r ≤ 1. On
+
+one hand, r = 0 means that for each i = 1, . . . , n,
+
+either N (i) ⊆ M or N (i) ⊆ M holds. Since
+
+M = {1, . . . , n}, deleting all edges within M and
+
+M will lead to at least one Bell pair, which has
+
+Schmidt
+
+coeﬃcients
+
+{
+
+√1 2
+
+,
+
+√1 2
+
+}.
+
+With Lemma 3,
+
+Eq. (58) holds.
+
+On the other hand, for r = 1, Eq. (58) also holds,
+
+since due to Fig. 2 the Schmidt coeﬃcients are
+
+given by at least one Bell pair. Therefore, the max-
+
+imal
+
+coeﬃcient
+
+is
+
+1 2
+
+.
+
+This ﬁnishes the proof of Proposition 5.
+
+[1] G. Vidal and R. F. Werner, Phys. Rev. A 65, 032314 (2002); M. B. Plenio, Phys. Rev. Lett. 95, 090503 (2005).
+[2] C. H. Bennett et al., Phys. Rev. A 59, 1070 (1999). [3] The subscripts M do not matter here. [4] A. C. Doherty, P. A. Parrilo, and F. M. Spedalieri, Phys.
+Rev. Lett. 88, 187904 (2002); A. C. Doherty, P. A. Parrilo, and F. M. Spedalieri, Phys. Rev. A 69, 022308 (2004). [5] O. Gu¨hne and M. Seevinck, New J. Phys. 12, 053002 (2010). [6] F. M. Spedalieri, Phys. Rev. A 76, 032318 (2007). [7] M. Navascu´es, M. Owari, and M.B. Plenio, Phys. Rev. Lett. 103, 160404 (2009). [8] G. C. Thiang, Phys. Rev. A 82, 012332 (2010). [9] M. Horodecki, P. Horodecki, and R.Horodecki, Phys. Lett. A 223, 1 (1996). [10] J. Barreiro et al., Nat. Phys. 6, 943 (2010).
+

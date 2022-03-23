@@ -1,0 +1,1480 @@
+PHYSICAL REVIEW A, VOLUME 64, 012316
+
+Maximally entangled mixed states of two qubits
+
+Frank Verstraete, Koenraad Audenaert, and Bart De Moor Department of Electrical Engineering, Katholieke Universiteit Leuven, Research Group SISTA, Kardinaal Mercierlaan 94,
+B-3001 Leuven, Belgium ͑Received 22 December 2000; published 15 June 2001͒
+
+We consider mixed states of two qubits and show under which global unitary operations their entanglement is maximized. This leads to a class of states that is a generalization of the Bell states. Three measures of entanglement are considered: entanglement of formation, negativity, and relative entropy of entanglement. Surprisingly all states that maximize one measure also maximize the others. We give a complete characterization of these generalized Bell states and prove that these states for ﬁxed eigenvalues are all equivalent under local unitary transformations. Furthermore we characterize all nearly entangled states closest to the maximally mixed state and derive a lower bound on the volume of separable mixed states.
+
+DOI: 10.1103/PhysRevA.64.012316
+
+PACS number͑s͒: 03.67.Ϫa, 03.65.Ud, 89.70.ϩc
+
+In this paper we investigate how much entanglement in a
+
+mixed two-qubit system can be created by global unitary
+
+transformations. The class of states for which no more en-
+
+tanglement can be created by global unitary operations is
+
+clearly a generalization of the class of Bell states to mixed
+
+states, and gives strict bounds on how the degree of mixing
+
+of a state limits its entanglement. This question is of consid-
+
+erable interest as entanglement is the magic ingredient of
+
+quantum information theory and experiments always deal
+
+with mixed states. Recently, Ishizaka and Hiroshima ͓1͔ in-
+
+dependently considered the same question. They proposed a
+
+class of states and conjectured that the entanglement of for-
+
+mation ͓2͔ and the negativity ͓3͔ of these states could not be
+
+increased by any global unitary operation. Here we rigor-
+
+ously prove their conjecture and furthermore prove that the
+
+states they proposed are the only ones having the property of
+
+maximal entanglement.
+
+Closely related to the issue of generalized Bell states is
+
+the question of characterizing the set of separable density
+
+matrices ͓5͔, as the entangled states closest to the maximally
+
+mixed state necessarily have to belong to the proposed class
+
+of maximal entangled mixed states. We can thus give a com-
+
+plete characterization of all nearly entangled states lying on
+
+the boundary of the sphere of separable states surrounding
+
+the maximally mixed state. As a by-product this gives an
+
+alternative derivation of the well-known result of Zycz-
+
+kowski et al. ͓3͔ that all states for which the inequality
+
+Tr(
+
+␳
+
+2
+
+)
+
+р
+
+1 3
+
+holds are separable.
+
+The original motivation of this paper was the following
+
+question: given a single quantum-mechanical system consist-
+
+ing
+
+of
+
+two
+
+spin-
+
+1 2
+
+systems,
+
+i.e.,
+
+two
+
+qubits,
+
+in
+
+a
+
+given
+
+state,
+
+how can one maximize the entanglement of these qubits us-
+
+ing only unitary operations? If not only unitary operations
+
+but also measurements were allowed, it is clear that a Von
+
+Neumann measurement in the Bell basis would immediately
+
+yield a singlet. Here, however, we restrict ourselves to uni-
+
+tary operations. Obviously, these unitary operations must be
+
+global ones, that is, acting on the system as a whole, since
+
+any reasonable measure of entanglement must be invariant
+
+under local unitary operations, acting only on single qubits.
+
+As measures of entanglement, the entanglement of formation
+
+͑EOF͒ ͓2͔, the negativity ͓3͔, and the relative entropy of
+
+entanglement ͓4͔ were chosen.
+
+The entanglement of formation of mixed states is deﬁned
+
+variationally as E f (␳)ϭmin͕␺i͖⌺ipiE(␺i) where ␳
+
+ϭ
+
+⌺
+
+i
+
+p
+
+i␺
+
+i␺
+
+† i
+
+.
+
+For
+
+2ϫ2
+
+systems
+
+the
+
+EOF
+
+is
+
+well
+
+character-
+
+ized by introducing the concurrence C ͓2͔:
+
+ͩ ͪ 1ϩͱ1ϪC2
+
+E f͑ ␳ ͒ϭ f „C͑ ␳ ͒…ϭH
+
+2
+
+,
+
+͑1͒
+
+C͑ ␳ ͒ϭmax͑ 0,␴1Ϫ␴2Ϫ␴3Ϫ␴4͒.
+
+͑2͒
+
+Here ͕␴i͖ are the square roots of the eigenvalues of the matrix A arranged in decreasing order,
+
+Aϭ␳S␳*S,
+
+͑3͒
+
+Sϭ␴y ␴y .
+
+͑4͒
+
+H(x) is Shannon’s entropy function and ␴y is the Pauli matrix. It can be shown that f (C) is convex and monotonically
+increasing. Using some elementary linear algebra it is furthermore easy to prove that the numbers ͕␴i͖ are equal to the
+singular values ͓8͔ of the matrix ͱ␳TSͱ␳. Here we use the notation ͱ␳ϭ⌽⌳1/2 given ⌽⌳⌽†, the eigenvalue decompo-
+sition of ␳. The concept of negativity of a state is closely related to
+the well-known Peres condition for separability of a state ͓6͔. If a state is separable ͑disentangled͒, then the partial transpose of the state is again a valid state, i.e., it is positive. For 2ϫ2 systems, this condition is also sufﬁcient ͓7͔. It turns out that the partial transpose of a nonseparable state has one
+negative eigenvalue. From this, a measure for entanglement follows: the negativity of a state ͓3͔ is equal to the trace norm of its partial transpose. We will adopt the deﬁnition of nega-
+tivity as twice the absolute value of this negative eigenvalue:
+
+EN͑ ␳ ͒ϭ2 max͑ 0,Ϫ␭4͒,
+
+͑5͒
+
+where ␭4 is the minimal eigenvalue of ␳TA. In the case of two qubits, this is equivalent to the trace norm of the partial
+transpose up to an afﬁne mapping.
+
+1050-2947/2001/64͑1͒/012316͑6͒/$20.00
+
+64 012316-1
+
+©2001 The American Physical Society
+
+VERSTRAETE, AUDENAERT, AND DE MOOR
+
+PHYSICAL REVIEW A 64 012316
+
+The relative entropy of entanglement was proposed by Vedral and Plenio ͓4͔ as a measure of entanglement motivated by the classical concept of Kullback-Leibler distance between probability distributions. This measure has very nice properties, such as being a good upper bound for the entanglement of distillation. It is variationally deﬁned as
+
+ER͑␳ ͒ϭ min Tr͑␳ log ␳Ϫ␳ log ␴ ͒,
+
+͑6͒
+
+␴෈D
+
+where D represents the convex set of all separable density operators.
+We now state our main result. Theorem 1. Let the eigenvalue decomposition of ␳ be
+␳ϭ⌽⌳⌽†,
+
+where the eigenvalues ͕␭i͖ are sorted in nonascending order. The entanglement of formation is maximized if and only if a
+
+global unitary transformation of the form
+
+ͩ0 1/& Uϭ͑ U1   U2͒ 1/&
+
+0 0 0
+
+0 1/& Ϫ 1/&
+
+ͪ1
+0 0 D␾⌽†
+
+01 0 0
+
+is applied to the system, where U1 and U2 are local unitary operations and D␾ is a unitary diagonal matrix. This same global unitary transformation is the unique transformation maximizing the negativity and the relative entropy of entanglement. The entanglement of formation and negativity of the new state ␳ЈϭU␳U† are then given by
+E f͑ ␳Ј͒ϭ f „max͑ 0,␭1Ϫ␭3Ϫ2ͱ␭2␭4͒…,
+EN͑ ␳Ј͒ϭmax„0,ͱ͑ ␭1Ϫ␭3͒2ϩ͑ ␭2Ϫ␭4͒2Ϫ␭2Ϫ␭4…,
+respectively, while the expression for the relative entropy of entanglement is given by
+
+ER͑ ␳Ј͒ϭTr͑ ␳ log ␳ ͒Ϫ␭1 log͓͑ 1Ϫa ͒/2͔
+Ϫ␭2 log͕͓aϩbϩ2͑ ␭2Ϫ␭4͔͒/4͖
+Ϫ␭3 log͓͑ 1Ϫb ͒/2͔Ϫ␭4 log͕͓aϩb
+Ϫ2͑ ␭2Ϫ␭4͔͒/4͖,
+aϭ͓dϪͱd2Ϫ4͑ 1Ϫ␭1͒͑ 1Ϫ␭3͒͑ ␭2Ϫ␭4͒2͔/͓2͑ 1Ϫ␭3͔͒,
+bϭ͓dϪͱd2Ϫ4͑ 1Ϫ␭1͒͑ 1Ϫ␭3͒͑ ␭2Ϫ␭4͒2͔/͓2͑ 1Ϫ␭1͔͒,
+dϭ␭2ϩ␭4ϩ͑␭2Ϫ␭4͒2.
+The class of generalized Bell states is deﬁned as the states ␳Ј thus obtained. These states are the maximally entangled mixed states ͑MEMS’s͒.
+We now present the complete proof of this theorem. The cases of entanglement of formation, negativity, and relative entropy of entanglement will be treated independently. We start with the entanglement of formation.
+
+As the function f (x) is monotonically increasing, maximizing the EOF is equivalent to maximizing the concurrence. The problem is now reduced to ﬁnding
+
+Cmaxϭ max ͑ 0,␴1Ϫ␴2Ϫ␴3Ϫ␴4͒
+
+͑7͒
+
+U෈U͑4͒
+
+with ͕␴i͖ the singular values of
+
+Q ϭ ⌳ 1/2⌽ T U T S U ⌽ ⌳ 1/2.
+
+͑8͒
+
+Now, ⌽, U, and S are unitary, and so is any product of them. It then follows that
+
+Cmaxр max ͑ 0,␴1Ϫ␴2Ϫ␴3Ϫ␴4͒
+
+͑9͒
+
+V෈U͑4͒
+
+with ͕␴i͖ the singular values of ⌳1/2V⌳1/2. The inequality becomes an equality if there is a unitary matrix U such that the optimal V can be written as ⌽TUTSU⌽. A necessary
+
+and sufﬁcient condition for this is that the optimal V be
+symmetric (VϭVT): as S is symmetric and unitary, it can be written as a product S1TS1 , with S1 again unitary. This is known as the Takagi factorization of S ͓8͔. This factorization
+
+is not unique: left-multiplying S1 by a complex orthogonal matrix O (OTOϭ1) also yields a valid Takagi factor. An
+
+explicit form of S1 is given by
+
+ͩ ͪ 0 1 1 0
+
+1 Ϫ1 0 0 1
+
+S1ϭ&
+
+0
+
+Ϫi
+
+i
+
+. 0
+
+͑10͒
+
+i 0 0i
+
+If V is symmetric it can also be factorized like this: V
+
+ϭ
+
+V
+
+T 1
+
+V
+
+1
+
+.
+
+It
+
+is
+
+now
+
+easy
+
+to
+
+see
+
+that
+
+any
+
+U
+
+of
+
+the
+
+form
+
+U ϭ S 1† O V 1 ⌽ † ,
+
+͑11͒
+
+with O real orthogonal, indeed yields VϭV1TV1 . To proceed, we need two inequalities concerning singular
+values of matrix products. Henceforth, singular values as
+well as eigenvalues will be sorted in nonascending order.
+The following inequality for singular values is well known ͓9͔.
+Lemma 1. Let A෈M n,r(C), B෈M r,m(C). Then,
+
+k
+
+k
+
+͚ ͚ ␴i͑AB ͒у ␴i͑A ͒␴i͑B ͒,
+
+͑12͒
+
+iϭ1
+
+iϭ1
+
+for kϭ1,... , qϭmin͕n,r,m͖.
+Less known is the following result by Wang and Xi ͓10͔ Lemma 2. Let A෈M n(C), B෈M n,m(C), and 1рi1Ͻ¯ Ͻikрn. Then
+
+k
+
+k
+
+͚ ͚ tϭ1
+
+␴ it͑ A B ͒у tϭ1
+
+␴
+
+i
+
+͑
+t
+
+A
+
+͒
+
+␴
+
+n
+
+Ϫ
+
+t
+
+ϩ
+
+1͑
+
+B
+
+͒
+
+.
+
+͑13͒
+
+Set nϭ4 in both inequalities. Then put kϭ1 in the ﬁrst, and kϭ3, i1ϭ2, i2ϭ3, i3ϭ4 in the second. Subtracting the inequalities then gives
+
+012316-2
+
+MAXIMALLY ENTANGLED MIXED STATES OF TWO QUBITS
+
+PHYSICAL REVIEW A 64 012316
+
+␴1͑AB͒Ϫ͓␴2͑AB͒ϩ␴3͑AB͒ϩ␴4͑AB͔͒р␴1͑A͒␴1͑B͒ Ϫ␴2͑A͒␴4͑B͒Ϫ␴3͑A͒␴3͑B͒Ϫ␴4͑A͒␴2͑B͒.
+Furthermore, let Aϭ⌳1/2 and BϭV⌳1/2, with ⌳ positive diagonal and with the diagonal elements sorted in nonascend-
+ing order. Thus, ␴i(A)ϭ␴i(B)ϭͱ␭i. This gives
+͓ ␴1Ϫ͑ ␴2ϩ␴3ϩ␴4͔͒͑ ⌳1/2V⌳1/2͒р␭1Ϫ͑ 2ͱ␭2␭4ϩ␭3͒.
+
+ͩ1 0 0
+
+010
+
+S
+
+† 1
+
+0
+
+0
+
+1
+
+ͪ0
+0 0 V1
+
+0 0 0 Ϫ1
+
+ͩ ͪ 1 0 0 0
+
+01 0 0
+
+ϭ
+
+͑
+
+␴
+
+y
+
+ 
+
+␴
+
+y
+
+͒
+
+S
+
+† 1
+
+V
+
+1
+
+0
+
+0
+
+Ϫ1
+
+0
+
+.
+
+It is easy to see that this inequality becomes an equality if and only if V is equal to the permutation matrix
+
+ͩ ͪ1 0 0 0 0001 0010
+
+͑14͒
+
+0100
+
+multiplied by an arbitrary unitary diagonal matrix D␾ . Therefore, we have proven
+
+max ͓ ␴1Ϫ͑ ␴2ϩ␴3ϩ␴4͔͒͑ ⌳1/2V⌳1/2͒
+V෈U͑4͒
+
+ϭ␭1Ϫ͑ 2ͱ␭2␭4ϩ␭3͒.
+
+͑15͒
+
+We can directly apply this to the problem at hand. The opti-
+mal V is indeed symmetric, so that it can be decomposed as VϭV1TV1 . A possible Takagi factor is
+
+ͩ1 0 0 0 1/& 0 V1ϭ 0 0 1
+
+ͪ0
+1/& .
+0
+
+͑16͒
+
+0 i/& 0 Ϫi/&
+
+The optimal unitary operations U are thus all of the form UϭS1†OV1D␾1/2⌽† with O an arbitrary orthogonal matrix. It has to be emphasized that the diagonal matrix D␾ will not have any effect on the state ␳ЈϭU⌽⌳⌽†U†.
+To proceed we exploit a well-known accident in Lie
+group theory:
+
+SU͑ 2 ͒   SU͑ 2 ͒ХSO͑ 4 ͒.
+
+͑17͒
+
+It now happens that the unitary matrix S1 is exactly of the
+
+form
+
+for
+
+making
+
+S
+
+1
+
+(
+
+U
+
+1
+
+ 
+
+U
+
+2
+
+)
+
+S
+
+† 1
+
+real
+
+for
+
+arbitrary
+
+͕U1 ,U2͖
+
+෈ SU͑2͒.
+
+It
+
+follows
+
+that
+
+S
+
+1
+
+(
+
+U
+
+1
+
+ 
+
+U
+
+2
+
+)
+
+S
+
+† 1
+
+is
+
+orthogonal
+
+and
+
+thus is an element of SO͑4͒. Conversely, each element Q
+
+෈ SO͑4͒
+
+can
+
+be
+
+written
+
+as
+
+Q
+
+ϭ
+
+S
+
+1
+
+(
+
+U
+
+1
+
+ 
+
+U
+
+2)
+
+S
+
+† 1
+
+.
+
+On
+
+the
+
+other
+
+hand the orthogonal matrices with determinant equal to Ϫ1
+
+can all be written as orthogonal matrices with determinant 1
+
+multiplied by a ﬁxed matrix of determinant Ϫ1. Some cal-
+
+culations reveal that
+
+00 0 1
+
+We conclude that for each O෈O(4) and D␾ unitary diago-
+
+nal, such
+
+there that
+
+exist
+
+U
+
+ϭ
+
+S
+
+† 1
+
+U1 ,U2෈SU͑2͒ OV1D␾⌽†ϭ(U
+
+and 1 U
+
+D 2)
+
+S␾Ј1†
+
+unitary V1D␾Ј⌽
+
+diagonal, †.
+
+It is now easy to check that a unitary transformation pro-
+
+duces maximal entanglement of formation if and only if it is
+
+of the form
+
+ͩ0 1/& ͑ U1   U2͒ 1/&
+
+0 0 0
+
+0 1/& Ϫ 1/&
+
+ͪ1
+0 0 D␾⌽†.
+
+͑18͒
+
+01 0 0
+
+This completes the proof of the ﬁrst part of Theorem 1. We now proceed to prove the second part of Theorem 1
+concerning the negativity. This proof is based on the Rayleigh-Ritz variational characterization of the minimal eigenvalue of a Hermitian matrix:
+
+␭min͑ ␳TA͒ϭ min Tr ␳TA͉x͗͘x͉
+x:ʈxʈϭ1
+
+ϭ min Tr ␳͉͑x͗͘x͉͒TA.
+
+͑19͒
+
+x:ʈxʈϭ1
+
+The eigenvalue decomposition of (͉x͗͘x͉)TA can best be de-
+duced from its singular-value decomposition. Let ˜x denote a reshaping of the vector x to a 2ϫ2 matrix with ˜xijϭ͗ei   e j͉x͘. Introducing the permutation matrix P0ϭ⌺i jei j   e ji, the partial transpose can be written as follows:
+
+͉͑x͗͘x͉͒TAϭ P0͑˜x  ˜x†͒.
+
+͑20͒
+
+The proof of this statement is elementary. We denote the Schmidt decomposition of the vector ͉x͘ by
+
+˜x
+
+ϭ
+
+U
+
+1
+
+⌺
+
+U
+
+† 2
+
+,
+
+͑21͒
+
+where the diagonal elements of ⌺ are given by ␴1 ,␴2 . Since x is normalized we can parameterize these as cos ͑␣͒ and sin
+͑␣͒ with 0р␣р␲/4 ͑to maintain the ordering͒. We get
+
+͉͑x͗͘x͉ ͒TAϭ P0͑ U1   U2͒͑ ⌺   ⌺ ͒͑ U2   U1͒†. ͑22͒
+
+This clearly is a singular-value decomposition. The explicit
+eigenvalue decomposition can now be calculated using the
+basic property of P0 that P0(A   B)ϭ(B   A) P0 for arbitrary A,B. It is then easy to check that the eigenvalue decomposition of (͉x͗͘x͉)TA is given by
+
+012316-3
+
+VERSTRAETE, AUDENAERT, AND DE MOOR
+
+PHYSICAL REVIEW A 64 012316
+
+͉͑x͗͘x͉͒TAϭV͑x͒D͓␣͑x͔͒V͑x͒† ,
+
+͑23͒
+
+where D͓␣(x)͔ is the diagonal matrix with eigenvalues
+
+(
+
+␴
+
+12,
+
+␴
+
+1
+
+␴
+
+2
+
+,
+
+␴
+
+2 2
+
+,
+
+Ϫ
+
+␴
+
+1
+
+␴
+
+2)
+
+and
+
+ͩ1 0 V͑x͒ϭ͑U1͑x͒  U2͑x͒͒ 0
+
+0 1/& 1/&
+
+0 0 0
+
+ͪ0
+1/& Ϫ1/& .
+
+001 0 ͑24͒
+
+For the problem at hand, we have to minimize the minimal eigenvalue of (U␳U†)TA over all possible U෈U(4). Thus,
+we have to minimize
+
+min Tr U⌽⌳⌽†U†͑ x ͒D͓␣͑ x ͔͒V͑ x ͒†
+U,x
+
+ϭmin min Tr ⌳W†D͑ ␣ ͒W,
+
+͑25͒
+
+␣W
+
+where we have absorbed the eigenvector matrix ⌽ of ␳, as well as V(x)†, into U, yielding W. Now, the minimization
+over W can be done by writing the trace in components
+
+͚ g͑ ␣ ͒ϭTr ⌳W†D͑ ␣ ͒Wϭ d j͑ ␣ ͉͒W ji͉2␭iϭd͑ ␣ ͒TJ͑ W ͒␭, i,j ͑26͒
+
+where d(␣) and ␭ denote the vectors containing the diagonal elements of D(␣) and ⌳, respectively. J(W) is a doubly
+
+stochastic matrix formed from W by taking the modulus
+
+squared of every element. The minimum over all W is at-
+
+tained when J(W) is a permutation matrix; this follows from
+
+Birkhoff’s theorem ͓8͔, which says that the set of doubly
+
+stochastic matrices is the convex closure of the set of permu-
+
+tation matrices, and also from the fact that our object function is linear. Since the components of ␴ and ␭ are sorted in descending order and ␭ is positive, the permutation matrix yielding the minimum for any ␣ is the matrix
+
+ͩ ͪ0 0 0 1 0010 J0ϭ 0 1 0 0 .
+
+͑27͒
+
+1000
+
+Thus W has to be chosen equal to J0 multiplied by a diagonal
+
+unitary matrix D␾ . Hence, the minimum over W is given by
+
+⌺
+
+4 jϭ1
+
+␭
+
+j
+
+d
+
+4
+
+ϩ
+
+1
+
+Ϫ
+
+j(
+
+␣
+
+)
+
+.
+
+Minimizing
+
+over
+
+␣
+
+gives,
+
+after
+
+a
+
+few
+
+ba-
+
+sic calculations,
+
+cos͑
+
+2
+
+␣
+
+͒
+
+ϭ
+
+ͱ͑
+
+␭
+
+1Ϫ
+
+␭2Ϫ␭4 ␭3͒2ϩ͑␭
+
+2Ϫ
+
+␭
+
+4
+
+͒
+
+2
+
+,
+
+g͑ ␣ ͒ϭ͓␭2ϩ␭4Ϫͱ͑ ␭1Ϫ␭3͒2ϩ͑ ␭2Ϫ␭4͒2͔/2.
+
+This immediately yields the conjectured formula for the optimal negativity.
+
+We now have to ﬁnd the U for which this optimum is
+
+reached. As V(x)†U⌽ϭW, it follows that the optimal uni-
+
+tary transformation U is given by UϭV(x)J0D␾⌽†:
+
+ͩ0 1/& Uϭ͑ U1   U2͒ 1/&
+
+0 0 0
+
+0 1/& Ϫ 1/&
+
+ͪ1
+0 0 D␾⌽†.
+
+͑28͒
+
+01 0 0
+
+This is exactly the same U as in the case of entanglement of formation.
+Next we move to the third part of Theorem 1 concerning the relative entropy of entanglement. We ﬁrst prove two lemmas.
+Lemma 3. Consider the class of superoperators
+
+͚ T ͑␳͒ϭ
+
+a
+
+i
+
+U
+
+i
+
+␳
+
+U
+
+† i
+
+,
+
+i
+
+where all Ui are unitary, and the ai form a distribution. Then, for any state ␳ that is invariant under T, we have for the relative entropy
+S͑␳ʈ␴͒уS͑␳ʈT †͑␴͒͒.
+
+Proof. The proof of this lemma is heavily inspired by Theorem 6 in ͓11͔. From S(␳)ϭS„T(␳)…, we ﬁnd
+S͑␳ʈ␴ ͒ϭTr ␳ log ␳ϪTr ␳ log ␴ ϭTr ␳ log ␳ϪTr T ͑␳ ͒log ␴
+
+͚ ϭTr ␳ log ␳Ϫ
+
+a
+
+i
+
+Tr
+
+U
+
+i␳
+
+U
+
+† i
+
+log
+
+␴
+
+i
+
+͚ ϭTr ␳ log ␳Ϫ
+
+a
+
+i
+
+Tr
+
+␳
+
+log͑
+
+U
+
+† i
+
+␴
+
+U
+
+i
+
+͒
+
+i
+
+ͩ ͪ ͚ уTr ␳ log ␳ϪTr ␳ log aiUi†␴Ui i
+
+ϭS͑␳ʈT †͑␴͒͒,
+
+where at the у relation we have used the subadditivity of the relative entropy with respect to its second argument.
+Lemma 4. For ␳ of the form ␳ϭU⌳U† with
+ͩ ͪ 0 0 0 1 1/& 0 1/& 0 Uϭ 1/& 0 Ϫ1/& 0
+01 0 0
+
+and ⌳ containing the ordered eigenvalues of ␳,
+
+ER͑ ␳ ͒ϭ min S͑ ␳ʈ␴ ͒,
+␴ ෈ D പ MEMS
+
+where MEMS is the class of maximally entangled mixed states.
+Proof. Deﬁne the superoperator
+
+012316-4
+
+MAXIMALLY ENTANGLED MIXED STATES OF TWO QUBITS
+
+PHYSICAL REVIEW A 64 012316
+
+T ͑ ␳ ͒ϭV diag͑ V†␳V ͒V†.
+Here, diag(␳) is the superoperator that sets all off-diagonal elements of ␳ equal to zero while keeping the diagonal ones intact. This superoperator can also be written as
+͚ diag͑␳ ͒ϭ Pi␳ Pi/2n, i
+where Pi runs through all possible diagonal matrices having only ϩ1 or Ϫ1 on their diagonal ͓12͔. It follows that T is of the form mentioned in Lemma 1 and, furthermore, that it is a self-dual superoperator, i.e., T †ϭT.
+It is obvious that all MEMS’s ͑with U1ϭU2ϭ1) are left invariant by T. We will now show that any such T maps separable states to separable states. Consider the pure product states only; if the proposition is valid for pure product states, it will be valid for all separable states ͑by linearity͒. The most general pure product state has the state vector ␺ ϭ(ac,ad,bc,bd), with a,b,c,d complex numbers. Then, since
+V†␺ϭ„͑adϩbc ͒/&,bd,͑adϪbc ͒/&,ac…,
+T ͑ ␺␺†͒ϭV diag͑ V†␺␺†V ͒V†ϭV⌳V†,
+where the diagonal elements of ⌳ are, in order,
+„͉͑ adϩbc ͒/&͉2,͉bd͉2,͉͑ adϪbc ͒/&͉2,͉ac͉2….
+As these values are not necessarily sorted, T(␺␺†) need not be a MEMS. However, it is still possible to apply the formula for the negativity of MEMS’s which says that
+EN͑ ␳ ͒ϭmax„0,ͱ͑ ␭1Ϫ␭3͒2ϩ͑ ␭2Ϫ␭4͒2Ϫ␭2Ϫ␭4….
+As can be easily checked, the validity of this formula does not rely on the ordering of the ␭i , as long as each ␭i pertains to the ith column of V. In particular, using
+␭1Ϫ␭3ϭ2 Re͓ab͑ cd ͒*͔,
+␭2Ϯ␭4ϭ͉bd͉2Ϯ͉ac͉2,
+we get for the negativity of T(␺␺†)
+EN͓T ͑ ␺␺†͔͒ϭmax͑ 0,F ͒
+with
+Fϭͱ͑ ␭1Ϫ␭3͒2ϩ͑ ␭2Ϫ␭4͒2Ϫ͑ ␭2ϩ␭4͒ ϭͱ4 Re͓ab͑ cd ͒*͔2ϩ͉bd͉4ϩ͉ac͉4Ϫ2͉abcd͉2
+Ϫ͉͑bd͉2ϩ͉ac͉2͒
+ϭͱ͉bd͉4ϩ͉ac͉4ϩ2͉abcd͉2Ϫ4 Im͓ab͑ cd ͒*͔2
+Ϫ͉͑bd͉2ϩ͉ac͉2͒
+ϭͱ͉͑bd͉2ϩ͉ac͉2͒2Ϫ4 Im͓ab͑ cd ͒*͔2Ϫ͉͑bd͉2ϩ͉ac͉2͒
+р 0.
+
+Hence, T(␺␺†) is separable, as we set out to prove, so that T maps separable states to separable states.
+From the previous discussion it also follows that states of the form V⌳V† are separable if and only if the eigenvalues satisfy
+
+ͱ͑ ␭1Ϫ␭3͒2ϩ͑ ␭2Ϫ␭4͒2Ϫ␭2Ϫ␭4р0.
+
+͑29͒
+
+Furthermore, states V⌳V† are obviously invariant under T. Hence, letting ␴ traverse all separable states of this form generates the same set of states T͑␴͒ as letting ␴ traverse all separable states without restriction. Therefore,
+
+ER͑ ␳ ͒ϭ min S͑ ␳ʈ␴ ͒
+␭෈D
+у min S„␳ʈT͑␴ ͒…
+␴෈D
+
+ϭ min S͑␳ʈ␴ ͒.
+␴ϭV⌳V†෈D
+
+Comparing the ﬁrst and the third lines, we immediately see
+that the inequality must be an equality.
+Actually, an even stronger result holds, as we can restrict ourselves in this minimization to states ␴ϭV⌳V†෈D where the diagonal elements appear in descending order (␭1у␭2 у␭3у␭4). In other words, ␴ may be taken from the set of separable MEMS’s. To see this, note that, as ␳ and ␴ are
+both MEMS’s,
+
+͚ S͑␳ʈ␴ ͒ϭ pi͑log piϪlog ␭i͒, i
+where the pi are the sorted eigenvalues of ␳, and ␭i are the not necessarily sorted eigenvalues of ␴. It is easy to see that one always gets a lower relative entropy by permuting the ␭i into descending order ͓12͔. This ends the proof of Lemma 4.
+It is now easy to prove the last part of Theorem 1: Because the ␴ are restricted to separable MEMS’s, this means that, for any global unitary U,U␴U† is still separable. Hence,
+ER͑ ␳ ͒ϭ min S͑ ␳ʈ␴ ͒
+␴ ෈ D പ MEMS
+ϭ min S͑ U␳U†ʈU␴U†͒
+␴ ෈ D പ MEMS
+у min S͑ U␳U†ʈU␴U†͒
+U␴U†෈D
+ϭER͑U␳U†͒,
+where the inequality arises because the minimization domain has been enlarged.
+The explicit calculation of the relative entropy of entanglement of the maximally entangled mixed states is now a tedious but straightforward exercise, whose result is quoted in the theorem. This completes the proof of Theorem 1. ᮀ
+Let us now analyze more closely this class of generalized Bell states. We already know that U is unique up to local unitary transformations. It is easy to check that the ordered
+
+012316-5
+
+VERSTRAETE, AUDENAERT, AND DE MOOR
+
+eigenvalues of the generalized Bell states for given entangle-
+ment of formation f (C) are parametrized by two independent variables ␣ and ␤:
+
+0 р ␣ р 1,
+
+ͱ ␤ у ͱ1 Ϫ ␣ 2 /9Ϫ
+
+8 9
+
+␣
+
+,
+
+ͱ ␤рmin„ͱ͑1ϩC ͒/͑1ϪC ͒Ϫ␣2/9Ϫ
+
+2 9
+
+␣
+
+,
+
+ͱ3
+
+Ϫ
+
+␣
+
+2
+
+Ϫ
+
+&
+
+␣
+
+…,
+
+␭
+
+1
+
+ϭ
+
+1
+
+Ϫ
+
+1
+
+Ϫ 6
+
+C
+
+͑
+
+3
+
+ϩ
+
+␤
+
+2
+
+͒
+
+,
+
+␭
+
+2ϭ
+
+1
+
+Ϫ 6
+
+C
+
+͑
+
+␣
+
+ϩ
+
+&
+
+␤
+
+͒2
+
+,
+
+1ϪC ␭3ϭ 6 ͓3Ϫ͑&␣ϩ␤͒2͔,
+
+␭4ϭ
+
+1ϪC 6
+
+␣2.
+
+͑30͒
+
+For a given EOF there is thus, up to local unitary transfor-
+
+mations, a two-dimensional manifold of maximally en-
+
+tangled states. In the case of concurrence Cϭ1 the upper and
+
+the lower bounds on ␤ become equal and the unique pure
+
+Bell states arise. Another observation is the fact that ␭4 of all
+
+generalized Bell states is smaller then 61. This implies that, if
+
+the
+
+smallest
+
+eigenvalue
+
+of
+
+any
+
+two-qubit
+
+state
+
+exceeds
+
+1 6
+
+,
+
+the
+
+state is separable.
+
+A natural question is now how to characterize the en-
+
+tangled states closest to the maximally mixed state. A sen-
+
+sible metric is given by the Frobenius norm ʈ␳Ϫ1ʈ2
+
+ϭ
+
+ͱ⌺
+
+i
+
+␭
+
+2 i
+
+Ϫ
+
+1/4.
+
+This
+
+norm
+
+is
+
+dependent
+
+only
+
+on
+
+the
+
+eigen-
+
+values of ␳ and it is thus sufﬁcient to consider the general-
+
+ized Bell states at the boundary of entangled states where
+
+both the concurrence and the negativity become zero. This
+
+can be solved using the method of Lagrange multipliers. A
+
+straightforward calculation leads to a one-parameter family
+
+of solutions:
+
+0
+
+р
+
+x
+
+р
+
+1 6
+
+,
+
+ͱ ␭
+
+1
+
+ϭ
+
+1 3
+
+ϩ
+
+x
+
+͑
+
+1 3
+
+Ϫ
+
+x
+
+͒
+
+,
+
+␭
+
+2
+
+ϭ
+
+1 3
+
+Ϫ
+
+x
+
+,
+
+PHYSICAL REVIEW A 64 012316
+
+ͱ ␭
+
+3
+
+ϭ
+
+1 3
+
+Ϫ
+
+x
+
+͑
+
+1 3
+
+Ϫ
+
+x
+
+͒
+
+,
+
+␭4ϭx.
+
+͑31͒
+
+The Frobenius norm ʈ␳Ϫ1ʈ2 for all these states on the
+
+boundary of the sphere of separable states is given by the
+
+ͱ number
+
+1 12
+
+.
+
+This
+
+criterion
+
+is
+
+exactly
+
+equivalent
+
+to
+
+the
+
+well-
+
+known criterion of Zyczkowski et al. ͓3͔:
+
+Tr␳
+
+2
+
+ϭ
+
+1 3
+
+.
+
+Here,
+
+however, we have the additional beneﬁt of knowing exactly
+
+all the entangled states on this boundary as these are the
+
+generalized Bell states with eigenvalues given by Eq. ͑31͒.
+
+Furthermore, Zyczkowski et al. ͓3͔ proposed a lower bound
+
+on the volume of separable states by considering the ball of
+
+states that remain separable under all global unitary transfor-
+
+mations. Clearly,
+
+the
+
+criterion
+
+⌺ i ␭ i2 р
+
+1 3
+
+can be strengthened
+
+to ␭1Ϫ␭3Ϫ2ͱ␭2␭4р0. Some tedious integration then leads
+
+to a better lower bound for the volume of separable states
+
+relative to the volume of all states: 0.3270 ͑as opposed to
+
+0.3023 of ͓3͔͒.
+
+Further interesting properties of the maximally entangled
+
+mixed states include the fact that the states with maximal
+
+entropy for given entanglement all belong to this class. This
+
+will be reported elsewhere.
+
+In conclusion, we have generalized the concept of pure
+
+Bell states to mixed states of two qubits. We have proved
+
+that the entanglement of formation, the negativity, and the
+
+relative entropy of entanglement of these generalized Bell
+
+states cannot be increased by applying any global unitary
+
+transformation. Whether their entanglement of distillation is
+
+also maximal is an interesting open problem.
+
+We thank Lieven Vandersypen for bringing the problem to our attention, and J. Dehaene, L. De Lathauwer, K. Zyczkowski, and especially T. De Bie for valuable comments. This work was supported by the Flemish Government through the Research Council K. U. Leuven, Concerted Research Action Meﬁsto-666, FWO Projects No. G.0240.99 and No. G.0256.97 and Research Communities ICCoS and ANMMM and IWT Project EUREKA 2063-IMPACT and STWW. Financial support was also provided the Belgian State through Grants No. IUAP P4-02 and No. IUAP P4-2, and the Sustainable Mobility Program Project No. MD/01/ 24; by the European Commission through TMR Networks ALAPEDES and System Identiﬁcation and the Brite/Euram Thematic Network NICONET; and by contract from ISMC, Data4S, Electrabel, Laborelec, Verhaert, and Europay.
+
+͓1͔ S. Ishizaka and T. Hiroshima, Phys. Rev. A 62, 022310 ͑2000͒.
+͓2͔ W. Wootters, Phys. Rev. Lett. 80, 2245 ͑1998͒. ͓3͔ K. Zyczkowski et al. Phys. Rev. A 58, 883 ͑1998͒. ͓4͔ V. Vedral and M. Plenio, Phys. Rev. A 57, 1619 ͑1998͒. ͓5͔ S. Braunstein et al. Phys. Rev. Lett. 83, 1054 ͑1999͒; G. Vidal
+and R. Tarrach, Phys. Rev. A 59, 141 ͑1999͒. ͓6͔ A. Peres, Phys. Rev. Lett. 77, 1413 ͑1996͒. ͓7͔ M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Lett. A
+223, 1 ͑1996͒.
+
+͓8͔ R. Horn and C. Johnson, Matrix Analysis ͑Cambridge University Press, Cambridge, 1985͒.
+͓9͔ R. Horn and C. Johnson, Topics in Matrix Analysis ͑Cambridge University Press, Cambridge, 1991͒.
+͓10͔ B.-Y. Wang and B.-Y. Xi, Linear Algebr. Appl. 264, 109 ͑1997͒.
+͓11͔ E. M. Rains, Phys. Rev. A 60, 179 ͑1999͒. ͓12͔ A. Marshall and I. Olkin, Inequalities: Theory of Majorization
+and Its Applications ͑Academic Press, New York, 1979͒.
+
+012316-6
+

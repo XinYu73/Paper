@@ -1,0 +1,135 @@
+Particle Swarm Optimization
+James Kennedy' and Russell Eberhart2
+1Washington, DC 20212
+kennedyjim @bls.gov
+2PurdueSchool of Engineeringand Technology Indianapolis, IN 46202-5160 eberhart@engr.iupui.edu
+ABSTRACT A concept for the optimizationof nonlinear functionsusing particle swarm methodology is introduced. The evolutionof several paradigms is outlined, and an implementationof one of the paradigmsis discussed. Benchmark testing of the paradigm is described, and applications, including nonlinear function optimization and neural network training, are proposed. The relationships between particle swarm optimizationand both artificial life and genetic algorithmsare described,
+1 INTRODUCTION This paper introduces a method for optimization of continuous nonlinear functions. The method was discoveredthrough simulationof a simplified social model; thus the social metaphor is discussed, though the algorithm stands without metaphorical support. This paper describes the particle swarm optimizationconcept in terms of its precursors,briefly reviewingthe stages of its development from social simulation to optimizer. Discussed next are a few paradigms that implement the concept. Finally, the implementation of one paradigm is discussed in more detail, followed by results obtained from applications and tests upon which the paradigm has been shown to perform successfully.
+Particle swarm optimizationhas roots in two main componentmethodologies. Perhaps more obvious are its ties to artificial life (A-life) in general, and to bird flocking, fish schooling, and swarming theory in particular. It is also related, however, to evolutionarycomputation, and has ties to both genetic algorithmsand evolutionaryprogramming. These relationshipsare briefly reviewed in the paper.
+Particle swarm optimizationas developedby the authorscomprises a very simple concept, and paradigms can be implemented in a few lines of computer code. It requires only primitive mathematical operators,and is computationallyinexpensivein terms of both memory requirementsand speed. Early testing has found the implementationto be effective with severalkinds of problems. This paper discusses application of the algorithm to the training of artificial neural network weights, Particle swarm optimizationhas also been demonstratedto perform well on genetic algorithmtest functions. This paper discusses the performance on Schaffer's f6 function, as described in Davis [l].
+2 SIMULATING SOCIAL BEHAVIOR A number of scientistshave created computer simulationsof various interpretationsof the movement of organisms in a bird flock or fish school. Notably, Reynolds [8] and Heppner and Grenander [4] presented simulationsof bird flocking. Reynolds was intrigued by the aestheticsof bird flocking choreography,and Heppner, a zoologist,was interestedin discoveringthe underlyingrules that enabled large numbers of birds to flock synchronously,often changing direction suddenly, scatteringand regrouping, etc. Both of these scientists had the insight that local processes, such as those modeled by
+0-7803-2768-3/95/$4.00 01995IEEE 1942
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+
+cellular automata,might underlie the unpredic:tablegroup dynamics of bird social behavior. Both models relied heavily on manipulation of inter-individualdistances;that is, the synchrony of flocking behavior was thought to be a function of birds’ efforts to maintain an optimumdistance between themselves and their neighbors.
+It does not seem a too-large leap of logic to suppose that some same rules underlie animal social behavior, includingherds, schools, and flocks, and that of humans. As sociobiologistE. 0.Wilson [9] has written, in reference to fish schooling, “In theory at least, individual members of the school can profit from the discoveriesand previous experienceof all other members of the schoolduring the search for food. This advantagecan become decisive,outweighingthe disadvantagesof competition for food items, wheneverthe resource is unpedictably distributed in patches” (p.209). This statement suggeststhat social sharingof informationamong conspeciatesoffers an evolutionaryadvantage:this hypothesiswas fundamentalto the developnmt of particle swarm optimization.
+One motive for developingthe simdation was to model human social behavior, which is of course not identical to fish schoolingor bird flocking. Che importantdifference is its abstractness. Birds and fish adjust their physical movement to avoid prechtors, seek food and mates, optimize environmental parameters such as temperature, etc. Humans; adjust not only physical movement but cognitive or experientialvariables as well. We do not usually walk in step and tum in unison (though some fascinating research in human conformity shows that we are capable of it); rather, we tend to adjust our beliefs and attitudes to conform with those cd our social peers.
+This is a major distinction in terms of contriving a computer simulation,for at least one obvious reason: collision. Two individuals can hold identical attitudes and beliefs without banging together, but two birds cannot occupy the same position in space without colliding. It seems reasonable,in discussinghuman socialbehavior, to map thie concept of change into the birdfish analog of movement. This is consistentwith the classic Aristotelim view of qualitative and quantitativechange as types of movement. Thus, besides moving through tlhree-dimensional physical space, and avoiding collisions, humans change in abstract multidimensionalspace, colision-free. Physical space of course affects informationalinputs, but it is arguably a trivial component of psychologicalexperience. Humans learn to avoid physicalcollision by an early age, hit navigation of n-dimensionalpsychosocialspace requires
+decadesof practice -and many of us never seem to acquirequite all the skills we need!
+3 PRECURSORS: THE ETIOLOGY OF PARTICLE SWARM OPTIMIZATION The particle swarm optimizeris probably kcstpresented by explainingits conceptualdevelopment. As mentioned above, the algorithmbegan as a simulation of a simplifiedsocial milieu. Agents were thought of as collision-proofbirds, and the original intent was to graphicallysimulatethe graceful but unpredictablechoreographyof a bird flock.
+3.1 Nearest Neighbor Velocity Matching and Craziness A satisfyingsimulationwas rather quickly written, which relied on two props: nearest-neighbor velocity matching and “craziness.” A populartion of birds was randomly initialized with a position for each on a torus pixel grid and with X and Y velocities. At each iteration a loop in the program
+determined,for each agent (a more appropriateterm than bird), which other agent was its nearest
+neighbor, then assigned that agent’s X and Y velocities to the agent in focus. Essentially this simple
+d e created a synchrony of movement.
+Unfortunately, the flock quickly settledon ii lunanimous,unchangingdirection. Therefore, a stochastic variable called craziness was introduced. At each iteration some change was added to randomly
+1943
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+
+chosen X and Y velocities. This i n t r d u d enough variation into the system to give the simulationan
+interesting and “lifelike” appearance,though of course the variation was wholly artiticial.
+
+3.2 The CornfieldVector Heppner’s bird simulationshad a feature which introduced a dynamic force into the simulation. His birds flocked around a “roost,” a position on the pixel screen that attracted them until they finally landed there. This eliminatedtheneed for a variable like craziness,as the simulationtook on a l i e of its own. While the idea of a roost was intriguing,it led to another question which seemed even more stimulating. Heppner’s birds knew where their roost was, but in real life birds land on any tree or telephonewire that meets their immediateneeds. Even more importantly,bird flocks land where there is food. How do they find food? Anyone who has ever put out a bird feeder knows that within hours a great number of birds will likely find it, even though they had no previous knowledge of its location, appearance,etc. It seems possible that somethingabout the flock dynamic enables members of the flock to capitalize on one another’sknowledge, as in Wilson’s quote above.
+
+The second variation of the simulationdefined a “comfieldvector,” a two-dimensional vector of XY
+
+coordinates on the pixel plane. Each agent was programmed to evaluate its present position in terms of
+
+Jw - 4 the equation:
+
+Eval=
+
++
+
+so that at the (100,100) position the value was zero.
+
+Each agent “remembered”the best value and the XY position which had resulted in that value. The
+value was calledpbest[] and the positionspbestx[] and pbestyl] (brackets indicate that these are
+arrays, with number of elements = number of agents). As each agent moved through the pixel space
+evaluating positions, its X and Y velocities were adjusted in a simple manner. If it was to the right of
+its pbestx, then its X velocity (call it vx) was adjusted negatively by a random amount weighted by a
+parameter of the system: vx[]=vx[]- rand()*p-increment. If it was to the left of pbestx,
+rand()*p-increment was added to vx[]. Similarly, Y velocities vy[] were adjustedup and down, dependingon whether the agent was above or below pbesty.
+
+Secondly,each agent “knew” the globally best position that one member of the flock had found, and its
+value. This was accomplishedby simply assigningthe array index of the agent with the best value to a variable called gbest, so that pbestx[gbest] was the group’s best X position, and pbesty[gbest] its best Y position, and this informationwas available to all flock members. Again, each member’s vx[] and
+vy[] were adjusted as follows, where g-increment is a system parameter.
+- ifpresentx[l> pbestx[gbest] then vx[] = vx[] rand()*g-increment
+ifpresentx[] < pbestx[gbest] then vx[] = vx[] + rand()*g-increment
+- ifpresenty[] > pbesty[gbestl then vy[] = vy[] rand()*g-increment
+ifpresenty[l< pbesty[gbestl then vy[] = vy[] + rand()*g-increment
+
+In the simulation,a circle marked the (100,100)position on the pixel field, and agents were represented as colored points. Thus an observer could watch the flocking agents circle around until they found the simulated cornfield. The results were surprising. With p-increment and g-increment set relatively high, the flock seemed to be sucked violently into the cornfield. In a very few iterations the entire flock, usually 15 to 30 individuals, was seen to be clustered within the tiny circle surrounding the goal. With p-increment and g-increment set low, the flock swirled around the goal,realistically approachingit, swingingout rhythmically with subgroupssynchronized,and finally “landing”on the target.
+
+1944
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+
+3 3 Eliminating Ancillary Variables Once it was clear that the paradigmcould og~imizesimple, two-dimensional, linear functions,it was importantto identify the parts of the p a r a d i p that are necessary for the task. For instance, the authors quickly found that the algorithm worltsjust as well, and looksjust as realistic, without craziness, so it was removed. Next it was shown that optimization actually occurs slightly faster when nearest neighbor velocity matching is removed, though the visual effect is changed. Theflock is now a swam, but it is well able to find the codielidl.
+The variablespbest and gbest and their increments are both necessary. Conceptuallypbest resembles autobiographicalmemory, as each individualremembers its own experience(thoughonly one fact about it), and the velocity adjustment associarted with pbest has been called “simple nostalgia” in that the individual tends to return to the place thiat most satisfied it in the past. On the other hand, gbest is conceptually similarto publicizedknowledge,or a group norm or standard,which individualsseek to attain. In the simulations,a high value of princrement relative to g-increment results in excessive wandering of isolated individualsthrough the problem space, while the reverse (relativelyhigh
+g-increment) results in the flock rushingprematurelytoward local minima. Approximatelyequal values of the two increments Seem to result in the most effective search of the problem domain.
+3.4 MultidimensionalSearch W e the algorithmseemsto impressively ”del a flock searchingfor a cornfield,most interesting
+optimization problems are neither linear nor two-dimensional. Since one of the authors’ objectivesis to model socialbehavior, which is multidimensionaland collision-free,it seemed a simple step to
+changepresentx and presenty (and of course vx[] and v y [ n from onedimensional arrays to D x N matrices, where D is any number of dimensionsand N is the number of agents.
+Multidimensionalexperimentswere performed, using a nonlinear, multidimensionalproblem: adjusting
+weights to train a feedforwardmultilayer pe:nceptron neural network (NN). One of the authors’ first experimentsinvolved training weights for a tluee-layerNN solvingthe exclusive-or (XOR)problem. This problem requires two input and one output processingelements (PES),plus some number of hidden PES. Besides connectionsfrom the piwious layer, the hidden and output PE layers each has a bias PE associated with it. Thus a 2,3,1 NN requires optimization of 13 parameters. This problem was approachedby flying the agents through 13-dimensionalspace until an average sum-squared error per PE criterion was met. The algorithm performed very well on this problem. The thirteendimensionalXOR network was trained, to am e < 0.05 criterion, in an average of 30.7 iterations with 20 agents. More complex NN architectures,look longer of course, but results, discussed in Section 5:
+Results and Early Applications, were still very good.
+3.5 Accelerationby Distance Though the algorithmworked well, there WiU; somethingaestheticallydispleasingand hard to understand about it. Velocity adjustmentswere based on a crude inequalitytest: ifpresentx > bestx, make it smaller;ifpresentx c bestx, make it bigger. Some experimentationrevealedthat further revisingthe algorithmmade it easier to und~eirstandand improved its performance. Rather than simply testing the sign of the inequality,velocitieswere adjusted accordingto their difference,per dimension, from best locations:
+vx[][] = vx[][] + rand()*p_increment*(pbt?stx[][]- presentx[l[l)
+1945
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+
+(note the parameters vx and presentx have two sets of brackets because they are now matrices of agents by dimensions; increment and bestx could also have a g instead of p at their beginnings.)
+
+3.6 CurrentSimplifiedVersion It was soon realized that there is no good way to guess whether p - or g-increment should be larger. Thus, these terms were also stripped out of the algorithm. The stochastic factor was multiplied by 2 to give it a mean of 1, so that agents would “overfly” the target about half the time. This version outperformsthe previous versions. Further research will show whether there is an optimumvalue for the constant currently set at 2, whether the value should be evolved for each problem, or whether the value can be determinedfrom some knowledgeof a particular problem. The current simplifiedparticle swarm optimizer now adjusts velocities by the following formula:
+
+vxLlLl= VXLILl +
+2 * rand() * (pbestx[][] -presentx[]fl)+ 2 * rand() * (pbestxfllgbesfl- presentxflf])
+
+3.7 Other Experiments Other variations on the algorithm were tried, but none seemed to improve on the current simplified version. For instance, it is apparent that the agent is propelled toward a weighted average of the two “best” points in the problem space. One version of the algorithm reduced the two terms to one, which was the point on each dimension midway betweenpbest and gbest positions. This version had an unfortunatetendency, however,to converge on that p i n t whether it was an optimum or not. Apparently the two stochastic “kicks” are a necessary part of the process.
+
+Another version considered using two types of agents, conceived as “explorers”and “settlers.” Explorers used the inequality test, which tended to cause them to overrun the target by a large distance, while settlers used the difference term. The hypothesis was that explorers would extrapolate outside the “known” region of the problem domain, and the settlers would hill-climb or micro-explore regions that had been found to be good. Again, this method showed no improvement over the current simplified version. Occam’s razor slashed again.
+
+Another version that was tested removed the momentum of vx[][]. The new adjustmentwas:
+
+VXilLl =
+
+2 * rand() * (pbestxflf]- presentx[lfl ) + 2 * rand() * (pbestx[][gbestJ- presentx[l[] )
+
+This version, though simplified,tumed out to be quite ineffectiveat finding global optima.
+
+4 SWARMS AND PARTICLES As was described in Section 3.3,it became obviousduring the simplificationof the paradigm that the behavior of the population of agents is now more like a swarm than a flock. The term swarm has a basis in the literature. In particular, the authors use the term in accordance with a paper by Millonas [6],who developed his models for applicationsin artificial life, and articulatedfive basic principles of swarm intelligence. First is the proximity principle: the population should be able to carry out simple space and time computations. Second is the quality principle: the population should be able to respond to quality factors in the environment. Third is the principle of diverse response: the population should not commit its activities along excessively narrow channels. Fourth is the principle of stability: the population should not change its mode of behavior every time the environmentchanges. Fifth is the
+
+1946
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+
+principleof adaptability: the populationmust be able to changebehavior mode when it’s worth the
+computationalprice. Note that principles four and five are the opposite sides of the same coin.
+The particle swarm optimizationconcept and paradigmpresented in this paper seem to adhere to all five principles. Basic to the paradigm are n-dimensional space calculations carried out over a series of time steps. The population is respondingto the quality factorspbest and gbest. The allocation of responsesbetweenpbest and gbest ensures ia diversity of response. The population changes its state (mode of behavior) only when gbest changes, thus adhering to the principle of stability. The populationis adaptivebecause it does change when gbest changes.
+The term particle was selected as a compromise. While it could be argued that the population members are mass-less and volume-less, anid thus could be called “points,” it is felt that velocities and accelerationsare more appropriatelyapplied to particles, even if each is defined to have arbitrarily small mass and volume. Further, Reeves [7] discussesparticle systems consistingof clouds of primitiveparticles as models of diffuse obje:cts such as clouds, frre and smoke. Thus the label the authorshave chosen to representthe optimizationconcept is particle swarm.
+5 TESTSAND EARLY APPLICATIONSOF THE OPTIMIZER
+The paradigm has been tested using systemiatic benchmark tests as well as observing its performance on applicationsthat are known to be difificult. The neural-net applicationdescribed in Section 3.4, for instance, showed that the particle swarm optimizer could train NN weights as effectively as the usual error backpropagationmethod. The particle swarm optimizer has also been used to train a neural network to classify the Fisher Iris Data Set 1[3]. Again, the optimizer trained the weights as effectively as the backpropagationmethod. Over a series of ten training sessions,the particle swarm optimizer paradigm required an average of 284 epochs,,
+Intriguinginformalindicationsare that the Irihed weights found by particle swarms sometimes generalize from a training set to a test set better than solutions found by gradient descent. For example,on a data set representingelectroencephalogramspike waveforms and false positives, a backpropagationNN achieved 89 percent correct on the test data [2]. The particle swarm optimizer was able to train the network so as to achieve 92 percent correct.
+The particle swarm optimizer was compareid to a benchmarkfor genetic algorithmsin Davis [11: the extremelynonlinear Schafferf6 function. This function is very difficult to optimize,as the highly discontinuousdata surface features many 1oc:aloptima. The particle swarm paradigm found the global optimum each run,and appearsto approximitethe results reported for elementary genetic algorithms in Chapter2 of [11in terms of the number of evaluationsrequired to reach certain performancelevels.
+6 CONCLUSIONS Particle swarm optimizationis an extremely wimple algorithmthat seemsto be effective for optimizing a wide range of functions. We view it as a ]mid-levelform of A-life or biologically derived algorithm, occupyingthe space in nature between evollutionary search, which requires eons, and neural processing, which occurs on the order of milliseconds. Social optimizationoccurs in the time frameof ordinary
+- experience in fact, it is ordinaryexperieince. In addition to its ties with A-life, particle swarm
+optimizationhas obviousties with evolutioiniuy computation. Conceptually,it seems to lie somewhere between geneticalgorithmsand evolutionary programming. It is highly dependenton stochastic processes, like evolutionaryprogramming. The adjustmenttoward pbest and gbest by the particle swarm optimizeris conceptuallysimilar to the crossoveroperationutilized by genetic algorithms. It
+uses the concept ofjimess, as do aU evolutionarycomputationparadigms.
+1947
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+
+Unique to the concept of particle swarm optimizationis flying potential solutionsthrough hyperspace, acceleratingtoward “better”solutions. Other evolutionarycomputation schemesoperate directly on potential solutions which are represented as locations in hyperspace. Much of the success of particle swarms seems to lie in the agents’ tendency to hurtle past their target. Holland’s chapter on the “optimumallocationof trials” [5] reveals the delicate balance between conservativetesting of known regions versus risky exploration of the unknown. It appearsthat the current version of the paradigm allocates trials nearly optimally. The stochastic factors allow thorough search of spaces between regions that have been found to be relatively good, and the momentumeffect caused by nmhfying the extant velocitiesrather than replacing them results in overshooting,or explorationof unknown regions of the problem domain.
+The authors of this paper are a social psychologist and an electrical engineer. The particle swarm optimizer serves both of these fields equally well. Why is social behavior so ubiquitous in the animal kingdom? Because it optimizes. What is a good way to solve engineeringoptimizationproblems? Modeling socialbehavior.
+Much further research remains to be conducted on this simple new concept and paradigm. The goals in developingit have been to keep it simple and robust, and we seem to have succeededat that. The algorithmis written in a very few lines of code, and requires only specificationof the problem and a few parametersin order to solve it. This algorithmbelongs ideologicallyto that philosophicalschool that allows wisdom to emerge rather than trying to impose it, that emulates nature rather than trying to control it, and that seeks to make things simpler rather than more complex. Once again nature has provided us with a techniquefor processing informationthat is at once elegant and versatile.
+ACKNOWLEDGMENTS Portions of this paper are adapted from a chapter on particle swarm optimizationin a book entitled ComputationalIntelligencePC Tools, to be published in early 1996by AcademicPress Professional (APP). The permission of APP to include this material is gratefully acknowledged. The input and comments of Roy Dobbins and Pat Simpson are appreciated.
+REFERENCES [ l ] Davis, L., Ed. (1991). Handbook of Genetic Algorithms. Van Nostrand Reinhold, New York,
+NY. [2] Eberhart, R. C. and R. W Dobbins (1990). Neural Network PC Tools:A Practical Guide.
+Academic Press, San Diego, CA. [3] Fisher, R.A. (1936). The use of multiple measurements in taxonomic problems. Annals of
+Eugenics, 7: 179-188. [4] Heppner, F. and U. Grenander (1990). A stochastic nonlinear model for coordinated bird flocks.
+In S . Krasner, Ed., The Ubiquity of Chaos. AAAS Publications, Washington, DC. [5] Holland, J. H. (1992). Adaptation in Natural and Artijlcial Systems. MIT Press, Cambridge,
+MA. [6] Millonas, M. M. (1994). Swarms, phase transitions, and collectiveintelligence. In C. G. Langton,
+Ed., Artijicial Life III. Addison Wesley, Reading, MA.
+[7] Reeves, W. T. (1983). Particle systems - a technique for modeling a class of fuzzy objects. ACM
+Transactions on Graphics,2(2):91-108. [SI Reynolds, C. W. (1987). Flocks,herds and schools: a distributed behavioral model. Computer
+Graphics,21(4):25-34. [9] Wilson, E.O. (1975). Sociobiology: The new synthesis. Belknap Press, Cambridge, hlA.
+1948
+Authorized licensed use limited to: Universita degli Studi di Bologna. Downloaded on July 27,2010 at 14:13:52 UTC from IEEE Xplore. Restrictions apply.
+

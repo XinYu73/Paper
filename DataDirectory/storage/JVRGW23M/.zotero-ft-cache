@@ -1,0 +1,651 @@
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+Crystal structure prediction via particle-swarm optimization
+
+Yanchao Wang, Jian Lv, Li Zhu, and Yanming Ma*
+State Key Laboratory of Superhard Materials, Jilin University, Changchun 130012, China ͑Received 8 May 2010; published 28 September 2010͒
+
+We have developed a method for crystal structure prediction from “scratch” through particle-swarm optimization ͑PSO͒ algorithm within the evolutionary scheme. PSO technique is different with the genetic algorithm and has apparently avoided the use of evolution operators ͑e.g., crossover and mutation͒. The approach is based on an efﬁcient global minimization of free-energy surfaces merging total-energy calculations via PSO technique and requires only chemical compositions for a given compound to predict stable or metastable structures at given external conditions ͑e.g., pressure͒. A particularly devised geometrical structure parameter which allows the elimination of similar structures during structure evolution was implemented to enhance the structure search efﬁciency. The application of designed variable unit-cell size technique has greatly reduced the computational cost. Moreover, the symmetry constraint imposed in the structure generation enables the realization of diverse structures, leads to signiﬁcantly reduced search space and optimization variables, and thus fastens the global structure convergence. The PSO algorithm has been successfully applied to the prediction of many known systems ͑e.g., elemental, binary, and ternary compounds͒ with various chemical-bonding environments ͑e.g., metallic, ionic, and covalent bonding͒. The high success rate demonstrates the reliability of this methodology and illustrates the promise of PSO as a major technique on crystal structure determination.
+
+DOI: 10.1103/PhysRevB.82.094116
+
+PACS number͑s͒: 61.50.Ah
+
+I. INTRODUCTION
+Crystal structure occupies a central and often critical role in materials science, particularly when establishing a correspondence between material performance and its basic composition since properties of a solid are intimately tied to its crystal structure. Experimentally, structural determination through x-ray diffraction technique has been developed extremely well, leading to numerous crystal structures solved. However, it happens frequently that experiments fail to determine structures due to the obtained low-quality x-ray diffraction data, particularly at extreme conditions ͑e.g., high pressure͒. Here, the theoretical prediction of crystal structures with the only known information of chemical composition independent of previous experimental knowledge is greatly necessary. However, this is extremely difﬁcult as it basically involves in classifying a huge number of energy minima on the lattice energy surface. 20 years ago John Maddox even published an article in Nature to question the predictive power provided with only the knowledge of chemical composition.1 His words still remain largely true, as evidenced by poor results of the latest blind test for crystal structure prediction.2
+Owing to signiﬁcant progress in both computational power and basic materials theory, it is now possible to predict the crystal structure at 0 K using the quantummechanical methods, some of which are simulated annealing,3,4 genetic algorithm,5–9 basin hopping,10,11 metadynamics,12,13 random sampling,14–16 and data mining methods.17 Simulated annealing, basin hopping, and metadynamics have focused on overcoming the energy barriers and are successful in many researches,4,18,19 particularly, when the starting structure is close to the global minimum. The data mining method relies heavily on the existence of an extensive database of good trial structures and is incapable of generating new crystal structure types in the absence of in-
+
+formation on similar compounds. Random sampling method seems “simple” in principle but nontrivial in practice and works well in many applications.14–16,20 The genetic algorithm ͑GA͒ starts to use a self-improving method and thus is successful in predicting many high-pressure structures.21–28
+We here have proposed a methodology for crystal structure prediction based on the particle-swarm optimization ͑PSO͒ technique within the evolutionary scheme. With the PSO implementation, the computational expense of ﬁrstprinciples density-functional calculations has been signiﬁcantly reduced. This is stemmed from that PSO is a highly efﬁcient global optimization method. We have successfully applied this method to the prediction of various known systems, such as elemental, binary, and ternary compounds. The high success rate demonstrates the reliability of this methodology and illustrates the promise of PSO as a major tool on crystal structure determination.
+This paper is arranged as follows. In Sec. II, the method and implementation of PSO algorithm will be discussed in details. A short overview of results obtained from our method is presented in Sec. III followed by the summary in Sec. IV.
+II. METHOD AND IMPLEMENTATION
+PSO is a branch of evolutionary methodology but quite different with GA. In particular, the major evolution operations of “crossover” and “mutation” in GA have been avoided. PSO was ﬁrst proposed by Kennedy and Eberhart in the mid 1990s.29,30 As a stochastic global optimization method, PSO is inspired by the choreography of a bird ﬂock and can be seen as a distributed behavior algorithm that performs multidimensional search. According to PSO, the behavior of each individual is affected by either the best local or the best global individual to help it ﬂy through a hyperspace. Moreover, an individual can learn from its part expe-
+
+1098-0121/2010/82͑9͒/094116͑8͒
+
+094116-1
+
+©2010 The American Physical Society
+
+WANG et al.
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+Generation of random structures with the constraint of symmetry
+Local optimization
+
+erations through matrix-column pairs ͑W , w͒,37 where the point operation W is a 3 ϫ 3 matrix and the translation operation w is one column. Using the matrix-column pairs, one obtains new coordinates by matrix multiplication,
+˜x1 = W11x1 + W12x2 + W13x3 + w1,
+
+List the geometric structure parameter
+Generation of new structures by PSO ( Some structures are generated randomly)
+NO
+Local optimization
+Converged or not ?
+YES
+Stop
+FIG. 1. The ﬂow chart of CALYPSO.
+riences to adjust its ﬂying speed and direction. Therefore, all the individuals in the swarm can quickly converge to the global position and near-optimal geographical position by the behavior of the ﬂock and their ﬂying histories. PSO has been veriﬁed to perform well on many optimization problems.31–35 We have implemented PSO algorithm on crystal structure prediction in crystal structure analysis by particle swarm optimization ͑CALYPSO͒ code.36
+Our global minimization method through CALYPSO code for predicting crystal structures comprises mainly four steps as depicted in the ﬂow chart of Fig. 1: ͑1͒ generation of random structures with the constraint of symmetry; ͑2͒ locally structural optimization; ͑3͒ postprocessing for the identiﬁcation of unique local minima by geometrical structure parameter; ͑4͒ generation of new structures by PSO for iteration.
+A. Step 1: Generation of random structures with the constraint of symmetry
+Two types of variables are necessary to deﬁne a crystal structure: lattice parameters and atomic coordinates. There are six lattice parameters: three angles and three lattice vectors. Each atom has three coordinates coded as a fraction of the corresponding lattice vectors. The ﬁrst step of our approach is to generate random structures symmetrically constrained within 230 space groups. Once a particular space group is selected, the lattice parameters are then conﬁned within the chosen symmetry. The corresponding atomic coordinates are generated by the crystallographic symmetry op-
+
+˜x2 = W21x1 + W22x2 + W23x3 + w2,
+˜x3 = W31x1 + W32x2 + W33x3 + w3.
+This can be written in an abbreviated form:˜x = Wx + w. Within this matrix-column pairs operation, one random atomic coordinate can be used to generate other symmetrically related coordinates. For different symmetries, the operation rules within the matrix-column pairs for generating symmetrically related atomic positions are different, ensuring unduplicated generation of different structures.
+The generation of random structures ensures unbiased sampling of the energy landscape. The explicit application of symmetric constraints leads to signiﬁcantly reduced search space and optimization variables, and thus fastens global structural convergence. For example, in the case of monoclinic crystals, the symmetric constraint limits the range of fractional atomic coordinates within 0–0.5, namely, only half of the search space, at the same time, the optimization variables are reduced to ﬁve thanks to a ﬁxed lattice angle ͑90°͒. Moreover, we have applied a symmetry checking technique, in which the appearance of identical symmetric structures is strictly forbidden. This allows the generation of diverse structures, which are crucial for the efﬁciency of global minimization.
+Since crystal structure prediction is performed on a blind base, the choice of the simulation cell sizes ͑not prior known͒ is critical to target the global minimum structure. In practice, one can choose all possible cell sizes to perform the separate simulations and then compare all the resulting structures to derive the global stable structure. However, this procedure is extremely computational costly and for some particular cases, is not affordable. Here, the fast learning ability of PSO technique has allowed us to implement a variable cell-size technique enabling the intelligent selection of the correct cell sizes during the structural evolution, and thus the computational cost has been signiﬁcantly reduced.
+B. Step 2: Local optimization
+The potential-energy surface can be regarded as a multidimensional system of hills and valleys with saddle points connecting them. The valleys are the local basin of attractions on the potential-energy surface. The local optimization ͑such as line minimization, steepest descents, conjugate gradient algorithm, or Broyden-Fletcher-Goldfarb-Shanno algorithm͒ can drive the structural energy to the local minimum, which may or may not be the global minimum. The approach of locally optimizing every candidate has been used with great success. Local optimization increases the cost of each individual, but effectively reduces the noise of the landscape, enhances comparability between different structures, and provides locally optimal structures for further use. We use
+
+094116-2
+
+CRYSTAL STRUCTURE PREDICTION VIA PARTICLE-…
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+free energy ͑here, at T = 0 K, free energy reduces to enthalpy͒ of the locally optimized structure as ﬁtness function throughout the simulation. Both the atomic coordinates and lattice parameters are locally optimized. Among the locally optimized structures, a certain number of worst ones are rejected, and the remaining structures participate in creating new structures through PSO for the next generation.
+
+C. Step 3: Postprocessing for the identiﬁcation
+of unique local minima
+Our method which solves the packing problem contains a critical step where a large number of preliminary trial structures are generated and then structurally optimized. At this step, many newly generated structures are very similar or even identical. The direct use of these similar structures to generate next generation will signiﬁcantly slow down the convergence to the global minimization solution.38 It is thus highly beneﬁcial to remove these duplicates to accelerate the search process. We have designed a method to identifying structural similarity named as geometrical structure parameter on the basis of interatomic distances, which are calculated according to the so called “bond types.” For example, if there are two types ͑A and B͒ of atoms in the simulation cell, three bond types, i.e., A-A, A-B, and B-B, will be evaluated. In order to avoid the problems raised by the periodic boundary conditions, 4 ϫ 4 ϫ 4 supercells are constructed to calculate the interatomic distances. This procedure ensures a safe calculation of ﬁrst and second nearest neighbors. Then, one can determine the distances and number of the ﬁrst and second nearest neighbors for different bond types, which are then listed in the matrices as backup for future comparison. Once a new structure is generated, the geometrical structure parameter is applied to check the similarity of this structure with those in the saved matrices within speciﬁed tolerances. Speciﬁcally, if this structure shares the same number of bonds with one structure in the matrices, the deviation of bond length is then calculated according to the equation
+⌬d = ͱ͚i,j͑Li − LЈj ͒2␦i,j, where Li and LЈj are the bond lengths
+in the two structures, respectively, and ␦i,j is the delta function. If the deviation ͑⌬d͒ is less than the preset threshold, the two structures are considered to be equivalent. Thus, the newly generated structure will be discarded. Otherwise, it is kept and documented in the matrices. The matrices containing all the structure information are updated after local optimization at every generation and used in next generation.
+
+D. Step 4: Generation of new structures by PSO
+
+In the next generation, a certain number of new structures ͑the best 60% of the population size͒ are generated by PSO. Within the PSO scheme, a structure ͑an individual͒ in the searching phase space is regarded as a particle. A set of in-
+dividual particles is called a population or a generation. During the evolution Eq. ͑1͒ is used to update the positions of particles,
+
+xti+,j1 = xti,j + vti+,j1.
+
+͑1͒
+
+It is necessary to note that the velocity plays an important role on determination of the speed and direction of particle
+
+FIG. 2. ͑Color online͒ Depiction of the velocity and position
+updates in PSO. The black solid line approximates a typical energy
+landscape. Arrows represent either the velocity or the relative positions of a particle ͑here, a structure͒. An initial velocity Vt develops to Vt+1 after one PSO step through Eq. ͑2͒. A high-energy structure ͑Xt͒ evolves to a much lower-energy structure ͑Xt+1͒ after one PSO operation through Eq. ͑1͒. This illustrates the efﬁciency of PSO in
+exploration of low-energy structures.
+
+movement. The new velocity of each individual i at the jth dimension is calculated based on its previous location ͑xti,j͒ before optimization, previous velocity ͑vti,j͒, current location ͑pbestti,j͒ with an achieved best ﬁtness, i.e., lowest enthalpy, of this individual, and the population global location ͑gbestt͒
+with the best ﬁtness value for the entire population according to Eq. ͑2͒. The initial vij was generated randomly. The position of each particle is updated using its velocity vector as
+depicted in Fig. 2,
+
+vti+,j1 = ␻vti,j + c1r1͑pbestti,j − xti,j͒ + c2r2͑gbestti,j − xti,j͒, ͑2͒
+
+where j ෈ ͕1 , 2 , 3͖, ␻ ͑in the range of 0.9–0.4͒30 denotes the inertia weight and controls the momentum of the particle. High settings of ␻ as 0.9 facilitate global search, and lower settings facilitate rapid local search. In our methodology, ␻ is dynamically varied and decreases linearly from 0.9 to 0.4 during the iteration according to Eq. ͑3͒,
+
+␻
+
+=
+
+␻max
+
+−
+
+␻max − ␻min itermax
+
+ϫ
+
+iter,
+
+͑3͒
+
+where ␻max and ␻min equals to 0.9 and 0.4, respectively. c1 is a self-conﬁdence factor and expresses how much the particle
+trusts its own past experience while c2 is a swarm conﬁdence factor and expresses how much it trusts the swarm. Earlier study39 has demonstrated that c1 = c2 = 2 gave the best overall performance. Accordingly, in our implementation, we keep
+c1 and c2 as constant 2. r1 and r2 are two separately generated random numbers and uniformly distributed in the range ͓0, 1͔. The velocity update formula includes random parameters ͑r1 and r2͒ to ensure good coverage of the searching space and avoid entrapment in local optima. As shown in Eq. ͑2͒, it is quite obvious that the movement of particles in the
+search space is dynamically inﬂuenced by their individual past experience ͑pbestti,j, vti,j͒ and successful experiences attained by the whole swarm ͑gbestt͒. Thus the velocity makes
+
+094116-3
+
+WANG et al.
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+TABLE I. Some of standard input parameters of CALYPSO code. The minimal interatomic distances must be sufﬁcient to ensure that there is no pathological overlap of pseudopotential core regions. The best 60% of the population size are generated by PSO. Npop is short for the population size and should be big for large systems.
+
+Parameters
+Minimal interatomic distances Proportion of the structures generated by PSO Npop Self-conﬁdence factor ͑c1͒ Swarm conﬁdence factor ͑c2͒
+
+Value
+0.8 ͑Å͒ 0.6
+20–50 2.0 2.0
+
+the particles to move toward to global minimum and accelerates the convergence speed. Moreover, to overcome explosion and divergence, the magnitudes of the velocities are necessary to be conﬁned within the range of ͓−0.1, 0.1͔.
+In order to improve the efﬁciency of the procedure, only the low-energy structures ͑the best 60% of the previous generation͒ which are on the most promising area of the conﬁguration space, are selected to produce the next generation by PSO. In order to keep the population diversity, a certain number of structures ͑40% of the population size͒ whose symmetries must be distinguished from any of previously generated ones, are generated randomly. More speciﬁcally, we ﬁrst set up a list for 230 space groups functioned as a comparison basis. Second, if the generated structures have already gone beyond all 230 space groups, another list including the crystallographic atomic sites is built and used to compare with the newly generated structures. The identical structure is discarded.
+III. APPLICATION AND RESULTS
+Here we benchmark our methodology on systems with known structures and explore unknown high pressure structures for Li. All the calculations were performed in the framework of density-functional theory within the allelectron projector-augmented wave ͑PAW͒ method40 as implemented in the VASP code.41 Ab initio total-energy calculations are performed at 0 K and thus the free energy is reduced to enthalpy. Some basic parameters used in CALYPSO code can be found in Table I. An overview of the benchmark systems including elements, binary compounds, and ternary compounds with known structures can be found in Tables II and III.
+A. Elements
+Lithium is a simple metal at ambient pressure but exhibits complex phase transitions under compression. Experimentally, it has been demonstrated that lithium takes the phase transition sequence of bcc→ fcc→ hR1 → cI16,42–45 above which new phases are observed but remain unsolved. In theory, the complex post-cI16 structures above 70 GPa, such as Cmca-24, C2, Aba2, and P42 / mbc, are proposed by using molecular dynamics, genetic algorithm and random sampling method, respectively.46–49 Here, we used the PSO
+
+TABLE II. Systems on elements with known structures on which calculations were performed by CALYPSO. All the experimental structures are reproduced within the given generations and population sizes. Note that our choice of population sizes is based on experience and it is highly possible that the use of smaller sizes could also result in the correct structures, with lower computational cost and should be bigger for larger systems.
+
+Systems Li
+C Si
+Mg
+
+Pressure
+
+͑GPa͒
+
+Structures Generation Npop
+
+0
+
+bcca
+
+1
+
+30
+
+0
+
+9R b
+
+3
+
+30
+
+10
+
+fccc
+
+1
+
+20
+
+40
+
+hR1 d
+
+4
+
+30
+
+70
+
+cI16 d
+
+7
+
+30
+
+0
+
+Graphitee
+
+30
+
+30
+
+0
+
+Diamondf
+
+6
+
+30
+
+2
+
+bc8 g
+
+6
+
+30
+
+10
+
+cdh
+
+1
+
+20
+
+10
+
+shi
+
+2
+
+20
+
+10
+
+␤-Sn j
+
+3
+
+20
+
+10
+
+Imma k
+
+4
+
+20
+
+40
+
+Cmca l
+
+2
+
+20
+
+40
+
+hcpl
+
+4
+
+20
+
+80
+
+fccm
+
+1
+
+20
+
+0
+
+hcpn
+
+6
+
+30
+
+100
+
+bcco
+
+4
+
+30
+
+aReference 42. bReference 43. cReference 44. dReference 45. eReference 51. fReference 52. gReference 53. hReference 54.
+
+iReference 55. jReference 56. kReference 57. lReference 58. mReference 59. nReference 60. oReference 61.
+
+method through CALYPSO code to predict the stable structures at 0, 10, 40, 70, 80, 100, 120, 200, and 300 GPa, and found all the experimental and theoretical structures mentioned above at certain pressure ranges. It is remarkable that for all the simulation of these complex structures, only less than 300 generated structures are needed to derive the correct results. For example, the cI16 structure is successfully identiﬁed at the seventh generation with a population size ͑Npop͒ of 30, i.e., only 210 structures are generated and locally optimized. Here, we present a newly discovered orthorhombic Cmca-56 structure at 200 GPa, which is most stable among all earlier theoretical structures. Our ab initio structure relaxations were performed using density-functional theory within the local-density approximation. The PAW potential with 1.2 a.u. core radius was used, and the 1s and 2s electrons were treated as valence. A basis-set cutoff energy of 1000 eV was used for the plane-wave expansion of the wave functions. A Monkhorst-Pack50 grid of 12ϫ 12ϫ 12 was used to ensure that the enthalpy calculations are well converged to better than 1 meV/atom. Here, the complex Cmca-56 structure contains 56 atoms per unit cell, which can be viewed as alterna-
+
+094116-4
+
+CRYSTAL STRUCTURE PREDICTION VIA PARTICLE-…
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+Enthalpy (eV/atom)
+
+TABLE III. Systems on binary and ternary compounds with
+
+4.96
+
+known experimental structures on which calculations were per-
+
+formed by CALYPSO. All the experimental structures are reproduced
+
+4.94
+
+within the given generations and population sizes. Note that our
+
+choice of population sizes is based on experience and it is highly
+
+possible that the use of smaller sizes could also result in the correct
+
+4.92
+
+structures, with lower computational cost and less generated
+
+structures.
+
+4.90
+
+System
+
+Pressure ͑GPa͒
+
+Structures
+
+Generation Npop
+
+SiO2
+
+0
+
+␣-quartza
+
+5
+
+20
+
+20
+
+Stishoviteb
+
+1
+
+20
+
+70
+
+CaCl2-typec
+
+5
+
+30
+
+100
+
+␣-PbO2-typed
+
+4
+
+20
+
+500
+
+Pyrite-typee
+
+15
+
+20
+
+SiC
+
+0
+
+Zinc blendef
+
+2
+
+12
+
+0
+
+Moissanitef
+
+3
+
+30
+
+150
+
+Rocksaltg
+
+2
+
+30
+
+ZnO
+
+12
+
+Rocksalth
+
+2
+
+30
+
+TiH2
+
+0
+
+I4/mmm i
+
+0
+
+Fm¯3m j
+
+2
+
+20
+
+3
+
+20
+
+MoB2
+
+0
+
+R¯3m k
+
+1
+
+30
+
+TiB2
+
+0
+
+AlB2-typel
+
+1
+
+30
+
+MgSiO3
+
+120
+
+Cmcm m
+
+5
+
+20
+
+CaCO3
+
+0
+
+Calciten
+
+13
+
+30
+
+aReference 63. bReference 64. cReference 65. dReference 66. eReference 67. fReference 68. gReference 69.
+
+hReference 70. iReference 71. jReference 72. kReference 73. lReference 74. mReference 75. nReference 76.
+
+4.88
+4.86
+4.84 1 2 3 4 5 6 7 8 9 10 11 12
+Generation Numbers
+FIG. 3. Main ﬁgures: the history of CALYPSO structure search on Li at 200 GPa. Insets: the predicted Cmca-56 structure at the fourth generation. For the Cmca-56 structure at 220 GPa, the lattice parameters are a = 15.687 Å, b = 3.855 Å, and c = 3.847 Å with atomic positions at 16g ͑0.14302, 0.83356, 0.43863͒, ͑0.21482, 0.10157, 0.15158͒, ͑0.92849, 0.86370, 0.87551͒, and 8f ͑0.00000, 0.44292, 0.83303͒, respectively.
+mizations. Speciﬁcally, the structural search easily found the ␣-quartz structure at the ﬁfth generation with only 120 structures at 0 GPa. The history plot of the simulations by CALYPSO code for silica at 70 GPa is shown in Fig. 5͑a͒. The experimental CaCl2-type structure was found at the ﬁfth generation.
+Other binary compounds36,68–74 are also benchmarked as listed in Table III. All the simulations show fast convergence to the experimental structures.
+
+tively stacking of Cmca-24 ͑Ref. 46͒ and P42 / mbc ͑Ref. 37͒ structures. The history of the CALYPSO search performed on
+Li is shown in Fig. 3. The complex Cmca-56 structure was
+identiﬁed at fourth generation. Other elements, such as carbon,51,52 silicon,53–59 and
+magnesium60,61 ͑Table II͒, were also tested and the simulations quickly reproduced all the experimental structures. Particularly, several metastable structures ͑Fig. 4͒ proposed earlier by other theoretical methods7,62 of carbon were predicted at 0 GPa and the bc8 structure ͑metastable phase͒ of silicon is also predicted at 2 GPa. This indicates that our method can
+be used to predict metastable structures.
+
+B. Binary compounds
+Silica is a binary semiconductor which exhibits many novel polymorphs at elevated pressures. We have successfully reproduced the experimental ␣-quartz, stishovite, CaCl2-type, ␣-PbO2-type, and pyrite-type structures63–67 at the certain pressure regimes by the structural prediction through CALYPSO code. Again, all the structures rapidly converge to the global minimum with less than 300 local opti-
+
+FIG. 4. ͑Color online͒ The metastable structures of carbon predicted by CALYPSO. ͑a͒ bc8 structure predicted at 2000 GPa. ͑b͒
+C6 Im¯3m structure predicted at 0 GPa. ͑c͒ ␤-Sn structure predicted at 0 GPa. ͑d͒ Chiral framework P6122 or P6522 structure predicted at 0 GPa.
+
+094116-5
+
+WANG et al.
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+FIG. 5. ͑Color online͒ Main ﬁgures: enthalpy history of CALYPSO structure search on SiO2 ͑a͒ at 70 GPa and CaCO3 ͑b͒ at 120 GPa. Insets: the predicted CaCl2 ͑Pnnm͒ structure of SiO2 ͑a͒ at the ﬁfth generation and perovskite structure of CaCO3 ͑30 atoms/cell͒ ͑b͒ at the
+13th generation.
+
+C. Ternary compounds
+We have successfully identiﬁed the most stable structures of MgSiO3 and CaCO3 under pressure. The postperovskite Cmcm structure of MgSiO3 ͑Re. 75͒ was quickly found in the ﬁfth generation at 120 GPa with only 100 local optimizations. In addition, the metastable perovskite phase of MgSiO3 was identiﬁed in the sixth generation with less than 120 structures. This simulation further illustrates that our method is able to ﬁnd both stable and metastable structures. Moreover, the experimental calcite phase of CaCO3 ͑Ref. 76͒ has been reproduced in the 13th generation at 0 GPa. In Fig. 5͑b͒, we show the history plot of the structural search on CaCO3 with the only input information of chemical composition. At the 13th generation, the enthalpy shows a pronounced drop, and the examination of lowest enthalpy structure conﬁrmed the convergence to the experimental calcite structure ͓Fig. 5͑b͔͒.
+In order to demonstrate the performance of our algorithm, we present a direct comparison with the available data9 from GA for several systems as listed in Table IV. It can be clearly
+
+seen that all of the predicted structures in our methodology were identiﬁed within ﬁve generations, i.e., our method only needs fewer optimization steps. The reasons why our method is efﬁcient can be traced back to several true facts: ͑i͒ PSO is a highly efﬁcient global minimization algorithm; ͑ii͒ the symmetry constraints are imposed to signiﬁcantly reduce the search space and utilize the structure diversity; ͑iii͒ the elimination of similar structures has greatly reduced the number of local optimizations, expediting the global minimization convergence; ͑iv͒ a variable cell-size technique was implemented to efﬁciently reduce the computational cost.
+IV. CONCLUSION
+We have developed a systemic methodology for the crystal structure prediction based on PSO technique within evolutionary scheme as implemented in CALYPSO code. Our method could efﬁciently search the free-energy space of the lattice geometry and atomic conﬁguration of a solid looking for the ground-state and metastable structures in complex
+
+TABLE IV. The comparison between PSO and GA from Ref. 9 for several systems with equal population sizes ͑Npop͒. Nopt is short for the number of locally optimized structures. In our PSO results, the number of generations and Nopt are averaged out over ﬁve different runs. It is noteworthy that the GA data from Ref. 9 is published in 2007 and one should aware that later GA algorithm can be signiﬁcantly improved. The
+comparison of PSO with GA is only to illustrate the true facts of PSO performance.
+
+Systems
+
+Pressure
+
+Algorithm
+
+͑GPa͒
+
+Structures
+
+Generations
+
+Npop
+
+Nopt
+
+Si SiC GaAs
+
+PSO
+
+0
+
+Diamond
+
+8/5
+
+16
+
+128/5
+
+GAa
+
+0
+
+Diamond
+
+15
+
+16
+
+60
+
+PSO
+
+0
+
+Zinc blende
+
+8/5
+
+12
+
+96/5
+
+GAa
+
+0
+
+Zinc blende
+
+5
+
+12
+
+20
+
+PSO
+
+0
+
+Zinc blende
+
+16/5
+
+12
+
+192/5
+
+GAa
+
+0
+
+Zinc blende
+
+19
+
+12
+
+70
+
+aReference 9.
+
+094116-6
+
+CRYSTAL STRUCTURE PREDICTION VIA PARTICLE-…
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+
+systems. The key elements of the proposed approach are PSO algorithm, the state-of-art ab initio structural optimization based on density-functional theory, the symmetry constraint on the structural generation, and the geometrical structure parameter technique on elimination of the similar structures. We have implemented a variable cell-size technique enabling the intelligent selection of the correct cell sizes, and thus signiﬁcantly reducing the computational cost. This methodology has been successfully applied to various known experimental structures on elemental, binary, and ternary compounds with, but not limited to, metallic, ionic, and covalent bonding. Our method is proved to be powerful with high efﬁciency and high success rate. Future development of this efﬁcient PSO technique on prediction of much larger systems ͑say ϳ100 atoms/ cell or above͒ is foreseeing fea-
+
+sible and thus the predictive power on structure solutions of nanomaterials, surface or thin ﬁlms, and biomaterials are highly expected. Within this PSO algorithm the doors toward materials design ͑e.g., design of novel superconductive, thermoelectric, superhard, and energetic materials, etc.͒ could open.
+ACKNOWLEDGMENTS
+We thank M. Probert for helpful discussions. The authors acknowledge funding from the National Natural Science Foundation of China under Grants No. 10874054 and No. 91022029, and the research fund for excellent young scientist in Jilin University ͑Grant No. 200905003͒.
+
+*Author to whom correspondence should be addressed;
+mym@jlu.edu.cn 1 J. Maddox, Nature ͑London͒ 335, 760 ͑1988͒. 2 G. Day, W. D. S. Motherwell, H. L. Ammon, S. X. M. Boerri-
+gter, R. G. Della Valle, E. Venuti, A. Dzyabchenko, J. D. Dunitz,
+B. Schweizer, B. P. van Eijck, P. Erk, J. C. Facelli, V. E. Baz-
+terra, M. B. Ferraro, D. W. M. Hofmann, F. J. J. Leusen, C.
+Liang, C. C. Pantelides, P. G. Karamertzanis, S. L. Price, T. C.
+Lewis, H. Nowell, A. Torrisi, H. A. Scheraga, Y. A. Arnautova,
+M. U. Schmidt, and P. Verwer, Acta Crystallogr., Sect. B: Struct. Sci. 61, 511 ͑2005͒. 3 S. Kirkpatrick, C. D. Gelatt, Jr., and M. P. Vecchi, Science 220, 671 ͑1983͒. 4 J. Pannetier, J. Bassas-Alsina, J. Rodriguez-Carvajal, and V. Caignaert ͑unpublished͒. 5 S. Woodley, P. Battle, J. Gale, and C. Catlow, Phys. Chem. Chem. Phys. 1, 2535 ͑1999͒. 6 N. L. Abraham and M. I. J. Probert, Phys. Rev. B 73, 224104 ͑2006͒. 7 A. Oganov and C. Glass, J. Chem. Phys. 124, 244704 ͑2006͒. 8 C. Glass, A. Oganov, and N. Hansen, Comput. Phys. Commun. 175, 713 ͑2006͒. 9 G. Trimarchi and A. Zunger, Phys. Rev. B 75, 104113 ͑2007͒. 10 D. Wales and J. Doye, J. Phys. Chem. A 101, 5111 ͑1997͒. 11 A. Nayeem, J. Vila, and H. Scheraga, J. Comput. Chem. 12, 594 ͑1991͒. 12 R. Martoňák, A. Laio, and M. Parrinello, Phys. Rev. Lett. 90, 075503 ͑2003͒. 13 R. Martoňák, A. Laio, M. Bernasconi, C. Ceriani, P. Raiteri, F. Zipoli, and M. Parrinello, Z. Kristallogr. 220, 489 ͑2005͒. 14 C. Pickard and R. Needs, Phys. Rev. Lett. 97, 045504 ͑2006͒. 15 C. Pickard and R. Needs, Nat. Phys. 3, 473 ͑2007͒. 16 C. Pickard and R. Needs, Nature Mater. 7, 775 ͑2008͒. 17 A. Mujica and R. J. Needs, Phys. Rev. B 55, 9659 ͑1997͒. 18 D. Wales and H. Scheraga, Science 285, 1368 ͑1999͒. 19 J. Behler, R. Martoňák, D. Donadio, and M. Parrinello, Phys. Rev. Lett. 100, 185501 ͑2008͒. 20 C. Pickard and R. Needs, Nature Mater. 9, 624 ͑2010͒. 21 Y. Ma, M. Eremets, A. Oganov, Y. Xie, I. Trojan, S. Medvedev, A. Lyakhov, M. Valle, and V. Prakapenka, Nature ͑London͒
+
+458, 182 ͑2009͒. 22 A. Oganov, J. Chen, C. Gatti, Y. Ma, C. Glass, Z. Liu, T. Yu, O.
+Kurakevych, and V. Solozhenko, Nature ͑London͒ 457, 863 ͑2009͒. 23 Q. Li, Y. Ma, A. Oganov, H. Wang, Y. Xu, T. Cui, H. Mao, and G. Zou, Phys. Rev. Lett. 102, 175506 ͑2009͒. 24 Y. Ma, Y. Wang, and A. R. Oganov, Phys. Rev. B 79, 054101 ͑2009͒. 25 G. Gao, A. Oganov, A. Bergara, M. Martinez-Canales, T. Cui, T. Iitaka, Y. Ma, and G. Zou, Phys. Rev. Lett. 101, 107002 ͑2008͒. 26 Y. Xie, A. Oganov, Y. Ma, and T. However, Phys. Rev. Lett. 104, 177005 ͑2010͒. 27 G. Gao, A. R. Oganov, P. Li, Z. Li, H. Wang, T. Cui, Y. Ma, A.
+Bergara, A. O. Lyakhov, T. Litaka, and G. Zou, Proc. Natl. Acad. Sci. U.S.A. 107, 1317 ͑2010͒. 28 Y. Li, G. Gao, Y. Xie, Y. Ma, T. Cui, and G. Zou, Proc. Natl. Acad. Sci. U.S.A. 107, 15708 ͑2010͒.. 29 J. Kennedy and R. Eberhart, Particle Swarm Optimization ͑IEEE, Piscataway, NJ, 1995͒, p. 1942. 30 R. Eberhart and J. Kennedy, A New Optimizer Using Particle Swarm Theory ͑IEEE, New York, NY, 1995͒. 31 H. Lu, Dynamic Population Strategy Assisted Particle Swarm
+Optimization in Multiobjective Evolutionary Algorithm Design
+͑IEEE Neural Network Society, IEEE NNS Student Research Grants 2002, NY, 2002͒. 32 R. Eberhart and Y. Shi, Particle Swarm Optimization: Developments, Applications, and Resources ͑IEEE, Piscataway, NJ, 2001͒, p. 81. 33 K. Parsopoulos and M. Vrahatis, Particle Swarm Optimization Method in Multiobjective Problems ͑ACM, New York, NY, 2002͒, p. 603. 34 H. Yoshida, K. Kawata, Y. Fukuyama, S. Takayama, and Y. Nakanishi, IEEE Trans. Power Syst. 15, 1232 ͑2000͒. 35 K. Parsopoulos and M. Vrahatis, IEEE Trans. Evol. Comput. 8, 211 ͑2004͒. 36 Freely distributed on Academic use, request should be sent to
+Yanming Ma, mym@jlu.edu.cn 37 E. Prince and C. H. Spiegelman, International Tables for Crys-
+tallography ͑Kluwer Academic, Dordrecht, 1992͒. 38 N. L. Abraham and M. I. J. Probert, Phys. Rev. B 77, 134117
+
+094116-7
+
+WANG et al.
+͑2008͒. 39 R. Eberhart and Y. Shi, Comparing Inertia Weights and Con-
+struction Factors in Particle Swarm Optimization ͑IEEE, Piscataway, NJ, 2000͒, p. 84. 40 P. E. Blochl, Phys. Rev. B 50, 17953 ͑1994͒. 41 G. Kresse and J. Furthmuller, Phys. Rev. B 54, 11169 ͑1996͒. 42 C. Barrett, Acta Crystallogr. 9, 671 ͑1956͒. 43 A. W. Overhauser, Phys. Rev. Lett. 53, 64 ͑1984͒. 44 B. Olinger and J. Shaner, Science 219, 1071 ͑1983͒. 45 M. Hanﬂand, K. Syassen, N. E. Christensen, and D. L. Novikov, Nature ͑London͒ 408, 174 ͑2000͒. 46 R. Rousseau, K. Uehara, D. Klug, and J. Tse, ChemPhysChem 6, 1703 ͑2005͒. 47 C. J. Pickard and R. J. Needs, Phys. Rev. Lett. 102, 146401 ͑2009͒. 48 Y. Yao, J. Tse, and D. Klug, Phys. Rev. Lett. 102, 115503 ͑2009͒. 49 Y. Ma, A. R. Oganov, and Y. Xie, Phys. Rev. B 78, 014102 ͑2008͒. 50 H. Monkhorst and J. Pack, Phys. Rev. B 13, 5188 ͑1976͒. 51 P. Trucano and R. Chen, Nature ͑London͒ 258, 136 ͑1975͒. 52 D. Rilby, Nature ͑London͒ 153, 587 ͑1944͒. 53 R. O. Piltz, J. R. Maclean, S. J. Clark, G. J. Ackland, P. D. Hatton, and J. Crain, Phys. Rev. B 52, 4072 ͑1995͒. 54 J. Kasper and S. Richards, Acta Crystallogr. 17, 752 ͑1964͒. 55 H. Olijnyk, S. Sikka, and W. Holzapfel, Phys. Lett. A 103, 137 ͑1984͒. 56 J. Jamieson, Science 139, 762 ͑1963͒. 57 M. I. McMahon, R. J. Nelmes, N. G. Wright, and D. R. Allan, Phys. Rev. B 50, 739 ͑1994͒. 58 M. Hanﬂand, U. Schwarz, K. Syassen, and K. Takemura, Phys.
+
+PHYSICAL REVIEW B 82, 094116 ͑2010͒
+Rev. Lett. 82, 1197 ͑1999͒. 59 S. J. Duclos, Y. K. Vohra, and A. L. Ruoff, Phys. Rev. Lett. 58,
+775 ͑1987͒. 60 G. Raynor and W. Hume-Rothery, J. Inst. Met. 65, 379 ͑1939͒. 61 H. Olijnyk and W. B. Holzapfel, Phys. Rev. B 31, 4682 ͑1985͒. 62 C. J. Pickard and R. J. Needs, Phys. Rev. B 81, 014106 ͑2010͒. 63 L. Levien, C. Prewitt, and D. Weidner, Am. Mineral. 65, 920
+͑1980͒. 64 S. Stishov and S. Popova, Geochem. 10, 837 ͑1961͒. 65 K. Kingma, R. Cohen, R. Hemley, and H. Mao, Nature ͑London͒
+374, 243 ͑1995͒. 66 L. S. Dubrovinsky, S. K. Saxena, P. Lazor, R. Ahuja, O. Eriks-
+son, J. M. Wills, and B. Johansson, Nature ͑London͒ 388, 362 ͑1997͒. 67 Y. Kuwayama, K. Hirose, N. Sata, and Y. Ohishi, Science 309, 923 ͑2005͒. 68 A. Addamiano, Silicon Carbide–1973, edited by R. C. Marshall, J. W. Faust, Jr., and C. E. Ryan ͑University of South Carolina Press, Columbia, SC, 1974͒. 69 T. Sekine and T. Kobayashi, Phys. Rev. B 55, 8034 ͑1997͒. 70 C. Bates, W. White, and R. Roy, Science 137, 993 ͑1962͒. 71 L. Padurets, Z. Dobrokhotova, and A. Shilov, Int. J. Hydrogen Energy 24, 153 ͑1999͒. 72 J. H. Weaver, D. J. Peterman, D. T. Peterson, and A. Franciosi, Phys. Rev. B 23, 1692 ͑1981͒. 73 S. Okada, T. Atoda, I. Higashi, and Y. Takahashi, J. Mater. Sci. 22, 2993 ͑1987͒. 74 B. Post, F. W. Glaser, and D. Moskowitz, Acta Metall. 2, 20 ͑1954͒. 75 A. Oganov and S. Ono, Nature ͑London͒ 430, 445 ͑2004͒. 76 D. Graf, Am. Mineral. 46, 1283 ͑1961͒.
+
+094116-8
+

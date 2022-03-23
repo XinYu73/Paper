@@ -1,0 +1,11030 @@
+0521842077pre CB1005/Chen 0 521 84207 7
+
+January 29, 2006 14:8
+
+This page intentionally left blank
+
+Student Solutions Manual for Mathematical Methods for Physics and Engineering, third edition
+Mathematical Methods for Physics and Engineering, third edition, is a highly acclaimed undergraduate textbook that teaches all the mathematics needed for an undergraduate course in any of the physical sciences. As well as lucid descriptions of the topics and many worked examples, it contains over 800 exercises. New stand-alone chapters give a systematic account of the ‘special functions’ of physical science, cover an extended range of practical applications of complex variables, and give an introduction to quantum operators.
+This solutions manual accompanies the third edition of Mathematical Methods for Physics and Engineering. It contains complete worked solutions to over 400 exercises in the main textbook, the odd-numbered exercises that are provided with hints and answers. The even-numbered exercises have no hints, answers or worked solutions and are intended for unaided homework problems; full solutions are available to instructors on a password-protected website, www.cambridge.org/9780521679718.
+K e n R i l e y read mathematics at the University of Cambridge and proceeded to a Ph.D. there in theoretical and experimental nuclear physics. He became a research associate in elementary particle physics at Brookhaven, and then, having taken up a lectureship at the Cavendish Laboratory, Cambridge, continued this research at the Rutherford Laboratory and Stanford; in particular he was involved in the experimental discovery of a number of the early baryonic resonances. As well as having been Senior Tutor at Clare College, where he has taught physics and mathematics for over 40 years, he has served on many committees concerned with the teaching and examining of these subjects at all levels of tertiary and undergraduate education. He is also one of the authors of 200 Puzzling Physics Problems.
+M i c h a e l H o b s o n read natural sciences at the University of Cambridge, specialising in theoretical physics, and remained at the Cavendish Laboratory to complete a Ph.D. in the physics of star-formation. As a research fellow at Trinity Hall, Cambridge and subsequently an advanced fellow of the Particle Physics and Astronomy Research Council, he developed an interest in cosmology, and in particular in the study of ﬂuctuations in the cosmic microwave background. He was involved in the ﬁrst detection of these ﬂuctuations using a ground-based interferometer. He is currently a University Reader at the Cavendish Laboratory, his research interests include both theoretical and observational aspects of cosmology, and he is the principal author of General Relativity: An Introduction for Physicists. He is also a Director of Studies in Natural Sciences at Trinity Hall and enjoys an active role in the teaching of undergraduate physics and mathematics.
+
+Student Solutions Manual for
+Mathematical Methods for Physics and Engineering
+Third Edition
+K. F. RILEY and M. P. HOBSON
+
+cambridge university press Cambridge, New York, Melbourne, Madrid, Cape Town, Singapore, São Paulo
+Cambridge University Press The Edinburgh Building, Cambridge cb2 2ru, UK Published in the United States of America by Cambridge University Press, New York www.cambridge.org Information on this title: www.cambridge.org/9780521679732
+© K. F. Riley and M. P. Hobson 2006
+This publication is in copyright. Subject to statutory exception and to the provision of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press. First published in print format 2006
+isbn-13 978-0-511-16804-8 eBook (EBL) isbn-10 0-511-16804-7 eBook (EBL) isbn-13 978-0-521-67973-2 paperback isbn-10 0-521-67973-7 paperback
+Cambridge University Press has no responsibility for the persistence or accuracy of urls for external or third-party internet websites referred to in this publication, and does not guarantee that any content on such websites is, or will remain, accurate or appropriate.
+
+Contents
+Preface 1 Preliminary algebra 2 Preliminary calculus 3 Complex numbers and hyperbolic functions 4 Series and limits 5 Partial diﬀerentiation 6 Multiple integrals 7 Vector algebra 8 Matrices and vector spaces 9 Normal modes 10 Vector calculus 11 Line, surface and volume integrals
+v
+
+page ix 1
+17 39 55 71 90 104 119 145 156 176
+
+CONTENTS
+
+12 Fourier series
+
+193
+
+13 Integral transforms
+
+211
+
+14 First-order ODEs
+
+228
+
+15 Higher-order ODEs
+
+246
+
+16 Series solutions of ODEs
+
+269
+
+17 Eigenfunction methods for ODEs
+
+283
+
+18 Special functions
+
+296
+
+19 Quantum operators
+
+313
+
+20 PDEs: general and particular solutions
+
+319
+
+21 PDEs: separation of variables and other methods
+
+335
+
+22 Calculus of variations
+
+353
+
+23 Integral equations
+
+374
+
+24 Complex variables
+
+386
+
+25 Applications of complex variables
+
+400
+
+26 Tensors
+
+420
+
+27 Numerical methods
+
+440
+
+28 Group theory
+
+461
+
+29 Representation theory
+
+480
+
+vi
+
+CONTENTS
+
+30 Probability
+
+494
+
+31 Statistics
+
+519
+
+vii
+
+Preface
+The second edition of Mathematical Methods for Physics and Engineering carried more than twice as many exercises, based on its various chapters, as did the ﬁrst. In the Preface we discussed the general question of how such exercises should be treated but, in the end, decided to provide hints and outline answers to all problems, as in the ﬁrst edition. This decision was an uneasy one as, on the one hand, it did not allow the exercises to be set as totally unaided homework that could be used for assessment purposes, but, on the other, it did not give a full explanation of how to tackle a problem when a student needed explicit guidance or a model answer. In order to allow both of these educationally desirable goals to be achieved, we have, in the third edition, completely changed the way this matter is handled. All of the exercises from the second edition, plus a number of additional ones testing the newly added material, have been included in penultimate subsections of the appropriate, sometimes reorganised, chapters. Hints and outline answers are given, as previously, in the ﬁnal subsections, but only to the odd-numbered exercises. This leaves all even-numbered exercises free to be set as unaided homework, as described below. For the four hundred plus odd-numbered exercises, complete solutions are available, to both students and their teachers, in the form of this manual; these are in addition to the hints and outline answers given in the main text. For each exercise, the original question is reproduced and then followed by a fully worked solution. For those original exercises that make internal reference to the text or to other (even-numbered) exercises not included in this solutions manual, the questions have been reworded, usually by including additional information, so that the questions can stand alone. Some further minor rewording has been included to improve the page layout. In many cases the solution given is even fuller than one that might be expected
+ix
+
+PREFACE
+of a good student who has understood the material. This is because we have aimed to make the solutions instructional as well as utilitarian. To this end, we have included comments that are intended to show how the plan for the solution is formulated and have provided the justiﬁcations for particular intermediate steps (something not always done, even by the best of students). We have also tried to write each individual substituted formula in the form that best indicates how it was obtained, before simplifying it at the next or a subsequent stage. Where several lines of algebraic manipulation or calculus are needed to obtain a ﬁnal result, they are normally included in full; this should enable the student to determine whether an incorrect answer is due to a misunderstanding of principles or to a technical error. The remaining four hundred or so even-numbered exercises have no hints or answers (outlined or detailed) available for general access. They can therefore be used by instructors as a basis for setting unaided homework. Full solutions to these exercises, in the same general format as those appearing in this manual (though they may contain references to the main text or to other exercises), are available without charge to accredited teachers as downloadable pdf ﬁles on the password-protected website http://www.cambridge.org/9780521679718. Teachers wishing to have access to the website should contact solutions@cambridge.org for registration details. As noted above, the original questions are reproduced in full, or in a suitably modiﬁed stand-alone form, at the start of each exercise. Reference to the main text is not needed provided that standard formulae are known (and a set of tables is available for a few of the statistical and numerical exercises). This means that, although it is not its prime purpose, this manual could be used as a test or quiz book by a student who has learned, or thinks that he or she has learned, the material covered in the main text. In all new publications, errors and typographical mistakes are virtually unavoidable, and we would be grateful to any reader who brings instances to our attention. Finally, we are extremely grateful to Dave Green for his considerable and continuing advice concerning typesetting in LATEX.
+Ken Riley, Michael Hobson, Cambridge, 2006
+x
+
+1
+Preliminary algebra
+
+Polynomial equations
+
+1.1 It can be shown that the polynomial
+
+g(x) = 4x3 + 3x2 − 6x − 1
+
+has
+
+turning
+
+points
+
+at
+
+x
+
+=
+
+−1
+
+and
+
+x
+
+=
+
+1 2
+
+and
+
+three
+
+real
+
+roots
+
+altogether.
+
+Continue
+
+an investigation of its properties as follows.
+
+(a) Make a table of values of g(x) for integer values of x between −2 and 2.
+
+Use it and the information given above to draw a graph and so determine
+
+the roots of g(x) = 0 as accurately as possible.
+
+(b) Find one accurate root of g(x) = 0 by inspection and hence determine precise
+
+values for the other two roots.
+
+(c) Show that f(x) = 4x3 + 3x2 − 6x − k = 0 has only one real root unless
+
+−5
+
+≤
+
+k
+
+≤
+
+7 4
+
+.
+
+(a) Straightforward evaluation of g(x) at integer values of x gives the following table:
+x −2 −1 0 1 2 g(x) −9 4 −1 0 31 (b) It is apparent from the table alone that x = 1 is an exact root of g(x) = 0 and so g(x) can be factorised as g(x) = (x − 1)h(x) = (x − 1)(b2x2 + b1x + b0). Equating the coeﬃcients of x3, x2, x and the constant term gives 4 = b2, b1 − b2 = 3, b0 − b1 = −6 and −b0 = −1, respectively, which are consistent if b1 = 7. To ﬁnd the two remaining roots we set h(x) = 0:
+4x2 + 7x + 1 = 0.
+1
+
+PRELIMINARY ALGEBRA
+
+The roots of this quadratic equation are given by the standard formula as
+
+√
+
+−7 ± 49 − 16
+
+α1,2 =
+
+. 8
+
+(c) When k = 1 (i.e. the original equation) the values of g(x) at its turning points,
+
+x
+
+=
+
+−1
+
+and
+
+x
+
+=
+
+1 2
+
+,
+
+are
+
+4
+
+and
+
+−
+
+11 4
+
+,
+
+respectively.
+
+Thus
+
+g(x)
+
+can
+
+have
+
+up
+
+to
+
+4
+
+subtracted
+
+from
+
+it
+
+or
+
+up
+
+to
+
+11 4
+
+added
+
+to
+
+it
+
+and
+
+still
+
+satisfy
+
+the
+
+condition
+
+for
+
+three
+
+(or, at the limit, two) distinct roots of g(x) = 0. It follows that for k outside the
+
+range
+
+−5
+
+≤
+
+k
+
+≤
+
+7 4
+
+,
+
+f(x)
+
+[=
+
+g(x)
+
++
+
+1
+
+−
+
+k]
+
+has
+
+only
+
+one
+
+real
+
+root.
+
+1.3 Investigate the properties of the polynomial equation
+f(x) = x7 + 5x6 + x4 − x3 + x2 − 2 = 0,
+by proceeding as follows.
+(a) By writing the ﬁfth-degree polynomial appearing in the expression for f (x) in the form 7x5 + 30x4 + a(x − b)2 + c, show that there is in fact only one positive root of f(x) = 0.
+(b) By evaluating f(1), f(0) and f(−1), and by inspecting the form of f(x) for negative values of x, determine what you can about the positions of the real roots of f(x) = 0.
+
+(a) We start by ﬁnding the derivative of f(x) and note that, because f contains no linear term, f can be written as the product of x and a ﬁfth-degree polynomial:
+
+f(x) = x7 + 5x6 + x4 − x3 + x2 − 2 = 0,
+
+f (x) = x(7x5 + 30x4 + 4x2 − 3x + 2)
+
+=
+
+x[
+
+7x5
+
++
+
+30x4
+
++
+
+4(x
+
+−
+
+3 8
+
+)2
+
+−
+
+4(
+
+3 8
+
+)2
+
++
+
+2
+
+]
+
+=
+
+x[
+
+7x5
+
++
+
+30x4
+
++
+
+4(x
+
+−
+
+3 8
+
+)2
+
++
+
+23 16
+
+].
+
+Since, for positive x, every term in this last expression is necessarily positive, it follows that f (x) can have no zeros in the range 0 < x < ∞. Consequently, f(x) can have no turning points in that range and f(x) = 0 can have at most one root in the same range. However, f(+∞) = +∞ and f(0) = −2 < 0 and so f(x) = 0 has at least one root in 0 < x < ∞. Consequently it has exactly one root in the range.
+
+(b) f(1) = 5, f(0) = −2 and f(−1) = 5, and so there is at least one root in each of the ranges 0 < x < 1 and −1 < x < 0.
+
+There is no simple systematic way to examine the form of a general polynomial function for the purpose of determining where its zeros lie, but it is sometimes
+
+2
+
+PRELIMINARY ALGEBRA
+
+helpful to group terms in the polynomial and determine how the sign of each group depends upon the range in which x lies. Here grouping successive pairs of terms yields some information as follows:
+
+x7 + 5x6 is positive for x > −5,
+
+x4 − x3 is positive for x > 1 and x < 0,
+
+√
+
+√
+
+x2 − 2 is positive for x > 2 and x < − 2.
+
+Thus, all th√ree terms are positive in the range(s) common to these, namely −5 < x < − 2 and x > 1. It follows that f(x) is positive deﬁnite in these ranges and there can be no roots of f(x) = 0 within them. However, since f(x) is negative for large negative x, there must be at least one root α with α < −5.
+
+1.5 Construct the quadratic equations that have the following pairs of roots: (a) −6, −3; (b) 0, 4; (c) 2, 2; (d) 3 + 2i, 3 − 2i, where i2 = −1.
+
+Starting in each case from the ‘product of factors’ form of the quadratic equation,
+
+(x − α1)(x − α2) = 0, we obtain:
+
+(a)
+
+(x + 6)(x + 3) = x2 + 9x + 18 = 0;
+
+(b)
+
+(x − 0)(x − 4) = x2 − 4x = 0;
+
+(c)
+
+(x − 2)(x − 2) = x2 − 4x + 4 = 0;
+
+(d) (x − 3 − 2i)(x − 3 + 2i) = x2 + x(−3 − 2i − 3 + 2i)
+
++ (9 − 6i + 6i − 4i2)
+
+= x2 − 6x + 13 = 0.
+
+Trigonometric identities
+
+1.7 Prove that by considering
+
+√
+
+π cos =
+
+3√+ 1
+
+12 2 2
+
+(a) the sum of the sines of π/3 and π/6, (b) the sine of the sum of π/3 and π/4.
+
+(a) Using
+
+sin A + sin B = 2 sin A + B cos A − B ,
+
+2
+
+2
+
+3
+
+PRELIMINARY ALGEBRA
+
+we have
+
+π
+
+π
+
+ππ
+
+sin
+
++ sin 3√
+
+6
+
+=
+
+2 sin
+
+4
+
+cos
+
+12 ,
+
+3 + 1 = 2 √1
+
+π cos ,
+
+2 2 √ 2 12
+
+π cos =
+
+3√+ 1 .
+
+12 2 2
+
+(b) Using, successively, the identities
+
+we obtain
+
+sin(A + B) = sin A cos B + cos A sin B,
+
+sin(π − θ) = sin θ
+
+and
+
+cos(
+
+1 2
+
+π
+
+−
+
+θ)
+
+=
+
+sin
+
+θ,
+
+ππ
+
+ππ
+
+ππ
+
+sin + = sin cos + cos sin ,
+
+3 4 √3 4
+
+34
+
+7π sin =
+
+3 √1 + 1 √1 ,
+
+12
+
+2 √
+
+2
+
+22
+
+5π sin =
+
+3√+ 1 ,
+
+12 √2 2
+
+cos π =
+
+3+1 √.
+
+12 2 2
+
+1.9 Find the real solutions of
+(a) 3 sin θ − 4 cos θ = 2, (b) 4 sin θ + 3 cos θ = 6, (c) 12 sin θ − 5 cos θ = −6.
+
+We use the result that if
+
+a sin θ + b cos θ = k
+
+then where
+
+θ = sin−1 k − φ, K
+
+K2 = a2 + b2
+
+and
+
+φ
+
+=
+
+tan−1
+
+b .
+
+a
+
+4
+
+PRELIMINARY ALGEBRA
+
+Recalling that the inverse sine yields two values and that the individual signs of a and b have to be taken into account, we have
+√ (a) k = 2, K = 32 + 42 = 5, φ = tan−1(−4/3) and so
+
+θ
+
+=
+
+sin−1
+
+2 5
+
+−
+
+tan−1
+
+−4 3
+
+= 1.339 or
+
+− 2.626.
+
+√ (b) k = 6, K = 42 + 32 = 5. Since k > K there is no solution for a real angle θ.
+
+√ (c) k = −6, K = 122 + 52 = 13, φ = tan−1(−5/12) and so
+
+θ
+
+=
+
+sin−1
+
+−6 13
+
+−
+
+tan−1
+
+−5 12
+
+= −0.0849 or
+
+− 2.267.
+
+1.11 Find all the solutions of sin θ + sin 4θ = sin 2θ + sin 3θ
+that lie in the range −π < θ ≤ π. What is the multiplicity of the solution θ = 0?
+
+Using
+
+sin(A + B) = sin A cos B + cos A sin B,
+
+and cos A − cos B = −2 sin A + B sin A − B ,
+
+2
+
+2
+
+and recalling that cos(−φ) = cos(φ), the equation can be written successively as
+
+2 sin 5θ cos − 3θ = 2 sin 5θ cos − θ ,
+
+2
+
+2
+
+2
+
+2
+
+sin 5θ cos 3θ − cos θ = 0,
+
+2
+
+2
+
+2
+
+5θ
+
+θ
+
+−2 sin 2 sin θ sin 2 = 0.
+
+The ﬁrst factor gives solutions for θ of −4π/5, −2π/5, 0, 2π/5 and 4π/5. The second factor gives rise to solutions 0 and π, whilst the only value making the third factor zero is θ = 0. The solution θ = 0 appears in each of the above sets and so has multiplicity 3.
+
+5
+
+PRELIMINARY ALGEBRA
+
+Coordinate geometry
+
+1.13 Determine the forms of the conic sections described by the following equations:
+(a) x2 + y2 + 6x + 8y = 0; (b) 9x2 − 4y2 − 54x − 16y + 29 = 0; (c) 2x2 + 2y2 + 5xy − 4x + y − 6 = 0; (d) x2 + y2 + 2xy − 8x + 8y = 0.
+
+(a) x2 + y2 + 6x + 8y = 0. The coeﬃcients of x2 and y2 are equal and there is no xy term; it follows that this must represent a circle. Rewriting the equation in standard circle form by ‘completing the squares’ in the terms that involve x and y, each variable treated separately, we obtain
+(x + 3)2 + (y + 4)2 − (32 + 42) = 0. √
+The equation is therefore that of a circle of radius 32 + 42 = 5 centred on (−3, −4). (b) 9x2 − 4y2 − 54x − 16y + 29 = 0. This equation contains no xy term and so the centre of the curve will be at ( 54/(2 × 9), 16/[2 × (−4)] ) = (3, −2), and in standardised form the equation is
+9(x − 3)2 − 4(y + 2)2 + 29 − 81 + 16 = 0,
+
+or
+
+(x − 3)2 (y + 2)2
+
+−
+
+= 1.
+
+4
+
+9
+
+The minus sign between the terms on the LHS implies that this conic section is a
+
+hyperbola with asymptotes (the form for large x and y and obtained by ignoring
+
+the
+
+constant
+
+on
+
+the
+
+RHS)
+
+given
+
+by
+
+3(x
+
+−
+
+3)
+
+=
+
+±2(y
+
++
+
+2),
+
+i.e.
+
+lines
+
+of
+
+slope
+
+±
+
+3 2
+
+passing through its ‘centre’ at (3, −2).
+
+(c) 2x2 + 2y2 + 5xy − 4x + y − 6 = 0. As an xy term is present the equation
+
+cannot represent an ellipse or hyperbola in standard form. Whether it represents
+
+two straight lines can be most easily investigated by taking the lines in the form
+
+aix+biy +1 = 0, (i = 1, 2) and comparing the product (a1x+b1y +1)(a2x+b2y +1)
+
+with
+
+−
+
+1 6
+
+(2x2
+
++
+
+2y2
+
++
+
+5xy
+
+−
+
+4x
+
++
+
+y
+
+−
+
+6).
+
+The
+
+comparison
+
+produces
+
+ﬁve
+
+equations
+
+which the four constants ai, bi, (i = 1, 2) must satisfy:
+
+2
+
+2
+
+−4
+
+1
+
+a1a2
+
+=
+
+, −6
+
+b1b2
+
+=
+
+, −6
+
+a1
+
++
+
+a2
+
+=
+
+, −6
+
+b1 + b2 = −6
+
+and
+
+5
+
+a1b2
+
++
+
+b1a2
+
+=
+
+. −6
+
+6
+
+PRELIMINARY ALGEBRA
+
+Combining the ﬁrst and third equations gives 3a21 − 2a1 − 1 = 0 leading to a1 and
+
+a2
+
+having
+
+the
+
+values
+
+1
+
+and
+
+−
+
+1 3
+
+,
+
+in
+
+either
+
+order.
+
+Similarly,
+
+combining
+
+the
+
+second
+
+and fourth equations gives 6b21 + b1 − 2 = 0 leading to b1 and b2 having the values
+
+1 2
+
+and
+
+−
+
+2 3
+
+,
+
+again
+
+in
+
+either
+
+order.
+
+Either
+
+of
+
+the
+
+two
+
+combinations
+
+(a1
+
+=
+
+−
+
+1 3
+
+,
+
+b1
+
+=
+
+−
+
+2 3
+
+,
+
+a2
+
+=
+
+1,
+
+b2
+
+=
+
+1 2
+
+)
+
+and
+
+(a1
+
+=
+
+1,
+
+b1
+
+=
+
+1 2
+
+,
+
+a2
+
+=
+
+−
+
+1 3
+
+,
+
+b2
+
+=
+
+−
+
+2 3
+
+)
+
+also
+
+satisﬁes
+
+the
+
+ﬁfth
+
+equation
+
+[note
+
+that
+
+the
+
+two
+
+alternative pairings do not do so]. That a consistent set can be found shows that
+
+the equation does indeed represent a pair of straight lines, x + 2y − 3 = 0 and
+
+2x + y + 2 = 0.
+
+(d) x2 + y2 + 2xy − 8x + 8y = 0. We note that the ﬁrst three terms can be written
+
+as a perfect square and so the equation can be rewritten as
+
+(x + y)2 = 8(x − y).
+
+The two lines given by x + y = 0 and x − y = 0 are orthogonal and so the equation is of the form u2 = 4av, which, for Cartesian coordinates u, v, represents a parabola passing through the origin, symmetric about the v-axis (u = 0) and deﬁned for v ≥ 0. Thus the original equation is that of a parabola, symmetric about the line x + y = 0, passing through the origin and deﬁned in the region x ≥ y.
+
+Partial fractions
+
+1.15 Resolve
+
+2x + 1
+
+(a)
+
+x2
+
+, + 3x − 10
+
+4 (b) x2 − 3x
+
+into partial fractions using each of the following three methods:
+
+(i) Expressing the supposed expansion in a form in which all terms have the same denominator and then equating coeﬃcients of the various powers of x.
+(ii) Substituting speciﬁc numerical values for x and solving the resulting simultaneous equations.
+(iii) Evaluation of the fraction at each of the roots of its denominator, imagining a factored denominator with the factor corresponding to the root omitted – often known as the ‘cover-up’ method.
+
+Verify that the decomposition obtained is independent of the method used.
+
+(a) As the denominator factorises as (x + 5)(x − 2), the partial fraction expansion
+
+must have the form
+
+2x + 1
+
+A
+
+B
+
+x2
+
++
+
+3x
+
+−
+
+10
+
+=
+
+x
+
++
+
+5
+
++
+
+x
+
+−
+
+. 2
+
+7
+
+PRELIMINARY ALGEBRA
+
+(i)
+
+A
+
++
+
+B
+
+=
+
+x(A + B)
+
++
+
+(5B
+
+− 2A) .
+
+x+5 x−2
+
+(x + 5)(x − 2)
+
+Solving
+
+A+B
+
+=
+
+2
+
+and
+
+−2A + 5B
+
+=
+
+1
+
+gives
+
+A
+
+=
+
+9 7
+
+and
+
+B
+
+=
+
+5 7
+
+.
+
+(ii) Setting x equal to 0 and 1, say, gives the pair of equations
+
+1 AB 3 AB
+
+=+ ;
+
+=+ ,
+
+−10 5 −2 −6 6 −1
+
+−1 = 2A − 5B; −3 = A − 6B,
+
+with
+
+solution
+
+A
+
+=
+
+9 7
+
+and
+
+B
+
+=
+
+5 7
+
+.
+
+(iii)
+
+2(−5) + 1 9
+
+A=
+
+−5 − 2
+
+=; 7
+
+2(2) + 1 5
+
+B=
+
+=.
+
+2+5 7
+
+All three methods give the same decomposition.
+
+(b) Here the factorisation of the denominator is simply x(x − 3) or, more formally, (x − 0)(x − 3), and the expansion takes the form
+
+4
+
+AB
+
+x2 − 3x = x + x − 3 .
+
+(i)
+
+A+
+
+B
+
+=
+
+x(A + B)
+
+−
+
+3A .
+
+x x − 3 (x − 0)(x − 3)
+
+Solving
+
+A+B
+
+=
+
+0
+
+and
+
+−3A
+
+=
+
+4
+
+gives
+
+A
+
+=
+
+−
+
+4 3
+
+and
+
+B
+
+=
+
+4 3
+
+.
+
+(ii) Setting x equal to 1 and 2, say, gives the pair of equations
+
+4 AB 4 AB
+
+=+ ; −2 1 −2
+
+−2 = 2 + −1 ,
+
+−4 = 2A − B; −4 = A − 2B,
+
+with
+
+solution
+
+A
+
+=
+
+−
+
+4 3
+
+and
+
+B
+
+=
+
+4 3
+
+.
+
+(iii)
+
+4
+
+4
+
+A=
+
+=− ;
+
+0−3 3
+
+44
+
+B=
+
+=.
+
+3−0 3
+
+Again, all three methods give the same decomposition.
+
+8
+
+PRELIMINARY ALGEBRA
+
+1.17 Rearrange the following functions in partial fraction form:
+
+x−6
+
+(a)
+
+x3
+
+− x2
+
++ 4x
+
+, −4
+
+x3 + 3x2 + x + 19 (b) x4 + 10x2 + 9 .
+
+(a) For the function
+
+x−6
+
+g(x)
+
+f(x) = x3 − x2 + 4x − 4 = h(x)
+
+the ﬁrst task is to factorise the denominator. By inspection, h(1) = 0 and so x − 1 is a factor of the denominator.
+
+Write
+
+x3 − x2 + 4x − 4 = (x − 1)(x2 + b1x + b0).
+
+Equating coeﬃcients: −1 = b1 − 1, 4 = −b1 + b0 and −4 = −b0, giving b1 = 0
+
+and b0 = 4. Thus,
+
+x−6
+
+f(x)
+
+=
+
+(x
+
+−
+
+1)(x2
+
++
+
+. 4)
+
+The factor x2 + 4 cannot be factorised further without using complex numbers and so we include a term with this factor as the denominator, but ‘at the price of’ having a linear term, and not just a number, in the numerator.
+
+A Bx + C
+
+f(x) =
+
++
+
+x−1
+
+x2 + 4
+
+Ax2 + 4A + Bx2 + Cx − Bx − C
+
+=
+
+(x − 1)(x2 + 4)
+
+.
+
+Comparing the coeﬃcients of the various powers of x in this numerator with those in the numerator of the original expression gives A + B = 0, C − B = 1 and 4A − C = −6, which in turn yield A = −1, B = 1 and C = 2. Thus,
+
+1 x+2
+
+f(x)
+
+=
+
+−
+
+x
+
+−
+
+1
+
++
+
+x2
+
++
+
+. 4
+
+(b) By inspection, the denominator of
+
+x3 + 3x2 + x + 19 x4 + 10x2 + 9
+factorises simply into (x2 + 9)(x2 + 1), but neither factor can be broken down further. Thus, as in (a), we write
+
+Ax + B Cx + D f(x) = x2 + 9 + x2 + 1
+
+(A + C)x3 + (B + D)x2 + (A + 9C)x + (B + 9D)
+
+=
+
+(x2 + 9)(x2 + 1)
+
+.
+
+9
+
+PRELIMINARY ALGEBRA
+
+Equating coeﬃcients gives
+
+A + C = 1, B + D = 3, A + 9C = 1, B + 9D = 19.
+
+From the ﬁrst and third equations, A = 1 and C = 0. The second and fourth yield B = 1 and D = 2. Thus
+
+x+1
+
+2
+
+f(x)
+
+=
+
+x2
+
++
+
+9
+
++
+
+x2
+
++
+
+. 1
+
+Binomial expansion
+
+1.19 Evaluate those of the following that are deﬁned: (a) 5C3, (b) 3C5, (c) −5C3, (d) −3C5.
+
+(a)
+
+5C3
+
+=
+
+5! 3! 2!
+
+=
+
+10.
+
+(b) 3C5. This is not deﬁned as 5 > 3 > 0.
+
+For (c) and (d) we will need to use the identity
+
+−mCk
+
+=
+
+(−1)k m(m +
+
+1) · · · (m k!
+
++k
+
+−
+
+1)
+
+=
+
+(−1)k
+
+m+k−1 Ck .
+
+(c)
+
+−5C3
+
+=
+
+(−1)3
+
+5+3−1C3
+
+=
+
+−
+
+7! 3! 4!
+
+=
+
+−35.
+
+(d)
+
+−3C5
+
+=
+
+(−1)5
+
+5+3−1C5
+
+=
+
+−
+
+7! 5! 2!
+
+=
+
+−21.
+
+Proof by induction and contradiction
+
+1.21 Prove by induction that
+
+n
+
+r
+
+=
+
+1 2
+
+n(n
+
++
+
+1)
+
+and
+
+r=1
+
+n
+
+r3
+
+=
+
+1 4
+
+n2
+
+(n
+
++
+
+1)2.
+
+r=1
+
+To prove that
+
+n
+
+r
+
+=
+
+1 2
+
+n(n
+
++ 1),
+
+r=1
+
+10
+
+PRELIMINARY ALGEBRA
+
+assume that the result is valid for n = N and consider
+
+N+1
+
+N
+
+r = r + (N + 1)
+
+r=1
+
+r=1
+
+=
+
+1 2
+
+N(N
+
++
+
+1)
+
++
+
+(N
+
++
+
+1),
+
+=
+
+(N
+
++
+
+1)(
+
+1 2
+
+N
+
++
+
+1)
+
+=
+
+1 2
+
+(N
+
++
+
+1)(N
+
++
+
+2).
+
+using the assumption,
+
+This is the same form as in the assumption except that N has been replaced by N + 1; this shows that the result is valid for n = N + 1 if it is valid for n = N. But the assumed result is trivially valid for n = 1 and is therefore valid for all n.
+
+To prove that
+
+n
+
+r3
+
+=
+
+1 4
+
+n2
+
+(n
+
++ 1)2,
+
+r=1
+
+assume that the result is valid for n = N and consider
+
+N+1
+
+N
+
+r3 = r3 + (N + 1)3
+
+r=1
+
+r=1
+
+=
+
+1 4
+
+N
+
+2(N
+
++ 1)2
+
++ (N
+
++
+
+1)3,
+
+using the assumption,
+
+=
+
+1 4
+
+(N
+
++
+
+1)2[ N2
+
++
+
+4(N
+
++
+
+1) ]
+
+=
+
+1 4
+
+(N
+
++
+
+1)2(N
+
++ 2)2.
+
+This is the same form as in the assumption except that N has been replaced by N + 1 and shows that the result is valid for n = N + 1 if it is valid for n = N. But the assumed result is trivially valid for n = 1 and is therefore valid for all n.
+
+1.23 Prove that 32n + 7, where n is a non-negative integer, is divisible by 8.
+As usual, we assume that the result is valid for n = N and consider the expression with N replaced by N + 1:
+32(N+1) + 7 = 32N+2 + 7 + 32N − 32N = (32N + 7) + 32N(9 − 1).
+By the assumption, the ﬁrst term on the RHS is divisible by 8; the second is clearly so. Thus 32(N+1) + 7 is divisible by 8. This shows that the result is valid for n = N + 1 if it is valid for n = N. But the assumed result is trivially valid for n = 0 and is therefore valid for all n.
+11
+
+PRELIMINARY ALGEBRA
+
+1.25 Prove by induction that
+
+n1
+
+θ
+
+1
+
+θ
+
+2r tan 2r = 2n cot 2n − cot θ.
+
+(∗)
+
+r=1
+
+Assume that the result is valid for n = N and consider
+
+N+1 1
+
+θ
+
+1
+
+θ
+
+1
+
+θ
+
+2r tan 2r = 2N cot 2N − cot θ + 2N+1 tan 2N+1 .
+
+r=1
+
+Using the half-angle formula
+
+2r tan φ = 1 − r2 ,
+
+where
+
+r
+
+=
+
+tan
+
+1 2
+
+φ,
+
+to write cot(θ/2N) in terms of t = tan(θ/2N+1), we have that the RHS is
+
+1 1 − t2
+
+1
+
+1 1 − t2 + t2
+
+2N
+
+2t
+
+− cot θ + 2N+1 t = 2N+1
+
+t
+
+− cot θ
+
+1
+
+θ
+
+= 2N+1 cot 2N+1 − cot θ.
+
+This is the same form as in the assumption except that N has been replaced by N + 1 and shows that the result is valid for n = N + 1 if it is valid for n = N.
+
+But,
+
+for
+
+n
+
+=
+
+1,
+
+the
+
+LHS
+
+of
+
+(∗)
+
+is
+
+1 2
+
+tan(θ/2).
+
+The
+
+RHS
+
+can
+
+be
+
+written
+
+in
+
+terms
+
+of
+
+s = tan(θ/2):
+
+1
+
+θ
+
+1 1 − s2 s
+
+cot
+
+− cot θ = −
+
+=,
+
+2
+
+2
+
+2s 2s 2
+
+i.e. the same as the LHS. Thus the result is valid for n = 1 and hence for all n.
+
+1.27 Establish the values of k for which the binomial coeﬃcient pCk is divisible by
+p when p is a prime number. Use your result and the method of induction to prove that np − n is divisible by p for all integers n and all prime numbers p. Deduce that n5 − n is divisible by 30 for any integer n.
+
+Since
+
+pCk
+
+=
+
+p! k!(p −
+
+, k)!
+
+its numerator will always contain a factor p. Therefore, the fraction will be divisible by p unless the denominator happens to contain a (cancelling) factor of p. Since p is prime, this latter factor cannot arise from the product of two or more terms in the denominator; nor can p have any factor that cancels with a
+
+12
+
+PRELIMINARY ALGEBRA
+term in the denominator. Thus, for cancellation to occur, either k! or (p − k)! must contain a term p; this can only happen for k = p or k = 0; for all other values of k, pCk will be divisible by p.
+Assume that np − n is divisible by prime number p for n = N. Clearly this is true for N = 1 and any p. Now, using the binomial expansion of (N + 1)p, consider
+p
+(N + 1)p − (N + 1) = pCkNk − (N + 1)
+k=0 p−1
+= 1 + pCkNk + Np − N − 1.
+k=1
+But, as shown above, pCk is divisible by p for all k in the range 1 ≤ k ≤ p − 1, and Np − N is divisible by p, by assumption. Thus (N + 1)p − (N + 1) is divisible by p if it is true that Np − N is divisible by p. Taking N = 1, for which, as noted above, the assumption is valid by inspection for any p, the result follows for all positive integers n and all primes p.
+Now consider f(n) = n5 − n. By the result just proved f(n) is divisible by (prime number) 5. Further, f(n) = n(n4 − 1) = n(n2 − 1)(n2 + 1) = n(n − 1)(n + 1)(n2 + 1). Thus the factorisation of f(n) contains three consecutive integers; one of them must be divisible by 3 and at least one must be even and hence divisible by 2. Thus, f(n) has the prime numbers 2, 3 and 5 as its divisors and must therefore be divisible by 30.
+
+1.29 Prove, by the method of contradiction, that the equation xn + an−1xn−1 + · · · + a1x + a0 = 0,
+in which all the coeﬃcients ai are integers, cannot have a rational root, unless that root is an integer. Deduce that any integral root must be a divisor of a0 and hence ﬁnd all rational roots of
+(a) x4 + 6x3 + 4x2 + 5x + 4 = 0, (b) x4 + 5x3 + 2x2 − 10x + 6 = 0.
+
+Suppose that the equation has a rational root x = p/q, where integers p and q
+have no common factor and q is neither 0 nor 1. Then substituting the root and multiplying the resulting equation by qn−1 gives
+
+pn q
+
++
+
+an−1pn−1
+
++ · · · + a1pqn−2
+
++ a0qn−1
+
+=
+
+0.
+
+But the ﬁrst term of this equation is not an integer (since p and q have no factor
+
+13
+
+PRELIMINARY ALGEBRA
+
+in common) whilst each of the remaining terms is a product of integers and is therefore an integer. Thus we have an integer equal to (minus) a non-integer. This is a contradiction and shows that it was wrong to suppose that the original equation has a rational non-integer root.
+
+From the general properties of polynomial equations we have that the product of
+
+the roots of the equation
+
+n i=0
+
+bixi
+
+=
+
+0
+
+is
+
+(−1)nb0/bn.
+
+For
+
+our
+
+original
+
+equation,
+
+bn = 1 and b0 = a0. Consequently, the product of its roots is equal to the integral
+
+value (−1)na0. Since there are no non-integral rational roots it follows that any
+
+integral root must be a divisor of a0.
+
+(a) x4 +6x3 +4x2 +5x+4 = 0. This equation has integer coeﬃcients and a leading
+
+coeﬃcient equal to unity. We can thus apply the above result, which shows that
+
+its only possible rational roots are the six integers ±1, ±2 and ±4. Of these, all
+
+positive values are impossible (since then every term would be positive) and trial
+
+and error will show that none of the negative values is a root either.
+
+(b) x4 + 5x3 + 2x2 − 10x + 6 = 0. In the same way as above, we deduce that for this equation the only possible rational roots are the eight values ±1, ±2, ±3 and ±6. Substituting each in turn shows that only x = −3 satisﬁes the equation.
+
+Necessary and suﬃcient conditions
+1.31 For the real variable x, show that a suﬃcient, but not necessary, condition for f(x) = x(x + 1)(2x + 1) to be divisible by 6 is that x is an integer.
+First suppose that x is an integer and consider f(x) expressed as
+f(x) = x(x + 1)(2x + 1) = x(x + 1)(x + 2) + x(x + 1)(x − 1).
+Each term on the RHS consists of the product of three consecutive integers. In such a product one of the integers must divide by 3 and at least one of the other integers must be even. Thus each product separately divides by both 3 and 2, and hence by 6, and therefore so does their sum f(x). Thus x being an integer is a suﬃcient condition for f(x) to be divisible by 6. That it is not a necessary condition can be shown by considering an equation of the form
+f(x) = x(x + 1)(2x + 1) = 2x3 + 3x2 + x = 6m,
+where m is an integer. As a speciﬁc counter-example consider the case m = 4. We note that f(1) = 6 whilst f(2) = 30. Thus there must be a root of the equation that lies strictly between the values 1 and 2, i.e a non-integer value of x that makes f(x) equal to 24 and hence divisible by 6. This establishes the result that x being an integer is not a necessary condition for f(x) to be divisible by 6.
+14
+
+PRELIMINARY ALGEBRA
+1.33 The coeﬃcients ai in the polynomial Q(x) = a4x4 + a3x3 + a2x2 + a1x are all integers. Show that Q(n) is divisible by 24 for all integers n ≥ 0 if and only if all of the following conditions are satisﬁed:
+(i) 2a4 + a3 is divisible by 4; (ii) a4 + a2 is divisible by 12; (iii) a4 + a3 + a2 + a1 is divisible by 24.
+This problem involves both proof by induction and proof of the ‘if and only if’ variety. Firstly, assume that the three conditions are satisﬁed:
+2a4 + a3 = 4α, a4 + a2 = 12β, a4 + a3 + a2 + a1 = 24γ, where α, β and γ are integers. We now have to prove that Q(n) = a4n4 + a3n3 + a2n2 + a1n is divisible by 24 for all integers n ≥ 0. It is clearly true for n = 0, and we assume that it is true for n = N and that Q(N) = 24m for some integer m. Now consider Q(N + 1): Q(N + 1) = a4(N + 1)4 + a3(N + 1)3 + a2(N + 1)2 + a1(N + 1) = a4N4 + a3N3 + a2N2 + a1N + 4a4N3 + (6a4 + 3a3)N2 +(4a4 + 3a3 + 2a2)N + (a4 + a3 + a2 + a1) = 24m + 4a4N3 + 3(4α)N2 +[4a4 + (12α − 6a4) + (24β − 2a4)]N + 24γ = 24(m + γ + βN) + 12αN(N + 1) + 4a4(N − 1)N(N + 1).
+Now N(N + 1) is the product of two consecutive integers and so one must be even and contain a factor of 2; likewise (N − 1)N(N + 1), being the product of three consecutive integers, must contain both 2 and 3 as factors. Thus every term in the expression for Q(N + 1) divides by 24 and so, therefore, does Q(N + 1). Thus the proposal is true for n = N + 1 if it is true for n = N, and this, together with our observation for n = 0, completes the ‘if’ part of the proof. Now suppose that Q(n) = a4n4 + a3n3 + a2n2 + a1n is divisible by 24 for all integers n ≥ 0. Setting n equal to 1, 2 and 3 in turn, we have
+a4 + a3 + a2 + a1 = 24p, 16a4 + 8a3 + 4a2 + 2a1 = 24q, 81a4 + 27a3 + 9a2 + 3a1 = 24r,
+for some integers p, q and r. The ﬁrst of these equations is condition (iii). The
+15
+
+PRELIMINARY ALGEBRA other conditions are established by combining the above equations as follows:
+14a4 + 6a3 + 2a2 = 24(q − 2p), 78a4 + 24a3 + 6a2 = 24(r − 3p),
+36a4 + 6a3 = 24(r − 3p − 3q + 6p), 22a4 − 2a2 = 24(r − 3p − 4q + 8p). The two ﬁnal equations show that 6a4 + a3 is divisible by 4 and that 11a4 − a2 is divisible by 12. But, if 6a4 + a3 is divisible by 4 then so is (6 − 4)a4 + a3, i.e. 2a4 + a3. Similarly, 11a4 − a2 being divisible by 12 implies that 12a4 − (11a4 − a2), i.e. a4 + a2, is also divisible by 12. Thus, conditions (i) and (ii) are established and the ‘only if’ part of the proof is complete.
+16
+
+2
+Preliminary calculus
+
+2.1 Obtain the following derivatives from ﬁrst principles:
+(a) the ﬁrst derivative of 3x + 4; (b) the ﬁrst, second and third derivatives of x2 + x; (c) the ﬁrst derivative of sin x.
+
+(a) From the deﬁnition of the derivative as a limit, we have
+
+[3(x + ∆x) + 4] − (3x + 4)
+
+3∆x
+
+f (x) = lim
+
+= lim
+
+= 3.
+
+∆x→0
+
+∆x
+
+∆x→0 ∆x
+
+(b) These are calculated similarly, but using each calculated derivative as the input function for ﬁnding the next higher derivative.
+
+[(x + ∆x)2 + (x + ∆x)] − (x2 + x)
+
+f (x) = lim
+
+∆x→0
+
+∆x
+
+[(x2 + 2x∆x + (∆x)2) + (x + ∆x)] − (x2 + x)
+
+= lim
+
+∆x→0
+
+∆x
+
+[(2x∆x + (∆x)2) + ∆x]
+
+= lim
+
+∆x→0
+
+∆x
+
+= 2x + 1;
+
+[2(x + ∆x) + 1] − (2x + 1)
+
+2∆x
+
+f (x) = lim
+
+= lim
+
+= 2;
+
+∆x→0
+
+∆x
+
+∆x→0 ∆x
+
+2−2
+
+f (x) = lim
+
+= 0.
+
+∆x→0 ∆x
+
+(c) We use the expansion formula for sin(A + B) and then the series deﬁnitions of the sine and cosine functions to write cos ∆x and sin ∆x as series involving
+
+17
+
+PRELIMINARY CALCULUS
+
+increasing powers of ∆x.
+
+sin(x + ∆x) − sin x
+
+f (x) = lim
+
+∆x→0
+
+∆x
+
+(sin x cos ∆x + cos x sin ∆x) − sin x
+
+= lim
+
+∆x→0
+
+∆x
+
+=
+
+lim
+
+sin x (1
+
+−
+
+(∆x)2 2!
+
++
+
+·
+
+·
+
+·)
+
++
+
+cos x
+
+(∆x
+
+−
+
+(∆x)3 3!
+
++ · · · ) − sin x
+
+∆x→0
+
+∆x
+
+=
+
+lim
+∆x→0
+
+−
+
+1 2
+
+∆x
+
+sin
+
+x
+
++
+
+cos
+
+x
+
+−
+
+1 6
+
+(∆x)2
+
+cos x
+
++
+
+·
+
+··
+
+= cos x.
+
+2.3 Find the ﬁrst derivatives of
+(a) x2 exp x, (b) 2 sin x cos x, (c) sin 2x, (d) x sin ax, (e) (eax)(sin ax) tan−1 ax, (f) ln(xa + x−a), (g) ln(ax + a−x), (h) xx.
+
+(a) x2 exp x is the product of two functions, both of which can be diﬀerentiated simply. We therefore apply the product rule and obtain:
+
+f
+
+(x)
+
+=
+
+x2 d(exp x)
+
+d(x2) + exp x
+
+=
+
+x2 exp x + (2x) exp x
+
+=
+
+(x2
+
++ 2x) exp x.
+
+dx
+
+dx
+
+(b) Again, the product rule is appropriate:
+
+d(cos x)
+
+d(sin x)
+
+f (x) = 2 sin x
+
++ 2 cos x
+
+dx
+
+dx
+
+= 2 sin x(− sin x) + 2 cos x(cos x)
+
+= 2(− sin2 x + cos2 x) = 2 cos 2x.
+
+(c) Rewriting the function as f(x) = sin u, where u(x) = 2x, and using the chain
+
+rule:
+
+f
+
+(x)
+
+=
+
+cos u ×
+
+du dx
+
+=
+
+cos u
+
+×
+
+2
+
+=
+
+2 cos(2x).
+
+We note that this is the same result as in part (b); this is not surprising as the two functions to be diﬀerentiated are identical, i.e. 2 sin x cos x ≡ sin 2x.
+
+(d) Once again, the product rule can be applied:
+
+f
+
+(x)
+
+=
+
+d(sin ax) x
+
++
+
+d(x) sin ax
+
+=
+
+xa cos ax + sin ax × 1
+
+=
+
+sin ax + ax cos ax.
+
+dx
+
+dx
+
+18
+
+PRELIMINARY CALCULUS
+
+(e) This requires the product rule for three factors:
+
+f
+
+(x)
+
+=
+
+(eax)(sin
+
+d(tan−1 ax)
+
+ax)
+
++
+
+(eax)(tan−1
+
+d(sin ax)
+
+ax)
+
+dx
+
+dx
+
++(sin ax)(tan−1 ax) d(eax) dx
+
+= (eax)(sin ax)
+
+a 1 + a2x2
+
++ (eax)(tan−1 ax)(a cos ax)
+
++(sin ax)(tan−1 ax)(aeax)
+
+= aeax
+
+sin ax 1 + a2x2
+
++
+
+(tan−1
+
+ax)(cos ax
+
++
+
+sin ax)
+
+.
+
+(f) Rewriting the function as f(x) = ln u, where u(x) = xa + x−a, and using the
+
+chain rule:
+
+f
+
+(x)
+
+=
+
+1 u
+
+×
+
+du dx
+
+=
+
+xa
+
+1 + x−a
+
+× (axa−1
+
+−
+
+ax−a−1)
+
+=
+
+a(xa x(xa
+
+− x−a) + x−a) .
+
+(g) Using logarithmic diﬀerentiation and the chain rule as in (f):
+
+f
+
+(x)
+
+=
+
+ax
+
+1 + a−x
+
+× (ln a
+
+ax
+
+−
+
+ln a
+
+a−x)
+
+=
+
+ln a(ax − a−x) ax + a−x .
+
+(h) In order to remove the independent variable x from the exponent in y = xx, we ﬁrst take logarithms and then diﬀerentiate implicitly:
+
+y = xx,
+
+ln y = x ln x,
+
+1 dy
+
+x
+
+= ln x + , using the product rule,
+
+y dx
+
+x
+
+dy = (1 + ln x)xx. dx
+
+2.5 Use the result that d[ v(x)−1 ]/dx = −v−2dv/dx to ﬁnd the ﬁrst derivatives of (a) (2x + 3)−3, (b) sec2 x, (c) cosech33x, (d) 1/ ln x, (e) 1/[sin−1(x/a)].
+
+(a) Writing (2x + 3)3 as v(x) and using the chain rule, we have
+
+f
+
+(x)
+
+=
+
+1 − v2
+
+dv dx
+
+=
+
+− (2x
+
+1 +
+
+3)6
+
+[ 3(2x
+
++
+
+3)2
+
+(2) ]
+
+=
+
+− (2x
+
+6 +
+
+3)4 .
+
+(b) Writing cos2 x as v(x), we have
+
+f
+
+(x)
+
+=
+
+1 − v2
+
+dv dx
+
+=
+
+1 − cos4
+
+x
+
+[ 2 cos x(− sin x) ]
+
+=
+
+2 sec2
+
+x tan x.
+
+19
+
+PRELIMINARY CALCULUS
+
+(c) Writing sinh3 3x as v(x), we have
+
+f
+
+(x)
+
+=
+
+1 − v2
+
+dv dx
+
+=
+
+1 − sinh6
+
+3x
+
+[ 3 sinh2
+
+3x(cosh 3x)(3) ]
+
+= −9 cosech33x coth 3x.
+
+(d) Writing ln x as v(x), we have
+
+1 dv
+
+11
+
+1
+
+f
+
+(x)
+
+=
+
+− v2
+
+dx
+
+=
+
+− (ln x)2
+
+x
+
+=
+
+− x ln2
+
+. x
+
+(e) Writing sin−1(x/a) as v(x), we have
+
+f
+
+(x)
+
+=
+
+1 − v2
+
+dv dx
+
+=
+
+1 − [ sin−1(x/a) ]2
+
+1 √
+a2 −
+
+. x2
+
+2.7 Find dy/dx if x = (t − 2)/(t + 2) and y = 2t/(t + 1) for −∞ < t < ∞. Show that it is always non-negative, and make use of this result in sketching the curve of y as a function of x.
+
+We calculate dy/dx as dy/dt ÷ dx/dt:
+
+dy (t + 1)2 − 2t(1)
+
+2
+
+= dt
+
+(t + 1)2
+
+= (t + 1)2 ,
+
+dx (t + 2)(1) − (t − 2)(1)
+
+4
+
+= dt
+
+(t + 2)2
+
+= (t + 2)2 ,
+
+dy
+
+2
+
+4
+
+(t + 2)2
+
+⇒ dx = (t + 1)2 ÷ (t + 2)2 = 2(t + 1)2 ,
+
+which is clearly positive for all t.
+
+By evaluating x and y for a range of values of t and recalling that its slope is
+
+always positive, the curve can be plotted as in ﬁgure 2.1. Alternatively, we may
+
+eliminate t using
+
+t = 2x + 2
+
+and t =
+
+y ,
+
+1−x
+
+2−y
+
+to obtain the equation of the curve in x-y coordinates as
+
+2(x + 1)(2 − y) = y(1 − x), xy − 4x + 3y − 4 = 0,
+(x + 3)(y − 4) = 4 − 12 = −8.
+
+20
+
+PRELIMINARY CALCULUS
+
+y
+
+=
+
+2t t+1
+
+10
+
+5 (−3, 4)
+
+−10
+
+−5
+
+−5
+
+x
+
+=
+
+t−2 t+2
+
+5
+
+10
+
+−10 Figure 2.1 The solution to exercise 2.7.
+This shows that the curve is a rectangular hyperbola in the second and fourth quadrants with asymptotes, parallel to the x- and y-axes, passing through (−3, 4).
+
+2.9 Find the second derivative of y(x) = cos[ (π/2)−ax ]. Now set a = 1 and verify that the result is the same as that obtained by ﬁrst setting a = 1 and simplifying y(x) before diﬀerentiating.
+
+We use the chain rule at each stage and, either ﬁnally or initially, the equality of
+
+cos(
+
+1 2
+
+π
+
+−
+
+θ)
+
+and
+
+sin
+
+θ:
+
+For a = 1,
+
+y(x) = cos π − ax , 2
+
+π y (x) = a sin − ax ,
+2
+
+y (x) = −a2 cos
+
+π − ax
+
+.
+
+2
+
+y (x) = − cos
+
+π 2
+
+−x
+
+= − sin x.
+
+Setting
+
+a
+
+=
+
+1
+
+initially,
+
+gives
+
+y
+
+=
+
+cos(
+
+1 2
+
+π
+
+− x)
+
+=
+
+sin x.
+
+Hence
+
+y
+
+= cos x and
+
+y = − sin x, yielding the same result as before.
+
+21
+
+PRELIMINARY CALCULUS
+
+2.11 Show by diﬀerentiation and substitution that the diﬀerential equation
+
+4x2
+
+d2y dx2
+
+−
+
+4x dy dx
+
++
+
+(4x2
+
++
+
+3)y
+
+=
+
+0
+
+has a solution of the form y(x) = xn sin x, and ﬁnd the value of n.
+
+The solution plan is to calculate the derivatives as functions of n and x and then, after substitution, require that the equation is identically satisﬁed for all x. This will impose conditions on n.
+We have, by successive diﬀerentiation or by the use of Leibnitz’ theorem, that
+
+y(x) = xn sin x, y (x) = nxn−1 sin x + xn cos x, y (x) = n(n − 1)xn−2 sin x + 2nxn−1 cos x − xn sin x.
+
+Substituting these into
+
+4x2
+
+d2y dx2
+
+−
+
+dy 4x
+dx
+
++
+
+(4x2
+
++
+
+3)y
+
+=
+
+0
+
+gives
+
+(4n2 − 4n − 4n + 3)xn sin x + (−4 + 4)xn+2 sin x + (8n − 4)xn+1 cos x = 0.
+
+For this to be true for all x, both 4n2 − 8n + 3 = (2n − 3)(2n − 1) = 0 and
+
+8n −
+
+4
+
+=
+
+0
+
+have
+
+to
+
+be
+
+satisﬁed.
+
+If
+
+n
+
+=
+
+1 2
+
+,
+
+they
+
+are
+
+both
+
+satisﬁed,
+
+thus
+
+establishing
+
+y(x) = x1/2 sin x as a solution of the given equation.
+
+2.13 Show that the lowest value taken by the function 3x4 +4x3 −12x2 +6 is −26.
+We need to calculate the ﬁrst and second derivatives of the function in order to establish the positions and natures of its turning points:
+y(x) = 3x4 + 4x3 − 12x2 + 6, y (x) = 12x3 + 12x2 − 24x, y (x) = 36x2 + 24x − 24.
+Setting y (x) = 0 gives x(x + 2)(x − 1) = 0 with roots 0, 1 and −2. The corresponding values of y (x) are −24, 36 and 72. Since y(±∞) = ∞, the lowest value of y is that corresponding to the lowest minimum, which can only be at x = 1 or x = −2, as y must be positive at a minimum. The values of y(x) at these two points are y(1) = 1 and y(−2) = −26, and so the lowest value taken is −26.
+22
+
+PRELIMINARY CALCULUS
+
+2.15 Show that y(x) = xa2x exp x2 has no stationary points other than x = 0, if
+
+√
+
+√
+
+exp(− 2) < a < exp( 2).
+
+Since the logarithm of a variable varies monotonically with the variable, the stationary points of the logarithm of a function of x occur at the same values of x as the stationary points of the function. As x appears as an exponent in the given function, we take logarithms before diﬀerentiating and obtain:
+ln y = ln x + 2x ln a + x2, 1 dy 1
+= + 2 ln a + 2x. y dx x
+For a stationary point dy/dx = 0. Except at x = 0 (where y is also 0), this equation reduces to
+2x2 + 2x ln a + 1 = 0.
+This qua√dratic equation has no real roots for x if √4(ln a)2 < 4 ×√2 × 1, i.e. | ln a| < 2; a result that can also be written as exp(− 2) < a < exp( 2).
+
+2.17 The parametric equations for the motion of a charged particle released from rest in electric and magnetic ﬁelds at right angles to each other take the forms
+x = a(θ − sin θ), y = a(1 − cos θ).
+Show that the tangent to the curve has slope cot(θ/2). Use this result at a few calculated values of x and y to sketch the form of the particle’s trajectory.
+
+With the given parameterisation,
+
+dx = a − a cos θ,
+dθ
+
+dy = a sin θ,
+dθ
+
+⇒
+
+dy dx
+
+=
+
+dy dθ
+
+dθ dx
+
+=
+
+1
+
+sin θ − cos θ
+
+=
+
+2
+
+sin
+
+1 2
+
+θ
+
+cos
+
+2
+
+sin2
+
+1 2
+
+θ
+
+1 2
+
+θ
+
+=
+
+cot
+
+1 2
+
+θ.
+
+Clearly, y = 0 whenever θ = 2nπ with n an integer; dy/dx becomes inﬁnite at the same points. The slope is zero whenever θ = (2n + 1)π and the value of y is then 2a. These results are plotted in ﬁgure 2.2.
+
+23
+
+PRELIMINARY CALCULUS y 2a
+
+x
+
+πa
+
+2πa
+
+Figure 2.2 The solution to exercise 2.17.
+
+2.19 The curve whose equation is x2/3 +y2/3 = a2/3 for positive x and y and which
+is completed by its symmetric reﬂections in both axes is known as an astroid. Sketch it and show that its radius of curvature in the ﬁrst quadrant is 3(axy)1/3.
+
+For the asteroid curve (see ﬁgure 2.3) and its ﬁrst derivative in the ﬁrst quadrant, where all fractional roots are positive, we have
+
+Diﬀerentiating again,
+
+x2/3 + y2/3 = a2/3,
+
+2
+
+2 dy
+
+3x1/3 + 3y1/3 dx = 0,
+
+dy
+
+y 1/3
+
+⇒
+
+=−
+
+.
+
+dx
+
+x
+
+d2y
+
+1
+
+dx2 = − 3
+
+y −2/3 x
+
+−x(
+
+y x
+
+)1/3
+
+−
+
+y
+
+x2
+
+= 1 (x−2/3y−1/3 + x−4/3y1/3) 3
+= 1 y−1/3x−4/3(x2/3 + y2/3) 3
+= 1 y−1/3x−4/3a2/3. 3
+Hence, the radius of curvature is
+
+dy 2 3/2 1+
+dx
+
+y 2/3 3/2 1+
+x
+
+ρ=
+
+d2y
+
+=
+
+1 3
+
+y−1/3x−4/3
+
+a2/3
+
+dx2
+
+= 3(x2/3 + y2/3)3/2x1/3y1/3a−2/3 = 3a1/3x1/3y1/3,
+
+24
+
+PRELIMINARY CALCULUS
+y a
+
+x
+
+−a
+
+a
+
+−a Figure 2.3 The astroid discussed in exercise 2.19. as stated in the question.
+
+2.21 Use Leibnitz’ theorem to ﬁnd
+(a) the second derivative of cos x sin 2x, (b) the third derivative of sin x ln x, (c) the fourth derivative of (2x3 + 3x2 + x + 2)e2x.
+
+Leibnitz’ theorem states that if y(x) = u(x)v(x) and the rth derivative of a function f(x) is denoted by f(r) then
+
+n
+
+y(n) =
+
+nCk u(k) v(n−k).
+
+k=0
+
+So,
+
+d2(cos x sin 2x)
+
+(a)
+
+dx2
+
+= (− cos x)(sin 2x) + 2(− sin x)(2 cos 2x)
+
++ (cos x)(−4 sin 2x)
+
+= −5 cos x sin 2x − 4 sin x cos 2x = 2 sin x[ −5 cos2 x − 2(2 cos2 x − 1) ] = 2 sin x(2 − 9 cos2 x).
+
+(b)
+
+d3(sin x ln x) dx3
+
+=
+
+(− cos x)(ln x) + 3(− sin x)(x−1)
+
++3(cos x)(−x−2) + (sin x)(2x−3)
+
+= (2x−3 − 3x−1) sin x − (3x−2 + ln x) cos x.
+
+25
+
+PRELIMINARY CALCULUS
+(c) We note that the nth derivative of e2x is 2ne2x and that the 4th derivative of a cubic polynomial is zero. And so,
+d4[ (2x3 + 3x2 + x + 2)e2x ] dx4
+= (0)(e2x) + 4(12)(2e2x) + 6(12x + 6)(4e2x) + 4(6x2 + 6x + 1)(8e2x) + (2x3 + 3x2 + x + 2)(16e2x)
+= 16(2x3 + 15x2 + 31x + 19)e2x.
+
+2.23 Use the properties of functions at their turning points to do the following.
+(a) By considering its properties near x = 1, show that f(x) = 5x4 − 11x3 + 26x2 − 44x + 24 takes negative values for some range of x.
+(b) Show that f(x) = tan x − x cannot be negative for 0 ≤ x < π/2, and deduce that g(x) = x−1 sin x decreases monotonically in the same range.
+
+(a) We begin by evaluating f(1) and ﬁnd that f(1) = 5 − 11 + 26 − 44 + 24 = 0. This suggests that f(x) will be positive on one side of x = 1 and negative on the other. However, to be sure of this we need to establish that x = 1 is not a turning point of f(x). To do this we calculate its derivative there:
+
+f(x) = 5x4 − 11x3 + 26x2 − 44x + 24, f (x) = 20x3 − 33x2 + 52x − 44, f (1) = 20 − 33 + 52 − 44 = −5 = 0.
+
+So, f (1) is negative and f is decreasing at this point, where its value is 0. Therefore f(x) must be negative in the range 1 < x < α for some α > 1.
+
+(b) The function f(x) = tan x − x is diﬀerentiable in the range 0 ≤ x < π/2, and f (x) = sec2 x − 1 = tan2 x which is > 0 for all x in the range; taken together
+with f(0) = 0, this establishes the result.
+
+For g(x) = (sin x)/x, the rule for diﬀerentiating quotients gives
+
+x cos x − sin x cos x(tan x − x)
+
+g (x) =
+
+x2
+
+=−
+
+x2
+
+.
+
+The term in parenthesis cannot be negative in the range 0 ≤ x < π/2, and in the same range cos x > 0. Thus g (x) is never positive in the range and g(x) decreases monotonically [ from its value of g(0) = 1 ].
+
+26
+
+PRELIMINARY CALCULUS
+2.25 By applying Rolle’s theorem to xn sin nx, where n is an arbitrary positive integer, show that tan nx + x = 0 has a solution α1 with 0 < α1 < π/n. Apply the theorem a second time to obtain the nonsensical result that there is a real α2 in 0 < α2 < π/n, such that cos2(nα2) = −n. Explain why this incorrect result arises.
+Clearly, the function f(x) = xn sin nx has zeroes at x = 0 and x = π/n. Therefore, by Rolle’s theorem, its derivative,
+f (x) = nxn−1 sin nx + nxn cos nx,
+must have a zero in the range 0 < x < π/n. But, since x = 0 and n = 0, this is equivalent to a root α1 of tan nx + x = 0 in the same range. To obtain this result we have divided f (x) = 0 through by cos nx; this is allowed, since x = π/(2n), the value that makes cos nx = 0, is not a solution of f (x) = 0. We now note that g(x) = tan nx + x has zeroes at x = 0 and x = α1. Applying Rolle’s theorem again (blindly) then shows that g (x) = n sec2 nx + 1 has a zero α2 in the range 0 < α2 < α1 < π/n, with cos2(nα2) = −n. The false result arises because tan nx is not diﬀerentiable at x = π/(2n), which lies in the range 0 < x < π/n, and so the conditions for applying Rolle’s theorem are not satisﬁed.
+2.27 For the function y(x) = x2 exp(−x) obtain a simple relationship between y and dy/dx and then, by applying Leibnitz’ theorem, prove that
+xy(n+1) + (n + x − 2)y(n) + ny(n−1) = 0.
+The required function and its ﬁrst derivative are y(x) = x2e−x, y (x) = 2xe−x − x2e−x = 2xe−x − y.
+Multiplying through by a factor x will enable us to express the ﬁrst term on the RHS in terms of y and obtain
+xy = 2y − xy.
+Now we apply Leibnitz’ theorem to obtain the nth derivatives of both sides of this last equation, noting that the only non-zero derivative of x is the ﬁrst derivative. We obtain
+xy(n+1) + n(1)y(n) = 2y(n) − [ xy(n) + n(1)y(n−1) ],
+27
+
+PRELIMINARY CALCULUS
+which can be rearranged as xy(n+1) + (n + x − 2)y(n) + ny(n−1) = 0,
+thus completing the proof.
+
+2.29 Show that the curve x3 + y3 − 12x − 8y − 16 = 0 touches the x-axis.
+
+We ﬁrst ﬁnd an expression for the slope of the curve as a function of x and y. From
+x3 + y3 − 12x − 8y − 16 = 0
+
+we obtain, by implicit diﬀerentiation, that
+
+3x2 + 3y2y − 12 − 8y = 0
+
+⇒
+
+3x2 − 12 y = 8 − 3y2 .
+
+Clearly y = 0 at x = ±2. At x = 2,
+
+8 + y3 − 24 − 8y − 16 = 0 ⇒ y = 0.
+
+However, at x = −2, −8 + y3 + 24 − 8y − 16 = 0,
+
+with one solution y = 0.
+
+Thus the point (−2, 0) lies on the curve and y = 0 there. It follows that the curve touches the x-axis at that point.
+
+2.31 Find the indeﬁnite integrals J of the following ratios of polynomials:
+(a) (x + 3)/(x2 + x − 2); (b) (x3 + 5x2 + 8x + 12)/(2x2 + 10x + 12); (c) (3x2 + 20x + 28)/(x2 + 6x + 9); (d) x3/(a8 + x8).
+
+(a) We ﬁrst need to express the ratio in partial fractions:
+
+x+3
+
+x+3
+
+A
+
+B
+
+x2
+
++x
+
+−2
+
+=
+
+(x + 2)(x − 1)
+
+=
+
+x+
+
+2
+
++
+
+x−
+
+. 1
+
+Using any of the methods employed in exercise 1.15, we obtain the unknown
+
+28
+
+PRELIMINARY CALCULUS
+
+coeﬃcients
+
+as
+
+A
+
+=
+
+−
+
+1 3
+
+and
+
+B
+
+=
+
+4 3
+
+.
+
+Thus,
+
+x+3
+
+−1
+
+4
+
+x2 + x − 2 dx =
+
+dx + 3(x + 2)
+
+dx 3(x − 1)
+
+1
+
+4
+
+= − ln(x + 2) + ln(x − 1) + c
+
+3
+
+3
+
+1 (x − 1)4
+
+= ln
+
++ c.
+
+3 x+2
+
+(b) As the numerator is of higher degree than the denominator, we need to divide the numerator by the denominator and express the remainder in partial fractions before starting any integration:
+
+x3
+
++
+
+5x2
+
++
+
+8x
+
++
+
+12
+
+=
+
+(
+
+1 2
+
+x
+
++
+
+a0)(2x2
+
++
+
+10x
+
++
+
+12)
+
++
+
+(b1x
+
++
+
+b0)
+
+= x3 + (2a0 + 5)x2 + (10a0 + 6 + b1)x
+
++ (12a0 + b0),
+
+yielding a0 = 0, b1 = 2 and b0 = 12. Now, expressed as partial fractions,
+
+2x + 12
+
+x+6
+
+4
+
+−3
+
+2x2
+
++
+
+10x
+
++ 12
+
+=
+
+(x + 2)(x
+
++ 3)
+
+=
+
+x+
+
+2
+
++
+
+, x+3
+
+where, again, we have used one of the three methods available for determining coeﬃcients in partial fraction expansions. Thus,
+
+x3 + 5x2 + 8x + 12 2x2 + 10x + 12 dx =
+
+1 x
+2
+
++
+
+x
+
+4 +
+
+2
+
+−
+
+x
+
+3 +
+
+3
+
+dx
+
+=
+
+1 4
+
+x2
+
++
+
+4 ln(x
+
++
+
+2)
+
+−
+
+3 ln(x
+
++
+
+3)
+
++
+
+c.
+
+(c) By inspection,
+
+3x2 + 20x + 28 = 3(x2 + 6x + 9) + 2x + 1.
+
+Expressing the remainder after dividing through by x2 +6x+9 in partial fractions, and noting that the denominator has a double factor, we obtain
+
+2x + 1
+
+A
+
+B
+
+x2
+
++ 6x
+
++9
+
+=
+
+(x + 3)2
+
++
+
+, x+3
+
+where B(x + 3) + A = 2x + 1. This requires that B = 2 and A = −5. Thus,
+
+3x2 + 20x + 28 x2 + 6x + 9 dx =
+
+2
+
+5
+
+3 + x + 3 − (x + 3)2 dx
+
+5
+
+= 3x + 2 ln(x + 3) +
+
++ c.
+
+x+3
+
+29
+
+PRELIMINARY CALCULUS
+
+(d) Noting the form of the numerator, we set x4 = u with 4x3 dx = du. Then,
+
+x3
+
+1
+
+a8 + x8 dx = 4(a8 + u2) du
+
+=
+
+1 4a4
+
+tan−1
+
+u a4
+
++c
+
+=
+
+1 4a4
+
+tan−1
+
+x4 a4
+
++ c.
+
+2.33 Find the integral J of (ax2 + bx + c)−1, with a = 0, distinguishing between the cases (i) b2 > 4ac, (ii) b2 < 4ac and (iii) b2 = 4ac.
+
+In each case, we ﬁrst ‘complete the square’ in the denominator, i.e. write it in such a form that x appears only in a term that is the square of a linear function of x. We then examine the overall sign of the terms that do not contain x; this determines the form of the integral. In case (iii) there is no such term. We write b2 − 4ac as ∆2 > 0, or 4ac − b2 as ∆ 2 > 0, as needed.
+
+(i) For ∆2 = b2 − 4ac > 0,
+
+J=
+
+dx
+
+a
+
+x
+
++
+
+b 2a
+
+2−
+
+b2 4a2
+
+−
+
+c a
+
+1 =
+a
+
+dx
+
+x
+
++
+
+b 2a
+
+2
+
+−
+
+∆2 4a2
+
+=
+
+1 a
+
+a ∆
+
+ln
+
+x x
+
++ +
+
+b 2a b 2a
+
+−
+
+∆ 2a
+
++
+
+∆ 2a
+
++k
+
+1 2ax + b − ∆ = ∆ ln 2ax + b + ∆ + k.
+
+(ii) For −∆ 2 = b2 − 4ac < 0,
+
+J=
+
+dx
+
+a
+
+x
+
++
+
+b 2a
+
+2−
+
+b2 4a2
+
+−
+
+c a
+
+1 =
+a
+
+dx
+
+x
+
++
+
+b 2a
+
+2
+
++
+
+∆2 4a2
+
+= 1 2a tan−1 a∆
+
+x
+
++
+
+b 2a
+
+∆
+
+2a
+
++k
+
+= 2 tan−1 2ax + b + k.
+
+∆
+
+∆
+
+30
+
+PRELIMINARY CALCULUS
+
+(iii) For b2 − 4ac = 0,
+
+dx
+
+J=
+
+ax2
+
++
+
+bx
+
++
+
+b2 4a
+
+1
+
+dx
+
+= a
+
+x
+
++
+
+b 2a
+
+2
+
+−1
+
+= a
+
+x
+
++
+
+b 2a
+
++k
+
+=
+
+−
+
+2 2ax +
+
+b
+
++
+
+k.
+
+2.35 Find the derivative of f(x) = (1 + sin x)/ cos x and hence determine the indeﬁnite integral J of sec x.
+
+We diﬀerentiate f(x) as a quotient, i.e. using d(u/v)/dx = (vu − uv )/v2, and
+
+obtain
+
+1 + sin x
+
+f(x) =
+
+,
+
+cos x
+
+cos x(cos x) − (1 + sin x)(− sin x)
+
+f (x) =
+
+cos2 x
+
+1 + sin x = cos2 x
+
+=
+
+f(x) .
+
+cos x
+
+Thus, since sec x = f (x)/f(x), it follows that
+
+1 + sin x sec x dx = ln[ f(x) ] + c = ln cos x + c = ln(sec x + tan x) + c.
+
+2.37 By making the substitution x = a cos2 θ + b sin2 θ, evaluate the deﬁnite integrals J between limits a and b (> a) of the following functions:
+(a) [(x − a)(b − x)]−1/2; (b) [(x − a)(b − x)]1/2; (c) [(x − a)/(b − x)]1/2.
+Wherever the substitution x = a cos2 θ +b sin2 θ is made, the terms in parentheses
+31
+
+PRELIMINARY CALCULUS
+take the following forms: x − a → a cos2 θ + b sin2 θ − a = −a sin2 θ + b sin2 θ = (b − a) sin2 θ, b − x → b − a cos2 θ − b sin2 θ = −a cos2 θ + b cos2 θ = (b − a) cos2 θ,
+and dx will be given by dx = [2a cos θ(− sin θ) + 2b sin θ(cos θ)] dθ = 2(b − a) cos θ sin θ dθ.
+The limits a and b will be replaced by 0 and π/2, respectively. We also note that the average value of the square of a sinusoid over any whole number of quarter cycles of its argument is one-half.
+
+b
+
+dx
+
+(a)
+
+Ja = a [(x − a)(b − x)]1/2
+
+π/2
+
+2(b − a) cos θ sin θ
+
+=
+0
+
+[(b − a) sin2 θ (b − a) cos2 θ]1/2 dθ
+
+π/2
+
+=
+
+2 dθ = π.
+
+0
+
+b
+
+(b)
+
+Jb = [(x − a)(b − x)]1/2 dx
+
+a
+
+π/2
+
+=
+
+2(b − a)2 cos2 θ sin2 θ dθ
+
+0
+
+=
+
+1 (b
+
+− a)2
+
+π/2
+sin2 2θ dθ
+
+2
+
+0
+
+=
+
+1 (b
+
+− a)2 1
+
+π
+
+=
+
+π(b
+
+− a)2 .
+
+2
+
+22
+
+8
+
+b x−a
+
+(c)
+
+Jc =
+a
+
+dx b−x
+
+π/2 (b − a) sin2 θ
+
+=
+0
+
+(b − a) cos2 θ × 2(b − a) cos θ sin θ dθ
+
+π/2
+
+=
+
+2(b − a) sin2 θ dθ
+
+0
+
+π(b − a)
+
+=
+
+.
+
+2
+
+32
+
+PRELIMINARY CALCULUS
+
+2.39 Use integration by parts to evaluate the following:
+
+y
+
+y
+
+(a) x2 sin x dx; (b) x ln x dx;
+
+0
+
+1
+
+y
+
+y
+
+(c) sin−1 x dx; (d) ln(a2 + x2)/x2 dx.
+
+0
+
+1
+
+If u and v are functions of x, the general formula for integration by parts is
+
+b
+
+b
+
+uv
+
+dx
+
+=
+
+[
+
+uv
+
+]
+
+b a
+
+−
+
+u v dx.
+
+a
+
+a
+
+Any given integrand w(x) has to be written as w(x) = u(x)v (x) with v (x) chosen so that (i) it can be integrated explicitly, and (ii) it results in a u that has u no more complicated than u itself. There are usually several possible choices but the one that makes both u and v as simple as possible is normally the best.
+
+(a) Here the obvious choice at the ﬁrst stage is u(x) = x2 and v (x) = sin x. For the second stage, u = x and v = cos x are equally clear assignments.
+
+y
+x2 sin xdx =
+
+x2(− cos x)
+
+y 0
+
+−
+
+y
+2x(− cos x) dx
+
+0
+
+0
+
+y
+
+=
+
+−y2
+
+cos
+
+y
+
++
+
+[
+
+2x
+
+sin
+
+x
+
+]
+
+y 0
+
+−
+
+2 sin x dx
+
+0
+
+=
+
+−y2
+
+cos
+
+y
+
++
+
+2y
+
+sin
+
+y
+
++
+
+[
+
+2
+
+cos
+
+x
+
+]
+
+y 0
+
+= (2 − y2) cos y + 2y sin y − 2.
+
+(b) This integration is most straightforwardly carried out by taking v (x) = x and u(x) = ln x as follows:
+
+y
+
+x2
+
+y
+
+y 1 x2
+
+x ln x dx = ln x −
+
+dx
+
+1
+
+2
+
+1 1 x2
+
+y2
+
+x2 y
+
+= ln y −
+
+2
+
+41
+
+=
+
+1 y2
+
+ln y
+
++
+
+1 (1
+
+−
+
+y2).
+
+2
+
+4
+
+However, if you know that the integral of ln x is x ln x − x, then the given integral can also be found by taking v = ln x and u = x:
+
+y
+
+y
+
+x
+
+ln
+
+x
+
+dx
+
+=
+
+[
+
+x(x
+
+ln
+
+x
+
+−
+
+x)
+
+]
+
+y 1
+
+−
+
+1 × (x ln x − x) dx
+
+1
+
+1
+
+= y2 ln y − y2 − 0 + 1 −
+
+y
+
+x2 y
+
+x ln x dx +
+
+.
+
+1
+
+21
+
+33
+
+PRELIMINARY CALCULUS After the limits have been substituted, the equation can be rearranged as
+
+2
+
+y
+
+x ln x dx
+
+=
+
+y2
+
+ln y
+
+−
+
+y2
+
++
+
+1
+
++
+
+y2
+
+−
+
+1 ,
+
+1
+
+22
+
+y
+
+x ln x dx
+
+=
+
+1 y2 ln y
+
++
+
+1 (1
+
+− y2).
+
+1
+
+2
+
+4
+
+(c) Here we do not know the integral of sin−1 x (that is the problem!) but we do know its derivative. Therefore consider the integrand as 1 × sin−1 x, with v (x) = 1 and u(x) = sin−1 x.
+
+y
+
+y
+
+sin−1 x dx = 1 sin−1 x dx
+
+0
+
+0
+
+=
+
+x sin−1 x
+
+y 0
+
+−
+
+y1
+
+√
+
+x dx
+
+0 1 − x2
+
+√
+
+y
+
+= y sin−1 y + 1 − x2
+
+0
+
+= y sin−1 y + 1 − y2 − 1.
+
+(d) When the logarithm of a function of x appears as part of an integrand, it is normally helpful to remove its explicit appearance by making it the u(x) part of an integration-by-parts formula. The reciprocal of the function, without any explicit logarithm, then appears in the resulting integral; this is usually easier to deal with. In this case we take ln(a2 + x2) as u(x).
+
+y ln(a2 + x2)
+
+ln(a2 + x2) y
+
+y 2x
+
+1
+
+1
+
+x2
+
+dx = −
+
+x
+
+−
+1
+
+1
+
+a2 + x2
+
+−x
+
+dx
+
+=
+
+ln(a2 −
+
++
+
+y2)
+
++
+
+ln(a2
+
++
+
+1)
+
++
+
+2
+
+tan−1
+
+x
+
+y
+
+y
+
+a
+
+a1
+
+=
+
+ln(a2 −
+
++
+
+y2)
+
++
+
+ln(a2
+
++
+
+1)
+
+y
+
+2 +
+
+tan−1
+
+y
+
+− tan−1
+
+1
+
+.
+
+a
+
+a
+
+a
+
+34
+
+PRELIMINARY CALCULUS
+
+2.41 The gamma function Γ(n) is deﬁned for all n > −1 by
+∞
+Γ(n + 1) = xne−x dx.
+0
+Find a recurrence relation connecting Γ(n + 1) and Γ(n).
+
+(a)
+
+Deduce (i) the the value of Γ
+
+value of Γ(n + 1)
+
+7 2
+
+, given that Γ
+
+when
+
+1 2
+
+=
+
+√n is π.
+
+a
+
+non-negative
+
+integer,
+
+and
+
+(ii)
+
+(b) Now, taking factorial m for any m to be deﬁned by m! = Γ(m + 1), evaluate
+
+−
+
+3 2
+
+!.
+
+Integrating the deﬁning equation by parts,
+
+∞
+
+∞
+
+Γ(n + 1) =
+
+xne−x dx =
+
+−xne−x
+
+∞ 0
+
++
+
+nxn−1e−x dx
+
+0
+
+0
+
+= 0 + nΓ(n), for n > 0,
+
+i.e. Γ(n + 1) = nΓ(n).
+
+(a)(i) Clearly Γ(n + 1) = n(n − 1)(n − 2) · · · 2 1 Γ(1). But
+∞
+Γ(1) = e−x dx = 1.
+0
+Hence Γ(n + 1) = n!.
+
+(a)(ii) Applying the recurrence relation derived above,
+
+Γ
+
+7 2
+
+=
+
+5 2
+
+3 2
+
+1 2
+
+Γ
+
+1 2
+
+=
+
+15 8
+
+√ π.
+
+(b) With this general deﬁnition of a factorial, we have
+
+−
+
+3 2
+
+!=Γ
+
+−
+
+1 2
+
+=
+
+1
+
+−
+
+1 2
+
+Γ
+
+1 2
+
+√ = −2 π.
+
+2.43 By integrating by parts twice, prove that In as deﬁned in the ﬁrst equality below for positive integers n has the value given in the second equality:
+
+π/2
+
+n − sin(nπ/2)
+
+In =
+
+sin nθ cos θ dθ =
+
+0
+
+n2 − 1 .
+
+Taking sin nθ as u and cos θ as v and noting that with this choice u = −n2u 35
+
+PRELIMINARY CALCULUS
+
+and v = −v, we expect that after two integrations by parts we will recover (a multiple of) In.
+
+π/2
+
+In =
+
+sin nθ cos θ dθ
+
+0
+
+π/2
+
+=
+
+[
+
+sin
+
+nθ
+
+sin
+
+θ
+
+]
+
+π/2 0
+
+−
+
+n cos nθ sin θ dθ
+
+0
+
+nπ = sin − n
+2
+
+π/2
+
+[
+
+−
+
+cos
+
+nθ
+
+cos
+
+θ
+
+]
+
+π/2 0
+
+−
+
+(−n sin nθ)(− cos θ) dθ
+
+0
+
+nπ = sin 2 − n[ −(−1) − nIn ].
+
+Rearranging this gives
+
+In(1
+
+−
+
+n2)
+
+=
+
+sin
+
+nπ 2
+
+−
+
+n,
+
+and hence the stated result.
+
+2.45 If Jr is the integral show that
+
+∞
+xr exp(−x2) dx,
+0
+
+(a) J2r+1 = (r!)/2, (b) J2r = 2−r(2r − 1)(2r − 3) · · · (5)(3)(1) J0.
+
+(a) We ﬁrst derive a recurrence relationship for J 2r+1. Since we cannot integrate
+
+exp(−x2) explicitly but can integrate −2x exp(−x2), we extract the factor −2x
+
+from
+
+the
+
+rest
+
+of
+
+the
+
+integrand
+
+and
+
+treat
+
+what
+
+is
+
+left
+
+(−
+
+1 2
+
+x2r
+
+in
+
+this
+
+case)
+
+as
+
+u(x).
+
+This is the operation that has been carried out in the second line of what follows.
+
+∞
+
+J 2r+1 =
+
+x2r+1 exp(−x2) dx
+
+0
+
+= ∞ − x2r (−2x) exp(−x2) dx
+
+0
+
+2
+
+=
+
+x2r −
+
+exp(−x2)
+
+∞
++
+
+∞ 2rx2r−1 exp(−x2) dx
+
+2
+
+0
+
+0
+
+2
+
+= 0 + rJ 2r−1.
+
+Applying the relationship r times gives
+
+J 2r+1 = r (r − 1) · · · 1 J1.
+
+36
+
+PRELIMINARY CALCULUS
+
+But
+
+J1 =
+
+∞
+x exp(−x2) dx =
+0
+
+− 1 exp(−x2)
+
+∞
+=
+
+1 ,
+
+2
+
+02
+
+and
+
+so
+
+J 2r+1
+
+=
+
+1 2
+
+r!.
+
+(b) Using the same method as in part (a) it can be shown that
+
+2r − 1 J 2r = 2 J 2r−2.
+
+Hence,
+
+J 2r
+
+=
+
+2r − 1 2
+
+2r − 3 2
+
+···
+
+1 2
+
+J0,
+
+in agreement with the stated relationship.
+
+2.47 By noting that for 0 ≤ η ≤ 1, η1/2 ≥ η3/4 ≥ η, prove that
+
+21 3 ≤ a5/2
+
+a
+(a2
+
+−
+
+x2)3/4
+
+dx
+
+≤
+
+π .
+
+0
+
+4
+
+We use the result that, if g(x) ≤ f(x) ≤ h(x) for all x in the range a ≤ x ≤ b, then g(x) dx ≤ f(x) dx ≤ h(x) dx, where all integrals are between the limits a and b.
+Set η = 1 − (x/a)2 in the stated inequalities and integrate the result from 0 to a, giving
+
+a
+
+x2 1/2
+
+a
+
+x2 3/4
+
+a
+
+x2
+
+0 1 − a2
+
+dx ≥
+0
+
+1 − a2
+
+dx ≥
+0
+
+1 − a2
+
+dx.
+
+Substituting x = a sin θ and dx = a cos θ dθ in the ﬁrst term and carrying out the elementary integration in the third term yields
+
+π/2
+a cos2 θ dθ
+0
+
+≥
+
+1 a3/2
+
+a
+(a2 − x2)3/4 dx ≥
+0
+
+x3 a
+
+x − 3a2
+
+,
+0
+
+⇒
+
+1π 1
+
+a 2
+
+2
+
+≥
+
+a3/2
+
+a
+(a2
+
+−
+
+x2)3/4
+
+dx
+
+≥
+
+2a ,
+
+0
+
+3
+
+⇒
+
+π1 4 ≥ a5/2
+
+a
+(a2
+
+−
+
+x2)3/4
+
+dx
+
+≥
+
+2 .
+
+0
+
+3
+
+37
+
+PRELIMINARY CALCULUS
+
+2.49
+
+By
+
+noting
+
+that
+
+sinh x
+
+<
+
+1 2
+
+ex
+
+<
+
+cosh x,
+
+and
+
+that
+
+1
+
++
+
+z2
+
+<
+
+(1
+
++
+
+z)2
+
+for
+
+z
+
+>
+
+0,
+
+show
+
+that,
+
+for
+
+x
+
+>
+
+0,
+
+the
+
+length
+
+L
+
+of
+
+the
+
+curve
+
+y
+
+=
+
+1 2
+
+ex
+
+measured
+
+from
+
+the
+
+origin
+
+satisﬁes the inequalities sinh x < L < x + sinh x.
+
+With y = y
+
+=
+
+1 2
+
+ex
+
+and
+
+the
+
+element
+
+of
+
+curve
+
+length
+
+ds
+
+given
+
+by
+
+ds
+
+=
+
+(1+y
+
+2 )1/2
+
+dx,
+
+the total length of the curve measured from the origin is
+
+x
+
+x
+
+L = ds =
+
+1
+
++
+
+1 4
+
+e2x
+
+1/2
+
+dx.
+
+0
+
+0
+
+But, since all quantities are positive for x ≥ 0,
+
+sinh x <
+
+1 2
+
+ex
+
+< cosh x,
+
+⇒ sinh2 x <
+
+1 4
+
+e2x
+
+< cosh2 x,
+
+cosh2 x = 1 + sinh2 x <
+
+1
+
++
+
+1 4
+
+e2x
+
+< 1 + cosh2 x < (1 + cosh x)2,
+
+⇒
+
+cosh x <
+
+1+
+
+1 4
+
+e2x
+
+1/2
+
+< 1 + cosh x.
+
+It then follows, from integrating each term in the double inequality, that
+
+x
+
+x
+
+cosh x dx < L < (1 + cosh x) dx,
+
+0
+
+0
+
+⇒ sinh x < L < x + sinh x,
+
+as stated in the question.
+
+38
+
+3
+Complex numbers and hyperbolic functions
+
+3.1 Two complex numbers z and w are given by z = 3 + 4i and w = 2 − i. On an Argand diagram, plot
+(a) z + w, (b) w − z, (c) wz, (d) z/w, (e) z∗w + w∗z, (f) w2, (g) ln z, (h) (1 + z + w)1/2.
+
+With z = 3 + 4i, w = 2 − i and, where needed, i2 = −1:
+
+(a) z + w = 3 + 4i + 2 − i = 5 + 3i;
+
+(b) w − z = 2 − i − 3 − 4i = −1 − 5i;
+
+(c) wz = (2 − i)(3 + 4i) = 6 − 3i + 8i − 4i2 = 10 + 5i;
+
+z 3 + 4i 3 + 4i 2 + i 6 + 8i + 3i + 4i2 2 + 11i
+
+(d) = w
+
+2−i
+
+=
+
+2−i
+
+= 2+i
+
+4 − 2i + 2i − i2
+
+=
+
+; 5
+
+(e) z ∗ w + w ∗ z = (3 − 4i)(2 − i) + (2 + i)(3 + 4i) = (2 − 11i) + (2 + 11i) = 4;
+
+(f) w2 = (2 − i)(2 − i) = 4 − 4i + i2 = 3 − 4i;
+
+(g) ln z = ln |z| + i arg z
+
+= ln(32 + 42)1/2 + i tan−1
+
+4 3
+
+= ln 5 + i tan−1
+
+4 3
+
++ 2nπ
+
+;
+
+(h) (1 + z + w)1/2 = (6 + 3i)1/2
+
+√
+
+1/2
+
+=
+
+45 exp
+
+i tan
+
+3 6
+
+= ±(45)1/4 exp
+
+i
+
+1 2
+
+tan−1
+
+1 2
+
+= ±2.590 (cos 0.2318 + i sin 0.2318)
+
+= ±(2.521 + 0.595i).
+
+39
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+Im z x = (g), multivalued
+
+(c)
+
+(a) (d)
+
+(h) Re z
+
+(h)
+
+(e)
+
+(f) (b)
+
+Figure 3.1 The solutions to exercise 3.1.
+These results are plotted in ﬁgure 3.1. The answer to part (g) is multivalued and only ﬁve of the inﬁnite number of possibilities are shown.
+
+3.3 By writing π/12 = (π/3) − (π/4) and considering eiπ/12, evaluate cot(π/12).
+
+As we are expressing π/12 as the diﬀerence between two (familiar) angles, for
+
+which we know explicit formulae for their sines and cosines, namely
+
+√
+
+π sin =
+
+3 ,
+
+π1 cos = ,
+
+π sin
+
+π = cos
+
+=
+
+√1
+
+,
+
+32
+
+32
+
+4
+
+42
+
+we will need the formulae for cos(A − B) and sin(A − B). They are given by
+
+cos(A − B) = cos A cos B + sin A sin B and sin(A − B) = sin A cos B − cos A sin B.
+
+40
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+Applying these with A = π/3 and B = π/4,
+
+π
+
+ππ
+
+exp i = exp i − ,
+
+12
+
+34
+
+π
+
+π
+
+cos + i sin = cos
+
+12
+
+12
+
+π 3
+
+−
+
+π 4
+
++ i sin
+
+π 3
+
+−
+
+π 4
+
+ππ
+
+ππ
+
+= cos cos + sin sin
+
+34
+
+34
+
++i
+
+π sin
+√3
+
+cos
+
+π 4
+
+−
+
+π cos
+√3
+
+sin
+
+π 4
+
+11
+
+31
+
+31 11
+
+= √ + √ +i
+
+√− √ .
+
+22 2 2
+
+2 2 22
+
+Thus
+
+cot
+
+π
+
+=
+
+cos(π/12)
+
+=
+
+√ 1√+ 3
+
+=
+
+2
+
++
+
+√ 3.
+
+12 sin(π/12) 3 − 1
+
+3.5 Evaluate
+
+(a)
+
+Re
+
+(exp
+
+2iz),
+
+(b)
+
+Im
+
+(cosh2
+
+z),
+
+(c)
+
+(−1
+
++
+
+√ 3i)1/2,
+
+√
+
+(d) | exp(i1/2)|, (e) exp(i3), (f) Im (2i+3), (g) ii, (h) ln[( 3 + i)3].
+
+All of these evaluations rely directly on the deﬁnitions of the various functions involved as applied to complex numbers; these should be known to the reader. There are too many to give every one individually at each step and, if the justiﬁcation for any particular step is unclear, reference should be made to a textbook.
+(a) Re (exp 2iz) = Re [exp(2ix − 2y)] = exp(−2y) cos 2x.
+
+(b) Im (cosh2 z) = Im
+
+1 2
+
+(cosh
+
+2z
+
++
+
+1)
+
+=
+
+1 2
+
+Im
+
+[cosh(2x + 2iy)]
+
+=
+
+1 2
+
+Im
+
+(cosh 2x cosh 2iy + sinh 2x sinh 2iy)
+
+=
+
+1 2
+
+Im
+
+(cosh 2x cos 2y
+
++ i sinh 2x sin 2y)
+
+=
+
+1 2
+
+sinh 2x sin 2y.
+
+√ (c) (−1 + 3i)1/2 =
+
+√ (−1)2 + ( 3)2
+
+1/4
+exp
+
+√
+
+i
+
+1 2
+
+(tan−1(
+
+3 −1
+
+)
+
++
+
+2nπ)
+
+√
+
+= 2 exp √
+
+i
+
+1 2
+
+(
+
+2 3
+
+π
+
++
+
+2nπ) √
+
+=
+
+2 exp
+
+πi 3
+
+or
+
+2 exp
+
+4πi 3
+
+.
+
+41
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+(d) exp i1/2
+
+=
+
+exp
+
+(e
+
+iπ 2
+
+)1/2
+
+=
+
+exp
+
+e iπ 4
+
++inπ
+
+=
+
+exp
+
+cos(n
+
++
+
+1 4
+
+)π
+
++
+
+i sin(n
+
++
+
+1 4
+
+)π
+
+=
+
+exp[cos(n
+
++
+
+1 4
+
+)π]
+
+= exp √1
+2
+
+or
+
+exp
+
+−
+
+√1 2
+
+.
+
+(e) exp i3
+
+= exp
+
+e3(
+
+iπ 2
+
+)
+
+=
+
+exp(cos
+
+3π 2
+
++
+
+i sin
+
+3π 2
+
+)
+
+= exp(0 − i) = cos(−1) + i sin(−1) = 0.540 − 0.841 i.
+
+(f) Im (2i+3) = Im (8×2i) = 8 Im (2i) = 8 Im (ei ln 2) = 8 sin(ln 2) = 5.11.
+
+(g) ii =
+
+exp
+
+i(
+
+1 2
+
+π
+
++
+
+2nπ)
+
+i=
+
+exp
+
+i2(
+
+1 2
+
+π
+
++
+
+2nπ)
+
+=
+
+exp[
+
+−(2n+
+
+1 2
+
+)π
+
+].
+
+√
+
+√
+
+(h) ln ( 3 + i)3 = 3 ln( 3 + i)
+
+= 3 ln 2 + i tan−1 √1
+3
+
+=
+
+ln 8
+
++
+
+3i(
+
+π 6
+
++
+
+2nπ)
+
+=
+
+ln 8
+
++
+
+i(6n
+
++
+
+1 2
+
+)π
+
+.
+
+3.7 Show that the locus of all points z = x + iy in the complex plane that satisfy
+|z − ia| = λ|z + ia|, λ > 0, is a circle of radius |2aλ/(1 − λ2)| centred on the point z = ia[(1 + λ2)/(1 − λ2)]. Sketch the circles for a few typical values of λ, including λ < 1, λ > 1 and λ = 1.
+
+As we wish to ﬁnd the locus in the x-y plane, we ﬁrst express |z ± ia| explicitly in terms of x and y, remembering that a can be complex:
+| x + iy − ia|2 = (x + iy − ia)(x − iy + ia∗) = x2 + y2 + | a |2 − ia(x − iy) + ia∗(x + iy).
+| x + iy + ia|2 = (x + iy + ia)(x − iy − ia∗) = x2 + y2 + | a |2 + ia(x − iy) − ia∗(x + iy).
+
+Substituting in
+
+| x + iy − ia|2 = λ2| x + iy + ia|2
+
+42
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+y
+
+λ
+
+=
+
+1 3
+
+ia λ→0
+
+a
+
+λ=3
+
+x
+
+−ia λ→∞
+
+λ=1
+
+Figure 3.2 The solution to exercise 3.7.
+
+gives, on dividing through by 1 − λ2,
+
+x2
+
+−
+
+1 1
+
++ −
+
+λ2 λ2
+
+(ia
+
+−
+
+ia∗)x
+
++
+
+y2
+
+−
+
+1 1
+
++ −
+
+λ2 λ2
+
+(a
+
++
+
+a∗)y
+
++
+
+|
+
+a
+
+|2
+
+=
+
+0,
+
+which can be rearranged as
+
+1 + λ2
+
+2
+
+x + 1 − λ2 Im a +
+
+1 + λ2 y + 1 − λ2 Re a
+
+2
++ | a |2
+
+This is of the form (x − α)2 + (y − β)2 =
+
+−
+
+1 + λ2 1 − λ2
+
+2
+(Im a)2 + (Re a)2 = 0.
+
+1 + λ2 1 − λ2
+
+2
+−1
+
+| a |2
+
+=
+
+(1
+
+4λ2 − λ2)2
+
+| a |2,
+
+where
+
+1 + λ2
+
+1 + λ2
+
+α + iβ = 1 − λ2 (−Im a + iRe a) = 1 − λ2 ia.
+
+Thus it is the equation of a circle of radius | 2λ/(1 − λ2)|a centred on the point α + iβ as given above. See ﬁgure 3.2; note that a lies on the straight line (circle of inﬁnite radius) corresponding to λ = 1. The circles centred on ia and −ia have vanishingly small radii.
+
+43
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+3.9 For the real constant a ﬁnd the loci of all points z = x + iy in the complex plane that satisfy
+
+z − ia
+
+(a) Re ln z + ia
+
+= c,
+
+z − ia
+
+(b) Im ln z + ia
+
+= k,
+
+c > 0, 0 ≤ k ≤ π/2.
+
+Identify the two families of curves and verify that in case (b) all curves pass through the two points ±ia.
+
+(a) Recalling that
+
+ln z = ln |z| + i arg z
+
+we have
+
+Re ln z − ia = ln z − ia = c, c > 0,
+
+z + ia
+
+z + ia
+
+|z − ia| = ec|z + ia|, ec > 1.
+
+As in exercise 3.7, this is a circle of radius |2aec/(1 − e2c)| = |a| cosech c centred on the point z = ia(1 + e2c)/(1 − e2c) = ia coth c. As c varies this generates a family of circles whose centres lie on the y-axis above the point z = ia (or below the point z = ia if a is negative) and whose radii decrease as their centres approach that point. The curve corresponding to c = 0 is the x-axis.
+
+(b) Using the principal value for the argument of a logarithm, we obtain
+
+Im
+
+ln z − ia
+
+= arg z − ia = k,
+
+0
+
+≤
+
+k
+
+≤
+
+π .
+
+z + ia
+
+z + ia
+
+2
+
+Now,
+
+z − ia (z − ia)(z∗ − ia) zz∗ − ia(z + z∗) − a2
+
+z + ia = (z + ia)(z + ia)∗ =
+
+| z + ia|2
+
+.
+
+Hence,
+
+k
+
+=
+
+tan−1
+
+−a(z + z∗) |z|2 − a2 ,
+
+a(z + z∗) = (a2 − |z|2) tan k,
+
+2ax = a2 tan k − (x2 + y2) tan k,
+
+(x + a cot k)2 + y2 = a2(1 + cot2 k).
+
+This is a circle with centre (−a cot k, 0) and radius a cosec k. As k varies the curves generate a family of circles whose centres lie on the negative x-axis (for a > 0) and whose radii decrease to a as their centres approach the origin. The curve corresponding to k = 0 is the y-axis.
+
+44
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+The two points z = ±ia = (0, ±a) lie on the curve if (0 + a cot k)2 + a2 = a2(1 + cot2 k).
+This is identically satisﬁed, verifying that all members of the family pass through the two points z = ±ia.
+
+3.11 Sketch the parts of the Argand diagram in which
+(a) Re z2 < 0, |z1/2| ≤ 2; (b) 0 ≤ arg z∗ ≤ π/2; (c) | exp z3| → 0 as |z| → ∞.
+What is the area of the region in which all three sets of conditions are satisﬁed?
+
+Since we will need to study the signs of the real parts of certain powers of z, it will be convenient to consider z as r eiθ with 0 ≤ θ ≤ 2π.
+
+Condition (a) contains two speciﬁcations. Firstly, for the real part of z2 to be negative, its argument must be greater than π/2 but less than 3π/2. The argument of z itself, which is half that of z2 (mod 2π), must therefore lie in one of the two ranges π/4 < arg z < 3π/4 and 5π/4 < arg z < 7π/4. Secondly, since the modulus of any complex number is real and positive, |z1/2| ≤ 2 is equivalent to |z| ≤ 4.
+
+Since arg z∗ = − arg z, condition (b) requires arg z to lie in the range 3π/2 ≤ θ ≤ 2π, i.e z to lie in the fourth quadrant.
+
+Condition (c) will only be satisﬁed if the real part of z3 is negative. This requires
+
+π
+
+π
+
+(4n + 1) < 3θ < (4n + 3) ,
+
+2
+
+2
+
+n = 0, 1, 2.
+
+The allowed regions for θ are thus alternate wedges of angular size π/3 with an allowed region starting at θ = π/6. The allowed region overlapping those speciﬁed by conditions (a) and (b) is the wedge 3π/2 ≤ θ ≤ 11π/6.
+
+All three conditions are satisﬁed in the region 3π/2 ≤ θ ≤ 7π/4, |z| ≤ 4; see ﬁgure 3.3. This wedge has an area given by
+
+1 r2θ
+
+=
+
+1 16
+
+7π − 3π
+
+= 2π.
+
+2
+
+2 42
+
+45
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+y π/4
+6
+
+4
+
+π/6
+
+2
+
+−6 −4 −2 −2 −4
+
+x
+
+2
+
+4
+
+6
+
+11π/6
+
+−6 7π/4
+Figure 3.3 The deﬁned region of the Argand diagram in exercise 3.11. Regions in which only one condition is satisﬁed are lightly shaded; those that satisfy two conditions are more heavily shaded; and the region satisfying all three conditions is most heavily shaded and outlined.
+
+3.13 Prove that x2m+1 − a2m+1, where m is an integer ≥ 1, can be written as
+
+m
+
+x2m+1 − a2m+1 = (x − a)
+
+x2 − 2ax cos
+
+2πr
+
++ a2 .
+
+2m + 1
+
+r=1
+
+For the sake of brevity, we shall denote x2m+1 − a2m+1 by f(x) and the (2m + 1)th root of unity, exp[ 2πi/(2m + 1) ], by Ω.
+Now consider the roots of the equation f(x) = 0. The 2m + 1 quantities of the form x = aΩr with r = 0, 1, 2, . . . , 2m are all solutions of this equation and, since it is a polynomial equation of order 2m + 1, they represent all of its roots. We can therefore reconstruct the polynomial f(x) (which has unity as the coeﬃcient of its highest power) as the product of factors of the form (x − aΩr):
+f(x) = (x − a)(x − aΩ) · · · (x − aΩm)(x − aΩm+1) · · · (x − aΩ2m).
+46
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+Now combine (x − aΩr) with (x − aΩ2m+1−r):
+
+m
+f(x) = (x − a) (x − aΩr)(x − aΩ2m+1−r)
+
+r=1 m
+= (x − a) [ x2 − ax(Ωr + Ω2m+1−r) + a2Ω2m+1 ]
+
+r=1 m
+= (x − a) [ x2 − ax(Ωr + Ω−r) + a2 ], since Ω2m+1 = 1,
+
+r=1
+
+m
+= (x − a) x2 − 2ax cos
+
+2πr
+
++ a2 .
+
+2m + 1
+
+r=1
+
+This is the form given in the question.
+
+3.15 Solve the equation z7 − 4z6 + 6z5 − 6z4 + 6z3 − 12z2 + 8z + 4 = 0,
+(a) by examining the eﬀect of setting z3 equal to 2, and then (b) by factorising and using the binomial expansion of (z + a)4.
+Plot the seven roots of the equation on an Argand plot, exemplifying that complex roots of a polynomial equation always occur in conjugate pairs if the polynomial has real coeﬃcients.
+(a) Setting z3 = 2 in f(z) so as to leave no higher powers of z than its square, e.g. writing z7 as (z3)2z = 4z, gives
+4z − 16 + 12z2 − 12z + 12 − 12z2 + 8z + 4 = 0, which is satisﬁed identically. Thus z3 − 2 is a factor of f(z). (b) Writing f(z) as
+f(z) = (z3 − 2)(az4 + bz3 + cz2 + dz + e) = 0 and equating the coeﬃcients of the various powers of z gives a = 1, b = −4, c = 6, d − 2a = −6, e − 2b = 6, −2c = −12, −2d = 8 and −2e = 4. These imply (consistently) that f(z) can be written as
+f(z) = (z3 − 2)(z4 − 4z3 + 6z2 − 4z − 2). We now note that the ﬁrst four terms in the second set of parentheses are the
+47
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+same as the corresponding terms in the expansion of (z − 1)4; only the constant term needs correction. Thus, we may write the original equation as
+0 = f(z) = (z3 − 2)[(z − 1)4 − 3], with solutions z = 21/3e2nπi/3 n = 0, 1, 2 or
+z − 1 = 31/4e2nπi/4 n = 0, 1, 2, 3. The seven roots are therefore
+√ 21/3, 21/3 −1 ± i 3 , 1 ± 31/4, 1 ± 31/4i.
+2 As is to be expected, each root that has a non-zero imaginary part occurs as one of a complex conjugate pair.
+3.17 The binomial expansion of (1 + x)n can be written for a positive integer n as
+n
+(1 + x)n = nCrxr,
+r=0
+where nCr = n!/[r!(n − r)!].
+(a) Use de Moivre’s theorem to show that the sum S1(n) = nC0 − nC2 + nC4 − · · · + (−1)m nC2m, n − 1 ≤ 2m ≤ n,
+has the value 2n/2 cos(nπ/4). (b) Derive a similar result for the sum
+S2(n) = nC1 − nC3 + nC5 − · · · + (−1)m nC2m+1, n − 1 ≤ 2m + 1 ≤ n, and verify it for the cases n = 6, 7 and 8.
+
+Since we seek the sum of binomial coeﬃcients that contain either all even or
+
+all odd indices, we need to choose a value for x such that xr has diﬀerent
+
+characteristics depending upon whether r is even or odd. The quantity i has just
+
+such a property, being purely real when r is even√and purely imaginary when r is odd. We therefore take x = i, write 1 + i as 2eiπ/4 and apply de Moivre’s
+
+theorem:
+
+√
+
+n
+
+2eiπ/4 = (1 + i)n
+
+= nC0 + i nC1 + i2 nC2 + · · · = ( nC0 − nC2 + nC4 − · · · )
++i ( nC1 − nC3 + nC5 − · · · ) .
+
+48
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+Thus
+
+S1(n)
+
+= ( nC0 −
+
+nC2 +
+
+nC4
+
+−
+
+·
+
+·
+
+·
+
++
+
+(−1)√m
+
+nC2m),
+
+where
+n
+
+n − 1 ≤ 2m ≤
+
+n,
+
+has
+
+a value equal to that of the real part of 2eiπ/4 . This is the real part of
+
+2n/2einπ/4, which, by de Moivre’s theorem, is 2n/2 cos(nπ/4).
+
+(b) The corresponding result for S2(n) is that it is equal to the imaginary part of 2n/2einπ/4, which is 2n/2 sin(nπ/4).
+
+We now verify this result for n = 6, 7 and 8 by direct calculation:
+
+S2(6) =
+
+6C1 −
+
+6C3 +
+
+6C5
+
+=
+
+6
+
+−
+
+20
+
++
+
+6
+
+=
+
+−8
+
+=
+
+23
+
+sin
+
+6π 4
+
+,
+
+S2(7) = 7C1 − 7C3 + 7C5 − 7C7
+
+= 7 − 35 + 21 − 1 = −8 = 27/2 sin 7π , 4
+
+S2(8) =
+
+8C1 −
+
+8C3 +
+
+8C5 −
+
+8C7
+
+=
+
+8
+
+−
+
+56
+
++
+
+56
+
+−
+
+8
+
+=
+
+0
+
+=
+
+24
+
+sin
+
+8π 4
+
+.
+
+3.19 Use de Moivre’s theorem with n = 4 to prove that cos 4θ = 8 cos4 θ − 8 cos2 θ + 1,
+
+and deduce that
+
+√ 1/2
+
+π 2+ 2
+
+cos =
+
+.
+
+8
+
+4
+
+From de Moivre’s theorem, ei4θ = cos 4θ + i sin 4θ. But, by the binomial theorem, we also have that
+
+ei4θ = (cos θ + i sin θ)4 = cos4 θ + 4i cos3 θ sin θ − 6 cos2 θ sin2 θ − 4i cos θ sin3 θ + sin4 θ.
+Equating the real parts of the two equal expressions and writing sin2 θ as 1−cos2 θ,
+
+cos 4θ = cos4 θ − 6 cos2 θ(1 − cos2 θ) + (1 − cos2 θ)2 = 8 cos4 θ − 8 cos2 θ + 1.
+
+Now set θ = π/8 in this result and write cos(π/8) as c:
+
+0 = cos 4π = 8c4 − 8c2 + 1. 8
+
+Hence, as this is a quadratic equation in c2,
+
+√
+
+√ 1/2
+
+c2 = 4 ± 16 − 8 and c = cos π = ± 2 ± 2 .
+
+8
+
+8
+
+4
+
+49
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+Sin√ce 0 < π/8 < π/2, c must be √positive. Further, as π/8 < π/4 and cos(π/4) = 1/ 2, c must be greater then 1/ 2. It is clear that the positive square roots are the appropriate ones in both cases.
+
+3.21 Use de Moivre’s theorem to prove that
+
+t5 − 10t3 + 5t
+
+tan 5θ
+
+=
+
+5t4
+
+−
+
+10t2
+
+, +1
+
+where t = tan θ. Deduce the values of tan(nπ/10) for n = 1, 2, 3 and 4.
+
+Using the binomial theorem and de Moivre’s theorem to expand (eiθ)5 in two diﬀerent ways, we have, from equating the real and imaginary parts of the two results, that
+
+cos 5θ + i sin 5θ = cos5 θ + i5 cos4 θ sin θ − 10 cos3 θ sin2 θ −i10 cos2 θ sin3 θ + 5 cos θ sin4 θ + i sin5 θ,
+cos 5θ = cos5 θ − 10 cos3 θ(1 − cos2 θ) +5 cos θ(1 − 2 cos2 θ + cos4 θ)
+= 16 cos5 θ − 20 cos3 θ + 5 cos θ, sin 5θ = 5(1 − 2 sin2 θ + sin4 θ) sin θ
+−10(1 − sin2 θ) sin3 θ + sin5 θ = 16 sin5 θ − 20 sin3 θ + 5 sin θ.
+
+Now, writing cos θ as c, sin θ as s and tan θ as t, and further recalling that c−2 = 1 + t2, we have
+16s5 − 20s3 + 5s tan 5θ = 16c5 − 20c3 + 5c
+
+16t5 − 20t3c−2 + 5tc−4 = 16 − 20c−2 + 5c−4
+
+16t5 − 20t3(1 + t2) + 5t(1 + 2t2 + t4) = 16 − 20(1 + t2) + 5(1 + 2t2 + t4)
+
+t5 − 10t3 + 5t
+
+=
+
+5t4
+
+−
+
+10t2
+
++
+
+. 1
+
+When θ is equal to π or 3π , tan 5θ = ∞, implying that 10 10
+
+√
+
+√
+
+1/2
+
+5t4 − 10t2 + 1 = 0 ⇒ t2 = 5 ± 25 − 5 ⇒ t = ± 5 ± 20
+
+.
+
+5
+
+5
+
+50
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+As both angles lie in the ﬁrst quadrant the overall sign must be taken as positive in both cases, and it is clear that the positive square root in the numerator corresponds to θ = 3π/10.
+
+2π 4π
+
+When θ
+
+is equal
+
+to
+
+10
+
+or
+
+, 10
+
+tan 5θ = 0,
+
+implying that
+
+t5 − 10t3 + 5t = 0
+
+⇒
+
+√ t2 = 5 ± 25 − 5
+
+⇒
+
+√ 1/2 t = ± 5 ± 20 .
+
+Again, as both angles lie in the ﬁrst quadrant the overall sign must be taken as positive; it is also clear that the positive square root in the parentheses corresponds to θ = 4π/10.
+
+3.23 Determine the conditions under which the equation
+
+a cosh x + b sinh x = c,
+
+c > 0,
+
+has zero, one, or two real solutions for x. What is the solution if a2 = c2 + b2?
+
+We
+
+start
+
+by
+
+recalling
+
+that
+
+cosh x
+
+=
+
+1 2
+
+(ex
+
++
+
+e−x)
+
+and
+
+sinh x
+
+=
+
+1 2
+
+(ex
+
+−
+
+e−x
+
+),
+
+and
+
+then
+
+rewrite the equation as a quadratic equation in ex:
+
+a cosh x + b sinh x − c = 0, (a + b)ex − 2c + (a − b)e−x = 0, (a + b)e2x − 2cex + (a − b) = 0.
+
+Hence,
+
+ex = c ±
+
+c2 − (a2 − b2) .
+
+a+b
+
+For x to be real, ex must be real and ≥ 0. Since c > 0, this implies that a + b > 0 and c2 + b2 ≥ a2. Provided these two conditions are satisﬁed, there are two roots if c2 + b2 − a2 < c2, i.e. if b2 < a2, but only one root if c2 + b2 − a2 > c2, i.e. if b2 > a2.
+
+If c2 + b2 = a2 then the double root is given by
+
+ex =
+
+c ,
+
+a+b
+
+e2x
+
+=
+
+c2 (a + b)2
+
+=
+
+a2 − b2 (a + b)2
+
+=
+
+a − b, a+b
+
+x = 1 ln a − b . 2 a+b
+
+51
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+3.25 Express sinh4 x in terms of hyperbolic cosines of multiples of x, and hence ﬁnd the real solutions of
+2 cosh 4x − 8 cosh 2x + 5 = 0.
+
+In order to connect sinh4 x to hyperbolic functions of other multiples of x, we need to express it in terms of powers of e±x and then to group the terms so as to
+make up those hyperbolic functions. Starting from
+
+sinh x
+
+=
+
+1 2
+
+(ex
+
+−
+
+e−x),
+
+we have from the binomial theorem that
+
+sinh4 x
+
+=
+
+1 16
+
+e4x − 4e2x + 6 − 4e−2x + e−4x
+
+.
+
+Terms containing related exponents nx and −nx can now be grouped together and expressed as a linear sum of cosh nx and sinh nx; here, because of the symmetry properties of the binomial coeﬃcients, only the cosh nx combinations appear and yield
+
+sinh4 x
+
+=
+
+1 8
+
+cosh 4x −
+
+1 2
+
+cosh 2x +
+
+3 8
+
+.
+
+Now consider the relationship between this expression and the LHS of the given equation. They are clearly closely related; one is a multiple of the other, except in respect of the constant term. Making compensating corrections to the constant term allows us to rewrite the equation in terms of sinh4 x as follows:
+
+2 cosh 4x − 8 cosh 2x + (6 − 1) = 0,
+
+16 sinh4 x − 1 = 0,
+
+sinh4
+
+x
+
+=
+
+1 16
+
+,
+
+sinh
+
+x
+
+=
+
+±
+
+1 2
+
+(real solutions only).
+
+We now use the explicit expression for the inverse hyperbolic sine, namely
+
+If y = sinh−1 z, then y = ln( 1 + z2 + z),
+
+to give in this case
+
+x = ln
+
+1
+
++
+
+1 4
+
+±
+
+1 2
+
+= 0.481 or − 0.481.
+
+52
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+3.27 A closed barrel has as its curved surface the surface obtained by rotating about the x-axis the part of the curve
+y = a[ 2 − cosh(x/a) ] lying in the range −b ≤ x ≤ b, where b < a cosh−1 2. Show that the total surface area, A, of the barrel is given by
+A = πa[ 9a − 8a exp(−b/a) + a exp(−2b/a) − 2b ].
+
+If s is the length of the curve deﬁning the surface (measured from x = 0) then ds2 = dx2 + dy2 and consequently ds/dx = (1 + y 2)1/2.
+
+For this particular surface,
+
+y = a 2 − cosh x a
+
+and
+
+dy dx
+
+=
+
+−
+
+sinh
+
+x a
+
+.
+
+It follows that
+
+ds
+
+dy 2 1/2
+
+= 1+
+
+dx
+
+dx
+
+= 1 + sinh2 x 1/2 a
+x = cosh .
+a
+
+The curved surface area, A1, is given by
+
+b
+
+A1 = 2 2πy ds
+0
+
+b
+
+ds
+
+= 2 2πy dx
+
+0
+
+dx
+
+= 4πa b 2 cosh x − cosh2 x
+
+0
+
+a
+
+a
+
+dx,
+
+use
+
+cosh2 z
+
+=
+
+1 2
+
+(cosh
+
+2z
+
++
+
+1),
+
+b
+
+x 1 1 2x
+
+= 4πa 2 cosh − − cosh dx
+
+0
+
+a22
+
+a
+
+xxa
+
+2x b
+
+= 4πa 2a sinh − − sinh
+
+a24
+
+a0
+
+= πa
+
+8a
+
+sinh
+
+b a
+
+−
+
+2b
+
+−
+
+a
+
+sinh
+
+2b a
+
+.
+
+53
+
+COMPLEX NUMBERS AND HYPERBOLIC FUNCTIONS
+
+The area, A2, of the two ﬂat ends is given by
+
+A2 = 2πa2
+
+2
+
+−
+
+cosh
+
+b a
+
+2
+
+= 2πa2 4 − 4 cosh b + cosh2 b .
+
+a
+
+a
+
+And so the total area is
+
+A = πa 4a eb/a − e−b/a − 2b − a e2b/a − e−2b/a 2
+
++8a − 4a
+
+eb/a + e−b/a
+
+2a +
+
+e2b/a + 2 + e−2b/a
+
+4
+
+= πa 9a − 8ae−b/a + ae−2b/a − 2b .
+
+54
+
+4
+Series and limits
+
+4.1 Sum the even numbers between 1000 and 2000 inclusive.
+
+We must ﬁrst express the given sum in terms of a summation for which we have an explicit form. The result that is needed is clearly
+
+N
+
+1
+
+SN =
+
+n = N(N + 1), 2
+
+n=1
+
+and we must re-write the given summation in terms of sums of this form:
+
+n=2000
+
+m=1000
+
+n=
+
+2m
+
+n(even)=1000
+
+m=500
+
+= 2(S1000 − S499)
+
+=2
+
+1 2
+
+×
+
+1000
+
+×
+
+1001
+
+−
+
+1 2
+
+×
+
+499
+
+×
+
+500
+
+= 751 500.
+
+4.3 How does the convergence of the series ∞ (n − r)! n!
+n=r
+depend on the integer r?
+
+For r ≤ 1, each term of the series is greater than or equal to the corresponding
+
+1
+
+term of
+
+, which is known to be divergent (for a proof, see any standard
+
+n
+
+textbook). Thus, by the comparison test, the given series is also divergent.
+
+55
+
+SERIES AND LIMITS
+
+For r ≥ 2, each term of the series is less than or equal to the corresponding term
+
+∞
+
+1
+
+of
+
+. By writing this latter sum as
+
+n(n + 1)
+
+1
+
+∞
+
+1
+
+∞1
+
+1
+
+=
+
+−
+
+n(n + 1)
+
+n n+1
+
+n=1
+
+n=1
+
+=
+
+1
+
+−
+
+1 2
+
++
+
+1 2
+
+−
+
+1 3
+
++
+
+1 3
+
+−
+
+1 4
+
++···
+
+=
+
+1
+
++
+
+(−
+
+1 2
+
++
+
+1 2
+
+)
+
++
+
+(−
+
+1 3
+
++
+
+1 3
+
+)
+
++
+
+·
+
+··
+
+→
+
+1,
+
+it is shown to be convergent. Thus, by the comparison test, the given series is also convergent when r ≥ 2.
+
+4.5 Find the sum, SN, of the ﬁrst N terms of the following series, and hence determine whether the series are convergent, divergent or oscillatory:
+
+∞
+
+n+1
+
+(a) ln
+
+,
+
+n
+
+n=1
+
+∞
+(b) (−2)n,
+n=0
+
+∞ (−1)n+1n
+
+(c)
+
+3n .
+
+n=1
+
+(a) We express this series as the diﬀerence between two series with similar terms and ﬁnd that the terms cancel in pairs, leaving an explicit expression that contains only the last term of the ﬁrst series and the ﬁrst term of the second:
+
+N n+1 N
+
+N
+
+ln
+
+= ln(n + 1) − ln n = ln(N + 1) − ln 1.
+
+n
+
+n=1
+
+n=1
+
+n=1
+
+As ln(N + 1) → ∞ as N → ∞, the series diverges.
+
+(b) Applying the normal formula for a geometric sum gives
+
+N−1
+(−2)n
+
+=
+
+1
+
+−
+
+(−2)N
+
+.
+
+3
+
+n=0
+
+The series therefore oscillates inﬁnitely.
+
+(c) Denote the partial sum by SN. Then,
+
+N (−1)n+1n
+
+SN =
+
+3n ,
+
+n=1
+
+1
+
+N (−1)n+1n N+1 (−1)s(s − 1)
+
+3 SN =
+
+3n+1 =
+
+3s
+
+n=1
+
+s=2
+
+N+1 (−1)ss N+1 (−1)s
+
+=
+
+3s −
+
+3s .
+
+s=2
+
+s=2
+
+56
+
+SERIES AND LIMITS
+
+Separating oﬀ the last term of the ﬁrst series on the RHS and adding SN to both sides, with the SN added to the RHS having its n = 1 term written explicitly, yields
+
+4
+
+(−1)21 N (−1)n+1n N (−1)ss
+
+3 SN = 3 +
+
+3n +
+
+3s
+
+n=2
+
+s=2
+
+(−1)N+1(N + 1) N+1 (−1)s
+
++
+
+3N+1
+
+−
+
+3s
+
+s=2
+
+=
+
+1 3
+
++
+
+(−1)N+1(N + 1) 3N+1
+
+−
+
+1 9
+
+1
+
+−
+
+(−
+
+1 3
+
+)N
+
+1
+
+−
+
+(−
+
+1 3
+
+)
+
+.
+
+To obtain the last line we note that on the RHS the second and third terms (both
+
+summations) cancel and that the ﬁnal term is a geometric series (with leading
+
+term
+
+−
+
+1 9
+
+).
+
+This
+
+result
+
+can
+
+be
+
+rearranged
+
+as
+
+3
+
+1N
+
+3N
+
+1 N+1
+
+SN = 16
+
+1−
+
+− 3
+
++
+
+−
+
+43
+
+,
+
+from
+
+which
+
+it
+
+is
+
+clear
+
+that
+
+the
+
+series
+
+converges
+
+to
+
+a
+
+sum
+
+of
+
+3 16
+
+.
+
+4.7 Use the diﬀerence method to sum the series N 2n − 1 2n2(n − 1)2 .
+n=2
+
+We try to write the nth term as the diﬀerence between two consecutive values of a partial-fraction function of n. Since the second power of n appears in the denominator the function will need two terms, An−2 and Bn−1. Hence, we must have
+
+2n − 1
+
+AB
+
+A
+
+B
+
+2n2(n − 1)2 = n2 + n − (n − 1)2 + n − 1
+
+A[ −2n + 1 ] + B[ n(n − 1)(n − 1 − n) ]
+
+=
+
+n2(n − 1)2
+
+.
+
+The
+
+powers
+
+of
+
+n
+
+in
+
+the
+
+numerators
+
+can
+
+be
+
+equated
+
+consistently
+
+if
+
+we
+
+take
+
+A
+
+=
+
+−
+
+1 2
+
+57
+
+SERIES AND LIMITS
+
+and B = 0. Thus
+
+2n − 1 1 1
+
+1
+
+2n2(n − 1)2 = 2 (n − 1)2 − n2 .
+
+We can now carry out the summation, in which the second component of each pair of terms cancels the ﬁrst component of the next pair, leaving only the initial and very ﬁnal components:
+
+N 2n − 1
+
+1N
+
+1
+
+1
+
+2n2(n − 1)2 = 2
+
+(n − 1)2 − n2
+
+n=2
+
+n=2
+
+11 1
+
+= 2
+
+1 − N2
+
+=
+
+1 2
+
+(1
+
+−
+
+N
+
+−2).
+
+4.9 Prove that
+
+cos θ
+
++
+
+cos(θ
+
++
+
+α)
+
++
+
+···
+
++
+
+cos(θ
+
++
+
+nα)
+
+=
+
+sin
+
+1 2
+
+(n
+
++
+
+1)α
+
+sin
+
+1 2
+
+α
+
+cos(θ
+
++
+
+1 2
+
+nα).
+
+From de Moivre’s theorem, the required sum, S, is the real part of the sum of the
+
+geometric series
+
+n r=0
+
+eiθ eirα .
+
+Using
+
+the
+
+formula
+
+for
+
+the
+
+partial
+
+sum
+
+of
+
+a
+
+geometric
+
+series, and multiplying by a factor that makes the denominator real, we have
+
+S = Re
+
+eiθ
+
+1
+
+− 1
+
+ei(n+1)α − eiα
+
+1 − e−iα 1 − e−iα
+
+cos θ − cos[ (n + 1)α + θ ] − cos(θ − α) + cos(θ + nα)
+
+=
+
+2
+
+×
+
+2
+
+sin2
+
+1 2
+
+α
+
+=
+
+2 sin(θ
+
+−
+
+1 2
+
+α)
+
+sin(−
+
+1 2
+
+α)
+
++
+
+2
+
+sin(nα
+
++
+
+4
+
+sin2
+
+1 2
+
+α
+
+1 2
+
+α
+
++
+
+θ)
+
+sin
+
+1 2
+
+α
+
+=
+
+2 sin
+
+1 2
+
+α
+
+2
+
+cos(
+
+1 2
+
+nα
+
++
+
+θ)
+
+sin[
+
+4
+
+sin2
+
+1 2
+
+α
+
+1 2
+
+(n
+
++ 1)α ]
+
+=
+
+sin
+
+1 2
+
+(n
+
++
+
+1)α
+
+sin
+
+1 2
+
+α
+
+cos(θ
+
++
+
+1 2
+
+nα).
+
+In
+
+the
+
+course
+
+of
+
+this
+
+manipulation
+
+we
+
+have
+
+used
+
+the
+
+identity
+
+1
+
+−
+
+cos θ
+
+=
+
+2
+
+sin2
+
+1 2
+
+θ
+
+and the formulae for cos A − cos B and sin A − sin B.
+
+58
+
+SERIES AND LIMITS
+
+4.11 Find the real values of x for which the following series are convergent:
+
+∞ xn
+
+(a)
+
+,
+
+n+1
+
+n=1
+
+∞
+(b) (sin x)n,
+n=1
+
+∞
+
+(c)
+
+nx,
+
+n=1
+
+∞
+
+(d)
+
+enx,
+
+n=1
+
+∞
+(e) (ln n)x.
+n=2
+
+(a) Using the ratio test:
+
+lim un+1 n→∞ un
+
+xn+1 = lim
+n→∞ n + 2
+
+n+1 xn
+
+= x.
+
+Thus the series is convergent for all |x| < 1. At x = 1 the series diverges, as shown in any standard text, whilst at x = −1 it converges by the alternating series test. Thus we have convergence for −1 ≤ x < 1.
+
+(b)
+
+For
+
+all
+
+x
+
+other
+
+than
+
+x
+
+=
+
+(2m
+
+±
+
+1 2
+
+)π,
+
+where
+
+m
+
+is
+
+an
+
+integer,
+
+| sin x|
+
+<
+
+1
+
+and
+
+so
+
+convergence
+
+is
+
+assured
+
+by
+
+the
+
+ratio
+
+test.
+
+At
+
+x
+
+=
+
+(2m
+
++
+
+1 2
+
+)π
+
+the
+
+series
+
+diverges,
+
+whilst
+
+at
+
+x
+
+=
+
+(2m
+
+−
+
+1 2
+
+)π
+
+it
+
+oscillates
+
+ﬁnitely.
+
+(c) This is the Riemann zeta series with p written as −x. Thus the series converges
+
+for all x < −1.
+
+(d) The ratio of successive terms is ex (independent of n) and for this to be less
+
+than unity in magnitude requires x to be negative. Thus the series is convergent when x < 0.
+
+(e) The sum S =
+
+∞ n=2
+
+(ln
+
+n)x
+
+is
+
+clearly
+
+divergent
+
+for
+
+all
+
+x
+
+>
+
+−1
+
+(by
+
+comparison
+
+with n−1). So we deﬁne a positive X by −X = x < −1 and consider
+
+∞
+
+Mk
+
+1
+
+S1 = k=1 rk=Mk−1+1 (ln Mk)X ,
+
+where Mk is the lowest integer such that ln Mk > k. The notation is such that when ek−1 < n < ek then n = Mk−1 + rk.
+
+For each ﬁxed k, every term in the second (ﬁnite) summation is smaller than the
+corresponding term in S (because n < Mk). But, since all the terms in such a summation are equal, the value of the sum is simply (Mk − Mk−1)/(ln Mk)X. Thus,
+
+S1
+
+=
+
+∞ k=1
+
+Mk − Mk−1 (ln Mk)X
+
+=
+
+∞ k=1
+
+(1 − (ln
+
+e−1)Mk Mk )X
+
+.
+
+Now, the ratio of successive terms in this ﬁnal summation is
+
+Mk+1 (ln Mk+1)X
+
+(ln Mk)X Mk
+
+→
+
+e ln e
+
+as
+
+k → ∞.
+
+59
+
+SERIES AND LIMITS
+
+This limit is > 1, and thus S1 diverges for all X; hence, by the comparison test, so does S.
+
+4.13 Determine whether the following series are absolutely convergent, convergent or oscillatory:
+
+∞ (−1)n
+
+(a)
+
+n5/2 ,
+
+n=1
+
+∞ (−1)n(2n + 1)
+
+(b)
+
+,
+
+n
+
+n=1
+
+∞ (−1)n|x|n
+
+(c)
+
+,
+
+n!
+
+n=0
+
+∞ (−1)n
+
+(d)
+
+n2 + 3n + 2 ,
+
+n=0
+
+∞ (−1)n2n
+
+(e)
+
+n1/2 .
+
+n=1
+
+(a) The sum n−5/2 is convergent (by comparison with (−1)nn−5/2 is absolutely convergent.
+
+n−2) and so
+
+(b) The magnitude of the individual terms → 2 and not to zero; thus the series cannot converge. In fact it oscillates ﬁnitely about the value −(1 + ln 2).
+
+(c) The magnitude of the successive-term ratio is
+
+un+1 un
+
+|x|n+1 n! |x|
+
+= (n + 1)!
+
+|x|n =
+
+n
+
+→0
+
+for all x.
+
+Thus, the series is absolutely convergent for all ﬁnite x.
+
+(d) The polynomial in the denominator has all positive signs and a non-zero
+constant term; it is therefore always strictly positive. Thus, to test for absolute
+convergence, we need to replace the numerator by its absolute value and consider Nn=0(n2 + 3n + 2)−1:
+
+N
+
+1
+
+N
+
+1
+
+1
+
+1
+
+n2 + 3n + 2 =
+
+−
+
+=1−
+
+→ 1 as N → ∞.
+
+n+1 n+2
+
+N+2
+
+n=0
+
+n=0
+
+Thus the given series is absolutely convergent.
+
+(e) The magnitude of the individual terms does not tend to zero; in fact, it grows monotonically. The eﬀect of the alternating signs is to make the series oscillate inﬁnitely.
+
+4.15 Prove that
+
+∞
+
+nr + (−1)n
+
+ln
+
+nr
+
+n=2
+
+is absolutely convergent for r = 2, but only conditionally convergent for r = 1.
+
+In each case divide the sum into two sums, one for n even and one for n odd.
+
+60
+
+SERIES AND LIMITS
+
+(i) For r = 2, consider ﬁrst the even series:
+
+n2 + 1
+
+1
+
+ln n2 =
+
+ln 1 + n2
+
+n even
+
+n even
+
+11
+
+=
+
+n2 − 2n4 + · · · .
+
+n even
+
+The nth logarithmic term is positive for all n but, as shown above, less than n−2. It follows from the comparison test that the series is (absolutely) convergent.
+
+For the odd series we consider
+
+(2m + 1)2 − 1
+
+4m2 + 4m
+
+ln (2m + 1)2 = ln 4m2 + 4m + 1
+
+= − ln
+
+1 1+
+4m(m + 1)
+
+.
+
+By a similar argument to that above, each term is negative but greater than −[ 4m(m + 1) ]−1. Again, the comparison test shows that the series is (absolutely) convergent.
+
+Thus the original series, being the sum of two absolutely convergent series, is also absolutely convergent.
+
+(ii) For r = 1 we have to consider ln[(n ± 1)/n], whose expansion contains a term ±n−1 and other inverse powers of n. The summations over the other powers converge and cannot cancel the divergence arising from ±n−1. Thus both the even and odd series diverge; consequently the original series cannot be absolutely
+convergent.
+
+However, if we group together consecutive pairs of terms, n = 2m and n = 2m + 1, then we see that
+
+∞
+ln
+n=2
+
+n + (−1)n n
+
+∞
+
+2m + 1
+
+2m + 1 − 1
+
+= ln
+
++ ln
+
+2m
+
+2m + 1
+
+m=1
+
+∞
+
+∞
+
+= ln 1 = 0 = 0,
+
+m=1
+
+m=1
+
+i.e. the terms cancel in pairs and the series is conditionally convergent to zero. 61
+
+SERIES AND LIMITS
+
+4.17 Demonstrate that rearranging the order of its terms can make a condi-
+tionally convergent series converge to a diﬀerent limit by considering the series (−1)n+1n−1 = ln 2 = 0.693. Rearrange the series as
+
+S
+
+=
+
+1 1
+
++
+
+1 3
+
+−
+
+1 2
+
++
+
+1 5
+
++
+
+1 7
+
+−
+
+1 4
+
++
+
+1 9
+
++
+
+1 11
+
+−
+
+1 6
+
++
+
+1 13
+
++···
+
+and group each set of three successive terms. Show that the series can then be
+
+written
+
+∞
+
+8m − 3
+
+,
+
+2m(4m − 3)(4m − 1)
+
+m=1
+
+which is convergent (by comparison with n−2) and contains only positive terms. Evaluate the ﬁrst of these and hence deduce that S is not equal to ln 2.
+
+Proceeding as indicated, we have
+
+S=
+
+111 +−
+
++
+
+111 +−
+
++
+
+111 +−
+
++···
+
+132
+
+574
+
+9 11 6
+
+∞
+
+1
+
+1
+
+1
+
+=
+
++
+
+−
+
+4m − 3 4m − 1 2m
+
+m=1
+
+∞ (8m2 − 2m) + (8m2 − 6m) − (16m2 − 16m + 3) =
+2m(4m − 3)(4m − 1)
+m=1
+
+∞
+
+8m − 3
+
+=
+
+.
+
+2m(4m − 3)(4m − 1)
+
+m=1
+
+As noted, this series is convergent and contains only positive terms. The ﬁrst of these terms (m = 1) is 5/6 = 0.833. This, by itself, is greater than the known sum (0.693) of the original series. Thus S cannot be equal to ln 2.
+
+4.19 A Fabry–P´erot interferometer consists of two parallel heavily silvered glass plates; light enters normally to the plates, and undergoes repeated reﬂections between them, with a small transmitted fraction emerging at each reﬂection. Find the intensity |B|2 of the emerging wave, where
+∞
+B = A(1 − r) rneinφ,
+n=0
+with r and φ real.
+This is a simple geometric series but with a complex common ratio reiφ. Thus
+62
+
+SERIES AND LIMITS
+
+we have
+∞
+B = A(1 − r) rneinφ
+n=0
+1−r = A 1 − reiφ .
+To obtain the intensity |B|2 we multiply this result by its complex conjugate, recalling that r and φ are real, but A may not be:
+
+| B |2
+
+=
+
+(1
+
+|A|2(1 − r)2 − reiφ)(1 − re−iφ)
+
+|A|2(1 − r)2 = 1 − 2r cos φ + r2 .
+
+4.21 Starting from the Maclaurin series for cos x, show that (cos x)−2 = 1 + x2 + 2x4 + · · · . 3
+Deduce the ﬁrst three terms in the Maclaurin series for tan x.
+
+From the Maclaurin series for (or deﬁnition of) cos x,
+
+cos x = 1 − x2 + x4 + · · · . 2! 4!
+
+Using the binomial expansion of (1 + z)−2, we have
+
+(cos x)−2 = 1 − x2 + x4 + · · · −2 2! 4!
+
+=1−2
+
+x2 −
+
++
+
+x4
+
++
+
+···
+
+23 +
+
+x2 −
+
++
+
+x4
+
++
+
+···
+
+2! 4!
+
+2! 2! 4!
+
+= 1 + x2 + x4
+
+2 −+
+
+23
+
+4! 2! 2! 2!
+
+=
+
+1
+
++
+
+x2
+
++
+
+2 3
+
+x4
+
++
+
+·
+
+··
+
+.
+
++ O(x6)
+
+2
++···
+
+We now integrate both sides of the expansion from 0 to x, noting that (cos x)−2 ≡ sec2 x and that this integrates to tan x. Thus
+
+tan x = x sec2 u du = x + x3 + 2x5 + · · · .
+
+0
+
+3 15
+
+63
+
+SERIES AND LIMITS
+
+4.23 If f(x) = sinh−1 x, and its nth derivative f(n)(x) is written as
+
+f(n)
+
+=
+
+(1
+
++
+
+Pn x2)n−1/2
+
+,
+
+where Pn(x) is a polynomial (of order n − 1), show that the Pn(x) satisfy the recurrence relation
+
+Pn+1(x) = (1 + x2)Pn(x) − (2n − 1)xPn(x).
+Hence generate the coeﬃcients necessary to express sinh−1 x as a Maclaurin series up to terms in x5.
+
+With f(x) = sinh−1 x,
+
+dx
+
+df
+
+1
+
+1
+
+x = sinh f
+
+⇒
+
+= cosh f df
+
+⇒
+
+dx = cosh f = (1 + x2)1/2 .
+
+Thus P1(x) = 1; we will need this as a starting value for the recurrence relation.
+
+With the deﬁnition of Pn(x) given,
+
+f(n)
+
+=
+
+(1
+
++
+
+Pn x2)n−1/2
+
+,
+
+f(n+1)
+
+=
+
+Pn (1 + x2)n−1/2
+
+−
+
+(n
+
+−
+
+1 2
+
+)
+
+2x
+
+Pn
+
+(1 + x2)n+1/2
+
+=
+
+(1
+
++
+
+x2)Pn − (2n − 1)xPn (1 + x2)n+1−1/2
+
+.
+
+It then follows that
+
+Pn+1(x) = (1 + x2)Pn(x) − (2n − 1)xPn(x).
+
+With P1 = 1, as shown,
+P2 = (1 + x2)0 − (2 − 1)x 1 = −x, P3 = (1 + x2)(−1) − (4 − 1)x(−x) = 2x2 − 1, P4 = (1 + x2)(4x) − (6 − 1)x(2x2 − 1) = 9x − 6x3, P5 = (1 + x2)(9 − 18x2) − (8 − 1)x(9x − 6x3) = 24x4 − 72x2 + 9.
+
+The corresponding values of f(n)(0) = Pn(0)/(1 + 02)n−1/2 can then be used to express the Maclaurin series for sinh−1 x as
+
+sinh−1 x = f(0) + ∞ fn(0)xn = x − x3 + 9x5 − · · · .
+
+n!
+
+3! 5!
+
+n=1
+
+64
+
+SERIES AND LIMITS
+
+4.25 By using the logarithmic series, prove that if a and b are positive and nearly
+
+equal then
+
+a ln
+
+2(a − b) .
+
+b a+b
+
+Show that the error in this approximation is about 2(a − b)3/[3(a + b)3].
+
+Write a + b = 2c and a − b = 2δ. Then
+
+ln
+
+a b
+
+=
+
+ln a
+
+−
+
+ln b
+
+= ln(c + δ) − ln(c − δ)
+
+δ
+
+δ
+
+= ln c + ln 1 + − ln c − ln 1 −
+
+c
+
+c
+
+δ δ2 δ3
+
+δ δ2 δ3
+
+=
+
+c − 2c2 + 3c3 − · · ·
+
+−
+
+− c
+
+−
+
+2c2
+
+−
+
+3c3
+
+−
+
+···
+
+2δ 2 δ 3
+
+=+
+
++···
+
+c 3c
+
+2(a − b) 2
+
+=
+
++
+
+a−b
+
+3
++··· ,
+
+a+b 3 a+b
+
+i.e. as stated in the question.
+
+We note that other approximations are possible, and equally valid, e.g. setting b = a + leading to −( /a)[ 1 − /2a + 2/3a2 − · · · ], but the given one, expanding symmetrically about c = (a + b)/2, contains no quadratic terms in (a − b), only cubic and higher terms.
+
+√
+
+√
+
+4.27 Find the limit as x → 0 of [ 1 + xm − 1 − xm]/xn, in which m and n are
+
+positive integers.
+
+Using the binomial expansions of the terms in the numerator,
+
+√
+
+√
+
+1 + xm − 1 − xm
+
+xn
+
+=
+
+1+
+
+1 2
+
+xm
+
++
+
+·
+
+·
+
+·
+
+−
+
+(1
+
+−
+
+xn
+
+1 2
+
+xm
+
++···)
+
+xm + · · · = xn
+
+= xm−n + · · · .
+
+Thus the limit of the function as x → 0 is 0 for m > n, 1 for m = n and ∞ for m < n.
+
+65
+
+SERIES AND LIMITS
+
+4.29 Find the limits of the following functions:
+
+x3 + x2 − 5x − 2 (a) 2x3 − 7x2 + 4x + 4 ,
+
+as x → 0, x → ∞ and x → 2;
+
+(b) sin x − x cosh x , as x → 0; sinh x − x
+
+π/2 y cos y − sin y
+
+(c)
+x
+
+y2
+
+dy, as x → 0.
+
+(a) Denote the ratio of polynomials by f(x). Then
+
+x3 + x2 − 5x − 2 −2
+
+1
+
+lim f(x)
+x→0
+
+=
+
+lim
+x→0
+
+2x3
+
+− 7x2
+
++ 4x + 4
+
+=
+
+4
+
+=− ; 2
+
+1 + x−1 − 5x−2 − 2x−3 1
+
+lim f(x)
+x→∞
+
+=
+
+lim
+x→∞
+
+2 − 7x−1
+
++ 4x−2
+
++ 4x−3
+
+=
+
+; 2
+
+x3 + x2 − 5x − 2 0
+
+lim f(x)
+x→2
+
+=
+
+lim
+x→2
+
+2x3
+
+− 7x2
+
++ 4x + 4
+
+=
+
+. 0
+
+This ﬁnal value is indeterminate and so, using l’Hoˆ pital’s rule, consider instead
+
+3x2 + 2x − 5 11
+
+lim f(x)
+x→2
+
+=
+
+lim
+x→2
+
+6x2
+
+−
+
+14x + 4
+
+=
+
+0
+
+= ∞.
+
+(b) Using l’Hoˆ pital’s rule repeatedly,
+
+sin x − x cosh x
+
+cos x − cosh x − x sinh x
+
+lim
+
+= lim
+
+x→0 sinh x − x
+
+x→0
+
+cosh x − 1
+
+− sin x − sinh x − sinh x − x cosh x
+
+= lim
+
+x→0
+
+sinh x
+
+= lim − cos x − 2 cosh x − cosh x − x sinh x = −4.
+
+x→0
+
+cosh x
+
+(c) Before taking the limit we need to ﬁnd a closed form for the integral. So,
+
+π/2
+lim
+x→0 x
+
+y cos y − sin y y2
+
+π/2 d sin y
+
+dy = lim
+
+dy
+
+x→0 x dy y
+
+sin y π/2 = lim
+x→0 y x
+
+2 sin x
+
+= lim −
+
+x→0 π
+
+x
+
+= lim
+
+21 −
+
+x − x3 + · · ·
+
+x→0 π x
+
+3!
+
+= 2 − 1. π
+
+66
+
+SERIES AND LIMITS
+
+4.31 Using a ﬁrst-order Taylor expansion about x = x0, show that a better approximation than x0 to the solution of the equation
+
+f(x) = sin x + tan x = 2
+
+is given by x = x0 + δ, where
+
+δ
+
+=
+
+2 − f(x0) cos x0 + sec2
+
+x0
+
+.
+
+(a) Use this procedure twice to ﬁnd the solution of f(x) = 2 to six signiﬁcant ﬁgures, given that it is close to x = 0.9.
+(b) Use the result in (a) to deduce, to the same degree of accuracy, one solution of the quartic equation
+y4 − 4y3 + 4y2 + 4y − 4 = 0.
+
+(a) We write the solution to f(x) = sin x + tan x = 2 as x = x0 + δ. Substituting this form and retaining the ﬁrst-order terms in δ in the Taylor expansions of sin x and tan x we obtain
+sin x0 + δ cos x0 + · · · + tan x0 + δ sec2 x0 + · · · = 2
+
+δ
+
+=
+
+2
+
+− sin x0 cos x0 +
+
+− tan x0 sec2 x0
+
+.
+
+With x0 = 0.9,
+
+2 − 0.783327 − 1.260158 −0.043485
+
+δ1 =
+
+0.621610 + 2.587999
+
+=
+
+= −0.013548,
+
+3.209609
+
+making the ﬁrst improved approximation x1 = x0 + δ1 = 0.886452.
+
+Now, using x1 instead of x0 and repeating the process gives
+
+δ2
+
+=
+
+2 − 0.774833 − 1.225682 0.632165 + 2.502295
+
+=
+
+−5.15007 × 10−4 3.13446
+
+=
+
+−1.6430 × 10−4,
+
+making the second improved approximation x2 = x1 +δ2 = 0.886287. The method used up to here does not prove that this latest answer is accurate to six signiﬁcant ﬁgures, but a further application of the procedure shows that δ3 ≈ 3 × 10−7.
+
+(b) In order to make use of the result in part (a) we need to make a change of variable that converts the geometric equation into an algebraic one. Since tan x can be expressed in terms of sin x, if we set y = sin x in the equation
+
+67
+
+SERIES AND LIMITS
+
+sin x + tan x = 2, it will become an algebraic equation:
+
+sin x
+
+sin x + tan x = sin x + cos x = 2,
+
+y
+
+⇒ y+
+
+= 2,
+
+1 − y2
+
+y2 1 − y2
+
+=
+
+(2 − y)2,
+
+y2 = (1 − y2)(4 − 4y + y2)
+
+= −y4 + 4y3 − 3y2 − 4y + 4,
+
+0 = y4 − 4y3 + 4y2 + 4y − 4.
+
+This is the equation that is to be solved. Thus, since x = 0.886287 is an approximation to the solution of sin x + tan x = 2, y = sin x = 0.774730 is an approximation to one of the solutions of y4 − 4y3 + 4y2 + 4y − 4 = 0 to the same degree of accuracy.
+We note that an equally plausible change of variable is to set y = tan x, with sin x expressed as tan x/ sec x, i.e. as y/ 1 + y2. With this substitution the resulting algebraic equation is the quartic y4 − 4y3 + 4y2 − 4y + 4 = 0 (very similar to, but not exactly the same as, the given quartic equation). The reader may wish to verify this. By a parallel argument to that above, y = tan 0.886287 = 1.225270 is an approximate solution of this second quartic equation.
+
+4.33 In quantum theory, a system of oscillators, each of fundamental frequency ν and interacting at temperature T , has an average energy E¯ given by
+
+E¯ =
+
+∞ n=0
+
+nhν
+
+e−nx
+
+∞ n=0
+
+e−nx
+
+,
+
+where x = hν/kT , h and k being the Planck and Boltzmann constants, respec-
+
+tively. Prove that both series converge, evaluate their sums, and show that at high temperatures E¯ ≈ kT , whilst at low temperatures E¯ ≈ hν exp(−hν/kT ).
+
+In the expression
+
+E¯ =
+
+∞ n=0
+
+nhν
+
+e−nx
+
+∞ n=0
+
+e−nx
+
+,
+
+the ratio of successive terms in the series in the numerator is given by
+
+an+1 an
+
+=
+
+(n + 1)hνe−(n+1)x nhν e−nx
+
+=
+
+n + 1 e−x n
+
+→ e−x
+
+as
+
+n → ∞,
+
+where x = hν/kT . Since x > 0, e−x < 1, and the series is convergent by the ratio test.
+
+68
+
+SERIES AND LIMITS
+
+The series in the denominator is a geometric series with common ratio r = e−x. This is < 1 and so the series converges with sum
+
+S (x)
+
+=
+
+1
+
++
+
+e−x
+
++
+
+e−2x
+
++
+
+···
+
++
+
+e−nx
+
++
+
+···
+
+=
+
+1
+
+1 − e−x .
+
+Now consider
+
+dS (x) −
+
+=
+
+e−x
+
++
+
+2e−2x
+
++
+
+···
+
++
+
+ne−nx
+
++
+
+···
+
+.
+
+dx
+
+The series on the RHS, when multiplied by hν, gives the numerator in the expression for E¯ ; the numerator therefore has the value
+
+dS (x)
+
+d
+
+1
+
+e−x
+
+− dx
+
+=− dx
+
+1 − e−x
+
+= (1 − e−x)2 .
+
+Hence,
+
+E¯
+
+=
+
+hν e−x (1 − e−x)2
+
+1 − e−x 1
+
+=
+
+hν ex − 1 .
+
+At high temperatures, x 1 and
+
+E¯ =
+
+hν
+
+1+
+
+hν kT
+
++···
+
+≈ kT . −1
+
+At low temperatures, x 1 and ex 1. Thus the −1 in the denominator can be neglected and E¯ ≈ hν exp(−hν/kT ).
+
+4.35 One of the factors contributing to the high relative permittivity of water
+
+to static electric ﬁelds is the permanent electric dipole moment, p, of the water
+
+molecule. In an external ﬁeld E the dipoles tend to line up with the ﬁeld, but
+
+they do not do so completely because of thermal agitation corresponding to the
+
+temperature, T , of the water. A classical (non-quantum) calculation using the
+
+Boltzmann distribution shows that the average polarisability per molecule, α, is
+
+given by
+
+α = p (coth x − x−1), E
+
+where x = pE/(kT ) and k is the Boltzmann constant.
+
+At ordinary temperatures, even with high ﬁeld strengths (104 V m−1 or more),
+x 1. By making suitable series expansions of the hyperbolic functions involved, show that α = p2/(3kT ) to an accuracy of about one part in 15x−2.
+
+As x 1, we have to deal with a function that is the diﬀerence between two terms that individually tend to inﬁnity as x → 0. We will need to expand each in a series and consider the leading non-cancelling terms. The coth function will
+69
+
+SERIES AND LIMITS
+
+have to be expressed in terms of the series for the sinh and cosh functions, as follows:
+
+α= p
+
+coth x − 1
+
+,
+
+with
+
+x=
+
+pE ,
+
+E
+
+x
+
+kT
+
+=
+
+p E
+
+cosh x  sinh x
+
+−
+
+1 x
+
+= p
+
+1+
+
+x2 2!
+
++
+
+x4 4!
+
++···
+
+E
+
+x
+
+1
+
++
+
+x2 3!
+
++
+
+x4 5!
+
++
+
+···
+
+ − 1
+x
+
+p =
+Ex
+
+x2 x4 1+ + +···
+2! 4!
+
+x2 x4 1− + +···
+3! 5!
+
++
+
+x2 + x4 + · · ·
+
+2
++···
+
+−1
+
+3! 5!
+
+p =
+
+0 + x2
+
+Ex
+
+1 2!
+
+−
+
+1 3!
+
++ x4
+
+11
+
+11
+
+− 5! + (3!)2 − 2! 3! + 4!
+
++···
+
+p x 1 x2
+
+=
+
+− +··· .
+
+E 3 45
+
+Thus the polarisability ≈ p x/3E = p2/3kT , with the correction term being a factor of about x2/15 smaller.
+
+70
+
+5
+Partial diﬀerentiation
+
+5.1 Using the appropriate properties of ordinary derivatives, perform the following.
+(a) Find all the ﬁrst partial derivatives of the following functions f(x, y): (i) x2y, (ii) x2 + y2 + 4, (iii) sin(x/y), (iv) tan−1(y/x), (v) r(x, y, z) = (x2 + y2 + z2)1/2.
+(b) For (i), (ii) and (v), ﬁnd ∂2f/∂x2, ∂2f/∂y2 and ∂2f/∂x∂y. (c) For (iv) verify that ∂2f/∂x∂y = ∂2f/∂y∂x.
+
+These are all straightforward applications of the deﬁnitions of partial derivatives.
+
+∂f ∂(x2y)
+
+(a) (i) =
+
+= 2xy;
+
+∂f = ∂(x2y) = x2.
+
+∂x ∂x
+
+∂y ∂y
+
+∂f ∂(x2 + y2 + 4)
+
+∂f ∂(x2 + y2 + 4)
+
+(ii) =
+
+= 2x;
+
+=
+
+= 2y.
+
+∂x
+
+∂x
+
+∂y
+
+∂y
+
+∂f ∂
+
+x
+
+x1
+
+(iii) = sin
+
+= cos
+
+;
+
+∂x ∂x y
+
+yy
+
+∂f ∂
+
+x
+
+x −x
+
+= sin
+
+= cos
+
+∂y ∂y y
+
+y
+
+y2 .
+
+∂f ∂ (iv) =
+
+tan−1
+
+y
+
+∂x ∂x
+
+x
+
+1 −y
+
+y
+
+=
+
+1+
+
+y2 x2
+
+x2
+
+= − x2 + y2 ;
+
+∂f ∂ =
+
+tan−1
+
+y
+
+∂y ∂y
+
+x
+
+11
+
+x
+
+=
+
+1+
+
+y2 x2
+
+x = x2 + y2 .
+
+(v)
+
+∂r ∂x
+
+=
+
+∂(x2 + y2 + z2)1/2 ∂x
+
+=
+
+1 2
+
+×
+
+2x
+
+(x2 + y2 + z2)1/2
+
+=
+
+x; r
+
+∂r
+
+∂r
+
+similarly for
+
+and .
+
+∂y
+
+∂z
+
+71
+
+PARTIAL DIFFERENTIATION
+
+∂2(x2y) ∂(2xy)
+
+∂2(x2y) ∂(x2)
+
+(b) (i) ∂x2 = ∂x = 2y;
+
+∂y2
+
+=
+
+= 0;
+
+∂y
+
+∂2(x2y) ∂(x2)
+
+=
+
+= 2x.
+
+∂x∂y ∂x
+
+∂2(x2 + y2 + 4) ∂(2x)
+
+∂2(x2 + y2 + 4) ∂(2y)
+
+(ii)
+
+∂x2
+
+=
+
+= 2;
+
+∂x
+
+∂y2
+
+=
+
+= 2;
+
+∂y
+
+∂2(x2 + y2 + 4) ∂(2y)
+
+=
+
+= 0.
+
+∂x∂y
+
+∂x
+
+∂2(x2 + y2 + z2)1/2 ∂ x
+
+1 x ∂r
+
+(v)
+
+∂x2
+
+= ∂x
+
+r
+
+= r − r2 ∂x
+
+1 x x y2 + z2 = r − r2 r = r3 ;
+
+∂2r similarly for ∂y2 ;
+
+∂2(x2 + y2 + z2)1/2 ∂ y
+
+y x xy
+
+∂x∂y
+
+= ∂x
+
+r
+
+= −r2 r = − r3 .
+
+∂2f ∂
+
+(c)
+
+=
+
+∂y∂x ∂y
+
+and ∂2f ∂ = ∂x∂y ∂x
+
+−y x2 + y2
+x x2 + y2
+
+(x2 + y2) − y 2y y2 − x2 = − (x2 + y2)2 = (x2 + y2)2
+(x2 + y2) − x 2x y2 − x2 = (x2 + y2)2 = (x2 + y2)2 ,
+
+thus verifying the general result for this particular case.
+
+5.3 Show that the diﬀerential df = x2 dy − (y2 + xy) dx
+is not exact, but that dg = (xy2)−1df is exact.
+
+If df = A dx + B dy then a necessary and suﬃcient condition for df to be exact
+
+is
+
+∂A(x, y) ∂B(x, y)
+
+=
+
+.
+
+∂y
+
+∂x
+
+Here A = −(y2 + xy) and B = x2, and so we calculate
+
+∂(x2)
+
+∂(−y2 − xy)
+
+= 2x and
+
+= −2y − x.
+
+∂x
+
+∂y
+
+These are not equal and so df is not an exact diﬀerential.
+
+72
+
+PARTIAL DIFFERENTIATION
+
+However, for dg, A = −(y2 + xy)/(xy2) and B = x2/(xy2). Taking the appropriate partial derivatives gives
+
+∂ x2
+
+1
+
+∂ −y2 − xy
+
+1
+
+∂x xy2 = y2 and ∂y
+
+xy2
+
+= 0 + y2 .
+
+These are equal, implying that dg is an exact diﬀerential and that the original inexact diﬀerential has 1/xy2 as its integrating factor.
+
+5.5 The equation 3y = z3 + 3xz deﬁnes z implicitly as a function of x and y. Evaluate all three second partial derivatives of z with respect to x and/or y. Verify that z is a solution of
+∂2z ∂2z x ∂y2 + ∂x2 = 0.
+
+By successive partial diﬀerentiations of
+
+3y = z3 + 3xz
+
+(∗)
+
+and its derivatives with respect to (wrt) x and y, we obtain the following.
+
+Of (∗) wrt x (i)
+Of (∗) wrt y (ii)
+
+0 = 3z2 ∂z + 3z + 3x ∂z ,
+
+∂x
+
+∂x
+
+∂z
+
+z
+
+⇒
+
+∂x
+
+=
+
+− x
+
++
+
+z2 .
+
+3 = 3z2 ∂z + 3x ∂z , ∂y ∂y
+
+∂z
+
+1
+
+⇒ ∂y = x + z2 .
+
+For the second derivatives: diﬀerentiating (i) wrt x
+
+∂2z ∂x2
+
+=
+
+−
+
+(x
+
++
+
+z2)
+
+∂z ∂x
+(x
+
+− +
+
+z z2
+
+1 )2
+
++
+
+2z
+
+∂z ∂x
+
+=
+
+(z2
+
+−
+
+x)
+
+∂z ∂x
+
++
+
+z
+
+(x + z2)2
+
+(z2 − x)(−z) + z(x + z2)
+
+=
+
+(x + z2)3
+
+, using (i),
+
+2xz = (x + z2)3 ;
+
+73
+
+PARTIAL DIFFERENTIATION
+
+diﬀerentiating (i) wrt y diﬀerentiating (ii) wrt y
+
+∂2z ∂y∂x
+
+=
+
+(x −
+
++
+
+z2)
+
+∂z ∂y
+
+−
+
+z
+
+(x + z2)2
+
+2z
+
+∂z ∂y
+
+=
+
+(z2 (x
+
+−
+
+x)
+
+∂z ∂y
+
++ z2)2
+
+z2 − x = (x + z2)3 ,
+
+using (ii);
+
+∂2z
+
+−1
+
+∂z
+
+∂y2 = (x + z2)2 2z ∂y
+
+−2z = (x + z2)3 ,
+
+using (ii).
+
+We now have that
+
+∂2z ∂2z
+
+−2zx
+
+2zx
+
+x ∂y2 + ∂x2 = (x + z2)3 + (x + z2)3 = 0,
+
+i.e. z is a solution of the given partial diﬀerential equation.
+
+5.7 The function G(t) is deﬁned by
+G(t) = F(x, y) = x2 + y2 + 3xy,
+where x(t) = at2 and y(t) = 2at. Use the chain rule to ﬁnd the values of (x, y) at which G(t) has stationary values as a function of t. Do any of them correspond to the stationary points of F(x, y) as a function of x and y?
+
+Using the chain rule,
+
+dG ∂F dx ∂F dy
+
+=
+
++
+
+dt ∂x dt ∂y dt
+
+= (2x + 3y)2at + (2y + 3x)2a
+
+= 2at(2at2 + 6at) + 2a(4at + 3at2)
+
+= 2a2t(2t2 + 9t + 4)
+
+= 2a2t(2t + 1)(t + 4).
+
+Thus
+
+dG/dt
+
+has
+
+zeroes
+
+at
+
+t
+
+=
+
+0,
+
+t
+
+=
+
+−
+
+1 2
+
+and
+
+t
+
+=
+
+−4;
+
+the
+
+corresponding
+
+values
+
+of
+
+(x, y)
+
+are
+
+(0,
+
+0),
+
+(
+
+1 4
+
+a,
+
+−a)
+
+and
+
+(16a,
+
+−8a).
+
+Considered as a function of x and y, F(x, y) has stationary points when
+
+∂F = 2x + 3y = 0,
+∂x ∂F
+= 3x + 2y = 0. ∂y
+
+The only solution to this pair of equations is (x, y) = (0, 0), which corresponds to
+
+74
+
+PARTIAL DIFFERENTIATION
+
+(only) one of the points found previously. This stationary point is a saddle point at the origin and is the only stationary point of F(x, y).
+
+The stationary points of G(t) as a function of t are a maximum of 5a2/16 at
+
+(
+
+1 4
+
+a,
+
+−a),
+
+a
+
+minimum
+
+of
+
+−64a2
+
+at
+
+(16a, −8a),
+
+and
+
+a
+
+point
+
+of
+
+inﬂection
+
+at
+
+the
+
+origin. The ﬁrst two are not stationary points of F(x, y) for general values of x
+
+and y. They only appear to be so because the parameterisation, which restricts the search to the (one-dimensional) line deﬁned by the parabola y2 = 4ax, does
+
+not take into account the values of F(x, y) at points close to, but not on, the line.
+
+5.9 The function f(x, y) satisﬁes the diﬀerential equation
+
+∂f y
+
++ x∂f
+
+=
+
+0.
+
+∂x ∂y
+
+By changing to new variables u = x2 − y2 and v = 2xy, show that f is, in fact, a function of x2 − y2 only.
+
+In order to use the equations
+
+∂f =
+
+n
+
+∂f ∂ui
+
+∂xj i=1 ∂ui ∂xj
+
+that govern a change of variables, we need the partial derivatives
+
+∂u
+
+∂u
+
+∂v
+
+∂v
+
+= 2x,
+
+= −2y,
+
+= 2y,
+
+= 2x.
+
+∂x
+
+∂y
+
+∂x
+
+∂y
+
+Then, with f(x, y) written as g(u, v),
+
+∂f
+
+∂g
+
+∂g
+
+= 2x + 2y ,
+
+∂x
+
+∂u
+
+∂v
+
+∂f
+
+∂g ∂g
+
+= −2y + 2x .
+
+∂y
+
+∂u ∂v
+
+Thus,
+
+∂f y
+
+∂f +x
+
+=
+
+(2xy
+
+∂g − 2xy)
+
++ 2(y2
+
++ x2) ∂g
+
+∂x ∂y
+
+∂u
+
+∂v
+
+and the equation reduces to
+
+∂g =0
+
+⇒
+
+g = g(u), i.e. f(x, y) = g(x2 − y2) only.
+
+∂v
+
+75
+
+PARTIAL DIFFERENTIATION
+
+5.11 Find and evaluate the maxima, minima and saddle points of the function f(x, y) = xy(x2 + y2 − 1).
+
+The required derivatives are given by ∂f = 3x2y + y3 − y, ∂x
+
+∂f = x3 + 3y2x − x, ∂y
+
+∂2f ∂x2 = 6xy,
+
+∂2f = 3x2 + 3y2 − 1, ∂x∂y
+
+∂2f ∂y2 = 6xy.
+
+Any stationary points must satisfy both of the equations
+
+∂f = y(3x2 + y2 − 1) = 0, ∂x ∂f = x(x2 + 3y2 − 1) = 0. ∂y
+
+If x = 0 then y = 0 or ±1. If y = 0 then x = 0 or ±1. Otherwise, adding and subtracting the factors in parentheses gives
+
+4(x2 + y2) = 2, 2(x2 − y2) = 0.
+
+These
+
+have
+
+the
+
+solutions
+
+x
+
+=
+
+±
+
+1 2
+
+,
+
+y
+
+=
+
+±
+
+1 2
+
+.
+
+Thus
+
+the
+
+nine
+
+stationary
+
+points
+
+are
+
+(0, 0),
+
+(0, ±1),
+
+(±1, 0),
+
+±(
+
+1 2
+
+,
+
+1 2
+
+)
+
+and
+
+±(
+
+1 2
+
+,
+
+−
+
+1 2
+
+).
+
+The
+
+corresponding
+
+values
+
+for
+
+f(x, y)
+
+are
+
+0
+
+for
+
+the
+
+ﬁrst
+
+ﬁve,
+
+−
+
+1 8
+
+for
+
+the
+
+next
+
+two
+
+and
+
+1 8
+
+for
+
+the
+
+ﬁnal
+
+two.
+
+For the ﬁrst ﬁve cases, ∂2f/∂2x = ∂2f/∂2y = 0, whilst ∂2f/∂x∂y = −1 or 2. Since (−1)2 > 0 × 0 and 22 > 0 × 0, these points are all saddle points.
+
+At
+
+±(
+
+1 2
+
+,
+
+1 2
+
+),
+
+∂2f/∂2x
+
+=
+
+∂2f/∂2y
+
+=
+
+3 2
+
+,
+
+whilst
+
+∂2f/∂x∂y
+
+=
+
+1 2
+
+.
+
+Since
+
+(
+
+1 2
+
+)2
+
+<
+
+3 2
+
+×
+
+3 2
+
+,
+
+these two points are either maxima or minima (i.e. not saddle points) and the
+
+positive signs for ∂2f/∂2x and ∂2f/∂2y indicate that they are, in fact, minima.
+
+At
+
+±(
+
+1 2
+
+,
+
+−
+
+1 2
+
+),
+
+∂2f/∂2x
+
+=
+
+∂2f/∂2y
+
+=
+
+−
+
+3 2
+
+,
+
+whilst
+
+∂2f/∂x∂y
+
+=
+
+1 2
+
+.
+
+Since
+
+(
+
+1 2
+
+)2
+
+<
+
+−
+
+3 2
+
+×
+
+−
+
+3 2
+
+,
+
+these
+
+two
+
+points
+
+are
+
+also
+
+either
+
+maxima
+
+or
+
+minima;
+
+the
+
+common
+
+negative sign for ∂2f/∂2x and ∂2f/∂2y indicates that they are maxima.
+
+76
+
+PARTIAL DIFFERENTIATION
+
+5.13 Locate the stationary points of the function f(x, y) = (x2 − 2y2) exp[−(x2 + y2)/a2],
+where a is a non-zero constant. Sketch the function along the x- and y-axes and hence identify the nature and values of the stationary points.
+
+To ﬁnd the stationary points, we set each of the two ﬁrst partial derivatives,
+
+∂f =
+∂x ∂f = ∂y
+
+2x
+
+−
+
+2x a2
+
+(x2
+
+−
+
+2y2)
+
+exp
+
+x2 + y2 − a2
+
+,
+
+−4y
+
+−
+
+2y a2
+
+(x2
+
+−
+
+2y2)
+
+exp
+
+x2 + y2 − a2
+
+,
+
+equal to zero:
+
+∂f =0
+
+⇒
+
+x = 0 or x2 − 2y2 = a2;
+
+∂x
+
+∂f = 0 ⇒ y = 0 or x2 − 2y2 = −2a2. ∂y
+
+Since a = 0, possible solutions for (x, y) are (0, 0), (0, ±a) and (±a, 0). The corresponding values are f(0, 0) = 0, f(0, ±a) = −2a2e−1 and f(±a, 0) = a2e−1. These results, taken together with the observation that |f(x, y)| → 0 as either or both of |x| and |y| → ∞, show that f(x, y) has maxima at (±a, 0), minima at (0, ±a) and a saddle point at the origin.
+
+Sketches of f(x, 0) and f(0, y), whilst hardly necessary, illustrate rather than conﬁrm these conclusions.
+
+5.15 Find the stationary values of f(x, y) = 4x2 + 4y2 + x4 − 6x2y2 + y4
+and classify them as maxima, minima or saddle points. Make a rough sketch of the contours of f in the quarter plane x, y ≥ 0.
+
+The required derivatives are as follows: ∂f = 8x + 4x3 − 12xy2, ∂x
+
+∂f = 8y − 12x2y + 4y3, ∂y
+
+∂2f ∂x2
+
+=
+
+8 + 12x2
+
+− 12y2,
+
+∂2f = −24xy,
+∂x∂y
+
+∂2f ∂y2
+
+=
+
+8 − 12x2
+
++
+
+12y2.
+
+77
+
+PARTIAL DIFFERENTIATION
+
+2
+16
+8 y1
+4 2 1
+
+−4 0 2
+4 8
+16
+
+0
+
+1
+
+2
+
+x
+
+Figure 5.1 The contours found in exercise 5.15.
+
+Any stationary points must satisfy both of the equations
+∂f = 4x(2 + x2 − 3y2) = 0, ∂x ∂f = 4y(2 − 3x2 + y2) = 0. ∂y
+If x = 0 then 4y(2 + y2) = 0, implying that y = 0 also, since 2 + y2 = 0 has no real solutions. Conversely, y = 0 implies x = 0. Further solutions exist if both expressions in parentheses equal zero; this requires x2 = y2 = 1.
+Thus the stationary points are (0, 0), (1, 1), (−1, 1), (1, −1) and (−1, −1), with corresponding values 0, 4, 4, 4 and 4.
+At (0, 0), ∂2f/∂2x = ∂2f/∂2y = 8, whilst ∂2f/∂x∂y = 0. Since 02 < 8 × 8, this point is a minimum.
+In the other four cases, ∂2f/∂2x = ∂2f/∂2y = 8, whilst ∂2f/∂x∂y = ±24. Since (24)2 > 8 × 8, these four points are all saddle points.
+It will probably be helpful when sketching the contours (ﬁgure 5.1) to determine the behaviour of f(x, y) along the line x = y and to note the symmet√ry a√bout it. In particular, note that f(x, y) = 0 at both the origin and the point ( 2, 2).
+78
+
+PARTIAL DIFFERENTIATION
+
+5.17 A rectangular parallelepiped has all eight vertices on the ellipsoid
+x2 + 3y2 + 3z2 = 1.
+Using the symmetry of the parallelepiped about each of the planes x = 0, y = 0, z = 0, write down the surface area of the parallelepiped in terms of the coordinates of the vertex that lies in the octant x, y, z ≥ 0. Hence ﬁnd the maximum value of the surface area of such a parallelepiped.
+
+Let S be the surface area and (x, y, z) the coordinates of one of the corners of the parallelepiped with x, y and z all positive. Then we need to maximise S = 8(xy + yz + zx) subject to x, y and z satisfying x2 + 3y2 + 3z2 = 1.
+Consider
+f(x, y, z) = 8(xy + yz + zx) + λ(x2 + 3y2 + 3z2),
+
+where λ is a Lagrange undetermined multipier. Then, setting each of the ﬁrst partial derivatives separately to zero, we have the simultaneous equations
+0 = ∂f = 8y + 8z + 2λx, ∂x ∂f
+0 = = 8x + 8z + 6λy, ∂y ∂f
+0 = = 8x + 8y + 6λz. ∂z
+From symmetry, y = z, leading to
+
+0 = 16y + 2λx, 0 = 8x + 8y + 6λy.
+
+Thus, rejecting the trivial solution x = 0, y = 0, we conclude that λ = −8y/x, leading to x2 +xy −6y2 = (x−2y)(x+3y) = 0. The only solution to this quadratic equation with x, y and z all positive is x = 2y = 2z. Substituting this into the equation of the ellipse gives
+
+(2y)2 + 3y2 + 3y2 = 1
+
+⇒
+
+y = √1 .
+
+10
+
+The value of S is then given by
+
+212 S = 8 + + = 4.
+10 10 10
+
+79
+
+PARTIAL DIFFERENTIATION
+
+5.19 A barn is to be constructed with a uniform cross-sectional area A throughout its length. The cross-section is to be a rectangle of wall height h (ﬁxed) and width w, surmounted by an isosceles triangular roof that makes an angle θ with the horizontal. The cost of construction is α per unit height of wall and β per unit (slope) length of roof. Show that, irrespective of the values of α and β, to minimise costs w should be chosen to satisfy the equation
+w4 = 16A(A − wh),
+and θ made such that 2 tan 2θ = w/h.
+
+The cost always includes 2αh for the vertical walls, which can therefore be ignored in the minimisation procedure. The rest of the calculation will be solely concerned with minimising the roof area, and the optimum choices for w and θ will be independent of β, the actual cost per unit length of the roof.
+
+The
+
+cost
+
+of
+
+the
+
+roof
+
+is
+
+2β ×
+
+1 2
+
+w
+
+sec
+
+θ,
+
+but
+
+w
+
+and
+
+θ
+
+are
+
+constrained
+
+by
+
+the
+
+requirement that
+
+1w A = wh + 2 w 2 tan θ.
+
+So we consider G(w, θ), where
+
+G(w,
+
+θ)
+
+=
+
+βw
+
+sec
+
+θ
+
+−
+
+λ(wh
+
++
+
+1 4
+
+w2
+
+tan
+
+θ),
+
+and the implications of equating its partial derivatives to zero. The ﬁrst derivative to be set to zero is
+
+∂G = βw sec θ tan θ − λ w2 sec2 θ,
+
+∂θ
+
+4
+
+⇒
+
+0
+
+=
+
+β
+
+sin
+
+θ
+
+−
+
+1 4
+
+λw
+
+,
+
+4β sin θ
+
+⇒ λ=
+
+.
+
+w
+
+A second equation is provided by diﬀerentiation with respect to w and yields
+
+∂G ∂w
+
+=
+
+β
+
+sec θ
+
+−
+
+λh
+
+−
+
+1 2
+
+λw
+
+tan θ.
+
+Setting ∂G/∂w = 0, multiplying through by cos θ and substituting for λ, we obtain
+
+β − 2β sin2 θ = 4β sin θ h cos θ , w
+w cos 2θ = 2h sin 2θ, w
+tan 2θ = . 2h
+This is the second result quoted.
+
+80
+
+PARTIAL DIFFERENTIATION
+
+The overall area constraint can be written
+
+4(A − wh) tan θ = w2 .
+
+From these two results and the double angle formula tan 2φ = 2 tan φ/(1−tan2 φ),
+
+it follows that
+
+w = tan 2θ
+2h 8(A − wh)
+
+=
+
+w2 16(A −
+
+wh)2
+
+,
+
+1−
+
+w4
+
+16wh(A − wh) = w4 − 16(A − wh)2,
+
+w4 = 16A(A − wh).
+
+This is the ﬁrst quoted result, and we note that, as expected, both optimum values are independent of β.
+
+5.21 Find the area of the region covered by points on the lines xy + = 1, ab
+where the sum of any line’s intercepts on the coordinate axes is ﬁxed and equal to c.
+
+The equation of a typical line with intercept a on the x-axis is xy
+f(x, y, a) = a + c − a − 1 = 0. To ﬁnd the envelope of the lines we set ∂f/∂a = 0. This gives
+
+∂f x
+
+y
+
+∂a = − a2 + (c − a)2 = 0.
+
+Hence,
+
+(c
+
+−
+
+√ a) x
+
+=
+
+√ a y,
+
+√
+
+a
+
+=
+
+√c x
+
+x + √y
+
+.
+
+Substituting this value into f(x, y, a) = 0 gives the equation of the envelope as
+
+√ x( x
+
++
+
+√y)
+
+√
+
++
+
+y √ = 1,
+
+cx
+
+c − √xc+x√y
+
+√√ √ √√ √
+
+x( x + y) + y( x + y) = c,
+
+√ x
+
++
+
+√ y
+
+=
+
+√ c.
+
+81
+
+PARTIAL DIFFERENTIATION
+
+This is a curve (not a straight line) whose end-points are (c, 0) on the x-axis
+
+and (0, c) on the y-axis. All points on lines with the given property lie below
+
+this envelope curve (except for one point on each line, which lies on the curve).
+
+Consequently, the area covered by the points is that bounded by the envelope
+
+and the two axes. It has the value
+
+c
+y dx =
+
+c
+
+√ (c
+
+−
+
+√x)2
+
+dx
+
+0
+
+0
+
+c
+
+√√
+
+= (c − 2 c x + x) dx
+
+=
+
+0
+c2 −
+
+4 3
+
+√ c
+
+c3/2
+
++
+
+1 2
+
+c2
+
+=
+
+1 6
+
+c2
+
+.
+
+5.23 A water feature contains a spray head at water level at the centre of a round basin. The head is in the form of a small hemisphere perforated by many evenly distributed small holes, through which water spurts out at the same speed, v0, in all directions.
+(a) What is the shape of the ‘water bell’ so formed? (b) What must be the minimum diameter of the bowl if no water is to be lost?
+
+The system has cylindrical symmetry and so we work with cylindrical polar coordinates ρ and z.
+
+For a jet of water emerging from the spray head at an angle θ to the vertical, the equations of motion are
+
+z
+
+=
+
+v0
+
+cos
+
+θ
+
+t
+
+−
+
+1 2
+
+gt2
+
+,
+
+ρ = v0 sin θ t.
+
+Eliminating the time, t, and writing cot θ = α, we have
+
+z
+
+=
+
+ρ v0 cos θ v0 sin θ
+
+−
+
+1 ρ2 2 g v02 sin2 θ ,
+
+⇒
+
+0
+
+=
+
+z
+
+−
+
+ρ
+
+cot θ
+
++
+
+gρ2 2v02
+
+cosec
+
+2θ,
+
+i.e. the trajectory of this jet is given by
+
+f(ρ,
+
+z,
+
+α)
+
+=
+
+z
+
+−
+
+ρα
+
++
+
+gρ2 2v02
+
+(1
+
++
+
+α2)
+
+=
+
+0.
+
+To ﬁnd the envelope of all these trajectories as θ (and hence α) is varied, we set
+
+82
+
+PARTIAL DIFFERENTIATION
+
+∂f/∂α equal to zero:
+
+∂f
+
+2αgρ2
+
+0= =0−ρ+ ∂α
+
+2v02
+
+,
+
+⇒ α = v02 . gρ
+
+Hence, the equation of the envelope, and thus of the water bell, is
+
+g(ρ, z)
+
+=
+
+z
+
+−
+
+v02 g
+
++
+
+gρ2 2v02
+
+1
+
++
+
+v04 g2ρ2
+
+= 0,
+
+⇒
+
+z
+
+=
+
+v02 2g
+
+−
+
+gρ2 2v02 .
+
+(a) This is the equation of a parabola whose apex is at z = v02/2g, ρ = 0. It follows that the water bell has the shape of an inverted paraboloid of revolution.
+
+(b) When z = 0, ρ has the value v02/g, and hence the minimum value needed for the diameter of the bowl is given by 2ρ = 2v02/g.
+
+5.25 By considering the diﬀerential
+dG = d(U + P V − ST ),
+where G is the Gibbs free energy, P the pressure, V the volume, S the entropy and T the temperature of a system, and given further that U, the internal energy, satisﬁes
+dU = T dS − P dV ,
+derive a Maxwell relation connecting (∂V /∂T )P and (∂S/∂P )T .
+
+Given that dU = T dS − P dV , we have that
+
+dG = d(U + P V − ST ) = dU + P dV + V dP − S dT − T dS = V dP − S dT .
+
+Hence,
+
+∂G = V and
+∂P T
+
+∂G = −S.
+∂T P
+
+It follows that
+
+∂V
+
+∂2G
+
+∂2G
+
+∂S
+
+=
+
+=
+
+=−
+
+.
+
+∂T P ∂T ∂P ∂P ∂T
+
+∂P T
+
+This is the required Maxwell thermodynamic relation.
+
+83
+
+PARTIAL DIFFERENTIATION
+
+5.27 As implied in exercise 5.25 on the thermodynamics of a simple gas, the quantity dS = T −1(dU + P dV ) is an exact diﬀerential. Use this to prove that
+
+∂U
+
+∂P
+
+=T
+
+− P.
+
+∂V T
+
+∂T V
+
+In the van der Waals model of a gas, P obeys the equation
+
+RT a P = V −b − V2, where R, a and b are constants. Further, in the limit V → ∞, the form of U becomes U = cT , where c is another constant. Find the complete expression for U(V , T ).
+
+Writing the total diﬀerentials in dS = T −1(dU + P dV ) in terms of partial derivatives with respect to V and T gives
+
+∂S
+
+∂S
+
+∂U
+
+∂U
+
+T
+
+dV + T
+
+dT =
+
+dV +
+
+dT + P dV ,
+
+∂V T
+
+∂T V
+
+∂V T
+
+∂T V
+
+from which it follows that
+
+∂S
+
+∂U
+
+∂S
+
+∂U
+
+T
+
+=
+
++ P (∗) and T
+
+=
+
+.
+
+∂V T
+
+∂V T
+
+∂T V
+
+∂T V
+
+Diﬀerentiating the ﬁrst of these with respect to T and the second with respect to V , and then combining the two equations so obtained, gives
+
+∂S
+
+∂2S
+
+∂2U
+
+∂P
+
++T
+
+=
+
++
+
+,
+
+∂V T ∂T ∂V ∂T ∂V ∂T V
+
+∂2S
+
+∂2U
+
+T
+
+=
+
+,
+
+∂V ∂T ∂V ∂T
+
+∂S
+
+∂P
+
+⇒
+
+=
+
+.
+
+∂V T
+
+∂T V
+
+The equation (∗) can now be written in the required form:
+
+∂U
+
+∂P
+
+=T
+
+− P.
+
+∂V T
+
+∂T V
+
+For the van der Waals model gas,
+
+RT a P = V −b − V2,
+84
+
+PARTIAL DIFFERENTIATION
+
+and we can substitute for P in the previous result to give
+
+∂U
+
+R
+
+=T
+
+−
+
+∂V T
+
+V −b
+
+which integrates to
+
+a U(V , T ) = − + f(T ).
+V
+
+RT a V −b − V2
+
+a = V2,
+
+Since U → cT as V → ∞ for all T , the unknown function, f(T ), must be simply f(T ) = cT . Thus, the full expression for U(V , T ) is
+
+a U(V , T ) = cT − .
+V
+
+We note that, in the limit V → ∞, van der Waals’ equation becomes P V = RT and thus recognise c as the speciﬁc heat at constant volume of a perfect gas.
+
+5.29 By ﬁnding dI/dy, evaluate the integral
+
+∞ e−xy sin x
+
+I(y) =
+
+dx.
+
+0
+
+x
+
+Hence show that
+
+∞ sin x
+
+π
+
+J=
+
+dx = .
+
+0x
+
+2
+
+Since the integral is over positive values of x, its convergence requires that y ≥ 0. We ﬁrst express the sin x factor as a complex exponential:
+
+∞ e−xy sin x
+
+I(y) =
+
+dx
+
+0
+
+x
+
+∞ e−xy+ix
+
+= Im
+
+dx.
+
+0
+
+x
+
+And now diﬀerentiate under the integral sign:
+
+dI = Im dy
+= Im
+
+∞ (−x)e−xy+ix
+
+dx
+
+0
+
+x
+
+−e−xy+ix ∞
+
+−y + i 0
+
+1 = Im
+−y + i
+
+1 = −1 + y2 .
+
+This diﬀerential equation expresses how the integral varies as a function of y.
+
+85
+
+PARTIAL DIFFERENTIATION
+
+But, as we can see immediately that for y = ∞ the integral must be zero, we can ﬁnd its value for non-inﬁnite y by integrating the diﬀerential equation:
+
+I(y) − I(∞) =
+
+y ∞
+
+−1 1 + y2
+
+dy
+
+=
+
+− tan−1 y
+
++ tan−1 ∞
+
+=
+
+π 2
+
+− tan−1 y.
+
+In the limit y → 0 this becomes
+
+∞ sin x
+
+π
+
+π
+
+J=
+
+dx = I(0) = − 0 = .
+
+0x
+
+2
+
+2
+
+5.31 The function f(x) is diﬀerentiable and f(0) = 0. A second function g(y) is
+deﬁned by y f(x) dx
+g(y) = √ . 0 y−x
+
+Prove that
+
+dg
+
+y df dx
+
+=
+
+√.
+
+dy 0 dx y − x
+
+For the case f(x) = xn, prove that
+
+dng
+
+√
+
+dyn = 2(n!) y.
+
+Integrating the deﬁnition of g(y) by parts:
+
+y f(x) dx g(y) = √
+0 y−x
+
+=
+
+√ −2f(x) y − x
+
+y 0
+
++
+
+y df √ 2 y − x dx
+0 dx
+
+y df √
+
+=2
+
+y − x,
+
+0 dx
+
+where we have used f(0) = 0 in setting the deﬁnite integral to zero.
+
+Now, diﬀerentiating g(y) with respect to both its upper limit and its integrand, we obtain
+
+dg df √
+
+y 1 df 1
+
+y df 1
+
+=2 y−y+2
+
+√
+
+=
+
+√.
+
+dy dx
+
+0 2 dx y − x 0 dx y − x
+
+This result, showing that the construction of the derivative of g from the derivative of f is the same as that of g from f, applies to any function that satisﬁes f(0) = 0
+
+86
+
+PARTIAL DIFFERENTIATION
+
+and so applies to xn and all of its derivatives. It follows that
+
+dng
+
+y dnf 1
+
+dyn = 0 dxn √y − x dx
+
+y n!
+
+=
+
+0
+
+√ y
+
+−
+
+x
+
+dx
+
+√
+
+y
+
+n!(−1) y − x
+
+=
+
+1
+
+√2
+
+0
+
+= 2(n!) y.
+
+5.33 If
+
+1 xα − 1
+
+I(α) =
+
+dx,
+
+0 ln x
+
+what is the value of I(0)? Show that
+
+α > −1,
+
+d xα = xα ln x, dα
+
+and deduce that
+
+d
+
+1
+
+I (α) dα
+
+=
+
+α + 1.
+
+Hence prove that I(α) = ln(1 + α).
+
+Since the integrand is singular at x = 1, we need to deﬁne I(0) as a limit:
+
+i.e. I(0) = 0.
+
+y x0 − 1
+
+y
+
+I(0) = lim
+
+dx = lim 0 dx = lim 0 = 0,
+
+y→1 0 ln x
+
+y→1 0
+
+y→1
+
+With z = xα, we have
+
+ln z = α ln x ⇒ 1 dz = ln x z dα
+
+⇒
+
+dz = z ln x
+
+⇒
+
+d xα = xα ln x.
+
+dα
+
+dα
+
+The derivative of I(α) is then
+
+dI = 1 1 xα ln x dx dα 0 ln x
+
+xα+1 1 =
+α+1 0
+
+1
+
+=
+
+.
+
+α+1
+
+87
+
+PARTIAL DIFFERENTIATION
+
+Finally, intergation gives
+
+α dβ
+
+I(α) − I(0) =
+
+,
+
+0 β+1
+
+I(α) − 0 = ln(1 + α).
+
+To obtain this ﬁnal line we have used our ﬁrst result that I(0) = 0.
+
+5.35 The function G(t, ξ) is deﬁned for 0 ≤ t ≤ π by
+G(t, ξ) = − cos t sin ξ for ξ ≤ t, = − sin t cos ξ for ξ > t.
+Show that the function x(t) deﬁned by
+π
+x(t) = G(t, ξ)f(ξ) dξ
+0
+satisﬁes the equation d2x dt2 + x = f(t),
+where f(t) can be any arbitrary (continuous) function. Show further that x(0) = [dx/dt]t=π = 0, again for any f(t), but that the value of x(π) does depend upon the form of f(t).
+[ The function G(t, ξ) is an example of a Green’s function, an important concept in the solution of diﬀerential equations. ]
+
+The explicit integral expression for x(t) is
+
+π
+
+x(t) = G(t, ξ)f(ξ) dξ
+
+0
+
+t
+
+π
+
+= − cos t sin ξ f(ξ) dξ − sin t cos ξ f(ξ) dξ.
+
+0
+
+t
+
+We now form its ﬁrst two derivatives using Leibnitz’ rule:
+
+dx
+
+t
+
+= − cos t[ sin t f(t) ] + sin t sin ξ f(ξ) dξ
+
+dt
+
+0
+
+π
+
++ sin t[ cos t f(t) ] − cos t cos ξ f(ξ) dξ
+
+t
+
+t
+
+π
+
+= sin t sin ξ f(ξ) dξ − cos t cos ξ f(ξ) dξ.
+
+0
+
+t
+
+88
+
