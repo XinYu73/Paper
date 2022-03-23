@@ -1,0 +1,1033 @@
+Intelligent Manufacturing and Robotics-Research Article
+The optimization of accuracy and efficiency for multistage precision grinding process with an improved particle swarm optimization algorithm
+
+International Journal of Advanced Robotic Systems
+January-February 2020: 1–13 ª The Author(s) 2020
+DOI: 10.1177/1729881419893508 journals.sagepub.com/home/arx
+
+Zhanying Chen1,2, Xuekun Li1,2 , Zongyu Zhu3, Zeming Zhao3, Liping Wang1,2, Sheng Jiang3 and Yiming Rong4
+
+Abstract For metal rolling, the quality of final rolled productions (for instance, metal sheets and metal foils) is affected by steel roll’s cylindricity. In roll grinding process, grinding parameters, which typically involve multiple substages, determine the steel roll’s quality and the grinding efficiency. In this article, a modified particle swarm optimization was presented to dispose of roll grinding multi-objective optimization. The minimization of steel roll’s cylindrical error and maximization of grinding efficiency were optimization objectives. To build the correlation between grinding parameters and cylindrical error, the response surface model of cylindrical error was regressed from the operation data of machine tool. The improved particle swarm optimization was employed to the roll grinding parameter optimization, and the optimal compromise solutions between grinding efficiency and cylindrical error were obtained. Based on the optimal compromise solutions, engineers or computer were capable to determine the corresponding most efficient roll grinding parameters according to the requirement of the final cylindrical error specification. To validate the efficacy of the improved particle swarm optimization, the validation experiment was carried out on the practical roll grinding operation. The error between the calculated optimized cylindrical error and experimental cylindrical error is less than 7.73%.
+Keywords Multistage roll grinding, improved PSO, cylindrical error, grinding efficiency, intelligent manufacturing
+Date received: 24 June 2019; accepted: 8 November 2019
+Topic: AI in Robotics; Human Robot/Machine Interaction Topic Editor: Henry Leung Associate Editor: Bin He
+
+Introduction
+In the process of rolling metal products, steel roll is a key component.1,2 Cylindrical error is a significant specification of steel roll, and the unqualified cylindrical error of steel roll can cause the unqualified flatness error of the rolled metal sheets and even the fracture of rolled aluminum foil. The wear of steel roll during operation can cause the degeneration of the cylindricity. Grinding has to be carried out to restore the steel roll’s quality while removing the worn layer.3 Grinding parameters directly affect the
+
+1 Department of Mechanical Engineering, Tsinghua University, Beijing, China
+2 State Key Lab of Tribology, Tsinghua University, Beijing, China 3 Hiecise Precision Equipment Co., Ltd, Suzhou, China 4 Department of Mechanical and Energy Engineering, Southern University of Science and Technology, Shenzhen, China
+Corresponding author: Xuekun Li, State Key Lab of Tribology, Tsinghua University, Beijing 100084, China. Email: xli@tsinghua.edu.cn
+
+Creative Commons CC BY: This article is distributed under the terms of the Creative Commons Attribution 4.0 License (https://creativecommons.org/licenses/by/4.0/) which permits any use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access pages (https://us.sagepub.com/en-us/nam/ open-access-at-sage).
+
+2
+
+International Journal of Advanced Robotic Systems
+
+steel roll’s cylindrical error and grinding efficiency. The grind process usually includes several stages, for example, rough, semi-finish, and finish grinding. All stages’ parameters need to be planed appropriately to achieve cylindrical error criteria under maximum grinding efficiency.
+Current roll grinding parameters planning method mainly depends on the knowledge of experienced engineer or machining handbooks. That usually needs long time “trial-and-error.” Moreover, current method is incapable to plan multiple grinding parameters in each grinding stage appropriately while multi-objective (e.g. grinding quality and efficiency) needs to be considered.4,5 Consequently, the parameters planned by means of the conventional method can hardly achieve optimal grinding quality and efficiency simultaneously. The quality criteria are achieved generally at the cost of time. To change this situation, machining parameters planning method based on inputand-output model and intelligent optimization algorithm are introduced by researchers.6,7 The input-and-output model associates machining parameters with qualities. The input-and-output model generally built via practical measurement. The noises (e.g. Gaussian noise and nonGaussian noise) occur during the measurement need to be considered to decrease the error. Outstanding contributions have been made by the previous researchers.8,9
+To solve the optimization problem of multi-objective, high nonlinearity and multidimensional discrete variables, intelligent optimization algorithms are good candidates.10,11 Particle swarm optimization (PSO) is an intelligent optimization algorithm and widely employed to solve the problem of multidimensional global optimization for nonlinear complex engineering systems.12 The advantages of PSO are its less control parameters, easy to implement, high computational efficiency as well as robustness.13,14 In order to apply PSO algorithm in optimizing the grinding parameters, enhanced modification is needed. The improved PSO is required to possess the superior characteristics in terms of search ability and efficiency. Meanwhile, the modified algorithm is required to embed the model which is capable to practically express the correlation between grinding parameters and cylindrical error. In addition, the improved PSO is required to be capable to dispose of multi-objective as well as multidimensional discrete variables.
+This research presented an improved algorithm to optimize roll grinding parameters. The application of intelligent optimization algorithms in manufacturing domain was summarized and the basic PSO was introduced. Then the improved PSO was developed as optimizer. Cylindrical error model was built and utilized as an objective function. The minimization of steel roll’s cylindrical error and maximization of grinding efficiency were optimization objectives. With developed modified PSO, optimal compromise solutions between grinding efficiency and cylindrical error were achieved. Based on the optimal compromise solutions, engineers or computer were capable to determine the
+
+corresponding most efficient roll grinding parameters according to the requirement of final cylindrical error specification. To validate the efficacy of developed improved PSO, validation experiment was conducted. Experimental results exhibit that the error between calculated optimized cylindrical error and experimental cylindrical error is less than 7.73%.
+Literature review
+In manufacturing industry, the optimization problem has attracted more and more attention. Most of the optimization problem has the feature of multi-objective, high nonlinearity as well as multidimensional discrete variables. To dispose of the abovementioned problem, intelligent optimization algorithms and their improved forms are introduced, for example, PSO, genetic algorithm, differential evolution, imperialist competitive algorithm (ICA), and Taguchi methodology.
+Machining parameters optimization is crucial to improve machining accuracy and efficiency. Because of the complexity of manufacturing system, the machining parameters optimization belongs to typical optimization problem of multi-objective, high nonlinearity as well as multidimensional discrete variables. PSO has been widely applied in machining parameters optimization. Chen et al.15 optimized turning process to achieve maximized machining efficiency. The machining efficiency was increased about 8% by implementing the optimization process of PSO. Thepsonthi and O¨ zel identified optimal process parameters by employing multi-objective PSO.16 Minimizing surface roughness as well as burr formation were optimization objective. The presented method’s efficacy was validated on micro-end milling operation. Mohanty et al.7 optimized die-sinking electrical discharge machining parameters via multi-objective PSO. Paretooptimal solutions were achieved via multi-objective particle swarm optimization (MOPSO). This investigation offered an effective way to increase machining accuracy. Li et al.17 solved the optimization problem in face milling process by means of multiple objective PSO. Maximizing energy efficiency as well as minimizing production cost were optimization objectives. Via the presented method, the energy efficiency could be increased and the production cost could be reduced in face milling process.
+Genetic algorithm (GA) was also applied in optimizing machining parameters by some researchers. Agarwal employed multi-objective GA to optimize grinding process.6 The optimization objectives were maximization of material removal rate as well as minimization of surface roughness. Gopal and Rao employed GA to optimize grinding parameters in SiC grinding.18 The optimization objective was the maximization of material removal rate. The surface integrity was a constraint.
+In addition to the abovementioned optimization algorithms, other algorithms were also introduced to deal with
+
+Chen et al.
+
+3
+
+the problem of optimizing machining parameters, for example, moth-flame optimization (MFO), firefly algorithm (FA), and differential evolution (DE). Yildiz and Yildiz optimized the milling parameters.19 The maximization of profit rate was achieved by employing MFO. The results achieved via MFO algorithm were contrasted with other optimization algorithms and exhibited that MFO was more effective. Liu et al.5 presented an improved FA. The improved FA was utilized to optimize the process output objectives of grinding time and geometric error. The optimized grinding parameters by the improved FA could realize the achievement of all process quality objectives simultaneously with the grinding efficiency increased by 32.4%. Yildiz presented an improved DE algorithm to optimize turning process.20 The minimized produce cost was the optimization objective.
+Apart from meta-heuristic algorithms, statistical method was also introduced to optimize machining parameters. Nes¸eli et al.21 achieved the optimal parameter combination via Taguchi methodology. Minimizing surface roughness as well as grinding wheel vibration were objectives. Response surface methodology (RSM) was utilized to fit the objectives. The optimum parameter combination to minimize grinding wheel vibration as well as surface roughness were achieved, respectively. This method was proved efficiency by experiment.
+The intelligent algorithms were also employed to dispose of other optimization problems in manufacturing domain. In order to determine the damage locations and extents in the engineering structures, Go¨kdag˘ and Yildiz employed PSO to minimize modal indexes in the modalbased objective functions.22 The results indicated that the damage locations and extents were capable to be identified accurately by optimizing the objective functions with PSO. He et al. introduced the application of intelligent optimization algorithm in the field of robot control.23 ICA is derived from human social evolution. Hosseini and Al Khaled introduced the principle of ICA as well as its application in engineering domain in detail.24 ICA was becoming an important tool for solving the optimization problems in manufacturing industry. Hosseini et al.25 developed a hybrid ICA to reduce the production cost. Taguchi method was adopted to tune the developed hybrid algorithm’s parameters. With hybrid ICA, the computational solution quality was promising. In order to decrease the carbon emission in manufacturing domain, He et al.26 thoroughly studied the model of product environmental footprint and presented that the carbon emission could be decreased through the product design based on intelligent algorithms. He et al.27 also studied the model of product carbon footprint across sustainable supply chain and proposed that the carbon emission could be optimized through introducing intelligent algorithms.
+The abovementioned researches exhibit that the intelligent optimization algorithms have achieved positive results in solving the manufacturing optimization problems.
+
+Although PSO as an outstanding algorithm is widely employed to dispose of manufacturing optimization problem, to improve the efficacy of PSO, its improved forms are also presented. Chauhan et al.28 employed a modified PSO in optimizing turning parameters. The chaos algorithm was introduced to improve search efficiency. The optimization objective was the minimization of manufacturing cost. Zhang et al.4 optimized the grinding wheel’s dressing parameters and grinding parameters by adopting hybrid PSO in surface grinding. With the hybridization of dynamic neighborhood, optimizing efficiency was improved. The optimal parameter combination was achieved with the presented optimization method. Gao et al.29 presented a process optimization algorithm by means of cellular PSO. The search efficiency was improved by introducing cellular automata. The minimized production time was the optimization objective. Compared to other algorithms (e.g. artificial bee colony, PSO), the presented algorithm performed better and achieved significant improvement. The hybrid PSO which hybridized receptor editing property was also developed to optimize the design variables and the machining parameters of vehicle components.30 The abovementioned modified PSO algorithms focus on the improvement of the searching efficiency, while the searching ability and the solution’s quality of PSO algorithm also needed to be further improved.
+In this article, PSO was modified in terms of search ability and efficiency. Different from the abovementioned modifications, adaptive density grid algorithm and mutation operation were firstly embedded in PSO. Meanwhile, the response surface model which can practically express the correlation between grinding parameters and cylindrical error was built. The efficiency and cylindrical error were the objective functions. The optimal grinding parameter cluster was achieved via the developed improved PSO. The cluster provided an optimal parameter combination while efficiency and cylindrical error need to be considered simultaneously. The efficacy of the developed improved PSO was validated via comparison experiment.
+Framework of improved PSO method
+Basic PSO is derived from the organisms’ social behavior.31–33 The schematic of basic PSO is exhibited in Figure 1. The jth particle’s moving process from current position Pj(i) to new position Pj(i þ 1) is affected by personal best (pjbest(i)) as well as global best position (gbest(i)). i represents current iteration number. The pjbest(i) is the best position searched up to now by particle itself, while gbest(i) is the best position found up to now by any particles in swarm.34,35 Each particle’s fitness value is evaluated. Fitness function is applied in calculating particles’ fitness value. The fitness function is determined by optimization problem. The mathematical description of the particles’ moving process is given as follows32,36
+
+4
+
+International Journal of Advanced Robotic Systems
+
+Current positon of population New positon of population
+
+Move
+
+Personal best position influence Current motion influence Global best position influence
+
+T iterations Optimal position
+
+Figure 1. Schematic of basic PSO. PSO: particle swarm optimization.
+
+V
+
+jði
+
+þ
+
+1Þ
+
+¼! þ
+
+Â d2
+
+V
+
+jðiÞ
+
+þd À
+
+1
+
+Á
+
+Á rdm2 gbest
+
+rdm1 ðiÞ À
+
+ÀPpjjðbieÞsÁtðiÞ
+
+À
+
+Pj
+
+Á ðiÞ
+
+ð1Þ
+
+Pjði þ 1Þ ¼ PjðiÞ þ V jði þ 1Þ
+
+ð2Þ
+
+where i denotes current iteration number; j represents jth particle; Pj(i) represents current position; Vj(i) is current velocity; Pj(i þ 1) represents new position; Vj(i þ 1) is new velocity; o represents inertial weight and is a constant; d1 and d2 represent learning factors and are constants; rdm1 and rdm2 represent random numbers between 0 and 1 and are updated for every particle in each iteration.
+The pseudo code of basic PSO is exhibited below:
+Start Define the objective function f(P) Determine the total iteration T and population size n Determine the coefficients: ω, d1, d2
+for each particle j Initialize Vj and position Pj for jth particle Calculate jth particle’s fitness value f(Pj) and set pjbest = Pj
+end for gbest= min { f(pjbest)} for i=1 to T
+for j=1 to n Update jth particle’s velocity Vj(i) and position Pj(i) Calculate jth particle’s fitness value f(Pj(i)) if f(Pj(i))<f(pjbest) pjbest= Pj(i); if f(pjbest)<f(gbest) gbest= pjbest;
+end for end for output gbest End
+On basis of basic PSO, improved PSO was developed
+and utilized to optimize the roll grinding parameters. The
+framework of modified PSO was exhibited by Figure 2.
+Initialized solution cluster was generated within the
+grinding machine capability constraint. Then the solution
+particles’ fitness values were computed. Adaptive density grid algorithm37,38 as well as mutation operation were
+embedded. PSO searches the optimal solution via
+
+stochastic movement of swarm, thus the searching process will trap in local optimum and miss some relatively good solutions.38,39 In addition, the search efficiency of the improved algorithm is also required to be improved. The mutation operation is generally applied to avoid trapping in local optimum in GA algorithm, based on that the mutation operation is embedded into the basic PSO. Meanwhile, the dynamic mutation rate can make a trade off in terms of global and local search, and this makes the improved PSO achieve the optimal cluster with less iteration. Adaptive density grid algorithm can lead the swarm search the less search domain, thus the quality of the optimal cluster can be increased. Therefore, with these modifications, the search ability as well as efficiency of basic PSO can be improved.
+This article’s difficulties consist of two parts, the enhanced modification of PSO and the establishment of response surface model. The developed algorithm embeds the mutation operation and adaptive density grid algorithm, so its search ability is improved. In addition, the modified PSO is required to be capable to dispose of multi-objective as well as multidimensional discrete variables. The built model is required to express the relation between grinding parameters and cylindrical error accurately. Consequently, the presented improved PSO possesses both roll grinding characteristics as well as superior search ability.
+
+Roll grinding process
+Figure 3 exhibits the sketch map of roll grinding. The direction of cutting speed (vs) and roll speed (vw) is opposite. The grinding wheel traverses along the roll’s longitudinal direction. In this research, vw is set to 50 r/min. The grinding wheel feeds radially at roll’s each end.
+
+Improved PSO development
+
+Cylindrical error model. Equation (3) practically expresses the correlation between grinding parameters and cylindrical error. The grinding machine’s practical operation data as well as RSM are applied in fitting equation (3). RSM is a statistical methodology. This methodology is applied to build the mathematical association between input variables and output. The model built with RSM directly associates input variables and output results. In manufacturing domain, RSM is extensively employed to build the empirical model between machining variables and qualities.40,41 RSM has the advantages of high accuracy, few experiments, and easy to implement.42,43 Equation (4) is applied to fit the response surface model of cylindrical error
+
+CE ¼ f ðdoc; vs; f aÞ
+
+ð3Þ
+
+where CE is cylindrical error; doc denotes grinding depth; vs denotes grinding wheel speed; fa denotes traverse speed
+
+Chen et al.
+
+5
+
+Figure 2. Framework of improved PSO. PSO: particle swarm optimization.
+
+Figure 3. Sketch map of roll grinding.
+
+Xn
+
+Xn
+
+X nÀ1 Xn
+
+CE ¼ b0 þ biÁxi þ biiÁxi2 þ
+
+bijÁxiÁxj þ
+
+i¼1
+
+i¼1
+
+i¼1 j¼iþ1
+
+ð4Þ
+
+where b0, bi, bii, and bij are to be estimated; n denotes the number of variables; xi, xj represent grinding parameters; denotes random error.
+
+Step i-1
+
+Domination relationship determination
+doc1i-1 vs1i-1 fa1i-1
+
+Solution particle 1 to n
+
+doc2i-1 vs2i-1 doc3i-1 vs3i-1
+
+fa2i-1 fa3i-1
+
+Ă
+
+docni-1 vsni-1 fani-1
+
+Step i
+
+Domination relationship determination
+doc1i vs1i fa1i
+
+Solution particle doc2i vs2i fa2i
+
+1 to n
+
+doc3i vs3i fa3i
+
+Ă
+
+docni vsni fani
+
+Step i+1
+
+Domination relationship determination
+doc1i+1 vs1i+1 fa1i+1
+
+Solution particle 1 to n
+
+doc2i+1 vs2i+1 fa2i+1 doc3i+1 vs3i+1 fa3i+1
+
+Ă
+
+docni+1 vsni+1 fani+1
+
+Repository
+Current optimal solution cluster i-2
+Domination relationship determination
+Compromise solutions generated in step i-1
+Repository
+Current optimal solution cluster i-1
+Domination relationship determination
+Compromise solutions generated in step i
+Repository
+Current optimal solution cluster i
+Domination relationship determination
+Compromise solutions generated in step i+1
+
+Development of improved PSO. The optimization objectives comprise the minimized steel roll’s cylindrical error (CE) as well as maximized material removal rate (MRR). Usually the compromise solution cluster is achieved in multiobjective optimization process.44 The solution particles in the compromise solution cluster are optimal trade-off solutions between steel roll’s cylindrical error and MRR. Figure 4 shows the generation procedure of the compromise solution particles. During every step, the domination relationship determination is implemented in the current
+
+i — current iteration number n — population number
+
+Current optimal solution cluster i+1
+
+Figure 4. Generation procedure of the compromise solution particles.
+solution cluster, then non-dominated solution particles are picked out. Compromise solutions consist of the nondominated solution particles. For solution particle x and y, x ¼ [docx, vsx, fax]T, y ¼ [docy, vsy, fay]T. In the
+
+6
+
+International Journal of Advanced Robotic Systems
+
+Grinding machine capability boundary Current motion influence
+
+j Solution particle j
+
+ω Mutation
+j
+
+j Current position
+
+New position
+
+j
+
+d2×rdm2 Leading solution particle
+
+New position after mutation
+
+d1×rdm1
+
+Personal best
+
+Optimal position
+
+Figure 5. Position updating process of solution particle j.
+
+following conditions x dominates y: (1) fCE(x) < fCE(y) and fMRR(x) ! fMRR(y); (2) fCE(x) fCE(y) and fMRR(x) > fMRR(y); (3) fCE(x) < fCE(y) and fMRR(x) > fMRR(y). A repository was introduced to restore the compromise solution particles. Current optimal solution cluster was achieved by judging the domination relation of all compromise solution particles that searched up to now and changed with different iterations. After T steps iteration, the final optimal solution cluster could be achieved.
+The improved PSO embedded mutation operation as well as adaptive density grid algorithm. Figure 5 exhibits the position updating process of the modified PSO. In Figure 5, the current motion, leading solution particle, and personal best position simultaneously determine the updating process of solution particle j. All solution particles have to fall within the boundary of grinding machine capability.
+During the search process of the solution particles, some domains are not fully explored, so some compromise solutions are missed. Therefore, the solution particles need to be leaded to search the domains that are not fully explored. The adaptive density grid algorithm is embedded to select the leading solution particle. The selected leading solution particle leads the swarm of solution particles to explore the domains that are not fully explored, so the richness of optimal solution cluster can be improved. Figure 6 exhibits the compromise solution particles’ distribution in created cells. All the compromise solution particles shown in Figure 6 belong to current optimal solution cluster. The boundaries’ location is denoted via p1, p2, s1, and s2. Equations (5) to (8) are utilized to compute p1, p2, s1, and s2. Via this method, all compromise solution particle fall within the created cells. In Figure 6, L1 and L2 are the cell size. Equations (9) and (10) are utilized to compute L1 and L2, respectively
+p1 ¼ minðCEÞ À ½maxðCEÞ À minðCEÞ Â b ð5Þ
+
+p2 ¼ maxðCEÞ þ ½maxðCEÞ À minðCEÞ Â b ð6Þ
+
+s1 ¼ minðMRRÞ À ½maxðMRRÞ À minðMRRÞ Â b ð7Þ
+
+s2 ¼ maxðMRRÞ þ ½maxðMRRÞ À minðMRRÞ Â b ð8Þ
+
+L1
+
+¼
+
+p2
+
+À H
+
+p1
+
+ð9Þ
+
+Material removal rate
+
+p2
+
+L2
+
+Density value of the compromise solution particle
+
+2
+
+2
+
+1
+
+3C
+
+p1
+
+23
+
+s2
+
+3
+
+1
+
+B
+
+23
+
+1
+
+A
+
+L1
+
+s1
+
+Cylindrical error
+
+Figure 6. Distribution of compromise solution particles.
+
+Begin Initialize the particles within the constraints Initialize velocity, pbest, position and repository
+Select leader
+Update velocity and positon
+Implement mutation
+
+Grinding machine capability constraints:
+1 μm ≤ doc ≤ 5 μm 14 m/s ≤ vs ≤ 24 m/s 480 mm/min ≤ fa ≤ 1000 mm/min
+
+No
+
+Identify whether all
+
+particles are within the
+
+constraints
+
+Yes
+
+Calculate MRR and CE
+
+Update pbest Update repository
+
+No
+
+Identify whether
+
+iteration reaches
+
+maximum
+
+Yes
+
+Optimal solution cluster
+
+Objectives:
+Operation data of grinding machine
+Response surface methodology
+CE=f(doc, vs, fa)
+MRR=doc ×fa
+
+Figure 7. Flowchart of improved PSO. PSO: particle swarm optimization.
+
+L2
+
+¼
+
+s2
+
+À H
+
+s1
+
+ð10Þ
+
+where CE represents the compromise solution particles’ cylindrical error fitness values; MRR represents the compromise solution particles’ material removal rate fitness values; b represents a constant, and its value is 0.1; H represents the cells’ number (for instance, in Figure 6, H is 7).
+The number of the particles that fall within the same cell is considered as the particles’ density value in Figure 6. The solution particle that has lower density value except zero
+
+Chen et al.
+
+7
+
+tends to be stochastically selected more as the leading solution particle, for example, particles A, B, and C. Density computation is conducted in each iteration. The process of selecting leader is exhibited below:
+
+To avoid trapping in exploitation, mutation algorithm is
+
+embedded into the developed modified PSO. As exhibited
+
+in Figure 5, mutation operation is carried out after the
+
+position updating procedure. The mutation rate of each
+
+iteration is calculated by equation (11)
+
+MR
+
+¼
+
+ 1À
+
+i 2
+
+ð11Þ
+
+T
+
+where MR denotes the mutation rate of current iteration; i
+denotes the current iteration number; T is the designated
+iteration numbers.
+As described in equation (11), the mutation rate
+decreases with the increase of iteration, so the mutation
+possibility of position decreases with the increase of itera-
+tion. A large value of mutation rate is contributed to the
+global search, while a small value of it is contributed to the
+local search. Therefore, with the integration of the mutation
+operation, the developed improved PSO algorithm is capa-
+ble to make a trade off between global search and local
+search. The process of mutation operation is shown below:
+Input: Current iteration number i; Total iteration number T; The positon of particle j in ith iteration Pj(i)=[docji, vsji, faji]. Step 1: Calculate MR with Eq. (11). Step 2: Generate rd in the range of (0, 1) randomly. Step 3: If rd < MR, implement mutation operation and continue Step 4; If rd > MR, mutation operation is not implemented. Step 4: Select a variable randomly in [docji, vsji, faji] as the mutation variable. Step 5: Generate a new value randomly in the range of the selected mutation variable to replace the original selected mutation variable, so the new position of particle j in ith iteration Pnewj(i) is generated. Step 6: If Pnewj(i) dominates Pj(i), replace Pj(i) with Pnewj(i); If Pnewj(i) does not dominate Pj(i), keep Pj(i) unchanged. Output: Pj(i).
+
+Figure 7 exhibits the flowchart of improved PSO. For practical roll grinding process, the grinding parameters are integers, so initialized and newly generated solution particles are all integers. In addition, initialized and newly generated particles have to fall within the boundaries of grinding machine capability.
+The improved PSO is programed in Matlab2018a. The pseudo code of improved PSO is exhibited below:
+Start Define the objective function fCE(P), fMRR(P) Determine the total iteration T, population size n and repository size R Determine the coefficients: ω, d1, d2, H, β
+for each particle j Initialize Vj and position Pj for jth particle Calculate jth particle’s fitness value fCE(Pj), fMRR(Pj) Set pjbest = Pj
+end for Domination relationship determination and initialize current optimal solution cluster for i=1 to T
+for j=1 to n while Pj(i) within the constraints Select leader via adaptive density grid algorithm Update jth particle’s velocity Vj(i) and position Pj(i) Implement mutation operation end while Calculate jth particle’s fitness value fCE(Pj(i)) and fMRR(Pj(i)) if f(Pj(i))<f(pjbest) pjbest= Pj(i);
+end for Domination relationship determination and initialize current optimal solution cluster end for output optimal solution cluster End
+Application of improved PSO and experiment validation
+Experiment setup
+Experiment was carried out on MGK8420 CNC roll grinding machine to apply improved PSO and verify its efficacy. The roll grinding machine is exhibited in Figure 8. The steel roll is fixed on the grinding machine by two top clamps and driven rotating by headstock. The experimental conditions are shown in Table 1. To keep the experimental conditions consistent, the grinding wheel is dressed and the grinding fluid is changed before grinding. In addition, the experiment is implemented in a constant temperature workshop of which temperature is kept between 20C to 22C to eliminate the effect of environment temperature.
+The cylindrical error measuring instrument is Talyrond 565H, which is produced by Taylor Hobson. This instrument has very high precision with gauge resolution 0.3 nm. The cylindrical error measuring instrument is shown in Figure 9. The cylindrical error was calculated by measuring software Taylor Hobson-ultra. To calculate the cylindrical error after grinding, 35 cycles were segmented evenly along the longitudinal direction of steel roll and each cycle contains 36 hundreds measuring points. In practical measurements, the existence of non-Gaussian noises (outliers) and Gaussian noises would decrease the accuracy of measured cylindrical error. To cope with Gaussian noise, the Gauss filter was set up in Taylor Hobson-ultra. For the elimination of outliers, the radius of the steel roll was measured before grinding. If the
+
+8
+
+International Journal of Advanced Robotic Systems
+
+Figure 8. MGK8420 CNC roll grinding machine.
+
+Table 1. Experimental conditions.
+
+Table 2. Factors and levels of grinding parameters.
+
+Experimental condition Grinding wheel
+Steel roll
+Grinding fluid
+
+Parameter
+
+Type
+
+SiC
+
+Diameter
+
+450 mm
+
+Wide
+
+50 mm
+
+Grain size
+
+240
+
+Material
+
+D2 tool steel
+
+Length
+
+713 mm
+
+Diameter
+
+37 mm
+
+Hardness
+
+60 HRC
+
+Anti-rust emulsion oil
+
+Level
+1 2 3 4 5
+
+doc (mm)
+1 2 3 4 5
+
+Factor
+fa (mm/min)
+480 800 1000 — —
+
+vs (m/s)
+14 24 — — —
+
+Analytical model of cylindrical error
+
+There are great differences among parameters doc, vs, and fa, and the great differences will reduce the calculation accuracy. Therefore, the parameters were standardized to the range of [À1, 1] via encoding method before fitting model. Encoding method is exhibited in equation (12)46
+
+xE
+
+¼
+
+2x À ðxH þ xH À xL
+
+xLÞ
+
+ð12Þ
+
+Figure 9. Cylindrical error measuring instrument.
+observed values of measuring points after grinding were larger than the radius before grinding, they would be regarded as the outliers and removed.
+To achieve the response surface model of cylindrical error, the full factors experiment was conducted. Table 2 exhibits the roll grinding parameters. The systematic error was reduced by conducting the grinding parameter combination.45 Table 3 exhibits the experiment and its results.
+
+where xE denotes the encoding parameters; x denotes the grinding parameters doc, vs, and fa; xH denotes the high levels of grinding parameters; xL denotes the low levels of grinding parameters.
+The encoded grinding parameters are exhibited below
+
+docE
+
+¼
+
+doc À 2
+
+3 ; vsE
+
+¼
+
+vs
+
+À 5
+
+19 ;f
+
+aE
+
+¼
+
+f
+
+a À 740 260
+
+ð13Þ
+
+The analytical model of cylindrical error was fitted via stepwise method in Minitab17 and given by equation (14). Equation (14) has the R-squared value of 94.19% and the adjusted R-squared value of 93.52%. vs has no significance, so it is not included in the model. Based on its range, vs is set to 19 m/s
+
+Chen et al.
+
+9
+
+Table 3. Full factors experiment and its result.
+
+Table 4. Parameters setting of developed improved PSO.
+
+No. doc (mm) vs (m/s) fa (mm/min) Cylindrical error (mm) Parameter
+
+Value
+
+Parameter
+
+Value
+
+1
+
+2
+
+14
+
+800
+
+2
+
+5
+
+14
+
+800
+
+3
+
+4
+
+14
+
+1000
+
+4
+
+5
+
+14
+
+480
+
+5
+
+3
+
+24
+
+800
+
+6
+
+2
+
+14
+
+480
+
+7
+
+3
+
+14
+
+800
+
+8
+
+4
+
+24
+
+480
+
+9
+
+5
+
+14
+
+1000
+
+10
+
+5
+
+24
+
+480
+
+11
+
+4
+
+24
+
+800
+
+12
+
+4
+
+24
+
+1000
+
+13
+
+3
+
+14
+
+480
+
+14
+
+2
+
+24
+
+800
+
+15
+
+4
+
+14
+
+480
+
+16
+
+4
+
+14
+
+800
+
+17
+
+1
+
+24
+
+1000
+
+18
+
+5
+
+24
+
+1000
+
+19
+
+1
+
+14
+
+1000
+
+20
+
+1
+
+14
+
+800
+
+21
+
+3
+
+24
+
+480
+
+22
+
+3
+
+14
+
+1000
+
+23
+
+1
+
+24
+
+480
+
+24
+
+2
+
+14
+
+1000
+
+25
+
+2
+
+24
+
+480
+
+26
+
+1
+
+24
+
+800
+
+27
+
+5
+
+24
+
+800
+
+28
+
+3
+
+24
+
+1000
+
+29
+
+1
+
+14
+
+480
+
+30
+
+2
+
+24
+
+1000
+
+6.14 16.07 10.29 14.35 6.4 6.3 7.5 10.19 16.66 15 11.97 11.74 6.72 6.59 8.21 8.96 6.71 13.08 6.13 5.72 6.08 7.82 6.17 6.46 5.93 5.92 14.66 7.12 6.03 6.68
+
+Figure 10. Response surface of cylindrical error according to change of fa and doc.
+
+CE ¼ 7:217 þ 4:318 Â docE þ 0:387 Â f aE þ 3:346 Â docE2 ð14Þ
+
+docE
+
+¼
+
+doc À 2
+
+3 ; f aE
+
+¼
+
+f
+
+a À 740 260
+
+ð15Þ
+
+The response surface of cylindrical error according to change of fa and doc is shown in Figure 10.
+
+Total iteration T
+
+150
+
+d1
+
+1.41
+
+Population size n
+
+100
+
+d2
+
+2
+
+Repository size R
+
+50
+
+o
+
+0.6
+
+Number of cells H
+
+6
+
+b
+
+0.1
+
+PSO: particle swarm optimization.
+
+Parameters optimization via improved PSO
+
+The optimization objectives are presented as follows
+
+minimum: CE ¼ 7:217 þ 4:318 Â docE þ 0:387 Â f aE þ 3:346 Â docE2
+
+ð16Þ
+
+doc À 3
+
+f a À 740
+
+docE ¼ 2 ; f aE ¼ 260
+
+ð17Þ
+
+maximum: MRR ¼ doc Â f a
+
+ð18Þ
+
+The constraints are presented as follows
+
+Grinding depth: 1mm doc 5mm
+
+ð19Þ
+
+Traverse speed: 480mm=min f a 1000mm=min ð20Þ
+
+Table 4 exhibits the developed algorithm’s parameters. Via 150 steps iteration, the optimal solution cluster which contains 50 optimal trade-off solution particles is exhibited by yellow particles in Figure 11. The yellow particles in Figure 11 denote the optimal solution particles. The optimal solution particles are optimal trade-off solutions between steel roll’s cylindrical error and MRR, thus according to the requirement of final cylindrical error specification the engineers or computer are capable to determine the corresponding most efficient roll grinding parameters. In Figure 11, solution particle A, C, and B denote the solution particle of minimum cylindrical error, maximum grinding efficiency, and the balance between grinding efficiency and cylindrical error, respectively. In practical roll grinding operation, rough grinding is expected to have high MRR while finish grinding is expected to decrease the cylindrical error, so particle A, C, and B can be selected as the grinding parameters of finish grinding, rough grinding, and semi-finish grinding, respectively. In order to illustrate the advantages of the proposed improved PSO, the optimal solution cluster achieved through improved PSO was compared with which achieved through MOPSO. MOPSO was achieved by removing mutation operation and adaptive density grid algorithm of improved PSO. The total iteration, population size, and repository size of MOPSO were 150, 100, and 50, respectively. The optimal solution cluster achieved via MOPSO is exhibited by blue particles in Figure 11. The optimal solution cluster achieved via
+
+10
+
+International Journal of Advanced Robotic Systems
+
+Table 5. Grinding parameters and results.
+
+Verification solution particle
+doc (mm) fa (mm/min) vs (m/s) MRR (mm2/min) Predicted cylindrical error (mm) Experiment cylindrical error (mm)
+
+A
+2 498 19 0.996 5.53 5.87
+
+B
+4 743 19 2.972 10.22 9.43
+
+C
+5 991 19 4.955 15.25 15.91
+
+Figure 11. Optimal solution cluster of improved PSO and MOPSO. PSO: particle swarm optimization; MOPSO: multiobjective particle swarm optimization.
+
+MOPSO is discontinuous and miss some optimal solution particles in domains D, E, F, and G. Especially, in domain D, the solution particles which possess the larger MRR are missed. The solution particles which possess larger MRR are generally selected as the grinding parameters in rough grinding stage. The optimal solution cluster achieved via improved PSO is more continuous and possesses more abundant solution particles. As exhibited in Figure 6, the embedding of adaptive density grid algorithm makes the modified algorithm explore the domains that are not fully explored, that is, domains D, E, F, and G, thus the richness of the modified algorithm is improved. Meanwhile, the embedding of dynamic mutation operation increases the possibilities of exploring new position, this also increases the richness of the optimal solution cluster. Via the same iterations (150 iterations), the improved PSO achieves a better optimal solution cluster, so the search efficiency is also improved. Obviously, the embedding of mutation operation and adaptive density grid algorithm improves the quality of the optimal solution cluster as well as the search efficiency.
+Experiment validation
+Experiment validation for analytical model of cylindrical error. Validation experiment was carried out to validate the model’s accuracy. Solution particle A, C, and B in Figure 11 were selected to conduct validation experiment. The calculated optimized results were compared with experiment results. Table 5 exhibits the grinding parameters of the selected solution particles.
+Figure 12 shows the result of the verification experiment. The error of solution particle A, B, and C are 6.15%, 7.73%, and 4.33%, respectively.
+Experiment validation for the efficacy of developed improved PSO. The developed improved PSO algorithm’s efficacy was validated by comparing with empirical optimal
+
+Figure 12. Result of the verification experiment.
+parameters which planned by the experienced engineers. Solutions C, B, and A in Figure 11 were selected as the parameters of rough, semi-finish, and finish stage, respectively. The optimized parameters and empirical optimal parameters were exhibited in Table 6.
+Figure 13 exhibits the comparison result. To better exhibit the evolution of the grinding process and the comparison of the two different method, the 1/MRR is set to horizontal axis. In rough stage, although the MRR of the two methods are very close (4.995 mm2/min and 5 mm2/min, respectively), the cylindrical error of optimized parameters outperforms the empirical optimal parameters. In finish stage, the optimized parameters outperform the empirical optimal parameters in terms of cylindrical error and MRR. Especially, the MRR in finish stage increased by 42.29% compared with the empirical optimal parameters. In semi-finish stage, the empirical optimal parameters reduce the cylindrical error excessively, while disregard the decrease of the MRR. The MRR is decreased by 70.83%, while the cylindrical error is reduced just by 14.88% from semi-finish to finish via the empirical optimal parameters. For the optimized parameters, the MRR is decreased by 66.49% and the cylindrical error is reduced by 37.75% from semi-finish to finish. The optimized parameters achieve a better balance between cylindrical error and MRR compared with empirical optimal parameters. Therefore, the developed improved PSO performs better than the method based on the engineers’ experience.
+
+Chen et al.
+
+11
+
+Table 6. Optimized parameters and empirical optimal parameters.
+
+Comparison Optimized grinding parameters
+Empirical optimal grinding parameters
+
+doc
+
+fa
+
+vs
+
+Experimental
+
+MRR
+
+1/MRR
+
+(mm) (mm/min) (m/s) cylindrical error (mm) (mm2/min) (min/mm2)
+
+Rough (particle C)
+
+5
+
+Semi-finish (particle B) 4
+
+Finish (particle A)
+
+2
+
+Rough
+
+5
+
+Semi-finish
+
+3
+
+Finish
+
+1
+
+991 19 743 19 498 19 1000 14 800 24 700 24
+
+15.91 9.43 5.87
+16.42 7.73 6.58
+
+4.955 2.972 0.996 5 2.4 0.7
+
+0.202 0.337 1.004 0.2 0.417 1.429
+
+operation. The results exhibited in Figure 13 indicated that the developed improved PSO performs better than the method based on the engineers’ experience.
+In our future research, we will develop new improved intelligent optimization algorithms based on other metaheuristic algorithms to optimize precision grinding parameters, and make comparison with the improved PSO algorithm.
+
+Figure 13. Comparison of MRR and cylindrical error. MRR: material removal rate.
+Conclusion
+This research presented a modified algorithm to optimize the roll grinding parameters. The improved PSO was developed as optimizer. The response surface model of cylindrical error was built as an objective function.
+The adaptive density grid algorithm and mutation operation were embedded into the improved PSO. The enhanced modification by means of the two algorithms made the modified algorithm possess superior characteristics in terms of search ability and efficiency. The established cylindrical error model could practically express the relationship between grinding parameters and cylindrical error. Via 150 steps iteration, the optimal compromise solutions between steel roll’s cylindrical error and MRR were achieved. To validate the efficacy of the developed improved PSO, the optimal solution cluster achieved via improved PSO was compared with which achieved via MOPSO. As exhibited in Figure 6, the improved PSO explored the domains that were not fully explored, and some better solutions missed by MOPSO were searched by the developed improved PSO. To validate the model’s accuracy, experiment was carried out on practical roll grinding operation. The error between calculated cylindrical error and experimental cylindrical error is less than 7.73%, as exhibited in Figure 12. To further validate the efficacy of the solutions which achieved by the developed improved PSO, a comparison with empirical optimal parameters was implemented on practical roll grinding
+
+Declaration of conflicting interests The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article.
+Funding The author(s) disclosed receipt of the following financial support for the research, authorship, and/or publication of this article: This research is supported by Ministry of Science and Technology of the People’s Republic of China (Project 2017ZX04007001), Tsinghua-RWTH Aachen Collaborative Innovation Funding and Tsinghua University Initiative Scientific Research Program.
+ORCID iD Xuekun Li https://orcid.org/0000-0001-6143-3983
+References
+1. Weiss M, Abeyrathna B, Rolfe B, et al. Effect of coil set on shape defects in roll forming steel strip. J Manuf Process 2017; 25: 8–15.
+2. Tu N, Luo X, and Chai T. Two-stage method for solving large-scale hot rolling planning problem in steel production. IFAC Proc Vol 2011; 44(1): 12120–12125.
+3. Palit Sagar S, Murthy GVS, Das TK, et al. Surface wave based ultrasonic technique for finding the optimal grinding condition of high speed steel (HSS) work rolls. Steel Res Int 2013; 84(2): 163–168.
+4. Zhang G, Liu M, Li J, et al. Multi-objective optimization for surface grinding process using a hybrid particle swarm optimization algorithm. Int J Adv Manuf Technol 2014; 71(9–12): 1861–1872.
+5. Liu Z, Li X, Wu D, et al. The development of a hybrid firefly algorithm for multi-pass grinding process optimization. J Intell Manuf 2019; 30(6): 2457–2472.
+6. Agarwal S. Optimizing machining parameters to combine high productivity with high surface integrity in grinding
+
+12
+
+International Journal of Advanced Robotic Systems
+
+silicon carbide ceramics. Ceram Int 2016; 42(5): 6244–6262. 7. Mohanty CP, Mahapatra SS, and Singh MR. A particle swarm approach for multi-objective optimization of electrical discharge machining process. J Intell Manuf 2016; 27(6): 1171–1190. 8. Stojanovic V and Nedic N. Joint state and parameter robust estimation of stochastic nonlinear systems. Int J Robust Nonlinear 2016; 26(14): 3058–3074. 9. Filipovic V, Nedic N, and Stojanovic V. Robust identification of pneumatic servo actuators in the real situations. Forsch Ingenieurwes 2011; 75(4): 183–196. 10. Stojanovic V and Nedic N. A nature inspired parameter tuning approach to cascade control for hydraulically driven parallel robot platform. J Optim Theory App 2016; 168(1): 332–347. 11. Stojanovic V, Nedic N, Prsic D, et al. Application of cuckoo search algorithm to constrained control problem of a parallel robot platform. Int J Adv Manuf Technol 2016; 87(9–12): 2497–2507. 12. Chatterjee S, Sarkar S, Hore S, et al. Particle swarm optimization trained neural network for structural failure prediction of multistoried RC buildings. Neural Comput Appl 2017; 28(8): 2005–2016. 13. Wang G and Ma Z. Hybrid particle swarm optimization for first-order reliability method. Comput Geotech 2017; 81: 49–58. 14. Parsopoulos KE and Vrahatis MN. Parameter selection and adaptation in unified particle swarm optimization. Math Comput Model 2007; 46(1–2): 198–213. 15. Chen D, Lin B, Han Z, et al. Study on the optimization of cutting parameters in turning thin-walled circular cylindrical shell based upon cutting stability. Int J Adv Manuf Technol 2013; 69(1–4): 891–899. 16. Thepsonthi T and O¨ zel T. Multi-objective process optimization for micro-end milling of Ti-6Al-4V titanium alloy. Int J Adv Manuf Technol 2012; 63(9–12): 903–914. 17. Li C, Chen X, Tang Y, et al. Selection of optimum parameters in multi-pass face milling for maximum energy efficiency and minimum production cost. J Clean Prod 2017; 140(3): 1805–1818. 18. Gopal AV and Rao PV. Selection of optimum conditions for maximum material removal rate with surface finish and damage as constraints in SiC grinding. Int J Mach Tool Manuf 2003; 43(13): 1327–1336. 19. Yildiz BS and Yildiz AR. Moth-flame optimization algorithm to determine optimal machining parameters in manufacturing processes. Mater Test 2017; 59(5): 425–429. 20. Yildiz AR. A comparative study of population-based optimization algorithms for turning operations. Inf Sci 2012; 210: 81–88. 21. Nes¸eli S, Asiltu¨rk I_, and C¸ elik L. Determining the optimum process parameter for grinding operations using robust process. J Mech Sci Technol 2012; 26(11): 3587–3595.
+
+22. Go¨kdag˘ H and Yildiz AR. Structural damage detection using modal parameters and particle swarm optimization. Mater Test 2012; 54(6): 416–420.
+23. He B, Wang S, and Liu Y.Underactuated robotics: a review. Int J Adv Robot Syst 2019; 16(4): 1–29.
+24. Hosseini S and Al Khaled A. A survey on the imperialist competitive algorithm metaheuristic: implementation in engineering domain and directions for future research. Appl Soft Comput 2014; 24: 1078–1094.
+25. Hosseini S, Al Khaled A, and Vadlamani S. Hybrid imperialist competitive algorithm, variable neighborhood search, and simulated annealing for dynamic facility layout problem. Neural Comput Appl 2014; 25(7–8): 1871–1885.
+26. He B, Shao Y, Wang S, et al. Product environmental footprints assessment for product life cycle. J Clean Prod 2019; 233: 446–460.
+27. He B, Liu Y, Zheng L, et al. Product carbon footprint across sustainable supply chain. J Clean Prod 2019; 241: 1–20.
+28. Chauhan P, Pant M, and Deep K. Parameter optimization of multi-pass turning using chaotic PSO. Int J Mach Learn Cybern 2015; 6(2): 319–337.
+29. Gao L, Huang J, and Li X. An effective cellular particle swarm optimization for parameters optimization of a multipass milling process. Appl Soft Comput 2012; 12(11): 3490–3499.
+30. Yildiz AR and Solanki KN. Multi-objective optimization of vehicle crashworthiness using a new particle swarm based approach. Int J Adv Manuf Technol 2012; 59(1–4): 367–376.
+31. Kennedy J and Eberhart RC. Particle swarm optimization. In: 1995 IEEE international conference on neural networks, Perth, Australia, 27 November–1 December 1995, pp. 1942–1948. New York: IEEE.
+32. Hasanipanah M, Naderi R, Kashir J, et al. Prediction of blastproduced ground vibration using particle swarm optimization. Eng Comput 2017; 33(2): 173–179.
+33. Kesharaju M and Nagarajah R. Particle swarm optimization approach to defect detection in armour ceramics. Ultrasonics 2017; 75: 124–131.
+34. Sreehari VM and Maiti DK. Buckling load enhancement of damaged composite plates under hygrothermal environment using unified particle swarm optimization. Struct Multidiscip Optim 2017; 55(2): 437–447.
+35. Lin JT and Chiu C. A hybrid particle swarm optimization with local search for stochastic resource allocation problem. J Intell Manuf 2018; 29(3): 481–495.
+36. Crichigno Filho JM. Applying extended Oxley’s machining theory and particle swarm optimization to model machining forces. Int J Adv Manuf Technol 2017; 89(1– 4): 1127–1136.
+37. Liu Y and Niu B. Theory and practice of new particle swarm optimization. 1st ed. Beijing: China Science Publishing & Media, 2013, pp. 99–107.
+38. Lu H and Yen GG. Rank-density-based multiobjective genetic algorithm and benchmark test function study. IEEE Trans Evolut Comput 2003; 7(4): 325–343.
+
+Chen et al.
+
+13
+
+39. Li Y and Liu Q. Service-oriented research on multi-pass milling parameters optimization for green and high efficiency. J Mech Eng 2015; 51(11): 89–98.
+40. Karkalos NE, Galanis NI, and Markopoulos AP. Surface roughness prediction for the milling of Ti-6Al-4V ELI alloy with the use of statistical and soft computing techniques. Measurement 2016; 90: 25–35.
+41. Suresh PVS, Venkateswara Rao P, and Deshmukh SG. A genetic algorithmic approach for optimization of surface roughness prediction model. Int J Mach Tool Manuf 2002; 42(6): 675–680.
+42. Hou F, Mu T, Ma M, et al. Optimization of processing technology using response surface methodology and physicochemical properties of roasted sweet potato. Food Chem 2019; 278: 136–143.
+
+43. Jiang C, Sun G, Zhou Z, et al. Optimization of the preparation conditions of thermo-sensitive chitosan hydrogel in heterogeneous reaction using response surface methodology. Int J Biol Macromol 2019; 121: 293–300.
+44. Lu C, Gao L, Li X, et al. Energy-efficient multi-pass turning operation using multi-objective backtracking search algorithm. J Clean Prod 2016; 137: 1516–1531.
+45. Campatelli G, Lorenzini L, and Scippa A. Optimization of process parameters using a response surface method for minimizing power consumption in the milling of carbon steel. J Clean Prod 2014; 66: 309–316.
+46. He W, Xue W, and Tang B. Design and data analysis of optimization experiment, 1st ed. Beijing: Chemical Industry Press, 2011, pp. 220–221.
+

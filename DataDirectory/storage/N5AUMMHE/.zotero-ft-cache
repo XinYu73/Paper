@@ -1,0 +1,516 @@
+PERSPECTIVE
+PUBLISHED: 8 SEPTEMBER 2016 | ARTICLE NUMBER: 16114 | DOI: 10.1038/NENERGY.2016.114
+
+Design principles for electrolytes and interfaces
+for stable lithium-metal batteries
+Mukul D. Tikekar1, Snehashis Choudhury2, Zhengyuan Tu3 and Lynden A. Archer2*
+The future of electrochemical energy storage hinges on the advancement of science and technology that enables rechargeable batteries that utilize reactive metals as anodes. With specific capacity more than ten times that of the LiC6 anode used in present-day lithium-ion batteries, cells based on Li-metal anodes are of particular interest. Effective strategies for stabilizing the anode in such cells are now understood to be a requirement for progress on exceptional storage technologies, including Li–S and Li–O2 batteries. Multiple challenges—parasitic reactions of Li-metal with liquid electrolytes, unstable and dendritic electrodeposition, and dendrite-induced short circuits—derailed early efforts to commercialize such lithium-metal batteries. Here we consider approaches for rationally designing electrolytes and Li-metal/electrolyte interfaces for stable, dendrite-free operation of lithium-metal batteries. On the basis of fundamental understanding of the failure modes of reactive metal anodes, we discuss the key variables that govern the stability of electrodeposition at the Li anode and propose a universal framework for designing stable electrolytes and interfaces for lithium-metal batteries.
+
+Alithium-metal battery (LMB) consists of three components: a Li-metal anode, a Li-ion-conducting electrolyte separator, and a cathode1. Recharging a LMB requires electro­ deposition of lithium on to itself, a process that is fundamentally unstable. At low current densities, concentration of electric field lines and preferential transport of ions to rough regions on the electrode surface produce the morphological instability loosely termed dendrites. Meanwhile, at high current densities, depletion of anions in the electrolyte near the anode creates a space charge that drives a hydrodynamic instability termed electroconvection2. This electroconvection draws ions away from regions surrounding a growing dendrite and focuses them on the dendrite tip, enhancing dendrite growth. Thus, for quite fundamental physical reasons, recharge of a LMB at either low or high currents produces rough and dendritic deposition of the metal.
+Reactivity of Li with aprotic liquid electrolytes forms a porous, ion-conducting solid electrolyte interphase (SEI) layer on the metal3 (stage I in Fig. 1). A uniform and stable SEI can passivate the Li surface, preventing further reaction, but spontaneously formed SEIs on Li are typically inhomogeneous and mechanically fragile (stage II in Fig. 1). An inhomogeneous SEI destabilizes LMBs by providing nucleation sites for dendrite formation at any current density, while a fragile SEI may crack or delaminate during battery cycling, exposing fresh Li to the electrolyte each cycle, which ultimately depletes the electrolyte. Because the two processes (dendrite formation and electrolyte loss) occur in tandem, it is a formidable challenge to create a LMB that operates stably for an extended time.
+This Perspective surveys approaches for designing batteries based on Li-metal anodes that do not fail via dendrite-induced short circuits. We specifically focus on rational strategies based on regulating charge transport and Li reactivity at interfaces for stabilizing the Li-metal anode. It is shown that a universal state diagram can be created, in which knowledge of material parameters and cell operating conditions can be used to provide explicit guidance about the electrolyte separator and interface designs for stable LMB operation. The Perspective also highlights recent successes and discusses
+
+possible methods for constructing stable artificial SEIs composed of salts, ionic liquids, oligomers, and nanomaterials that simultaneously passivate Li-metal against parasitic reactions with liquid electro­lytes and regulate ion transport at interfaces.
+Li dendrite suppression There are three schools of thought about Li dendrite suppression. The first school asserts that dendrite growth is driven by unstable ion transport to the Li surface. The second, that dendrite propagation is facilitated by mechanically weak separators. Finally, the third school prescribes that unregulated reactions at the Li surface create spatial variations in interfacial resistance, which enable dendrite formation.
+Unstable ion transport driving unstable deposition. Much of the initial effort to stabilize the Li anode sought to take advantage of principles borrowed from the field of electrodeposition, where significant efforts have been given to eliminating rough deposition of metals such as Zn, Ni, Pb, Cu, and so on. In most cases, these metals form dendrites when the current density (J) approaches the limiting value beyond which diffusion is unable to replenish ions depleted from regions in an electrolyte by electromigration4. Transport processes in dilute electrolytes that lead to space-charge formation have been shown to nucleate dendrites at the Sand’s time5, which scales inversely as the anion transference number squared. Thus, the nucleation of dendrites may be delayed—in principle, indefinitely— in electrolytes for which the anion transference number is zero or in which a supporting electrolyte is present in high concentration6.
+The requirements for stabilizing the Li anode are in reality more complex, as revealed by considering the effect of other factors such as surface tension7 and the nature of ion transport in an electrolyte8 on dendrite growth. A common methodology is to analyse the growth of small sinusoidal perturbations to the electrode surface, with current density driving roughening and surface tension resisting roughening. As discussed later, dendrites are suppressed under a range of conditions, including low J and, in electrolytes with high
+
+1Sibley School of Mechanical and Aerospace Engineering, Cornell University, Ithaca, New York 14853-5201, USA. 2Robert Frederick Smith School of Chemical and Biomolecular Engineering, Cornell University, Ithaca, New York 14853-5201, USA. 3Department of Material Science and Engineering, Cornell University, Ithaca, New York 14853-5201, USA. *e-mail: laa25@cornell.edu
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+1
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
+PERSPECTIVE
+Stage I
+Electrolyte components react with Li to form the passivation layer (SEI)
+
+Stage II
+Surface inhomogeneities nucleate dendrites,
+consuming more electrolyte
+
+NATURE ENERGY DOI: 10.1038/NENERGY.2016.114
+Stage III
+Dendrite growth λ
+
+λ
+
+Li in electrolyte
+
+h
+
+Passivated Li
+
+Li with deposition nuclei
+
+Dendritic Li metal
+
+Inhomogeneous SEI Li metal
+
+High Li+ conduction pathways
+
+Li nuclei form, and grow by fracturing the SEI around them
+
+SEI forms around the nuclei, consuming more electrolyte
+
+Figure 1 | Stages of dendrite growth on a planar Li metal anode. Recent observations of lithium deposition on a stainless steel substrate53 showed that the growth of dendrites proceeds as illustrated in the figure. At short timescales, Li nuclei form on the electrode and progressively grow in number. Over time, the nuclei overlap and lead to the ramified structures termed dendrites. The growth in some cases progresses by preferential transport and electrochemical reduction of Li+ at the bare anode surface. In other instances, it progresses by deposition and extrusion of the Li metal under a strained SEI layer, as illustrated in the lower three panels. The morphology of dendrites formed by either mode of growth varies from spherical (mushroom-like) structures with large micrometre-scale robust features at low current densities, to thin needle-like, fragile fibrils at high current densities. Here we illustrate the different stages in dendrite growth for a Li anode undergoing deposition in a solution of lithium bis(trifluoromethane)sulfonimide in propylene carbonate. At short timescales (stage I), these dendritic structures produce a new SEI layer in every battery cycle, thus reducing the interface conductivity and hence battery capacity. On long timescales (stage II), the dendrites grow in size and number, ultimately piercing the separator and causing cell failure by multiple internal short circuits (stage III). λ = dendrite nucleate size; h = height or length of the dendrite.
+
+surface tension (S), high Li+ transference number (tLi), and high ionic conductivity (σ).
+Mechanically weak electrolytes facilitating dendrite growth. While modification of transport and improvement of surface tension can suppress dendrites, they cannot eliminate them in liquid electrolytes. Monroe and Newman9 introduced the idea that dendrite growth may be stopped completely using a mechanically strong separator. By evaluating the effect of elastic deformation of the electrode and separator on the deposition reaction kinetics, the authors found that non-uniform Li deposition is completely arrested when the condition G > 1.8GLi(T) is met. Here G and GLi are, respectively, the shear modulus of the separator and Li-metal. This condition is met for G ≈ 6 GPa at room temperature, but could be achieved at much lower separator modulus as one approaches the melting temperature (T = 180.5 °C) of Li. To our knowledge, only one study has attempted to evaluate this prediction quantitatively10. The guidance provided by the Monroe and Newman analysis is nonetheless intuitive, which has fuelled the common perception that a solidstate electrolyte separator with high modulus is a requirement for practical room-temperature LMBs.
+Unregulated surface reactions promoting dendrite nucleation. The approaches discussed thus far assume that even at moderate J, where most batteries operate, the morphology of the Li anode makes it prone to failure. They are silent however on the important role the surface reactivity of Li plays. An earlier work shows that none of the
+
+commonly used liquid electrolytes are stable in contact with Li-metal and all form a resistive passivation layer that is hetero­geneous and unstable3. Significant effort has been placed on creating artificial SEIs, either designed ex situ or formed in situ by additives that limit exposure of the Li anode to the electrolyte. Recent joint density functional theoretical (JDFT) calculations11 show that a cleverly engineered SEI can not only control Li surface reactivity, but also may alter transport and surface tension. In particular, the calculated energy barriers for Li+ diffusion at the anode (Ea) are substantially lower in a SEI composed of halide salts (for example: LiBr, Ea ≈ 0.03 eV; LiF, Ea ≈ 0.16 eV), compared with Li2CO3 (Ea ≈ 0.24 eV), which forms naturally when aprotic solvents react with Li. An important achievement of the JDFT analysis is that it explains why electrodes based on Mg, which have low surface diffusion barriers and high surface energies, do not form dendrites.
+Framework for Li deposition stability As a first step towards developing Li dendrite suppression strategies that take advantage of ideas in all three schools of thought, we identify the following five variables that determine the stability of deposition at the Li anode: tLi, σ, J, G, and S. The first three variables (tLi, σ, J) control transport processes in the electrolyte, the fourth accounts for the effects of electrolyte separator mechanics on kinetics of the deposition reaction, and the final term captures the effect of the surface tension. S is the most straightforward of these variables to manipulate in a battery, but the most difficult to measure accurately because it depends on properties of the SEI, such as its thickness, structure,
+
+2
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
+NATURE ENERGY DOI: 10.1038/NENERGY.2016.114
+
+PERSPECTIVE
+
+a
+
+b
+
+c
+
+80 P1
+
+Unstable
+
+600 P2
+
+Unstable
+
+10 1
+
+103
+
+40
+
+102 10
+
+1
+
+0.1
+
+deposition
+
+400 200
+
+2 2 2 2 2
+
+× × × × ×
+
+107 106 105 104 103
+
+deposition
+
+10 2
+
+ξ / J (×105 m2 C 1) ξ / J (×105 m2 C 1)
+λcr (mm)
+
+0
+
+0
+
+10 3
+
+P2
+
+200
+
+40
+
+Stable deposition
+
+400
+
+Stable deposition
+
+10 4
+
+2 2 2 2 2
+
+× × × × ×
+
+107 106 105 104 103
+
+80
+
+600
+
+10 4
+
+10 3
+
+10 2
+
+10 1
+
+10 5
+
+10 4
+
+10 3
+
+10 2
+
+10 5
+
+100
+
+102
+
+104
+
+λ (mm)
+
+λ (mm)
+
+P1
+
+Figure 2 | Current density-scaled growth rate versus dendrite nucleate size. a, P1 (with P2 = 2 × 105). b, P2 (with P1 = 1 × 103). Here ξ = [(1/h)dh/dt]h→0 is the initial growth rate of dendrites, where h is the height or length of the dendrite, ξ / J is a current density-scaled growth rate, and λ is the size of a metal dendrite nucleate. For ξ / J > 0, the nucleate will grow continuously and deposition is unstable, whereas for ξ / J < 0, stable deposition occurs during recharge of a LMB. The two panels show that any LMB configuration that results in lower P1 or P2 would lead to a larger range of λ where ξ / J is negative and dendrite growth is suppressed. c, The smallest stable deposit size as a function of P1 and P2.
+
+stiffness, and diffusivity of Li+ in the SEI. These five variables can
+be used in conjunction with the molar volume of Li-metal (v) to
+write down two dimensionless groups, P1 = JFL / vσtLiG and P2 = JFL2 / vσtLiS, which determine the current density-scaled growth rate ξ / J of a Li dendrite nucleate of size λ as shown in Fig. 1. Here,
+F is Faraday’s constant and L is the electrolyte separator thickness. A recent detailed analysis12, leads to an analytical relationship between
+ξ / J, λ, P1, and P2 of the form:
+
+ξ = v 2π 1− 2π L − 2π 2 L2
+
+J Fλ
+
+λ P1 λ P2
+
+Thus, under conditions where P1 and P2 are small, ξ / J is more negative and deposition more stable. The effects of P1 and P2 on stability can be understood in straightforward physical terms. The size of P1 reflects the balance between destabilizing influences of transport
+and the stabilizing effect of separator mechanics, while P2 balances transport with surface tension. Low values of P1 and P2 obtained, for example, by increasing G, S, σ, and tLi or by reducing J, therefore lead to stable deposition13 as seen in Fig. 2a,b. The condition ξ / J = 0 is
+achieved for a critical deposit size λcr, which is the smallest nucleate size that can be stably deposited. Values of λcr as a function of P1 for various P2 are reported in Fig. 2c. It is seen that λcr increases with decreasing P1 and P2, indicating that much larger nucleates can be deposited stably under conditions that yield small P1 and P2 values (Box 1).
+
+Stabilizing Li-metal anodes
+All of the approaches discussed in the previous section have been practiced to an extent (Fig. 3), but this is often done without explicit knowledge of the principles that underpin the method’s effectiveness. An undesirable consequence is that most studies focus on one approach to the exclusion of others. An important goal of this Perspective is to encourage newer strategies that take advantage of synergies such as those apparent from Fig. 2b and Box 1.
+
+Modifying ion transport in electrolytes. Inorganic glasses such as lithium phosphorus oxynitride (Li2.9PO3.3N0.46; LiPON)14 and solid solutions such as Li4−xGe1−xPxS4 (thio-LISICON)15 are single-ion Li conductors that also offer low values of P1 because of their high moduli. Permeability (solubility × diffusivity) of these materials is also
+low, which slows down parasitic side reactions between Li and con-
+version cathodes (for example, S8, O2, CO2) or their reduction products. A generic shortcoming is that solid electrolytes such as LiPON (σ25°C = 2.3 × 10−6 S cm−1) that provide attractive chemical stability have too low ionic conductivity (that is, high P2). One approach to
+
+overcoming the poor conductivity of LiPON is to deposit the electro­ lyte as a radio frequency magnetron sputter-coated film (1–2 μm thick) in micro-LMBs16, but maintaining good adhesion with the current collector still remains an unresolved challenge. Newer solidstate electrolytes, such as thio-LISICON (σ25°C = 2.3 × 10−3 S cm−1; with x = 0.75), are not limited by σ, but present other difficulties related to chemical stability and cost. Significant opportunities therefore exist for research on synthesis of cost-effective and mechanically strong single-ion electrolytes with LiPON-like stability and thio-LISICONlike conductivities that are manufacturable. Older work showing that Na dendrites form and proliferate by growing into and expanding cracks in the electrolyte, even in cells employing liquid Na anodes and solid NaBAl2O3 ceramic electrolytes, provide additional grounds for caution17. Specifically, even when acceptable solid electrolytes are found, rigorous manufacturing, assembly, and crack inspection regimens are required to avoid batch-to-batch variations in performance and lifetime.
+Single- or near-single-ion conductors based on polymers, including Nafion, have received significant attention as alternatives to ceramics18–20. The lifetime of a LMB employing lithiated Nafion soaked in a liquid electrolyte has been reported to depend strongly on tLi, with up to 40-fold increases in cell lifetime observed relative to the pure liquid electrolyte. A limitation of such electrolytes is that the solvent compromises other attractive traits of solid electrolytes, such as low permeability and high modulus. Coatings of Nafion on Li-metal take these ideas a step further both in terms of simplicity and potential efficacy and were shown to protect the anode and extend its operating lifetime18. A similar enhancement in lifetime has been reported using coatings of surface-modified glass-fibre membranes soaked in liquid electrolyte20. This is an important finding from a fundamental viewpoint. All theories that predict stable Li deposition by modification of transport in single-ion conductors only require the material to be present in a region near the anode that is of thickness about ten times the Debye screening length, meaning that a thin, solid Nafion or ceramic coating on Li might be used in conjunction with a liquid electrolyte. Single-ion conductors based on other chemistries, including copolymers21, nanoparticle salts22, and holographic membranes with high transport anisotropy23 have recently become available, which increases the number of electrolyte options. A recent promising approach is the use of nanostructured Li-metal anodes, thus reducing the local current density and yielding significantly attenuated dendrite growth24,25.
+Improving mechanics. Ceramics, polymers, and polymer–ceramic hybrids have been studied extensively as platforms for suppressing dendrites in LMBs. Solid electrolytes based on LiPON (ref. 14),
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+3
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
+PERSPECTIVE
+
+NATURE ENERGY DOI: 10.1038/NENERGY.2016.114
+
+Box 1 | Theoretical state diagram for stability of deposition.
+It is possible to capture the combined influences of P1 and P2 on stability at various length scales in terms of a state diagram for Li nucleates of size λ in an electrolyte separator of modulus G under different deposition conditions. Conditions that lead to high values of P1 and P2 are observed to expand the region of unstable deposition, favouring growth of small rough deposits. In contrast, when P1 and P2 are low, stable deposition is favoured. Thus, it is apparent that even an electrolyte with G << GLi might be engineered by manipulating the other variables in P1 and P2 to provide stable LMB operation. It is also seen that stable Li deposition can be achieved at practically any G in membrane electrolyte separators able to constrain the deposit size below a critical value that increases as the inverse square root of P2.
+The theoretical state diagram for stable and unstable electrodeposition of metals on a log–log scale constructed on the basis of deposit size and separator modulus is illustrated here. Deposits falling in the shaded region are unstable and lead to dendrites. In contrast, deposits in the unshaded regions are stable. The dominant stabilizing mechanisms (for example, surface tension (S) at small moduli and mechanical blocking of deposition kinetics by the separator at large moduli) are highlighted.
+
+Practical cut-o , based on total charge passed
+
+λ (deposit size)
+
+Unstable transport
+λ ≈ P2 1/2 Surface tension
+
+λ ≈ P1 1 Mechanical blocking by separator
+
+λ
+
+≈
+
+S G
+
+P1
+
+=
+
+JFL vσtLiG
+
+P2
+
+=
+
+JFL2 vσtLiS
+
+G (separator modulus)
+
+LISICON (ref. 15), Li10SnP2S12 (ref. 26), and Li3N (ref. 27) easily meet the condition G > GLi, but suffer from the aforementioned challenges related to their room-temperature conductivity, cost, and propensity to crack during cell assembly. A novel electrolyte design in which a liquid electrolyte is hosted in the pores of a ceramic membrane with a high areal density of nanometre-sized pores, smaller than typical Li dendrite sizes, has been reported as a platform for achieving dendrite-free LMBs28. The authors showed that this design enables electrolytes with solid-like mechanics and liquid-like ion mobilities.
+Nanostructured electrolytes based on copolymers10,29, crosslinked polymers30–32, and nanocomposites32,33 utilize similar hard– soft designs to overcome conventional trade-offs between modulus and conductivity. These materials all show promise for stabilizing Li, even when the electrolyte modulus is well below that of Li-metal. For example, Li–Li symmetric cells based on cross-linked polyethylene–­ polyethylene oxide (PE–PEO) gel electrolytes have moduli in the range 100 kPa–1 MPa, but are reported to increase LMB lifetime by over an order of magnitude, relative to high-­molecular-weight PEO of similar modulus30. Likewise, LMBs based on cross-linked polyhedral oligomeric silsesquioxane (POSS) or hairy nanoparticles31,32 exhibit long-term (>2,500 h) stability, even though their moduli rarely exceed 20 MPa. In a recent demonstration of this concept, aramid nanofibre-PEO composites with G = 1.8 GPa (ref. 34) formed by layer-by-layer assembly were shown to block growth of
+
+130 GPa copper dendrites. Taken together, these results conclusively show that the criterion G > 1.8GLi(T) is not a requirement for stability.
+Creating an artificial SEI on Li. With few exceptions, liquid electrolytes used in lithium-ion batteries (LIBs) form fragile and unstable SEI layers on Li-metal. Carbonate-based electrolytes, for example, all form unstable, thick, and heterogeneous SEIs comprised predominantly of Li2CO3 salts and polymerized electrolyte fragments. The Coulombic efficiency of Li–copper or Li–stainless cells provides a convenient way to quantify the ability of electrolytes to form stable SEIs on Li. Carbonate electrolytes rarely exhibit Coulombic efficiencies above 80%, while electrolytes such as 1,3-dioxalane undergo ring-opening polymerization to form an elastic SEI that is more stable with high Coulombic efficiency (>99%)35. Similarly, glyme-based electrolytes, such as dimethoxyethane (monoglyme), diglyme, and tetraglyme, spontaneously form a tough, alkoxy SEI (ROLi), which stabilizes electrodeposition of Li and Na (refs 36,37). A large body of work shows that a more reliable strategy for forming a stable SEI on reactive metals is to employ additives, including LiNO3, vinylene carbonate, and sultones. An open area where intrusive experimentation is needed concerns the SEI formation processes enabled by these additives and methods for characterizing the physical properties and mechanics of the SEI films produced. Many electrolyte salts used in LIBs contain fluorine; their breakdown in the presence of Li-metal is known to generate LiF among other fluorinated organics. Recent work shows that directly mixing poorly soluble LiF into liquid electrolytes produces a SEI enriched in the salt, which not only protects Li, but dramatically reduces dendrite formation in carbonate electrolytes38,39. It is possible that similar processes are at work in the remarkable ability of CsPF6 (ref. 40), fluoro-ethylene carbonate, and dual lithium bis(trifluoromethane)sulfonimide (LiN(CF3SO2)2; LiTFSI) and lithium bis(fluorosulfonyl)imide (LiN(SO2F)2; LiFSI) salts35 to stabilize Li anodes, because experiments and theory show the materials are broken down by Li to produce a SEI rich in LiF. In qualitative agreement with these observations, DFT analysis shows that coatings of lithium halide salts on a Li anode provides a fundamental mechanism for enhancing Li transport at the interface, which enhances the effect of S at any value of G in resisting dendrite formation. This finding underscores the potentially powerful role DFT and other computational tools can play in design and selection of SEI-formation additives for LMBs.
+In an important departure from in situ SEI formation approaches, a coating of carbon nanospheres applied directly to Li has been shown to provide a stable protective layer on the metal, with high Coulombic efficiency (>99%) values reported41. A similar result has been reported for Li anodes coated by alumina using atomic layer deposition42. This approach appears to impart both surface chemical and electrochemical stability to Li-metal and offers the potential for Li anodes that may be safely handled outside the glove box and hence are compatible with battery manufacturing in a standard dry-room environment.
+Outlook
+Judging from the success of recent efforts to harness the tools of nanotechnology and computer simulation to design electrolyte and anode surface configurations that enable dendrite-free operation of LMBs, we expect to soon see larger versions of the ‘lithiumfree’ LMB cell designs already demonstrated in micro-LMBs43. In such cells, one replaces the anode with a current collector and the cathode is the only source of Li. Anode-free LMBs offer multiple benefits. First, the specific energy is set by the cathode alone, which for a LiNi0.8Co0.15Al0.05O2 (NCA) or Li1.2Ni0.15Co0.1Mn0.55O2 (Li-rich NMC) can be easily shown to be as much as a factor of two greater than for the corresponding LIB. Second, they would ideally require no changes in manufacturing methods relative to present-day LIBs.
+
+4
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
+NATURE ENERGY DOI: 10.1038/NENERGY.2016.114
+
+Li+ A
+
+Modifying ion transport
+
+Li+ Li+ Li+ Li+
+
+Li+ Li+ Li+ Li+
+Li+
+
+Li+
+
+Li+
+
+Li+
+
+Li+
+
+Li+ Li+ Li+
+
+O Si O
+
+(O
+
+)O
+
+O
+
+nN
+
+S
+
+O
+
+O O Si O O
+
+SiO2 r ≈ 3.5 nm
+
+Cross-linked
+
+polyelectrolytes
+
+Li+ SO 3
+
+Li+ SO
+
+Li+
+
+3
+SO
+
+Li+ SO 3
+
+3
+
+Li+ SO 3
+
+Li+ SO
+
+3
+
+Li+
+
+SO 3
+
+SO3 SO
+
+Li+ Li+
+
+3
+SO
+
+Li+
+
+3 Li+
+
+SO
+
+3 Li+
+
+SO 3
+
+Li+
+
+SO 3
+SO
+
+Li+
+
+3
+
+Li+ SO3
+
+SO Li+ 3
+
+High tLi electrolytes and single-ion conductors
+
+Li+
+
+e
+
+SO3
+
+PERSPECTIVE
+
+1 μm Nanoporous ceramics
+
+Thin layers of cross-linked polyelectrolytes
+POSS PEG LiTFSI
+
+Artiﬁcial SEI
+
+O
+
+O
+
+F
+
+O
+
+F
+
+O
+
+O
+
+O
+
+O
+
+N
+
+OH H
+
+O OH 2 N
+
+or
+Structures of the cross-linked points
+
+Polymer nanocomposites
+
+Enhancing separator sti ness
+
+Additives Protecting the interface
+
+Figure 3 | Practiced approaches for suppressing Li dendrites. A graphical summary of the literature on dendrite suppression strategies that illustrates the three methods practiced for stabilizing lithium deposition. The red circle illustrates approaches that utilize nanoparticle salts22 and lithiated ionomers18 that retard space-charge formation. The blue circle highlights methods that use porous ceramics28 and nanostructured networks31 to enhance electrolyte stiffness, without compromising ion transport. The green circle summarizes work on effective artificial SEI coatings based on nanoparticles41 and polymer coatings52 formed on Li that improve the lifetime of LMBs. The approaches that lie at the interface between the three circles19 are particularly attractive because they provide stability by multiple, powerful mechanisms. PEG, polyethylene glycol. Images in the figure are reproduced from: red circle, ref. 22, American Chemical Society; red/blue interface, ref. 18, Wiley; blue circle, top, ref. 28, Wiley; blue circle, bottom, ref. 31, Wiley; red/blue/green interface, ref. 19, NPG; green circle, top, ref. 41, NPG; green circle, bottom, ref. 52, Wiley.
+
+Finally, in the discharged state, no Li-metal is present in the cell, which makes recycling viable and disposal safer. A disadvantage is that any loss of Li due to dendrite breakage (orphaned Li) or reactions with electrolytes comes at the expense of a cathode with already low Li capacity. New and versatile approaches, such as those reported very recently for augmenting Li in the cathode, are needed for long-term cell cycling44. As an extension to anode-free cells, LMBs in which Li is protected by an artificial SEI that enables cell
+
+assembly under standard dry-room conditions offer opportunities
+for immediate impact.
+While we expect fundamental research that takes advantage of modern analytical tools45–48 to ultimately enable solid-state electro-
+lytes based on ceramics and polymers that offer low values of P1 and P2 (that is, single- or near-single-ion conductivity, mS cm−1-level, room-temperature ionic conductivity, and high modulus), the
+straightforward opportunities provided by membrane-based solid
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+5
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
+PERSPECTIVE
+
+NATURE ENERGY DOI: 10.1038/NENERGY.2016.114
+
+electrolytes for separating ion transport and mechanics appear to provide as fertile opportunities for materials innovation. Successful efforts will harness the tools of self- and co-assembly to engineer membrane pore structure, pore wall elasticity and surface chemistry, and transport properties of the ion carriers hosted in the pore to take advantage of synergies afforded by each of the Li stabilization mechanisms discussed in the previous sections.
+None of the theories for electrodeposition of metals discussed earlier have contemplated these processes in a nanostructured electro­lyte media. It is nonetheless already known that the coupling of electromigration near a charged pore and normal transport can produce rectification of ion motion analogous to what is known for single-ion conductors49. We expect these efforts to reveal novel nanostructured membrane coatings and bulk materials that will draw on expertise in areas such as self- and field-induced assembly of molecules, polymers, and particles, electro-less plating, sputtering and atomic layer deposition, and solution-phase layer-by-layer deposition methods to create bulk and thin-film materials with intrinsic meso- and micro­ porosity and in which surface charge may be used to regulate ion transport during Li deposition. Emergence of efforts such as those in references 36–42, which use surface coatings to alter the composition and ion transport properties of the SEI layer, are expected to lead to LMBs based on layered hybrid electrolytes in which Li anodes protected by an artificial SEI coexist with conventional liquid electrolytes. Artificial SEI designs based on first-­principles that are therefore applicable to other reactive metal anodes, for example, Na, Al, Zn, are of particular interest because these anodes fail by similar processes as Li and protected metal anodes are broadly required for progress in all high-energy rechargeable batteries that utilize conversion reactions in the cathode.
+In the longer term, we expect to see smaller batteries in a variety of form factors that take advantage of Li- and Na-metal anodes and the inherent design flexibility that comes from the malleability of Li and Na. Such batteries may be lithographied, 3D printed, gelated from sols, or integrated into load-bearing structures through layer-bylayer deposition or self-assembly. We expect that design of Li-metal anodes compatible with manufacturing outside the glove box will emerge as an area of high priority. Availability of such anodes will in turn enable practical, high-energy rechargeable batteries based on Li, Na, and Al that utilize O2, CO2, or biomolecules such as glucose from their surroundings as active materials in the cathode to produce electrical energy. Such electrochemical cells evidently blur the lines between traditional batteries and fuel cells. We also expect to see the emergence of multiple versions of these cells (for example, Li/Na/Al–CO2/O2) that function in a dual-use mode to reversibly capture and concentrate CO2 emissions from an exhaust stream and at the same time produce large amounts of electrical energy . 50,51
+Received 22 January 2016; accepted 10 July 2016; published 8 September 2016
+References
+1. Whittingham, M. S. Electrical energy storage and intercalation chemistry. Science 192, 1126–1127 (1976).
+2. Fleury, V., Chazalviel, J.-N. & Rosso, M. Coupling of drift, diffusion, and electroconvection, in the vicinity of growing electrodeposits. Phys. Rev. E 48, 1279–1295 (1993).
+3. Aurbach, D., Zinigrad, E., Cohen, Y. & Teller, H. A short review of failure mechanisms of lithium metal and lithiated graphite anodes in liquid electrolyte solutions. Solid State Ionics 148, 405–416 (2002).
+4. Sawada, Y., Dougherty, A. & Gollub, J. P. Dendritic and fractal patterns in electrolytic metal deposits. Phys. Rev. Lett. 56, 1260–1263 (1986).
+5. Rosso, M., Chazalviel, J-N. & Chassaing, E. Calculation of the space charge in electrodeposition from a binary electrolyte. J. Electroanal. Chem. 587, 323–328 (2006).
+6. Lu, Y., Korf, K. S., Kambe, Y., Tu, Z. & Archer, L. A. Ionic-liquid– nanoparticle hybrid electrolytes: applications in lithium metal batteries. Angew. Chem. Int. Ed. 53, 488–492 (2014).
+
+7. Aogaki, R. & Makino, T. Theory of powdered metal formation in electrochemistry — morphological instability in galvanostatic crystal growth under diffusion control. Electrochim. Acta 26, 1509–1517 (1981).
+8. Tikekar, M. D., Archer, L. A. & Koch, D. L. Stability analysis of electrodeposition across a structured electrolyte with immobilized anions. J. Electrochem. Soc. 161, A847–A855 (2014).
+9. Monroe, C. & Newman, J. The impact of elastic deformation on deposition kinetics at lithium/polymer interfaces. J. Electrochem. Soc. 152, A396–A404 (2005).
+10. Stone, G. M. et al. Resolution of the modulus versus adhesion dilemma in solid polymer electrolytes for lithium metal batteries. J. Electrochem. Soc. 159, A222–A227 (2012).
+11. Ozhabes, Y., Gunceler, D. & Arias, T. A. Stability and surface diffusion at lithium-electrolyte interphases with connections to dendrite suppression. Preprint at http://arxiv.org/abs/1504.05799 (2015).
+12. Tikekar, M. D., Archer, L. A. & Koch, D. L. Stabilizing electrodeposition in elastic solid electrolytes containing immobilized anions. Sci. Adv. 2, E1600320 (2016).
+13. Tu, Z., Nath, P., Lu, Y., Tikekar, M. D. & Archer, L. A. Nanostructured electrolytes for stable lithium electrodeposition in secondary batteries. Acc. Chem. Res. 48, 2947–2956 (2015).
+14. Bates, J. B. et al. Electrical properties of amorphous lithium electrolyte thin films. Solid State Ionics 53–56, 647–654 (1992).
+15. Kanno, R. & Murayama, M. Lithium ionic conductor thio-LISICON: the Li2S–GeS2–P2S5 system. J. Electrochem. Soc. 148, 742–746 (2001).
+16. Bates, J. B. et al. Fabrication and characterization of amorphous lithium electrolyte thin films and rechargeable thin-film batteries. J. Power Sources 43, 103–110 (1993).
+17. De Jonghe, L. C., Feldman, L. & Millett, P. Some geometrical aspects of breakdown of sodium beta alumina. Mater. Res. Bull. 14, 589–595 (1979).
+18. Lu, Y. et al. Stable cycling of lithium metal batteries using high transference number electrolytes. Adv. Energy Mater. 5, 1402073 (2015).
+19. Song, J., Lee, H., Choo, M.-J., Park, J.-K. & Kim, H.-T. Ionomer-liquid electrolyte hybrid ionic conductor for high cycling stability of lithium metal electrodes. Sci. Rep. 5, 14458 (2015).
+20. Cheng, X. B. et al. Dendrite-free lithium deposition induced by uniformly distributed lithium ions for efficient lithium metal batteries. Adv. Mater. 28, 2888–2895 (2016).
+21. Bouchet, R. et al. Single-ion BAB triblock copolymers as highly efficient electrolytes for lithium-metal batteries. Nat. Mater. 12, 452–457 (2013).
+22. Schaefer, J. L., Yanga, D. A. & Archer, L. A. High lithium transference number electrolytes via creation of 3-dimensional, charged, nanoporous networks from dense functionalized nanoparticle composites. Chem. Mater. 25, 834–839 (2013).
+23. Smith, D. M., Cheng, S., Wang, W., Bunning, T. J. & Li, C. Y. Polymer electrolyte membranes with exceptional conductivity anisotropy via holographic polymerization. J. Power Sources 271, 597–603 (2014).
+24. Chen, Q., Geng, K. & Sieradzki, K. Prospects for dendrite-free cycling of Li metal batteries. J. Electrochem. Soc. 162, A2004–A2007 (2015).
+25. Liu, Y. et al. Lithium-coated polymeric matrix as a minimum volume-change and dendrite-free lithium metal anode. Nat. Commun. 7, 10992 (2016).
+26. Bron, P. et al. Li10SnP2S12: an affordable lithium superionic conductor. J. Am. Chem. Soc. 135, 15694–15697 (2013).
+27. Lapp, R., Skaarup, S. & Hooper, A. Ionic conductivity of pure and doped Li3N. Solid State Ionics 11, 97–103 (1983).
+28. Tu, Z., Kambe, Y., Lu, Y. & Archer, L. A. Nanoporous polymer-ceramic composite electrolytes for lithium metal batteries. Adv. Energy Mater. 4, 1300654 (2014).
+29. Giles, J. R. M., Gray, F. M., Maccallum, J. R. & Vincent, C. A. Synthesis and characterization of ABA block copolymer-based polymer electrolytes. Polymer 28, 1977–1981 (1987).
+30. Khurana, R., Schaefer, J. L., Archer, L. A. & Coates, G. W. Suppression of lithium dendrite growth using cross-linked polyethylene/poly(ethylene oxide) electrolytes: a new approach for practical lithium-metal polymer batteries. J. Am. Chem. Soc. 136, 7395–7402 (2014).
+31. Pan, Q., Smith, D. M., Qi, H., Wang, S. & Li, C. Y. Hybrid electrolytes with controlled network structures for lithium metal batteries. Adv. Mater. 27, 5995–6001 (2015).
+32. Choudhury, S., Mangal, R., Agrawal, A. & Archer, L. A. A highly reversible room-temperature lithium metal battery based on crosslinked hairy nanoparticles. Nat. Commun. 6, 10101 (2015).
+33. Gurevitch, I. et al. Nanocomposites of titanium dioxide and polystyrenepoly(ethylene oxide) block copolymer as solid-state electrolytes for lithium metal batteries. J. Electrochem. Soc. 160, A1611–A1617 (2013).
+34. Tung, S.-O., Ho, S., Yang, M., Zhang, R. & Kotov, N. A. A dendritesuppressing composite ion conductor from aramid nanofibres. Nat. Commun. 6, 6152 (2015).
+
+6
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
+NATURE ENERGY DOI: 10.1038/NENERGY.2016.114
+
+PERSPECTIVE
+
+35. Miao, R. et al. Novel dual-salts electrolyte solution for dendrite-free lithiummetal based rechargeable batteries with high cycle reversibility. J. Power Sources 271, 291–297 (2014).
+36. Qian, J. et. al. High rate and stable cycling of lithium metal anode. Nat. Commun. 6, 6362 (2015).
+37. Seh, Z. W., Sun, J., Sun, Y. & Cui, Y. A highly reversible room-temperature sodium metal anode. ACS Cent. Sci. 1, 449–455 (2015).
+38. Lu, Y., Tu, Z. & Archer, L. A. Stable lithium electrodeposition in liquid and nanoporous solid electrolytes. Nat. Mater. 13, 961–969 (2014).
+39. Choudhury, S. & Archer, L. A. Lithium fluoride additives for stable cycling of lithium batteries at high current densities. Adv. Electron. Mater. 2, 1500246 (2016).
+40. Ding, F. et al. Dendrite-free lithium deposition via self-healing electrostatic shield mechanism. J. Am. Chem. Soc. 135, 4450–4456 (2013).
+41. Zheng, G. et al. Interconnected hollow carbon nanospheres for stable lithium metal anodes. Nat. Nanotech. 9, 618–623 (2014).
+42. Kozen, A. C. et al. Next-generation lithium metal anode engineering via atomic layer deposition. ACS Nano 9, 5884–5892 (2015).
+43. Neudecker, B. J., Dudney, N. J. & Bates, J. B. “Lithium-free” thin-film battery with in situ plated Li anode. J. Electrochem. Soc. 147, 517–523 (2000).
+44. Sun, Y. et al. High-capacity battery cathode prelithiation to offset initial lithium loss. Nat. Energy 1, 15008 (2016).
+45. Bhattacharyya, R. et al. In situ NMR observation of the formation of metallic lithium microstructures in lithium batteries. Nat. Mater. 9, 504–510 (2010).
+46. Harry, K. J., Hallinan, D. T., Parkinson, D. Y., MacDowell, A. A. & Balsara, N. P. Detection of subsurface structures underneath dendrites formed on cycled lithium metal electrodes. Nat. Mater. 13, 69–73 (2014).
+47. Williamson, M., Tromp, R., Vereecken, P., Hull, R. & Ross, F. Dynamic microscopy of nanoscale cluster growth at the solid–liquid interface. Nat. Mater. 2, 532–536 (2003).
+48. White, E. R. et al. In situ transmission electron microscopy of lead dendrites and lead ions in aqueous solution. ACS Nano 6, 6308–6317 (2012).
+
+49. Han, J.-H., Khoo, E., Bai, P. & Bazant, M. Z. Over-limiting current and control of dendritic growth by surface conduction in nanopores. Sci. Rep. 4, 7056 (2014).
+50. Xu, S., Lu, Y., Wang, H., Abruna, H. D. & Archer, L. A. A rechargeable Na-CO2/ O2 battery enabled by stable nanoparticle hybrid electrolytes. J. Mater. Chem. A 2, 17723–17729 (2014).
+51. Al Sadat, W. I. & Archer, L. A. The O2-assisted Al/CO2 electrochemical cell: A system for CO2 capture/conversion and electric power generation. Sci. Adv. 2, e1600968 (2016).
+52. Liu, Q.-C. et al. Artificial protection film on lithium metal anode toward longcycle life lithium-oxygen batteries. Adv. Mater. 27, 5241–5247 (2015).
+53. Stark, J. K., Ding, Y. & Kohl, P. A. Nucleation of electrodeposited lithium metal: dendritic growth and the effect of co-deposited sodium. J. Electrochem. Soc. 160, D337–D342 (2013).
+Acknowledgements
+This material is based on work supported by the National Science Foundation Award No. DMR-1609125 and by the Energy Materials Center at Cornell, an Energy Frontier Research Center funded by the US Department of Energy, Office of Science, and Office of Basic Energy Sciences under Award Number DESC0001086.
+Additional information
+Reprints and permissions information is available online at www.nature.com/reprints. Correspondence and requests for materials should be addressed to L.A.A.
+Competing interests
+L.A.A. is a founder and holds a financial interest in NOHMs Technologies, a technology concern seeking to commercialize electrolytes and electrodes for high voltage Li-ion and high-energy Li–S batteries.
+
+NATURE ENERGY | VOL 1 | SEPTEMBER 2016 | www.nature.com/natureenergy
+
+7
+
+© 2 0 1 6 M a c m ill a n P u b li s h e r s L i m it e d , p a r t o f S p ri n g e r N a t u r e . A ll ri g h t s r e s e r v e d .
+
