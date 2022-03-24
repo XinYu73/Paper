@@ -1,0 +1,936 @@
+Journal of
+Materials Chemistry A
+Accepted Manuscript
+This is an Accepted Manuscript, which has been through the Royal Society of Chemistry peer review process and has been accepted for publication. Accepted Manuscripts are published online shortly after acceptance, before technical editing, formatting and proof reading. Using this free service, authors can make their results available to the community, in citable form, before we publish the edited article. We will replace this Accepted Manuscript with the edited and formatted Advance Article as soon as it is available. You can find more information about Accepted Manuscripts in the Information for Authors. Please note that technical editing may introduce minor changes to the text and/or graphics, which may alter content. The journal’s standard Terms & Conditions and the Ethical guidelines still apply. In no event shall the Royal Society of Chemistry be held responsible for any errors or omissions in this Accepted Manuscript or any consequences arising from the use of any information it contains.
+www.rsc.org/materialsA
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Page 1 of 66
+
+Journal of Materials Chemistry A
+
+Future generations of cathode materials: an automotive industry perspective.
+Dave Andre1, Sung-Jin Kim1, Peter Lamp1, Simon Franz Lux2, Filippo Maglia1*, Odysseas Paschos1, Barbara Stiaszny1
+1 BMW Group, Petuelring 130, 80788 München, Germany 2 BMW Group Technology Office USA, 2606 Bayshore Parkway, Mountain View, CA 94043, USA
+
+Abstract
+Future generations of electrified vehicles require driving ranges of at least 300 miles to successfully penetrate the mass consumer market. A significant improvement in the energy density of lithium batteries is mandatory, maintaining at the same time similar, or improved, rate capability, lifetime, cost, and safety. Several new cathode materials have been claimed over the last decade to allow for this energy improvement. The possibility that some of them will find application in the future automotive batteries is critically evaluated here by first considering their theoretical and experimentally demonstrated energy densities at the material´s level. For selected candidates, the energy density at the automotive battery cell level for Electric Vehicle applications is calculated using an in-house developed software. For the selected cathodes, literature results concerning their power capability and lifetime are also discussed with reference to the automotive targets.
+
+* Corresponding author: Filippo Maglia Email address: filippo.maglia@bmw.de
+
+1
+
+Journal of Materials Chemistry A
+
+Page 2 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+1. Introduction.
+Changes in planet climate and the limited availability of fossil fuels require the development of new mobility concepts to balance between individual mobility needs, sustainable use of resources, and environment protection. Electromobility appears today as a viable solution thanks to the maturity of its development and the acceptance by society, politics and industry. The renaissance of electromobility was boosted over the last decade by the introduction of Liion batteries in the automotive field. Despite the large variety of batteries that have been (and in some cases still are) employed to power electric vehicles, lithium-ion seems the only battery technology with the potential to meet the future requirements of automotive industry, in terms of energy and power density [1]. Moreover, thanks to its flexibility in terms of materials and design, Li-ion technology allows for the construction of batteries within a broad range of power to energy ratio (P/E) which enables their use in the entire range of electrified vehicles, from hybrid (HEV, P/E ∼15), to plug-in hybrid (PHEV, P/E ∼ 8), to fully electric (BEV, P/E ∼ 3) [2] [3] [4] [5] [6] [7] [8] [9][10][11][12][13]. Figure 1 shows the typical range of specific power and energy for the different types of electrified vehicles, as well as projected target ranges for the next generations of Li-batteries. If the actual power density values can be considered quite satisfactory, in particular for HVs, a drastic increase in energy density is imperative to increase the drive electrical range and meet the target value of 300 miles defined by the US Department of Energy as the threshold value to achieve mass market penetration of BEVs [14]. To meet such goal, the energy density of BEVs must be increased by a factor 2.5 over the next 15 years, together with an increase of specific power of around 1.5 (Figure 1). This simultaneous increase of energy and power represents a tremendous challenge for battery manufacturers. Although improvements in volumetric and gravimetric energy densities are still possible by improvements of cell, modules, and battery packs design, as well as through optimized sub-components (e.g. cooling system, Battery Management System, etc.), the development of novel anode and cathode materials seems at this point mandatory. The goal of this paper is to critically evaluate the chances that several of the recently proposed cathode materials could be implemented in the next generation of batteries for transport applications. Simulations have been performed to obtain the energy density of these future cells which take into account not only the intrinsic characteristics of the new cathode materials, but also how these impact on the other active and non active components of the cell.
+2
+
+Page 3 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Although the focus here is mainly on energy and power, it should be kept in mind that numerous other factors must be taken into account when evaluating a new technology, design, or material for automotive batteries. These include cost, safety, lifetime, charging time, and low temperature performance just to mention the most obvious. Figure 2 shows present and future target values for these parameters. Although the detailed numeric values might slightly vary depending on the specific strategies of the automobile manufacturers, they offer nonetheless a picture of the complexity associated with future electromobility challenges. Reference to the parameters of Figure 2, safety and lifetime in particular, will be made in the following when discussing the applicability of the individual materials of families.
+2. From battery targets to materials properties.
+Evaluating the potential of a given material to be used as cathode in a battery for automotive application is far from being trivial. Considerations based on the characteristics of the pure active material, like its capacity, Li+ insertion/extraction voltage, crystallographic density, etc., though important for a preliminary screening are far from providing a precise and trustworthy estimate of the final outcome in terms of energy density at cell, or battery pack level (Figure 3). A three step calculation is required for this purpose to take into account the decrease in specific energy caused by the presence of the required inactive components. In the first step, properties of the pure cathode active material must be translated into energy values at the full cathode level (Figure 3a). For this step parameters like porosity, amounts and types of binder and conductive carbon are required, which in turn depend on the specific properties of the active material like its particle size, conductivity etc.. In the following step, parameters concerning the cell format must be selected including type, size and number of jelly rolls. Three main cell formats are nowadays used in commercial electric or hybrid vehicles: prismatic hard case, cylindrical, and pouch cells (Figure 3b). From the energy density point of view the choice of a given format is relevant due to the different volume occupancy inside the cell, typically higher in the cylindrical cells than for the other formats, and the different packing efficiency in the battery pack level. For the latter, prismatic cell is the most convenient format. In the last step, one must choose among the multiple available strategies to connect individual cells into battery modules and battery pack in order to reach the practical voltages (typically between 200V up to 400V) and capacities required for vehicle applications (Figure 3c). Different choices will clearly lead to different packing designs and volume efficiencies.
+3
+
+Journal of Materials Chemistry A
+
+Page 4 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+In Figure 4 the calculated energy targets at different levels for year 2025 are shown (dark blue bars) and compared with the actual values derived from the BMW i3 (light blue bars). In the calculation, performed using a home-developed software, the same battery pack, consisting of 96 serial connected BEV hard case prismatic cells comprising four jelly-rolls, has been considered in both cases. As starting point, the 250Wh kg-1 target value (Figure 1) at the battery pack level of was selected [14]. To obtain projected target values as reliable as possible for cell, electrode and material levels, improved characteristics for the inert components were used, on basis of the trend observed in the last few years in the commercialized products. As an example, reduced thickness values for the current collectors (aluminum foil: 12µm; copper foil: 8 µm) and separator (15µm) have been chosen. Also the required weight of electrolyte was considered in dependence of porosity and wetting in order to predict the energy density of the cells correctly. For some other parameters, where a reliable estimate for 2025 is not foreseeable, like for the volume of the battery package, weight of the cooling system and of battery management system (BMS), values for the 2025 target was kept identical to the actual ones. The same balancing between anode to cathode (N/P ratio) used today, with an over dimensioning of the anode of 20%, was maintained in the target values in order to ensure at least the same level of safety in future cells [15]. At this regard it should be underlined that, although this paper is focused on cathode materials, we cannot ignore that novel or improved anodes might be available by 2025. This point will be considered in more detail in paragraph 4, where calculations at the cell level performed by considering different anode materials will be shown. In the example of Figure 4, target values were calculated by considering an anode consisting of blended graphite and silicon with a specific energy density of 1100mAh g-1 and a voltage of 0.4V against Li/Li+. Although clearly arbitrary, this choice allowed keeping the anode´s thickness required to match the cathode energy target close to the values currently used. Finally, the composition of the cathode layer was selected using parameters (porosity and amounts of conductive agent and binders) similar to those nowadays employed in Li-ion cells based on layered oxide cathodes. As discussed in detail in a following section, such choice might be too demanding for several future cathode materials, unless a dramatic improvement in their transport properties is achieved.
+As shown in Figure 4, the energy density of present battery packs (BMW i3, light blue bars) increases nearly four times moving from the battery to the material´s level. Starting from ∼
+4
+
+Page 5 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+100 Wh.kg-1 on battery level, we reach 120 Wh kg-1 at cell level; this relatively small increase is an indication of the overwhelming contribution the cell weight to the total battery weight. On the contrary, the volumetric energy density ratio between battery pack and cell levels (Wh l-1) (not shown) is larger than a factor two, due to the volume required for cell´s packaging, wiring, and cooling systems. The largest increase occurs between the energy density at the cell level and the one at the electrode level (340Wh kg-1). Cause for such large variation, is the weight of anode, separator, electrolyte, cell case and the required safety devices (e.g. pressure vent). A further increase of about 20% is finally observed at the material´s level, when the weight binder and conductive agent and aluminum current collector are taken into account. As a result, cathode materials with energy density of nearly 400Wh kg-1 are required to achieve 100Wh kg-1 at battery level. This four-fold difference between material and battery levels is expected to decrease of approximately 20% in the next battery generations, thanks to forecasted improvements in the inactive components. As a consequence, to reach the target of 250Wh kg-1 at the battery level a cathode material with an energy density slightly less than 800Wh kg-1 will be required. In order to broaden the validity of the target values shown in Figure 4, calculations have been performed for different battery geometries and cells formats so to include other formats among those employed for automotive applications. The outcome is shown in Figure 4 by the error bars on the target values.
+The second key parameter that is generally used as an indicator of the possibility to employ a given material as cathode for automotive batteries is power. As an example, the power performance of the BMW full-electric i3 cells (present, light blue squares, and next generation, light blue circles) is shown in Figure 5. The nearly constant fully discharged capacity (converted to mAh.g-1 of cell weight) at different current densities, ranging from 10 to 550 mA g-1, testifies the excellent rate capability of actual cells. Almost no capacity decrease is observed even for the higher C-rates. In order to find applications in the electro mobility field, future higher energy cells (dark blue square) must exhibit rate capabilities at least equal to the actual value. It should be at this regard considered that a precise and trustworthy estimation of the power capability requirements for the next generations of batteries materials is less straightforward than for energy. Differently from the capacity/voltage measurements, routinely performed on half and/or full cells for all newly introduced materials, power tests, usually based on pulse discharges (normally between 10 or 30 seconds) at very high rates, are less frequently
+5
+
+Journal of Materials Chemistry A
+
+Page 6 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+available in the literature, making a direct comparison between power capability of new materials difficult. In the next section literature reports on novel cathode materials will be discussed with reference to the energy targets of Figure 4. Data concerning other key parameters, including power, lifetime, safety and cost will be also discussed, although in less detail.
+3. Cathode materials for vehicle applications.
+3.1. Present generation of cathode materials.
+The vast majority of cathode materials that have already been commercialized in Li-batteries for vehicle applications are represented by oxides, with the sole exception of LiFePO4 (LFP). They include cathodes belonging either to the layered oxides family with the α -NaFeO2 -type structure, such as Li1.1[Ni1/3Mn1/3Co1/3]0.9O2 (NMC-111) or LiNi0.8Co0.15Al0.05O2 (NCA), or to the spinel structure, with cubic symmetry, like for LiMn2O4 (LMO) [16]. Thanks to its fast transport properties, LMO shows excellent rate performance. The large amount of Mn guarantees good thermal stability [17]. On the other hand, the limited capacity, around 120 mAh g-1, limits the achievable energy density to around 500 Wh kg-1 despite the rather high operating voltage (∼ 4.1V). The poor energy density prevents the use of LMO for PHEVs and EV, at least in pure form. Moreover, capacity fade, due to manganese dissolution at elevated temperatures [18] represents a critical issue for automotive applications where operation and storage in warm environments is frequently encountered. Despite these limitations, LMO still finds applications in the automotive field either in combination with layered oxides, or even as the sole cathode active material. Prominent example using manganese spinel based cells are the Mitsubishi i-MiEV and the Nissan Leaf [19] [20]. LFP allows higher energy densities, up to around 580 Wh kg-1, thanks to a capacity of 170 mAh g-1 and a discharge voltage of ∼ 3.45V. Application of LFP as a cathode material was, until the mid-nineties, prevented by its low conductivity. LFP is a semiconductor with a band gap of 0.3 eV and an electronic conductivity of only ~10-9 S cm-1 [21] [22]. Inorganic as well as organic carbon-based coating during the material´s synthesis and processing together with nano-scaling of the particle size and doping [23][24] were successfully applied, resulting in a dramatic increase of achievable capacity at acceptable charge-discharge currents. Carboncoated LFP material was successfully commercialized and thanks to the capability of the so called “nanophosphate” to sustain high peak powers with limited effect on its lifetime, it attracted the attention of the major car industries. [25] Batteries based on LFP cathodes found application in HEV and PHEVs, like for example, in the BMW Active Hybrid 3 and 5 series,
+6
+
+Page 7 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+introduced in the market in 2011 [26]. Around the same time, the Fisker Karma, an electric sports sedan with range extender was developed [27] was commercialized. Powered by a LFP-based battery pack, Karma offers an electric drive range slightly above 50 km. In the mass market segment, the Chevrolet Spark, is another example of fully electric vehicle powered by nanophosphate based battery cells [28]. More recently, other cathode materials, such as NMC-111 and NCA, as well as cathode blends of NMC, NCA and LMO became the main target of OEMs. Layered oxide materials would theoretically offer the possibility to achieve capacities as high as 270 mAh g-1. Nevertheless, degradation processes, including phase transitions, transition metal dissolution, and electrolyte oxidation have so far limited the operating potential window to the 4.2 ~ 4.3 V, thus allowing for capacities considerably lower than the theoretical value [29]. Despite that, energy densities around 600-650 Wh kg-1 for NMC-111 and 700-750 Wh kg-1 for NCA [30] can be achieved which lead to their application in several electrical vehicles at all degrees of electrification. Examples include the Chevrolet Volt (PHEV), BMW i3 (BEV), and the Nissan Leaf (BEV), all adopting a NMC/LMO blended cathode [31]. Pure NMC can be found in the Daimler Smart EV (BEV) and NCA in the Tesla Model S (BEV), BMW Active Hybrid 7 (HEV), and the Daimler S Class Hybrid (HEV) [32] [33] [34] [35]. Despite the success obtained so far, even NCA and NMC111 cathodes will not meet the future requirements for PHEV and BEV vehicles, unless lifetime and safety limitations at higher voltages are solved [36]. For that reason, over the last decade, a large number of studies were devoted to the investigation of novel cathode materials that should replace those mentioned above in the next generations of automotive batteries.
+3.2. Future cathode materials
+In the search for new cathode materials, characterized by higher energy densities, countless papers have been published over the last 15 years. Dozens of novel intercalation cathodes have been proposed that could offer the possibility of an increased energy density thanks to a higher voltage, and/or higher capacity, and/or lower molecular weight. When considering cathode materials with voltage above 4.3-4.5V one has to consider that the potential applications of these materials would be bound to the possibility of simultaneously developing new electrolytes with higher stabilities than those nowadays available [37]. No such limitation applies when exploring materials with higher capacity. Among those, new intercalation cathodes characterized by multi-electron processes have recently attracted considerable attention. Finally, conversion materials offer the possibility to reduce the metal
+7
+
+Journal of Materials Chemistry A
+
+Page 8 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+atom to its metallic state through a process which is most often related to the transfer of two or three electrons. In the following a brief description of several cathode candidates will be given with particular emphasis on the aspects that are more relevant for automotive applications, energy density in particular. For that purpose in Figure 6 the theoretical and practical capacities for all the candidates are summarized, together with their theoretical and experimental mean practical voltages. Theoretical capacities have been calculated on the basis of the materials stoichiometry and molecular weight considering the full Li range (from 0 to 100% Li in the formula). The theoretical voltage has been, when possible, derived from ab-initio simulation studies [38] [39] [40] [41] [42] [43]. For the practical values, data coming from those papers showing the highest discharge capacity were used (for a full list of the reference used for Figure 6 see the figure caption). Based on the data of Figure 6, theoretical and practical gravimetric and volumetric energy densities have been calculated as shown in Figure 7a and 7b, respectively. In the following, the results of Figure 6 and 7 will be discussed by separately considering materials belonging to the oxide, polyanionic, and conversion families. As previously discussed, an analysis based on energy values at the material´s level is not sufficient to fully evaluate the potential of a given material to enter the automotive battery market. Nonetheless it will provide a useful initial screening, to single out the most interesting candidates. In the subsequent paragraph, candidates selected on the energy basis are evaluated in more detail and the properties of realistic cells based on them are shown.
+3.2.1. Oxides. The widespread use of oxide materials in the present generation of automotive batteries is motivated by the favorable balancing between capacity, rate capability, voltage, and density [29]. It is then not surprising that, also among the future generation of cathode materials, some of the most promising candidates still belong to this family. Moreover, thanks to the higher maturity compared to other types of cathodes, future oxide cathodes are those closer to a possible use, at least on a prototype level. However, several issues remain to be solved, as most of the novel oxide cathodes share the same, and often magnified disadvantages of their nowadays counterpart, in particular structural instability and reactivity towards the electrolyte. Currently, three types of oxides share the vast majority of published data: Ni-rich NMCs, high energy (HE) NMC, and high voltage (HV) spinels. Reports from field tests of cars equipped with lithium ion cells using such cathodes are not yet available, indicating their low maturity
+8
+
+Page 9 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+and the consequent absence of large scale industrialization. Some results concerning prototype cells containing HE-NMC cathodes have been presented by Envia (IMLB2012) [44], whilst HV spinel based cells are known to be under evaluation by some OEMs companies, such as ETV Motors Ltd [45]. Ni-rich NMC materials, with the general composition Li[Ni1-xCoyMnz]O2 (x ≤ 0.4), are amongst the most serious candidates for PHEVs and EVs applications [46]. Both advantages and disadvantages of this class of compounds scale with the Ni contents. Although the theoretical capacity is similar for all compositions, the reversible capacity increases from the 163 mAh g-1 of NMC-111 to above 200 mAh g-1 for NMC-811 (Figure 6) [46]. The latter shows energy densities above the target values of Figure 4 (760 Wh kg-1 and 3650 Wh l-1, respectively), as shown in Figure 7a and 7b. Also the rate capability gradually improves with the Ni, thanks to both a higher electronic conductivity (from 5.2∙10-8 S cm-1 for NMC-111 to 2.8∙10-5 S∙cm-1 for NMC-811) and a higher Li+ diffusivity (from 10-11-10-12 cm2∙s-1 for NMC111 to 10-8-10-9 cm2∙s-1 for NMC-811) [46]. On the other hand, similarity to NCA, the high Ni content has drawbacks in terms of thermal stability, due to oxygen release from the highly delithiated Li1-δ[Ni1-xMx]O2 host structure [47] [48]. Moreover, the reactive and unstable Ni4+ ions in the delithiated Li1-δ[Ni1-xMx]O2 materials are easily reduced to form more stable LixNi1-xO compounds (NaCl structure) [49], leading to increased interfacial impedance and decreased cycle life. The high pH values represent an additional difficulty for the cell production [36]. As a consequence, the future of Ni-rich NMC seems at the moment to be linked to the possibility to mitigate its surface reactivity, as discussed in paragraph 5. HE-NMC layered-layered composite materials, with general formula xLi2MnO3(1-x)LiMO2 (M = Ni, Co, Mn), have raised considerable interest in the automotive industry, thanks to their particularly high specific capacities [50] [51] [52]. In these materials the layered LiMO2 (M = Ni, Co, Mn) component is stabilized via integration of the structurally compatible Li2MnO3 component [53]. This allows achieving a much larger degree of delithiation than that normally possible with pure layered compounds (e.g. LixCoO2, x (min) ∼ 0.5). In the potential window between 2.0 and 4.4 V vs. Li, LiMO2 is the only electrochemically active component, whilst Li2MnO3 does remain inactive as the manganese ions are already tetravalent and cannot be oxidized further [54]. Although a full picture of the complex chemistry of this family of compounds is yet to be achieved, the stabilizing effect of Li2MnO3 seems to be linked to its ability to provide Li+ ions to the LiMO2 component, therefore stabilizing the layered structure [54].
+9
+
+Journal of Materials Chemistry A
+
+Page 10 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+As the voltage is increased further to 4.4 – 4.6 V, Li2MnO3 becomes active and capacities above 250 mAh g-1 can theoretically be achieved. In the higher voltage range, Li2O is formally removed from Li2MnO3, leaving behind electrochemically active MnO2. Despite the potentially high capacities, poor cycling stability xLi2MnO3(1-x)LiMO2 (M = Ni, Co, Mn) has so far hindered applications in the automotive field. The reasons behind the poor cycle stability of HE-NMC seem to be linked to the extensive removal of Li2O, that damages the electrode surface causing impedance increases, particularly at high currents. Moreover, severe voltage fading occurs when cycling between 2.0 and 4.5-4.6 V, probably due to the transition towards a spinel phase [55] [56]. In addition to poor cyclability, low electronic conductivities and low tap densities need to be improved before HE-NMC can be considered for vehicle applications. Through partial substitution of Mn for Ni in LiMn2O4, [39] HV spinels are formed with operating voltages around 4.7 V. Thanks to a practical capacity of ~130 mAh g-1, [57] HV spinels provide a specific energy of ~580 Wh kg-1 (Figure 7a and 7b). Although this represents a modest, or negligible, energy increase with respect to state of the art cathodes, LMNO still attract attention thanks to the inexpensive and environmentally benign constituents, good safety properties and excellent rate capability, thanks to both high electronic and ionic (Li+) conductivities [58]. Rate capability during both lithium extraction and insertion is particularly good in the disordered LNMO phase (spacegroup Fd-3m), since the electronic conductivity and diffusivity of lithium ions in this phase is several orders of magnitude larger than in the ordered phase (spacegroup P4332) [59]. The formation of one or the other phase has been reported to be extremely sensitive to the synthesis conditions [60] [61]. On the other hand, a severe capacity fade at elevated temperatures (60°C) and the need for high voltage electrolytes can be mentioned as the main drawbacks [4].
+3.2.2. Polyanionic compounds. Evolving from early research by Padhi and Goodenenough [62][63] on phospho-olivines, polyanionic materials raised immediate attention due numerous potential advantages compared with oxides. They show superior safety properties due to the strong covalent X-O bond, lower costs thanks to the natural abundance of the constituting elements, and environmentally friendliness. Moreover, the polyanionic structure, offers the possibility to tune the voltage by selecting the most suitable electronegativity of the non transition metal element (B, P, S, Si etc.) element, i.e. modifying the ionic character of the M-O bond (the socalled inductive effect) [62]. The voltage can be further adjusted by the introduction of -F and
+10
+
+Page 11 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+-OH groups, like in the case of fluoro- and hydroxo- sulphates and phosphates. For a given active transition metal, M, the theoretical potential follows roughly the order LiMBO3 < Li2MSiO4 < LiMPO4 < LiMPO4F < Li2MP2O7 ≈ LiMSO4F [64] [65] [66]. On the other hand, for a given polyanionic group, the potential will increase with the transition metal following the order: Fe2+/Fe3+, V4+/V5+, Mn2+/Mn3+, Co2+/Co3+, Ni2+/Ni3+ [67]. In some cases the voltage can be further changed by altering the crystallographic structure of a given compound, like in the case of LiFeSO4F where the triplite polymorphs is characterized by a voltage of 300 mV higher than the tavorite one [68]. The large number of polyanionic compounds and crystallographic structures enable the design of “on demand cathode materials” [67] making it possible not only to target a higher energy density through the selection of a compound with a higher voltage, but also decrease the operating voltage to reduce the risks of electrolyte decomposition. Figures 6 and 7 clearly indicate that, although many of this compounds show the potential for application as high energy cathode, only few of them have been proven to possess acceptable electrochemical performances in terms of reversible capacity. Three main factors concur to limit the applicability of a large part of these compounds. For some of them, the excessively high potentials, in the range between 4.7-5.5 V, are incompatible with the present generation of electrolytes. Although the evolution of electrolytes, possibly moving to new concepts based on solids, polymers or ionic liquids, might reach the necessary maturity, it is at the moment impossible to foresee an application before 2025 for many phosphates and sulphates comprising Ni, Co and, in some case, Mn. The second critical factor is represented by the high electronic energy gaps, coupled in many cases with a low Li+ diffusion coefficient. For the vast majority of polyanionic compounds, poor transport properties make it necessary to use large amounts of conductive carbon coating and/or to nanosize the powder. Despite that no, or negligible electrochemical activity, was detected for some of polyanionic materials, like in the case of several compounds belonging to the fluoro-phospates, fluoro-sulphates, hydroxy-phospates, hydroxyl-sulphates and borates families (Figure 6). Finally, the larger molecular weight, compared to oxides, negatively impacts capacity and energy density. With respect to oxide materials, it is the volumetric energy densities of polyanionic compounds that are far from being acceptable for the 2025 targets (Figures 7c and 7d). As a consequence, several materials, otherwise showing promising properties in terms of costs, safety, lifetime, and operating voltage, cannot be considered as potential candidates like, for instance, in the case of pyrophosphates.
+
+11
+
+Journal of Materials Chemistry A
+
+Page 12 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Few polyanionic materials remain that possess at least a gravimetric energy density above, or close to, the targets for 2025 and, at the same time, show the required technological maturity. Among them LiFeBO3, LiVPO4F, LiMnPO4, and LiMnSiO4 should be mentioned. LiFeBO3 allows reaching a rather large theoretical energy density (660 Wh kg-1), despite a deintercalation voltage of only ∼ 3V [69] [70], thanks to the light (BO3)3- group. Its small volume change (2%) during cycling is responsible for the excellent cycle stability. When prepared as carbon coated nanopowder, reversible capacities close to the theoretical value of 200 mAh g-1 could be obtained [71] [72] [73]. LiVPO4F has been the first and, by far, the most investigated compound of the flourophosphate family. The interest was motivated by the appealing operating voltage originating from the F inductive effect [74] [41]. Upon lithium extraction, LiVPO4F shows a two step processes with plateaus at 4.26 and 4.30 V, respectively, whilst a single lithium insertion plateau at 4.19 V is observed. A capacity close to the theoretical value (155 mAh g1) can be achieved with a relatively low polarization [75] [76] which corresponds to energy densities around 650 Wh kg-1 and 2000 Wh l-1. As most fluorophosphates, LiVPO4F possesses a high stability upon lithium insertion and extraction [77] and fast 1D lithium diffusions [78] thanks to their tavorite crystallographic structure. As a consequence, good capacity retention was demonstrated even in long-term cycling tests coupled with a rate capability superior to phosphates [75] [79]. Nevertheless, poor electron conductivities required also in this case the use of nanosized powder and large amount of conductive carbon coatings [74]. Compared to the other phosphates with olivine structure, LiMnPO4 is perceived as the most promising candidate for vehicle applications due the less prohibitive voltage, compared with the Co and Ni counterpart. For this reason, numerous efforts were undertaken over the last few years in the attempt to improve its transport properties, thus achieving discharge capacities closer to the theoretical value. Nano-sizing via sol-gel synthesis [80][81], carboncoating [82], doping with multivalent metal ions [83][84], and morphology control on the particle level are just some examples [85]. These efforts allowed achieving energy densities around 600 Wh kg-1. Nevertheless major issues still remain to be solved including poor long term cycling behavior, and the presence of a Jahn-Teller distortion [86] coupled with thermal instability in the delithiated state [87][88]. This thermal instability, though still object of some controversy, represents another major drawback since safety was always perceived as one of the most positive aspect that olivines have to offer to the automotive industry
+12
+
+Page 13 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+When discussing the future application of polyanionic cathodes, it should be kept in mind that many of compounds, including, fluorophosphates fluorosulphates, hydroxyphosphates, hydroxysulphates, pyrophosphates, and silicates could in principle operate with a two electron process. This would indeed allow reaching considerably higher energy densities through a doubled capacity [41]. It is therefore not surprising that double electron processes have been deeply investigated for most of the above listed materials although, up to now, with rather limited success. The main limitation lies in the difficulty to find a compound showing both M+2/M+3 and M+3/M+4 redox couples within a useful voltage range. In some cases, like for vanadium and molybdenum compounds, the M+2/M+3 couple is centered at too low potential to be exploited as cathode [89]. On the other hand, many compounds comprising Fe, Mn, Co, or Cr, are characterized by a voltage for the M+3/M+4 redox couple too high for the present generation of electrolytes. Among the few exceptions are some manganese compounds, like LiMnPO4(OH) and, in particular, Li2MnSiO4. The accessible Mn3+/Mn4+ couple in Li2MnSiO4 (∼ 4.5 V) coupled with a theoretical capacity around 330 mAh g-1, (Figure 6) would open the possibility to produce cathodes with energies above 1300 Wh kg-1 and 4000 Wh l-1 [90] [91] [92]. Although the extraction of more than one Li per formula unit has been demonstrated by several authors [90] [91] [92], the overall performance is still far from being acceptable, due to poor transport properties and structural instabilities. Despite the smaller band gap than that of phosphates [93], due to the lower electronegativity of Si with respect to P, very low conductivities have been reported for Li2MnSiO4 (5.10-16 Scm-1 at 25°C and 3.10-14 Scm-1 at 60°C) [94] [95]. Moreover, all silicates show low Li+ diffusion coefficients [96]. It is then not surprising that literature results often refer to experiments performed at fairly high temperatures [90] [91] [92] using nanosized powder coated with conductive carbon layers, typically obtained by introducing carbon precursors in the reacting mixture [97]. The necessity of nanosized coated powder negatively impacts not only on the energy density but also the materials´ cost due to the expensive synthesis routes [90] [91] [92]. Moreover, a rapid irreversible capacity loss is observed, probably due to an amorphization process occurring upon lithium extraction [94] [98]. In the attempt to minimize this effect several different approaches have been considered. These include the use of different synthetic methods to obtain products characterized by different crystal structures, different particle size and morphologies [98] [99] [100] [101] [102] [103]. Doping (e.g. with Cr, Mg or P) [103] [104] [105], as well the use of mixed FeMn compositions [106] [95] [107], have been also investigated in the attempt to limit the structural instability upon delithiation. Although some improvement was reported [108], the
+13
+
+Journal of Materials Chemistry A
+
+Page 14 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+best demonstrated capacity in a conventional composite cathode configuration, is still limited to 210 mAh g-1 at room temperature and 250 mAh g-1 at 55°C (measured C/50). Due to the poor capacity retention, only around 1/5 of the initial value is retained after 40 cycles at room temperature and after 20 cycles at 55°C. Capacities close or above 300 mAh g-1 have been recently reported, but under conditions that are at the moment very far from a practical application, including the use of Li2MnSiO4 nanosheets [109], graphene network [110], and polymeric coating [102]. In order for these compounds to achieve the necessary maturity level, further investigations are necessary to elucidate the root causes and possibly solve the stability issues. Moreover, an improvement in the transport properties must be obtained to reduce the production costs and increase the energy density. Nevertheless, exploiting multielectron processes seems at the moment one of the few strategies to bring polyanionic insertion cathodes in the same range of energy density of oxides and conversion materials. At this regard, a new class of polyanionic materials has been recently proposed [41] that include either compounds characterized by the presence of more than one transition metal or more than one anionic group. In the first case one would take advantage of the simultaneous presence of a transition metal with a M+2/M+3 couple, like Fe or Co, and one with a M+4/M+5 or M+5/M+6 couple (i.e., V and Mo), adequately placed within a useful voltage window. The second group would exploit the advantageous effect of a double anion group to (e.g. LiM(YO3)(XO4)) to force the two redox couples of the transition metal within a suitable voltage range. Although no experimental data are at the moment available, these compounds have been also included, for comparison, in Figure 6 and 7.
+3.2.3. Conversion materials Contrary to conventional intercalation reactions where, with few noticeable exceptions, only one electron can be transferred per metal atom, conversion materials offer the possibility to reduce the metal atom to its metallic state. This reduction reaction generally requires the transfer of two or more electrons [40]. Conversion materials follow the general reaction mechanism shown below:
+‫ܯ‬௔ܺ௕ + ሺܾ ∙ ݊ሻ‫ ܯܽ ⇌ ݅ܮ‬+ ܾ‫݅ܮ‬௡ܺ
+where M is a transition metal, X is the anion (X= F, S, N, P, …) and n is the oxidation state of X in ‫ܯ‬௔ܺ௕ [111]. The product of the lithiation reaction is, from the microstructural point of view, a dispersion of metal nano-particles in the ‫݅ܮ‬௡ܺ matrix.
+14
+
+Page 15 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Several different conversion compounds have been considered in the last few years as possible battery cathodes. Despite the often large differences observed in the electrochemical behavior of these compounds, several common aspects can be identified. Among the general positive aspects we can mention: high theoretical gravimetric capacity (up to 700 mAh.g-1) due to multi-electron reactions [112] [113] [114] [115] [116], high intrinsic thermal stability [117] [118] [115], low cost [119], and low molar weight [120]. On the other hand, the commonly reported negative general aspects are: poor electronic conductivity due to insulating behavior caused by intrinsically high band gaps [121] [122] [117] [113] [118] [119] [123] [124], poor ionic conductivity [116], insulating ‫݅ܮ‬௡ܺ products [125], complete structural reorganization during conversion reaction with large volume changes during lithiation and delithiation leading to particle delamination and low cycle stability [111] [114], large voltage hysteresis [111] [40] [116], low coulombic efficiency in 1st cycle [111], and changes in the crystalline structure after every cycle [40]. Moreover, it should be considered that conversion materials have operating voltages that are typically lower that most oxides and polyanionic cathodes. Similarly to the polyanionic families, the reaction potential of conversion materials is strongly dependent on the anion. For some of them, like transition metal nitrides and phosphides [126] [127] [126] [128] [129] and some sulfides like CoS2 [130] [131], the operating voltage is so low that they are more suitably considered as potential anode materials. Figure 6 and 7 clearly indicate that several conversion materials have the potential to meet the energy target for 2025. Nevertheless, for some of these compounds the degradation reactions listed above dramatically impair stability already after few cycles. For that reason these materials cannot, in our opinion, be realistically considered as candidates for 2025. This is, for instance, the case of CuCl2 due to its solubility in organic solvents and sulfides that suffer from polysulfide dissolution upon discharge [132]: a problem well known in lithiumsulfur batteries, which leads to loss of active material and passivation of the counter electrode. As a consequence, the possibility of an application of sulfide cathodes in combination with a liquid electrolyte in an electric vehicle seems at the moment highly unlikely [133] [134]. Also some fluorides, like BiF3, though characterized by extremely favorable energy content at the second discharge cycle, show unacceptably poor capacity retention [135] [136] [137] [138]. At the moment, all appealing conversion cathodes belong to the fluoride family (FeF3, FeF2, CoF2, and NiF2). The highly ionic character of M-F bonds is responsible for the higher operating voltages, compared to the other families of conversion materials [139] [125] (Figure 6 and Figure 7). This, coupled with the large discharge capacities, allows for
+15
+
+Journal of Materials Chemistry A
+
+Page 16 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+practical energy values close, and sometime well above, the 2025 targets. In should be considered anyways that, due to the poor transport properties of fluorides, fairly large amounts of conductive additive are typically used. This also provides a buffer for the volume changes upon charging and discharging and ensures electrical integrity of the active material over the whole life time. When discussing the practical energy values of fluorides (Figure 7), it should be kept in mind that, due to the large differences in the amount of active material employed as well as to the sometimes large difference in the voltage range and current densities reported in the literature, it is more difficult to perform a fair comparison between results obtained by different authors than in the case of oxides and polyanionic materials. FeF3 is characterized by a very large theoretical capacity of 712 mAh.g-1 coupled with a fairly high theoretical voltage (2.74 V) [40] low cost, and low toxicity [123]. Lithiation of FeF3 involves two stages. The first one is a conventional intercalation reaction of lithium in the interstitial sites of FeF3 to produce LiFeF3; this reaction takes place in the voltage range between 4.5 and 2.0 V, delivering 237 mAh.g-1. The subsequent stage is the true conversion process that leads to the formation metallic Fe and LiF nano-particles; this step characterized by a long plateau in the voltage profile at approximately 1.75 V, and provides a capacity of 475 mAh.g-1 [125] [124]. As for the other fluorides, a low coulombic efficiency in the 1st cycle and rather large hysteresis (∆E=0.8 V) between lithiation and delithiation process [116] should be mentioned as the main drawbacks. Using a FeF3-carbon fiber composite electrode, a reversible discharge capacity of 690 mAh.g-1 was demonstrated, which is the highest value among those reported in Figure 6 [116]. Although the investigation was limited to 25 cycles, a stable reversible capacity around 450 mAh.g-1 and 600 mAh.g-1 was obtained at 25°C and 60°C, respectively. On the contrary, bare FeF3 electrodes were shown to deliver almost no capacity after only 13 cycles together with a significantly larger voltage hysteresis [116]. Further improvements in the composite structure are been investigated, in the attempt to reach longer cycle stability, higher rate capability, and smaller voltage hysteresis. As an example, a cycle stability over 200 cycles with a stable reversible capacity of ca. 275 mAh.g-1 (4.3 – 0.5 V, 20.83 mA.g-1) was demonstrated [113]. Excellent rate capability was observed for FeF3-MLG (multilayer graphene) electrodes with a stable capacity at 10C of more than 200 mAh.g-1 [116]. Doping (e.g. with Co) was shown to successfully decrease the voltage hysteresis and improve the cycle stability [122]. Finally, it should be mentioned that, thanks to the high ionic character of the Fe-F bond, FeF3 has high intrinsic thermal stability. As-prepared FeF3 exhibits no heat flow until 500 °C [117].
+16
+
+Page 17 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Compared to FeF3, CoF2 has a lower theoretical capacity of 553 mAh.g-1, but a higher theoretical voltage (2.85 V), leading to a potential energy density as high as 1576 Wh.kg-1. Differently from FeF3, CoF2 undergoes a reversible two-electron reaction without any intercalation stage [140]. The best reversible capacity so far reported was of 460 mAh.g-1 (current density 50 mA.g-1, voltage range 1.0 - 4.3 V), although a large voltage hysteresis between discharge and charge reaction was observed [140]. Compared to FeF3, cycle stability and rate capability are poorer. If on the one hand a capacity of 160 mAh.g-1 after 70 cycles for a Co/LiF/C nano-composite electrode was reported [141], other authors obtained a strong decrease of capacity within the first 10 cycles using for CoF2/C electrodes, [142] [140] due either to the loss of CoF2 crystallinity or to incomplete conversion reactions [141] [140] [142][143]. Although the lower fluoride content of FeF2 leads to a lower theoretical capacity of 571 mAh.g-1 [40] compared to FeF3, it shows a comparable theoretical discharge voltage of 2.66 V. Literature values for capacity as well as voltage strongly differ from author to author. FeF2-LiF composites were reported to have a mean voltage of 3.0 V [144], while voltages between 2.0 [145] and 1.5 V [142] [116] have been found for FeF2 electrodes. First lithiation capacities between 190 mAh.g-1 [125], and 1100 mAh.g-1 (i.e. twice the theoretical value) [142] have been reported. At the moment, no clear explanation has been put forward to justify the observed voltages and capacities beyond the respective theoretical limits. It is likely that the origin of the conflicting results is related to the complex lithiation process which involves several conversion, and possibly even intercalating, steps. As suggested by Armstrong et al. [142], some intercalation mechanisms could play a role in the overall lithiation process only when the active phase is prepared with specific particle morphologies, causing materials prepared by different synthetic routes to show drastically different behaviors. Even more conflicting results have been published for what concerns capacity values vs. cycle number. Martha et al. [116] reported an increasing capacity up to 500 mAh.g-1 after 25 cycles, while Armstrong et al. [142] observed strongly decreasing values to 200 mAh.g-1 after 25 cycles. The low average practical discharge voltage of ca. 1.5 V of NiF2 [146] [147] further reduces the theoretical energy density output, but Shi et al. [146] have shown, that the material exhibits a lower voltage hysteresis between the lithiation and delithiation steps, which increases the energy efficiency compared to other fluorides. Although the capacity retention is not yet stable in the first few cycles, Shi et al. [146] demonstrated very low impedance values (30-45 ) of NiF2 / C electrodes between the upper and lower voltage limits.
+17
+
+Journal of Materials Chemistry A
+
+Page 18 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Based on the previous discussion, a restricted number of cathode materials offer concrete chances of being used in EV applications, although improvements, in some cases of considerable entity, still need to be achieved. These include some oxides (Ni-rich NMC, HENMC, HV-spinel, NCA), polyanionic (LiFeBO3, LiVPO4F, LiMnPO4, Li2MnSiO4), and conversion (FeF3, NiF2, CoF2, FeF2) compounds. Besides considerations based on the bare comparison of their theoretical and practical energy values, further aspects must be evaluated as already previously pointed out. Among them, the shape of the voltage discharge profile is sometimes overlooked in the literature. In Figure 8 typical discharge curves for selected compounds are shown. Remarkable differences can be notices moving from LiVPO4F, whose flat discharge curve is thermodynamically required by the two phase lithiation reaction, to compounds showing a continuously sloping behavior, like in the case of Li2MnSiO4. The complex behavior of FeF3, with an initial sloping part followed by a more flat one, is attributable to the already discussed double nature of its lithiation reaction. For the specific needs of automotive applications several aspects of the discharge curve profile may become critical. A flat voltage profile, as an example, allows for constant power capabilities over a larger SOC range, and can therefore be beneficial to the usable energy. On the other hand, classical SOC determination from voltage levels is facilitated by a potential profile with a sufficient gradient. If the ratio of higher to lower cutoff voltage is too large, power electronic components, such as DC/DC and DC/AC inverters cannot operate in an efficient modus. Furthermore, excessive lower voltage limits would lead, in the case of constant power requirements, to larger currents therefore reducing the cell lifetime [148] [149] [150].
+4. Battery cells based on next generation cathodes. A fair comparison between the potentials offered by the selected cathode materials to find application in the automotive field requires evaluating energy densities at least at the full cell level. For this purpose, the energy densities of virtual prismatic hard case cells (BMW i3 format) employing the twelve selected cathode materials [151] were calculated following the principles introduced in paragraph 2. As previously discussed, together with the energy density of the active material (Figure 7a and 7b), electrode loading (mg of composite cathode per·cm² of electrode surface) as well as the composition of the composite cathode must be taken into account in order to derive energy densities at the cell level. The loading can be varied by either depositing different electrode
+18
+
+Page 19 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+thicknesses or by changing the cathode porosity. Cathode composition depends, on the other hand, on the ratio between the amount of active material and inert components (i.e. conductive carbon and binder). Although, irreversible losses during the first few cycles are unavoidable and dependent on the specific material, in our calculations a complete reversibility was assumed in order to better outline the energy dependency on electrode loading and composition. In practical applications, cathode loading cannot be selected at will. High loadings can indeed only be applied when conduction in the active phase is fast enough to avoid electrode´s polarization. Loadings as high as 15-25mg·cm-² are applied in the present generation of automotive batteries, not only to increase the energy density, but also to contain the cost (less separator and current collectors are necessary at high loadings). On the opposite, many newly proposed cathode materials have been tested in the literature using loadings as low as 1 mg·cm-². Figure 9a and 9b show the gravimetric and volumetric energy densities, based on theoretical values at the materials level (Figure 7a and 7b, blue bars), calculated for all the selected cathode materials with loadings equal to 1 mg·cm-², 5 mg·cm-², and 15 mg·cm-² respectively. In the calculation, loading was varied by changing the electrode thickness. A constant porosity of 35% for the cathode as well as for the anode was assumed in all cases, which is a typical value for the porosity in today’s lithium ion cells. For what concerns electrode composition, different values were chosen depending on the cathode type, as listed in Table 1. These values represent an averaged composition between those reported in literature cited in the previous paragraph and are a reflection of the different conductivities and particle size that characterize each material. Three sets of data are shown in Figure 9a and 9b, corresponding to three different choices for the anode going from a now-a-days employed conventional graphite anode (synthetic graphite with 96% active material) to possible anode candidates for the next battery generations (Table 2). These include a blend of graphite and 20% silicon, with a theoretical capacity of 1100mAh g-1 and pure lithium (100% of active material). The porosity of the first two anodes was set like stated before to 35% and 54%, whereas the porosity for the pure lithium was set to 0%. Also in case of a lithium anode, the additional copper foil of 8 µm thickness was assumed in order to avoid considering excess lithium for the calculations. The advantage in using future anodes indirectly stems from their higher specific capacity. Since, as discussed in paragraph 2, the anode/cathode ratio (N/P ratio) is kept constant, high capacity anodes will be coated as thinner layers than in the case of graphite. The reduced space requirement on the anode side
+19
+
+Journal of Materials Chemistry A
+
+Page 20 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+leaves space for a higher number of electrode windings which results in an overall increase of the cell capacity. Since, contrary to intercalation cathodes, conversion materials are prepared in the delithiated state, the calculation of energy density with graphite and silicon anode required to consider additional lithium to fulfill the necessary stoichiometry. This was formally done by considering a formation reaction between the transition metal in the conversion cathode (e.g. Fe, Ni) with the required amount of LiF. Comparing the data for different loadings (Figure 9a and 9b) one can observe that the increase of energy density is non-linear. A larger energy increase is produced, in fact, moving from 1 mg cm-² (triangles) and 5 mg cm-² (circles) than the one obtained further increasing loading to15 mg cm-² (squares). The nonlinearity is caused by the decreasingly large impact that inert components play on the energy density as loading is increased. The amount of non active materials, such as separators and foils represent on the other hand the largest weight contribution in cells with loadings of 1 mg cm-² or less. The expected increase in cell energy density is observed when using anodes with higher capacity, i.e. from graphite (blue symbols and lines), to Si/C composites (black symbols and lines), to lithium (red symbols and lines). An increase of energy density can be also observed when moving from polyanionic to oxides and from oxides to conversion cathodes, when Li anodes are considered. Due to the previously mentioned necessity to include extra lithium in the case of composite and graphite electrodes, the use of conversion materials in combination with these anodes results to be less advantageous, with energy densities in the same range as for oxide cathodes. Comparing the results of Figure 9a and 9b with the targets values for 2025, it is evident that an improvement in the anode material is also required, in particular for the volumetric energy density values whose targets appear to be slightly more demanding. If graphite would remain the anode of choice also in the future, little gain will be obtained in comparison to materials already employed today, like NCA. Moreover, the use of high loadings, above 20-25 mg cm-2, will be in any case necessary, which plays a detrimental role when considering battery lifetime [152] [153]. Si/C anode will, on the other hand, allow for the use of most oxides and all conversion cathodes with loadings as low as 15 mg cm-2. Only in the case of polyanionic materials the use of advanced anodes and high coatings will in any case be required, with the sole exception of Li2MnSiO4 whose cell´s energy lies in the same range as those using oxide cathodes. It should be also noticed that the simultaneous use of conversion cathodes and lithium anodes could allow for the use of loadings even below 5 mg cm-2.
+
+20
+
+Page 21 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+The energy densities at the cell level, calculated on the basis of the practical energy densities at the materials level (Figure 7a and 7b, red bars), are shown in Figure 9c and 9d for the same selected cathodes. Only cells using metallic lithium as anodes are shown here, since the experimental values reported in the literature refer, in the vast majority of cases, to experiments conducted with lithium anodes. Data for four different loadings are shown which correspond to the typical values employed in the literature for these materials. As expected, the energy densities calculated on the basis of the experimentally demonstrated values are considerably lower than the theoretical counterpart. Despite the use of lithium as anode, loadings of 10 to 15 mg cm-2 are required to bring at least some of the candidates into above or close to the target value. The yellow dots in Figure 9c and 9d represent the typical loading values found in literature for each of the individual materials. The low loadings, between 1 and 5 mg cm-2, typically used for most of these cathodes, in particular for the conversion and polyanionic ones, clearly indicate that, for several candidates the distance from the 2025 target is, at the moment, very large. As an example, despite the large potential of FeF3, improvements in its transport properties are required to allow at least a loading around 10 mg cm-2, i.e. a five-fold improvement compared to the actual value. Based on the data of Figure 9c and 9d, it is once more evident that only oxide materials show at the moment the necessary level of maturity to allow achieving acceptable energy densities. Despite the fact that the data of Figure 9c and 9d indicate that HE-NMC, NMC-811 and even NCA are close or above the target value, it should be considered that values obtained using other, probably more realistic choices for the anode, would worsen this scenario, making an improvement for these materials, with respect to their actual properties, necessary. When discussing the data of Figures 9a-9d, it should not be forgotten that energy densities can be increased not only through the use of higher loadings, but also by improving the amount of active material in the composite electrode. Although, once more, a reduction in the binder and in particular conductive carbon percentage would require an improvement in the transport properties of these materials, it leave nevertheless room for improvement, at least for some of these compounds. This is particularly true for those cathodes, like polyanionic and conversion materials that nowadays require large amounts of inactive components (Table 1). The potential for energy density improvements through the improvement of the cathode composition is quantitatively exemplified in Figure 10 for Li2MnSiO4 with loading of 15mg cm-² and graphite anode. The light blue balloon indicates the cell capacity obtained for this material by using the binder and conductive carbon amounts used today. The dark blue balloon indicates on the other hand the potential capacity for this cell if the conduction
+21
+
+Journal of Materials Chemistry A
+
+Page 22 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+properties of the cathode active phase could be improved so to allow using the same cathode composition actually adopted for most oxide cathode materials. By decreasing the percentage of both inactive components to 2.5%, a capacity gain of 35% could be obtained. It is not therefore surprising that together with the search for new cathode materials, an enormous experimental and theoretical effort in the last years has been dedicated to methods for improving the transport properties of cathodes. Examples of these methods will be given in paragraph 6.
+5. Other properties of the selected cathodes. Before entering the discussion of possible techniques to improve the characteristics of cathode materials, two other properties that allow for a direct comparison with the literature data will be here presented: rate capability and cycle lifetime. As previously mentioned, the availability of literature data concerning rate capability is much inferior to energy data. As a consequence, only nine of the previously selected twelve cathodes are compared. Figure 11 summarizes selected rate capability data for these compounds. Due to the large variety of applied current densities, a direct comparison between the materials, as tested under identical experimental conditions, is not possible. Therefore, the experimental data has been grouped within six discharge current density ranges, indicated by different colors as shown in the legend of Figure 11. For those publications where a C-rate instead of a current density was stated, the indicated practical capacity was used for the data conversion. Most often, different rates have been tested for the same material and consequently several colored spots are shown for each material in Figure 11. The target line as well as the today´s values were drawn according to the data shown in Figure 5. In this kind of representation, the best materials are those, not only having the highest y value, but also having most symbols clustered close to each other. The target will be reached when symbols from yellow and above lie above the target line. As it can be seen even cathode materials with rather good rate capabilities, for today´s requirements, like NCA and in particular NMC-811 fall short from the 2025 target. Once again these results clearly indicate that improving the transport properties is mandatory for proposed candidates. FeF3 deserves some comments on its own. Judging from the results of Figure 11, FeF3 clearly meets the requirements showing capacities above the target for currents as high as 3000 mA g1. It should in any case be considered that these results have been obtained at lower loadings than for most intercalation materials to maximize transport kinetics.
+
+22
+
+Page 23 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Differently from safety whose data, in particular for newly introduced materials, are seldom available, a more direct comparison can be done for what concerns lifetime. In Figure 12 the discharge capacity vs cycle number is shown for all the selected cathodes. To allow for a direct visual comparison, cycles number up to 50 have been reported, although for some of these materials capacity retention for cycle numbers up to 1000 and beyond has been measured. In the attempt to keep the comparison as fair as possible, measurements as close as possible to T = 25°C and slow C rates have been selected. Please consider that in some cases, ageing tests were conducted at C rate or temperature different from those used for the determination of the maximum demonstrated capacity leading to discrepancies between the initial data of Figure 12 and the values reported in Figure 6. This is particularly evident in the case of FeF3 due to differences in the C rate employed [116]. Although differences, in particular in the C rate make a fully quantitative direct comparison in any case impossible, the overall trend of Figure 12 is anyways very clear. With the exception of LiFeBO3, LiVPO4, materials affected as discussed earlier by quite low energy densities, all the other future cathodes show a decrease in capacity that, although small for some materials like NCA or NMC-811, might be nonetheless critical for automotive applications, where a cycle life of hundreds or thousands cycles is expected. At this regard it should be observed that the data of Figure 12 refer to current densities and temperature lower than those required in typical automotive applications (currents in particular), leading to an underestimation of the capacity fade compared to real life conditions. In some cases, like for instance for most conversion materials and Li2MnSiO4, the capacity fade upon cycling is still dramatic indicating once more the poor maturity level of the compounds. Again, FeF3 deserves separate considerations. Although a 15-20% capacity decrease is observed for this material in the first 2-3 cycles, the residual capacity is then maintained or even slightly increased. More data are indeed necessary for this compound since, as shown in Figure 12, the investigation of its cycle life was so far limited to 25 cycles.
+6. Future perspective for the next generation of cathode materials. Based on the previous paragraphs, it is evident that none of the compounds discussed so far fulfills all requirements for the “ideal” automotive application. However that does not necessarily mean that these compounds should be discarded at this stage of development. Some of the drawbacks of these materials can in fact be overcome taking advantage of several improvement methods recently proposed in the scientific literature (Figure 13). A general distinction is often made between physical and chemical methods, although a clear
+23
+
+Journal of Materials Chemistry A
+
+Page 24 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+differentiation is in some cases rather arbitrary. Figure 13 describes some of these possible improvements routes in more details, including different doping techniques, surfaces coatings as well as morphology and microstructure control. Not all of these methods are necessarily easy, cheap and of general applicability. Nevertheless for some specific materials they have proven to be successfully applicable. In the following, a short overview of these approaches together with examples of applications is provided. One of the most prominent examples for an improvement in material performance is the covalent coating method. For some of the previously discussed materials, like in the case of carbon coating of LiFePO4, coatings are mandatory and ubiquitously applied as discussed before [122] [154][155]. However this method is not restricted to carbon, and other examples, including coating of conversion materials with transition metal oxide, inorganic compounds (e.g. fluorides), or more stable cathode materials (e.g. olivines) has been reported. The goal of these coatings is in most cases the improvement of the lifetime and safety properties of the active material through the reduction of its interfacial reactivity towards the electrolyte. This generally also results in the improvement of the transport properties thanks to the limited formation of poorly conductive interfacial product layers [156][157][158]. Moreover it contributes to the protection of the materials towards HF attack, also limiting the dissolution of transition metals material [159]. A successful application of coating to our selected cathodes is the surface coating of HE-NMC materials with thin layers of inorganic materials, [160][161] which e.g. in the case of AlF3 results in an discharge capacity increase of ~20% after 100 cycles [162] (Figure 14). Stabilization of the interface was also pursued via shape modification of the active material´s particles. Modifications in the synthetic method used to obtain the active material allows changing the geometric shape of the particles, obtaining, in some cases, single crystal-like particles where selected crystal facets are exposed to the electrolyte. Since for these materials it has been demonstrated that different crystal facets/surfaces can show largely different reactivity’s with the electrolyte [163][164][165], numerous efforts have been undertaken to maximize the exposure of low reactive facets. Work pioneered by Chen et al. and Manthiram et al. directly showed a correlation of particle shape/crystal facet with transport properties and lifetime [166][167][168]. In particular, Chen et al. synthesized two different types of LNMO crystals in similar surface area - Octahedrons with (122) as the dominant surface and platelike shaped crystals with a (111) surface [168]. At a C-rate of 0.8 the Octahedrons outperformed the platelets by a factor of 2 (~125 vs. 60 mAh g-1 retained capacity), due to a faster lithium-ion transport along this facet. In a similar approach, changing the morphology
+24
+
+Page 25 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+of the LMNO to a cubic or octahedral structure instead of a spherical particle, resulted in a significant increase in capacity retention after 100 cycles [169] [170] Another route towards the stabilization of the electrode-electrolyte interface is doping, especially when this is applied to produce core-shell gradients. Work pioneered by Sun et al. aimed at developing a nickel concentration gradient in NMC particles in which the concentration of nickel is highest close to the core and falls over the particle radius to favor a higher concentration of the less reactive manganese at the interface [162][171] thus improving both lifetime and safety. Compared to Ni rich bulk NMC this core-shell gradient material shows a better efficiency, rate performance, cycle life (Figure 14) and thermal stability. Homogenous doping is on the other hand typically used to stabilize the material´s bulk property, although in few cases was also considered for interfacial stability effects, like decreasing manganese dissolution of in Li2Mn2O4 [172]. Multiple simultaneous beneficial effects of bulk doping have been for instance reported in the case of Co addition to FeF3, including increased electronic conductivity, decreased voltage hysteresis but also increased roughness of the synthesized particle leading to improved electrolyte wetability [119]. Improved structural stability is another typical effect of doping as observed when Li2MnSiO4 is doped with Fe or Mg. Here, a solid solution between the iron and manganese silicates is formed which reduces the structural instability of the Mn-based compound upon cycling [106] [103]. Another noteworthy example is the addition of Al to layered materials with the NaFeO2 structure. The strong Al-O bonding enhances the structural stability of the material and impedes oxygen liberation with the side effect of facilitating Li movement by increasing the c axis [29]. A very different approach based on nano-scaling and/or nano-structuring, is most frequently proposed to increase the transport performance of cathode materials. Here the interface of the particle with the electrolyte is increased in order to tune parameters e.g. nano-sizing reduces Li-diffusion pathways, it results in shorter electron paths, a better „infiltration“ of the electrolyte and overall, in improved diffusion kinetics. However, this is sometimes to the expense of the structural stability and the gravimetric density of the material. Also the increased interfacial reactivity of the material can results in increased electrolyte decomposition and overall in safety concerns. Nevertheless, in some material families, particles with a diameter of less than 1 µm has already been become the standard. This is especially true for materials with more complex reaction pathways including conversion materials, e.g. FeF3 [125] [139] [114] [123] [116] but also in high-voltage phosphates [80][81].
+25
+
+Journal of Materials Chemistry A
+
+Page 26 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+A modification of this approach is the nano-structuring. Here, not the size or shape of the particle, but the particle/electrode structure is the tailored in order to increase the performance. An example by Wagemaker et al. clearly shows a positive effect of a threedimensional nano-structuring of TiO2, i.e. of the anatase modification - using soft lithography, 3D microshaped electrodes were synthesized and showed high lithium ion transport capabilities and a long cycle life [173]. A different approach to go “nano” is the use of nano-sized materials to coat order of magnitudes bigger particles. This can result in significant performance increases or an improved stability of the compound [174][175][176][177], e.g. NCA coated with SiO2 shows a significant performance increase when operated at high temperature [178]. Control of the microstructure is another typical example that can be used to reduce the interfacial/grain boundary resistance in cathode materials that are typically formed as large secondary particles (typically ranging between 10 to 50 micrometers) containing tightly packed primary particles in the range of tens or hundreds of nanometers (as in most layered oxides). Preparation of secondary particles comprising needle-like primary particles along the radius direction was shown to improve the transport properties in fully gradient NMC-811 [179] [162]. Despite the sometime dramatic improvements obtained by these methods, like those concerning lifetime shown, as an example in Figure 14, a careful evaluation of the effort required by the implementation of these modifications of the synthetic route must be done, before their application at the industrial level can be envisioned. It should for instance be considered that all the above described methods imply at least one additional step to the synthesis process. This will require a careful evaluation of time and costs requirements brought by these additional treatments, as well as the additional cost for the extra chemicals required (e.g for additives).
+7. Summary
+In order to achieve the goal of 300 miles range in EVs, next generations of lithium batteries will require cathodes with energy densities at the material´s level of at least 700 Wh kg-1 and 300 Wh kg-1 at the cell´s level. The last decade, a large number of cathode materials has been introduced and investigated. However, only few candidates seem to offer the chance for actual applicability in the automotive field. Even if the theoretical energy values are considered, neglecting the distance to the actual demonstrated energy values, several candidates do not meet the minimum requirements. An additional point that needs to be certainly stressed is that
+26
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Page 27 of 66
+
+Journal of Materials Chemistry A
+
+the goal achievement on cell level is strongly depended on the choice of anode. Independent of the cathode potential to meet the targets, fabricating a cell without a paired high energy anode will always lead to decreased capacities and hence lower driving ranges. Among the several candidates proposed and investigated oxides and conversion cathodes can be found as the only materials which today, with proper engineering, can meet the requirements. Polyanionic materials, though characterized by superior lifetime and safety, possess energies that even in the most favorable cases are not satisfactory, in particular when volumetric energy density is considered (Wh l-1). Appealing energies could be achieved if the stability issues affecting the multi-electron Li exchange could be solved, like for example in the case of Li2MnSiO4. Oxide cathodes, including HE-NMC, NMC-811 and NCA, show a high level of development which on one hand is the basis for their relatively satisfactory performance even today, but on the other greatly limits the room for further improvement. Possibilities to achieve the target levels for 2025 using the above mentioned oxides rely on either developing novel anode materials and/or the possibility to increase the cathode loading by increasing its thickness and/or reduce its porosity. For higher loadings, improvements in the material´s lifetime and safety are mandatory. Novel synthetic approaches, including use of surface coating, core shell doping, and microstructure control gave promising indications in this direction, in particular for what concerns Ni rich materials, like NMC-811. Finally, conversion materials like FeF3 may offer the chance to a large energy improvement leading to cells with energy contents well beyond the actual target. The latter is strongly dependent again to the paired anode, in particular if a lithium anode could be successfully developed in parallel. The development status of conversion cathodes is at the present moment still represented by conflicting literature reports and incomplete characterizations. Their potential as well as the large room for further research and development hopefully will encourage further investigations in this direction in the next future.
+
+27
+
+Journal of Materials Chemistry A
+
+Page 28 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+7. References.
+[1] M. Winter and R. J. Brodd, "What Are Batteries, Fuel Cells, and Supercapacitors?," Chemical Reviews, vol. 105, no. 3, pp. 1021-1021, 2005.
+[2] J.-M. Tarascon and M. Armand, "Issues and challenges facing rechargeable lithium batteries," Nature, vol. 414, no. 6861, pp. 359-367, 2001.
+[3] B. Scrosati and J. Garche, "Lithium batteries: Status, prospects and future," Journal of Power Sources , vol. 195, no. 9, pp. 2419-2430, 2010.
+[4] J. B. Goodenough and Y. Kim, "Challenges for Rechargeable Li Batteries," Chemistry of Materials, vol. 22, no. 3, pp. 587-603, 2010.
+[5] J. B. Goodenough and K.-S. Park, "The Li-Ion Rechargeable Battery: A Perspective," Journal of the American Chemical Society, vol. 135, no. 4, pp. 1167-1176, 2013.
+[6] R. Marom, S. F. Amalraj, N. Leifer, D. Jacob and D. Aurbach, "A review of advanced and practical lithium battery materials," J. Mater. Chem., vol. 21, pp. 9938-9954, 2011.
+[7] J. Tollefson, "Car industry: Charging up the future," Nature, vol. 456, pp. 436-440, 2008.
+[8] M. S. Whittingham, "Ultimate Limits to Intercalation Reactions for Lithium Batteries," Chemical Reviews, vol. 114, no. 23, pp. 11414-11443, 2014.
+[9] H. D. Yoo, E. Markevich, G. Salitra, D. Sharon and D. Aurbach, "On the challenge of developing advanced technologies for electrochemical energy storage and conversion," Materials Today , vol. 17, no. 3, pp. 110-121, 2014.
+[10] V. Aravindan, J. Sundaramurthy, P. Suresh Kumar, Y.-S. Lee, S. Ramakrishna and S. Madhavi, "Electrospun nanofibers: A prospective electro-active material for constructing high performance Li-ion batteries," Chem. Commun., vol. 51, pp. 2225-2234, 2015.
+[11] M. M. Thackeray, C. Wolverton and E. D. Isaacs, "Electrical energy storage for transportationapproaching the limits of, and going beyond, lithium-ion batteries," Energy Environ. Sci., vol. 5, pp. 7854-7863, 2012.
+[12] V. Aravindan, J. Gnanaraj, Y.-S. Lee and S. Madhavi, "LiMnPO4 - A next generation cathode material for lithium-ion batteries," J. Mater. Chem. A, vol. 1, pp. 3518-3539, 2013.
+[13] E. Markevich, G. Salitra, K. Fridman, R. Sharabi, G. Gershinsky, A. Garsuch, G. Semrau, M. A. Schmidt and D. Aurbach, "Fluoroethylene Carbonate as an Important Component in Electrolyte Solutions for High-Voltage Lithium Batteries: Role of Surface Chemistry on the Cathode," Langmuir, vol. 30, no. 25, pp. 7414-7424, 2014.
+[14] DoE Annual Merit Review 2012 (http://www.annualmeritreview.energy.gov/).
+28
+
+Page 29 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[15] S. Krueger, R. Kloepsch, J. Li, S. Nowak, S. Passerini and M. Winter, "How Do Reactions at the Anode/Electrolyte Interface Determine the Cathode Performance in Lithium-Ion Batteries?," Journal of The Electrochemical Society, vol. 160, no. 4, pp. A542-A548, 2013.
+[16] C. Julien, A. Mauger, K. Zaghib and H. Groult, "Comparative Issues of Cathode Materials for LiIon Batteries," Inorganics, vol. 2, no. 1, 2014.
+[17] O. K. Park, Y. Cho, S. Lee, H.-C. Yoo, H.-K. Song and J. Cho, "Who will drive electric vehicles, olivine or spinel?," Energy Environ. Sci., vol. 4, pp. 1621-1633, 2011.
+[18] R. Gummow, A. de Kock and M. Thackeray, "Improved capacity retention in rechargeable 4 V lithium/lithium-manganese oxide (spinel) cells," Solid State Ionics , vol. 69, no. 1, pp. 59-67, 1994.
+[19] Idaho National Laboratory, "2012 Mitsubishi i-MiEV, Advanced Vehicle Testing – Baseline Testing Results," 2012.
+[20] Wiki, Electric Vehicle, Battery specs, http://www.electricvehiclewiki.com/?title=Battery_specs.
+[21] M. Park, X. Zhang, M. Chung, G. B. Less and A. M. Sastry, "A review of conduction phenomena in Li-ion batteries," Journal of Power Sources , vol. 195, no. 24, pp. 7904-7929, 2010.
+[22] C. Delacourt, L. Laffont, R. Bouchet, C. Wurm, J.-B. Leriche, M. Morcrette, J.-M. Tarascon and C. Masquelier, "Toward Understanding of Electrical Limitations (Electronic, Ionic) in LiMPO4 (M = Fe , Mn) Electrode Materials," Journal of The Electrochemical Society, vol. 152, no. 5, pp. A913-A921, 2005.
+[23] M. Thackeray, "Lithium-ion batteries: An unexpected conductor," Nature materials, vol. 1, no. 2, pp. 81-82, 2002.
+[24] N. Ravet, Y. Chouinard, J. Magnan, S. Besner, M. Gauthier and M. Armand, "Electroactivity of natural and synthetic triphylite," Journal of Power Sources, Vols. 97-98, no. , pp. 503-507, 2001.
+[25] D. Borgasano, C. Kessler and T. Garo, A123 Systems Secures Three Production Contracts for Lithium Ion Engine Start Battery, http://www.a123systems.com/6bc1c933-71d4-4c44-89cf85ad7222d048/media-room-2012-press-releases-detail.htm, 2012.
+[26] Green Car Congress, A123 Systems supplying Li-ion batteries for new BMW ActiveHybrid 3 and ActiveHybrid 5 models, http://www.greencarcongress.com/2012/01/a123bmw-20120106.html, 2012.
+[27] Green Car Congress, A123 Systems Signs Multi-Year Li-ion Battery System Supply Agreement With Fisker Automotive, Intends to Invest Up To $23M in Fisker, http://www.greencarcongress.com/2010/01/a123-fisker-20100114.html, 2010.
+[28] Green Car Congress, Chevrolet to produce Spark battery electric vehicle for US and global markets starting in 2013 with A123 Systems pack; EN-V gets a Chevrolet badge, 2011.
+29
+
+Journal of Materials Chemistry A
+
+Page 30 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[29] M. S. Whittingham, "Lithium Batteries and Cathode Materials," Chemical Reviews, vol. 104, no. 10, pp. 4271-4302, 2004.
+[30] H.-J. Kim, B.-S. Jin, C.-H. Doh and H.-S. Kim, "Electrochemical Properties and Thermal Stability of LiNi0.8Co0.15Al0.05O2-LiFePO4 Mixed Cathode Materials for Lithium Secondary," Journal of Electrochemical Science and Technology, vol. 3, no. 2, pp. 63-67, 2012.
+[31] M. Alamgir, K. Yoo, B. Koetting and M. Klein, "A High-Performance PHEV Battery Pack," in 2011 DOE Hydrogen and Fuel Cells Program, and Vehicle Technologies Program Annual Merit Review and Peer Evaluation, 2011.
+[32] Green Car Congress, Evonik and Daimler Establish Strategic Alliance for Automotive Li-ion Battery Research, Development and Production; Li-Tec Cells to Be Used in Mercedes EVs, 2008.
+[33] Green Car Congress, Panasonic and Tesla expand supply agreement for Li-ion cells; nearly 2 billion through 2017, 2013.
+[34] Green Car Congress, Johnson Controls-Saft Announces Second Lithium-Ion Hybrid Battery Production Contract, 2008.
+[35] D. J. Santini, "Highway Vehicle Electric Drive in the United States: Current Status and Issues A Discussion Paper for Clean Cities Coalitions and Stakeholders to Develop Strategies for the Future," in Clean Cities, U.S. Department of Energy, 2009.
+[36] J. Kim, Y. Hong, K. S. Ryu, M. G. Kim and J. Cho, "Washing Effect of a LiNi0.83Co0.15Al0.02O2 Cathode in Water," Electrochemical and Solid-State Letters, vol. 9, no. 1, pp. A19-A23, 2006.
+[37] A. Kraytsberg and Y. Ein-Eli, "Higher, Stronger, Better... A Review of 5 Volt Cathode Materials for Advanced Lithium-Ion Batteries," Advanced Energy Materials, vol. 2, no. 8, pp. 922-939, 2012.
+[38] F. Zhou, M. Cococcioni, C. Marianetti, D. Morgan and G. Ceder, "Towards more accurate First Principles prediction of redox potentials in transition-metal compounds with LDA+U," Physical Review B, vol. 70, p. 235121, 2004.
+[39] T. Ohzuku, S. Takeda and M. Iwanaga, "Solid-state redox potentials for Li[Me1/2Mn3/2]O4 (Me: 3d-transition metal) having spinel-framework structures: a series of 5 volt materials for advanced lithium-ion batteries," Journal of Power Sources, Vols. 81-“82, no. , pp. 90-94, 1999.
+[40] F. Courtel, H. Duncan and Y. Abu-Lebdeh, "Beyond Intercalation: Nanoscale-Enabled Conversion Anode Materials for Lithium-Ion Batteries," in Nanotechnology for Lithium-Ion Batteries, Y. Abu-Lebdeh and I. Davidson, Eds., Springer US, 2013, pp. 85-116.
+[41] G. Hautier, A. Jain, T. Mueller, C. Moore, S. P. Ong and G. Ceder, "Designing Multielectron Lithium-Ion Phosphate Cathodes by Mixing Transition Metals," Chemistry of Materials, vol. 25, no. 10, pp. 2064-2074, 2013.
+30
+
+Page 31 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[42] G. Ceder, A. Van der Ven and M. Aydinol, "Lithium-intercalation oxides for rechargeable batteries," Journal of metals, materials and minerals, vol. 50, no. 9, pp. 35-40, 1998.
+[43] S. Shi, D.-s. Wang, S. Meng, L. Chen and X. Huang, "First-principles studies of cation-doped spinel LiMn2O4 for lithium ion batteries," PHYSICAL REVIEW B, vol. 67, p. 115130, 2003.
+[44] S. Kumar, "High Energy Lithium ion Batteries based on Layered-Layered Cathode and Silicon Anode," in 16th International Meeting on Lithium Batteries, 2012.
+[45] Green Car Congress, ETV Motors demonstrates High5ive LMNS Li-ion batteries in RC airplane, 2010.
+[46] H.-J. Noh, S. Youn, C. S. Yoon and Y.-K. Sun, "Comparison of the structural and electrochemical properties of layered Li[NixCoyMnz]O2 (x=1/3, 0.5, 0.6, 0.7, 0.8 and 0.85) cathode material for lithium-ion batteries," Journal of Power Sources, vol. 233, pp. 121-130, 2013.
+[47] S. Hwang, W. Chang, S. M. Kim, D. Su, D. H. Kim, J. Y. Lee, K. Y. Chung and E. A. Stach, "Investigation of Changes in the Surface Structure of LixNi0.8Co0.15Al0.05O2 Cathode Materials Induced by the Initial Charge," Chemistry of Materials, vol. 26, no. 2, pp. 1084-1092, 2014.
+[48] S. Hwang, S. M. Kim, S.-M. Bak, B.-W. Cho, K. Y. Chung, J. Y. Lee, W. Chang and E. A. Stach, "Investigating Local Degradation and Thermal Stability of Charged Nickel-Based Cathode Materials through Real-Time Electron Microscopy," ACS Applied Materials \&amp; Interfaces, vol. 6, no. 17, pp. 15140-15147, 2014.
+[49] K.-W. Nam, S.-M. Bak, E. Hu, X. Yu, Y. Zhou, X. Wang, L. Wu, Y. Zhu, K.-Y. Chung and X.-Q. Yang, "Combining In Situ Synchrotron X-Ray Diffraction and Absorption Techniques with Transmission Electron Microscopy to Study the Origin of Thermal Instability in Overcharged Cathode Materials for Lithium-Ion Batteries," Advanced Functional Materials, vol. 23, no. 8, pp. 10471063, 2013.
+[50] M. M. Thackeray, S.-H. Kang, C. S. Johnson, J. T. Vaughey, R. Benedek and S. A. Hackney, "Li2MnO3-stabilized LiMO2 (M = Mn, Ni, Co) electrodes for lithium-ion batteries," J. Mater. Chem., vol. 17, pp. 3112-3125, 2007.
+[51] Z. Lu, D. D. MacNeil and J. R. Dahn, "Layered Cathode Materials Li[Ni x Li(1/3-2x/3)Mn(2/3x/3)]O2 for Lithium-Ion Batteries," Electrochemical and Solid-State Letters, vol. 4, no. 11, pp. A191-A194, 2001.
+[52] S.-H. Kang, C. S. Johnson, J. T. Vaughey, K. Amine and M. M. Thackeray, "The Effects of Acid Treatment on the Electrochemical Properties of 0.5Li2MnO3 . 0.5LiNi0.44Co0.25Mn0.31O2 Electrodes in Lithium Cells," Journal of The Electrochemical Society, vol. 153, no. 6, pp. A1186A1192, 2006.
+[53] D. Y. Yu, K. Yanagida, Y. Kato and H. Nakamura, "Electrochemical Activities in Li2MnO3," Journal of The Electrochemical Society, vol. 156, no. 6, pp. A417-A424, 2009.
+31
+
+Journal of Materials Chemistry A
+
+Page 32 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[54] "Lithium metal oxide electrodes for lithium cells and batteries". 2004.
+[55] J. H. Song, A. Kapylou, C. W. Kim, Y. C. You and K. S. Ho, "Electrochemical performance of lithium-rich layered oxides for electric vehicle applications," in International Battery Association, 2013.
+[56] P. K. Nayak, J. Grinblat, M. Levi, B. Markovsky and D. Aurbach, "Structural and Electrochemical Evidence of Layered to Spinel Phase Transformation of Li and Mn Rich Layered Cathode Materials of the Formulae xLi[Li1/3Mn2/3]O2.(1-x)LiMn1/3Ni1/3Co1/3O2 (x = 0.2, 0.4, 0.6) upon Cycling," Journal of The Electrochemical Society, vol. 161, no. 10, pp. A1534-A1547, 2014.
+[57] D. Li, A. Ito, K. Kobayakawa, H. Noguchi and Y. Sato, "Electrochemical characteristics of LiNi0.5Mn1.5O4 prepared by spray drying and post-annealing," Electrochimica Acta , vol. 52, no. 5, pp. 1919-1924, 2007.
+[58] D. Liu, W. Zhu, J. Trottier, C. Gagnon, F. Barray, A. Guerfi, A. Mauger, H. Groult, C. M. Julien, J. B. Goodenough and K. Zaghib, "Spinel materials for high-voltage cathodes in Li-ion batteries," RSC Adv., vol. 4, pp. 154-167, 2014.
+[59] H. Xia, Y. S. Meng, L. Lu and G. Ceder, "Electrochemical Properties of Nonstoichiometric LiNi0.5Mn1.5O4-d Thin-Film Electrodes Prepared by Pulsed Laser Deposition," Journal of The Electrochemical Society, vol. 154, no. 8, pp. A737-A743, 2007.
+[60] A. Manthiram, "High-voltage spinel and polyanion cathodes," in 2012 DOE Hydrogen and Fuel Cells Program and Vehicle Technologies Program Annual Merit Review and Peer Evaluation Meeting, 2012.
+[61] C. Julien and A. Mauger, "Review of 5-V electrodes for Li-ion batteries: status and trends," Ionics, vol. 19, no. 7, pp. 951-988, 2013.
+[62] A. K. Padhi, K. S. Nanjundaswamy and J. B. Goodenough, "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries," Journal of The Electrochemical Society, vol. 144, no. 4, pp. 1188-1194, 1997.
+[63] A. K. Padhi, K. S. Nanjundaswamy, C. Masquelier, S. Okada and J. B. Goodenough, "Effect of Structure on the Fe3 +  / Fe2 +  Redox Couple in Iron Phosphates," Journal of The Electrochemical Society, vol. 144, no. 5, pp. 1609-1613, 1997.
+[64] N. Recham, J.-N. Chotard, L. Dupont, C. Delacourt, W. Walker, M. Armand and J.-M. Tarascon, "A 3.6 V lithium-based fluorosulphate insertion positive electrode for lithium-ion batteries," Nat Mater, vol. 9, no. 1, pp. 68-74, 2010.
+[65] G. Rousse and J. M. Tarascon, "Sulfate-Based Polyanionic Compounds for Li-Ion Batteries: Synthesis, Crystal Chemistry, and Electrochemistry Aspects," Chemistry of Materials, vol. 26, no. 1, pp. 394-406, 2014.
+[66] S. C. Chung, P. Barpanda, S.-i. Nishimura, Y. Yamada and A. Yamada, "Polymorphs of LiFeSO4F
+32
+
+Page 33 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+as cathode materials for lithium ion batteries - a first principle computational study," Phys. Chem. Chem. Phys., vol. 14, pp. 8678-8682, 2012.
+[67] M. A. de Dompablo, M. Armand, J. Tarascon and U. Amador, "On-demand design of polyoxianionic cathode materials based on electronegativity correlations: An exploration of the Li2MSiO4 system (M = Fe, Mn, Co, Ni)," Electrochemistry Communications , vol. 8, no. 8, pp. 1292-1298, 2006.
+[68] P. Barpanda, M. Ati, B. C. Melot, G. Rousse, J.-N. Chotard, M.-L. Doublet, M. T. Sougrati, S. A. Corr, J.-C. Jumas and J.-M. Tarascon, "A 3.90 V iron-based fluorosulphate material for lithiumion batteries crystallizing in the triplite structure," Nat Mater, vol. 10, no. 10, pp. 772-779, 2011.
+[69] V. Legagneur, Y. An, A. Mosbah, R. Portal, A. L. G. L. Salle, A. Verbaere, D. Guyomard and Y. Piffard, "LiMBO3 (M=Mn, Fe, Co): synthesis, crystal structure and lithium deinsertion/insertion properties," Solid State Ionics, vol. 139, no. 1-2, pp. 37-46, 2001.
+[70] D.-H. Seo, Y.-U. Park, S.-W. Kim, I. Park, R. A. Shakoor and K. Kang, "First-principles study on lithium metal borate cathodes for lithium rechargeable batteries," Phys. Rev. B, vol. 83, p. 205127, 2011.
+[71] L. Tao, G. Rousse, J. N. Chotard, L. Dupont, S. Bruyere, D. Hanzel, G. Mali, R. Dominko, S. Levasseur and C. Masquelier, "Preparation, structure and electrochemistry of LiFeBO3: a cathode material for Li-ion batteries," J. Mater. Chem. A, vol. 2, pp. 2060-2070, 2014.
+[72] B. L. Ellis, W. R. M. Makahnouk, Y. Makimura, K. Toghill and L. F. Nazar, "A multifunctional 3.5 V iron-based phosphate cathode for rechargeable batteries," Nat Mater, vol. 6, no. 10, pp. 749753, 2007.
+[73] S.-H. Bo, F. Wang, Y. Janssen, D. Zeng, K.-W. Nam, W. Xu, L.-S. Du, J. Graetz, X.-Q. Yang, Y. Zhu, J. B. Parise, C. P. Grey and P. G. Khalifah, "Degradation and (de)lithiation processes in the high capacity battery material LiFeBO3," J. Mater. Chem., vol. 22, pp. 8799-8809, 2012.
+[74] J. Barker, M. Y. Saidi and J. L. Swoyer, "Electrochemical Insertion Properties of the Novel Lithium Vanadium Fluorophosphate, LiVPO4F," Journal of The Electrochemical Society, vol. 150, no. 10, pp. A1394-A1398, 2003.
+[75] R. Gover, P. Burns, A. Bryan, M. Saidi, J. Swoyer and J. Barker, "LiVPO4F: A new active material for safe lithium-ion batteries," Solid State Ionics, vol. 177, no. 26-32, pp. 2635-2638, 2006.
+[76] S. Okada, M. Ueno, Y. Uebou and J. ichi Yamaki, "Fluoride phosphate Li2CoPO4F as a highvoltage cathode in Li-ion batteries," Journal of Power Sources, vol. 146, no. 1-2, pp. 565-569, 2005.
+[77] J.-M. A. Mba, L. Croguennec, N. I. Basir, J. Barker and C. Masquelier, "Lithium Insertion or Extraction from/into Tavorite-Type LiVPO4F: An In Situ X-ray Diffraction Study," Journal of The Electrochemical Society, vol. 159, no. 8, pp. A1171-A1175, 2012.
+33
+
+Journal of Materials Chemistry A
+
+Page 34 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[78] T. Mueller, G. Hautier, A. Jain and G. Ceder, "Evaluation of Tavorite-Structured Cathode Materials for Lithium-Ion Batteries Using High-Throughput Computing," Chemistry of Materials, vol. 23, no. 17, pp. 3854-3862, 2011.
+[79] M. Reddy, G. S. Rao and B. Chowdari, "Long-term cycling studies on 4 V-cathode, lithium vanadium fluorophosphate," Journal of Power Sources , vol. 195, no. 17, pp. 5768-5774, 2010.
+[80] T. Drezen, N.-H. Kwon, P. Bowen, I. Teerlinck, M. Isono and I. Exnar, "Effect of particle size on LiMnPO4 cathodes," Journal of Power Sources, vol. 174, no. 2, pp. 949-953, 2007.
+[81] M. Piana, B. Cushing, J. Goodenough and N. Penazzi, "A new promising sol--gel synthesis of phospho-olivines as environmentally friendly cathode materials for Li-ion cells," Solid State Ionics, vol. 175, no. 1, pp. 233-237, 2004.
+[82] N.-H. Kwon, T. Drezen, I. Exnar, I. Teerlinck, M. Isono and M. Graetzel, "Enhanced electrochemical performance of mesoparticulate LiMnPO4 for lithium ion batteries," Electrochemical and Solid-State Letters, vol. 9, no. 6, pp. A277--A280, 2006.
+[83] G. Yang, H. Ni, H. Liu, P. Gao, H. Ji, S. Roy, J. Pinto and X. Jiang, "The doping effect on the crystal structure and electrochemical properties of LiMnxM1- xPO4(M= Mg, V, Fe, Co, Gd)," Journal of Power Sources, vol. 196, no. 10, pp. 4747-4755, 2011.
+[84] V. Ramar and P. Balaya, "Enhancing the electrochemical kinetics of high voltage olivine LiMnPO4 by isovalent co-doping," Phys. Chem. Chem. Phys., vol. 15, pp. 17240-17249, 2013.
+[85] J.-M. Tarascon, N. Recham, M. Armand, J.-N. Chotard, P. Barpanda, W. Walker and L. Dupont, "Hunting for Better Li-Based Electrode Materials via Low Temperature Inorganic Synthesis ," Chemistry of Materials, vol. 22, no. 3, pp. 724-739, 2010.
+[86] C. Delacourt, P. Poizot, M. Morcrette, J.-M. Tarascon and C. Masquelier, "One-step lowtemperature route for the preparation of electrochemically active LiMnPO4 powders," Chemistry of Materials, vol. 16, no. 1, pp. 93-99, 2004.
+[87] G. Chen and T. J. Richardson, "Thermal instability of Olivine-type LiMnPO4 cathodes," Journal of Power Sources , vol. 195, no. 4, pp. 1221-1224, 2010.
+[88] Y. Mishima, T. Hojo, T. Nishio, H. Sadamura, N. Oyama, C. Moriyoshi and Y. Kuroiwa, "MEM Charge Density Study of Olivine LiMPO4 and MPO4 (M = Mn, Fe) as Cathode Materials for Lithium-Ion Batteries," The Journal of Physical Chemistry C, vol. 117, no. 6, pp. 2608-2615, 2013.
+[89] J. Barker, R. Gover, P. Burns, A. Bryan, M. Saidi and J. Swoyer, "Structural and electrochemical properties of lithium vanadium fluorophosphate, LiVPO4F," Journal of Power Sources, vol. 146, no. 1-2, pp. 516-520, 2005.
+[90] M. S. Islam, R. Dominko, C. Masquelier, C. Sirisopanaporn, A. R. Armstrong and P. G. Bruce, "Silicate cathodes for lithium batteries: alternatives to phosphates?," J. Mater. Chem., vol. 21,
+34
+
+Page 35 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+pp. 9811-9818, 2011.
+[91] Z. Gong and Y. Yang, "Recent advances in the research of polyanion-type cathode materials for Li-ion batteries," Energy Environ. Sci., vol. 4, pp. 3223-3242, 2011.
+[92] C. Masquelier and L. Croguennec, "Polyanionic (Phosphates, Silicates, Sulfates) Frameworks as Electrode Materials for Rechargeable Li (or Na) Batteries," Chemical Reviews, vol. 113, no. 8, pp. 6552-6591, 2013.
+[93] A. Nyten, A. Abouimrane, M. Armand, T. G. Gustafsson and J. O. Thomas, "Electrochemical performance of Li2FeSiO4 as a new Li-battery cathode material," Electrochemistry Communications , vol. 7, no. 2, pp. 156-160, 2005.
+[94] R. Dominko, "Li2MSiO4 (M = Fe and/or Mn) cathode materials," Journal of Power Sources , vol. 184, no. 2, pp. 462-468, 2008.
+[95] A. Kokalj, R. Dominko, G. Mali, A. Meden, M. Gaberscek and J. Jamnik, "Beyond One-Electron Reaction in Li Cathode Materials: ? Designing Li2MnxFe1-xSiO4," Chemistry of Materials, vol. 19, no. 15, pp. 3633-3640, 2007.
+[96] C. A. J. Fisher, V. M. Hart Prieto and M. S. Islam, "Lithium Battery Materials LiMPO4 (M = Mn, Fe, Co, and Ni): Insights into Defect Association, Transport Mechanisms, and Doping Behavior," Chemistry of Materials, vol. 20, no. 18, pp. 5907-5915, 2008.
+[97] R. Dominko, D. Conte, D. Hanzel, M. Gaberscek and J. Jamnik, "Impact of synthesis conditions on the structure and performance of Li2FeSiO4," Journal of Power Sources, vol. 178, no. 2, pp. 842-847, 2008.
+[98] Y.-X. Li, Z.-L. Gong and Y. Yang, "Synthesis and characterization of Li2MnSiO4/C nanocomposite cathode material for lithium ion batteries," Journal of Power Sources , vol. 174, no. 2, pp. 528532, 2007.
+[99] R. Dominko, M. Bele, M. Gaberscek, A. Meden, M. Remskar and J. Jamnik, "Structure and electrochemical performance of Li2MnSiO4 and Li2FeSiO4 as potential Li-battery cathode materials," Electrochemistry Communications, vol. 8, no. 2, pp. 217-222, 2006.
+[100] I. Belharouak, A. Abouimrane and K. Amine, "Structural and Electrochemical Characterization of Li2MnSiO4 Cathode Material," The Journal of Physical Chemistry C, vol. 113, no. 48, pp. 2073320737, 2009.
+[101] V. Aravindan, K. Karthikeyan, S. Ravi, S. Amaresh, W. S. Kim and Y. S. Lee, "Adipic acid assisted sol-gel synthesis of Li2MnSiO4 nanoparticles with improved lithium storage properties," J. Mater. Chem., vol. 20, pp. 7340-7343, 2010.
+[102] D. M. Kempaiah, D. Rangappa and I. Honma, "Controlled synthesis of nanocrystalline Li2MnSiO4 particles for high capacity cathode application in lithium-ion batteries," Chem. Commun., vol. 48, pp. 2698-2700, 2012.
+35
+
+Journal of Materials Chemistry A
+
+Page 36 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[103] R. Gummow, N. Sharma, V. Peterson and Y. He, "Synthesis, structure, and electrochemical performance of magnesium-substituted lithium manganese orthosilicate cathode materials for lithium-ion batteries," Journal of Power Sources, vol. 197, pp. 231-237, 2012.
+[104] S. Zhang, Z. Lin, L. Ji, Y. Li, G. Xu, L. Xue, S. Li, Y. Lu, O. Toprakci and X. Zhang, "Cr-doped Li2MnSiO4/carbon composite nanofibers as high-energy cathodes for Li-ion batteries," J. Mater. Chem., vol. 22, pp. 14661-14666, 2012.
+[105] R. J. Gummow, G. Han, N. Sharma and Y. He, "Li2MnSiO4 cathodes modified by phosphorous substitution and the structural consequences," Solid State Ionics, vol. 259, pp. 29-39, 2014.
+[106] Z. L. Gong, Y. X. Li and Y. Yang, "Synthesis and Characterization of Li2MnxFe1-x SiO4 as a Cathode Material for Lithium-Ion Batteries," Electrochemical and Solid-State Letters, vol. 9, no. 12, pp. A542-A544, 2006.
+[107] R. Chen, R. Heinzmann, S. Mangold, V. K. Chakravadhanula, H. Hahn and S. Indris, "Structural Evolution of Li2Fe1-yMnySiO4 (y = 0, 0.2, 0.5, 1) Cathode Materials for Li-Ion Batteries upon Electrochemical Cycling," The Journal of Physical Chemistry C, vol. 117, no. 2, pp. 884-893, 2013.
+[108] T. Muraliganth, K. R. Stroukoff and A. Manthiram, "Microwave-Solvothermal Synthesis of Nanostructured Li2MSiO4/C (M = Mn and Fe) Cathodes for Lithium-Ion Batteries," Chemistry of Materials, vol. 22, no. 20, pp. 5754-5761, 2010.
+[109] D. Rangappa, K. D. Murukanahally, T. Tomai, A. Unemoto and I. Honma, "Ultrathin Nanosheets of Li2MSiO4 (M = Fe, Mn) as High-Capacity Li-Ion Battery Electrode," Nano Letters, vol. 12, no. 3, pp. 1146-1151, 2012.
+[110] Y. Zhao, C. Wu, J. Li and L. Guan, "Long cycling life of Li2MnSiO4 lithium battery cathodes under the double protection from carbon coating and graphene network," J. Mater. Chem. A, vol. 1, pp. 3856-3859, 2013.
+[111] J. Cabana, L. Monconduit, D. Larcher and R. M. Palacin, "Beyond Intercalation-Based Li-Ion Batteries: The State of the Art and Challenges of Electrode Materials Reacting Through Conversion Reactions," Advanced Materials, vol. 22, no. 35, pp. E170--E192, 2010.
+[112] X. Xu, S. Chen, M. Shui, L. Xu, W. Zheng, J. Shu, L. Cheng, L. Feng and Y. Ren, "One step solid state synthesis of FeF3∙0.33H2O/C nano-composite as cathode material for lithium-ion batteries," Ceramics International, vol. 40, no. 2, pp. 3145-3148, 2014.
+[113] R. Prakash, C. Wall, A. K. Mishra, C. Kübel, M. Ghafari, H. Hahn and M. Fichtner, "Modified synthesis of [Fe/LiF/C] nanocomposite, and its application as conversion cathode material in lithium batteries," Journal of Power Sources, vol. 196, no. 14, pp. 5936-5944, 2011.
+[114] Y.-L. Shi, M.-F. Shen, S.-D. Xu, Q.-C. Zhuang, L. Jiang and Y.-H. Qiang, "Electrochemical impedance spectroscopy investigation of the FeF3/C cathode for lithium-ion batteries," Solid State Ionics, Vols. 222-223, pp. 23-30, 2012.
+36
+
+Page 37 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[115] R. Ma, M. Wang, P. Tao, Y. Wang, C. Cao, G. Shan, S. Yang, L. Xi, J. C. Y. Chung and Z. Lu, "Fabrication of FeF3 nanocrystals dispersed into a porous carbon matrix as a high performance cathode material for lithium ion batteries," J. Mater. Chem. A, vol. 1, pp. 15060-15067, 2013.
+[116] S. K. Martha, J. Nanda, H. Zhou, J. C. Idrobo, N. J. Dudney, S. Pannala, S. Dai, J. Wang and P. V. Braun, "Electrode architectures for high capacity multivalent conversion compounds: iron (II and III) fluoride," RSC Adv., vol. 4, pp. 6730-6737, 2014.
+[117] M. Zhou, L. Zhao, T. Doi, S. Okada and J. ichi Yamaki, "Thermal stability of FeF3 cathode for Liion batteries," Journal of Power Sources , vol. 195, no. 15, pp. 4952-4956, 2010.
+[118] N. Yabuuchi, M. Sugano, Y. Yamakawa, I. Nakai, K. Sakamoto, H. Muramatsu and S. Komaba, "Effect of heat-treatment process on FeF3 nanocomposite electrodes for rechargeable Li batteries," J. Mater. Chem., vol. 21, pp. 10035-10041, 2011.
+[119] L. Liu, M. Zhou, L. Yi, H. Guo, J. Tan, H. Shu, X. Yang, Z. Yang and X. Wang, "Excellent cycle performance of Co-doped FeF3/C nanocomposite cathode material for lithium-ion batteries," J. Mater. Chem., vol. 22, pp. 17539-17550, 2012.
+[120] J. Tan, L. Liu, H. Hu, Z. Yang, H. Guo, Q. Wei, X. Yi, Z. Yan, Q. Zhou, Z. Huang, H. Shu, X. Yang and X. Wang, "Iron fluoride with excellent cycle performance synthesized by solvothermal method as cathodes for lithium ion batteries," Journal of Power Sources, vol. 251, pp. 75-84, 2014.
+[121] G. G. Amatucci and N. Pereira, "Fluoride based electrode materials for advanced energy storage devices," Journal of Fluorine Chemistry , vol. 128, no. 4, pp. 243-262, 2007.
+[122] W. Zhang, L. Ma, H. Yue and Y. Yang, "Synthesis and characterization of in situ Fe2O3-coated FeF3 cathode materials for rechargeable lithium batteries," J. Mater. Chem., vol. 22, pp. 2476924775, 2012.
+[123] Q. Chu, Z. Xing, X. Ren, A. M. Asiri, A. O. Al-Youbi, K. A. Alamry and X. Sun, "Reduced graphene oxide decorated with FeF3 nanoparticles: Facile synthesis and application as a high capacity cathode material for rechargeable lithium batteries," Electrochimica Acta, vol. 111, pp. 80-85, 2013.
+[124] J. Liu, Y. Wan, W. Liu, Z. Ma, S. Ji, J. Wang, Y. Zhou, P. Hodgson and Y. Li, "Mild and costeffective synthesis of iron fluoride-graphene nanocomposites for high-rate Li-ion battery cathodes," J. Mater. Chem. A, vol. 1, pp. 1969-1975, 2013.
+[125] S.-W. Kim, D.-H. Seo, H. Gwon, J. Kim and K. Kang, "Fabrication of FeF3 Nanoflowers on CNT Branches and Their Application to High Power Lithium Rechargeable Batteries," Advanced Materials, vol. 22, no. 46, pp. 5260-5264, 2010.
+[126] Z.-W. Fu, Y. Wang, X.-L. Yue, S.-L. Zhao and Q.-Z. Qin, "Electrochemical Reactions of Lithium with Transition Metal Nitride Electrodes," The Journal of Physical Chemistry B, vol. 108, no. 7, pp. 2236-2244, 2004.
+37
+
+Journal of Materials Chemistry A
+
+Page 38 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+[127] N. Pereira, L. Dupont, J. M. Tarascon, L. C. Klein and G. G. Amatucci, "Electrochemistry of Cu3N with Lithium: A Complex System with Parallel Processes," Journal of The Electrochemical Society, vol. 150, no. 9, pp. A1273-A1280, 2003.
+[128] Y. Wang, Z.-W. Fu, X.-L. Yue and Q.-Z. Qin, "Electrochemical Reactivity Mechanism of Ni3N with Lithium," Journal of The Electrochemical Society, vol. 151, no. 4, pp. E162-E167, 2004.
+[129] F. Gillot, L. Monconduit and M.-L. Doublet, "Electrochemical Behaviors of Binary and Ternary Manganese Phosphides," Chemistry of Materials, vol. 17, no. 23, pp. 5817-5823, 2005.
+[130] B. Qiu, X. Zhao and D. Xia, "In situ synthesis of CoS2/RGO nanocomposites with enhanced electrode performance for lithium-ion batteries," Journal of Alloys and Compounds, vol. 579, pp. 372-376, 2013.
+[131] J. Yan, H. Huang, J. Zhang, Z. Liu and Y. Yang, "A study of novel anode material CoS2 for lithium ion battery," Journal of Power Sources, vol. 146, no. 1-2, pp. 264-269, 2005.
+[132] T. Li, Z. X. Chen, Y. L. Cao, X. P. Ai and H. X. Yang, "Transition-metal chlorides as conversion cathode materials for Li-ion batteries," Electrochimica Acta, vol. 68, pp. 202-205, 2012.
+[133] N. Zhang, R. Yi, Z. Wang, R. Shi, H. Wang, G. Qiu and X. Liu, "Hydrothermal synthesis and electrochemical properties of alpha-manganese sulfide submicrocrystals as an attractive electrode material for lithium-ion batteries," Materials Chemistry and Physics , vol. 111, no. 1, pp. 13-16, 2008.
+[134] J. Xia, J. Jiao, B. Dai, W. Qiu, S. He, W. Qiu, P. Shen and L. Chen, "Facile synthesis of FeS2 nanocrystals and their magnetic and electrochemical properties," RSC Adv., vol. 3, pp. 61326140, 2013.
+[135] M. Bervas, A. N. Mansour, W.-S. Yoon, J. F. Al-Sharab, F. Badway, F. Cosandey, L. C. Klein and G. G. Amatucci, "Investigation of the Lithiation and Delithiation Conversion Mechanisms of Bismuth Fluoride Nanocomposites," Journal of The Electrochemical Society, vol. 153, no. 4, pp. A799-A808, 2006.
+[136] A. J. Gmitter, F. Badway, S. Rangan, R. A. Bartynski, A. Halajko, N. Pereira and G. G. Amatucci, "Formation, dynamics, and implication of solid electrolyte interphase in high voltage reversible conversion fluoride nanocomposites," J. Mater. Chem., vol. 20, pp. 4149-4161, 2010.
+[137] B. Hu, X. Wang, H. Shu, X. Yang, L. Liu, Y. Song, Q. Wei, H. Hu, H. Wu, L. Jiang and X. Liu, "Improved electrochemical properties of BiF3/C cathode via adding amorphous AlPO4 for lithium-ion batteries," Electrochimica Acta, vol. 102, pp. 8-18, 2013.
+[138] B. Hu, X. Wang, Y. Wang, Q. Wei, Y. Song, H. Shu and X. Yang, "Effects of amorphous AlPO4 coating on the electrochemical performance of BiF3 cathode materials for lithium-ion batteries," Journal of Power Sources, vol. 218, pp. 204-211, 2012.
+[139] R. Prakash, A. K. Mishra, A. Roth, C. Kubel, T. Scherer, M. Ghafari, H. Hahn and M. Fichtner, "A
+38
+
+Page 39 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+ferrocene-based carbon-iron lithium fluoride nanocomposite as a stable electrode material in lithium batteries," J. Mater. Chem., vol. 20, pp. 1871-1876, 2010.
+[140] Y. T. Teng, S. S. Pramana, J. Ding, T. Wu and R. Yazami, "Investigation of the conversion mechanism of nanosized CoF2," Electrochimica Acta, vol. 107, pp. 301-312, 2013.
+[141] C. Wall, R. Prakash, C. Kübel, H. Hahn and M. Fichtner, "Synthesis of [Co/LiF/C] nanocomposite and its application as cathode in lithium-ion batteries," Journal of Alloys and Compounds, vol. 530, pp. 121-126, 2012.
+[142] M. J. Armstrong, A. Panneerselvam, C. O'Regan, M. A. Morris and J. D. Holmes, "Supercriticalfluid synthesis of FeF2 and CoF2 Li-ion conversion materials," J. Mater. Chem. A, vol. 1, pp. 10667-10676, 2013.
+[143] Z.-W. Fu, C.-L. Li, W.-Y. Liu, J. Ma, Y. Wang and Q.-Z. Qin, "Electrochemical Reaction of Lithium with Cobalt Fluoride Thin Film Electrode," Journal of The Electrochemical Society, vol. 152, no. 2, pp. E50-E55, 2005.
+[144] S.-W. Kim, K.-W. Nam, D.-H. Seo, J. Hong, H. Kim, H. Gwon and K. Kang, "Energy storage in composites of a redox couple host and a lithium ion host," Nano Today , vol. 7, no. 3, pp. 168173, 2012.
+[145] M. F. Parkinson, J. K. Ko, A. Halajko, S. Sanghvi and G. G. Amatucci, "Effect of Vertically Structured Porosity on Electrochemical Performance of FeF2 Films for Lithium Batteries," Electrochimica Acta, vol. 125, pp. 71-82, 2014.
+[146] Y.-L. Shi, M.-F. Shen, S.-D. Xu, X.-Y. Qiu, L. Jiang, Y.-H. Qiang, Q.-C. Zhuang and S.-G. Sun, "Electrochemical Impedance Spectroscopic Study of the Electronic and Ionic Transport Properties of NiF2/C Composites," International Journal of Electrochemical Science, vol. 6, pp. 3399-3415, 2011.
+[147] D. H. Lee, K. J. Carroll, S. Calvin, S. Jin and Y. S. Meng, "Conversion mechanism of nickel fluoride and NiO-doped nickel fluoride in Li ion batteries," Electrochimica Acta, vol. 59, pp. 213-221, 2012.
+[148] A. Jossen and W. Weydanz, Moderne Akkumulatoren richtig einsetzen: 36 Tabellen, Ubooks, 2006.
+[149] W. Liu, Introduction to Hybrid Vehicle System Modeling and Control, Wiley, 2013.
+[150] C. D. Rahn and C.-Y. Wang, Battery Systems Enegineering, John Wiley & Sons, Ltd., 2013.
+[151] Deutsches Institut Fur Normung E.V. (German National Standard), DIN SPEC 91252 - Electrically propelled road vehicles - Battery systems - Dimensions for Lithium-Ion-Cells, Germany, 2011.
+[152] J. Choi, B. Son, M.-H. Ryou, S. H. K. J. M. Ko and Y. M. Lee, "Effect oLiCoO2 Cathode Density and Thickness on Electrochemical Performance of Lithium-Ion Batteries," Journal of Electrochemical
+39
+
+Journal of Materials Chemistry A
+
+Page 40 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Science and Technology, vol. 4, no. 1, pp. 27-33, 2013.
+[153] H. Zheng, J. Li, X. Song, G. Liu and V. S. Battaglia, "A comprehensive understanding of electrode thickness effects on the electrochemical performances of Li-ion battery cathodes," Electrochimica Acta, vol. 71, pp. 258-265, 2012.
+[154] S. Yang, Y. Song, P. Y. Zavalij and M. S. Whittingham, "Reactivity, stability and electrochemical behavior of lithium iron phosphates," Electrochemistry Communications , vol. 4, no. 3, pp. 239244, 2002.
+[155] M. M. Doeff, J. D. Wilcox, R. Kostecki and G. Lau, "Optimization of carbon coatings on LiFePO4," Journal of Power Sources , vol. 163, no. 1, pp. 180-184, 2006.
+[156] J. Cho, Y.-W. Kim, B. Kim, J.-G. Lee and B. Park, "A breakthrough in the safety of lithium secondary batteries by coating the cathode material with AlPO4 nanoparticles," Angewandte Chemie International Edition, vol. 42, no. 14, pp. 1618-1621, 2003.
+[157] L. A. Riley, S. Van Atta, A. S. Cavanagh, Y. Yan, S. M. George, P. Liu, A. C. Dillon and S.-H. Lee, "Electrochemical effects of ALD surface modification on combustion synthesized LiNi1/3Mn1/3Co1/3O2 as a layered-cathode material," Journal of Power Sources, vol. 196, no. 6, p. 3317, 2011.
+[158] S.-W. Lee, K.-S. Kim, H.-S. Moon, H.-J. Kim, B.-W. Cho, W.-I. Cho, J.-B. Ju and J.-W. Park, "Electrochemical characteristics of Al2O3-coated lithium manganese spinel as a cathode material for a lithium secondary battery," Journal of power sources, vol. 126, no. 1, pp. 150155, 2004.
+[159] S. Lux, I. Lucas, E. Pollak, S. Passerini, M. Winter and R. Kostecki, "The mechanism of HF formation in LiPF6 based organic carbonate electrolytes," Electrochemistry Communications, vol. 14, no. 1, pp. 47-50, 2012.
+[160] Q. Q. Qiao, H. Z. Zhang, G. R. Li, S. H. Ye, C. W. Wang and X. P. Gao, "Surface modification of Lirich layered Li(Li0.17Ni0.25Mn0.58)O2 oxide with Li-Mn-PO4 as the cathode for lithium-ion batteries," J. Mater. Chem. A, vol. 1, pp. 5262-5268, 2013.
+[161] Z. Wang, E. Liu, C. He, C. Shi, J. Li and N. Zhao, "Effect of amorphous FePO4 coating on structure and electrochemical performance of Li1.2Ni0.13Co0.13Mn0.54O2 as cathode material for Liion batteries," Journal of Power Sources, vol. 236, pp. 25-32, 2013.
+[162] Y.-K. Sun, M.-J. Lee, C. S. Yoon, J. Hassoun, K. Amine and B. Scrosati, "The Role of AlF3 Coatings in Improving Electrochemical Cycling of Li-Enriched Nickel-Manganese Oxide Electrodes for LiIon Batteries," Advanced Materials, vol. 24, no. 9, pp. 1192-1196, 2012.
+[163] I. T. Lucas, E. Pollak and R. Kostecki, "< i> In situ </i> AFM studies of SEI formation at a Sn electrode," Electrochemistry Communications, vol. 11, no. 11, pp. 2157-2160, 2009.
+[164] R. Qiao, I. T. Lucas, A. Karim, J. Syzdek, X. Liu, W. Chen, K. Persson, R. Kostecki and W. Yang,
+40
+
+Page 41 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+"Distinct Solid-Electrolyte-Interphases on Sn (100) and (001) Electrodes Studied by Soft X-Ray Spectroscopy," Advanced Materials Interfaces, 2014.
+[165] Q. Zhang, W. Zhang, W. Wan, Y. Cui and E. Wang, "Lithium insertion in silicon nanowires: An ab initio study," Nano letters, vol. 10, no. 9, pp. 3243-3249, 2010.
+[166] K. R. Chemelewski, W. Li, A. Gutierrez and A. Manthiram, "High-voltage spinel cathodes for lithium-ion batteries: controlling the growth of preferred crystallographic planes through cation doping," Journal of Materials Chemistry A, vol. 1, no. 48, pp. 15334-15341, 2013.
+[167] K. R. Chemelewski, D. W. Shin, W. Li and A. Manthiram, "Octahedral and truncated high-voltage spinel cathodes: the role of morphology and surface planes in electrochemical properties," Journal of Materials Chemistry A, vol. 1, no. 10, pp. 3347-3354, 2013.
+[168] B. Hai, A. K. Shukla, H. Duncan and G. Chen, "The effect of particle surface facets on the kinetic properties of LiMn1. 5Ni0. 5O4 cathode materials," Journal of Materials Chemistry A, vol. 1, no. 3, pp. 759-769, 2013.
+[169] A. Manthiram, K. Chemelewski and E.-S. Lee, "A perspective on the high-voltage LiMn1.5Ni0.5O4 spinel cathode for lithium-ion batteries," Energy Environ. Sci., vol. 7, pp. 13391350, 2014.
+[170] K. R. Chemelewski, E.-S. Lee, W. Li and A. Manthiram, "Factors Influencing the Electrochemical Properties of High-Voltage Spinel Cathodes: Relative Impact of Morphology and Cation Ordering," Chemistry of Materials, vol. 25, no. 14, pp. 2890-2897, 2013.
+[171] Y.-K. Sun, S.-T. Myung, B.-C. Park, J. Prakash, I. Belharouak and K. Amine, "High-energy cathode material for long-life and safe lithium batteries," Nature materials, vol. 8, no. 4, pp. 320-324, 2009.
+[172] B. L. Ellis, K. T. Lee and L. F. Nazar, "Positive Electrode Materials for Li-Ion and Li-Batteriesâ€ ," Chemistry of Materials, vol. 22, no. 3, pp. 691-714, 2010.
+[173] D. P. Singh, A. George, R. Kumar, J. ten Elshof and M. Wagemaker, "Nanostructured TiO2 Anatase Micropatterned Three-Dimensional Electrodes for High-Performance Li-Ion Batteries," The Journal of Physical Chemistry C, vol. 117, no. 39, pp. 19809-19815, 2013.
+[174] Y. Cho and J. Cho, "Significant Improvement of LiNi0. 8Co0. 15Al0. 05O2 Cathodes at 60 C by SiO2 Dry Coating for Li-Ion Batteries," Journal of the Electrochemical Society, vol. 157, no. 6, pp. A625--A629, 2010.
+[175] S.-H. Lee, C. S. Yoon, K. Amine and Y.-K. Sun, "Improvement of long-term cycling performance of Li [N0.8Co0.15Al0.05]O2 by AlF3 coating," Journal of Power Sources, vol. 234, pp. 201-207, 2013.
+[176] D. Choi, D. Wang, I.-T. Bae, J. Xiao, Z. Nie, W. Wang, V. V. Viswanathan, Y. J. Lee, J.-G. Zhang, G. L. Graff, Z. Yang and J. Liu, "LiMnPO4 Nanoplate Grown via Solid-State Reaction in Molten
+41
+
+Journal of Materials Chemistry A
+
+Page 42 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Hydrocarbon for Li-Ion Battery Cathode," Nano Letters, vol. 10, no. 8, pp. 2799-2805, 2010.
+[177] S. Lux, T. Placke, C. Engelhardt, S. Nowak, P. Bieker, K.-E. Wirth, S. Passerini, M. Winter and H.W. Meyer, "Enhanced Electrochemical Performance of Graphite Anodes for Lithium-Ion Batteries by Dry Coating with Hydrophobic Fumed Silica," Journal of The Electrochemical Society, vol. 159, no. 11, pp. A1849--A1855, 2012.
+[178] Y. Cho, J. Eom and J. Cho, "High Performance LiCoO2 Cathode Materials at 60° C for Lithium Secondary Batteries Prepared by the Facile Nanoscale Dry-Coating Method," Journal of The Electrochemical Society, vol. 157, no. 5, pp. A617--A624, 2010.
+[179] Y.-K. Sun, Z. Chen, H.-J. Noh, D.-J. Lee, H.-G. Jung, Y. Ren, S. Wang, C. S. Yoon, S.-T. Myung and K. Amine, "Nanostructured high-energy cathode materials for advanced lithium batteries," Nature materials, vol. 11, no. 11, pp. 942-947, 2012.
+[180] N. Twu, X. Li, C. Moore and G. Ceder, "Synthesis and Lithiation Mechanisms of Dirutile and Rutile LiMnF4: Two New Conversion Cathode Materials," Journal of The Electrochemical Society, vol. 160, no. 11, pp. A1944-A1951, 2013.
+[181] L. Li, M. Caban-Acevedo, S. N. Girard and S. Jin, "High-purity iron pyrite (FeS2) nanowires as high-capacity nanostructured cathodes for lithium-ion batteries," Nanoscale, vol. 6, pp. 21122118, 2014.
+[182] H. Li, G. Richter and J. Maier, "Reversible Formation and Decomposition of LiF Clusters Using Transition Metal Fluorides as Precursors and Their Application in Rechargeable Li Batteries," Advanced Materials, vol. 15, no. 9, pp. 736-739, 2003.
+[183] Y. Wang, X. Zhang, P. Chen, H. Liao and S. Cheng, "In situ preparation of CuS cathode with unique stability and high rate performance for lithium ion batteries," Electrochimica Acta, vol. 80, pp. 264-268, 2012.
+[184] K.-S. Lee, Y.-K. Sun, J. Noh, K. S. Song and D.-W. Kim, "Improvement of high voltage cycling performance and thermal stability of lithium-ion cells by use of a thiophene additive," Electrochemistry Communications, vol. 11, no. 10, pp. 1900-1903, 2009.
+[185] A. Yamada, N. Iwane, Y. Harada, S.-i. Nishimura, Y. Koyama and I. Tanaka, "Lithium Iron Borates as High-Capacity Battery Electrodes," Advanced Materials, vol. 22, no. 32, pp. 3583-3587, 2010.
+[186] T. N. Ramesh, K. T. Lee, B. L. Ellis and L. F. Nazar, "Tavorite Lithium Iron Fluorophosphate Cathode Materials: Phase Transition and Electrochemistry of LiFePO4F–Li2FePO4F," Electrochemical and Solid-State Letters, vol. 13, no. 4, pp. A43-A47, 2010.
+[187] N. Marx, L. Croguennec, D. Carlier, A. Wattiaux, F. L. Cras, E. Suard and C. Delmas, "The structure of tavorite LiFePO4(OH) from diffraction and GGA + U studies and its preliminary electrochemical characterization," Dalton Trans., vol. 39, pp. 5108-5116, 2010.
+[188] Y. Yang, M. Hirayama, M. Yonemura and R. Kanno, "Synthesis, crystal structure, and electrode
+42
+
+Page 43 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+characteristics of LiMnPO4(OH) cathode for lithium batteries," Journal of Solid State Chemistry, vol. 187, pp. 124-129, 2012.
+[189] P. Barpanda, N. Recham, J.-N. Chotard, K. Djellab, W. Walker, M. Armand and J.-M. Tarascon, "Structure and electrochemical properties of novel mixed Li(Fe1-xMx)SO4F (M = Co, Ni, Mn) phases fabricated by low temperature ionothermal synthesis," J. Mater. Chem., vol. 20, pp. 1659-1668, 2010.
+[190] C. V. Subban, M. Ati, G. Rousse, A. M. Abakumov, G. Van Tendeloo, R. Janot and J.-M. Tarascon, "Preparation, Structure, and Electrochemistry of Layered Polyanionic Hydroxysulfates: LiMSO4OH (M = Fe, Co, Mn) Electrodes for Li-Ion Batteries," Journal of the American Chemical Society, vol. 135, no. 9, pp. 3653-3661, 2013.
+[191] Z. Chen and J. Dahn, "Reducing carbon in LiFePO4/C composite electrodes to maximize specific energy, volumetric energy, and tap density," Journal of the Electrochemical Society, vol. 149, no. 9, pp. A1184--A1189, 2002.
+[192] J. Chen, M. J. Vacchio, S. Wang, N. Chernova, P. Y. Zavalij and M. S. Whittingham, "The hydrothermal synthesis and characterization of olivines and related compounds for electrochemical applications," Solid State Ionics, vol. 178, no. 31, pp. 1676-1693, 2008.
+[193] H. Ju, J. Wu and Y. Xu, "Lithium ion intercalation mechanism for LiCoPO4 electrode," International Journal of Energy and Environmental Engineering, vol. 4, no. 1, pp. 1-6, 2013.
+[194] D. S. Jung, Y. N. Ko, Y. C. Kang and S. B. Park, "Recent progress in electrode materials produced by spray pyrolysis for next-generation lithium ion batteries," Advanced Powder Technology, vol. 25, no. 1, pp. 18-31, 2014.
+[195] V. Aravindan, Y. L. Cheah, W. C. Ling and S. Madhavi, "Effect of LiBOB additive on the electrochemical performance of LiCoPO4," Journal of The Electrochemical Society, vol. 159, no. 9, pp. A1435--A1439, 2012.
+[196] L. Dimesso, D. Becker, C. Spanheimer and W. Jaegermann, "Investigation of graphitic carbon foams/LiNiPO4 composites," Journal of Solid State Electrochemistry, vol. 16, no. 12, pp. 37913798, 2012.
+[197] I. Abrahams and K. Easson, "Structure of lithium nickel phosphate," Acta Crystallographica Section C: Crystal Structure Communications, vol. 49, no. 5, pp. 925-926, 1993.
+[198] H. Zhou, S. Upreti, N. A. Chernova, G. Hautier, G. Ceder and M. S. Whittingham, "Iron and Manganese Pyrophosphates as cathodes for Lithium-Ion batteries," Chemistry of Materials, vol. 23, no. 2, pp. 293-300, 2010.
+[199] P. Dabas and K. Hariharan, "Lithium Iron (II) Pyrophosphate as Cathode Material: Structure and Transport Studies," RSC Advances, 2014.
+[200] H. Kim, S. Lee, Y.-U. Park, H. Kim, J. Kim, S. Jeon and K. Kang, "Neutron and X-ray Diffraction
+43
+
+Journal of Materials Chemistry A
+
+Page 44 of 66
+
+Study of Pyrophosphate-Based Li2--x MP2O7 (M= Fe, Co) for Lithium Rechargeable Battery Electrodes," Chemistry of Materials, vol. 23, no. 17, pp. 3930-3937, 2011.
+[201] E. Kraemer, T. Schedlbauer, B. Hoffmann, L. Terborg, S. Nowak, H. J. Gores, S. Passerini and M. Winter, "Mechanism of anodic dissolution of the aluminum current collector in 1 M LiTFSI EC: DEC 3: 7 in rechargeable lithium batteries," Journal of The Electrochemical Society, vol. 160, no. 2, pp. A356--A360, 2013.
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+44
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Page 45 of 66
+
+Journal of Materials Chemistry A
+
+8. Tables
+
+Table 1: Ratio of active material, conducting agent, and binder used, for each cathode family, in the cell´s energy calculation.
+
+Cathode class
+
+Ratio of active material
+
+Ratio of conducting Ratio of binder agent
+
+Oxides
+
+90%
+
+5%
+
+5%
+
+Conversion
+
+75%
+
+15%
+
+10%
+
+Phosphates
+
+84%
+
+5%
+
+11%
+
+Silicates
+
+66%
+
+29%
+
+5%
+
+Borate
+
+81%
+
+10%
+
+9%
+
+Table 2: Characteristics of the anodes used in the cell´s energy calculation.
+
+Anode 1
+
+Anode 2
+
+Anode 3
+
+Active material
+
+Graphite
+
+Si/C (1:3)
+
+Capacity of active material
+
+360 mAh g-1 1100 mAh g-1
+
+Average Voltage against Li/Li+ 0,1V
+
+0,4 V
+
+Lithium 3800 mAh g-1 0V
+
+Ratio of active material
+
+96%
+
+88%
+
+100%
+
+Ratio of conducting agent
+
+1%
+
+2%
+
+0%
+
+Ratio of binder Density of electrode
+
+3% 1,4g cm-³
+
+10% 1,4g cm-³
+
+0% 0,5g cm-³
+
+Porosity of electrode
+
+35%
+
+35%
+
+0%
+
+45
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+9. Figures
+
+Journal of Materials Chemistry A
+
+Page 46 of 66
+
+Figure 1: Specific power and energy roadmap for battery pack for hybrid (HEV), plug-in hybrid (PHEV) and full electric (BEV) vehicles.
+
+46
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Page 47 of 66
+
+Journal of Materials Chemistry A
+
+Figure 2: Key-performance parameters road map on cell level for fully electrified vehicles from today to 2025. Today´s data based on BMW i3.
+
+47
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Journal of Materials Chemistry A
+
+Page 48 of 66
+
+Figure 3: Specific energy contents and dimensions along the way from the active material to electrode, cell, and pack level.
+
+48
+
+Page 49 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 4: Target values for the specific energy for present and future generations of battery pack, cell, cathodes and cathode active materials.
+49
+
+Journal of Materials Chemistry A
+
+Page 50 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 5: Capacity vs. current density trends. Lower curve: actual data from BMW i3 at four C-rates (just valid for lower curve); upper curve required values for future batteries by increased capacity target under constant power requirement.
+50
+
+Page 51 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 6: Theoretical (blue bars) and highest demonstrated capacity (red bars) for several conversion [116] [142] [136] [140] [180] [137] [181] [182] [183], oxides [17] [57] [184] [46] [52] [30], and polyanionic cathode materials [108] [185] [89] [186] [187] [188] [64] [189] [190] [191][192] [193][194][195][196][197][198][199][200](left Y axis) and the corresponding theoretical (blue squares) and practical (red diamonds) Li+ insertion (right Y axis). For polyanionic cathodes that can insert more than 1 Li per formula unit, the different insertion voltages are shown.
+51
+
+Journal of Materials Chemistry A
+
+Page 52 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 7a: Theoretical (blue bars) and highest demonstrated gravimetric energy density (red bars) for several conversion, oxides, and polyanionic cathode materials. Green bands: targets at material´s level.
+52
+
+Page 53 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 7b: Theoretical (blue bars) and highest demonstrated volumetric energy density (red bars) for several conversion, oxides, and polyanionic cathode materials. Green bands: targets at material´s level.
+53
+
+Journal of Materials Chemistry A
+
+Page 54 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 7c: Ratio between theoretical gravimetric and volumetric energy densities for several conversion, oxides, and polyanionic cathode materials. Green bands: targets at material´s level.
+54
+
+Page 55 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 7d: Ratio between practical gravimetric and volumetric energy densities for several conversion, oxides, and polyanionic cathode materials. Green bands: targets at material´s level.
+55
+
+Journal of Materials Chemistry A
+
+Page 56 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 8: Discharge curves for selected cathode materials [147] [140] [142] [116] [57] [52] [46] [30] [185] [89] [108] [176].
+56
+
+Page 57 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 9a: Gravimetric energy density for selected cathode materials in full cell configuration with metallic lithium (red lines), graphite (blue lines) and silicon (black lines) as anode. The different curves refer to different loadings. Calculation based on the theoretical gravimetric energy density values of Figure 7a for the cathode. Green bands: targets at cell´s level.
+57
+
+Journal of Materials Chemistry A
+
+Page 58 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 9b: Volumetric energy density for selected cathode materials in full cell configuration with metallic lithium (red lines), graphite (blue lines) and silicon (black lines) as anode. The different curves refer to different loadings. Calculation based on the theoretical volumetric energy density values of Figure 7b for the cathode. Green bands: targets at cell´s level.
+58
+
+Page 59 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 9c. Gravimetric energy density for selected cathode materials in full cell configuration with metallic Li as anode. The different curves refer to different loadings. Calculation based on the practical gravimetric energy density values of Figure 7a for the cathode. Yellow dots indicate for the various materials the typical coating densities nowadays achievable. Green bands: targets at cell´s level.
+59
+
+Journal of Materials Chemistry A
+
+Page 60 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 9d. Volumetric energy density for selected cathode materials in full cell configuration with metallic Li as anode. The different curves refer to different loadings. Calculation based on the practical volumetric energy density values of Figure 7b for the cathode. Yellow dots indicate for the various materials the typical coating densities nowadays achievable. Green bands: targets at cell´s level.
+60
+
+Page 61 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 10: Dependence of the relative cell capacity on the amount of binder and conductive agent for the example of Li2MnSiO4 against graphite and a loading of 15mgcm-2. The lower ball represents the actual status (29% conducting agent + 5% binder), the upper one the potential in capacity increase by reaching the amount of active material in today’s oxides (2.5% binder, 2.5% conducting agent).
+61
+
+Journal of Materials Chemistry A
+
+Page 62 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 11: Capacities of promising future cathode materials obtained at different discharge currents [57] [46] [52] [175] [185] [89] [108] [176] [116].
+62
+
+Page 63 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 12: Discharge capacity variation during the initial cycling of selected cathode materials [142] [140] [116] [57] [46] [52] [175] [185] [89] [108] [176].
+63
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Journal of Materials Chemistry A
+
+Page 64 of 66
+
+Figure 13: Proposed improvement strategies for different cathode materials. [174] [168] [119] [167] [166][170] [163] [29] [125] [24] [179][162][171] [173][201].
+
+64
+
+Page 65 of 66
+
+Journal of Materials Chemistry A
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+Figure 14: Example of improvements in the discharge capacity retention obtained via some of the methods described in Figure 13. [178] [169] [179][162][119] [170]
+65
+
+Journal of Materials Chemistry A
+
+Page 66 of 66
+
+Journal of Materials Chemistry A Accepted Manuscript
+
+The potential application in the automotive field of several future cathode materials is evaluated based on their energy density, power capability and lifetime expectation. 79x39mm (150 x 150 DPI)
+
