@@ -1,0 +1,780 @@
+Journal of Physics: Condensed Matter
+
+PAPER
+Ab initio electronic structure calculations using a real-space Chebyshev-filtered subspace iteration method
+To cite this article: Qiang Xu et al 2019 J. Phys.: Condens. Matter 31 455901
+View the article online for updates and enhancements.
+
+You may also like
+- ARES IV: Probing the Atmospheres of the Two Warm Small Planets HD 106315c and HD 3167c with the HST/WFC3 Camera Gloria Guilluy, Amélie Gressier, Sam Wright et al.
+- SINBAD-ARES - A Photo-Injector for external Injection Experiments in novel Accelerators at DESY Barbara Marchetti, Ralph Assmann, Reinhard Brinkmann et al.
+- DAOSPEC: An Automatic Code for Measuring Equivalent Widths in HighResolution Stellar Spectra Peter B. Stetson and Elena Pancino
+
+This content was downloaded from IP address 49.140.189.201 on 25/03/2022 at 01:46
+
+J. Phys.: Condens. Matter 31 (2019) 455901 (12pp)
+
+Journal of Physics: Condensed Matter https://doi.org/10.1088/1361-648X/ab2a63
+
+Ab initio electronic structure calculations using a real-space Chebyshev-filtered
+
+subspace iteration method
+
+Qiang Xu1,4, Sheng Wang1,4, Lantian Xue1, Xuecheng Shao1, Pengyue Gao1 , Jian Lv1, Yanchao Wang1,3 and Yanming Ma1,2,3
+1  State Key Lab of Superhard Materials and Innovation Center of Computational Physics Methods and Software, College of Physics, Jilin University, Changchun 130012, People’s Republic of China 2  International Center of Future Science, Jilin University, Changchun 130012, People’s Republic of China
+E-mail: wyc@calypso.cn and mym@calypso.cn
+Received 24 April 2019, revised 5 June 2019 Accepted for publication 17 June 2019 Published 14 August 2019
+Abstract Ab initio electronic structure calculations within Kohn–Sham density functional theory requires a solution for the Kohn–Sham equation. However, the traditional self-consistent field (SCF) approach of solving the equation using iterative diagonalization exhibits an inherent cubic scaling behavior and becomes prohibitive for large systems. The Chebyshev-filtered subspace iteration (CheFSI) method holds considerable promise for large-system calculations by substantially accelerating the SCF procedure. Here, we employed a combination of the real space finite-difference formulation and CheFSI to solve the Kohn–Sham equation, and implemented this approach in ab initio Real-space Electronic Structure (ARES) software in a multi-processor, parallel environment. An improved scheme was proposed to generate the initial subspace of Chebyshev filtering in ARES efficiently, making it suitable for large-scale simulations. The accuracy, stability, and efficiency of the ARES software were illustrated by simulations of large-scale crystalline systems containing thousands of atoms.
+Keywords: density functional theory, Chebyshev filtering, Kohn–Sham equation
+(Some figures may appear in colour only in the online journal)
+
+1. Introduction
+Kohn–Sham density functional theory (KS-DFT) [1, 2] is the most widely used quantum mechanical method for obtaining the electronic structures of condensed matter and plays a crucial role in understanding the physical and chemical properties of complex materials at the microscopic level. However, the solution of the Kohn–Sham equation requires solving a nonlinear eigenvalue problem. The traditional self-consistent field (SCF) approach using iterative diagonalization is the most popular method for solving the KS-DFT equation and has been implemented in several packages, including VASP [3, 4], ABINIT [5], CASTEP [6], and Quantum Espresso [7],
+3 Author to whom any correspondence should be addressed. 4 These authors contributed equally.
+
+which have been used to simulate systems comprising a few hundred atoms. In practice, a large-scale simulation of complicated structures (e.g. heterointerfaces, dislocations) modeled by a big unit cell containing thousands of atoms are required sometimes. The traditional SCF method typically exhibits an inherent cubic scaling behavior, making large-scale simulations prohibitive [8]. Furthermore, the KS-DFT equation must be solved a large number of times for practical applications of density functional theory (DFT) simulations for dynamic processes, such as structure relaxation and molecular dynamics simulations. Therefore, there is an urgent need to develop an efficient KS equation solution strategy to reduce the computational cost in the framework of the DFT method for largescale simulations.
+Research has focused on developing efficient DFT methods whose computational costs scale linearly as a function of the
+
+1361-648X/19/455901+12$33.00
+
+1
+
+© 2019 IOP Publishing Ltd  Printed in the UK
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+number of atoms. In these methods, truncated localized basis sets, such as atomic and pseudo-atomic orbitals, wavelets, or B-spline functions, coupled with the divide-and-conquer scheme [9–13] have been introduced to extend the applicability and increase the accessible length scales of DFT to largescale systems [14]. There are numerous software packages (e.g. ONETEP [15, 16], CONQUEST [17, 18], QUICKSTEP [19], and BigDFT [20, 21]) in the framework of linear scaling methods that have increased the maximum system size considerably to many thousands of atoms [14, 22]. Currently, the reduced-scaling methods combined with the availability of high-performance computing resources make million-atom DFT computations affordable, while maintaining the same accuracy as the traditional cubic scaling approaches [14, 22]. However, these methodologies using the truncated localized basis sets depend on the possibility of localizing KS orbitals or short-range density matrices; thus, their applications to metallic systems have been limited [14, 22].
+The pole expansion and selected inversion (PEXSI) [23, 24] technique provides an alternative strategy for efficiently solving the KS equation without using a diagonalization procedure. The computational cost of the PEXSI technique scales at most as O(N2) for general 3D bulk systems. The technique has been implemented in several DFTbased packages, including SIESTA-PEXSI [25] and ABACUS [26], and has been applied to simulations of systems comprising thousands of atoms. However, it is usually more difficult to achieve a good load balance and memory distribution in inverse algorithms [27].
+Recently, the Chebyshev-filtered subspace iteration (CheFSI) [28, 29] method has been proposed to solve the KS-DFT equation. In this approach, the explicit eigenvectors of the intermediate linearized KS eigenvalue problems are replaced by approximate basis vectors of a progressively refined subspace, leading to the substantial reduction of the diagonalization cost and allowing large-scale simulations with currently available computing resources. The method has been implemented in several DFT-based packages, including PARSEC [29], RESCU [27], and SPARC [30, 31], and has been applied to simulations of large-scale systems containing thousands of atoms on a modest computer cluster.
+In this work, a combination of the real-space finite-difference formulation [32] and CheFSI method introduced by Zhou et al [28] was used to solve the KS-DFT equation for periodic systems and was implemented in our DFT-based package, Ab initio Real-space Electronic Structure software (ARES), with sequential and parallel architectures. The reliability of ARES has been benchmarked by numerical simulations for a wide variety of condensed matter, encompassing metals, semiconductors, and insulators. The simulated results demonstrate that ARES can substantially reduce the computational cost of DFT simulations in a periodic system without sacrificing accuracy.
+The remainder of this manuscript is organized as follows. Section 2 briefly introduces KS-DFT and details of the implementation of the ARES package. In section 3, we present the results of testing on crystalline systems to demonstrate the
+
+computational stability, accuracy, and efficiency of ARES. Finally, conclusions are presented in section 4.
+
+2.  Theory and implementation
+
+2.1. Kohn–Sham theory
+
+We briefly introduce the equations of KS-DFT for electronic structure calculations. Note that atomic units (e = = me = 1) are used throughout this paper. The central task in KS-DFT calculation is solving the KS equation [2],
+
+ Hˆ KSψi(r) = εiψi(r), (1)
+where ψi and εi are the ith KS eigenfunctions and eigenvalues, respectively. The KS Hamiltonian, HKS, is given by
+
+ Hˆ KS = − 21 ∇2 + VˆH[ρ] + VˆXC[ρ] + Vˆion, (2) where VˆH, VˆXC, and Vˆion are the Hartree potential, exchangecorrelation potential, and ionic potential, respectively. The KS Hamiltonian depends on the electronic density, ρ(r), which can be determined from the occupied KS orbitals (spin degeneracy is assumed here) as
+
+Occ.
+ ρ(r) = 2 |ψi(r)|2. (3)
+i=1
+Considering crystalline systems under Bloch periodic boundary conditions, the KS eigenfunctions in equation (1) then become
+
+ ψn,k (r) = √1Nk eik·run,k (r) , (4)
+
+where Nk is the number of k-points in the Brillouin zone, which is typically equivalent to the number of unit cells in the Born von Karmen (BvK) supercell under periodic boundary conditions. Here, the normalization of wavefunc-
+
+tions is over the BvK cell. un,k(r) is a periodic function
+
+on the lattice and the normalization is over the unit cell,
+
+2
+
+2
+
+1´
+Nk V
+
+un,k (r)
+
+d3r
+
+=
+
+´
+Ω
+
+un,k (r)
+
+d3r = 1.
+
+V = NkΩ
+
+is
+
+the
+
+BvK cell volume, where Ω is the volume of the unit cell. The
+
+electron density can be computed as
+
+1
+
+Ns
+
+2
+
+ ρ (r) = Nk k n=1 fn,k un,k (r) , (5)
+
+where fn,k is the Fermi–Dirac occupation function. Equation (1) can be written as
+
+Hˆk[ρ]un,k = εn,kun,k n = 1, 2, . . . , Ns; k = k1, k2, . . . , kNk ,
+(6)
+where εn,k are eigenvalues of the k-point-dependent KS Hamiltonian
+
+Å
+
+ã
+
+Hˆ k [ρ]
+
+:=
+
+−
+
+1 2
+
+∇2 + 2ik · ∇ −
+
+2
+k
+
++ VˆH[ρ] + VˆXC[ρ] + Vˆloc + Vˆnkl.
+
+
+
+(7)
+
+2
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+It is necessary to determine the ground electron density from the self-consistent solution of the KS equations in equations (5)–(7). First, equation (7) uses the initially estimated charge density to yield a set of k-point-dependent Hamiltonians. Second, the solution of equation (6) with the current Hamiltonians (equation (7)) is used to obtain the eigenvalues and corresponding set of eigenfunctions (wave functions). Then, the new charge density can be evaluated using equation (5). This process is repeated until the variation of the electron density is smaller than the given tolerance. The most expensive step in the process is obtaining the eigenpairs (eigenvalues and eigenstates) by solving equation (6).
+
+2.2.  Real-space representation of Kohn–Sham equation
+
+Real-space representations can effectively simplify the application of localization constraints [34]. In the representations, the wave functions and potentials are directly evaluated on real-space grid points. Accordingly, the Hamiltonian in equation (7) is discretized on real-space uniform grids as an Nb × Nb matrix, where each eigenfunction is a Nb × 1 size vector with Nb denoting the total number of real-space grids. Although the Hamiltonian matrix within a real-space representation of the KS equation is larger than that in other basis-dependent approaches, the Hamiltonian matrix is discretized to be a spare matrix whose nonzero elements are confined within a diagonal band. The extent of the nonzero elements in the off-diagonal positions only depends on the order of the finite difference expansion of the kinetic energy operator.
+The Laplacian and gradient operator for the kinetic term in the Hamiltonians in equation (7) can be represented by finite difference expansion, discretized into a sparse matrix [35]. The general form of the Laplacian operator on a nonorthorhombic grid is given by [33]
+
+ ∇2 = i=61 fi ∂∂x2i2 . (8)
+The Laplacian form is represented by a combination of derivatives along the following six directions, {ˆxi}: three along the original lattice vectors and three additional derivatives in the nearest-neighbor directions. For an orthorhombic grid, the Laplacian form is reduced to three vectors along the original lattice vectors. The coefficients, fi, in equation (8) refer to [33]. The gradient operator on a non-orthorhombic grid is given by
+
+ ∇ = ˆex i=31 BT1i ∂∂xi + ˆey i=31 BT2i ∂∂xi + ˆez i=31 BT3i ∂∂xi , (9)
+
+where matrix B is the inverse of normalized lattice matrix
+
+A˜ = [ˆa1, ˆa2, ˆa3],
+
+ˆai =
+
+ai ai
+
+.
+
+The
+
+mth
+
+(m = 1, 2)
+
+derivative
+
+along the ˆxi direction can be approximated by the expansion
+
+of the high-order finite difference as
+
+ ∂∂xmim u(xi) ≈ n=N−orNd ord Chminm u(xi + nhiˆxi), (10)
+
+where Nord and hi are the order of the finite-difference expansion and spacing of the grid along the ˆxi direction, respectively. The coefficients of Cnm are available in [36, 37].
+The potential term in equation (7) consists of the Hartree
+potential, VˆH[ρ], the exchange-correlation potential, VˆXC[ρ], the local ionic pseudopotential, Vˆloc, and the non-local ionic pseudopotential, Vˆnkl. The first three potential terms only contribute to the leading diagonal of the Hamiltonian matrix in
+real-space representation.
+The Hartree potential is given by solving the Poisson equa-
+tion as [38]
+
+ ∇2VH[ρ](r) = −4π[ρ(r) − ρ0]. (11)
+Where ρ0 is average electron density of the system. Both realspace and fast Fourier transform (FFT)-based calculations of the Hartree potential are adopted in ARES. However, the computational cost of the FFT-based method is lower than that of the real-space method for periodic systems [39]. Therefore, the FFT-based method was also employed in this work.
+The exchange-correlation potential is estimated by
+
+ VXC[ρ](r) = δEδρX(Cr[)ρ] , (12)
+
+where EXC[ρ] is the exchange-correlation energy functional. Currently, two typical exchange-correlation functionals of local density approximation (LDA) [40] and Perdew–Burke– Ernzerhof generalized gradient approximation (GGA) [41] have been implemented. The other exchange and correlation functionals, such as LDA, GGA, and meta-GGA functionals available from LibXC [42], can also be easily interfaced with ARES as required.
+The ionic potential is used to described the ion–electron interaction by the norm-conserving pseudopotential [43], which is given by
+
+ Vˆion = Vˆloc + Vˆnl, (13)
+where Vloc and Vnl are the local and nonlocal parts of the pseudo­potential, respectively. The Kleinman–Bylander form [44] used for the nonlocal part is given by
+
+ Vˆnl = aN=a1 lm V¯1lam |χalm χalm|, (14)
+
+where |χalm χalm| is the non-local projectors corresponding to the angular momentum number, lm, of the ath atom. The
+
+norm-conserving Troullier–Martins pseudopotential [45] in
+
+the Kleinman–Bylander form has been implemented in the
+
+ARES package. The local part of the pseudopotential can be
+
+obtained by
+
+
+
+
+
+Ntype
+
+ Vloc(r) = FFT  St(G)Vltoc (|G|) , (15)
+
+t=1
+
+where FFT [·] denotes the reverse Fourier transform. Ntype is the number of atomic species, and St(G) and Vltoc (|G|) are the structure factor and 1D Fourier component of the local pseudo­
+potential of the tth type atom, respectively. More details about
+
+3
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+the local part of the pseudopotential can be found in [8]. The nonlocal part of the pseudopotential is given by
+
+Na
+Vˆnklun,k = e−ik·r
+a=1
+
+lm
+
+χalm(r) ˆ V¯lam
+
+χalm(ra)eik·r un,k(r )d3r .
+
+(16)
+
+Where ra = r − Ra. In addition, the local pseudopotentials
+[46–48] with high accuracy and transferability for elements can also be used in ARES.
+
+Q Xu et al
+
+2.3.  CheFSI Method
+
+The electronic structure calculations in DFT a large number of eigenpairs to be obtained for the KS equation. However, only the eigenpairs with energies within a small window inside the spectrum of Hk are needed. Chebyshev polynomials efficiently extract the subspace projection onto the target space of wanted eigenvectors associated with the occupied states [28, 49]. Recently, the well-established CheFSI method has been used to solve the KS equation with 5–10 times faster SCF iteration than the eigensolver-based method [28]. Therefore, this method was also employed in ARES package.
+In our implementation, the first type of Chebyshev polynomial is used to extract the required invariant subspace. The Chebyshev polynomials with m-degree, denoted as pm, are defined by the three-term recurrence,
+ pm+1(x) = 2xpm(x) − pm−1(x), x ∈ R. (17)
+Note that p0(x) = 0, p1(x) = x. A remarkable property of Chebyshev polynomials is rapid
+growth outside the interval [−1, 1]. Note that the detailed descriptions of CheFSI method can be found in [28]. Generally, it is assumed that the full spectrum of the Hamiltonian (σ(Hk)) is located in [a0, b], whereas the spectrum of the wanted eigenvectors is bounded within [a0, a]. a should be larger than a0 but smaller than b, whereas b should be greater than the upper bound of σ(Hk). In the CheFSI method, the interval of the spectrum [a, b] is dampened by affine mapping of [a, b] into [−1, 1],
+ Hk = Hk e− c ; c = a +2 b , e = b −2 a . (18)
+Then, the new filter is denoted by
+ Pm(Hk) = pm(Hk). (19)
+Lower bound a and upper bound b of the unwanted spectra play a pivotal role in this method. In our implementation, the upper bound can be estimated by a few steps of the Lanczos algorithm [50], and the largest Rayleigh–Ritz value of the previous iteration is used as the lower bound.
+The details of the filtering processes are as follows.
+
+Figure 1.  Flow chart of the SCF calculation in ARES.
+
+ U˜kF = Pm(Hk)U˜k, (20)
+
+where the matrix U˜k ∈ CNb×Ns contains Ns column dis-
+
+crete
+
+vectors
+
+˜un,k
+
+.
+
+U˜ F
+k
+
+∈
+
+CNb ×Ns
+
+denotes
+
+the
+
+filtered
+
+basis
+
+of the new subspace.
+
+(2)	T he Ritz pairs approximating the exact diagonalization
+
+solutions are evaluated by subspace diagonalization using
+
+the generalized Rayleigh–Ritz approach,
+
+(U˜k, εk)
+
+=
+
+Rayleigh_Ritz(Hk
+
+,
+
+U˜ F
+k
+
+).
+
+The
+
+detailed
+
+proce-
+
+dure is shown in algorithm 1 [27].
+
+Algorithm 1.  Procedure for the Rayleigh-Ritz scheme.
+Rayleigh_Ritz ( H, U˜ )   Compute the projected Hamiltonian H¯ = U˜ †HU˜   IF U˜ †U˜ = I THEN     Compute the overlap matrix S˜ = U˜ †U˜     Diagonalize H¯ Q = S˜QΣ, where Q contains the eigenvectors of H¯ , diagonal part of matrix Σ contains the Ritz values of H, denote as diag(Σ)   ELSE     Diagonalize H¯ Q = QΣ   END IF   Rotate the basis U˜ = U˜ Q
+Return the basis and eigenvalues U˜ , diag(Σ)
+
+2.4.  Implementation of ARES
+
+(1)	T he desired subspace, which corresponds to occupied states, is constructed by Chebyshev polynomial filtering, where the components of the wanted spectrum are assuredly magnified with respect to the components of the unwanted spectrum,
+
+2.4.1.  Solving the KS equation using Chebyshev filtering.  The flow chart of the ARES process used to solve the KS equation using Chebyshev filtering is shown in figure 1. The process comprises five main steps. First, the initial estimated electron density and the subspace are generated and used to
+
+4
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+Figure 2.  Number of iterations required to converge the total energy of a unit cell containing 1024 Si atoms as a function of various initialized subspace generation schemes and Chebyshev filtering degree.
+estimate the Rayleigh–Ritz values and the initial bounds of the unwanted spectrums. Second, Chebyshev polynomial filtering is performed to obtain the desired subspace based on the previous subspace. Third, the Rayleigh–Ritz step is performed to evaluate the approximate eigenpairs. Fourth, the new Hamiltonian is constructed by updating the charge density. Note that the Pulay mixing [51] with Kerker preconditioning [52, 53] scheme for mixing the charge density is used to accelerate the SCF convergence. Fifth, the lower and upper bounds of the unwanted spectrum are determined by maximum Ritz value and the Lanczos algorithm. The self-consistent iteration step progressively approximates the wanted eigensubspace of the Hamiltonian and is repeated iteratively until a termination criterion, such as a prescribed error threshold for the charge density and total energy, is attained.
+Estimating the initial subspace is a critical step to determine the numerical stability and convergence rate for solving the KS equation using the CheFSI method. The initial subspace generation scheme originally proposed by Zhou et al requires solving for the eigenvectors of the initial Hamiltonian [28], which is a major problem for large-scale simulations. It was later demonstrated that a random initial subspace is more efficient [49]. Recently, initial subspace generation schemes using the extended Hückel (EH) method [54] or numerical atomic orbitals (NAOs) with a one-shot Rayleigh–Ritz step [27] have also been proposed.
+Compared with the EH method, the method combining NAOs with the Rayleigh–Ritz scheme is easy to implement. Therefore, we also employed the NAO method to generate the initial subspace in ARES. However, this technique is very memory consuming for systems containing thousands of atoms because the number of NAOs used to construct the subspace is usually more than ten times the number of atoms. Furthermore, the technique is inefficient for large systems
+
+because the Rayleigh–Ritz scheme requires diagonalization of a large matrix, whose dimensions are the same as the number of NAOs. Although the direct truncation scheme of NAOs (DTNAO) provides a possible solution to overcome the shortcomings of the NAO method, the operations usually miss a part of the energy spectrum, leading to slow convergence (figure 2).
+Here, a new scheme called Slater-type orbital combinations (STOC) is proposed to generate the initial subspace for large-scale systems. In this scheme, all the Slater-type orbitals (STOs) as one of NAOs are selected and linearly combined to be the basis of the subspace. The combination operation reduces the dimension of the subspace ( Ns). Note that the number of STOs (NSTO) is greater than Ns, therefore, the STOC scheme is less memory consuming than the previous NAOs [27]. Furthermore, the new scheme reduces the spectrum loss because all the STOs are included.
+The details of the generation of the initial subspace using the STOC are presented in algorithm 2. The NSTO STOs are mapped to the basis of the subspace one by one; thus, the interpolation index of the basis periodically returns to the first basis vector when the index exceeds Ns, which is meaningful for describing orbital hybridization. We select a large system containing 1024 Si atoms to evaluate the effectiveness of STOC. The number of steps for convergence as a function of various initialized subspace generation schemes and the Chebyshev filter degree are shown in figure 2. The STOC and NAO schemes are more efficient than DTNAO and the number of steps for convergence for the STOC scheme is comparable to that for the NAO method when the Chebyshev polynomial degree is larger than 16. Since the STOC scheme is less memory consuming, it is suitable for large-scale simulations.
+Algorithm 2.  Initialize subspace by STOC.
+Initilize_subspace ( Hint)   Define a CNb×Ns matrix U = [u1, u2, . . . , uNs ] = 0   i = 1, j = 1   WHILE i NSTO DO     IF ( j > Ns) set j = 1     uj = uj + φSi TO, combination of orbitals, where φSi TO is the ith STO     j=j+1 i=i+1   ENDDO   Rayleigh-Ritz step (Uint, e) = Rayleigh_Ritz(Hint, U), where Uint is the initial subspace and e contains the Ritz values of Hint   Lower bound a = max{e} and upper bound b is evaluated the Lanczos algorithm [50]
+Return Uint, a, b
+2.4.2.  Structural geometry relaxation.  One major application of theoretical simulations is geometrical relaxation, which determine the atomic configuration with minimum energy on the Born–Oppenheimer energy surface. Generally, the force
+
+5
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+on each atom in relaxed structures should be close to zero. The forces on nuclei are related to the first derivatives of the total energy with respect to the nuclear coordinates. Generally, the total energy functional explicitly depends on the atomic positions and lattice matrix on the Born–Oppenheimer surface,
+Etot[R] = Ts[U] + EH[ρ] + Exc[ρ] + Eil−oce[ρ, R] + Ein−l e[U, R] + Ei−i[R],
+(21)
+where Ts[U], EH[ρ], Exc[ρ], Eil−oce[ρ, R] and Ein−l e[U, R] are the non-interacting kinetic energy, the Hartree potential energy, the exchange correlation energy, the local- and nonlocal- part of ion–electron interaction energy, respectively. Ei−i[R] is the ion–ion interaction energy, which can be calculated by Ewald summation [55–57].
+The Hellmann-Feynman force on the ath atom is given by
+
+of materials, including metals, semiconductors, and insulators. All the calculations use the LDA for electron exchange and correlation as parameterized by Perdew and Zunger [40]. The electron–ion interaction of Al, Si, Mg, Ga and As was described by local pseudopotentials available from the website [59]. The electron–ion interaction of B, C, N, O and Zn was described by norm-conserving Troullier–Martins pseudo­ potentials with 2s22p 1, 2s22p 2, 2s22p 3, 2s22p 4 and 3d104s2 configurations treated as the valence electrons. The B, C, N and O have the core cutoff radii of 1.39, 1.60, 1.50 and 1.30 bohr for s- and p-channels, respectively. The Zn has the core cutoff radii of 2.28 bohr for s-, p - and d-channels. All the Troullier–Martins pseudopotentials are available from the website [60].
+
+∂ Etot [R]
+
+∂ Eil− oc e [ρ,R]
+
+∂Ein−l e[U,R]
+
+∂ EEwald [R]
+
+F = − = − − − a
+
+∂Ra
+
+∂Ra
+
+∂Ra
+
+∂Ra
+
+= Faloc + Fanl + FaEwald
+
+(22)
+
+where Falocal and FaEwald are the contribution from the local ionic potential and Ewald force [57], respectively. The nonlocal
+force expression of Fanl is given by
+
+Fan,li−e
+
+=
+
+− ∂Ein−l e[U, ∂Ra
+
+R]
+
+
+
+
+
+= 2 Re  fn,k
+
+n,k
+
+lm
+
+1 V¯lam
+
+G∗nk,alm
+
+ˆ
+
+dχalm(ra dra
+
+)
+
+ψ n,k
+
+(r)d3
+
+ r
+
+,
+
+
+
+(23)
+
+where Gnk,alm = ´ χalm(ra)ψn,k(r)d3r.
+
+Currently, several well-established local optimization
+
+algorithms (e.g. steepest descent, conjugate gradient, quasi-
+
+Newton, and Fast Inertial Relaxation Engine) are available.
+
+Our previous study demonstrated that the improved limited-
+
+memory quasi-Newton (L-BFGS) method only requires
+
+limited computer memory and yields significantly faster conv­
+
+ergence for large-scale geometrical structure relaxation [58].
+
+Thus, L-BFGS was also used in the ARES package.
+
+2.4.3.  Parallel implementation.  ARES is intended to simulate large-scale systems. Therefore, it is highly desirable to implement a parallel scheme in ARES to take full advantage of the massive parallelization. In our parallelization scheme, the parallel mode uses the standard message passing interface library for communication, and all the terms of the Hamilton on the real-space grids are implemented using the spatial decomposition, where the 3D domain is divided into a 2D block distribution. We expect ARES to be highly efficient because less communication is required between the processors owing to the short-range operations referring to real-space finite difference expansion. Furthermore, the ScaLAPACK interface is also used to harness the computational power of the cores efficiently.
+
+3.  Numerical results
+To evaluate the accuracy, computational efficiency, and parallel scaling of ARES, we use it to simulate a wide variety
+
+3.1.  Tests of ARES convergence
+The order of finite-difference expansion and the grid spacing are the controllable real-space finite-difference parameters in ARES that critically affect the accuracy of the calcul­ations. These parameters are selected depending on the convergence test of the total energies of the systems. Here, we describe how to select the values of these parameters in practice. We run the ARES code to calculate the total energy for crystalline Al, Si and C. Just as shown in figure 3, the 16th-, 16th- and 10th-order finite-difference expansion with the grid spacings of 0.32, 0.22 and 0.12 Å are sufficient for a well-conv­ erged total energy (less than 1.0 meV/atom) for Al, Siand C, respectively.
+The Chebyshev polynomial degree (m) and the number of computed eigenstates ( Ns) are the two critical parameters for the CheFSI method implemented in ARES to determine the convergence rate. Here, crystalline silicon containing 1024 atoms is used to assess the convergence rate of these param­ eters. The density residual depending on the Chebyshev polynomial degree is shown in figure 4(a). The Chebyshev filter degree of 16 gives good convergence for crystalline silicon. Generally, Ns should be greater than the number of occupied states, Nocc, to avoid missing occupied eigenstates during the filtering [27, 28]. Here, we also test convergence rate depending on the number of computed eigenstates using crystalline silicon containing 1024 atoms. Figure 4(b) shows the number of iterations required for convergence of the density as a function of the number of extra eigenstates Nextra relative to the number of atoms. The addition of 10% extra unoccupied states results in a fast convergence (14 steps) for crystalline silicon.
+3.2.  Computational accuracy
+We verify the computational accuracy of ARES by comparing the crystalline bulk properties of several elements and binary and ternary compounds with those determined using the CASTEP package. The total energy versus volume equation of states of Al with a face-centered-cubic (FCC) structure and Si, C with a cubic diamond (CD) structure are obtained using the ARES and CASTEP software with the same pseudopotentials.
+
+6
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+Figure 3.  Convergence test for ARES. Effect of grid spacing h and the order of finite-difference approximation Nord on the total energy of supercell FCC Al containing 64 atoms (a) and (b), supercell FCC Si containing 256 atoms ((c) and (d)) and C with CD structure containing 2 atoms (e) and (f). Note that only the gamma point is used for simulations of Al and Si, while 8 × 8 × 8 k-meshes are employed for simulation of C.
+Figure 4.  (a) Dependence of density residual on Chebyshev polynomial degree (m). (b) Dependence of number of iteration steps on the number of extra eigenstates relative to the number of atoms.
+7
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+Figure 5.  Comparison of the equation of states for (a) Al FCC, (b) Si CD, and (c) C CD obtained using ARES and CASTEP. (d) Relative energy differences between the structure with the lowest energy for all the structures considered and another nine structures of GaAs generated by CALYPSO. Note that the 18 × 18 × 18, 8 × 8 × 8, and 8 × 8 × 8 k-meshes used for Al, Si, and C give energy convergences of less than 1.0 meV/atom. The grid spacings are 0.20, 0.20, 0.10, and 0.20 Å in ARES and the kinetic cutoff energies are 940, 940, 2600, and 940 eV in CASTEP for Al, Si, C, and GaAs, respectively.
+
+In figures 5(a)–(c), we plot the energy as a function of the volume. There is an excellent agreement between ARES and CASTEP, with the curves being practically indistinguishable. We find that the calculated equilibrium volume (V0), equilibrium energy (E0), and bulk modulus (B0) obtained using ARES are consistent with the CASTEP data, and their differences are within 0.05%, 0.5 meV/atom, and 1.0%, respectively. The theor­etical V0 and B0 are estimated by fitting the total energies as a function of volume to the Murnaghan equation of states [61]. Further validation of the numerical stability of ARES is also given by comparing the total energies of ten GaAs structures calculated using ARES and CASTEP. These structures are randomly generated by the CALYPSO package [62, 63]. The results in figure 5(d) show identical energy differences for the two sets, validating the numerical stability of ARES further.
+The binary and ternary compounds of BN, ZnO, and MgSiO3 with complex structures are used to evaluate the computational accuracy of the ARES software further. The calculated V0, E0, and B0 values using ARES and CASTEP are presented in table 1. Our results are in excellent agreement with that obtained by CASTEP, which supports the validity of the ARES software. Note that the structural details of BN, ZnO, and MgSiO3 are listed in table 2.
+
+Table 1.  Comparison of bulk properties of BN, ZnO, and MgSiO3 obtained using CASTEP and ARES software.
+
+Systems
+
+Software
+
+V0 (Å3/cell)
+
+E0 (eV/atom)
+
+B0 (GPa)
+
+BN ZnO MgSiO3
+
+CASTEP ARES CASTEP ARES CASTEP ARES
+
+69.771 69.848 93.561 93.455 394.124 393.530
+
+−175.547 −175.549 −974.118 −974.117 −290.001 −290.000
+
+250.0 248.8 188.6 185.9 226.7 218.2
+
+We compare the band structures of Al, Si, C, and GaAs calculated using ARES and CASTEP. We use the W–L–Γ–X–K bands, whose reciprocal lattice vector coordinates are [0.5 0.25 0.75], [0.5 0.5 0.5], [0.0 0.0 0.0], [0.5 0.0 0.5], and [0.375 0.375 0.75], respectively. We discretize each line to a set of k-points and determine the band structures using ARES. Figure 6 shows the comparisons of the calculated band structures by ARES and CASTEP. Obviously, the two calculations give nearly identical band structures, HOMO eigenvalues, LUMO eigenvalues, and bandgaps, demonstrating the acc­ uracy of ARES.
+
+8
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Systems
+
+Table 2.  Structural details of BN, ZnO and MgSiO3.
+
+Space group (number) Lattice parameters
+
+Element
+
+BN ZnO MgSiO3
+
+Cmcm (63)
+
+a  =  2.486 00 Å
+
+B
+
+b  =  4.305 88 Å
+
+N
+
+c  =  6.516 00 Å
+
+Cmc21 (36)
+
+a  =  3.249 86 Å
+
+O
+
+b  =  5.628 92 Å
+
+Zn
+
+c  =  5.206 62 Å
+
+P21/c (14)
+
+a  =  9.384 47 Å
+
+Mg
+
+b  =  8.825 00 Å
+
+c  =  5.188 00 Å
+
+β  =  103.3233°
+
+O
+
+Si
+
+Q Xu et al
+Wykoff position
+4c 0.500 00 0.833 30 0.750 00 4c 0.500 00 0.166 70 0.750 00
+4a 0.500 00 0.833 30 0.617 50 4a 0.500 00 0.833 30 0.000 00
+4e 0.758 00 0.014 00 0.565 00 4e 0.758 00 0.653 00 0.533 00 4e 0.895 00 0.187 00 0.844 00 4e 0.758 00 0.653 00 0.533 00 4e 0.876 00 0.659 00 0.264 00 4e 0.638 00 0.656 00 0.818 00 4e 0.623 00 0.502 00 0.325 00 4e 0.605 00 0.225 00 0.504 00 4e 0.947 00 0.161 00 0.183 00 4e 0.543 00 0.158 00 0.749 00
+
+Figure 6.  Band structures of (a) Al, (b) Si, (c) C, and (d) GaAs.
+
+3.3.  Computational efficiency
+To evaluate the computational efficiency of the parallel ARES package, static simulations of the supercell structures of Al containing different numbers of atoms are performed using 16, 64, and 256 processors. The total wall time per selfconsistent step of supercell Al as a function of the number of atoms is presented in figure 7(a). The scaling with respect
+
+to the number of atoms for ARES is approximately quadratic O(N2.22). The calculations are performed using the high-performance Tianhe-2 supercomputer at the National Supercomputer Center of Guangzhou, where each node contains two 12-core Intel Xeon E5-2692 v2 CPUs with 128-GB memory with a maximum interconnect speed of 160 GBps.
+To illustrate the parallel scalability of ARES, we perform a static calculation of a supercell of the diamond structure
+
+9
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+Figure 7.  (a) Wall time per self-consistent step using the various cores as a function of the number of Al atoms. (b) Speedup ratio (black solid line) and parallel efficiency (red dashed line) as a function of the number of processors for Si supercell containing 2048 atoms.
+
+Table 3.  Total wall time for ARES calculations on large Si, C, and Al supercell systems. Note that only the gamma point is used in ARES.
+The number of atoms and electrons in the systems are denoted by Natom and Ne, respectively. (Nx, Ny, Nz) is the size of the real-space grid. The subspace dimension is denoted by Ns. The grid spacings are 0.30, 0.15 and 0.37 Å for Si, C and Al systems, respectively.
+
+System
+
+Natom(Ne)
+
+Nx
+
+Ny
+
+Nz
+
+Ns
+
+Steps
+
+Cores
+
+Time (h)
+
+Si
+
+2048 (8192)
+
+104
+
+104
+
+104
+
+4300
+
+18
+
+64
+
+1.67
+
+Si
+
+3072 (12288)
+
+104
+
+104
+
+160
+
+6451
+
+17
+
+64
+
+4.79
+
+C
+
+2304 (9216)
+
+144
+
+144
+
+192
+
+4618
+
+18
+
+256
+
+2.33
+
+C
+
+3072 (12288)
+
+144
+
+192
+
+192
+
+6154
+
+19
+
+256
+
+5.07
+
+Al
+
+4096 (12288)
+
+175
+
+96
+
+96
+
+6553
+
+13
+
+256
+
+1.14
+
+Al
+
+6912 (20736)
+
+132
+
+144
+
+144
+
+11059
+
+13
+
+256
+
+3.95
+
+Al
+
+10192 (30576)
+
+154
+
+160
+
+144
+
+16307
+
+12
+
+256
+
+9.76
+
+Figure 8.  Evolution of the energy difference (a) and maximum force (b) as functions of the number of L-BFGS steps during geometry relaxation for crystalline Al containing 108 atoms. The inset of (a) shows the evolution of the energy difference for the last few steps.
+
+containing 2048 Si atoms using various cores. The speedup ratio and parallel efficiency as a function of the number of cores with respect to 32 cores are plotted in figure 7(b). The parallel efficiency reaches 75% for 256 processors, demonstrating the strong parallel scalability of ARES for simulating large-scale systems.
+The total energies for large supercell of Si, C, and Al containing 2048, 3072, 2304, 3072, 4096, 6912, and 10192 atoms (corresponding to 8192, 12288, 9216, 12288, 12288, 20736 and 30576 electrons, respectively) calculated using ARES are listed in table 3. The total energy differences between ARES and CASTEP software for Si, C and Al are 5.0, 12.0 and
+
+4.0 meV/atom, respectively. Note that the k-space representation equivalent direct simulation BvK supercells is employed in CASTEP and the plane-wave basis kinetic energy cutoff of 940, 2600 and 940 eV are chosen for Si, C and Al to ensure that energy can converge to better than 1.0 meV/atom. The maximum iteration steps to convergence are 18, 19, and 13 for Si, C, and Al, respectively. It is worth mentioning that a large-scale simulation of a supercell Al structure containing 10192 atoms not accessible using eigenvector-based methods was performed by ARES and the total wall time for convergence of the electron density using 256 cores is 9.76 h. These results illustrate the superior performance of ARES for simulating large-scale systems.
+
+10
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+
+Q Xu et al
+
+To test the convergence of the geometrical structure relaxation of ARES for a large system, a crystalline structure containing 108 Al atoms is used as a benchmark. The total energy and maximum force as a function of the number of L-BFGS steps during the geometrical structure relaxation are presented in figures 8(a) and (b), respectively. Only about 13 steps are required for the total energy and maximal force to converge to within 1 meV/atom and 0.01 eV Å−1, respectively. Thus, ARES yields fast convergence of geometrical structure relaxation for complex structures.
+4. Conclusion
+The real-space finite-difference method combined with the Chebyshev filter subspace iteration was employed to solve the Kohn–Sham equation and was implemented in our ARES software package. The performance of ARES was thoroughly tested using static simulations of a wide variety of material systems containing thousands of atoms on a modest computer cluster. The high efficiency and scalability of the paralleled ARES software make it an efficient, portable, massively parallel computational tool for large-scale simulations of a wide range of materials.
+Acknowledgments
+The authors would like to acknowledge funding support received from the National Natural Science Foundation of China under Grant Nos. 11822404, 11774127, and 11534003; the National Key Research and Development Program of China under Grant Nos. 2016YFB0201200, 2016YFB0201201, and 2017YFB0701503; the Program for JLU Science and Technology Innovative Research Team (JLUSTIRT); and the Science Challenge Project No. TZ2016001. Parts of the calcul­ation were performed at the high-performance computing center of Jilin University and at Tianhe2-JK at the Beijing Computational Science Research Center.
+ORCID iDs
+Pengyue Gao https://orcid.org/0000-0003-1608-4934 Yanchao Wang https://orcid.org/0000-0003-4518-925X
+References
+[1] Hohenberg P and Kohn W 1964 Phys. Rev. 136 B864–71 [2] Kohn W and Sham L J 1965 Phys. Rev. 140 A1133–8 [3] Kresse G and Furthmüller J 1996 Phys. Rev. B 54 11169–86 [4] Kresse G and Furthmüller J 1996 Comput. Mater. Sci. 6 15–50 [5] Gonze X et al 2009 Comput. Phys. Commun. 180 2582–615 [6] Segall M D 2002 J. Phys.: Condens. Matter 14 2717 [7] Giannozzi P et al 2009 J. Phys.: Condens. Matter 21 395502 [8] Payne M C, Teter M P, Allan D C, Arias T A and
+Joannopoulos J D 1992 Rev. Mod. Phys. 64 1045–97 [9] Yang W 1991 Phys. Rev. Lett. 66 1438–41 [10] Yang W 1991 Phys. Rev. A 44 7823–6 [11] Lee C and Yang W 1992 J. Chem. Phys. 96 2408–11
+
+[12] Shimojo F, Kalia R K, Nakano A and Vashishta P 2005 Comput. Phys. Commun. 167 151–64
+[13] Shimojo F, Kalia R K, Nakano A and Vashishta P 2008 Phys. Rev. B 77 085103
+[14] Goedecker S 1999 Rev. Mod. Phys. 71 1085–123 [15] Skylaris C-K, Haynes P D, Mostofi A A and Payne M C 2005
+J. Chem. Phys. 122 084119 [16] Haynes P D, Skylaris C K, Mostofi A A and Payne M C 2006
+Phys. Status Solidi b 243 2489–99 [17] Bowler D R, Miyazaki T and Gillan M J 2002 J. Phys.:
+Condens. Matter 14 2781–98 [18] Bowler D R, Choudhury R, Gillan M J and Miyazaki T 2006
+Phys. Status Solidi b 243 989–1000 [19] Vandevondele J, Krack M, Mohamed F, Parrinello M,
+Chassaing T and Hutter J 2005 Comput. Phys. Commun. 167 103–28 [20] Mohr S, Ratcliff L E, Boulanger P, Genovese L, Caliste D, Deutsch T and Goedecker S 2014 J. Chem. Phys. 140 204110 [21] Mohr S, Ratcliff L E, Genovese L, Caliste D, Boulanger P, Goedecker S and Deutsch T 2015 Phys. Chem. Chem. Phys. 17 31360–70 [22] Bowler D R and Miyazaki T 2012 Rep. Prog. Phys. 75 036503 [23] Lin L, Lu J, Car R and Weinan E 2009 Phys. Rev. B 79 115133 [24] Lin L, Chen M, Yang C and He L 2013 J. Phys.: Condens. Matter 25 295501 [25] Lin L, García A, Huhs G and Yang C 2014 J. Phys.: Condens. Matter 26 305503 [26] Li P, Liu X, Chen M, Lin P, Ren X, Lin L, Yang C and He L 2016 vol 112 pp 503–17 [27] Michaud-rioux V, Zhang L and Guo H 2016 J. Comput. Phys. 307 593–613 [28] Zhou Y, Saad Y, Tiago M L and Chelikowsky J R 2006 J. Comput. Phys. 219 172–84 [29] Zhou Y, Saad Y, Tiago M L and Chelikowsky J R 2006 Phys. Rev. E 74 066704 [30] Ghosh S and Suryanarayana P 2017 Comput. Phys. Commun. 212 189–204 [31] Ghosh S and Suryanarayana P 2017 Comput. Phys. Commun. 216 109–25 [32] Chelikowsky J R, Troullier N and Saad Y 1994 Phys. Rev. Lett. 72 1240–3 [33] Natan A, Benjamini A, Naveh D, Kronik L, Tiago M L, Beckman S P and Chelikowsky J R 2008 Phys. Rev. B 78 075109 [34] Saad Y, Chelikowsky J R and Shontz S M 2010 J. Soc. Ind. Appl. Math. 52 3–54 [35] Beck T L 2000 Rev. Mod. Phys. 72 1041–80 [36] Fornberg B 1998 SIAM Rev. 40 685–91 [37] Ninno D, Cantele G and Trani F 2018 J. Comput. Chem. 39 1406–12 [38] Mi W et al 2016 Comput. Phys. Commun. 200 87–95 [39] Gholami A, Malhotra D, Sundar H and Biros G 2016 SIAM J. Sci. Comput. 38 C280–306 [40] Perdew J P and Zunger A 1981 Phys. Rev. B 23 5048–79 [41] Perdew J P, Burke K and Ernzerhof M 1996 Phys. Rev. Lett. 77 3865–8 [42] Marques M A L, Oliveira M J T and Burnus T 2012 Comput. Phys. Commun. 183 2227–81 [43] Hamann D R, Schlüter M and Chiang C 1979 Phys. Rev. Lett. 43 1494–7 [44] Kleinman L and Bylander D M 1982 Phys. Rev. Lett. 48 1425–8 [45] Troullier N and Martins J L 1991 Phys. Rev. B 43 1993–2006 [46] Zhou B, Alexander Wang Y and Carter E A 2004 Phys. Rev. B 69 125109 [47] Huang C and Carter E A 2008 Phys. Chem. Chem. Phys. 10 7109–20
+
+11
+
+J. Phys.: Condens. Matter 31 (2019) 455901
+[48] Mi W, Zhang S, Wang Y, Ma Y and Miao M 2016 J. Chem. Phys. 144 134108
+[49] Zhou Y, Chelikowsky J R and Saad Y 2014 J. Comput. Phys. 274 770–82
+[50] Zhou Y and Li R C 2011 Linear Algebra Appl. 435 480–93 [51] Pulay P 1980 Chem. Phys. Lett. 73 393–8 [52] Kerker G P 1981 Phys. Rev. B 23 3082–4 [53] Zhou Y, Wang H, Liu Y, Gao X and Song H 2018 Phys. Rev. E
+97 1–12 [54] Lee M, Leiter K, Eisner C, Crone J and Knap J 2015 Comput.
+Theor. Chem. 1062 24–9 [55] Ewald P 1921 Ann. Phys. 64 253–87
+
+Q Xu et al
+[56] Toukmaji A Y and Board J A 1996 Comput. Phys. Commun. 95 73–92
+[57] Ho G S, Lignères V L and Carter E A 2008 Comput. Phys. Commun. 179 839–54
+[58] Shao X, Xu Q, Wang S, Lv J, Wang Y and Ma Y 2018 Comput. Phys. Commun. 233 78–83
+[59] https://Github.Com/PrincetonUniversity/BLPSLibrary [60] https://Parsec.Oden.Utexas.Edu/Styled-2/ [61] Murnaghan F D 1923 Proc. Natl Acad. Sci. USA 30 244–7 [62] Wang Y, Lv J, Zhu L and Ma Y 2010 Phys. Rev. B 82 094116 [63] Wang Y, Lv J, Zhu L and Ma Y 2012 Comput. Phys. Commun.
+183 2063–70
+
+12
+
