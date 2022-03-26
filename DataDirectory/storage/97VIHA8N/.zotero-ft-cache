@@ -1,0 +1,684 @@
+SELF-CONSISTENT-FIELD CALCULATIONS USING CHEBYSHEV-FILTERED SUBSPACE ITERATION ∗
+YUNKAI ZHOU † , YOUSEF SAAD † , MURILO L. TIAGO ‡ , AND JAMES R. CHELIKOWSKY ‡
+Abstract. The power of Density Functional Theory is often limited by the high computational demand in solving an eigenvalue problem at each Self-Consistent-Field (SCF) iteration. The method presented in this paper replaces the explicit eigenvalue calculations by an approximation of the wanted invariant subspace, obtained with the help of well-selected Chebyshev polynomial ﬁlters. In this approach, only the initial SCF iteration requires solving an eigenvalue problem, in order to provide a good initial subspace. In the remaining SCF iterations, no iterative eigensolvers are involved. Instead, Chebyshev polynomials are used to reﬁne the subspace. The subspace iteration at each step is easily ﬁve to ten times faster than solving a corresponding eigenproblem by the most eﬃcient eigen-algorithms. Moreover, the subspace iteration reaches self-consistency within roughly the same number of steps as an eigensolver-based approach. This results in a signiﬁcantly faster SCF iteration.
+Key words. Density functional theory, Self-consistent-ﬁeld, Chebyshev Polynomial ﬁlter, subspace iteration, eigenproblem, real-space pseudopotential.
+1. Introduction. Since its formulation, density-functional theory (DFT) [18, 21] has been recognized as a major achievement in the development of quantum manybody theories. Its basis lies in describing the ground state of a many-electron system solely in terms of the charge density function. As a result, the task of solving the Schro¨dinger equation for a many-electron system is replaced by the immensely simpler one of solving a non-linear, self-consistent eigenvalue problem: the Kohn-Sham equations. During the last several decades, DFT has been successfully applied to a range of problems in condensed matter physics, material sciences, chemistry and biology [29, 13]. In typical numerical implementations of DFT, the most time-consuming part is spent in computing the self-consistent solution of the Kohn-Sham equations. Because of the high computational demand of matrix diagonalizations when the number of wanted eigenvalues as well as the matrix dimension are large, applying DFT to very large system (e.g., molecules containing thousands of atoms) still remains a highly challenging problem.
+Many researchers have considered avoiding matrix diagonalization or reducing its cost. Typical examples of alternatives that have been explored include the use of the Conjugate Gradient (CG) method which directly minimizes the total energy (or Rayleigh-quotient) [30], the Car-Parrinello molecular dynamics method [7], and the DIIS variants [31, 32, 42, 22] which minimize the residual vectors instead of Rayleighquotients.
+It has long been realized that full diagonalization is too expensive for large problems and so iterative eigensolvers which only compute the wanted eigenpairs have been utilized, with varying degree of success. In the early days of the development of DFT computational codes, the linear Subspace Iteration algorithm was used. For example, the 1988 paper by Martins and Cohen [26], see also [27], mentioned the
+∗Work supported by DOE under grants DE-FG02-03ER25585, DE-FG02-03ER15491, by NSF grant ITR-0428774, and by the Minnesota Supercomputing Institute.
+†Department of Computer Science & Engineering, University of Minnesota, Minneapolis, MN 55455, USA. (zhou@msi.umn.edu, saad@cs.umn.edu).
+‡Institute for Computational Engineering and Sciences, University Station, University of Texas at Austin, Austin, Texas 78712, USA. (mtiago@ices.utexas.edu, jrc@ices.utexas.edu).
+1
+
+2
+use of a code called Ritzit, initially published in Algol [33], which constituted an ideally suited technique for diagonalization in planewave codes at the time. In [27], the Chebyshev acceleration in Ritzit was replaced by a Jacobi preconditioner. In contrast with [27], the classical Ritzit code (with Chebyshev acceleration) was found to be an excellent partial diagonalization tool in the solution of self-consistent Schr¨odinger equations which arise in the simulation of electrons in quantum wires [20]. The main diﬀerence with our approach is that we do not use subspace iteration for computing eigenvalues and eigenvectors. Instead, our approach can be viewed as a nonlinear subspace iteration in that after each subspace ﬁltering the Hamiltonian is updated.
+More recent examples of the use of iterative diagonalization, include the use of multigrid approaches [5, 6, 11, 14, 17, 24] and preconditioned Davidson method [35, 39]. We note that the complexity of the minimization-based methods is similar to that of the iterative eigensolver-based methods. The computational cost of an eigensolver approach is usually dominated by the cost of the matrix-vector products and that of maintaining orthogonality of the basis vectors. In [4] partial reorthogonalized Lanczos without restart is used in order to reduce the orthogonalization cost, at the expense of a higher memory requirement.
+In this paper we present a method which avoids solving large eigenvalue problems explicitly. The method utilizes Chebyshev polynomial ﬁltered subspace iteration. In this approach only the initial SCF iteration requires solving an eigenvalue problem, by means of any available eﬃcient eigensolver. This step is used to provide a good initial subspace. Because the subspace dimension is slightly larger than the number of wanted eigenvalues (denoted by kwant), the method does not require as much memory as standard restarted eigensolvers such as ARPACK (see [38, 25]) and TRLan (Thick - Restart Lanczos) [43, 44]. Moreover, the cost of orthogonalization is much reduced. This is because the new approach only requires a subspace of dimension around kwant, and the orthogonalization is done only once per SCF iteration. In contrast, standard eigensolvers using restart usually require a subspace of dimension 2kwant in order to compute kwant eigenpairs eﬃciently, the orthogonalization cost approximately amounts to orthogonalizing 2kwantkrestart number of vectors, where krestart is the number of restarts needed in order to converge the eigenvectors.
+Chebyshev polynomial ﬁltering has been utilized in electronic structure calculations (see e.g. [36, 40, 16, 2, 19]), where the focus is on approximating the Fermi-Dirac operator, i.e., Chebyshev polynomials only over interval [−1, 1] is considered. The approach we take here is diﬀerent from the existing Chebyshev methods in electronic structure calculations. The fundamental diﬀerence is that we exploit the exponential growth property of Chebyshev polynomial outside the [−1, 1] interval, hence the polynomial degree required is much lower. In our approach, we never map the full spectrum of the Hamiltonian into [−1, 1]; instead, we adaptively decide on the unwanted part of the spectrum and map only this part into [−1, 1] for damping it. Our Chebyshev ﬁltering is based on [45]. Note that the focus in [45] is on eigenvalue computations while here we only use Chebyshev polynomial to ﬁlter subspaces. More details are presented in Section 4.
+The current approach has been implemented in PARSEC, our real-space DFT code, and it has been observed to be signiﬁcantly faster than iterative eigensolverbased approaches. As an example, it took less than 2 hours for the sequential implementation of the new method to reach self-consistency for the Silicon cluster Si525H276 on a single SGI 1.3 GHz Madison processor. In contrast, a parallel calculation done with the preceding version of PARSEC around the year 1997, on the CRAY T3E,
+
+3
+
+took a total of 20 hours [39] using 48 processors. Back in 1997 the problem could not be solved in fewer than 48 processors due to memory requirements. The remarkable gains do not come only from a reduced cost of diagonalization but also from exploiting symmetry [41] and from gains made in other parts of the code. Section 5 presents comparisons with methods based on two of the most eﬃcient eigensolvers currently available (ARPACK and TRLan). All three methods utilize the same symmetry operations, therefore the reported speedup is from the Chebyshev ﬁltering approach.
+2. Basics of Self-consistent-ﬁeld calculation. In this section we brieﬂy review the self-consistent-ﬁeld calculation. Here we focus discussion on SCF in DFT calculations, but we note that SCF is also used in Hartree-Fock and other approximations. As mentioned in the introduction, the most time-consuming part of an SCF calculation is in matrix diagonalization, which consists of computing the selfconsistent solutions of the following Kohn-Sham equation:
+
+−2 2M
+
+∇2
+
++
+
+Vtotal(ρ(r),
+
+r)
+
+Ψi(r) = EiΨi(r),
+
+(2.1)
+
+where Ψi(r) is a wave function, Ei is a Kohn-Sham eigenvalue, is the Planck constant, M is the electron mass. The total potential
+
+Vtotal(ρ(r), r) = Vion(r) + VH (r) + VXC (r)
+
+(2.2)
+
+includes the ionic potential Vion, the Hartree potential VH and the exchange-correlation potential VXC . In DFT the total potential depends only on ρ(r)—the charge density. The charge density is given by
+
+nocc
+ρ(r) = 2 |Ψi(r)|2,
+i=1
+
+(2.3)
+
+where nocc is the number of occupied states (half the number of valence electrons in the system) and the factor of two comes from spin multiplicity. Equation (2.3) can be easily extended to situations where the highest occupied states have fractional occupancy or when there is an imbalance in the number of electrons for each spin component.
+Because the potential (2.2) depends on the charge density (2.3), which in turn depends on eigenfunctions of the the Hamiltonian in Equation (2.1), the eigenvalue problem (2.1) is in fact nonlinear. Self-consistent iterations for solving this problem consist of starting with an initial guess of the charge density ρ0(r), then obtaining a guess for Vtotal and solving (2.1) for Ψi(r)’s to update ρ(r) and Vtotal. Then (2.1) is solved again for the new Ψi(r)’s and the process is carried on until the diﬀerence between two consecutive Vtotal’s is below a certain tolerance (equivalently, the wave functions are close to stationary). Algorithm 2.1 contains a pseudo code for this SCF loop.
+We note that, since the charge density does not depend on eigenstates beyond nocc, the number of eigenvectors needed in Step 2 of Algorithm 2.1 is limited. Nevertheless, the eigenvalue problem is still very challenging in complex systems (i.e., systems with a very large number of electrons), when the Hamiltonian has large dimension and nocc is also large.
+Our computational code uses a real-space implementation of the above SCF method [10, 35, 39]. In this implementation, wave functions are expressed directly as
+
+4 Algorithm 2.1. Self-Consistent Iteration:
+
+1. Initial guess for ρ(r), get Vtotal(ρ(r), r)
+
+2. Solve
+
+−2 2M
+
+∇2
+
++
+
+Vtotal(ρ(r),
+
+r)
+
+Ψi(r) = EiΨi(r)
+
+for Ψi(r), i = 1, 2, ...nocc
+
+3. Compute new charge density ρ(r) = 2
+
+nocc i=1
+
+|Ψi(r)|2
+
+4. Solve for new Hartree potential VH from
+
+−2 2M
+
+∇2
+
+VH
+
+=
+
+2πρ(r)
+
+5. Update VXC and Vion; get new V˜total(ρ(r), r) = Vion(r) + VH (r) + VXC (r)
+
+(often followed by a potential-mixing step)
+
+6. If V˜total − Vtotal < tol, stop; Else, Vtotal ← V˜total, goto 2.
+
+functions of position, and they are required to vanish outside a speciﬁed boundary that encloses the physical system (alternatively, periodic boundary conditions can be imposed [1]). The region inside this boundary is discretized by using a regular grid with adjustable spacing between neighbouring points. We use pseudopotentials to describe the interaction between valence electrons and ionic cores (core electrons + nuclei) and solve the SCF problem for valence electrons only. In addition, we make use of symmetry operations in the arrangement of atoms and reduce the sampled region to a smaller one: the “irreducible wedge”. Appropriate boundary conditions and the existing symmetry operations are used to expand wave functions from the irreducible wedge to the full volume. For highly symmetric systems, such as the atom clusters analyzed in Section 5, reducing the volume of interest to an irreducible wedge can easily lead to a 10-fold reduction in the computational load [41] than without exploiting symmetry.
+3. Self-consistent-ﬁeld calculation without explicit eigenvectors. While the charge density ρ(r) depends explicitly on the wave functions Ψi(r), see (2.3), it has been observed that any basis for the subspace spanned by these eigenvectors can be used. After discretization each Ψi(r) becomes an eigenvector (denoted as ψi) of the discretized Hamiltonian. The charge density is then simply the diagonal of the density matrix
+
+P = ΦΦT ,
+
+(3.1)
+
+in which Φ is the matrix with column vectors the {ψi}’s. Entry (j, j) of this projector P is equal to the charge density at the mesh-point rj. Notice that for any orthonormal matrix Q of dimension s, P = (ΦQ)(ΦQ)T . Explicit eigenvectors are therefore not needed to calculate the charge density in Algorithm 2.1. Any orthonormal basis of the eigensubspace corresponding to occupied states will give the correct charge density.
+Techniques based on this observation have appeared in, e.g., [40, 37, 19, 4, 3]. In particular, the recent article [4] stresses the importance of de-emphasizing eigenvectors in favor of the underlying eigenspace. This observation has also been exploited in the linear scaling approaches to DFT, see e.g. [15] for a survey.
+In our approach we progressively reﬁne a subspace by rather low degree Chebyshev polynomials. After self-consistency is reached, this subspace includes the eigensubspace corresponding to occupied states. Explicit eigenvectors can be easily obtained by a Rayleigh-Ritz reﬁnement step [28] (called a subspace rotation in materials science terminology).
+
+5
+4. SCF subspace iteration with Chebyshev ﬁltering. The main idea of the proposed approach is to start with a good initial eigen-basis V corresponding to occupied states of the initial Hamiltonian H0, and then to adaptively improve the subspace by polynomial ﬁltering. That is, at a given self-consistent step, a degree-m polynomial ﬁlter pm(t) is constructed for the current Hamiltonian H. Note that the polynomial will be diﬀerent at each SCF step since H will change. The goal of the ﬁlter is to make the subspace spanned by pm(H)V approximate the eigensubspace corresponding to the occupied states of H. There is no need to make pm(H)V approximate the wanted eigensubspace of H to high accuracy at the intermediate steps. Instead, the ﬁltering is designed so that each new subspace obtained at the end of the self-consistent loop will progressively approximates the wanted eigensubspace of the ﬁnal Hamiltonian when self-consistency is reached. This can be eﬃciently achieved by exploiting the Chebyshev polynomials, speciﬁcally the fast growth property outside the [−1, 1] interval. All that is required to obtain a good ﬁlter at a given SCF step, is to provide a lower bound and an upper bound of an interval of the spectrum of the current Hamiltonian H in which we want pm(t) to be small. Moreover, the lower bound can be readily obtained from the Ritz values computed from the previous step, and the upper bound can be inexpensively obtained by a very small number of (say, 4 or 5) Lanczos steps [23]. Hence the main cost of the ﬁltering at the i-th step is in computing pm(H)V . This computation is accomplished by exploiting the convenient three-term recurrence property of Chebyshev polynomials.
+4.1. The main algorithm. The pseudo code of the Chebyshev polynomial ﬁltered subspace iteration is presented in Algorithm 4.1. The purpose of Algorithm 4.1 is to replace the eigenvalue problem at Step 2 in Algorithm 2.1 by a single Chebyshev ﬁltering step. At the ﬁrst step of the SCF loop, Step 2 in Algorithm 2.1 is carried out by an iterative eigensolver like ARPACK or TRLan to provide an initial orthonormal basis Φ = [ψ1, ..., ψs]. In order not to miss occupied eigenstates, a standard practice is to choose s > nocc, here we follow this practice by ﬁxing an integer nstate which is slightly larger than nocc, then set s = nstate + nadd (where nadd ≤ 10).
+Algorithm 4.1. Chebyshev polynomial Filtered Subspace Iteration:
+1. Get the lower bound blow from previous Ritz values (use the largest one).
+2. Compute the upper bound bup of the spectrum of the current discretized
+Hamiltonian H (call Algorithm 4.3).
+3. Perform Chebyshev ﬁltering to the previous basis Φ: (call Algorithm 4.2)
+Φ = Chebyshev filter(Φ, m, blow, bup).
+4. Perform ortho-normalization to Φ to make it ortho-normal. 5. Perform the Rayleigh-Ritz step: Compute Hˆ = ΦT HΦ;
+Compute the eigendecomposition of Hˆ : Hˆ Q = QD; (where Q contains eigenvectors of the Hˆ , D contains Ritz values of H)
+Reﬁne the basis as: Φ = ΦQ.
+For the ortho-normalization step in Algorithm 4.1 (step 4) we use the DGKS method [12] which uses iterated classical Gram-Schmidt.
+
+6
+
+Note that Algorithm 4.1 does not compute eigen-basis of the current Hamiltonian H, but it computes eigen-decomposition of the projected Hˆ of size s. Even though s is normally much smaller than the size of H, the Rayleigh-Ritz reﬁnement (step 5) may still be expensive when s becomes very large (e.g., large complex systems without physical symmetry), since the eigen-decomposition step is of complexity O(s3).
+A important feature of the Chebyshev ﬁltered subspace iteration is that the whole step 5 in Algorithm 4.1 can be waived for huge systems where s is very large. The theoretic foundation is that ΦQ spans the same subspace as Φ. In this case we can construct another suitable ﬁlter so that the components of Φ corresponding to unoccupied states will be ﬁltered out. Rayleigh-Ritz reﬁnement is performed when s is moderate because it is not expensive, and this reﬁnement makes columns in ΦQ approximate the eigenvectors of H better than Φ does. That is, the nocc columns in ΦQ that correspond to the nocc smallest Ritz values can be readily returned to the main program for the calculation of ρ(r) to continue the SCF loop. Results in the literature (e.g. [22, 11]) for diﬀerent approaches also show that subspace rotation improves stability and convergence rate. In our approach, the Rayleigh-Ritz step is also helpful because it provides a convenient lower bound for the next Chebyshev ﬁltering.
+If the Rayleigh-Ritz step is not performed, the wanted lower bound can still be estimated from the largest Rayleigh-quotient among ψjT Hψj, where ψj (j = 1, ...s) is the column vector of Φ. Thanks to the Courant-Fisher min-max theorem [28, p.206] this will still be a good enough approximation for the ﬁltering to work well.
+The next section will show useful properties of Chebyshev polynomials and discuss how to adaptively change these ﬁlters.
+4.2. Controlling the Chebyshev polynomial ﬁlters. The well-known Chebyshev polynomials of the ﬁrst kind are deﬁned by ([28, p.371] [34, p.142])
+
+Ck(t) =
+
+cos(k cos−1(t)), −1 ≤ t ≤ 1,
+
+cosh(k cosh−1(t)),
+
+|t| > 1.
+
+Note that C0(t) = 1, C1(t) = t. The following important 3-term recurrence is easy to derive from properties of cos(t) and cosh(t),
+
+Ck+1(t) = 2t Ck(t) − Ck−1(t), t ∈ R.
+
+(4.1)
+
+The rapid growth property of the Chebyshev polynomial outside [−1, 1] is discussed in [28]. Figure 4.1 illustrates this property. Here we only plot the [−2, 1] interval, but note that the farther away from -1 or 1, the larger the magnitude of the real part of the Chebyshev polynomials.
+Assume that the full spectrum of H (denoted as σ(H)) is contained in [a0, b]. As is well-known [33, 28, 34, 45], in order to approximate the eigensubspace associated with the lower end of the spectrum, say [a0, a] with a0 < a < b, essentially one only needs to map [a, b] into [−1, 1]. This can be easily realized by a linear mapping deﬁned as
+
+l(t)
+
+:=
+
+t
+
+− e
+
+c;
+
+c
+
+=
+
+a
+
++ 2
+
+b,
+
+e
+
+=
+
+b
+
+− 2
+
+a
+
+where c denotes the center and e the half-width. The Chebyshev iteration, which utilizes the three-term recurrence (4.1) with the
+goal to dampen values on a given [a, b] is presented in Algorithm 4.2. Here the formula
+
+7
+
+m=6
+
+x 104 m=9
+
+0
+
+x 106 m=12
+
+3
+
+1000
+
+−2
+
+2
+
+500
+
+−4
+
+1
+
+−6
+
+0
+
+0
+
+−2 −1
+
+0
+
+1 −2 −1
+
+0
+
+1 −2 −1
+
+0
+
+1
+
+x 107 0
+
+x 109
+
+x 1011 0
+
+8
+
+−1
+
+−5
+
+6
+
+−2
+
+−10
+
+4
+
+−3
+
+−15
+
+2
+
+−4
+
+0
+
+−5
+
+−2 −1
+
+0
+
+1 −2 −1
+
+0
+
+1 −2 −1
+
+0
+
+1
+
+m=15
+
+m=18
+
+m=21
+
+Fig. 4.1. Rapid increase outside [−1, 1] of the m-th degree Chebyshev polynomial.
+
+derived in [34, p. 223] for the complex Chebyshev iteration is adapted to the real case. The iteration of the algorithm is equivalent to computing
+
+Y = pm(H)X
+
+where
+
+pm(t) = Cm
+
+t−c e
+
+.
+
+(4.2)
+
+Although Algorithm 4.2 only explicitly ﬁlters the [a, b] interval, we note that by the property of the Chebyshev polynomial, the ﬁlter values on the interval to the left of [a, b] will be magniﬁed—which is what is needed to approximate the eigensubspace associated with the lower end of σ(H).
+As seen from Algorithm 4.2, a desired ﬁlter can be easily controlled by providing two endpoints of the higher end of σ(H). The higher endpoint can be estimated by a few steps of standard Lanczos (which is presented in Algorithm 4.3 below). A lower bound of the full σ(H) is not needed. Instead, the wanted lower bound is any value which is larger than the Fermi-level but smaller than the higher endpoint. As presented in Algorithm 4.1, this lower bound is readily available as the largest Rayleigh-quotient of the previous iteration. Hence there is negligible extra work associated with computing bounds for the Chebyshev ﬁltering, the major cost being in the three-term recurrences in Algorithm 4.2 which involve matrix-vector products. The polynomial degree m is left as a free parameter. Our experiences indicates that an m within 8 to 20 is good enough to achieve overall fast convergence in the SCF loop.
+
+8
+
+Algorithm 4.2. [Y ] = Chebyshev filter(X, m, a, b).
+
+Purpose: Filter vectors in X by an m degree Chebyshev polynomial that dampens on the interval [a, b], and output the ﬁltered vectors in Y .
+
+1. e = (b − a)/2; c = (b + a)/2;
+
+2. σ = e/(a − c);
+
+3. σ1 = σ;
+
+4. Y = (HX − cX)σ1/e;
+
+5. For i = 2 : m
+
+6.
+
+σ2 = 1/(2/σ1 − σ);
+
+7.
+
+Ynew = 2(HY − cY )σ2/e − σσ2X;
+
+8.
+
+X =Y;
+
+9.
+
+Y = Ynew;
+
+10.
+
+σ = σ2;
+
+11. End For
+
+4.3. Estimating an upper bound of the spectrum. Now we present an inexpensive way to estimate an upper bound of σ(H). As pointed out in [45], the upper bound has to bound the full spectrum of H. This is because the Chebyshev polynomial also grows fast on the right of [−1, 1]. So if [a, b] with b < σmax(H) is mapped into [−1, 1], then the [b, σmax(H)] portion of the spectrum will also be magniﬁed, which will cause the whole procedure to fail. We need b to be larger than σmax(H) but it cannot be too large as this will aﬀect convergence. There are several ways to estimate this type of upper bound, for example, by using the one-norm of H, or by applying Gerschgorin’s Circle Theorem if possible. Bounds obtained this way can, however, overestimate σmax(H).
+We found that a few steps of the standard Lanczos procedure are suﬃcient to provide an eﬀective upper bound. For example, a k-step Lanczos leads to a Lanczos decomposition
+HVk = VkTk + fkeTk
+where Vk contains the k Lanczos basis, Tk is a size-k tridiagonal matrix, fk is a residual vector and ek is a length k unit vector with only the ﬁrst element nonzero.
+Notice that Lanczos iteration often quickly approximate the outermost eigenvalues, and that
+HVk 2 = VkTk + fkeTk 2 ≤ Tk 2 + fk 2.
+We can start with a random unit vector, carry out k steps of the Lanczos procedure, and use Tk 2 + fk 2 as an upper bound for σ(H). This is presented in Algorithm 4.3. For simplicity we skip the safeguards for β = 0, as this does not happen for small values of k in general.
+In practice, we found that k = 4 or k = 5 is suﬃcient to yield a proper upper bound of σ(H). In fact we found that it is often counter-productive to take the bounds obtained from larger values of k (say, k > 10).
+5. Numerical Results. The numerical experiments are performed using our own DFT package called PARSEC which is written in Fortran 95. PARSEC is based
+
+9
+
+Algorithm 4.3. Estimating an upper bound of σ(H) by k-step Lanczos:
+
+1. Generate a random vector v, set v ← v/ v 2; 2. Compute f = Hv; α = f T v; f ← f − αv; T (1, 1) = α;
+
+3. Do j = 2 to min(k, 10)
+
+4.
+
+β = f 2;
+
+5.
+
+v0 ← v; v ← f /β;
+
+6.
+
+f = Hv; f ← f − βv0;
+
+7.
+
+α = f T v; f ← f − αv;
+
+8.
+
+T (j, j − 1) = β; T (j − 1, j) = β; T (j, j) = α;
+
+9. End Do
+
+10. Return T 2 + f 2 as the upper bound.
+
+Y h
+
+X Z
+
+Fig. 5.1. 37-stencil of a 12-th order centered ﬁnite diﬀerence.
+on the real-space pseudopotential method [9, 10], where higher order ﬁnite diﬀerences are used for the discretization of the Kohn-Sham equation on a uniform grid, as discussed in Section 2. We use a 12th order centered ﬁnite diﬀerence scheme. At each point (x, y, z) the local stencil involves 37-points. Figure 5.1 illustrates this stencil.
+We compare three diﬀerent methods in PARSEC, two of which are based on solving eigenvalue problems (2.1) at each SCF iteration. The solvers used are ARPACK [25] and TRLan [43, 44] which represent two of the most eﬃcient publicly available eigenvalue packages. The third method is our Chebyshev ﬁltered subspace iteration, with the initial SCF step solved using TRLan. Note that each method is applied in the same package to the same problems, that is, each method can exploit the same physical symmetry operations if they exist, hence the performance diﬀerence is due solely to the three diﬀerent methods.
+Note that we only use the solver for standard symmetric eigenproblems in ARPACK. We mention that ARPACK is currently one of the most eﬃcient general purpose eigensolvers, especially for nonsymmetric eigenproblems. It is by far the best known package for general eigenvalue calculations.
+TRLan is a Fortran 90 package for standard symmetric eigenproblems. It uses reduced full orthogonalization and several thick restart strategies [43, 44], hence it can be more eﬃcient than the symmetric eigensolver in ARPACK. We call TRLan
+
+10 for the ﬁrst step SCF iteration for our Chebyshev ﬁltered subspace iteration method. We denote the new method as ChebSI.
+Fig. 5.2. Atomic structure of the quantum dot Si525H276. The red and white balls represent Si and H atoms respectively. The quantum dot contains 25 shells of Si atoms and is 27.2 ˚A in diameter [8].
+The test problems are a Silicon clusters Si525H276, a Silicon Germanium cluster Si65Ge65H98, a Gallium Arsenide cluster Ga41As41H72, and two iron clusters F e27 and F e51. These problems constitute four typical materials in electronic structure calculations. We note that metallic systems are diﬃcult for SCF calculation because of the charge sloshing eﬀect [22].
+Figure 5.2 shows the atomic structure of Si525H276. Table 5.1 contains some numerical parameters related to these test problems. The number of symmetry operations used to construct the irreducible wedge is denoted nsymm, and “reduced H size” is the number of grid points in the wedge (equal to the dimension of the discretized reduced Hamiltonian). At each SCF iteration, ARPACK and TRLan compute approximately nstate eigenpairs from nsymm reduced Hamiltonians at Step 2 of Algorithm 2.1, while ChebSI replaces Step 2 of Algorithm 2.1 by Algorithm 4.1 and returns the same number of wave vectors as ARPACK or TRLan does from Step 2 to Step 3 in Algorithm 2.1. The number of states of F e27 and F e51 is doubled by 2
+
+11
+
+because of spin degrees of freedom, i.e., for each spin channel at least 520 eigenpairs are computed.
+In each table, the total eV/atom counts the total energy per atom, given in electron-volts. This is a control parameter used to assess the accuracy of the ﬁnal result. The # SCF steps is the iteration steps used to reach self-consistency; the # MV products counts the number of matrix-vector products. Clearly this is not the only factor that determines CPU time, the reduced orthogonalization can also have a crucial eﬀect in CPU time.
+
+model S i525 H276 Si65Ge65H98 Ga41As41H72
+F e27 F e51
+
+size of H 292584 185368
+
+nstate 1194 313
+
+nsymm 4 2
+
+reduced H size 73146 92684
+
+268096 210
+
+1
+
+268096
+
+697504 520 × 2 8
+
+87188
+
+874976 520 × 2 8
+
+109372
+
+Table 5.1 Relevant data of the test problems
+
+method ChebSI ARPACK TRLan
+
+# MV products # SCF steps total eV /atom
+
+124761 142047
+
+11
+
+-77.316873
+
+10
+
+-77.316873
+
+145909
+
+10
+
+-77.316873
+
+Table 5.2 Si525H276, Polynomial degree used is 8.
+
+CPU(secs) 5946.69 62026.37 26852.84
+
+method ChebSI ARPACK TRLan
+
+# MV products # SCF steps total eV /atom
+
+42919 51752
+
+13
+
+-140.076118
+
+9
+
+-140.076118
+
+53892
+
+9
+
+-140.076118
+
+Table 5.3 Si65Ge65H98, Polynomial degree used is 8.
+
+CPU (secs) 2344.06 12770.81 6056.11
+
+All the numerical runs are performed on the SGI Altix 3700 cluster of the Minnesota supercomputing Institute. The CPU type is a 1.3 GHz Intel Madison processor. The Operating System is a 64bit Linux with kernel version 2.4.21. The compiler used is the Intel Fortran compiler ifort, with optimization ﬂag -O3 for all codes.
+As seen from Tables 5.2—5.6, the ChebSI method is usually ﬁve to ten times faster than the eigenvector-based methods represented by two of the best available iterative sparse eigensolvers ARPACK and TRLan. Although eigenspaces are not explicitly and accurately computed at each SCF step, ChebSI only requires a few more SCF steps to reach self-consistency. However, each SCF step using ChebSI is much cheaper than an SCF step based on eigenvectors. About ten other tests on smaller systems (Hamiltonian sizes around 100K–160K) not reported here showed similar results. We also mention that there are cases where the Chebyshev ﬁltering may become less eﬀective. We observed these in Gallium Arsenide clusters, as seen from Table 5.4.
+
+12
+
+method # MV products # SCF steps total eV /atom CPU (secs)
+
+ChebSI
+
+138672
+
+37
+
+-89.634940
+
+12923.27
+
+ARPACK
+
+58506
+
+10
+
+-89.634940
+
+44305.97
+
+TRLan
+
+58794
+
+10
+
+-89.634940
+
+16733.68
+
+Table 5.4 Ga41As41H72. Polynomial degree used is 16. The spectrum of each reduced Hamiltonian spans a large interval, making the Chebyshev ﬁltering not as eﬀective as other examples.
+
+method ChebSI ARPACK TRLan
+
+# MV products # SCF steps total eV /atom
+
+363728 750883
+
+30
+
+-776.575290
+
+21
+
+-776.586420
+
+807652
+
+21
+
+-776.586422
+
+Table 5.5 F e27, Polynomial degree used is 9.
+
+CPU (secs) 15408.16 118693.64 83726.20
+
+The cases of reduced eﬃciency correspond to situations where the full spectrum of a given Hamiltonian spreads over a very large interval. In such situations, high degree Chebyshev polynomials must be used. However, we see that even in these unfavorable cases, ChebSI is still reasonably faster than eigenvector-based methods.
+Finally, we should mention that ChebSI is as robust as eigenvector-based methods. In fact, it has been used successfully for unreported periodic systems, with performance gains similar to the ones obtained in clusters. On the other hand, an eigenvector-based method using the preconditioned Davidson method failed to converge for the same periodic systems.
+6. Conclusions. An algorithm based on Chebyshev ﬁltered subspace iteration has been developed for performing SCF calculations in Density Function Theory, which has the advantage of not explicitly relying on eigenvectors, except at the ﬁrst SCF step. This leads to signiﬁcant gains in computational time relative to traditional eigenvector-based methods which are inevitably constrained by the high computational cost of diagonalization at each SCF step. Numerical results show that the new method is ﬁve to ten times faster than eigenvector-based methods using two of the best iterative eigensolvers. Even though implemented sequentially at present, the ChebSI method can solve realistic systems of moderate size within a reasonable time frame. Parallel implementation of the ChebSI method will be reported in a forthcoming paper, where we study larger and more complex material systems.
+Acknowledgements: We thank Dr. Manuel Alemany for his help in using PARSEC and Dr. Shen Li for providing us with the physical data of the iron clusters. Calculations were performed at the Minnesota Supercomputing Institute.
+REFERENCES
+[1] M. M. G. Alemany, M. Jain, L. Kronik, and J. R. Chelikowsky, Real-space pseudopotential method for computing the electronic properties of periodic systems, Phys. Rev. B, 69 (2004), pp. 075101–1–6.
+[2] R. Baer and M. Head-Gordon, Chebyshev expansion methods for electronic structure calculations on large molecular systems, J. Chem. Phys., 107 (1997), pp. 10003–10013.
+[3] S. Baroni and P. Giannozzi, Towards very large scale electronic structure calculations, Europhys. Lett., 17 (1992), pp. 547–552.
+
+13
+
+method ChebSI ARPACK TRLan
+
+# MV products # SCF steps total eV /atom
+
+474773
+
+37
+
+-777.019294
+
+1272441
+
+34
+
+-777.038081
+
+1241744
+
+32
+
+-777.038086
+
+Table 5.6 F e51, Polynomial degree used is 9.
+
+CPU (secs) 37701.54 235662.96 184580.33
+
+[4] C. Bekas, Y. Saad, M. L. Tiago, and J. R. Chelikowsky, Computing charge densities with partially reorthogonalized lanczos, tech. rep., CS Dept., Univ. of Minnesota, 2005.
+[5] A. Brandt, Multiscale scientiﬁc computation: review 2001, in Multiscale and multiresolution methods, T. Barth, T. Chan, and R. Haimes, eds., vol. 20 of Lect. Notes Comput. Sci. Eng., Springer-Verlag, 2002, pp. 3–95.
+[6] E. L. Briggs, D. J. Sullivan, and J. Bernholc, Large-scale electronic-structure calculations with multigrid acceleration, Phys. Rev. B, 52 (1995), pp. R5471–5474.
+[7] R. Car and M. Parrinello, Uniﬁed approach for molecular dynamics and density-functional theory, Phys. Rev. Lett., 55 (1985), pp. 2471–2474.
+[8] J. Chelikowsky, The pseudopotential-density functional method applied to nanostructures, J. Phys. D: Appl. Phys., 33 (2000), pp. R33–R50.
+[9] J. R. Chelikowsky, N. Troullier, and Y. Saad, Finite-diﬀerence-pseudopotential method: Electronic structure calculations without a basis, Phys. Rev. Lett., 72 (1994), pp. 1240– 1243.
+[10] J. R. Chelikowsky, N. Troullier, K. Wu, and Y. Saad, Higher-order ﬁnite-diﬀerence pseudopotential method: An application to diatomic molecules, Phys. Rev. B, 50 (1994), pp. 11355–11364.
+[11] S. Costiner and S. Ta´asan, Adaptive multigrid techniques for large-scale eigenvalue problems: Solutions of the schro¨dinger problem in two and three dimensions, Phys. Rev. E, 51 (1995), pp. 3704–3717.
+[12] J. Daniel, W. B. Gragg, L. Kaufman, and G. W. Stewart, Reorthogonalization and stable algorithms for updating the Gram–Schmidt QR factorization, Math. Comp., 30 (1976), pp. 772–795.
+[13] R. M. Dreizler and E. K. U. Gross, Density functional theory: an approach to the quantum many-body problem, Springer-Verlag, Berlin, 1990.
+[14] J.-L. Fattebert and J. Bernholc, Towards grid-based O(N) density-functional theory methods: Optimized nonorthogonal orbitals and multigrid acceleration, Phys. Rev. B, 63 (2000), pp. 1713–1722.
+[15] S. Goedecker, Linear scaling electronic structure methods, Rev. Mod. Phys., 71 (1999), pp. 1085–1123.
+[16] S. Goedecker and L. Colombo, Eﬃcient linear scaling algorithm for tight-binding molecular dynamics, Phys. Rev. Lett., 73 (1994), pp. 122–125.
+[17] M. Heiskanen, T. Torsti, M. J. Puska, and R. M. Nieminen, Multigrid method for electronic structure calculations, Phys. Rev. B, 63 (2001), p. 245106.
+[18] P. Hohenberg and W. Kohn, Inhomogeneous electron gas, Phys. Rev., 136 (1964), pp. B864– B871.
+[19] L. O. Jay, H. Kim, Y. Saad, and J. R. Chelikowsky, Electronic structure calculations using plane wave codes without diagonlization, Comput. Phys. Comm., 118 (1999), pp. 21–30.
+[20] T. Kerkhoven, A. Galick, U. Ravaioli, J. Arends, and Y. Saad, Eﬃcient numerical simulation of electron states in quantum wires, J. Applied Physics, 68 (1990), pp. 3461–3469.
+[21] W. Kohn and L. J. Sham, Self-consistent equations including exchange and correlation eﬀects, Phys. Rev., 140 (1965), pp. A1133–A1138.
+[22] G. Kresse and J. Furthmu¨ller, Eﬃcient iterative schemes for ab initio total-energy calculations using a plane-wave basis set, Phys. Rev. B, 54 (1996), pp. 11169–11186.
+[23] C. Lanczos, An iteration method for the solution of the eigenvalue problem of linear diﬀerential and integral operators, J. Research Nat. Bur. Standards, 45 (1950), pp. 255–282.
+[24] I. Lee, Y. Kim, and R. M. Martin, One-way multigrid method in electronic-structure calculations, Phys. Rev. B, 61 (2000), pp. 4397–4400.
+[25] R. B. Lehoucq, D. C. Sorensen, and C. Yang, ARPACK USERS GUIDE: Solution of Large Scale Eigenvalue Problems by Implicitly Restarted Arnoldi Methods, SIAM, Philadelphia, 1998. Available at http//www.caam.rice.edu/software/ARPACK/.
+[26] J. L. Martins and M. Cohen, Diagonalization of large matrices in pseudopotential band-
+
+14
+
+structure calculations: Dual-space formalism, Phys. Rev. B, 37 (1988), pp. 6134–6138.
+
+[27] J. L. Martins, N. Troullier, and S.-H. Wei, Pseudopotential plane-wave calculations for
+
+ZnS, Phys. Rev. B, 43 (1991), pp. 2213–2217.
+
+[28] B. N. Parlett, The Symmetric Eigenvalue Problem, no. 20 in Classics in Applied Mathematics,
+
+SIAM, Philadelphia, PA, 1998.
+
+[29] R. Parr and W. Yang, Density Functional Theory of Atoms and Molecules, Oxford Univ.
+
+Press, 1989.
+
+[30] M. C. Payne, M. P. Teter, D. C. Allan, T. A. Arias, and J. D. Joannopoulos, Iterative
+
+minimization techniques for ab initio total-energy calculations: molecular dynamics and
+
+conjugate gradients, Rev. Mod. Phys., 64 (1992), pp. 1045–1097.
+
+[31] P. Pulay, Convergence acceleration of iterative sequences: The case of SCF iteration, Chem.
+
+Phys. Lett., 73 (1980), pp. 393–398.
+
+[32]
+
+, Improved SCF convergence acceleration, J. Comput. Chem., 3 (1982), pp. 556–560.
+
+[33] H. Rutishauser, Simultaneous iteration method for symmetric matrices, in Handbook for
+
+Automatic Computation (Linear Algebra), J. H. Wilkinson and C. Reinsh, eds., vol. II,
+
+Springer-Verlag, 1971, pp. 284–302.
+
+[34] Y. Saad, Numerical Methods for Large Eigenvalue Problems, John Wiley, New York, 1992.
+
+Available at http://www.cs.umn.edu/~saad/books.html. [35] Y. Saad, A. Stathopoulos, J. Chelikowsky, K. Wu, , and S. O¨ g˘u¨t, Solution of large
+
+eigenvalue problems in electronic structure calculations, BIT, 36 (1996), pp. 563–578.
+
+[36] O. F. Sankey, D. A. Drabold, and A. Gibson, Projected random vectors and the recursion
+
+method in the electronic-structure problem, Phys. Rev. B, 50 (1994), pp. 1376–1381.
+
+[37] A. P. Seitsonen, M. J. Puska, and R. M. Nieminen, Real-space electronic-structure calcula-
+
+tions: Combination of the ﬁnite-diﬀerence and conjugate-gradient methods, Phys. Rev. B,
+
+51 (1995), pp. 14057–14061.
+
+[38] D. C. Sorensen, Implicit application of polynomial ﬁlters in a k-step Arnoldi method, SIAM
+
+J. Matrix Anal. Appl., 13 (1992), pp. 357–385. [39] A. Stathopoulos, S. O¨ g˘u¨t, Y. Saad, J. Chelikowsky, and H. Kim, Parallel methods and
+
+tools for predicting materials properties, IEEE Computing in Science and Engineering, 2
+
+(2000), pp. 9–18.
+
+[40] U. Stephan, D. A. Drabold, and R. M. Martin, Improved accuracy and acceleration of
+
+variational order-n electronic structure computations by projection techniques, Phys. Rev.
+
+B, 58 (1998), pp. 13472–13481.
+
+[41] M. L. Tiago and J. R. Chelikowsky, tech. rep., Univ. Texas, Austin, (in preparation).
+
+[42] D. Wood and A. Zunger, A new method for diagonalising large matrices, J. Phys. A: Math.
+
+Gen., 18 (1985), pp. 1343–1359.
+
+[43] K. Wu, A. Canning, H. D. Simon, and L.-W. Wang, Thick-restart Lanczos method for
+
+electronic structure calculations, J. Comput. Phys., 154 (1999), pp. 156–173.
+
+[44] K. Wu and H. Simon, Thick-restart Lanczos method for large symmetric eigenvalue problems,
+
+SIAM J. Matrix Anal. Appl., 22 (2000), pp. 602–616.
+
+[45] Y. Zhou and Y. Saad, A Chebyshev-Davidson algorithm for large symmetric eigenvalue prob-
+
+lems, tech. rep., Minnesota Supercomputing Institute, University of Minnesota, 2005 (Sub-
+
+mitted to SIAM J. Matrix Anal. Appl.).
+
