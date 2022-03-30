@@ -14,13 +14,13 @@
 	"inRepository": false,
 	"configOptions": {
 		"getCollections": true,
-		"hash": "e1536a189751c60f201d479e400b359d73a99e28af27195efc38dfcd0197e931"
+		"hash": "c26d244387676cc7027cc4b6231a63d14fb65e44882e4af5066c8759df3924cb"
 	},
 	"priority": 100,
-	"lastUpdated": "2022-03-14"
+	"lastUpdated": "2022-03-26"
 }
 
-ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors"}
+ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
 if (typeof ZOTERO_TRANSLATOR_INFO === 'undefined') var ZOTERO_TRANSLATOR_INFO = {"translatorID":"e7859c61-54d4-466a-b236-aadcf1f7e83b","label":"Collected notes","description":"exports your notes","creator":"Emiliano heyns","target":"html","displayOptions":{"markdown":false},"minVersion":"4.0.27","maxVersion":"","translatorType":2,"browserSupport":"gcsv","inRepository":false,"configOptions":{"getCollections":true},"priority":100};
 var Collectednotes__Translator__doExport = (() => {
   var __create = Object.create;
@@ -29,7 +29,6 @@ var Collectednotes__Translator__doExport = (() => {
   var __getOwnPropNames = Object.getOwnPropertyNames;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
   var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
     get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
   }) : x)(function(x) {
@@ -47,22 +46,16 @@ var Collectednotes__Translator__doExport = (() => {
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: true });
   };
-  var __reExport = (target, module, copyDefault, desc) => {
-    if (module && typeof module === "object" || typeof module === "function") {
-      for (let key of __getOwnPropNames(module))
-        if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default"))
-          __defProp(target, key, { get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable });
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
     }
-    return target;
+    return to;
   };
-  var __toESM = (module, isNodeMode) => {
-    return __reExport(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, "default", !isNodeMode && module && module.__esModule ? { get: () => module.default, enumerable: true } : { value: module, enumerable: true })), module);
-  };
-  var __toCommonJS = /* @__PURE__ */ ((cache) => {
-    return (module, temp) => {
-      return cache && cache.get(module) || (temp = __reExport(__markAsModule({}), module, 1), cache && cache.set(module, temp), temp);
-    };
-  })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // node_modules/process/browser.js
   var require_browser = __commonJS({
@@ -34830,7 +34823,7 @@ var Collectednotes__Translator__doExport = (() => {
   var schema = {
     autoExport: {
       preferences: ["asciiBibLaTeX", "asciiBibTeX", "biblatexExtendedNameFormat", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
-      displayOptions: ["useJournalAbbreviation", "exportNotes"]
+      displayOptions: ["exportNotes", "useJournalAbbreviation"]
     },
     translator: {
       "Better CSL JSON": {
@@ -35313,12 +35306,15 @@ ${indent}${this.formatError(e.error, "  ")}
     applicationNumber: () => applicationNumber,
     archive: () => archive,
     "archive collection": () => archive_collection,
+    "archive id": () => archive_id,
     "archive location": () => archive_location,
     "archive place": () => archive_place,
     "archive-place": () => archive_place2,
     archiveCollection: () => archiveCollection,
+    archiveID: () => archiveID,
     archiveLocation: () => archiveLocation,
     archive_collection: () => archive_collection2,
+    archive_id: () => archive_id2,
     archive_location: () => archive_location2,
     artist: () => artist,
     "artwork medium": () => artwork_medium,
@@ -35356,6 +35352,8 @@ ${indent}${this.formatError(e.error, "  ")}
     castMember: () => castMember,
     "chapter number": () => chapter_number,
     "chapter-number": () => chapter_number2,
+    "citation key": () => citation_key,
+    citationKey: () => citationKey,
     code: () => code,
     "code number": () => code_number,
     "code pages": () => code_pages,
@@ -35561,6 +35559,7 @@ ${indent}${this.formatError(e.error, "  ")}
     reporter: () => reporter,
     "reporter volume": () => reporter_volume,
     reporterVolume: () => reporterVolume,
+    repository: () => repository,
     "resolution label": () => resolution_label,
     resolutionLabel: () => resolutionLabel,
     "reviewed author": () => reviewed_author,
@@ -35769,6 +35768,13 @@ ${indent}${this.formatError(e.error, "  ")}
       "archiveCollection"
     ]
   };
+  var archive_id = {
+    type: "text",
+    zotero: [
+      "archiveID",
+      "archive_id"
+    ]
+  };
   var archive_location = {
     csl: [
       "archive_location"
@@ -35796,6 +35802,12 @@ ${indent}${this.formatError(e.error, "  ")}
       "archiveCollection"
     ]
   };
+  var archiveID = {
+    type: "text",
+    zotero: [
+      "archiveID"
+    ]
+  };
   var archiveLocation = {
     type: "text",
     zotero: [
@@ -35807,6 +35819,12 @@ ${indent}${this.formatError(e.error, "  ")}
       "archive_collection"
     ],
     type: "text"
+  };
+  var archive_id2 = {
+    type: "text",
+    zotero: [
+      "archive_id"
+    ]
   };
   var archive_location2 = {
     csl: [
@@ -35932,9 +35950,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var bill_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -36077,6 +36092,18 @@ ${indent}${this.formatError(e.error, "  ")}
       "chapter-number"
     ],
     type: "text"
+  };
+  var citation_key = {
+    type: "text",
+    zotero: [
+      "citationKey"
+    ]
+  };
+  var citationKey = {
+    type: "text",
+    zotero: [
+      "citationKey"
+    ]
   };
   var code = {
     type: "text",
@@ -36432,9 +36459,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var docket_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -36542,9 +36566,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var episode_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -37175,9 +37196,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var patent_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -37341,9 +37359,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var public_law_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -37504,9 +37519,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var report_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -37547,6 +37559,15 @@ ${indent}${this.formatError(e.error, "  ")}
     type: "text",
     zotero: [
       "volume"
+    ]
+  };
+  var repository = {
+    csl: [
+      "publisher"
+    ],
+    type: "text",
+    zotero: [
+      "publisher"
     ]
   };
   var resolution_label = {
@@ -37897,9 +37918,6 @@ ${indent}${this.formatError(e.error, "  ")}
     ]
   };
   var treaty_number = {
-    csl: [
-      "number"
-    ],
     type: "text",
     zotero: [
       "number"
@@ -38075,12 +38093,15 @@ ${indent}${this.formatError(e.error, "  ")}
     applicationNumber,
     archive,
     "archive collection": archive_collection,
+    "archive id": archive_id,
     "archive location": archive_location,
     "archive place": archive_place,
     "archive-place": archive_place2,
     archiveCollection,
+    archiveID,
     archiveLocation,
     archive_collection: archive_collection2,
+    archive_id: archive_id2,
     archive_location: archive_location2,
     artist,
     "artwork medium": artwork_medium,
@@ -38118,6 +38139,8 @@ ${indent}${this.formatError(e.error, "  ")}
     castMember,
     "chapter number": chapter_number,
     "chapter-number": chapter_number2,
+    "citation key": citation_key,
+    citationKey,
     code,
     "code number": code_number,
     "code pages": code_pages,
@@ -38322,6 +38345,7 @@ ${indent}${this.formatError(e.error, "  ")}
     reporter,
     "reporter volume": reporter_volume,
     reporterVolume,
+    repository,
     "resolution label": resolution_label,
     resolutionLabel,
     "reviewed author": reviewed_author,
