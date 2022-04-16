@@ -1,15 +1,15 @@
 {
 	"translatorID": "cb9e794e-7a65-47cd-90f6-58cdd191e8b0",
+	"translatorType": 4,
 	"label": "Frontiers",
 	"creator": "Abe Jellinek",
 	"target": "^https?://[^./]+\\.frontiersin\\.org/",
 	"minVersion": "3.0",
-	"maxVersion": "",
+	"maxVersion": null,
 	"priority": 100,
 	"inRepository": true,
-	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2021-08-10 03:30:59"
+	"lastUpdated": "2022-04-02 19:45:00"
 }
 
 /*
@@ -77,11 +77,11 @@ function doWeb(doc, url) {
 function scrape(doc, url) {
 	let risURL = attr(doc, '.citation a[href$="/reference"]', 'href');
 	if (!risURL) {
-		risURL = url.replace(/\/full([?#].*)$/, '/reference');
+		risURL = url.replace(/\/full([?#].*)?$/, '/reference');
 	}
 	let pdfURL = attr(doc, '.download-files-pdf', 'href');
 	if (!pdfURL) {
-		pdfURL = url.replace(/\/full([?#].*)$/, '/pdf');
+		pdfURL = url.replace(/\/full([?#].*)?$/, '/pdf');
 	}
 	
 	ZU.doGet(risURL, function (risText) {

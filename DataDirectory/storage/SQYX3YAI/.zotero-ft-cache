@@ -1,0 +1,3938 @@
+Fourth Edition
+Fortran for Scientists and Engineers
+Stephen J. Chapman
+
+Fortran for Scientists and Engineers
+Fourth Edition
+
+Fortran for Scientists and Engineers
+Fourth Edition
+Stephen J. Chapman
+BAE Systems Australia
+
+FORTRAN FOR SCIENTISTS AND ENGINEERS, FOURTH EDITION
+Published by McGraw-Hill Education, 2 Penn Plaza, New York, NY 10121. Copyright © 2018 by McGrawHill Education. All rights reserved. Printed in the United States of America. Previous edition © 2008 and 2004. No part of this publication may be reproduced or distributed in any form or by any means, or stored in a database or retrieval system, without the prior written consent of McGraw-Hill Education, including, but not limited to, in any network or other electronic storage or transmission, or broadcast for distance learning.
+Some ancillaries, including electronic and print components, may not be available to customers outside the United States.
+This book is printed on acid-free paper.
+1 2 3 4 5 6 7 8 9 LCR 21 20 19 18 17
+ISBN 978–0–07–338589–1 MHID 0–07–338589–1
+
+Chief Product Officer, SVP Products &  Markets: G. Scott Virkler Vice President, General Manager, Products &  Markets: Marty Lange Vice President, Content Design & Delivery:   Betsy Whalen Managing Director:  Thomas Timp Brand Manager:  Raghothaman Srinivasan/   Thomas M. Scaife, Ph.D
+Director, Product Development:  Rose Koos Product Developer:  Tina Bower Marketing Manager:  Shannon O’Donnell
+
+Director, Content Design & Delivery:   Linda Avenarius Program Manager:  Lora Neyens Content Project Managers:  Jane Mohr and   Sandra Schnee
+Buyer:  Jennifer Pickel Design:  Studio Montage, St. Louis, MO Content Licensing Specialist:  DeAnna Dausener Cover Image:  hh5800/Getty Images Compositor:  Aptara®, Inc. Printer:  LSC Communications
+
+All credits appearing on page or at the end of the book are considered to be an extension of the copyright page.
+
+Library of Congress Cataloging-in-Publication Data Chapman, Stephen J., author. Fortran for scientists and engineers / Stephen J. Chapman, BAE Systems
+Australia. Fourth edition. | New York, NY : McGraw-Hill, a business unit of
+The McGraw-Hill Companies, Inc., [2017] | Includes index. LCCN 2016052439 | ISBN 9780073385891 (alk. paper) | ISBN
+0073385891 (alk. paper) LCSH: FORTRAN (Computer program language) | Science—Data
+processing. | Engineering—Data processing. LCC QA76.73.F25 C425 2017 | DDC 005.13/3—dc23 LC record available at  https://lccn.loc.gov/2016052439
+
+The Internet addresses listed in the text were accurate at the time of publication. The inclusion of a website does not indicate an endorsement by the authors or McGraw-Hill Education, and McGraw-Hill Education does not guarantee the accuracy of the information presented at these sites.
+
+mheducation.com/highered
+
+This book is dedicated to my son Avi, who is the only one of our eight children actually making a living writing software!
+
+ABOUT THE AUTHOR
+STEPHEN J. CHAPMAN received a B.S. in Electrical Engineering from L­ ouisiana State University (1975), an M.S.E. in Electrical Engineering from the University of Central Florida (1979), and pursued further graduate studies at Rice University.
+From 1975 to 1980, he served as an officer in the U.S. Navy, assigned to teach Electrical Engineering at the U.S. Naval Nuclear Power School in Orlando, Florida. From 1980 to 1982, he was affiliated with the University of Houston, where he ran the power systems program in the College of Technology.
+From 1982 to 1988 and from 1991 to 1995, he served as a Member of the T­ echnical Staff of the Massachusetts Institute of Technology’s Lincoln Laboratory, both at the main facility in Lexington, Massachusetts, and at the field site on Kwajalein Atoll in the Republic of the Marshall Islands. While there, he did research in radar signal ­processing systems. He ultimately became the leader of four large operational range instrumentation radars at the Kwajalein field site (TRADEX, ALTAIR, ALCOR, and MMW).
+From 1988 to 1991, Mr. Chapman was a research engineer in Shell Development Company in Houston, Texas, where he did seismic signal processing research. He was also affiliated with the University of Houston, where he continued to teach on a parttime basis.
+Mr. Chapman is currently Manager of Systems Modeling and Operational ­Analysis for BAE Systems Australia, in Melbourne, Australia. He is the leader of a team that has developed a model of how naval ships defend themselves against ­antiship missile attacks. This model contains more than 400,000 lines of MATLAB code ­written over more than a decade, so he has extensive practical experience applying MATLAB to real-world problems.
+Mr. Chapman is a Senior Member of the Institute of Electrical and Electronic ­Engineers (and several of its component societies). He is also a member of the Association for Computing Machinery and the Institution of Engineers (Australia).
+
+TABLE OF CONTENTS
+
+Preface
+
+xix
+
+1 Introduction to Computers and The Fortran Language
+
+1
+
+1.1 The Computer
+
+2
+
+1.1.1. The CPU  /  1.1.2. Memory  /  1.1.3. Input and
+
+Output Devices
+
+1.2 Data Representation in a Computer
+
+4
+
+1.2.1. The Binary Number System  /  1.2.2. Octal and
+
+Hexadecimal Representations of Binary Numbers  / 
+
+1.2.3. Types of Data Stored in Memory
+
+1.3 Computer Languages
+
+12
+
+1.4 The History of the Fortran Language
+
+13
+
+1.5 The Evolution of Fortran
+
+16
+
+1.6 Summary
+
+19
+
+1.6.1. Exercises
+
+2 Basic Elements of Fortran
+
+22
+
+2.1 Introduction
+
+22
+
+2.2 The Fortran Character Set
+
+23
+
+2.3 The Structure of a Fortran Statement
+
+23
+
+2.4 The Structure of a Fortran Program
+
+24
+
+2.4.1. The Declaration Section  /  2.4.2. The Execution Section  / 
+
+2.4.3. The Termination Section  /  2.4.4. Program Style  / 
+
+2.4.5. Compiling, Linking, and Executing the Fortran Program
+
+2.5 Constants and Variables
+
+28
+
+2.5.1. Integer Constants and Variables  /  2.5.2. Real Constants
+
+and Variables  /  2.5.3. Character Constants and Variables  / 
+
+2.5.4. Default and Explicit Variable Typing  /  2.5.5. Keeping
+
+Constants Consistent in a Program
+
+2.6 Assignment Statements and Arithmetic Calculations
+
+36
+
+2.6.1. Integer Arithmetic  /  2.6.2. Real Arithmetic  / 
+
+2.6.3. Hierarchy of Operations  /  2.6.4. Mixed-Mode
+
+Arithmetic  /  2.6.5. Mixed-Mode Arithmetic and Exponentiation
+
+x
+
+Table of Contents
+
+2.7 Intrinsic Functions
+
+47
+
+2.8 List-Directed Input and Output Statements
+
+49
+
+2.9 Initialization of Variables
+
+55
+
+2.10 The IMPLICIT NONE Statement
+
+57
+
+2.11 Program Examples
+
+58
+
+2.12 Debugging Fortran Programs
+
+66
+
+2.13 Summary
+
+68
+
+2.13.1. Summary of Good Programming Practice  / 
+
+2.13.2. Summary of Fortran Statements  /  2.13.3. Exercises
+
+3 Program Design and Branching Structures
+
+81
+
+3.1 Introduction to Top-Down Design Techniques
+
+82
+
+3.2 Use of Pseudocode and Flowcharts
+
+86
+
+3.3 Logical Constants, Variables, and Operators
+
+89
+
+3.3.1. Logical Constants and Variables  /  3.3.2. Assignment
+
+Statements and Logical Calculations  /  3.3.3. Relational
+
+Operators  /  3.3.4. Combinational Logic Operators  / 
+
+3.3.5. Logical Values in Input and Output Statements  / 
+
+3.3.6. The Significance of Logical Variables and Expressions
+
+3.4 Control Constructs: Branches
+
+94
+
+3.4.1. The Block IF Construct  /  3.4.2. The ELSE and ELSE IF
+
+Clauses  /  3.4.3. Examples Using Block IF Constructs  / 
+
+3.4.4. Named Block IF Constructs  /  3.4.5. Notes Concerning
+
+the Use of Block IF Constructs  /  3.4.6. The Logical IF
+
+Statement / 3.4.7. The SELECT CASE Construct
+
+3.5 More on Debugging Fortran Programs
+
+118
+
+3.6 Summary
+
+119
+
+3.6.1. Summary of Good Programming Practice  / 
+
+3.6.2. Summary of Fortran Statements and Constructs  / 
+
+3.6.3. Exercises
+
+4 Loops and Character Manipulation
+
+126
+
+4.1 Control Constructs: Loops
+
+126
+
+4.1.1 The While Loop  /  4.1.2 The DO WHILE Loop  / 
+
+4.1.3 The Iterative or Counting Loop  /  4.1.4 The CYCLE and
+
+EXIT Statements  /  4.1.5 Named Loops  /  4.1.6 Nesting Loops
+
+and Block IF Constructs
+
+4.2 Character Assignments and Character Manipulations
+
+154
+
+4.2.1 Character Assignments  /  4.2.2 Substring Specifications  / 
+
+4.2.3 The Concatenation (//) Operator  /  4.2.4 Relational
+
+Operators with Character Data  /  4.2.5 Character
+
+Intrinsic Functions
+
+4.3 Debugging Fortran Loops
+
+168
+
+Table of Contents
+
+4.4 Summary 4.4.1 Summary of Good Programming Practice  /  4.4.2 Summary of Fortran Statements and Constructs  /  4.4.3 Exercises
+
+5 Basic I/O Concepts
+5.1 Formats and Formatted WRITE Statements 5.2 Output Devices
+5.2.1 Control Characters in Printer Output
+5.3 Format Descriptors 5.3.1 Integer Output—The I Descriptor  /  5.3.2 Real Output— The F Descriptor  /  5.3.3 Real Output—The E Descriptor  /  5.3.4 True Scientific Notation—The ES Descriptor  /  5.3.5 Logical Output—The L Descriptor  /  5.3.6 Character Output—The A Descriptor  /  5.3.7 Horizontal Positioning— The X and T Descriptor  /  5.3.8 Repeating Groups of Format Descriptors  /  5.3.9 Changing Output Lines—The Slash (/) Descriptor  /  5.3.10 How Formats are Used During WRITEs
+5.4 Formatted READ Statements 5.4.1 Integer Input—The I Descriptor  /  5.4.2 Real Input—The F Descriptor  /  5.4.3 Logical Input—The L Descriptor  /  5.4.4 Character Input—The A Descriptor  /  5.4.5 Horizontal Positioning—The X and T Descriptors  /  5.4.6 Vertical Positioning—The Slash (/) Descriptor  /  5.4.7 How Formats are Used During READs
+5.5 An Introduction to Files and File Processing 5.5.1 The OPEN Statement  /  5.5.2 The CLOSE Statement  /  5.5.3 READs and WRITEs to Disk Files  /  5.5.4 The IOSTAT= and IOMSG= Clauses in the READ Statement  /  5.5.5 File Positioning
+5.6 Summary 5.6.1 Summary of Good Programming Practice  /  5.6.2 Summary of Fortran Statements and Structures  /  5.6.3 Exercises
+
+6 Introduction to Arrays
+6.1 Declaring Arrays 6.2 Using Array Elements in Fortran Statements
+6.2.1 Array Elements are Just Ordinary Variables  /  6.2.2 Initialization of Array Elements  /  6.2.3 Changing the Subscript Range of an Array  /  6.2.4 Out-of-Bounds Array Subscripts  /  6.2.5 The Use of Named Constants with Array Declarations
+6.3 Using Whole Arrays and Array Subsets in Fortran Statements 6.3.1 Whole Array Operations  /  6.3.2 Array Subsets
+
+xi 169
+180
+180 182 184
+205
+211 232
+245
+246 247
+261
+
+xii
+
+Table of Contents
+
+6.4 Input and Output
+
+265
+
+6.4.1 Input and Output of Array Elements  /  6.4.2 The Implied DO Loop  / 
+
+6.4.3 Input and Output of Whole Arrays and Array Sections
+
+6.5 Example Problems
+
+271
+
+6.6 When Should You Use an Array?
+
+287
+
+6.7 Summary
+
+289
+
+6.7.1 Summary of Good Programming Practice  / 
+
+6.7.2 Summary of Fortran Statements and Constructs  /  6.7.3 Exercises
+
+7 Introduction to Procedures
+
+297
+
+7.1 Subroutines
+
+299
+
+7.1.1 Example Problem—Sorting  /  7.1.2 The INTENT
+
+Attribute  /  7.1.3 Variable Passing in Fortran: The Pass-By-
+
+Reference Scheme  /  7.1.4 Passing Arrays to Subroutines  / 
+
+7.1.5 Passing Character Variables to Subroutines  / 
+
+7.1.6 Error Handling in Subroutines  /  7.1.7 Examples
+
+7.2 Sharing Data Using Modules
+
+320
+
+7.3 Module Procedures
+
+328
+
+7.3.1 Using Modules to Create Explicit Interfaces
+
+7.4 Fortran Functions
+
+331
+
+7.4.1 Unintended Side Effects in Functions  /  7.4.2 Using
+
+Functions with Deliberate Side Effects
+
+7.5 Passing Procedures as Arguments to Other Procedures
+
+339
+
+7.5.1 Passing User-Defined Functions as Arguments  / 
+
+7.5.2 Passing Subroutines as Arguments
+
+7.6 Summary
+
+344
+
+7.6.1 Summary of Good Programming Practice  / 
+
+7.6.2 Summary of Fortran Statements and Structures  /  7.6.3 Exercises
+
+8 Additional Features of Arrays
+
+360
+
+8.1 2D or Rank 2 Arrays
+
+360
+
+8.1.1 Declaring Rank 2 Arrays  /  8.1.2 Rank 2 Array
+
+Storage  /  8.1.3 Initializing Rank 2 Arrays  /  8.1.4 Example
+
+Problem  /  8.1.5 Whole Array Operations and Array Subsets
+
+8.2 Multidimensional or Rank n Arrays
+
+372
+
+8.3 Using Fortran Intrinsic Functions with Arrays
+
+375
+
+8.3.1 Elemental Intrinsic Functions  /  8.3.2 Inquiry Intrinsic
+
+Functions  /  8.3.3 Transformational Intrinsic Functions
+
+8.4 Masked Array Assignment: The WHERE Construct
+
+378
+
+8.4.1 The WHERE Construct  /  8.4.2 The WHERE Statement
+
+8.5 The FORALL Construct
+
+381
+
+8.5.1 The Form of the FORALL Construct  /  8.5.2 The Significance
+
+of the FORALL Construct  /  8.5.3 The FORALL Statement
+
+Table of Contents
+8.6 Allocatable Arrays 8.6.1 Fortran Allocatable Arrays  /  8.6.2 Using Fortran Allocatable Arrays in Assignment Statements
+8.7 Summary 8.7.1 Summary of Good Programming Practice  /  8.7.2 Summary of Fortran Statements and Constructs  /  8.7.3 Exercises
+9 Additional Features of Procedures
+9.1 Passing Multidimensional Arrays to Subroutines and Functions 9.1.1 Explicit Shape Dummy Arrays  /  9.1.2 Assumed-Shape Dummy Arrays  /  9.1.3 Assumed-Size Dummy Arrays
+9.2 The SAVE Attribute and Statement 9.3 Allocatable Arrays in Procedures 9.4 Automatic Arrays in Procedures
+9.4.1 Comparing Automatic Arrays and Allocatable Arrays  /  9.4.2 Example Program
+9.5 Allocatable Arrays as Dummy Arguments in Procedures 9.5.1 Allocatable Dummy Arguments  /  9.5.2 Allocatable Functions
+9.6 Pure and Elemental Procedures 9.6.1 Pure Procedures  /  9.6.2 Elemental Procedures  /  9.6.3 Impure Elemental Procedures
+9.7 Internal Procedures 9.8 Submodules 9.9 Summary
+9.9.1 Summary of Good Programming Practice  /  9.9.2 Summary of Fortran Statements and Structures  /  9.9.3 Exercises
+10 More about Character Variables
+ 	10.1 Character Comparison Operations 10.1.1 The Relational Operators with Character Data  /  10.1.2 The Lexical Functions LLT, LLE, LGT, and LGE
+ 	10.2 Intrinsic Character Functions  	10.3 Passing Character Variables to Subroutines and Functions  	10.4 Variable-Length Character Functions  	10.5 Internal Files  	10.6 Example Problems  	10.7 Summary
+10.7.1 Summary of Good Programming Practice  /  10.7.2 Summary of Fortran Statements and Structures  /  10.7.3 Exercises
+
+xiii 383
+393
+404
+404
+417 421 422
+430
+434
+436 438 446
+457
+458
+463 465 471 473 474 479
+
+xiv
+
+Table of Contents
+
+11 Additional Intrinsic Data Types
+
+485
+
+ 	11.1 Alternate Kinds of the REAL Data Type
+
+485
+
+11.1.1 Kinds of REAL Constants and Variables  /  11.1.2 Determining
+
+the KIND of a Variable  /  11.1.3 Selecting Precision in a Processor-
+
+Independent Manner  /  11.1.4 Determining the KINDs of Data Types
+
+on a Particular Processor  /  11.1.5 Mixed-Mode Arithmetic  / 
+
+11.1.6 Higher Precision Intrinsic Functions  /  11.1.7 When to Use
+
+High-Precision Real Values  /  11.1.8 Solving Large Systems of
+
+Simultaneous Linear Equations
+
+ 	11.2 Alternate Lengths of the INTEGER Data Type
+
+509
+
+ 	11.3 Alternate Kinds of the CHARACTER Data Type
+
+511
+
+ 	11.4 The COMPLEX Data Type
+
+512
+
+11.4.1 Complex Constants and Variables  /  11.4.2 Initializing
+
+Complex Variables  /  11.4.3 Mixed-Mode Arithmetic  / 
+
+11.4.4 Using Complex Numbers with Relational
+
+Operators / 11.4.5 COMPLEX Intrinsic Functions
+
+ 	11.5 Summary
+
+522
+
+11.5.1 Summary of Good Programming Practice  / 
+
+11.5.2 Summary of Fortran Statements and Structures  / 
+
+11.5.3 Exercises
+
+12 Derived Data Types
+
+527
+
+ 	12.1 Introduction to Derived Data Types
+
+527
+
+ 	12.2 Working with Derived Data Types
+
+529
+
+ 	12.3 Input and Output of Derived Data Types
+
+529
+
+ 	12.4 Declaring Derived Data Types in Modules
+
+531
+
+ 	12.5 Returning Derived Types from Functions
+
+540
+
+ 	12.6 Dynamic Allocation of Derived Data Types
+
+544
+
+ 	12.7 Parameterized Derived Data Types
+
+545
+
+ 	12.8 Type Extension
+
+546
+
+ 	12.9 Type-Bound Procedures
+
+548
+
+12.10 The ASSOCIATE Construct
+
+552
+
+12.11 Summary
+
+553
+
+12.11.1 Summary of Good Programming Practice  / 
+
+12.11.2 Summary of Fortran Statements and Structures  / 
+
+12.11.3 Exercises
+
+13 Advanced Features of Procedures and Modules
+
+561
+
+ 	13.1 Scope and Scoping Units
+
+562
+
+ 	13.2 Blocks
+
+567
+
+ 	13.3 Recursive Procedures
+
+568
+
+ 	13.4 Keyword Arguments and Optional Arguments
+
+571
+
+Table of Contents
+ 	13.5 Procedure Interfaces and Interface Blocks 13.5.1 Creating Interface Blocks  /  13.5.2 Notes on the Use of Interface Blocks
+ 	13.6 Generic Procedures 13.6.1 User-Defined Generic Procedures  /  13.6.2 Generic Interfaces for Procedures in Modules  /  13.6.3 Generic Bound Procedures
+ 	13.7 Extending Fortran with User-Defined Operators and Assignments  	13.8 Bound Assignments and Operators  	13.9 Restricting Access to the Contents of a Module 13.10 Advanced Options of the USE Statement 13.11 Intrinsic Modules 13.12 Access to Command Line Arguments and Environment Variables
+13.12.1 Access to Command Line Arguments  /  13.12.2 Retrieving Environment Variables
+13.13 The VOLATILE Attribute and Statement 13.14 Summary
+13.14.1 Summary of Good Programming Practice  /  13.14.2 Summary of Fortran Statements and Structures  /  13.14.3 Exercises
+14 Advanced I/O Concepts
+ 	14.1 Additional Format Descriptors 14.1.1 Additional Forms of the E and ES Format Descriptors  /  14.1.2 Engineering Notation—The EN Descriptor  /  14.1.3 DoublePrecision Data—The D Descriptor  /  14.1.4 The Generalized (G) Format Descriptor  /  14.1.5 The G0 Format Descriptor  /  14.1.6 The Binary, Octal, and Hexadecimal (B, O, and Z) Descriptors  /  14.1.7 The TAB Descriptors  /  14.1.8 The Colon (:) Descriptor  /  14.1.9 Scale Factors—The P Descriptor  /  14.1.10 The SIGN Descriptors  /  14.1.11 Blank Interpretation: The BN and BZ Descriptors  /  14.1.12 Rounding Control: The RU, RD, RZ, RN, RC, and RP Descriptors  /  14.1.13 Decimal Specifier: The DC and DP Descriptors
+ 	14.2 Defaulting Values in List-Directed Input  	14.3 Detailed Description of Fortran I/O Statements
+14.3.1 The OPEN Statement  /  14.3.2 The CLOSE Statement  /  14.3.3 The INQUIRE Statement  /  14.3.4 The READ Statement  /  14.3.5 Alternate Form of the READ Statement  /  14.3.6 The WRITE Statement / 14.3.7 The PRINT Statement  /  14.3.8 File Positioning Statements / 14.3.9 The ENDFILE Statement  /  14.3.10 The WAIT Statement / 14.3.11 The FLUSH Statement
+ 	14.4 Namelist I/O  	14.5 Unformatted Files  	14.6 Direct Access Files
+
+xv 577 581 594 607 607 611 615 615 618 619
+633
+633
+642 644
+668 671 673
+
+xvi
+
+Table of Contents
+
+ 	14.7 Stream Access Mode
+
+678
+
+ 	14.8 Nondefault I/O for Derived Types
+
+678
+
+ 	14.9 Asynchronous I/O
+
+687
+
+14.9.1. Performing Asynchronous I/O  /  14.9.2. Problems with
+
+Asynchronous I/O
+
+14.10 Access to Processor-Specific I/O System Information
+
+689
+
+14.11 Summary
+
+690
+
+14.11.1 Summary of Good Programming Practice  / 
+
+14.11.2 Summary of Fortran Statements and Structures  / 
+
+14.11.3 Exercises
+
+15 Pointers and Dynamic Data Structures
+
+698
+
+ 	15.1 Pointers and Targets
+
+699
+
+15.1.1 Pointer Assignment Statements  /  15.1.2 Pointer
+
+Association Status
+
+ 	15.2 Using Pointers in Assignment Statements
+
+705
+
+ 	15.3 Using Pointers with Arrays
+
+707
+
+ 	15.4 Dynamic Memory Allocation with Pointers
+
+709
+
+ 	15.5 Using Pointers as Components of Derived Data Types
+
+712
+
+ 	15.6 Arrays of Pointers
+
+725
+
+ 	15.7 Using Pointers in Procedures
+
+727
+
+15.7.1 Using the INTENT Attribute with Pointers  / 
+
+15.7.2 Pointer-valued Functions
+
+ 	15.8 Procedure Pointers
+
+733
+
+ 	15.9 Binary Tree Structures
+
+736
+
+15.9.1 The Significance of Binary Tree Structures  / 
+
+15.9.2 Building a Binary Tree Structure
+
+15.10 Summary
+
+756
+
+15.10.1 Summary of Good Programming Practice  / 
+
+15.10.2 Summary of Fortran Statements and Structures  / 
+
+15.10.3 Exercises
+
+16 Object-Oriented Programming in Fortran
+
+763
+
+ 	16.1 An Introduction to Object-Oriented Programming
+
+764
+
+16.1.1 Objects / 16.1.2 Messages / 16.1.3 Classes / 
+
+16.1.4 Class Hierarchy and Inheritance  /  16.1.5 Object-
+
+Oriented Programming
+
+ 	16.2 The Structure of a Fortran Class
+
+769
+
+ 	16.3 The CLASS Keyword
+
+770
+
+ 	16.4 Implementing Classes and Objects in Fortran
+
+772
+
+16.4.1 Declaring Fields (Instance Variables)  /  16.4.2 Creating
+
+Methods  /  16.4.3 Creating (Instantiating) Objects from a Class
+
+Table of Contents
+  16.5 First Example: A timer Class 16.5.1 Implementing the timer Class  /  16.5.2 Using the timer Class  /  16.5.3 Comments on the timer Class
+ 	16.6 Categories of Methods  	16.7 Controlling Access to Class Members  	16.8 Finalizers  	16.9 Inheritance and Polymorphism
+16.9.1 Superclasses and Subclasses  /  16.9.2 Defining and Using Subclasses  /  16.9.3 The Relationship between Superclass Objects and Subclass Objects  /  16.9.4 Polymorphism  /  16.9.5 The SELECT TYPE Construct
+16.10 Preventing Methods from Being Overridden in Subclasses 16.11 Abstract Classes 16.12 Summary
+16.12.1 Summary of Good Programming Practice  /  16.12.2 Summary of Fortran Statements and Structures  /  16.12.3 Exercises
+17 Coarrays and Parallel Processing
+ 	17.1 Parallel Processing in Coarray Fortran  	17.2 Creating a Simple Parallel Program  	17.3 Coarrays  	17.4 Synchronization between Images  	17.5 Example: Sorting a Large Data Set  	17.6 Allocatable Coarrays and Derived Data Types  	17.7 Passing Coarrays to Procedures  	17.8 Critical Sections  	17.9 The Perils of parallel Programming 17.10 Summary
+17.10.1 Summary of Good Programming Practice  /  17.10.2 Summary of Fortran Statements and Structures  /  17.10.3 Exercises
+18 Redundant, Obsolescent, and Deleted Fortran Features
+ 	18.1 Pre-Fortran 90 Character Restrictions  	18.2 Obsolescent Source Form  	18.3 Redundant Data Type  	18.4 Older, Obsolescent, and/or Undesirable Specification Statements
+18.4.1 Pre-Fortran 90 Specification Statements  /  18.4.2 The IMPLICIT Statement / 18.4.3 The DIMENSION Statement  /  18.4.4 The DATA Statement / 18.4.5 The PARAMETER Statement
+
+xvii 775
+780 789 790 794
+809 809 831
+837
+838 839 841 843 850 856 857 858 859 863
+869
+870 870 871 872
+
+xviii
+
+Table of Contents
+
+ 	18.5 Sharing Memory Locations: COMMON and EQUIVALENCE
+
+875
+
+18.5.1 COMMON Blocks  /  18.5.2 Initializing Data in
+
+COMMON Blocks: The BLOCK DATA Subprogram  / 
+
+18.5.3 The Unlabeled COMMON Statement  / 
+
+18.5.4 The EQUIVALENCE Statement
+
+ 	18.6 Undesirable Subprogram Features
+
+882
+
+18.6.1 Alternate Subroutine Returns  /  18.6.2 Alternate Entry
+
+Points  /  18.6.3 The Statement Function  /  18.6.4 Passing
+
+Intrinsic Functions as Arguments
+
+ 	18.7 Miscellaneous Execution Control Features
+
+889
+
+18.7.1 The PAUSE Statement  /  18.7.2 Arguments Associated
+
+with the STOP Statement  /  18.7.3 The END Statement
+
+ 	18.8 Obsolete Branching and Looping Structures
+
+892
+
+18.8.1 The Arithmetic IF Statement  /  18.8.2 The Unconditional
+
+GO TO Statement  /  18.8.3 The Computed GO TO Statement  / 
+
+18.8.4 The Assigned GO TO Statement  /  18.8.5 Older Forms
+
+of DO Loops
+
+ 	18.9 Redundant Features of I/O Statements
+
+896
+
+18.10 Summary
+
+897
+
+18.10.1 Summary of Good Programming Practice  / 
+
+18.10.2 Summary of Fortran Statements and Structures
+
+Appendixes
+
+A. The ASCII Character Set
+
+903
+
+B. Fortran/C Interoperability
+
+904
+
+B.1. Declaring Interoperable Data Types  / 
+
+B.2. Declaring Interoperable Procedures  /  B.3. Sample Programs—
+
+Fortran Calling C  /  B.4. Sample Programs—C Calling Fortran
+
+C. Fortran Intrinsic Pro­cedures
+
+914
+
+C.1. Classes of Intrinsic Procedures  /  C.2. Alphabetical List of Intrinsic
+
+Procedures  /  C.3. Mathematical and Type Conversion Intrinsic
+
+Procedures  /  C.4. Kind and Numeric Processor Intrinsic
+
+Functions  /  C.5. System Environment Procedures  /  C.6. Bit Intrinsic
+
+Procedures  /  C.7. Character Intrinsic Functions  /  C.8. Array and
+
+Pointer Intrinsic Functions  /  C.9. Miscellaneous Inquiry Functions  / 
+
+C.10. Miscellaneous Procedures  /  C.11. Coarray Functions
+
+D. Order of Statements in a Fortran Program
+
+961
+
+E. Glossary
+
+963
+
+F. Answers to Quizzes
+
+984
+
+Index Summary of Selected Fortran Statements and Structures
+
+1002 1022
+
+PREFACE
+The first edition of this book was conceived as a result of my experience in writing
+and maintaining large Fortran programs in both the defense and geophysical fields. During my time in industry, it became obvious that the strategies and techniques ­required to write large, maintainable Fortran programs were quite different from what new e­ ngineers were learning in their Fortran programming classes at school. The ­incredible cost of maintaining and modifying large programs once they are placed into service absolutely demands that they be written to be easily understood and modified by p­ eople other than their original programmers. My goal for this book is to teach ­simultaneously both the fundamentals of the Fortran language and a programming style that results in good, maintainable programs. In addition, it is intended to serve as a reference for graduates working in industry.
+It is quite difficult to teach undergraduates the importance of taking extra effort during the early stages of the program design process in order to make their programs more maintainable. Class programming assignments must by their very nature be simple enough for one person to complete in a short period of time, and they do not have to be maintained for years. Because the projects are simple, a student can often “wing it” and still produce working code. A student can take a course, perform all of the programming assignments, pass all of the tests, and still not learn the habits that are really needed when working on large projects in industry.
+From the very beginning, this book teaches Fortran in a style suitable for use on large projects. It emphasizes the importance of going through a detailed design process before any code is written, using a top-down design technique to break the program up into logical portions that can be implemented separately. It stresses the use of procedures to implement those individual portions, and the importance of unit testing before the procedures are combined into a finished product. Finally, it emphasizes the importance of exhaustively testing the finished program with many different input data sets before it is released for use.
+In addition, this book teaches Fortran as it is actually encountered by engineers and scientists working in industry and in laboratories. One fact of life is common in all programming environments: Large amounts of old legacy code that have to be maintained. The legacy code at a particular site may have been originally written in Fortran IV (or an even earlier version!), and it may use programming constructs that are no longer common today. For example, such code may use arithmetic IF statements, or computed or assigned GO TO statements. Chapter 18 is devoted to those older features of the language that are no longer commonly used, but that are encountered in legacy code.
+
+xx
+
+Preface
+
+The chapter emphasizes that these features should never be used in a new program, but also prepares the student to handle them when he or she encounters them.
+
+CHANGES IN THIS EDITION
+This edition builds directly on the success of Fortran 95/2003 for Scientists and Engineers, 3/e. It preserves the structure of the previous edition, while weaving the new Fortran 2008 material (and limited material from the proposed Fortran 2015 standard) throughout the text. It is amazing, but Fortran started life around 1954, and it is still evolving.
+Most of the additions in Fortran 2008 are logical extensions of existing capabilities of Fortran 2003, and they are integrated into the text in the proper chapters. However, the use of parallel processing and Coarray Fortran is completely new, and Chapter 17 has been added to cover that material.
+The vast majority of Fortran courses are limited to one-quarter or one semester, and the student is expected to pick up both the basics of the Fortran language and the concept of how to program. Such a course would cover Chapters 1 through 7 of this text, plus selected topics in Chapters 8 and 9 if there is time. This provides a good foundation for students to build on in their own time as they use the language in ­practical projects.
+Advanced students and practicing scientists and engineers will need the material on COMPLEX numbers, derived data types, and pointers found in Chapters 11 through 15. Practicing scientists and engineers will almost certainly need the material on obsolete, redundant, and deleted Fortran features found in Chapter 18. These materials are rarely taught in the classroom, but they are included here to make the book a useful reference text when the language is actually used to solve real-world problems.
+
+FEATURES OF THIS BOOK
+Many features of this book are designed to emphasize the proper way to write reliable Fortran programs. These features should serve a student well as he or she is first learning Fortran, and should also be useful to the practitioner on the job. They include:
+1. Emphasis on Modern Fortran. The book consistently teaches the best current practice in all of its examples.
+Many modern Fortran 2008 features duplicate and supersede older features of the Fortran language. In those cases, the proper usage of the modern language is presented. Examples of older usage are largely relegated to Chapter 18, where their old/undesirable nature is emphasized. Examples of modern Fortran features that supersede older features are the use of modules to share data ­instead of COMMON blocks, the use of DO . . . END DO loops instead of DO . . . ­CONTINUE loops, the use of internal procedures instead of statement functions, and the use of CASE constructs instead of computed GOTOs.
+
+Preface
+
+xxi
+2. Emphasis on Strong Typing. The IMPLICIT NONE statement is used consistently throughout the book to
+force the explicit typing of every variable used in every program, and to catch common typographical errors at compilation time. In conjunction with the explicit declaration of every variable in a program, the book emphasizes the importance of creating a data dictionary that describes the purpose of each variable in a program unit. 3. Emphasis on Top-Down Design Methodology.
+The book introduces a top-down design methodology in Chapter 3, and then uses it consistently throughout the rest of the book. This methodology encourages a student to think about the proper design of a program before beginning to code. It emphasizes the importance of clearly defining the problem to be solved and the required inputs and outputs before any other work is begun. Once the problem is properly defined, it teaches the student to employ stepwise refinement to break the task down into successively smaller subtasks, and to implement the subtasks as separate subroutines or functions. Finally, it teaches the importance of testing at all stages of the process, both unit testing of the component routines and exhaustive testing of the final product. Several examples are given of programs that work properly for some data sets, and then fail for others.
+The formal design process taught by the book may be summarized as follows:
+∙ Clearly state the problem that you are trying to solve. ∙ Define the inputs required by the program and the outputs to be produced by
+the program.
+∙ Describe the algorithm that you intend to implement in the program. This step involves top-down design and stepwise decomposition, using pseudo-
+code or flow charts.
+∙ Turn the algorithm into Fortran statements. ∙ Test the Fortran program. This step includes unit testing of specific subpro-
+grams, and also exhaustive testing of the final program with many different
+data sets.
+4. Emphasis on Procedures. The book emphasizes the use of subroutines and functions to logically decom-
+pose tasks into smaller subtasks. It teaches the advantages of procedures for data hiding. It also emphasizes the importance of unit testing procedures before they are combined into the final program. In addition, the book teaches about the common mistakes made with procedures, and how to avoid them (argument type mismatches, array length mismatches, etc.). It emphasizes the advantages associated with explicit interfaces to procedures, which allow the Fortran compiler to catch most common programming errors at compilation time. 5. Emphasis on Portability and Standard Fortran.
+The book stresses the importance of writing portable Fortran code, so that a program can easily be moved from one type of computer to another one.
+
+xxii
+
+Preface
+
+It teaches students to use only standard Fortran statements in their programs, so that they will be as portable as possible. In addition, it teaches the use of ­features such as the SELECTED_REAL_KIND function to avoid precision and kind differences when moving from computer to computer.
+The book also teaches students to isolate machine-dependent code (such as code that calls machine-dependent system libraries) into a few specific procedures, so that only those procedures will have to be rewritten when a program is ported between computers. 6. Good Programming Practice Boxes.
+These boxes highlight good programming practices when they are introduced for the convenience of the student. In addition, the good programming practices introduced in a chapter are summarized at the end of the chapter. An example Good Programming Practice Box is shown below:
+
+Good Programming Practice
+Always indent the body of an IF structure by two or more spaces to improve the readability of the code.
+
+7. Programming Pitfalls Boxes These boxes highlight common errors so that they can be avoided. An exam-
+ple Programming Pitfalls Box is shown below:
+Programming Pitfalls
+Beware of integer arithmetic. Integer division often gives unexpected results.
+
+8. Emphasis on Pointers and Dynamic Data Structures. Chapter 15 contains a detailed discussion of Fortran pointers, including pos-
+sible problems resulting from the incorrect use of pointers such as memory leaks and pointers to deallocated memory. Examples of dynamic data structures in the chapter include linked lists and binary trees.
+Chapter 16 contains a discussion of Fortran objects and object-oriented programming, including the use of dynamic pointers to achieve polymorphic behavior. 9. Use of Sidebars.
+A number of sidebars are scattered throughout the book. These sidebars provide additional information of potential interest to the student. Some sidebars are historical in nature. For example, one sidebar in Chapter 1 describes the IBM Model 704, the first computer to ever run Fortran. Other sidebars
+
+Preface
+
+xxiii
+­reinforce lessons from the main text. For example, Chapter 9 contains a sidebar reviewing and summarizing the many different types of arrays found in modern Fortran. 10.  Completeness.
+Finally, the book endeavors to be a complete reference to the modern Fortran language, so that a practitioner can locate any required information quickly. Special attention has been paid to the index to make features easy to find. A special effort has also been made to cover such obscure and little understood features as passing procedure names by reference, and defaulting values in list-directed input statements.
+
+PEDAGOGICAL FEATURES
+The book includes several features designed to aid student comprehension. Each chapter begins with a list of the objectives that should be achieved in that chapter. A total of 27 quizzes appear scattered throughout the chapters, with answers to all questions included in Appendix F. These quizzes can serve as a useful self-test of comprehension. In addition, there are approximately 360 end-of-chapter exercises. Answers to selected exercises are available at the book’s Web site, and of course answers to all exercises are included in the Instructor’s Manual. Good programming practices are highlighted in all chapters with special Good Programming Practice boxes, and common errors are highlighted in ­Programming Pitfalls boxes. End-ofchapter materials include Summaries of Good Programming Practice and Summaries of Fortran Statements and Structures. Finally, a detailed description of every Fortran intrinsic procedure is included in Appendix C, and an extensive Glossary is included in Appendix E.
+The book is accompanied by an Instructor’s Manual, containing the solutions to all end-of-chapter exercises. Instructors can also download the solutions in the ­Instructor’s Manual from the book’s Web site. The source code for all examples in the book, plus other supplemental materials, can be downloaded by anyone from the book’s ­Web site.
+
+A NOTE ABOUT FORTRAN COMPILERS
+Two Fortran compilers were used during the preparation of this book: the Intel Visual Fortran Compiler Version 16.0 and the GNU G95 Fortran compiler. Both compilers provide essentially complete implementations of Fortran 2008, with only a very few minor items not yet implemented. They are also both looking to the future, implementing features from the proposed Fortran 2015 standard.
+I highly recommend both compilers to potential users. The great advantage of ­Intel Fortran is the very nice integrated debugging environment, and the great disadvantage is cost. The G95 compiler is free, but it is somewhat harder to debug.
+
+xxiv
+
+Preface
+
+A FINAL NOTE TO THE USER
+
+No matter how hard I try to proofread a document like this book, it is inevitable that some typographical errors will slip through and appear in print. If you should spot any such errors, please drop me a note via the publisher, and I will do my best to get them eliminated from subsequent printings and editions. Thank you very much for your help in this matter.
+I will maintain a complete list of errata and corrections at the book’s World Wide Web site, which is www.mhhe.com/chapman4e. Please check that site for any updates and/or corrections.
+
+ACKNOWLEDGMENTS
+I would like to thank Raghu Srinivasan and the team at McGraw-Hill Education for making this revision possible. In addition, I would like to thank my wife Rosa and daughter Devorah for their support during the revision process. (In previous editions, I had thanked our other seven children as well, but they have all now flown the coop!)
+Stephen J. Chapman Melbourne, Victoria, Australia
+August 7, 2016
+
+1
+Introduction to Computers and the Fortran Language
+OBJECTIVES
+∙ Know the basic components of a computer. ∙ Understand binary, octal, and hexadecimal numbers. ∙ Learn about the history of the Fortran language.
+The computer was probably the most important invention of the twentieth century.
+It affects our lives profoundly in very many ways. When we go to the grocery store, the scanners that check out our groceries are run by computers. Our bank balances are maintained by computers, and the automatic teller machines and credit and debit cards that allow us to make banking transactions at any time of the day or night are run by more computers. Computers control our telephone and electric power systems, run our microwave ovens and other appliances, and control the engines in our cars. Almost any business in the developed world would collapse overnight if it were suddenly deprived of its computers. Considering their importance in our lives, it is almost impossible to believe that the first electronic computers were invented just about 75 years ago.
+Just what is this device that has had such an impact on all of our lives? A ­computer is a special type of machine that stores information, and can perform mathematical calculations on that information at speeds much faster than human beings can think. A program, which is stored in the computer’s memory, tells the computer what sequence of calculations is required, and which information to perform the calculations on. Most computers are very flexible. For example, the computer on which I write these words can also balance my checkbook, if I just execute a different program on it.
+Computers can store huge amounts of information, and with proper programming, they can make that information instantly available when it is needed. For example, a bank’s computer can hold the complete list of all the deposits and debits made by ­every one of its customers. On a larger scale, credit companies use their computers to hold the credit histories of every person in the United States—literally billions of
+1
+
+2
+
+chapter 1:   Introduction to Computers and the Fortran Language
+
+pieces of information. When requested, they can search through those billions of
+
+1
+
+pieces of information to recover the credit records of any single person, and present
+
+those records to the user in a matter of seconds.
+
+It is important to realize that computers do not think as humans understand
+
+­thinking. They merely follow the steps contained in their programs. When a computer
+
+appears to be doing something clever, it is because a clever person has written the pro-
+
+gram that it is executing. That is where we humans come into the act. It is our collec-
+
+tive creativity that allows the computer to perform its seeming miracles. This book
+
+will help teach you how to write programs of your own, so that the computer will do
+
+what you want it to do.
+
+1.1
+THE COMPUTER
+A block diagram of a typical computer is shown in Figure 1-1. The major components of the computer are the central processing unit (CPU), main memory, secondary memory, and input and output devices. These components are described in the paragraphs below.
+
+Main memory
+
+Secondary memory
+
+Internal memory (registers)
+Control unit
+
+Memory cache
+
+Arithmetic logic unit
+Central processing unit
+FIGURE 1-1 A block diagram of a typical computer.
+
+Output devices
+
+Introduction to Computers and the Fortran Language
+
+3
+
+1.1.1  The CPU
+1
+The central processing unit is the heart of any computer. It is divided into a control unit, an arithmetic logic unit (ALU), and internal memory. The control unit within the CPU controls all of the other parts of the computer, while the ALU performs the actual mathematical calculations. The internal memory within a CPU consists of a series of memory registers used for the temporary storage of intermediate results during calculations, plus a memory cache to temporarily store data that will be needed in the near future.
+The control unit of the CPU interprets the instructions of the computer program. It also fetches data values from main memory (or the memory cache) and stores them in the memory registers, and sends data values from memory registers to output devices or main memory. For example, if a program says to multiply two numbers together and save the result, the control unit will fetch the two numbers from main memory and store them in registers. Then, it will present the numbers in the registers to the ALU along with directions to multiply them and store the results in another register. Finally, after the ALU multiplies the numbers, the control unit will take the result from the destination register and store it back into the memory cache. (Other parts of the CPU copy the data from the memory cache to main memory in slower time.)
+Modern CPUs have become dramatically faster by incorporating multiple ALUs running in parallel, allowing more operations to be performed in a given amount of time. They also incorporate larger memory caches on the CPU chip, allowing data to be fetched and saved very rapidly.
+
+1.1.2 Memory
+The memory of a computer is divided into three major types of memory: cache memory, main or primary memory, and secondary memory. Cache memory is memory stored on the CPU chip itself. This memory can be accessed very rapidly, allowing calculations to proceed at very high speed. The control unit looks ahead in the program to see what data will be needed, and pre-fetches it from main memory into the memory cache so that it can be used with minimal delay. The control unit also copies the results of calculations from the cache back to main memory when they are no l­onger needed.
+Main memory usually consists of separate semiconductor chips connected to the CPU by conductors called a memory bus. It is very fast, and relatively inexpensive compared to the memory on the CPU itself. Data that is stored in main memory can be fetched for use in a few nanoseconds or less (sometimes much less) on a modern computer. Because it is so fast and cheap, main memory is used to temporarily store the program currently being executed by the computer, as well as the data that the program requires.
+Main memory is not used for the permanent storage of programs or data. Most main memory is volatile, meaning that it is erased whenever the computer’s power is turned off. Besides, main memory is relatively expensive, so we only buy enough to hold all of the programs actually being executed at any given time.
+Secondary memory consists of devices that are slower and cheaper than main memory. They can store much more information for much less money than main ­memory can. In addition, most secondary memory devices are nonvolatile, meaning that they retain
+
+4
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+the programs and data stored in them whenever the computer’s power is turned off. Typical secondary memory devices are hard disks, solid-state drives (SSD), USB memory sticks, and DVDs. Secondary storage devices are normally used to store programs and data that are not needed at the moment, but that may be needed some time in the future.
+
+1.1.3  Input and Output Devices
+Data is entered into a computer through an input device, and is output through an output device. The most common input devices on a modern computer are the keyboard and the mouse. We can type programs or data into a computer with a keyboard. Other types of input devices found on some computers include touchscreens, scanners, ­microphones, and cameras.
+Output devices permit us to use the data stored in a computer. The most common output devices on today’s computers are displays and printers. Other types of output devices include plotters and speakers.
+
+1.2
+DATA REPRESENTATION IN A COMPUTER
+Computer memories are composed of billions of individual switches, each of which can be ON or OFF, but not at a state in between. Each switch represents one binary digit (also called a bit); the ON state is interpreted as a binary 1, and the OFF state is interpreted as a binary 0. Taken by itself, a single switch can only represent the numbers 0 and 1. Since we obviously need to work with numbers other than 0 and 1, a number of bits are grouped together to represent each number used in a computer. When several bits are grouped ­together, they can be used to represent numbers in the binary (base 2) number system.
+The smallest common grouping of bits is called a byte. A byte is a group of 8 bits that are used together to represent a binary number. The byte is the fundamental unit used to measure the capacity of a computer’s memory. For example, the personal computer on which I am writing these words has a main memory of 24 gigabytes (24,000,000,000 bytes) and a secondary memory (disk drive) with a storage of 2 ­terabytes (2,000,000,000,000 bytes).
+The next larger grouping of bits in a computer is called a word. A word consists of 2, 4, or more consecutive bytes that are used to represent a single number in memory. The size of a word varies from computer to computer, so words are not a particularly good way to judge the size of computer memories. Modern CPUs tend to use words with lengths of either 32 or 64 bits.
+
+1.2.1  The Binary Number System
+
+In the familiar base 10 number system, the smallest (rightmost) digit of a number is the
+
+ones place (100). The next digit is in the tens place (101), and the next one is in the
+
+hundreds (2 × 100).
+
+place Each
+
+(102), etc. Thus, the number 12210 is digit is worth a power of 10 more than
+
+really (1 the digit
+
+× to
+
+102) + (2 × 101) + the right of it in the
+
+base 10 system (see Figure 1-2a).
+
+Introduction to Computers and the Fortran Language
+
+5
+
+1’s place 10’s place 100’s place
+122 (a)
+
+FIGURE 1-2
+(a) The base 10 number 122 is really (1 × 102) + (2 × 101) + 1
+(2 × 100). (b) Similarly, the base 2 number 1012 is really (1 × 22) + (0 × 21) + (1 × 20).
+
+1’s place 2’s place 4’s place
+
+1 0 1 2 = 5 10 (b)
+
+Similarly, in the binary number system, the smallest (rightmost) digit is the ones
+
+place (20). The next digit is in the twos place (21), and the next one is in the fours place
+
+(22), etc. Each digit is worth a power of 2 more than the digit to the right of it in the
+
+base (1 ×
+
+220)sy=st5e,ma.nFdothr eexbainmaprylen, uthmebbeirn1a1ry12n=um7b(eser e1F01ig2uirser1e-a2llby).(1
+
+×
+
+22)
+
++
+
+(0
+
+×
+
+21)
+
++
+
+Note that three binary digits can be used to represent eight possible values: 0 (= 0002)
+
+to 7 can
+
+(= 1112). represent
+
+In 2n
+
+general, if n bits possible values.
+
+are grouped together to form a binary number, then they Thus, a group of 8 bits (1 byte) can represent 256 possi-
+
+ble values, a group of 16 bits (2 bytes) can be used to represent 65,536 possible values,
+
+and a group of 32 bits (4 bytes) can be used to represent 4,294,967,296 possible values.
+
+In a typical implementation, half of all possible values are reserved for represent-
+
+ing negative numbers, and half of the values are reserved for representing zero plus the
+
+positive numbers. Thus, a group of 8 bits (1 byte) is usually used to represent numbers
+
+between −128 and +127, including 0, and a group of 16 bits (2 bytes) is usually used
+
+to represent numbers between −32,768 and +32,767, including 0.1
+
+TWO’S COMPLEMENT ARITHMETIC
+The most common way to represent negative numbers in the binary number system is the two’s complement representation. What is two’s complement, and what is so special about it? Let’s find out.
+The Two’s Complement Representation of Negative Numbers In the two’s complement representation, the leftmost bit of a number is the sign bit. If that bit is 0, then the number is positive; if it is 1, then the number is negative. To change a positive number into the corresponding negative number in the two’s complement system, we perform two steps:
+1. Complement the number (change all 1s to 0 and all 0s to 1). 2. Add 1 to the complemented number.
+1 The most common scheme for representing negative numbers in a computer’s memory is the so-called two’s complement representation, which is described in the sidebar.
+
+6
+
+chapter 1:   Introduction to Computers and the Fortran Language
+
+1
+
+Let’s illustrate the process using simple 8-bit integers. As we already know, the
+
+8-bit binary representation of the number 3 would be 00000011. The two’s comple-
+
+ment representation of the number −3 would be found as follows:
+
+1. Complement the positive number: 11111100 2. Add 1 to the complemented number: 11111100 + 1 = 11111101
+
+Exactly the same process is used to convert negative numbers back to positive numbers. To convert the number −3 (11111101) back to a positive 3, we would:
+
+1. Complement the negative number: 00000010 2. Add 1 to the complemented number: 00000010 + 1 = 00000011
+
+Two’s Complement Arithmetic Now we know how to represent numbers in two’s complement representation, and to convert between positive and two’s complement negative numbers. The special ­advantage of two’s complement arithmetic is that positive and negative numbers may be added together according to the rules of ordinary addition without regard to the sign, and the resulting answer will be correct, including the proper sign. ­Because of this fact, a computer may add any two integers together without checking to see what the signs of the two integers are. This simplifies the design of computer circuits.
+Let’s do a few examples to illustrate this point.
+1. Add 3 + 4 in two’s complement arithmetic.
+3 00000011 +4 00000100
+7 00000111
+2. Add (−3) + (−4) in two’s complement arithmetic.
+3 11111101 +−4 11111100
+−7 111111001
+In a case like this, we ignore the extra ninth bit resulting from the sum, and the answer is 11111001. The two’s complement of 11111001 is 00000111 or 7, so the ­result of the addition was −7!
+3. Add 3 + (−4) in two’s complement arithmetic.
+−3 00000011 +−4 11111100
+−1 11111111
+The answer is 11111111. The two’s complement of 11111111 is 00000001 or 1, so the result of the addition was −1.
+With two’s complement numbers, binary addition comes up with the correct ­answer regardless of whether the numbers being added are both positive, both negative, or mixed.
+
+Introduction to Computers and the Fortran Language
+
+7
+
+1.2.2  Octal and Hexadecimal Representations of Binary Numbers
+
+1
+
+Computers work in the binary number system, but people think in the decimal number
+
+system. Fortunately, we can program the computer to accept inputs and give its outputs
+
+in the decimal system, converting them internally to binary form for processing. Most
+
+of the time, the fact that computers work with binary numbers is irrelevant to the
+
+­programmer.
+
+However, there are some cases in which a scientist or engineer has to work directly
+
+with the binary representations coded into the computer. For example, individual bits
+
+or groups of bits within a word might contain status information about the operation of
+
+some machine. If so, the programmer will have to consider the individual bits of the
+
+word, and work in the binary number system.
+
+A scientist or engineer who has to work in the binary number system immediately
+
+faces the problem that binary numbers are unwieldy. For example, a number like
+
+110010 in the decimal system is 0100010011002 in the binary system. It is easy to get lost working with such a number! To avoid this problem, we customarily break binary
+
+numbers down into groups of 3 or 4 bits, and represent those bits by a single base
+
+8 (octal) or base 16 (hexadecimal) number.
+
+To understand this idea, note that a group of 3 bits can represent any number
+
+­between 0 (= 0002) and 7 (= 1112). These are the numbers found in an octal or base 8 arithmetic system. An octal number system has seven digits: 0 through 7. We can
+
+break a binary number up into groups of 3 bits, and substitute the appropriate octal
+
+digit for each group. Let’s use the number 0100010011002 as an example. Breaking the number into groups of three digits yields 010∣001∣001∣1002. If each group of 3 bits is replaced by the appropriate octal number, the value can be written as 21148. The octal number represents exactly the same pattern of bits as the binary number, but it is
+
+more compact.
+
+Similarly, a group of 4 bits can represent any number between 0 (= 00002) and 15 (= 11112). These are the numbers found in a hexadecimal or base 16 arithmetic system. A hexadecimal number system has 16 digits: 0 through 9 and A through F.
+
+Since the hexadecimal system needs 16 digits, we use digits 0 through 9 for the first
+
+10 of them, and then letters A through F for the remaining 6. Thus, 916 = 910, A16 = 1010, B16 = 1110, and so forth. We can break a binary number up into groups of 4 bits, and substitute the appropriate hexadecimal digit for each group. Let’s use the
+
+number 0100010011002 again as an example. Breaking the number into groups of four digits yields 0100∣0100∣11002. If each group of 4 bits is replaced by the appropriate hexadecimal number, the value can be written as 44C16. The hexadecimal number represents exactly the same pattern of bits as the binary number, but more
+
+compactly.
+
+Some computer vendors prefer to use octal numbers to represent bit patterns,
+
+while other computer vendors prefer to use hexadecimal numbers to represent bit pat-
+
+terns. Both representations are equivalent, in that they represent the pattern of bits in a
+
+compact form. A Fortran language program can input or output numbers in any of the
+
+four formats (decimal, binary, octal, or hexadecimal). Table 1-1 lists the decimal,
+
+­binary, octal, and hexadecimal forms of the numbers 0 to 15.
+
+8
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+
+TABLE 1-1
+Table of decimal, binary, octal, and hexadecimal numbers
+
+Decimal
+
+Binary
+
+Octal Hexadecimal
+
+0
+
+0000
+
+0
+
+0
+
+1
+
+0001
+
+1
+
+1
+
+2
+
+0010
+
+2
+
+2
+
+3
+
+0011
+
+3
+
+3
+
+4
+
+0100
+
+4
+
+4
+
+5
+
+0101
+
+5
+
+5
+
+6
+
+0110
+
+6
+
+6
+
+7
+
+0111
+
+7
+
+7
+
+8
+
+1000
+
+10
+
+8
+
+9
+
+1001
+
+11
+
+9
+
+10
+
+1010
+
+12
+
+A
+
+11
+
+1011
+
+13
+
+B
+
+12
+
+1100
+
+14
+
+C
+
+13
+
+1101
+
+15
+
+D
+
+14
+
+1110
+
+16
+
+E
+
+15
+
+1111
+
+17
+
+F
+
+1.2.3  Types of Data Stored in Memory
+Three common types of data are stored in a computer’s memory: character data, ­integer data, and real data (numbers with a decimal point). Each type of data has different characteristics, and takes up a different amount of memory in the computer.
+Character Data
+The character data type consists of characters and symbols. A typical system for representing character data in a non-Oriental language must include the following symbols:
+1. The 26 uppercase letters A through Z 2. The 26 lowercase letters a through z 3. The 10 digits 0 through 9 4. Miscellaneous common symbols, such as ",(), {}, [], !, ~, @, #, $,
+%, ^, &, and *. 5. Any special letters or symbols required by the language, such as à, ç, ë, and £.
+Since the total number of characters and symbols required to write Western ­languages is less than 256, it is customary to use 1 byte of memory to store each character. Therefore, 10,000 characters would occupy 10,000 bytes of the computer’s memory.
+The particular bit values corresponding to each letter or symbol may vary from computer to computer, depending upon the coding system used for the characters. The most important coding system is ASCII, which stands for the American Standard Code
+
+Introduction to Computers and the Fortran Language
+
+9
+
+for Information Interchange (ANSI X3.4 1986, or ISO/IEC 646:1991). The ASCII
+coding system defines the values to associate with the first 128 of the 256 possible 1
+values that can be stored in a 1-byte character. The 8-bit codes corresponding to each letter and number in the ­ASCII coding system are given in Appendix A.
+The second 128 characters that can be stored in a 1-byte character are not defined by the ASCII character set, and they used to be defined differently depending on the language used in a particular country or region. These definitions are a part of the ISO 8859 standard series, and they are sometimes referred to as “code pages.” For example, the ISO 8859-1 (Latin 1) character set is the version used in Western European countries. There are similar code pages available for Eastern European languages, ­Arabic, Greek, Hebrew, and so forth. Unfortunately, the use of different code pages made the output of programs and the contents of files appear different in different countries. As a result, these code pages are falling out of favor, and being replaced by the Unicode system described below.
+Some Oriental languages such as Chinese and Japanese contain more than 256 characters (in fact, about 4000 characters are needed to represent each of these languages). To accommodate these languages and all of the other languages in the world, a coding system called Unicode2 has been developed. In the Unicode coding system, each character is stored in 2 bytes of memory, so the Unicode system supports 65,536 possible different characters. The first 128 Unicode characters are identical to the A­ SCII character set, and other blocks of characters are devoted to various languages such as Chinese, Japanese, Hebrew, Arabic, and Hindi. When the Unicode coding system is used, character data can be represented in any ­language.
+
+Integer Data
+The integer data type consists of the positive integers, the negative integers, and zero. The amount of memory devoted to storing an integer will vary from computer to computer, but will usually be 1, 2, 4, or 8 bytes. Four-byte integers are the most common type in modern computers.
+Since a finite number of bits are used to store each value, only integers that fall within a certain range can be represented on a computer. Usually, the smallest number that can be stored in an n-bit integer is
+
+Smallest integer value = −2n−1
+
+(1-1)
+
+and the largest number that can be stored in an n-bit integer is Largest integer value = 2n−1 − 1
+
+(1-2)
+
+For a 4-byte integer, the smallest and largest possible values are −2,147,483,648 and 2,147,483,647, respectively. Attempts to use an integer larger than the largest possible
+
+2 Also referred to by the corresponding standard number, ISO/IEC 10646:2014.
+
+10
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+value or smaller than the smallest (most negative) possible value result in an error called an overflow condition.3
+Real Data
+The integer data type has two fundamental limitations:
+1. It is not possible to represent numbers with fractional parts (0.25, 1.5, 3.14159, etc.) as integer data.
+2. It is not possible to represent very large positive integers or very small negative integers, because there are not enough bits available to represent the value. The largest and smallest possible integers that can be stored in a given memory location will be given by Equations (1-1) and (1-2).
+To get around these limitations, computers include a real or floating-point data type.
+The real data type stores numbers in a type of scientific notation. We all know that very large or very small numbers can be most conveniently written in scientific notation. For example, the speed of light in a vacuum is about 299,800,000 m/s. This number is easier to work with in scientific notation: 2.998 × 108 m/s. The two parts of a number expressed in scientific notation are called the mantissa and the ­exponent. The mantissa of the number above is 2.998, and the exponent (in the base 10 system) is 8.
+The real numbers in a computer are similar to the scientific notation above, except that a computer works in the base 2 system instead of the base 10 system. Real numbers usually occupy 32 bits (4 bytes) of computer memory, divided into two components: a 24-bit mantissa and an 8-bit exponent (Figure 1-3).4 The mantissa contains a number between −1.0 and 1.0, and the exponent contains the power of 2 required to scale the number to its actual value.
+Real numbers are characterized by two quantities: precision and range. ­Precision is the number of significant digits that can be preserved in a number, and range is the difference between the largest and smallest numbers that can be ­represented. The precision of a real number depends on the number of bits in its mantissa, while the range of the number depends on the number of bits in its exponent. A 24-bit mantissa can represent approximately ±223 numbers, or about seven significant decimal digits, so the precision of real numbers is about seven significant digits. An 8-bit e­ xponent can represent multipliers between 2−128 and 2127, so the range of real numbers is from about 10−38 to 1038. Note that the real data type can represent numbers much larger or much smaller than integers can, but only with seven significant digits of precision.
+3 When an overflow condition occurs, some processors will abort the program causing the overflow condition. Other processors will “wrap around” from the most positive integer to the most negative integer without giving the user a warning that anything has happened. This behavior varies for different types of computers. 4 This discussion is based on the IEEE Standard 754 for floating-point numbers, which is representative of most modern computers.
+
+Introduction to Computers and the Fortran Language
+
+Value = mantissa × 2exponent
+
+10
+
+20
+
+30
+
+mmmmmmmmmmmmmmmmmmmmmmmmeeeeeeee
+
+11 FIGURE 1-3
+This floating-point number includes a 24-bit 1
+mantissa and an 8-bit exponent.
+
+Mantissa
+
+Exponent
+
+When a value with more than seven digits of precision is stored in a real variable, only the most significant 7 bits of the number will be preserved. The ­remaining information will be lost forever. For example, if the value 12,345,678.9 is stored in a real variable on a PC, it will be rounded off to 12,345,680.0. This difference ­between the original value and the number stored in the computer is known as ­round-off error.
+You will use the real data type in many places throughout this book and in your programs after you finish this course. It is quite useful, but you must always remember the limitations associated with round-off error, or your programs might give you an unpleasant surprise. For example, if your program must be able to distinguish between the numbers 1,000,000.0 and 1,000,000.1, then you cannot use the standard real data type.5 It simply does not have enough precision to tell the difference between these two numbers!
+Programming Pitfalls
+Always remember the precision and range of the data types that you are working with. Failure to do so can result in subtle programming errors that are very hard to find.
+
+Quiz 1-1
+This quiz provides a quick check to see if you have understood the concepts introduced in Section 1.2. If you have trouble with the quiz, reread the section, ask your instructor, or discuss the material with a fellow student. The answers to this quiz are found in the back of the book.
+1. Express the following decimal numbers as their binary equivalents: (a) 2710 (b) 1110 (c) 3510 (d) 12710 (continued )
+
+5 We will learn how to use high-precision floating-point numbers in Chapter 11.
+
+12
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+(concluded )
+2. Express the following binary numbers as their decimal equivalents: (a) 11102 (b) 010101012 (c) 10012
+3. Express the following binary numbers as octal and hexadecimal numbers: (a) 11100101101011012 (b) 11101111012 (c) 10010111001111112
+4. Is the fourth bit of the number 13110 a 1 or a 0? 5. Assume that the following numbers are the contents of a character variable.
+Find the character corresponding to each number according to the ASCII encoding scheme (The character codes in the ASCII encoding scheme are defined in Appendix A): (a) 7710 (b) 011110112 (c) 24910 6. Find the maximum and minimum values that can be stored in a 2-byte ­integer variable. 7. Can a 4-byte variable of the real data type be used to store larger numbers than a 4-byte variable of the integer data type? Why or why not? If it can, what is given up by the real variable to make this possible?
+1.3
+COMPUTER LANGUAGES
+When a computer executes a program, it executes a string of very simple operations such as load, store, add, subtract, multiply, and so on. Each such operation has a unique binary pattern called an operation code (op code) to specify it. The program that a computer executes is just a string of op codes (and the data associated with the op codes6) in the order necessary to achieve a purpose. Op codes are collectively called machine language, since they are the actual language that a computer recognizes and executes.
+Unfortunately, we humans find machine language very hard to work with. We prefer to work with English-like statements and algebraic equations that are expressed in forms familiar to us, instead of arbitrary patterns of zeros and ones. We like to program computers with high-level languages. We write out our instructions in a highlevel language, and then use special programs called compilers and linkers to convert the instructions into the machine language that the computer understands.
+6 The data associated with op codes is called operands.
+
+Introduction to Computers and the Fortran Language
+
+13
+
+There are many different high-level languages, with different characteristics.
+Some of them are designed to work well for business problems, while others are 1
+­designed for general scientific use. Still others are especially suited for applications like operating systems programming. It is important to pick a proper language to match the problem that you are trying to solve.
+Some common high-level computer languages today include Ada, C, C++, F­ ortran, and Java. Historically, Fortran has been the pre-eminent language for general scientific computations. It has been around in one form or another for more than 60 years, and has been used to implement everything from computer models of nuclear power plants to aircraft design programs to seismic signal processing systems, including some projects requiring literally millions of lines of code. The language is especially useful for numerical analysis and technical calculations. In addition, Fortran is the dominant language in the world of supercomputers and massively parallel computers.
+
+1.4
+THE HISTORY OF THE FORTRAN LANGUAGE
+Fortran is the grandfather of all scientific computer languages. The name Fortran is derived from FORmula TRANSlation, indicating that the language was intended from the start for translating scientific equations into computer code. The first version of the FORTRAN7 language was developed during the years 1954–1957 by IBM for use with its Type 704 computer (see Figure 1-4). Before that time, essentially all computer programs were generated by hand in machine language, which was a slow, tedious, and error-prone process. FORTRAN was a truly revolutionary product. For the first time, a programmer could write a desired algorithm as a series of standard algebraic equations, and the FORTRAN compiler would convert the statements into the machine language that the computer could recognize and execute.
+
+THE IBM TYPE 704 COMPUTER
+The IBM Type 704 computer was the first computer ever to use the FORTRAN language. It was released in 1954, and was widely used from then until about 1960, when it was replaced by the Model 709. As you can see from Figure 1-4, the computer occupied a whole room.
+What could a computer like that do in 1954? Not much, by today’s standards. Any PC sitting on a desktop can run rings around it. The 704 could perform about 4000 ­integer multiplications and divisions per second, and an average of about 8000 ­floating-point operations per second. It could read data from magnetic drums
+7 Versions of the language before Fortran 90 were known as FORTRAN (written with all capital letters), while Fortran 90 and later versions are known as Fortran (with only the first letter capitalized).
+
+14
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+
+FIGURE 1-4 The IBM Type 704 computer. (© Bettmann/Getty Images)
+(the equivalent of a disk drive) into memory at a rate of about 50,000 bytes per second. The amount of data storage available on a magnetic drum was also very small, so most programs that were not currently in use were stored as decks of punched cards.
+By comparison, a typical modern personal computer (circa 2006) performed more than 20,000,000,000 integer multiplications and divisions per second, and hundreds of millions of floating-point operations per second. Some of today’s workstations are small enough to sit on a desktop, and yet can perform more than 5,000,000,000 floating-point operations per second! Reads from disk into memory occur at rates greater than 25,000,000 bytes per second, and a typical PC disk drive can store more than 200,000,000,000 bytes of data.
+The limited resources available in the 704 and other machines of that generation placed a great premium on efficient programming. The structured programming techniques that we use today were simply not possible, because there was not enough speed or memory to support them. The earliest versions of FORTRAN were designed with those limitations in mind, which is why we find many archaic features preserved as living fossils in modern versions of Fortran.
+
+Introduction to Computers and the Fortran Language
+
+15
+
+FORTRAN was a wonderful idea! People began using it as soon as it was avail-
+able, because it made programming so much easier than machine language did. The 1
+language was officially released in April 1957, and by the fall of 1958, more than half of all IBM 704 computer programs were being written in Fortran.
+The original FORTRAN language was very small compared to our modern versions of Fortran. It contained only a limited number of statement types, and supported only the integer and real data types. There were also no subroutines in the first ­FORTRAN. It was a first effort at writing a high-level computer language, and naturally many deficiencies were found as people started using the language regularly. IBM addressed those problems, releasing FORTRAN II in the spring of 1958.
+Further developments continued through 1962, when FORTRAN IV was released. FORTRAN IV was a great improvement, and it became the standard version of ­Fortran for the next 15 years. In 1966, FORTRAN IV was adopted as an ANSI standard, and it came to be known as FORTRAN 66.
+The Fortran language received another major update in 1977. FORTRAN 77 ­included many new features designed to make structured programs easier to write and maintain, and it quickly became “the” Fortran. FORTRAN 77 introduced such structures as the block IF, and was the first version of Fortran in which character variables were truly easy to manipulate.
+The next major update of Fortran was Fortran 90.8 Fortran 90 included all of ­FORTRAN 77 as a subset, and extended the language in many important new directions. Among the major improvements introduced to the language in Fortran 90 were a new free source format, array sections, whole-array operations, parameterized data types, derived data types, and explicit interfaces. Fortran 90 was a dramatic improvement over earlier versions of the language.
+Fortran 90 was followed in 1996 by a minor update called Fortran 95. Fortran 95 added a number of new features to the language such as the FORALL construct, pure functions, and some new intrinsic procedures. In addition, it clarified numerous ambiguities in the Fortran 90 standard.
+Fortran 2003 was the next update.9 This is a more major change from Fortran 95, including new features such as enhanced derived types, object-oriented programming support, Unicode character set support, data manipulation enhancements, procedure pointers, and interoperability with the C language. It was followed by a more minor update called Fortran 2008.
+The subject of this book is the Fortran 2008 language. The designers of Fortran 2008 were careful to make the language backward compatible with FORTRAN 77 and earlier versions. Because of this backward compatibility, most of the millions of programs written in FORTRAN 77 also work with Fortran 2008. Unfortunately, being backward compatible with earlier versions of Fortran required that Fortran 2008 retain some archaic features that should never be used in any modern program. In this book,
+
+8 American National Standard Programming Language Fortran, ANSI X3.198-1992; and International Standards Organization ISO/IEC 1539: 1991, Information Technology—Programming Languages—­ Fortran. 9 International Standards Organization ISO/IEC 1539: 2004, Information Technology—Programming ­Languages—Fortran.
+
+16
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+we will learn to program in Fortran using only its modern features. The older features that are retained for backward compatibility are relegated to Chapter 18 of this book. They are described there in case you run into any of them in older programs, but they should never be used in any new program.
+1.5
+THE EVOLUTION OF FORTRAN
+The Fortran language is a dynamic language that is constantly evolving to keep up with advances in programming practice and computing technology. A major new version appears about once per decade.
+The responsibility for developing new versions of the Fortran language lies with the International Organization for Standardization’s (ISO) Fortran Working Group, WG5. That organization has delegated authority to the J3 Committee of the ­InterNational Committee for Information Technology Standards (INCITS) to actually prepare new versions of the language. The preparation of each new version is an ­extended process involving first asking for suggestions for inclusion in the language, deciding which suggestions are feasible to implement, writing and circulating drafts to all interested parties throughout the world, and correcting the drafts and trying again until general agreement is reached. Eventually, a worldwide vote is held and the standard is adopted.
+The designers of new versions of the Fortran language must strike a delicate balance between backward compatibility with the existing base of Fortran programs and the introduction of desirable new features. Although modern structured programming features and approaches have been introduced into the language, many undesirable features from earlier versions of Fortran have been retained for backward compatibility.
+The designers have developed a mechanism for identifying undesirable and ­obsolete features of the Fortran language that should no longer be used, and for eventually eliminating them from the language. Those parts of the language that have been superseded by new and better methods are declared to be obsolescent features. Features that have been declared obsolescent should never be used in any new pro-
+grams. As the use of these features declines in the existing Fortran code base, they will then be considered for deletion from the language. No feature will ever be ­deleted from a version of the language unless it was on the obsolescent list in at least one previous version, and unless the usage of the feature has dropped off to negligible levels. In this fashion, the language can evolve without threatening the existing Fortran code base.
+The redundant, obsolescent, and deleted features of Fortran 2008 are described in Chapter 18 in case a programmer runs into them in existing programs, but they should never be used in any new programs.
+We can get a feeling for just how much the Fortran language has evolved over the years by examining Figures 1-5 through 1-7. These three figures show programs for calculating the solutions to the quadratic equation ax2 + bx + c = 0 in the styles of the original FORTRAN I, of FORTRAN 77, and of Fortran 2008. It is obvious that the
+
+Introduction to Computers and the Fortran Language
+
+17
+
+language has become more readable and structured over the years. Amazingly, though,
+Fortran 2008 compilers will still compile the FORTRAN I program with just a few 1
+minor changes!10
+
+FIGURE 1-5 A FORTRAN I program to solve for the roots of the quadratic equation ax2 + bx + c = 0.
+
+C
+
+SOLVE QUADRATIC EQUATION IN FORTRAN I
+
+READ 100,A,B,C
+
+100 FORMAT(3F12.4)
+
+DISCR = B**2-4*A*C
+
+IF (DISCR) 10,20,30
+
+10 X1=(-B)/(2.*A)
+
+X2=SQRTF(ABSF(DISCR))/(2.*A)
+
+PRINT 110,X1,X2
+
+110 FORMAT(5H X = ,F12.3,4H +i ,F12.3)
+
+PRINT 120,X1,X2
+
+120 FORMAT(5H X = ,F12.3,4H -i ,F12.3)
+
+GOTO 40
+
+20 X1=(-B)/(2.*A)
+
+PRINT 130,X1
+
+130 FORMAT(11H X1 = X2 = ,F12.3)
+
+GOTO 40
+
+30 X1=((-B)+SQRTF(ABSF(DISCR)))/(2.*A)
+
+X2=((-B)-SQRTF(ABSF(DISCR)))/(2.*A)
+
+PRINT 140,X1
+
+140 FORMAT(6H X1 = ,F12.3)
+
+PRINT 150,X2
+
+150 FORMAT(6H X2 = ,F12.3)
+
+40 CONTINUE
+
+STOP 25252
+
+FIGURE 1-6 A FORTRAN 77 program to solve for the roots of the quadratic equation ax2 + bx + c = 0.
+
+PROGRAM QUAD4
+
+C
+
+C
+
+This program reads the coefficients of a quadratic equation of
+
+C
+
+the form
+
+C
+
+A * X**2 + B * X + C = 0,
+
+C
+
+and solves for the roots of the equation (FORTRAN 77 style).
+
+C
+
+C
+
+Get the coefficients of the quadratic equation.
+
+C
+
+WRITE (*,*) 'Enter the coefficients A, B and C: '
+
+READ (*,*) A, B, C
+
+C
+
+C
+
+Echo the coefficients to make sure they are entered correctly.
+
+C
+
+(continued )
+
+10 Change SQRTF to SQRT, ABSF to ABS, and add an END statement.
+
+18
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+
+(concluded )
+
+WRITE (*,100) 'The coefficients are : ', A, B, C
+
+100 FORMAT (1X,A,3F10.4)
+
+C
+
+C
+
+Check the discriminant and calculate its roots.
+
+C
+
+DISCR = B**2 - 4.*A*C
+
+IF ( DISCR .LT. 0) THEN
+
+WRITE (*,*) ' This equation has complex roots:'
+
+WRITE (*,*) ' X = ', -B/(2.*A), ' +i ', SQRT(ABS(DISCR))/(2.*A)
+
+WRITE (*,*) ' X = ', -B/(2.*A), ' -i ', SQRT(ABS(DISCR))/(2.*A)
+
+ELSE IF ( (B**2 - 4.*A*C) .EQ. 0) THEN
+
+WRITE (*,*) ' This equation has a single repeated real root:'
+
+WRITE (*,*) ' X = ', -B/(2.*A)
+
+ELSE
+
+WRITE (*,*) ' This equation has two distinct real roots:'
+
+WRITE (*,*) ' X = ', (-B + SQRT(ABS(DISCR)))/(2.*A)
+
+WRITE (*,*) ' X = ', (-B - SQRT(ABS(DISCR)))/(2.*A)
+
+END IF
+
+C
+
+END
+
+FIGURE 1-7 A Fortran 2008 program to solve for the roots of the quadratic equation ax2 + bx + c = 0.
+
+PROGRAM roots
+
+! Purpose: ! This program solves for the roots of a quadratic equation of the form ! A * X**2 + B * X + C = 0. It calculates the answers regardless of the ! type of roots that the equation possesses (Fortran 95/2003 style). ! IMPLICIT NONE
+
+! Declare the variables used in this program
+
+REAL :: a REAL :: b REAL :: c REAL :: discriminant REAL :: imag_part REAL :: real_part REAL :: x1 REAL :: x2
+
+! Coefficient of X**2 term of equation ! Coefficient of X term of equation ! Constant term of equation ! Discriminant of the equation ! Imaginary part of equation (for complex roots) ! Real part of equation (for complex roots) ! First solution of equation (for real roots) ! Second solution of equation (for real roots)
+
+! Prompt the user for the coefficients of the equation WRITE (*,*) 'This program solves for the roots of a quadratic ' WRITE (*,*) 'equation of the form A * X**2 + B * X + C = 0. ' WRITE (*,*) 'Enter the coefficients A, B, and C:' READ (*,*) a, b, c
+
+! Echo back coefficients WRITE (*,*) 'The coefficients A, B, and C are: ', a, b, c
+
+(continued )
+
+Introduction to Computers and the Fortran Language
+
+19
+
+(concluded )
+
+! Calculate discriminant
+
+1
+
+discriminant = b**2 - 4. * a * c
+
+! Solve for the roots, depending upon the value of the discriminant
+
+IF ( discriminant > 0. ) THEN ! there are two real roots, so...
+
+X1 = ( -b + sqrt(discriminant) ) / ( 2. * a ) X2 = ( -b - sqrt(discriminant) ) / ( 2. * a ) WRITE (*,*) 'This equation has two real roots:' WRITE (*,*) 'X1 = ', x1 WRITE (*,*) 'X2 = ', x2
+
+ELSE IF ( discriminant == 0. ) THEN ! there is one repeated root, so...
+
+x1 = ( -b ) / ( 2. * a ) WRITE (*,*) 'This equation has two identical real roots:' WRITE (*,*) 'X1 = X2 = ', x1
+
+ELSE ! there are complex roots, so ...
+
+real_part = ( -b ) / ( 2. * a ) imag_part = sqrt ( abs ( discriminant ) ) / ( 2. * a ) WRITE (*,*) 'This equation has complex roots:' WRITE (*,*) 'X1 = ', real_part, ' +i ', imag_part WRITE (*,*) 'X2 = ', real_part, ' -i ', imag_part
+
+END IF
+
+END PROGRAM roots
+
+1.6
+SUMMARY
+A computer is a special type of machine that stores information, and can perform mathematical calculations on that information at speeds much faster than human ­beings can think. A program, which is stored in the computer’s memory, tells the computer what sequence of calculations is required, and which information to perform the calculations on.
+The major components of a computer are the central processing unit (CPU), cache memory, main memory, secondary memory, and input and output devices. The CPU performs all of the control and calculation functions of the computer. Cache memory is very fact memory integrated directly on the CPU chip. Main memory is somewhat slower memory that is used to store the program being executed and its associated data. Main memory is volatile, meaning that its contents are lost whenever power is turned off. Secondary memory is slower and cheaper than main memory. It is nonvolatile. Hard disks are common secondary memory devices. Input and output devices are used to read data into the computer and to output data from the computer. The most
+
+20
+1
+
+chapter 1:   Introduction to Computers and the Fortran Language
+common input device is a keyboard, and the most common output devices are displays or printers.
+Computer memories are composed of millions of individual switches, each of which can be ON or OFF, but not at a state in between. These individual switches are binary devices called bits. Eight bits are grouped together to form a byte of memory, and 2 or more bytes (depending on the computer) are grouped together to form a word of memory.
+Computer memories can be used to store character, integer, or real data. Each character in most character data sets occupies 1 byte of memory. The 256 possible values in the byte allow for 256 possible character codes. (Characters in the Unicode character set occupy 2 bytes, allowing for 65,536 possible character codes.) Integer values occupy 1, 2, 4, or 8 bytes of memory, and store integer quantities. Real values store numbers in a kind of scientific notation. They usually occupy 4 bytes of memory. The bits are divided into a separate mantissa and exponent. The precision of the number depends upon the number of bits in the mantissa, and the range of the number ­depends upon the number of bits in the exponent.
+The earliest computers were programmed in machine language. This process was slow, cumbersome, and error-prone. High-level languages began to appear in about 1954, and they quickly replaced machine language coding for most uses. FORTRAN was one of the first high-level languages ever created.
+The FORTRAN I computer language and compiler were originally developed in 1954–1957. The language has since gone through many revisions, and a standard mechanism has been created to evolve the language. This book teaches good programming practices using the modern Fortran language.
+1.6.1. Exercises
+1-1. Express the following decimal numbers as their binary equivalents:
+(a) 1010 (b) 3210 (c) 7710 (d ) 6310
+1-2. Express the following binary numbers as their decimal equivalents:
+(a) 010010002 (b) 100010012 (c) 111111112 (d ) 01012
+1-3. Express the following numbers in both octal and hexadecimal forms:
+(a) 10101110111100012 (b) 33010 (c) 11110 (d ) 111111011012
+
+Introduction to Computers and the Fortran Language
+
+21
+
+1-4. Express the following numbers in binary and decimal forms:
+
+(a) 3778
+
+1
+
+(b) 1A816
+
+(c) 1118
+
+(d ) 1FF16
+
+1-5. Some computers (such as IBM mainframes) used to implement real data using a 23-bit mantissa and a 9-bit exponent. What precision and range can we expect from real data on these machines?
+
+1-6. Some Cray supercomputers used to support 46-bit and 64-bit integer data types. What are the maximum and minimum values that we could express in a 46-bit integer? in a 64-bit integer?
+
+1-7. Find the 16-bit two’s complement representation of the following decimal numbers:
+(a) 5510 (b) −510 (c) 102410 (d ) −102410
+1-8. Add the two’s complement numbers 00100100100100102 and 11111100111111002 ­using binary arithmetic. Convert the two numbers to decimal form, and add them as decimals. Do the two answers agree?
+
+1-9. The largest possible 8-bit two’s complement number is 011111112, and the smallest possible 8-bit two’s complement number is 100000002. Convert these numbers to decimal form. How do they compare to the results of Equations (1-1) and (1-2)?
+
+1-10. The Fortran language includes a second type of floating-point data known as double precision. A double-precision number usually occupies 8 bytes (64 bits), instead of the 4 bytes occupied by a real number. In the most common implementation, 53 bits are used for the mantissa and 11 bits are used for the exponent. How many significant digits does a double-precision value have? What is the range of double-precision numbers?
+
+2
+Basic Elements of Fortran
+OBJECTIVES ∙ Know which characters are legal in a Fortran statement. ∙ Know the basic structure of a Fortran statement and a Fortran program. ∙ Know the difference between executable and nonexecutable statements. ∙ Know the difference between constants and variables. ∙ Understand the differences among the INTEGER, REAL, and CHARACTER data
+types. ∙ Learn the difference between default and explicit typing, and understand why
+explicit typing should always be used. ∙ Know the structure of a Fortran assignment statement. ∙ Learn the differences between integer arithmetic and real arithmetic, and when
+each one should be used. ∙ Know the Fortran hierarchy of operations. ∙ Learn how Fortran handles mixed-mode arithmetic expressions. ∙ Learn what intrinsic functions are, and how to use them. ∙ Know how to use list-directed input and output statements. ∙ Know why it is important to always use the IMPLICIT NONE statement.
+2.1
+INTRODUCTION As engineers and scientists, we design and execute computer programs to accomplish a goal. The goal typically involves technical calculations that would be too difficult or take too long to be performed by hand. Fortran is one of the computer languages commonly used for these technical calculations.
+This chapter introduces the basic elements of the Fortran language. By the end of the chapter, we will be able to write simple but functional Fortran programs.
+22
+
+Basic Elements of Fortran
+
+23
+
+2.2
+THE FORTRAN CHARACTER SET
+
+Every language, whether it is a natural language such as English or a computer lan- 2
+guage such as Fortran, Java, or C++, has its own special alphabet. Only the characters in this alphabet may be used with the language.
+The special alphabet used with the Fortran language is known as the Fortran ­character set. The Fortran character set consists of 97 characters, as shown in Table 2-1.
+
+TABLE 2-1
+The Fortran character set
+
+Number of symbols
+
+Type
+
+26
+
+Uppercase letters
+
+26
+
+Lowercase letters
+
+10
+
+Digits
+
+1
+
+Underscore character
+
+5
+
+Arithmetic symbols
+
+28
+
+Miscellaneous symbols
+
+Values
+A-Z a-z 0-9 _ + - * / ** ( ) . = , ' $ : ! " % & ; < > ? ~ \ [ ] ` ^ { } | # @ and blank
+
+Note that the uppercase letters of the alphabet are equivalent to the lowercase ones in the Fortran character set. (For example, the uppercase letter A is equivalent to the lowercase letter a.) In other words, Fortran is case insensitive. This behavior is in contrast with such case sensitive languages as C++ and Java, in which A and a are two totally different things.
+
+2.3
+THE STRUCTURE OF A FORTRAN STATEMENT
+
+A Fortran program consists of a series of statements designed to accomplish the goal of the programmer. There are two basic types of statements: executable statements and nonexecutable statements. Executable statements describe the actions taken by the program when it is executed (additions, subtractions, multiplications, divisions, etc.), while nonexecutable statements provide information necessary for the proper operation of the program. We will see many examples of each type of statement as we learn more about the Fortran language.
+Fortran statements may be entered anywhere on a line, and each line may be up to 132 characters long. If a statement is too long to fit onto a single line, then it may be continued on the next line by ending the current line (and optionally starting the next line) with an ampersand (&) character. For example, the following three Fortran ­statements are identical:
+
+output = input1 + input2 ! Sum the inputs
+
+output = input1 &
+
++ input2
+
+! Sum the inputs
+
+24
+2
+
+chapter 2:   Basic Elements of Fortran
+
+999 output = input1 & & + input2
+
+! Sum the inputs
+
+Each of the statements specifies that the computer should add the two quantities stored in input1 and input2 and save the result in output. A Fortran statement can be continued over up to 256 lines, if required.
+The last statement shown above starts with a number, known as a statement label. A statement label can be any number between 1 and 99,999. It is the “name” of a Fortran statement, and may be used to refer to the statement in other parts of the program. Note that a statement label has no significance other than as a “name” for the statement. It is not a line number, and it tells nothing about the order in which statements are executed. Statement labels are rare in modern Fortran, and most statements will not have one. If a statement label is used, it must be unique within a given program unit. For example, if 100 is used as a statement label on one line, it cannot be used again as a statement label on any other line in the same program unit.
+Any characters following an exclamation point are comments, and are ignored by the Fortran compiler. All text from the exclamation point to the end of the line will be ignored, so comments may appear on the same line as an executable statement. ­Comments are very important, because they help us document the proper operation of a program. In the third example above, the comment is ignored, so the ampersand is treated by the compiler as the last character on the line.
+
+2.4
+THE STRUCTURE OF A FORTRAN PROGRAM
+Each Fortran program consists of a mixture of executable and nonexecutable statements, which must occur in a specific order. An example Fortran program is shown in Figure 2-1. This program reads in two numbers, multiplies them together, and prints out the result. Let’s examine the significant features of this program.
+
+FIGURE 2-1 A simple Fortran program.
+PROGRAM my_first_program
+! Purpose: ! To illustrate some of the basic features of a Fortran program. !
+
+! Declare the variables used in this program.
+
+INTEGER :: i, j, k
+
+! All variables are integers
+
+! Get two values to store in variables i and j WRITE (*,*) 'Enter the numbers to multiply: ' READ (*,*) i, j
+
+(continued )
+
+Basic Elements of Fortran
+
+25
+
+(concluded )
+
+! Multiply the numbers together
+
+k = i * j
+
+2
+
+! Write out the result.
+
+WRITE (*,*) 'Result = ', k
+
+! Finish up. STOP END PROGRAM my_first_program
+
+This Fortran program, like all Fortran program units,1 is divided into three ­sections:
+
+1. The declaration section. This section consists of a group of nonexecutable statements at the beginning of the program that define the name of the program and the number and types of variables referenced in the program.
+2. The execution section. This section consists of one or more statements describing the actions to be performed by the program.
+3. The termination section. This section consists of a statement or statements stopping the execution of the program and telling the compiler that the program is complete.
+
+Note that comments may be inserted freely anywhere within, before, or after the program.
+
+2.4.1  The Declaration Section
+The declaration section consists of the nonexecutable statements at the beginning of the program that define the name of the program and the number and types of variables referenced in the program.
+The first statement in this section is the PROGRAM statement. It is a nonexecutable statement that specifies the name of the program to the Fortran compiler. Fortran ­program names may be up to 63 characters long and contain any combination of alphabetic characters, digits, and the underscore (_) character. However, the first character in a program name must always be alphabetic. If present, the PROGRAM statement must be the first line of the program. In this example, the program has been named my_first_program.
+The next several lines in the program are comments that describe the purpose of the program. Next comes the INTEGER type declaration statement. This nonexecutable statement will be described later in this chapter. Here, it declares that three integer variables called i, j, and k will be used in this program.
+
+1 A program unit is a separately-compiled piece of Fortran code. We will meet several other types of program units beginning in Chapter 7.
+
+26
+2
+
+chapter 2:   Basic Elements of Fortran
+2.4.2  The Execution Section
+The execution section consists of one or more executable statements describing the actions to be performed by the program.
+The first executable statement in this program is the WRITE statement, which writes out a message prompting the user to enter the two numbers to be multiplied together. The next executable statement is a READ statement, which reads in the two integers supplied by the user. The third executable statement instructs the computer to multiply the two numbers i and j together, and to store the result in variable k. The final WRITE statement prints out the result for the user to see. Comments may be embedded anywhere throughout the execution section.
+All of these statements will be explained in detail later in this chapter.
+2.4.3  The Termination Section
+The termination section consists of the STOP and END PROGRAM statements. The STOP statement is a statement that tells the computer to stop running the program. The END PROGRAM statement is a statement that tells the compiler that there are no more statements to be compiled in the program.
+The STOP statement takes one of the following forms:
+STOP STOP 3 STOP 'Error stop'
+If the STOP statement is used by itself, execution will stop. If the STOP statement is used with a number, that number will be printed out when the program stops, and will normally be returned to the operating system as an error code. If the STOP statement is used with a character string, that string will be printed out when the program stops.
+When the STOP statement immediately precedes the END PROGRAM statement as in this example, it is optional. The compiler will automatically generate a STOP command when the END PROGRAM statement is reached. The STOP statement is therefore rarely used.2
+There is an alternate version of the STOP statement called ERROR STOP. This version stops the program, but it also notifies the operating system that the program failed to execute properly. An example might be:
+ERROR STOP 'Cannot access database'
+This version of the STOP statement was added in Fortran 2008, and it might be useful if you need to inform an operating system script that a program failed abnormally.
+2 There is a philosophical disagreement among Fortran programmers about the use of the STOP statement. Some programming instructors believe that it should always be used, even though it is redundant when located before an END PROGRAM statement. They argue that the STOP statement makes the end of execution explicit. The author of this book is of the school that believes that a good program should only have one starting point and one ending point, with no additional stopping points anywhere along the way. In that case, a STOP is totally redundant and will never be used. Depending on the philosophy of your instructor, you may or may not be encouraged to use this statement.
+
+Basic Elements of Fortran
+
+27
+
+2.4.4  Program Style
+
+This example program follows a commonly used Fortran convention of capitalizing
+
+keywords such as PROGRAM, READ, and WRITE, while using lowercase for the program variables. Names are written with underscores between the words, as in my_first_
+
+2
+
+program above. It also uses capital letters for named constants such as PI (π) . This is
+
+not a Fortran requirement; the program would have worked just as well if all capital
+
+letters or all lowercase letters were used. Since uppercase and lowercase letters are
+
+equivalent in Fortran, the program functions identically in either case.
+
+Throughout this book, we will follow this convention of capitalizing Fortran
+
+­keywords and constants, and using lowercase for variables, procedure names, etc.
+
+Some programmers use other styles to write Fortran programs. For example, Java
+
+programmers who also work with Fortran might adopt a Java-like convention in
+
+which keywords and names are in lowercase, with capital letters at the beginning of
+
+each word (sometimes called “camel case”). Such a programmer might give this pro-
+
+gram the name myFirstProgram. This is an equally valid way to write a Fortran
+
+program.
+
+It is not necessary for you to follow any specific convention to write a Fortran
+
+program, but you should always be consistent in your programming style. Establish a
+
+standard practice, or adopt the standard practice of the organization in which you
+
+work, and then follow it consistently in all of your programs.
+
+Good Programming Practice
+Adopt a programming style, and then follow it consistently in all of your programs.
+
+2.4.5  Compiling, Linking, and Executing the Fortran Program
+Before the sample program can be run, it must be compiled into object code with a Fortran compiler, and then linked with a computer’s system libraries to produce an executable program (Figure 2-2). These two steps are usually done together in ­response to a single programmer command. The details of compiling and linking are different for every compiler and operating system. You should ask your ­instructor or consult the appropriate manuals to determine the proper procedure for your system.
+
+Fortran program
+
+Compile
+
+Object ﬁle
+
+Link
+
+Executable program
+
+FIGURE 2-2 Creating an executable Fortran program involves two steps, compiling and linking.
+
+28
+2
+
+chapter 2:   Basic Elements of Fortran
+Fortran programs can be compiled, linked, and executed in one of two possible modes: batch and interactive. In batch mode, a program is executed without an input from or interaction with a user. This is the way most Fortran programs worked in the early days. A program would be submitted as a deck of punched cards or in a file, and it would be compiled, linked, and executed without any user interaction. All input data for the program had to be placed on cards or put in files before the job was started, and all output went to output files or to a line printer.
+By contrast, a program that is run in interactive mode is compiled, linked, and executed while a user is waiting at an input device such as the computer keyboard or a terminal. Since the program executes with the human present, it can ask for input data from the user as it is executing, and it can display intermediate and final results as soon as they are computed.
+Today, most Fortran programs are executed in interactive mode. However, some very large Fortran programs that execute for days at a time are still run in batch mode.
+
+2.5
+CONSTANTS AND VARIABLES
+
+A constant is a data object that is defined before a program is executed, and that does not change value during the execution of the program. When a Fortran compiler encounters a constant, it places the value of the constant in a known location in memory, and then references that memory location whenever the constant is used in the program. A ­variable is a data object that can change value during the execution of a program. (The value of a Fortran variable may or may not be initialized before a program is ­executed.) When a Fortran compiler encounters a variable, it reserves a known location in memory for the variable, and then references that memory location whenever the variable is used in the program.
+Each Fortran variable in a program unit must have a unique name. The variable name is a label for a specific location in memory that is easy for humans to remember and use. Fortran variable names may be up to 63 characters long, and may contain any combination of alphabetic characters, digits, and the underscore (_) character. However, the first character in a name must always be alphabetic. The following examples are valid variable names:
+time
+distance
+z123456789
+I_want_to_go_home
+
+The following examples are invalid variable names:
+
+this_is_a_very_very_very_very_very_very_very_very_long_variable_name
+
+	(Name is too long.)
+
+3_days
+
+(First character is a number.)
+
+A$
+
+($ is an illegal character.)
+
+Basic Elements of Fortran
+
+29
+
+When writing a program, it is important to pick meaningful names for the
+
+­variables. Meaningful names make a program much easier to read and to maintain.
+
+Names such as day, month, and year are quite clear even to a person seeing a ­program
+
+for the first time. Since spaces cannot be used in Fortran variable names, underscore characters can be substituted to create meaningful names. For example, exchange rate
+
+2
+
+might become exchange_rate.
+
+Good Programming Practice
+Use meaningful variable names whenever possible.
+
+It is also important to include a data dictionary in the header of any program that you write. A data dictionary lists the definition of each variable used in a program. The definition should include both a description of the contents of the item and the units in which it is measured. A data dictionary may seem unnecessary while the program is being written, but it is invaluable when you or another person have to go back and modify the program at a later time.
+Good Programming Practice
+Create a data dictionary for each program to make program maintenance easier.
+
+There are five intrinsic or “built-in” types of Fortran constants and variables. Three of them are numeric (types INTEGER, REAL, and COMPLEX), one is logical (type LOGICAL), and one consists of strings of characters (type CHARACTER). The simplest forms of the INTEGER, REAL, and CHARACTER data types will be discussed now. The LOGICAL data type is included in Chapter 3. More advanced forms of various data types will be discussed in Chapter 11.
+In addition to the intrinsic data types, Fortran permits a programmer to define derived data types, which are special data types intended to solve particular problems. Derived data types will also be discussed in Chapter 12.
+2.5.1  Integer Constants and Variables
+The integer data type consists of integer constants and variables. This data type can only store integer values—it cannot represent numbers with fractional parts.
+An integer constant is any number that does not contain a decimal point. If a constant is positive, it may be written either with or without a + sign. No commas may be embedded within an integer constant. The following examples are valid integer constants:
+0 -999 123456789
++17
+
+30
+2
+
+chapter 2:   Basic Elements of Fortran
+
+The following examples are not valid integer constants:
+
+1,000,000 -100.
+
+(Embedded commas are illegal.) (If it has a decimal point, it is not an integer constant!)
+
+An integer variable is a variable containing a value of the integer data type. Constants and variables of the integer data type are usually stored in a single word on a computer. Since the length of a word varies from 32 bits to 64 bits on different computers, the largest integer that can be stored in a computer also varies. The largest and smallest integers that can be stored in a particular computer can be determined from the word size by applying Equations (1-1) and (1-2). Almost all Fortran compilers support integers with more than one length. For ­example, most PC compilers support 16-bit, 32-bit, and 64-bit integers. These ­different lengths of integers are known as different kinds of integers. Fortran has an explicit mechanism for choosing which kind of integer is used for a given value. This mechanism is explained in Chapter 11.
+
+2.5.2  Real Constants and Variables
+
+The real data type consists of numbers stored in real or floating-point format. Unlike integers, the real data type can represent numbers with fractional components.
+A real constant is a constant written with a decimal point. It may be written with or without an exponent. If the constant is positive, it may be written either with or without a + sign. No commas may be embedded within a real constant.
+Real constants may be written with or without an exponent. If used, the exponent consists of the letter E followed by a positive or negative integer, which corresponds to the power of 10 used when the number is written in scientific notation. If the exponent is positive, the + sign may be omitted. The mantissa of the number (the part of the number that precedes the exponent) should contain a decimal point. The following examples are valid real constants:
+
+10. -999.9 +1.0E-3 123.45E20 0.12E+1
+
+(= 1.0 × 10−3, or 0.001) (= 123.45 × 1020, or 1.2345 × 1022) (= 0.12 × 101, or 1.2)
+
+The following examples are not valid real constants:
+
+1,000,000. 111E3
+-12.0E1.5
+
+(Embedded commas are illegal.) (A decimal point is required in the mantissa.) (Decimal points are not allowed in exponents.)
+
+A real variable is a variable containing a value of the real data type. A real value is stored in two parts: the mantissa and the exponent. The number of bits allocated to the mantissa determines the precision of the constant (that is, the number of significant digits to which the constant is known), while the number of bits allocated to the exponent determines the range of the constant (that is, the largest and
+
+Basic Elements of Fortran
+
+TABLE 2-2
+Precision and range of real numbers
+
+Computer standard
+IEEE 754
+
+Total number of bits
+ 32  64 128
+
+Number of bits in mantissa
+ 24  53 112
+
+Precision in decimal digits
+ 7 15 34
+
+31
+
+Number of bits in exponent
+ 8 11 16
+
+Exponent
+
+range 10−38 to 1038
+
+2
+
+10−308 to 10308
+
+10−4932 to 104932
+
+the smallest values that can be represented). For a given word size, the more precise a real number is, the smaller its range is, and vice versa, as described in the previous chapter.
+Over the last 25 years, almost all computers have switched to using f­ loating-point numbers that conform to IEEE Standard 754. Table 2-2 shows the precision and the range of typical real constants and variables on IEEE Standard 754 compliant ­computers.
+All Fortran compilers support real numbers with more than one length. For example, PC compilers support both 32-bit real numbers and 64-bit real numbers. These different lengths of real numbers are known as different kinds. By selecting the proper kind, it is possible to increase the precision and range of a real constant or variable. Fortran has an explicit mechanism for choosing which kind of real is used for a given value. This mechanism is explained in detail in Chapter 11.
+
+2.5.3  Character Constants and Variables
+
+The character data type consists of strings of alphanumeric characters. A character constant is a string of characters enclosed in single (') or double (") quotes. The minimum number of characters in a string is 0, while the maximum number of characters in a string varies from compiler to compiler.
+The characters between the two single or double quotes are said to be in a ­character context. Any characters representable on a computer are legal in a character context, not just the 97 characters forming the Fortran character set.
+The following are valid character constants:
+
+'This is a test!'
+'/b ' 
+'{ˆ}'
+"3.141593"
+
+(a single blank)3 (These characters are legal in a character context even though they are not a part of the Fortran character set.) (This is a character string, not a number.)
+
+3 In places where the difference matters, the symbol /b is used to indicate a blank character, so that the student can tell the difference between a string containing no characters (") and one containing a single blank character ('/b ').
+
+32
+2
+
+chapter 2:   Basic Elements of Fortran
+
+The following are not valid character constants:
+
+This is a test! 'This is a test!" "Try this one.'
+
+(No single or double quotes) (Mismatched quotes) (Unbalanced single quotes)
+
+If a character string must include an apostrophe, then that apostrophe may be ­represented by two consecutive single quotes. For example, the string “Man’s best friend” would be written in a character constant as
+'Man''s best friend'
+
+Alternatively, the character string containing a single quote can be surrounded by double quotes. For example, the string “Man’s best friend” could be written as
+"Man's best friend"
+
+Similarly, a character string containing double quotes can be surrounded by ­single quotes. The character string “Who cares?” could be written in a character constant as
+'"Who cares?"'
+
+Character constants are most often used to print descriptive information using the WRITE statement. For example, the string 'Result = ' in Figure 2-1 is a valid character constant:
+WRITE (*,*) 'Result = ', k
+
+A character variable is a variable containing a value of the character data type.
+
+2.5.4  Default and Explicit Variable Typing
+When we look at a constant, it is easy to see whether it is of type integer, real, or character. If a number does not have a decimal point, it is of type integer; if it has a decimal point, it is of type real. If the constant is enclosed in single or double quotes, it is of type character. With variables, the situation is not so clear. How do we (or the compiler) know if the variable junk contains an integer, real, or character value?
+There are two possible ways in which the type of a variable can be defined: d­ efault typing and explicit typing. If the type of a variable is not explicitly specified in the program, then default typing is used. By default:
+
+Any variable names beginning with the letters i, j, k, l, m, or n are assumed to be of type INTEGER. Any variable names starting with another letter are assumed to be of type REAL.
+
+Basic Elements of Fortran
+
+33
+
+Therefore, a variable called incr is assumed to be of type integer by default, while
+
+a variable called big is assumed to be of type real by default. This default typing con-
+
+vention goes all the way back to the original Fortran I in 1954. Note that no variable
+
+names are of type character by default, because this data type didn’t exist in Fortran I! The type of a variable may also be explicitly defined in the declaration section at
+
+2
+
+the beginning of a program. The following Fortran statements can be used to specify
+
+the type of variables:4
+
+INTEGER :: var1 [, var2, var3, ...] REAL :: var1 [, var2, var3, ...]
+
+where the values inside the [ ] are optional. In this case, the values inside the brackets show that more than two variables may be declared on a single line if they are separated by commas.
+These nonexecutable statements are called type declaration statements. They should be placed after the PROGRAM statement and before the first executable statement in the program, as shown in the example below.
+
+PROGRAM example INTEGER :: day, month, year REAL :: second ... (Executable statements follow here...)
+
+There are no default names associated with the character data type, so all character variables must be explicitly typed using the CHARACTER type declaration statement. This statement is a bit more complicated than the previous ones, since character variables may have different lengths. Its form is:
+CHARACTER(len=<len>) :: var1 [, var2, var3, ...]
+where <len> is the number of characters in the variables. The (len=<len>) portion of the statement is optional. If only a number appears in the parentheses, then the character variables declared by the statement are of that length. If the parentheses are entirely absent, then the character variables declared by the statement have length 1. For example, the type declaration statements
+
+CHARACTER(len=10) :: first, last CHARACTER :: initial CHARACTER(15) :: id
+
+define two 10-character variables called first and last, a 1-character variable called initial, and a 15-character variable called id.
+
+4 The double colon :: is optional in the above statements for backward compatibility with earlier versions of Fortran. Thus, the following two statements are equivalent
+INTEGER count INTEGER :: count
+The form with the double colon is preferred, because the double colons are not optional in more advanced forms of the type specification statement that we will see later.
+
+34
+2
+
+chapter 2:   Basic Elements of Fortran
+2.5.5  Keeping Constants Consistent in a Program
+It is important to always keep your physical constants consistent throughout a program. For example, do not use the value 3.14 for π at one point in a program, and 3.141593 at another point in the program. Also, you should always write your constants with at least as much precision as your computer will accept. If the real data type on your computer has seven significant digits of precision, then π should be written as 3.141593, not as 3.14!
+The best way to achieve consistency and precision throughout a program is to ­assign a name to a constant, and then to use that name to refer to the constant throughout the program. If we assign the name PI to the constant 3.141593, then we can refer to PI by name throughout the program, and be certain that we are getting the same value everywhere. Furthermore, assigning meaningful names to constants improves the overall readability of our programs, because a programmer can tell at a glance just what the constant represents.
+Named constants are created using the PARAMETER attribute of a type declaration statement. The form of a type declaration statement with a PARAMETER ­attribute is
+type, PARAMETER :: name = value [, name2 = value2, ...]
+where type is the type of the constant (integer, real, logical, or character), and name is the name assigned to constant value. More than one parameter may be declared on a single line if they are separated by commas. For example, the following statement ­assigns the name pi to the constant 3.141593.
+REAL, PARAMETER :: PI = 3.141593
+If the named constant is of type character, then it is not necessary to declare the length of the character string. Since the named constant is being defined on the same line as its type declaration, the Fortran compiler can directly count the number of characters in the string. For example, the following statements declare a named constant error_message to be the 14-character string ‘Unknown error!’.
+CHARACTER, PARAMETER :: ERROR_MESSAGE = 'Unknown error!'
+In languages such as C, C++, and Java, named constants are usually written in all capital letters. Many Fortran programmers are also familiar with these languages, and they have adopted the convention of writing named constants in capital letters in Fortran as well. We will follow that practice in this book.
+Good Programming Practice
+Keep your physical constants consistent and precise throughout a program. To ­improve the consistency and understandability of your code, assign a name to any important constants, and refer to them by name in the program.
+
+Basic Elements of Fortran
+
+35
+
+Quiz 2-1
+
+This quiz provides a quick check to see if you have understood the concepts introduced in Section 2.5. If you have trouble with the quiz, reread the section, ask
+
+2
+
+your instructor, or discuss the material with a fellow student. The answers to this
+
+quiz are found in the back of the book.
+
+Questions 1 to 12 contain a list of valid and invalid constants. State whether or not each constant is valid. If the constant is valid, specify its type. If it is invalid, say why it is invalid.
+
+1. 10.0 2. -100,000 3. 123E-5 4. 'That's ok!' 5. -32768 6. 3.14159 7. "Who are you?" 8. '3.14159' 9. 'Distance = 10. "That's ok!" 11. 17.877E+6 12. 13.0^2
+
+Questions 13 to 16 contain two real constants each. Tell whether or not the two constants represent the same value within the computer:
+
+13. 4650.; 4.65E+3 14. -12.71; -1.27E1 15. 0.0001; 1.0E4 16. 3.14159E0; 314.159E-3
+
+Questions 17 and 18 contain a list of valid and invalid Fortran program names. State whether or not each program name is valid. If it is invalid, say why it is ­invalid.
+
+17. PROGRAM new_program 18. PROGRAM 3rd
+
+Questions 19 to 23 contain a list of valid and invalid Fortran variable names. State whether or not each variable name is valid. If the variable name is valid, specify its type (assume default typing). If it is invalid, say why it is invalid.
+
+(continued )
+
+36
+2
+
+chapter 2:   Basic Elements of Fortran
+(concluded ) 19. length 20. distance 21. 1problem 22. when_does_school_end 23. _ok Are the following PARAMETER declarations correct or incorrect? If a statement is incorrect, state why it is invalid. 24. REAL, PARAMETER BEGIN = -30 25. CHARACTER, PARAMETER :: NAME = 'Rosa'
+2.6
+ASSIGNMENT STATEMENTS AND ARITHMETIC CALCULATIONS
+Calculations are specified in Fortran with an assignment statement, whose general form is
+variable_name = expression
+The assignment statement calculates the value of the expression to the right of the equal sign, and assigns that value to the variable named on the left of the equal sign. Note that the equal sign does not mean equality in the usual sense of the word. Instead, it means: store the value of expression into location variable_name. For this reason, the equal sign is called the assignment operator. A statement like
+i = i + 1
+is complete nonsense in ordinary algebra, but makes perfect sense in Fortran. In Fortran, it means: Take the current value stored in variable i, add one to it, and store the result back into variable i.
+The expression to the right of the assignment operator can be any valid combination of constants, variables, parentheses, and arithmetic or logical operators. The ­standard arithmetic operators included in Fortran are:
++ Addition - Subtraction * Multiplication / Division **    Exponentiation Note that the symbols for multiplication (*), division (/), and exponentiation (**) are not the ones used in ordinary mathematical expressions. These special symbols were
+
+Basic Elements of Fortran
+
+37
+
+chosen because they were available in 1950s-era computer character sets, and because
+
+they were different from the characters being used in variable names.
+
+The five arithmetic operators described above are binary operators, which
+
+means that they should occur between and apply to two variables or constants, as shown:
+
+2
+
+a + b a - b a ** b a * b a / b
+
+In addition, the + and − symbols can occur as unary operators, which means that they apply to one variable or constant, as shown:
++23 -a
+
+The following rules apply when using Fortran arithmetic operators:
+1. No two operators may occur side by side. Thus, the expression a * -b is illegal. In Fortran, it must be written as a * (-b). Similarly, a ** -2 is illegal, and should be written as a ** (-2).
+2. Implied multiplication is illegal in Fortran. An expression like x(y + z) means that we should add y and z, and then multiply the result by x. The implied multiplication must be written explicitly in Fortran as x * (y + z).
+3. Parentheses may be used to group terms whenever desired. When parentheses are used, the expressions inside the parentheses are evaluated before the expressions outside the parentheses. For example, the expression 2 ** ((8+2)/5) is evaluated as shown below
+
+2 ** ((8+2)/5) = 2 ** (10/5) = 2 ** 2 = 4
+
+2.6.1  Integer Arithmetic
+
+Integer arithmetic is arithmetic involving only integer data. Integer arithmetic ­always produces an integer result. This is especially important to remember when an expression involves division, since there can be no fractional part in the answer. If the division of two integers is not itself an integer, the computer automatically ­truncates the fractional part of the answer. This behavior can lead to surprising and unexpected answers. For example, integer arithmetic produces the following strange results:
+
+3 4
+
+=
+
+0
+
+7 4
+
+=
+
+1
+
+4 4
+
+=
+
+1
+
+8 4
+
+=
+
+2
+
+5 4
+
+=
+
+1
+
+9 4
+
+=
+
+2
+
+6 4
+
+=
+
+1
+
+38
+2
+
+chapter 2:   Basic Elements of Fortran
+Because of this behavior, integers should never be used to calculate real-world quantities that vary continuously, such as distance, speed, and time. They should only be used for things that are intrinsically integer in nature, such as counters and indices.
+Programming Pitfalls
+Beware of integer arithmetic. Integer division often gives unexpected results.
+
+2.6.2  Real Arithmetic
+
+Real arithmetic (or floating-point arithmetic) is arithmetic involving real constants and variables. Real arithmetic always produces a real result that is essentially what we would expect. For example, real arithmetic produces the following results:
+
+3. 4.
+
+=
+
+0.75
+
+7. 4.
+
+=
+
+1.75
+
+4. 4.
+
+=
+
+1.
+
+8. 4.
+
+=
+
+2.
+
+5. 4.
+
+=
+
+1.25
+
+9. 4.
+
+=
+
+2.25
+
+6. 4.
+
+=
+
+1.50
+
+1. 3.
+
+=
+
+0.3333333
+
+However, real numbers do have peculiarities of their own. Because of the finite word length of a computer, some real numbers cannot be represented exactly. For ­example, the number 1/3 is equal to 0.33333333333. . . , but since the numbers stored in the computer have limited precision, the representation of 1/3 in the computer might be 0.3333333. As a result of this limitation in precision, some quantities that are theoretically equal will not be equal when evaluated by the computer. For example, on some computers
+
+3. * (1. / 3. ) ≠ 1. ,
+
+but
+
+2. * (1. / 2. ) = 1.
+
+Tests for equality must be performed very cautiously when working with real numbers.
+
+Programming Pitfalls
+Beware of real arithmetic: Due to limited precision, two theoretically identical ­expressions often give slightly different results.
+
+Basic Elements of Fortran
+
+39
+
+2.6.3  Hierarchy of Operations
+
+Often, many arithmetic operations are combined into a single expression. For example,
+
+consider the equation for the distance traveled by an object starting from rest and subjected to a constant acceleration:
+
+2
+
+distance = 0.5 * accel * time ** 2
+
+There are two multiplications and an exponentiation in this expression. In such an expression, it is important to know the order in which the operations are evaluated. If exponentiation is evaluated before multiplication, this expression is equivalent to
+
+distance = 0.5 * accel * (time ** 2)
+
+But if multiplication is evaluated before exponentiation, this expression is equivalent to
+
+distance = (0.5 * accel * time) ** 2
+
+These two equations have different results, and we must be able to unambiguously distinguish between them.
+To make the evaluation of expressions unambiguous, Fortran has established a series of rules governing the hierarchy or order in which operations are evaluated within an expression. The Fortran rules generally follow the normal rules of algebra. The order in which the arithmetic operations are evaluated is:
+
+1. The contents of all parentheses are evaluated first, starting from the innermost parentheses and working outward.
+2. All exponentials are evaluated, working from right to left. 3. All multiplications and divisions are evaluated, working from left to right. 4. All additions and subtractions are evaluated, working from left to right.
+
+Following these rules, we see that the first of our two possible interpretations is ­correct—time is squared before the multiplications are performed.
+Some people use simple phrases to help them remember the order of operations. For example, try “Please excuse my dear Aunt Sally”. The first letters of these words give the order of evaluation: parentheses, exponents, multiplication, division, addition, subtraction.
+
+EXAMPLE Variables a, b, c, d, e, f, and g have been initialized to the following values: 2-1 a = 3. b = 2. c = 5. d = 4. e = 10. f = 2. g = 3.
+Evaluate the following Fortran assignment statements:
+(a) output = a*b+c*d+e/f**g (b) output = a*(b+c)*d+(e/f)**g (c) output = a*(b+c)*(d+e)/f**g
+
+40
+2
+
+chapter 2:   Basic Elements of Fortran
+
+Solution
+
+(a) Expression to evaluate:
+
+output = a*b+c*d+e/f**g
+
+Fill in numbers: First, evaluate 2.**3.:
+
+output = 3.*2.+5.*4.+10./2.**3. output = 3.*2.+5.*4.+10./8.
+
+Now, evaluate multiplications
+
+and divisions from left to right: output = 6. +5.*4.+10./8.
+
+output = 6. +20. +10./8.
+
+Now evaluate additions:
+
+output = 6. +20. + 1.25 output = 27.25
+
+(b) Expression to evaluate: Fill in numbers: First, evaluate parentheses: Now, evaluate exponents: Evaluate multiplications and divisions from left to right:
+Evaluate additions:
+
+output = a* (b+c)*d+(e/f)**g output = 3.*(2.+5.)*4.+(10./2.)**3. output = 3.*7.*4.+5.**3. output = 3.*7.*4.+125.
+output = 21.*4.+125. output = 84. + 125. output = 209.
+
+(c) Expression to evaluate: Fill in numbers: First, evaluate parentheses: Now, evaluate exponents: Evaluate multiplications and divisions from left to right:
+
+output = a*(b+c)*(d+e)/f**g output = 3.*(2.+5.)*(4.+10.)/2.**3. output = 3.*7.*14./2.**3. output = 3.*7.*14./8.
+output = 21.*14./8. output = 294./8. output = 36.75
+
+As we saw above, the order in which operations are performed has a major effect on the final result of an algebraic expression.
+
+EXAMPLE 2-2
+
+Variables a, b, and c have been initialized to the following values:
+a = 3. b = 2. c = 3.
+Evaluate the following Fortran assignment statements:
+(a) output = a**(b**c) (b) output = (a**b)**c (c) output = a**b**c
+
+Solution
+(a) Expression to evaluate: Fill in numbers:
+
+output = a**(b**c) output = 3.**(2.**3.)
+
+Basic Elements of Fortran
+
+Evaluate expression in parentheses: output = 3.**8.
+
+Evaluate remaining expression:
+
+output = 6561.
+
+(b) Expression to evaluate: Fill in numbers: Evaluate expression in parentheses: Evaluate remaining expression:
+
+output = (a**b)**c output = (3.**2.)**3. output = 9.**3. output = 729.
+
+(c) Expression to evaluate: Fill in numbers: First, evaluate rightmost exponent: Now, evaluate remaining exponent:
+
+output = a**b**c output = 3.**2.**3. output = 3.**8. output = 6561.
+
+41
+2
+
+The results of (a) and (c) are identical, but the expression in (a) is easier to understand and less ambiguous than the expression in (c).
+It is important that every expression in a program be made as clear as possible. Any program of value must not only be written but also be maintained and modified when necessary. You should always ask yourself: “Will I easily understand this expression if I come back to it in six months? Can another programmer look at my code and easily understand what I am doing?” If there is any doubt in your mind, use extra ­parentheses in the expression to make it as clear as possible.
+Good Programming Practice
+Use parentheses as necessary to make your equations clear and easy to understand.
+
+If parentheses are used within an expression, then the parentheses must be balanced. That is, there must be an equal number of open parentheses and close parentheses within the expression. It is an error to have more of one type than the other. Errors of this sort are usually typographical, and the Fortran compiler catches them. For ­example, the expression
+(2. + 4.) / 2.)
+produces an error during compilation because of the mismatched parentheses.
+2.6.4  Mixed-Mode Arithmetic
+When an arithmetic operation is performed using two real numbers, its immediate result is of type real. Similarly, when an arithmetic operation is performed using two integers, the result is of type integer. In general, arithmetic operations are only
+
+42
+2
+
+chapter 2:   Basic Elements of Fortran
+
+defined between numbers of the same type. For example, the addition of two real numbers is a valid operation, and the addition of two integers is a valid operation, but the addition of a real number and an integer is not a valid operation. This is true because real numbers and integers are stored in completely different forms in the computer.
+What happens if an operation is between a real number and an integer? Expressions containing both real numbers and integers are called mixed-mode ­expressions, and arithmetic involving both real numbers and integers is called mixed-mode arithmetic. In the case of an operation between a real number and an integer, the integer is converted by the computer into a real number, and real arithmetic is used on the numbers. The result is of type real. For example, consider the following equations:
+
+Integer expression:
+
+3 2
+
+is evaluated to be 1
+
+(integer result)
+
+Real expression:
+
+3. 2.
+
+is evaluated to be 1.5
+
+(real result)
+
+Mixed-mode expression:
+
+3. 2
+
+is evaluated to be 1.5
+
+(real result)
+
+The rules governing mixed-mode arithmetic can be confusing to beginning ­programmers, and even experienced programmers may trip up on them from time to time. This is especially true when the mixed-mode expression involves division. ­Consider the following expressions:
+
+Expression
+
+1.
+
+1 + 1/4
+
+2.
+
+1. + 1/4
+
+3.
+
+1 + 1./4
+
+Result
+1 1. 1.25
+
+Expression 1 contains only integers, so it is evaluated by integer arithmetic. In integer arithmetic, 1/4 = 0 and 1 + 0 = 1, so the final result is 1 (an integer). Expression 2 is a mixed-mode expression containing both real numbers and integers. However, the first operation to be performed is a division, since division comes before addition in the hierarchy of operations. The division is between integers, so the result is 1/4 = 0. Next comes an addition between a real 1. and an integer 0, so the compiler converts the integer 0 into a real number, and then performs the addition. The resulting number is 1. (a real number). Expression 3 is also a mixed-mode expression containing both real numbers and integers. The first operation to be performed is a division between a real number and an integer, so the compiler converts the integer 4 into a real number, and then performs the division. The result is a real 0.25. The next operation to be ­performed is an addition between an integer 1 and a real 0.25, so the compiler ­converts the integer 1 into a real ­number, and then performs the addition. The resulting number is 1.25 (a real number).
+
+Basic Elements of Fortran
+
+43
+
+To summarize,
+
+1. An operation between an integer and a real number is called a mixed-mode
+
+­operation, and an expression containing one or more such operations is called a
+
+mixed-mode expression.
+
+2
+
+2. When a mixed-mode operation is encountered, Fortran converts the integer into a
+
+real number, and then performs the operation to get a real result.
+
+3. The automatic mode conversion does not occur until a real number and an integer
+
+both appear in the same operation. Therefore, it is possible for a portion of an
+
+­expression to be evaluated in integer arithmetic, followed by another portion eval-
+
+uated in real arithmetic.
+
+Automatic type conversion also occurs when the variable to which the expression is assigned is of a different type than the result of the expression. For example, consider the following assignment statement:
+
+nres = 1.25 + 9 / 4
+
+where nres is an integer. The expression to the right of the equal sign evaluates to 3.25, which is a real number. Since nres is an integer, the 3.25 is automatically converted into the integer number 3 before being stored in nres.
+
+Programming Pitfalls
+Mixed-mode expressions are dangerous because they are hard to understand and may produce misleading results. Avoid them whenever possible.
+
+Fortran includes five type conversion functions that allow us to explicitly control the conversion between integer and real values. These functions are described in ­Table 2-3.
+The REAL, INT, NINT, CEILING, and FLOOR functions may be used to avoid undesirable mixed-mode expressions by explicitly converting data types from one form to another. The REAL function converts an integer into a real number, and the INT, NINT, CEILING, and FLOOR functions convert real numbers into integers. The INT function truncates the real number, while the NINT function rounds it to the nearest integer value. The CEILING function returns the nearest integer greater than or equal
+
+TABLE 2-3
+Type conversion functions
+
+Function name and arguments
+INT(X) NINT(X) CEILING(X) FLOOR(X) REAL(I)
+
+Argument type
+REAL REAL REAL REAL INTEGER
+
+Result type
+INTEGER INTEGER INTEGER INTEGER REAL
+
+Comments
+Integer part of x (x is truncated) Nearest integer to x (x is rounded) Nearest integer above or equal to the value of x Nearest integer below or equal to the value of x Converts integer value to real
+
+44
+2
+
+chapter 2:   Basic Elements of Fortran
+to the real number and the FLOOR function returns the nearest integer less than or equal to the real number.
+To understand the distinction between these two operations, let’s consider the real numbers 2.9995 and –2.9995. The results of each function with these inputs are shown below:
+
+Function
+INT(2.9995) NINT(2.9995) CEILING(2.9995) FLOOR(2.9995) INT(-2.9995) NINT(-2.9995) CEILING(-2.9995) FLOOR(-2.9995)
+
+Result
+ 2  3  3  2 −2 −3 −2 −3
+
+Description
+Truncates 2.9995 to 2 Rounds 2.9995 to 3 Selects nearest integer above 2.9995 Selects nearest integer below 2.9995 Truncates −2.9995 to −2 Rounds −2.9995 to −3 Selects nearest integer above −2.9995 Selects nearest integer below −2.9995
+
+The NINT function is especially useful when converting back from real to integer form, since the small round-off errors occurring in real calculations will not affect the resulting integer value.
+
+2.6.5  Mixed-Mode Arithmetic and Exponentiation
+As a general rule, mixed-mode arithmetic operations are undesirable because they are hard to understand and can sometimes lead to unexpected results. However, there is one exception to this rule: exponentiation. For exponentiation, mixed-mode operation is actually desirable.
+To understand why this is so, consider the assignment statement
+result = y ** n
+where result and y are real, and n is an integer. The expression y ** n is shorthand for “use y as a factor n times”, and that is exactly what the computer does when it encounters this expression. Since y is a real number and the computer is multiplying y by itself, the computer is really doing real arithmetic and not mixed-mode arithmetic!
+Now consider the assignment statement
+result = y ** x
+where result, y, and x are real. The expression y ** x is shorthand for “use y as a factor x times”, but this time x is not an integer. Instead, x might be a number like 2.5. It is not physically possible to multiply a number by itself 2.5 times, so we have to rely on indirect methods to calculate y ** x in this case. The most common approach is to use the standard algebraic formula that says that
+y x = ex ln y(2-1)
+
+Basic Elements of Fortran
+
+45
+
+Using this equation, we can evaluate y ** x by taking the natural logarithm of y,
+
+multiplying by x, and then calculating e to the resulting power. While this technique
+
+certainly works, it takes longer to perform and is less accurate than an ordinary series
+
+of multiplications. Therefore, if given a choice, we should try to raise real numbers to integer powers instead of real powers.
+
+2
+
+Good Programming Practice
+Use integer exponents instead of real exponents whenever possible.
+
+Also, note that it is not possible to raise a negative number to a negative real power. Raising a negative number to an integer power is a perfectly legal operation. For example, (−2.0)**2 = 4. However, raising a negative number to a real power will not work, since the natural logarithm of a negative number is undefined. Therefore, the expression (−2.0)**2.0 will produce a runtime error.
+Programming Pitfalls
+Never raise a negative number to a real power.
+
+Quiz 2-2
+This quiz provides a quick check to see if you have understood the concepts introduced in Section 2.6. If you have trouble with the quiz, reread the section, ask your instructor, or discuss the material with a fellow student. The answers to this quiz are found in the back of the book.
+1. In what order are the arithmetic and logical operations evaluated if they appear within an arithmetic expression? How do parentheses modify this order?
+2. Are the following expressions legal or illegal? If they are legal, what is their result? If they are illegal, what is wrong with them?
+(a) 37 / 3 (b) 37 + 17 / 3 (c) 28 / 3 / 4 (d) (28 / 3) / 4 (e) 28 / (3 / 4)
+(continued )
+
+46
+2
+
+chapter 2:   Basic Elements of Fortran
+(concluded )
+( f ) -3. ** 4. / 2. (g) 3. ** (-4. / 2.) (h) 4. ** -3
+3. Evaluate the following expressions: (a) 2 + 5 * 2 - 5 (b) (2 + 5) * (2 - 5) (c) 2 + (5 * 2) - 5 (d) (2 + 5) * 2 - 5
+4. Are the following expressions legal or illegal? If they are legal, what is their result? If they are illegal, what is wrong with them? (a) 2. ** 2. ** 3. (b) 2. ** (-2.) (c) (-2) ** 2 (d) (-2.) ** (-2.2) (e) (-2.) ** NINT(-2.2) ( f ) (-2.) ** FLOOR(-2.2)
+5. Are the following statements legal or illegal? If they are legal, what is their result? If they are illegal, what is wrong with them?
+INTEGER :: i, j INTEGER, PARAMETER :: K = 4 i = K ** 2 j = i / K K = i + j
+6. What value is stored in result after the following statements are ­executed?
+REAL :: a, b, c, result a = 10. b = 1.5 c = 5. result = FLOOR(a / b) + b * c ** 2
+7. What values are stored in a, b, and n after the following statements are executed?
+REAL :: a, b INTEGER :: n, i, j i = 10. j = 3 n = i / j a = i / j b = REAL(i) / j
+
+Basic Elements of Fortran
+
+47
+
+2.7
+INTRINSIC FUNCTIONS
+
+In mathematics, a function is an expression that accepts one or more input values and 2
+calculates a single result from them. Scientific and technical calculations usually ­require functions that are more complex than the simple addition, subtraction, multiplication, division, and exponentiation operations that we have discussed so far. Some of these functions are very common, and are used in many different technical disciplines. Others are rarer and specific to a single problem or a small number of problems. Examples of very common functions are the trigonometric functions, logarithms, and square roots. Examples of rarer functions include the hyperbolic functions, Bessel functions, and so forth.
+The Fortran language has mechanisms to support both the very common functions and the less common functions. Many of the most common ones are built directly into the Fortran language. They are called intrinsic functions. Less common functions are not included in the Fortran language, but the user can supply any function needed to solve a particular problem as either an external function or an internal function. External functions will be described in Chapter 7, and internal functions will be ­described in Chapter 9.
+A Fortran function takes one or more input values, and calculates a single output value from them. The input values to the function are known as arguments; they appear in parentheses immediately after the function name. The output of a function is a single number, logical value, or character string, which can be used together with other functions, constants, and variables in Fortran expressions. When a function appears in a Fortran statement, the arguments of the function are passed to a separate routine that computes the result of the function, and then the result is used in place of the function in the original calculation (see Figure 2-3). Intrinsic functions are supplied with the Fortran compiler. For external and internal functions, the routine must be supplied by the user.
+A list of some common intrinsic functions is given in Table 2-4. A more complete list of Fortran intrinsic functions is given in Appendix B, along with a brief description of each one.
+
+... hypot = side2 / sin(theta) ...
+
+theta sin(theta)
+
+Function to calculate sin(theta)
+
+FIGURE 2-3 When a function is included in a Fortran statement, the argument(s) of the function are passed to a separate routine that computes the result of the function, and then the result is used in place of the function in the original calculation.
+
+48
+
+TABLE 2-4
+Some common intrinsic functions
+
+Function name
+2 and arguments SQRT(X)
+
+Function value
+√x
+
+Argument type REAL
+
+ABS(X)
+
+REAL/INTEGER
+
+ACHAR(I)
+
+INTEGER
+
+SIN(X) SIND(X) COS(X) COSD(X) TAN(X) TAND(X) EXP(X) LOG(X) LOG10(X) IACHAR(C)
+
+sin(x) sin(x) cos(x) cos(x) tan(x) tan(x) ex
+loge(x) log10(x)
+
+REAL REAL REAL REAL REAL REAL REAL REAL REAL CHAR(1)
+
+MOD(A,B) MAX(A,B) MIN(A,B) ASIN(X) ASIND(X) ACOS(X) ACOSD(X) ATAN(X)
+
+sin−1(x) sin−1(x) cos−1(x) cos−1(x) tan−1(x)
+
+REAL/INTEGER REAL/INTEGER REAL/INTEGER REAL REAL REAL REAL REAL
+
+ATAND(X) ATAN2(Y/X) ATAN2D(Y,X)
+
+tan−1(x)
+
+REAL
+
+tan−1(y/x) REAL
+
+tan−1(y/x) REAL
+
+Note: * = Result is of the same type as the input argument(s).
+
+chapter 2:   Basic Elements of Fortran
+
+Result type REAL * CHAR(1)
+REAL REAL REAL REAL REAL REAL REAL REAL REAL INTEGER
+* * * REAL REAL REAL REAL REAL
+REAL
+REAL
+REAL
+
+Comments Square root of x for x ≥ 0
+
+Absolute value of x
+Returns the character at position I in the ASCII collating sequence Sine of x (x must be in radians) Sine of x (x must be in degrees) Cosine of x (x must be in radians) Cosine of x (x must be in degrees) Tangent of x (x must be in radians) Tangent of x (x must be in degrees) e raised to the xth Power Natural logarithm of x for x > 0 Base-10 logarithm of x for x > 0 Returns the position of the character C in the ASCII collating sequence Remainder or Modulo Function Picks the larger of a and b Picks the smaller of a and b
+
+Inverse sine of x for –1 ≤ x ≤ 1 (results in radians)
+
+Inverse sine of x for –1 ≤ x ≤ 1 (results in degrees) Inverse cosine of x for –1 ≤ x ≤ 1 (results in radians) Inverse cosine of x for –1 ≤ x ≤ 1 (results in degrees)
+
+Inverse tangent of x (results in radians in the
+
+π
+
+π
+
+range −2 ≤ x ≤ 2 )
+
+Inverse tangent of x (results in radians in the range −90 ≤ x ≤ 90)
+
+Four quadrant inverse tangent of x (results in radians in the range −π ≤ x ≤ π)
+
+Four quadrant inverse tangent of x (results in radians in the range −180 ≤ x ≤ 180)
+
+Basic Elements of Fortran
+
+49
+
+Fortran functions are used by naming them in an expression. For example, the ­intrinsic function SIN can be used to calculate the sine of a number as follows:
+y = SIN(theta)
+where theta is the argument of the function SIN. After this statement is executed, the 2
+variable y contains the sine of the value stored in variable theta. Note from Table 2-4 that the trigonometric functions without a “D” in their name expect their arguments to be in radians. If the variable theta is in degrees, then we must convert degrees to radians (180° = π radians) before computing the sine. This conversion can be done in the same statement as the sine calculation:
+y = SIN (theta*(3.141593/180.))
+Alternately, we could create a named constant containing the conversion factor, and refer to that constant when the function is executed:
+
+INTEGER, PARAMETER :: DEG_2_RAD = 3.141593 / 180. ... y = SIN (theta * DEG_TO_RAD)
+
+The argument of a function can be a constant, a variable, an expression, or even the result of another function. All of the following statements are legal:
+
+y = SIN(3.141593) y = SIN(x) y = SIN(PI*x) y = SIN(SQRT(x))
+
+(argument is a constant) (argument is a variable) (argument is an expression) (argument is the result of another function)
+
+Functions may be used in expressions anywhere that a constant or variable may be used. However, functions may never appear on the left side of the assignment operator (equal sign), since they are not memory locations, and nothing can be stored in them.
+The type of argument required by a function and the type of value returned by it are specified in Table 2-4 for the intrinsic functions listed there. Some of these intrinsic functions are generic functions, which means that they can use more than one type of input data. The absolute value function ABS is a generic function. If X is a real n­ umber, then the type of ABS(X) is real. If X is an integer, then the type of ABS(X) is integer. Some functions are called specific functions, because they can use only one specific type of input data, and produce only one specific type of output value. For example, the function IABS requires an integer argument and returns an integer result. A list of all intrinsic functions (both generic and specific) is ­provided in Appendix B.
+
+2.8
+LIST-DIRECTED INPUT AND OUTPUT STATEMENTS
+An input statement reads one or more values from an input device and stores them into variables specified by the programmer. The input device could be a keyboard in an ­interactive environment, or an input disk file in a batch environment. An output ­statement
+
+50
+
+INTEGER :: i,j
+
+REAL :: a
+
+CHARACTER(len=12) :: chars
+
+2
+
+READ (*,*) i,j a, chars
+
+...
+
+Program
+
+chapter 2:   Basic Elements of Fortran 1, 2, 3., 'This one.'
+Input data
+
+i
+
+1
+
+j
+
+2
+
+a 3.
+
+chars
+
+'This one.'
+
+Results
+FIGURE 2-4 For list-directed input, the type and order of the input data values must match the type and order of the supplied input data.
+
+writes one or more values to an output device. The output device could be a CRT screen in an interactive environment, or an output listing file in a batch environment.
+We have already seen input and output statements in my_first_program, which is shown in Figure 2-1. The input statement in the figure is of the form
+READ (*,*) input_list
+where input_list is the list of variables into which the values being read are placed. If there is more than one variable in the list, they should be separated by commas. The parentheses (*,*) in the statement contains control information for the read. The first field in the parentheses specifies the input/output unit (or i/o unit) from which the data is to be read (the concept of an input/output unit will be explained in Chapter 5). An asterisk in this field means that the data is to be read from the standard input device for the computer—usually the keyboard when running in interactive mode. The second field in the parentheses specifies the format in which the data is to be read (formats will also be explained in Chapter 5). An asterisk in this field means that list-directed input (sometimes called free-format input) is to be used.
+The term list-directed input means that the types of the variables in the variable list determine the required format of the input data (Figure 2-4). For example, consider the following statements:
+
+Basic Elements of Fortran
+
+51
+
+PROGRAM input_example
+
+INTEGER :: i, j
+
+REAL :: a
+
+CHARACTER(len=12) :: chars
+
+READ (*,*) i, j, a, chars END PROGRAM input_example
+
+2
+
+The input data supplied to the program must consist of two integers, a real number, and a character string. Furthermore, they must be in that order. The values may be all on one line separated by commas or blanks, or they may be on separate lines. The list-directed READ statement will continue to read input data until values have been found for all of the variables in the list. If the input data supplied to the program at execution time is
+1, 2, 3.,'This one.'
+
+then the variable i will be filled with a 1, j will be filled with a 2, a will be filled with a 3.0, and chars with be filled with 'This one. '. Since the input character string is only 9 characters long, while the variable chars has room for 12 characters, the string is left justified in the character variable, and three blanks are automatically added at the end of it to fill out the remaining space. Also note that for list-directed reads, input character strings must be enclosed in single or double quotes if they contain spaces.
+When using list-directed input, the values to be read must match the variables in the input list both in order and type. If the input data had been
+
+1, 2, 'This one.', 3.
+
+then a runtime error would have occurred when the program tried to read the data.
+Each READ statement in a program begins reading from a new line of input data. If any data was left over on the previous input line, that data is discarded. For example, consider the following program:
+
+PROGRAM input_example_2 INTEGER :: i, j, k, l READ (*,*) i, j READ (*,*) k, l END PROGRAM input_example_2
+
+If the input data to this program is:
+1, 2, 3, 4 5, 6, 7, 8
+then after the READ statements, i will contain a 1, j will contain a 2, k will contain a 5, and l will contain a 6 (Figure 2-5).
+It is a good idea to always echo any value that you read into a program from a keyboard. Echoing a value means displaying the value with a WRITE statement after it has been read. If you do not do so, a typing error in the input data might cause a wrong answer, and the user of the program would never know that anything was wrong. You may echo the data either immediately after it is read or somewhere further down in the program output, but every input variable should be echoed somewhere in the program’s output.
+
+52
+2
+
+chapter 2:   Basic Elements of Fortran
+
+INTEGER :: i,j,k,l READ (*,*) i,j READ (*,*) k,l ...
+Program
+
+1, 2, 3, 4 5, 6, 7, 8
+Input data
+
+i
+
+1
+
+j
+
+2
+
+k
+
+5
+
+l
+
+6
+
+Results
+
+FIGURE 2-5 Each list-directed READ statement begins reading from a new line of input data, and any unused data left on the previous line is discarded. Here, the values 3 and 4 on the first line of input data are never used.
+
+Good Programming Practice
+Echo any variables that a user enters into a program from a keyboard, so that the user can be certain that they were typed and processed correctly.
+The list-directed output statement is of the form
+WRITE (*,*) output_list
+where output_list is the list of data items (variables, constants, or expressions) that are to be written. If there is more than one item in the list, then the items should be separated by commas. The parentheses (*,*) in the statement contains control information for the write, where the two asterisks have the same meaning as for a list-directed read statement.5
+
+5 There is another form of list-directed output statement:
+PRINT *, output_list
+This statement is equivalent to the list-directed WRITE statement discussed above, and is used by some programmers. The PRINT statement is never used in this book, but it is discussed in Chapter 14 Section 14.3.7.
+
+Basic Elements of Fortran
+
+53
+
+The term list-directed output means that the types of the values in the output list of the write statement determine the format of the output data. For example, consider the following statements:
+
+PROGRAM output_example
+
+2
+
+INTEGER :: ix
+
+REAL :: theta
+
+ix = 1
+
+test = .TRUE.
+
+theta = 3.141593
+
+WRITE (*,*) ' IX =
+
+', ix
+
+WRITE (*,*) ' THETA =
+
+', theta
+
+WRITE (*,*) ' COS(THETA) =
+
+', COS(theta)
+
+WRITE (*,*) REAL(ix), NINT(theta)
+
+END PROGRAM output_example
+
+The output resulting from these statements is:
+IX = THETA = COS(THETA) =
+1.000000
+
+1 3.141593 -1.000000 3
+
+This example illustrates several points about the list-directed write statement:
+1. The output list may contain constants (' IX = ' is a constant), variables, functions, and expressions. In each case, the value of the constant, variable, function, or expression is output to the standard output device.
+2. The format of the output data matches the type of the value being output. For example, even though theta is of type real, NINT(theta) is of type integer. Therefore, the sixth write statement produces an output of 3 (the nearest integer to 3.141593).
+3. The output of list-directed write statements is not very pretty. The values printed out do not line up in neat columns, and there is no way to control the number of significant digits displayed for real numbers. We will learn how to produce neatly formatted output in Chapter 5.
+
+Quiz 2-3
+This quiz provides a quick check to see if you have understood the concepts introduced in Sections 2.7 and 2.8. If you have trouble with the quiz, reread the sections, ask your instructor, or discuss the material with a fellow student. The answers to this quiz are found in the back of the book. Convert the following algebraic equations into Fortran assignment statements:
+1. The equivalent resistance Req of four resistors R1, R2, R3, and R4 connected in series:
+Req = R1 + R2 + R3 + R4
+(continued )
+
+54
+2
+
+chapter 2:   Basic Elements of Fortran
+
+(continued )
+2. The equivalent resistance Req of four resistors R1, R2, R3, and R4 ­connected in parallel:
+
+Req
+
+=
+
+1 R1
+
++
+
+1 R2
+
+1 +
+
+1 R3
+
++
+
+1 R4
+
+3. The period T of an oscillating pendulum:
+
+L T = 2π√ g
+where L is the length of the pendulum, and g is the acceleration due to gravity. 4. The equation for damped sinusoidal oscillation:
+v(t) = VMe−αt cos ωt
+
+where VM is the maximum value of the oscillation, α is the exponential damping factor, and ω is the angular velocity of the oscillation. Convert the following Fortran assignment statements into algebraic equations:
+5. The motion of an object in a constant gravitational field:
+
+distance = 0.5 * accel * t**2 + vel_0 * t + pos_0
+
+6. The oscillating frequency of a damped RLC circuit:
+freq = 1. / (2. * PI * SQRT(l * c))
+
+where PI is the constant π (3.141592. . .). 7. Energy storage in an inductor:
+
+energy = 1.0 / 2.0 * inductance * current**2
+
+8. What values will be printed out when the following statements are executed?
+PROGRAM quiz_1 INTEGER :: i REAL :: a a = 0.05 i = NINT(2. * 3.141493 / a) a = a * (5 / 3) WRITE (*,*) i, a END PROGRAM quiz_1
+
+9. If the input data is as shown, what will be printed out by the following program?
+
+PROGRAM quiz_2 INTEGER :: i, j, k
+
+(continued )
+
+Basic Elements of Fortran
+
+(concluded ) The input data is :
+
+REAL :: a, b, c READ (*,*) i, j, a READ (*,*) b, k c = SIN ((3.141593 / 180) * a) WRITE (*,*) i, j, k, a, b, c END PROGRAM quiz_2
+1, 3 2., 45., 17. 30., 180, 6.
+
+55
+2
+
+2.9
+INITIALIZATION OF VARIABLES
+Consider the following program:
+PROGRAM init INTEGER :: i WRITE (*,*) i END PROGRAM init
+What is the value stored in the variable i? What will be printed out by the WRITE statement? The answer is: We don’t know!
+The variable i is an example of an uninitialized variable. It has been defined by the INTEGER :: i statement, but no value has been placed into it yet. The value of an uninitialized variable is not defined by the Fortran standard. Some compilers automatically set uninitialized variables to zero, and some set them to different arbitrary patterns. Some compilers for older version of Fortran leave whatever values previously existed at the memory location of the variables. Some compilers even produce a runtime error if a variable is used without first being initialized.
+Uninitialized variables can present a serious problem. Since they are handled differently on different machines, a program that works fine on one computer may fail when transported to another one. On some machines, the same program could work sometimes and fail sometimes, depending on the data left behind by the ­previous program occupying the same memory. Such a situation is totally unacceptable, and we must avoid it by always initializing all of the variables in our programs.
+Good Programming Practice
+Always initialize all variables in a program before using them.
+
+56
+2
+
+chapter 2:   Basic Elements of Fortran
+There are three techniques available to initialize variables in a Fortran program: ­assignment statements, READ statements, and initialization in type declaration statements.6 An assignment statement assigns the value of the expression to the right of the equal sign to the variable on the left of the equal sign. In the following code, the variable i is initialized to 1, and we know that a 1 will be printed out by the WRITE statement.
+PROGRAM init_1 INTEGER :: i i = 1 WRITE (*,*) i END PROGRAM init_1
+A READ statement may be used to initialize variables with values input by the user. Unlike initialization with assignment statements, the user can change the value stored in the variable each time that the program is run. For example, the following code will initialize variable i with whatever value the user desires, and that value will be printed out by the WRITE statement.
+PROGRAM init_2 INTEGER :: i READ (*,*) i WRITE (*,*) i END PROGRAM init_2
+The third technique available to initialize variables in a Fortran program is to specify their initial values in the type declaration statement that defines them. This declaration specifies that a value should be pre-loaded into a variable during the ­compilation and linking process. Note the fundamental difference between initialization in a type declaration statement and initialization in an assignment statement: A type declaration statement initializes the variable before the program begins to run, whereas an assignment statement initializes the variable during execution.
+The form of a type declaration statement used to initialize variables is
+type :: var1 = value, [var2 = value, ... ]
+Any number of variables may be declared and initialized in a single type declaration statement provided that they are separated by commas. An example of type declaration statements used to initialize a series of variables is
+REAL :: time = 0.0, distance = 5128. INTEGER :: loop = 10
+Before program execution, time is initialized to 0.0, distance is initialized to 5128., and loop is initialized to 10.
+In the following code, the variable i is initialized by the type declaration statement, so we know that when execution starts, the variable i will contain the value 1. Therefore, the WRITE statement will print out a 1.
+6A fourth, older technique uses the DATA statement. This statement is kept for backward compatibility with earlier versions of Fortran, but it has been superseded by initialization in type declaration statements. DATA statements should not be used in new programs. The DATA statement is described in Chapter 18.
+
+Basic Elements of Fortran
+
+57
+
+PROGRAM init_3 INTEGER :: i = 1 WRITE (*,*) i END PROGRAM init_3
+
+2.10
+
+2
+
+THE IMPLICIT NONE STATEMENT
+
+There is another very important nonexecutable statement: the IMPLICIT NONE statement. When it is used, the IMPLICIT NONE statement disables the default typing provisions of Fortran. When the IMPLICIT NONE statement is included in a program, any variable that does not appear in an explicit type declaration statement is consid-
+ered an error. The IMPLICIT NONE statement should appear after the PROGRAM statement and before any type declaration statements.
+When the IMPLICIT NONE statement is included in a program, the programmer must explicitly declare the type of every variable in the program. On first thought, this might seem to be a disadvantage, since the programmer must do more work when he or she first writes a program. This initial impression couldn’t be more wrong. In fact, there are several advantages to using this statement.
+The majority of programming errors are simple typographical errors. The IMPLICIT NONE statement catches these errors at compilation time, before they can produce subtle errors during execution. For example, consider the following simple program:
+PROGRAM test_1 REAL :: time = 10.0 WRITE (*,*) 'Time = ', tmie END PROGRAM test_1
+In this program, the variable time is misspelled tmie at one point. When this program is compiled with a Fortran compiler and executed, the output is "Time = 0.000000E+00", which is the wrong answer! In contrast, consider the same program with the IMPLICIT NONE statement present:
+PROGRAM test_1 IMPLICIT NONE REAL :: time = 10.0 WRITE (*,*) 'Time = ', tmie END PROGRAM test_1
+When compiled with the same compiler, this program produces the following ­compile-time error:7
+1 PROGRAM test_1 2 IMPLICIT NONE 3 REAL :: time = 10.0 4 WRITE (*,*) 'Time = ', tmie .......................1 (1) Error: This name does not have a type, and must have an explicit type. [TMIE]
+5 END PROGRAM
+
+7 The exact error message will vary in different Fortran compilers.
+
+58
+2
+
+chapter 2:   Basic Elements of Fortran
+Instead of having a wrong answer in an otherwise-working program, we have an ­explicit error message flagging the problem at compilation time. This is an enormous advantage when working with longer programs containing many variables.
+Another advantage of the IMPLICIT NONE statement is that it makes the code more maintainable. Any program using the statement must have a complete list of all variables included in the declaration section of the program. If the program must be modified, a programmer can check the list to avoid using variable names that are ­already defined in the program. This checking helps to eliminate a very common error, in which the modifications to the program inadvertently change the values of some variables used elsewhere in the program.
+In general, the use of the IMPLICIT NONE statement becomes more and more advantageous as the size of a programming project increases. The use of IMPLICIT NONE is so important to the designing of good programs that we will use it consistently everywhere throughout this book.
+Good Programming Practice
+Always explicitly define every variable in your programs, and use the IMPLICIT NONE statement to help you spot and correct typographical errors before they ­become program execution errors.
+2.11
+PROGRAM EXAMPLES
+In this chapter, we have presented the fundamental concepts required to write simple but functional Fortran programs. We will now present a few example problems in which these concepts are used.
+
+EXAMPLE 2-3
+
+Temperature Conversion:
+Design a Fortran program that reads an input temperature in degrees Fahrenheit, ­converts it to an absolute temperature in kelvins, and writes out the result.
+
+Solution The relationship between temperature in degrees Fahrenheit (°F) and temperature in kelvins (K) can be found in any physics textbook. It is
+
+T
+
+(in
+
+kelvin)
+
+=
+
+[
+
+5T 9
+
+(in
+
+°F)−32.0] +
+
+273.15(2-2)
+
+The physics books also give us sample values on both temperature scales, which we can use to check the operation of our program. Two such values are:
+
+The boiling point of water The sublimation point of dry ice
+
+212° F -110° F
+
+373.15 K 194.26 K
+
+Basic Elements of Fortran
+
+59
+
+Our program must perform the following steps:
+
+1. Prompt the user to enter an input temperature in °F.
+
+2. Read the input temperature.
+
+3. Calculate the temperature in kelvins from Equation (2-2).
+
+2
+
+4. Write out the result, and stop.
+
+The resulting program is shown in Figure 2-6.
+
+FIGURE 2-6 Program to convert degrees Fahrenheit into kelvins.
+
+PROGRAM temp_conversion
+
+! Purpose:
+
+! To convert an input temperature from degrees Fahrenheit to
+
+! an output temperature in kelvins.
+
+!
+
+! Record of revisions:
+
+!
+
+Date
+
+Programmer
+
+Description of change
+
+!
+
+====
+
+==========
+
+=====================
+
+! 11/03/15 -- S. J. Chapman
+
+Original code
+
+!
+
+IMPLICIT NONE
+
+! Force explicit declaration of variables
+
+! Data dictionary: declare variable types, definitions, & units
+
+REAL :: temp_f
+
+! Temperature in degrees Fahrenheit
+
+REAL :: temp_k
+
+! Temperature in kelvins
+
+! Prompt the user for the input temperature. WRITE (*,*) 'Enter the temperature in degrees Fahrenheit: ' READ (*,*) temp_f
+
+! Convert to kelvins. temp_k = (5. / 9.) * (temp_f - 32.) + 273.15
+
+! Write out the result. WRITE (*,*) temp_f, ' degrees Fahrenheit = ', temp_k, ' kelvins'
+
+! Finish up. END PROGRAM temp_conversion
+
+To test the completed program, we will run it with the known input values given above. Note that user inputs appear in bold face below.8
+
+C:\book\fortran\chap2>temp_conversion Enter the temperature in degrees Fahrenheit:
+212 212.000000 degrees Fahrenheit = 373.150000 kelvins
+
+8 Fortran programs such as this are normally executed from a command line. In Windows, a Command Window can be opened by clicking the Start button, selecting the Run option, and typing “cmd” as the program to start. When the Command Window is running, the prompt shows the name of the current working directory (C:\book\fortran\chap2 in this example), and a program is executed by typing its name on the command line. Note that the prompt would look different on other operating systems such as Linux or Unix.
+
+60
+2
+
+chapter 2:   Basic Elements of Fortran
+C:\book\fortran\chap2>temp_conversion Enter the temperature in degrees Fahrenheit: -110
+-110.000000 degrees Fahrenheit = 194.261100 kelvins
+The results of the program match the values from the physics book.
+In the above program, we echoed the input values and printed the output values together with their units. The results of this program only make sense if the units ­(degrees Fahrenheit and kelvins) are included together with their values. As a general rule, the units associated with any input value should always be printed along with the prompt that requests the value, and the units associated with any output value should always be printed along with that value.
+Good Programming Practice
+Always include the appropriate units with any values that you read or write in a program.
+The above program exhibits many of the good programming practices that we have described in this chapter. It uses the IMPLICIT NONE statement to force the ­explicit typing of all variables in the program. It includes a data dictionary as a part of the declaration section, with each variable being given a type, definition, and units. It also uses descriptive variable names. The variable temp_f is initialized by a READ statement before it is used. All input values are echoed, and appropriate units are ­attached to all printed values.
+
+EXAMPLE 2-4
+
+Electrical Engineering: Calculating Real, Reactive, and Apparent Power:
+
+Figure 2-7 shows a sinusoidal AC voltage source with voltage V supplying a load of impedance Ζ ∠ θ Ω. From simple circuit theory, the rms current I, the real power P, ­reactive power Q, apparent power S, and power factor PF supplied to the load are given by the equations
+
+V = IR
+
+(2-3)
+
+P = VI cos θ(2-4)
+
+Q = VI cos θ(2-5)
+
+S = VI(2-6)
+
+PF = cos θ(2-7)
+
+Basic Elements of Fortran
+
+AC power source
+
++ –
+
+V
+
+61
+I
+2
+Load Z∠ θ
+
+FIGURE 2-7 A sinusoidal AC voltage source with voltage V supplying a load of impedance Ζ ∠ θ Ω.
+where V is the rms voltage of the power source in units of volts (V). The units of current are amperes (A), of real power are watts (W), of reactive power are volt-a­ mperesreactive (VAR), and of apparent power are volt-amperes (VA). The power factor has no units associated with it.
+Given the rms voltage of the power source and the magnitude and angle of the impedance Z, write a program that calculates the rms current I, the real power P, reactive power Q, apparent power S, and power factor PF of the load.
+Solution In this program, we need to read in the rms voltage V of the voltage source and the magnitude Z and angle θ of the impedance. The input voltage source will be measured in volts, the magnitude of the impedance Z in ohms, and the angle of the impedance θ in degrees. Once the data is read, we must convert the angle θ into radians for use with the Fortran trigonometric functions. Next, the desired values must be calculated, and the results must be printed out.
+The program must perform the following steps:
+1. Prompt the user to enter the source voltage in volts. 2. Read the source voltage. 3. Prompt the user to enter the magnitude and angle of the impedance in ohms and
+degrees. 4. Read the magnitude and angle of the impedance. 5. Calculate the current I from Equation (2-3). 6. Calculate the real power P from Equation (2-4). 7. Calculate the reactive power Q from Equation (2-5). 8. Calculate the apparent power S from Equation (2-6). 9. Calculate the power factor PF from Equation (2-7). 10. Write out the results, and stop.
+The final Fortran program is shown in Figure 2-8.
+
+62
+2
+
+chapter 2:   Basic Elements of Fortran
+
+FIGURE 2-8 Program to calculate the real power, reactive power, apparent power, and power factor supplied to a load.
+
+PROGRAM power
+
+!
+
+! Purpose:
+
+! To calculate the current, real, reactive, and apparent power,
+
+! and the power factor supplied to a load.
+
+!
+
+! Record of revisions:
+
+!
+
+Date
+
+Programmer
+
+Description of change
+
+!
+
+====
+
+==========
+
+=====================
+
+! 11/03/15 S. J. Chapman
+
+Original code
+
+!
+
+IMPLICIT NONE
+
+! Data dictionary: declare constants REAL,PARAMETER :: DEG_2_RAD = 0.01745329 ! Deg to radians factor
+
+! Data dictionary: declare variable types, definitions, & units
+
+REAL :: amps
+
+! Current in the load (A)
+
+REAL :: p
+
+! Real power of load (W)
+
+REAL :: pf
+
+! Power factor of load (no units)
+
+REAL :: q
+
+! Reactive power of the load (VAR)
+
+REAL :: s
+
+! Apparent power of the load (VA)
+
+REAL :: theta
+
+! Impedance angle of the load (deg)
+
+REAL :: volts
+
+! Rms voltage of the power source (V)
+
+REAL :: z
+
+! Magnitude of the load impedance (ohms)
+
+! Prompt the user for the rms voltage. WRITE (*,*) 'Enter the rms voltage of the source: ' READ (*,*) volts
+
+! Prompt the user for the magnitude and angle of the impedance. WRITE (*,*) 'Enter the magnitude and angle of the impedance ' WRITE (*,*) 'in ohms and degrees: ' READ (*,*) z, theta
+
+! Perform calculations amps = volts / z p = volts * amps * cos (theta * DEG_2_RAD) q = volts * amps * sin (theta * DEG_2_RAD) s = volts * amps pf = cos ( theta * DEG_2_RAD)
+
+! Rms current ! Real power ! Reactive power ! Apparent power ! Power factor
+
+! Write out the results.
+
+WRITE (*,*) 'Voltage
+
+= ', volts, ' volts'
+
+WRITE (*,*) 'Impedance
+
+= ', z, ' ohms at ', theta,' degrees'
+
+WRITE (*,*) 'Current
+
+= ', amps, ' amps'
+
+WRITE (*,*) 'Real Power
+
+= ', p, ' watts'
+
+WRITE (*,*) 'Reactive Power = ', q, ' VAR'
+
+WRITE (*,*) 'Apparent Power = ', s, ' VA'
+
+WRITE (*,*) 'Power Factor = ', pf
+
+! Finish up. END PROGRAM power
+
+Basic Elements of Fortran
+
+63
+
+This program also exhibits many of the good programming practices that we have
+
+described. It uses the IMPLICIT NONE statement to force the explicit typing of all
+
+variables in the program. It includes a variable dictionary defining the uses of all of
+
+the variables in the program. It also uses descriptive variable names (although the variable names are short, P, Q, S, and PF are the standard accepted abbreviations for
+
+2
+
+the corresponding quantities). All variables are initialized before they are used. The
+
+program defines a named constant for the degrees-to-radians conversion factor, and
+
+then uses that name everywhere throughout the program when the conversion factor
+
+is required. All input values are echoed, and appropriate units are attached to all
+
+printed values.
+
+To verify the operation of program power, we will do a sample calculation by hand
+
+and compare the results with the output of the program. If the rms voltage V is 120 V,
+
+the magnitude of the impedance Z is 5 Ω, and the angle θ is 30°, then the values are
+
+I
+
+=
+
+V Z
+
+=
+
+120 V 5 Ω
+
+=
+
+24
+
+A
+
+P = VI cos θ = (120 V) (24 A) cos 30° = 2494 W
+
+(2-3) (2-4)
+
+Q = VI sin θ = (120 V) (24 A) sin 30° = 1440 VAR
+
+(2-5)
+
+S = VI = (120 V) (24 A) = 2880 VA
+
+(2-6)
+
+PF = cos θ = cos 30° = 0.86603
+
+(2-7)
+
+When we run program power with the specified input data, the results are identical with our hand calculations:
+
+C:\book\fortran\chap2>power Enter the rms voltage of the source:
+
+120
+
+Enter the magnitude and angle of the impedance
+
+in ohms and degrees:
+
+5., 30.
+
+Voltage
+
+=
+
+120.000000 volts
+
+Impedance
+
+=
+
+5.000000 ohms at 30.000000 degrees
+
+Current
+
+=
+
+24.000000 amps
+
+Real Power
+
+=  2494.153000  watts
+
+Reactive Power = 1440.000000   V  AR
+
+Apparent Power = 2880.000000   V  A
+
+Power Factor = 8.660254E-01
+
+EXAMPLE 2-5
+
+Carbon 14 Dating:
+A radioactive isotope of an element is a form of the element that is not stable. Instead, it spontaneously decays into another element over a period of time. Radioactive decay is an exponential process. If Qo is the initial quantity of a radioactive substance at time
+
+64
+2
+
+chapter 2:   Basic Elements of Fortran
+Decay of carbon 14 100
+
+Carbon 14 remaining (percent)
+
+80
+
+60
+
+40
+
+20
+
+00
+
+2000
+
+4000
+
+6000
+
+8000
+
+10000
+
+FIGURE 2-9
+
+Years
+
+The radioactive decay of carbon 14 as a function of time. Notice that 50 percent of the
+
+original carbon 14 is left after about 5730 years have elapsed.
+
+t = 0, then the amount of that substance that will be present at any time t in the future
+
+is given by
+
+Q(t) = Q0e−λt
+
+(2-8)
+
+where λ is the radioactive decay constant (see Figure 2-9). Because radioactive decay occurs at a known rate, it can be used as a clock to
+measure the time since the decay started. If we know the initial amount of the radioactive material Qo present in a sample, and the amount of the material Q left at the ­current time, we can solve for t in Equation (2-8) to determine how long the decay has been going on. The resulting equation is
+
+tdecay =
+
+−
+
+1 λ
+
+loge
+
+Q Q0
+
+(2-9)
+
+Equation (2-8) has practical applications in many areas of science. For example, archaeologists use a radioactive clock based on carbon 14 to determine the time that has passed since a once-living thing died. Carbon 14 is continually taken into the body while a plant or animal is living, so the amount of it present in the body at the time of death is assumed to be known. The decay constant λ of carbon 14 is well known to be 0.00012097/year, so if the amount of carbon 14 remaining now can be accurately measured, then Equation (2-9) can be used to determine how long ago the living thing died.
+Write a program that reads the percentage of carbon 14 remaining in a sample, calculates the age of the sample from it, and prints out the result with proper units.
+
+Solution Our program must perform the following steps:
+1. Prompt the user to enter the percentage of carbon 14 remaining in the sample.
+
+Basic Elements of Fortran
+
+2. Read in the percentage.
+
+Q
+
+3. Convert the percentage into the fraction Qo.
+
+4. Calculate the age of the sample in years using Equation (2-8).
+
+5. Write out the result, and stop.
+
+The resulting code is shown in Figure 2-10.
+
+65
+2
+
+FIGURE 2-10 Program to calculate the age of a sample from the percentage of carbon 14 remaining in it.
+
+PROGRAM c14_date
+
+!
+
+! Purpose:
+
+! To calculate the age of an organic sample from the percentage
+
+! of the original carbon 14 remaining in the sample.
+
+!
+
+! Record of revisions:
+
+!
+
+Date
+
+Programmer
+
+Description of change
+
+!
+
+====
+
+==========
+
+=====================
+
+! 11/03/15 S. J. Chapman
+
+Original code
+
+!
+
+IMPLICIT NONE
+
+! Data dictionary: declare constants REAL,PARAMETER :: LAMDA = 0.00012097  ! The radioactive decay
+! constant of carbon 14, ! in units of 1/years.
+
+! Data dictionary: declare variable types, definitions, & units
+
+REAL :: age
+
+! The age of the sample (years)
+
+REAL :: percent ! The percentage of carbon 14 remaining at the time
+
+! of the measurement (%)
+
+REAL :: ratio ! The ratio of the carbon 14 remaining at the time
+
+! of the measurement to the original amount of
+
+! carbon 14 (no units)
+
+! Prompt the user for the percentage of C-14 remaining. WRITE (*,*) 'Enter the percentage of carbon 14 remaining:' READ (*,*) percent
+
+! Echo the user's input value. WRITE (*,*) 'The remaining carbon 14 = ', percent, ' %.'
+
+! Perform calculations
+
+ratio = percent / 100.
+
+! Convert to fractional ratio
+
+age = (-1.0 / LAMDA) * log(ratio) ! Get age in years
+
+! Tell the user about the age of the sample. WRITE (*,*) 'The age of the sample is ', age, ' years.'
+
+! Finish up. END PROGRAM c14_date
+
+66
+2
+
+chapter 2:   Basic Elements of Fortran
+
+To test the completed program, we will calculate the time it takes for half of the carbon 14 to disappear. This time is known as the half-life of carbon 14.
+
+C:\book\fortran\chap2>c14_date
+
+Enter the percentage of carbon 14 remaining:
+
+50.
+
+The remaining carbon 14 =
+
+50.000000 %.
+
+The age of the sample is
+
+5729.910000 years.
+
+The CRC Handbook of Chemistry and Physics states that the half-life of carbon 14 is 5730 years, so output of the program agrees with the reference book.
+
+2.12
+DEBUGGING FORTRAN PROGRAMS
+There is an old saying that the only sure things in life are death and taxes. We can add one more certainty to that list: if you write a program of any significant size, it won’t work the first time you try it! Errors in programs are known as bugs, and the process of locating and eliminating them is known as debugging. Given that we have written a program and it is not working, how do we debug it?
+Three types of errors are found in Fortran programs. The first type of error is a syntax error. Syntax errors are errors in the Fortran statement itself, such as spelling errors or punctuation errors. These errors are detected by the compiler during compilation. The second type of error is the runtime error. A runtime error occurs when an illegal mathematical operation is attempted during program execution (for example, attempting to divide by zero). These errors cause the program to abort during execution. The third type of error is a logical error. Logical errors occur when the program compiles and runs successfully but produces the wrong answer.
+The most common mistakes made during programming are typographical errors. Some typographical errors create invalid Fortran statements. These errors produce syntax errors that are caught by the compiler. Other typographical errors occur in variable names. For example, the letters in some variable names might have been transposed. If you have used the IMPLICIT NONE statement, then the compiler will also catch most of these errors. However, if one legal variable name is substituted for ­another legal variable name, the compiler cannot detect the error. This sort of substitution might occur if you have two similar variable names. For example, if variables vel1 and vel2 are both used for velocities in the program, then one of them might be inadvertently used instead of the other one at some point. This sort of typographical error will produce a logical error. You must check for that sort of error by manually inspecting the code, since the compiler cannot catch it.
+Sometimes it is possible to successfully compile and link the program, but there are runtime errors or logical errors when the program is executed. In this case, there is something wrong either with the input data or with the logical structure of the program. The first step in locating this sort of bug should be to check the input data to the
+
+Basic Elements of Fortran
+
+67
+
+program. Your program should have been designed to echo its input data. If not, go
+
+back and add WRITE statements to verify that the input values are what you expect
+
+them to be.
+
+If the variable names seem to be correct and the input data is correct, then you are probably dealing with a logical error. You should check each of your assignment
+
+2
+
+­statements.
+
+1. If an assignment statement is very long, break it into several smaller assignment statements. Smaller statements are easier to verify.
+2. Check the placement of parentheses in your assignment statements. It is a very common error to have the operations in an assignment statement evaluated in the wrong order. If you have any doubts as to the order in which the variables are ­being evaluated, add extra sets of parentheses to make your intentions clear.
+3. Make sure that you have initialized all of your variables properly. 4. Be sure that any functions you use are in the correct units. For example, the input
+to trigonometric functions must be in units of radians, not degrees. 5. Check for possible errors due to integer or mixed-mode arithmetic.
+
+If you are still getting the wrong answer, add WRITE statements at various points in your program to see the results of intermediate calculations. If you can locate the point where the calculations go bad, then you know just where to look for the problem, which is 95% of the battle.
+If you still cannot find the problem after all of the above steps, explain what you are doing to another student or to your instructor, and let them look at the code. It is very common for a person to see just what he or she expects to see when they look at their own code. Another person can often quickly spot an error that you have overlooked time after time.
+
+Good Programming Practice
+To reduce your debugging effort, make sure that during your program design you:
+1. Use the IMPLICIT NONE statement. 2. Echo all input values. 3. Initialize all variables. 4. Use parentheses to make the functions of assignment statements clear.
+
+All modern compilers have special debugging tools called symbolic debuggers. A symbolic debugger is a tool that allows you to walk through the execution of your program one statement at a time, and to examine the values of any variables at each step along the way. Symbolic debuggers allow you to see all of the intermediate results without having to insert a lot of WRITE statements into your code. They are powerful and flexible, but unfortunately they are different for every type of compiler. If you will be using a symbolic debugger in your class, your instructor will introduce you to the debugger appropriate for your compiler and computer.
+
+68
+2
+
+chapter 2:   Basic Elements of Fortran
+2.13
+SUMMARY
+In this chapter, we have presented many of the fundamental concepts required to write functional Fortran programs. We described the basic structure of Fortran programs, and introduced four data types: integer, real, logical, and character. We introduced the assignment statement, arithmetic calculations, intrinsic functions, and list-directed ­input/output statements. Throughout the chapter, we have emphasized those features of the language that are important for writing understandable and maintainable Fortran code.
+The Fortran statements introduced in this chapter must appear in a specific order in a Fortran program. The proper order is summarized in Table 2-5.
+The order in which Fortran expressions are evaluated follows a fixed hierarchy, with operations at a higher level evaluated before operations at lower levels. The hierarchy of operations is summarized in Table 2-6.
+The Fortran language includes a number of built-in functions to help us solve problems. These functions are called intrinsic functions, since they are intrinsic to the Fortran language itself. Some common intrinsic functions are summarized in Tables 2-3 and 2-4, and a complete listing of intrinsic functions is contained in A­ ppendix B.
+There are two varieties of intrinsic functions: specific functions and generic functions. Specific functions require that their input data be of a specific type; if data of the
+
+TABLE 2-5
+The order of Fortran statements in a program
+
+1.  PROGRAM Statement
+2. IMPLICIT NONE Statement 3.  Type Declaration Statements:
+REAL Statement(s) INTEGER Statement(s) CHARACTER Statement(s) 4.  Executable Statements: Assignment Statement(s) READ Statement(s) WRITE Statement(s) STOP Statement(s)
+
+(
+
+)
+
+(Any number in any order )
+
+(
+
+)
+
+(
+
+)
+
+(Any number in the order )
+
+(required to accomplish the )
+
+(desired task.
+
+)
+
+5.  END PROGRAM Statement
+
+TABLE 2-6
+Fortran hierarchy of operations
+1. Operations within parentheses are evaluated first, starting with the innermost parentheses and working outward.
+2.  All exponential operations are evaluated next, working from right to left. 3.  All multiplications and divisions are evaluated, working from left to right. 4.  All additions and subtractions are evaluated, working from left to right.
+
+Basic Elements of Fortran
+
+69
+
+wrong type is supplied to a specific function, the result will be meaningless. In ­contrast, generic functions can accept input data of more than one type and produce correct results.
+2
+2.13.1  Summary of Good Programming Practice
+
+Every Fortran program should be designed so that another person who is familiar with Fortran can easily understand it. This is very important, since a good program may be used for a long period of time. Over that time, conditions will change, and the program will need to be modified to reflect the changes. The program modifications may be done by someone other than the original programmer. The programmer making the modifications must understand the original program well before attempting to change it.
+It is much harder to design clear, understandable, and maintainable programs than it is to simply write programs. To do so, a programmer must develop the discipline to properly document his or her work. In addition, the programmer must be careful to avoid known pitfalls along the path to good programs. The following guidelines will help you to develop good programs:
+1. Use meaningful variable names whenever possible. Use names that can be understood at a glance, like day, month, and year.
+2. Always use the IMPLICIT NONE statement to catch typographical errors in your program at compilation time.
+3. Create a data dictionary in each program that you write. The data dictionary should explicitly declare and define each variable in the program. Be sure to include the physical units associated with each variable, if applicable.
+4. Use a consistent number of significant digits in constants. For example, do not use 3.14 for π in one part of your program, and 3.141593 in another part of the program. To ensure consistency, a constant may be named, and the constant may be referenced by name wherever it is needed.
+5. Be sure to specify all constants with as much precision as your computer will ­support. For example, specify π as 3.141593, not 3.14.
+6. Do not use integer arithmetic to calculate continuously varying real-world quantities such as distance and time. Use integer arithmetic only for things that are ­intrinsically integer, such as counters.
+7. Avoid mixed-mode arithmetic except for exponentiation. If it is necessary to mix integer and real variables in a single expression, use the intrinsic functions REAL, INT, NINT, CEILING, and FLOOR to make the type conversions explicit.
+8. Use extra parentheses whenever necessary to improve the readability of your e­ xpressions. 9. Always echo any variables that you enter into a program from a keyboard to make
+sure that they were typed and processed correctly. 10. Initialize all variables in a program before using them. The variables may be
+­initialized with assignment statements, with READ statements, or directly in type ­declaration statements. 11. Always print the physical units associated with any value being written out. The units are important for the proper interpretation of a program’s results.
+
+70
+
+chapter 2:   Basic Elements of Fortran
+
+2.13.2  Summary of Fortran Statements
+
+The following summary describes the Fortran statements introduced in this chapter.
+2
+Assignment Statement:
+
+variable = expression
+
+Examples:
+
+pi = 3.141593 distance = 0.5 * acceleration * time ** 2 side = hypot * cos(theta)
+
+Description: The left side of the assignment statement must be a variable name. The right side of the assignment statement can be any constant, variable, function, or expression. The value of the quantity on the right-hand side of the equal sign is stored into the variable named on the left-hand side of the equal sign.
+
+CHARACTER Statement:
+CHARACTER(len=<len>) :: variable_name1[, variable_name2, ...] CHARACTER(<len>) :: variable_name1[, variable_name2, ...] CHARACTER :: variable_name1[, variable_name2, ...]
+Examples:
+CHARACTER(len=10) :: first, last, middle CHARACTER(10) :: first = 'My Name' CHARACTER :: middle_initial
+Description: The CHARACTER statement is a type declaration statement that declares variables of the character data type. The length in characters of each variable is specified by the (len=<len>), or by <len>. If the length is absent, then the length of the variables defaults to 1.
+The value of a CHARACTER variable may be initialized with a string when it is declared, as shown in the second example above.
+
+END PROGRAM Statement:
+END PROGRAM [name]
+Description: The END PROGRAM statement must be the last statement in a Fortran program segment. It tells the compiler that there are no further statements to process. Program execution is stopped when the END PROGRAM statement is reached. The name of the program may optionally be included in the END PROGRAM statement.
+
+Basic Elements of Fortran
+
+71
+
+ERROR STOP Statement:
+
+ERROR STOP
+
+ERROR STOP n ERROR STOP 'message'
+
+2
+
+Description: The ERROR STOP statement stops the execution of a Fortran program, and notifies the operating system that an execution error occurred.
+
+IMPLICIT NONE Statement:
+IMPLICIT NONE
+Description: The IMPLICIT NONE statement turns off default typing in Fortran. When it is used in a program, every variable in the program must be explicitly declared in a type declaration statement.
+
+INTEGER Statement:
+INTEGER :: variable_name1[, variable_name2, ...]
+Examples:
+INTEGER :: i, j, count INTEGER :: day = 4
+Description: The INTEGER statement is a type declaration statement that declares variables of the integer data type. This statement overrides the default typing specified in Fortran. The value of an INTEGER variable may be initialized when it is declared, as shown in the second example above.
+
+PROGRAM Statement:
+PROGRAM program_name
+
+Example:
+
+PROGRAM my_program
+
+Description: The PROGRAM statement specifies the name of a Fortran program. It must be the first statement in the ­program. The name must be unique, and cannot be used as a variable name within the program. A program name may consist of 1 to 31 alphabetic, numeric, and underscore characters, but the first character in the program name must be alphabetic.
+
+72
+
+chapter 2:   Basic Elements of Fortran
+
+READ Statement (List-Directed READ):
+
+2
+
+Examples:
+
+READ (*,*) variable_name1[, variable_name2, ...]
+
+READ (*,*) stress READ (*,*) distance, time
+
+Description: The list-directed READ statement reads one or more values from the standard input device and loads them into the variables in the list. The values are stored in the order in which the variables are listed. Data values must be separated by blanks or by commas. As many lines as necessary will be read. Each READ statement begins searching for values with a new line.
+
+REAL Statement:
+
+REAL :: variable_name1[, variable_name2, ...] REAL :: variable_name = value
+
+Examples:
+
+REAL :: distance, time REAL :: distance = 100
+
+Description: The REAL statement is a type declaration statement that declares variables of the real data type. This statement overrides the default typing specified in Fortran. The value of a REAL variable may be initialized when it is declared, as shown in the second example above.
+
+STOP Statement:
+
+STOP STOP n STOP 'message'
+
+Description: The STOP statement stops the execution of a Fortran program. There may be more than one STOP statement within a program. A STOP statement that immediately precedes an END PROGRAM statement may be omitted, since execution is also stopped when the END PROGRAM statement is reached.
+
+Basic Elements of Fortran
+
+73
+
+WRITE Statement (List-Directed WRITE):
+
+WRITE (*,*) expression1 [,expression2, etc.]
+
+Examples:
+
+2
+
+WRITE (*,*) stress WRITE (*,*) distance, time WRITE (*,*) 'SIN(theta) = ', SIN(theta)
+
+Description: The list-directed WRITE statement writes the values of one or more expressions to the standard output device. The values are written in the order in which the expressions are listed.
+
+2.13.3 Exercises
+2-1. State whether or not each of the following Fortran constants is valid. If valid, state what type of constant it is. If not, state why it is invalid. (a) 3.14159 (b) '.TRUE.' (c) -123,456.789 (d) +1E-12 (e) 'Who's coming for dinner?' (f) "Pass / Fail' (g) "Enter name:"
+2-2. For each of the following pairs of numbers, state whether they represent the same value or different values within the computer. (a) 123.E+0; 123 (b) 1234.E-3; 1.234E3 (c) 1.41421; 1.41421E0 (d) 0.000005E+6; 5.
+2-3. State whether each of the following program names is valid or not. If not, state why the name is invalid. (a) junk (b) 3rd (c) Who_are_you? (d) time_to_intercept
+
+74
+2
+
+chapter 2:   Basic Elements of Fortran
+2-4. Which of the following expressions are legal in Fortran? If an expression is legal, evaluate it. (a) 2.**3 / 3**2 (b) 2 * 6 + 6 ** 2 / 2 (c) 2 * (-10.)**-3. (d) 2 / (-10.) ** 3. (e) 23 / (4 / 8)
+2-5. Which of the following expressions are legal in Fortran? If an expression is legal, evaluate it. (a) ((58/4)*(4/58)) (b) ((58/4)*(4/58.)) (c) ((58./4)*(4/58.)) (d) ((58./4*(4/58.))
+2-6. Evaluate each of the following expressions. (a) 13 / 5 * 6 (b) (13 / 5) * 6 (c) 13 / (5 * 6) (d) 13. / 5 * 6 (e) 13 / 5 * 6. (f) INT(13. / 5) * 6 (g) NINT(13. / 5) * 6 (h) CEILING(13. / 5) * 6 (i) FLOOR(13. / 5) * 6
+2-7. Evaluate each of the following expressions. (a) 3 ** 3 ** 2 (b) (3 ** 3) ** 2 (c) 3 ** (3 ** 2)
+2-8. What values will be output from the following program? PROGRAM sample_1 INTEGER :: i1, i2, i3, i4 REAL :: a1 = 2.4, a2 i1 = a1 i2 = INT( -a1 * i1 ) i3 = NINT( -a1 * i1 ) i4 = FLOOR( -a1 * i1 ) a2 = a1**i1 WRITE (*,*) i1, i2, i3, i4, a1, a2 END PROGRAM sample_1
+
+Basic Elements of Fortran
+
+75
+
+C B
+2
+θ
+A
+FIGURE 2-11 The right triangle of Exercise 2-9.
+2-9. Figure 2-11 shows a right triangle with a hypotenuse of length C and angle θ. From ­elementary trigonometry, the length of sides A and B are given by
+A = C cos θ B = C sin θ
+The following program is intended to calculate the lengths of sides A and B given the hypotenuse C and angle θ. Will this program run? Will it produce the correct result? Why or why not?
+PROGRAM triangle REAL :: a, b, c, theta WRITE (*,*) 'Enter the length of the hypotenuse C:' READ (*,*) c WRITE (*,*) 'Enter the angle THETA in degrees:' READ (*,*) theta a = c * COS ( theta ) b = c * SIN ( theta ) WRITE (*,*) 'The length of the adjacent side is ', a WRITE (*,*) 'The length of the opposite side is ', b END PROGRAM triangle
+2-10. What output will be produced by the following program?
+PROGRAM example REAL :: a, b, c INTEGER :: k, l, m READ (*,*) a, b, c, k READ (*,*) l, m WRITE (*,*) a, b, c, k, l, m END PROGRAM example
+The input data to the program is:
+-3.141592 100, 200., 300, 400 -100, -200, -300 -400
+2-11. Write a Fortran program that calculates an hourly employee’s weekly pay. The program should ask the user for the person’s pay rate and the number of hours worked during the week. It should then calculate the total pay from the formula
+Total Pay = Hourly Pay Rate × Hours Worked
+

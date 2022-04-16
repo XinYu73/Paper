@@ -14,10 +14,10 @@
 	"inRepository": false,
 	"configOptions": {
 		"getCollections": true,
-		"hash": "c26d244387676cc7027cc4b6231a63d14fb65e44882e4af5066c8759df3924cb"
+		"hash": "99b63fe664bcdd5a5d04cd1358531f2a14f25e2c72561e7b01202347b9108a73"
 	},
 	"priority": 100,
-	"lastUpdated": "2022-03-26"
+	"lastUpdated": "2022-04-07"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
@@ -34641,6 +34641,7 @@ var Collectednotes__Translator__doExport = (() => {
     "bibtexURL",
     "cacheFlushInterval",
     "caching",
+    "charmap",
     "citeCommand",
     "citekeyFold",
     "citekeyFormat",
@@ -34716,6 +34717,7 @@ var Collectednotes__Translator__doExport = (() => {
     bibtexParticleNoOp: ["Better BibTeX"],
     bibtexURL: ["Better BibTeX"],
     caching: ["Better BibLaTeX", "Better BibTeX", "Better CSL JSON", "Better CSL YAML"],
+    charmap: ["Better BibLaTeX", "Better BibTeX"],
     csquotes: ["Better BibLaTeX", "Better BibTeX"],
     DOIandURL: ["Better BibLaTeX", "Better BibTeX"],
     exportBibTeXStrings: ["Better BibLaTeX", "Better BibTeX"],
@@ -34759,6 +34761,7 @@ var Collectednotes__Translator__doExport = (() => {
     bibtexURL: "off",
     cacheFlushInterval: 5,
     caching: true,
+    charmap: "",
     citeCommand: "cite",
     citekeyFold: true,
     citekeyFormat: "[auth:lower][shorttitle3_3][year]",
@@ -34823,7 +34826,7 @@ var Collectednotes__Translator__doExport = (() => {
   var schema = {
     autoExport: {
       preferences: ["asciiBibLaTeX", "asciiBibTeX", "biblatexExtendedNameFormat", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
-      displayOptions: ["exportNotes", "useJournalAbbreviation"]
+      displayOptions: ["useJournalAbbreviation", "exportNotes"]
     },
     translator: {
       "Better CSL JSON": {
@@ -34833,25 +34836,21 @@ var Collectednotes__Translator__doExport = (() => {
         displayOptions: [],
         types: {}
       },
-      "Better BibLaTeX": {
-        autoexport: true,
-        cached: true,
-        preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
-        displayOptions: ["exportNotes", "useJournalAbbreviation"],
-        types: {
-          asciiBibLaTeX: { type: "boolean" },
-          biblatexExtendedNameFormat: { type: "boolean" },
-          DOIandURL: { enum: ["both", "doi", "url"] },
-          exportNotes: { type: "boolean" },
-          useJournalAbbreviation: { type: "boolean" }
-        }
-      },
       "Better CSL YAML": {
         autoexport: true,
         cached: true,
         preferences: [],
         displayOptions: [],
         types: {}
+      },
+      "BetterBibTeX JSON": {
+        autoexport: true,
+        cached: false,
+        preferences: [],
+        displayOptions: ["exportNotes"],
+        types: {
+          exportNotes: { type: "boolean" }
+        }
       },
       "Better BibTeX": {
         autoexport: true,
@@ -34867,13 +34866,17 @@ var Collectednotes__Translator__doExport = (() => {
           useJournalAbbreviation: { type: "boolean" }
         }
       },
-      "BetterBibTeX JSON": {
+      "Better BibLaTeX": {
         autoexport: true,
-        cached: false,
-        preferences: [],
-        displayOptions: ["exportNotes"],
+        cached: true,
+        preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
+        displayOptions: ["exportNotes", "useJournalAbbreviation"],
         types: {
-          exportNotes: { type: "boolean" }
+          asciiBibLaTeX: { type: "boolean" },
+          biblatexExtendedNameFormat: { type: "boolean" },
+          DOIandURL: { enum: ["both", "doi", "url"] },
+          exportNotes: { type: "boolean" },
+          useJournalAbbreviation: { type: "boolean" }
         }
       }
     }
@@ -34885,20 +34888,6 @@ var Collectednotes__Translator__doExport = (() => {
     Components.utils.import("resource://zotero/config.js");
   var client = ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "");
 
-  // content/logger.ts
-  init_globals();
-
-  // content/stringify.ts
-  init_globals();
-  var import_fast_safe_stringify = __toESM(require_fast_safe_stringify());
-  function asciify(str) {
-    return str.replace(/[\u007F-\uFFFF]/g, (chr) => `\\u${`0000${chr.charCodeAt(0).toString(16)}`.substr(-4)}`);
-  }
-  function stringify(obj, replacer, indent, ucode) {
-    const stringified = import_fast_safe_stringify.default.stable(obj, replacer, indent);
-    return ucode ? asciify(stringified) : stringified;
-  }
-
   // content/environment.ts
   init_globals();
   var environment = {
@@ -34908,89 +34897,6 @@ var Collectednotes__Translator__doExport = (() => {
     name: ""
   };
   environment.name = Object.entries(environment).map(([name, on]) => on ? name : "").filter((name) => name).join("/");
-
-  // content/logger.ts
-  var inTranslator = environment.worker || typeof ZOTERO_TRANSLATOR_INFO !== "undefined";
-  var Logger = class {
-    constructor() {
-      this.verbose = false;
-    }
-    format({ error = false, worker = "", translator: translator2 = "" }, msg) {
-      let diff = null;
-      const now = Date.now();
-      if (this.timestamp)
-        diff = now - this.timestamp;
-      this.timestamp = now;
-      if (typeof msg !== "string") {
-        let output = "";
-        for (const m of msg) {
-          const type2 = typeof m;
-          if (type2 === "string" || m instanceof String || type2 === "number" || type2 === "undefined" || type2 === "boolean" || m === null) {
-            output += m;
-          } else if (m instanceof Error || m instanceof ErrorEvent || m.toString() === "[object ErrorEvent]") {
-            output += this.formatError(m);
-          } else if (m && type2 === "object" && m.message) {
-            output += this.formatError({ message: m.errorCode ? `${m.message} (${m.errorCode})` : m.message, filename: m.fileName, lineno: m.lineNumber, colno: m.column, stack: m.stack });
-          } else if (this.verbose) {
-            output += stringify(m, null, 2);
-          } else {
-            output += stringify(m);
-          }
-          output += " ";
-        }
-        msg = output;
-      }
-      if (environment.worker) {
-        worker = worker || workerContext.worker;
-        translator2 = translator2 || workerContext.translator;
-      } else {
-        if (worker)
-          worker = `${worker} (but environment is ${environment.name})`;
-        if (!translator2 && inTranslator)
-          translator2 = ZOTERO_TRANSLATOR_INFO.label;
-      }
-      const prefix = ["better-bibtex", translator2, error && ":error:", worker && `(worker ${worker})`].filter((p) => p).join(" ");
-      return `{${prefix}} +${diff} ${asciify(msg)}`;
-    }
-    formatError(e, indent = "") {
-      let msg = [e.name, e.message].filter((s) => s).join(": ");
-      if (e.filename || e.fileName)
-        msg += ` in ${e.filename || e.fileName}`;
-      if (e.lineno || e.lineNumber) {
-        msg += ` line ${e.lineno}`;
-        if (e.colno)
-          msg += `, col ${e.colno}`;
-      }
-      if (e.stack)
-        msg += `
-${indent}${e.stack.replace(/\n/g, `${indent}
-`)}`;
-      if (e.error)
-        msg += `
-${indent}${this.formatError(e.error, "  ")}
-`;
-      return `${indent}<Error: ${msg}>`;
-    }
-    get enabled() {
-      if (!inTranslator)
-        return Zotero.Debug.enabled;
-      if (!environment.worker)
-        return true;
-      return !workerContext || workerContext.debugEnabled;
-    }
-    debug(...msg) {
-      if (this.enabled)
-        Zotero.debug(this.format({}, msg));
-    }
-    error(...msg) {
-      Zotero.debug(this.format({ error: true }, msg));
-    }
-    status({ error = false, worker = "", translator: translator2 = "" }, ...msg) {
-      if (error || this.enabled)
-        Zotero.debug(this.format({ error, worker, translator: translator2 }, msg));
-    }
-  };
-  var log = new Logger();
 
   // content/ping.ts
   init_globals();
@@ -35091,6 +34997,7 @@ ${indent}${this.formatError(e.error, "  ")}
         dir: void 0,
         path: void 0
       };
+      this.cacheable = true;
       this.initialized = false;
       this.header = ZOTERO_TRANSLATOR_INFO;
       this[this.header.label.replace(/[^a-z]/ig, "")] = true;
@@ -35125,17 +35032,22 @@ ${indent}${this.formatError(e.error, "  ")}
         caseSensitive: this.platform !== "mac" && this.platform !== "win",
         sep: this.platform === "win" ? "\\" : "/"
       };
+      try {
+        if (Zotero.getOption("caching") === false)
+          this.cacheable = false;
+      } catch (err) {
+      }
       for (const key in this.options) {
         if (typeof this.options[key] === "boolean") {
-          this.options[key] = !!Zotero.getOption(key);
-        } else {
           this.options[key] = Zotero.getOption(key);
+        } else {
+          this.options[key] = !!Zotero.getOption(key);
         }
       }
       if (mode === "export") {
         this.cache = {
           hits: 0,
-          misses: 0
+          requests: 0
         };
         this.export = {
           dir: Zotero.getOption("exportDir"),
@@ -35143,13 +35055,13 @@ ${indent}${this.formatError(e.error, "  ")}
         };
         if ((_a = this.export.dir) == null ? void 0 : _a.endsWith(this.paths.sep))
           this.export.dir = this.export.dir.slice(0, -1);
+        this.options.cacheUse = Zotero.getOption("cacheUse");
       }
       this.preferences = Object.entries(defaults).reduce((acc, [pref, dflt]) => {
         var _a2, _b2;
         acc[pref] = (_b2 = (_a2 = this.getPreferenceOverride(pref)) != null ? _a2 : Zotero.getHiddenPref(`better-bibtex.${pref}`)) != null ? _b2 : dflt;
         return acc;
       }, {});
-      log.debug("prefs: @load", this.preferences);
       this.skipFields = this.preferences.skipFields.toLowerCase().split(",").map((field) => this.typefield(field)).filter((s) => s);
       this.skipField = this.skipFields.reduce((acc, field) => {
         acc[field] = true;
@@ -35161,33 +35073,32 @@ ${indent}${this.formatError(e.error, "  ")}
       this.csquotes = this.preferences.csquotes ? { open: this.preferences.csquotes[0], close: this.preferences.csquotes[1] } : null;
       this.preferences.testing = Zotero.getHiddenPref("better-bibtex.testing");
       if (mode === "export") {
-        this.unicode = !Translator.preferences[`ascii${this.header.label.replace(/Better /, "")}`];
+        this.unicode = !this.preferences[`ascii${this.header.label.replace(/Better /, "")}`];
         if (this.preferences.baseAttachmentPath && (this.export.dir === this.preferences.baseAttachmentPath || ((_b = this.export.dir) == null ? void 0 : _b.startsWith(this.preferences.baseAttachmentPath + this.paths.sep)))) {
           this.preferences.relativeFilePaths = true;
         }
-        this.cacheable = Zotero.getOption("caching") && !(this.options.exportFileData || this.preferences.relativeFilePaths || this.preferences.baseAttachmentPath && ((_c = this.export.dir) == null ? void 0 : _c.startsWith(this.preferences.baseAttachmentPath)));
+        this.cacheable = this.cacheable && this.preferences.caching && !(this.options.exportFileData || this.preferences.relativeFilePaths || this.preferences.baseAttachmentPath && ((_c = this.export.dir) == null ? void 0 : _c.startsWith(this.preferences.baseAttachmentPath)));
         if (this.BetterTeX) {
-          Translator.preferences.separatorList = Translator.preferences.separatorList.trim();
-          Translator.preferences.separatorNames = Translator.preferences.separatorNames.trim();
+          this.preferences.separatorList = this.preferences.separatorList.trim();
+          this.preferences.separatorNames = this.preferences.separatorNames.trim();
           this.and = {
             list: {
-              re: new RegExp(escapeRegExp(Translator.preferences.separatorList), "g"),
-              repl: ` {${Translator.preferences.separatorList}} `
+              re: new RegExp(escapeRegExp(this.preferences.separatorList), "g"),
+              repl: ` {${this.preferences.separatorList}} `
             },
             names: {
-              re: new RegExp(` ${escapeRegExp(Translator.preferences.separatorNames)} `, "g"),
-              repl: ` {${Translator.preferences.separatorNames}} `
+              re: new RegExp(` ${escapeRegExp(this.preferences.separatorNames)} `, "g"),
+              repl: ` {${this.preferences.separatorNames}} `
             }
           };
-          Translator.preferences.separatorList = ` ${Translator.preferences.separatorList} `;
-          Translator.preferences.separatorNames = ` ${Translator.preferences.separatorNames} `;
+          this.preferences.separatorList = ` ${this.preferences.separatorList} `;
+          this.preferences.separatorNames = ` ${this.preferences.separatorNames} `;
         }
       }
       this.collections = {};
       if (mode === "export" && ((_d = this.header.configOptions) == null ? void 0 : _d.getCollections) && Zotero.nextCollection) {
         let collection;
         while (collection = Zotero.nextCollection()) {
-          log.debug("getCollection:", collection);
           this.registerCollection(collection, "");
         }
       }
@@ -35213,7 +35124,10 @@ ${indent}${this.formatError(e.error, "  ")}
     }
     getPreferenceOverride(pref) {
       try {
-        return Zotero.getOption(`preference_${pref}`);
+        const override = Zotero.getOption(`preference_${pref}`);
+        if (typeof override !== "undefined")
+          this.cacheable = false;
+        return override;
       } catch (err) {
         return void 0;
       }
@@ -35260,14 +35174,102 @@ ${indent}${this.formatError(e.error, "  ")}
   };
   var Translator = new ITranslator();
 
-  // content/object.ts
+  // content/logger.ts
   init_globals();
-  function fromEntries(kv) {
-    return kv.reduce((acc, [k, v]) => {
-      acc[k] = v;
-      return acc;
-    }, {});
+
+  // content/stringify.ts
+  init_globals();
+  var import_fast_safe_stringify = __toESM(require_fast_safe_stringify());
+  function asciify(str) {
+    return str.replace(/[\u007F-\uFFFF]/g, (chr) => `\\u${`0000${chr.charCodeAt(0).toString(16)}`.substr(-4)}`);
   }
+  function stringify(obj, replacer, indent, ucode) {
+    const stringified = import_fast_safe_stringify.default.stable(obj, replacer, indent);
+    return ucode ? asciify(stringified) : stringified;
+  }
+
+  // content/logger.ts
+  var inTranslator = environment.worker || typeof ZOTERO_TRANSLATOR_INFO !== "undefined";
+  var Logger = class {
+    constructor() {
+      this.verbose = false;
+    }
+    format({ error = false, worker = "", translator: translator2 = "" }, msg) {
+      let diff = null;
+      const now = Date.now();
+      if (this.timestamp)
+        diff = now - this.timestamp;
+      this.timestamp = now;
+      if (typeof msg !== "string") {
+        let output = "";
+        for (const m of msg) {
+          const type2 = typeof m;
+          if (type2 === "string" || m instanceof String || type2 === "number" || type2 === "undefined" || type2 === "boolean" || m === null) {
+            output += m;
+          } else if (m instanceof Error || m instanceof ErrorEvent || m.toString() === "[object ErrorEvent]") {
+            output += this.formatError(m);
+          } else if (m && type2 === "object" && m.message) {
+            output += this.formatError({ message: m.errorCode ? `${m.message} (${m.errorCode})` : m.message, filename: m.fileName, lineno: m.lineNumber, colno: m.column, stack: m.stack });
+          } else if (this.verbose) {
+            output += stringify(m, null, 2);
+          } else {
+            output += stringify(m);
+          }
+          output += " ";
+        }
+        msg = output;
+      }
+      if (environment.worker) {
+        worker = worker || workerContext.worker;
+        translator2 = translator2 || workerContext.translator;
+      } else {
+        if (worker)
+          worker = `${worker} (but environment is ${environment.name})`;
+        if (!translator2 && inTranslator)
+          translator2 = ZOTERO_TRANSLATOR_INFO.label;
+      }
+      const prefix = ["better-bibtex", translator2, error && ":error:", worker && `(worker ${worker})`].filter((p) => p).join(" ");
+      return `{${prefix}} +${diff} ${asciify(msg)}`;
+    }
+    formatError(e, indent = "") {
+      let msg = [e.name, e.message].filter((s) => s).join(": ");
+      if (e.filename || e.fileName)
+        msg += ` in ${e.filename || e.fileName}`;
+      if (e.lineno || e.lineNumber) {
+        msg += ` line ${e.lineno}`;
+        if (e.colno)
+          msg += `, col ${e.colno}`;
+      }
+      if (e.stack)
+        msg += `
+${indent}${e.stack.replace(/\n/g, `${indent}
+`)}`;
+      if (e.error)
+        msg += `
+${indent}${this.formatError(e.error, "  ")}
+`;
+      return `${indent}<Error: ${msg}>`;
+    }
+    get enabled() {
+      if (!inTranslator)
+        return Zotero.Debug.enabled;
+      if (!environment.worker)
+        return true;
+      return !workerContext || workerContext.debugEnabled;
+    }
+    debug(...msg) {
+      if (this.enabled)
+        Zotero.debug(this.format({}, msg));
+    }
+    error(...msg) {
+      Zotero.debug(this.format({ error: true }, msg));
+    }
+    status({ error = false, worker = "", translator: translator2 = "" }, ...msg) {
+      if (error || this.enabled)
+        Zotero.debug(this.format({ error, worker, translator: translator2 }, msg));
+    }
+  };
+  var log = new Logger();
 
   // content/escape.ts
   init_globals();
@@ -38523,11 +38525,6 @@ ${indent}${this.formatError(e.error, "  ")}
         if (this.keep(cleaned))
           items[item.itemID] = cleaned;
       }
-      log.debug(Object.values(Translator.collections).map((coll) => ({
-        ...coll,
-        collections: fromEntries((coll.collections || []).map((key) => [key, !!Translator.collections[key]])),
-        items: fromEntries((coll.items || []).map((itemID) => [itemID, !!items[itemID]]))
-      })));
       for (const [key, collection] of Object.entries(Translator.collections)) {
         for (const itemID of collection.items)
           filed.add(itemID);
@@ -38566,7 +38563,6 @@ ${indent}${this.formatError(e.error, "  ")}
       }
       style += "  blockquote { border-left: 1px solid gray; }\n";
       this.html = `<html><head><style>${style}</style></head><body>${this.body}</body></html>`;
-      log.debug("Translator options:", Translator.options);
       if (Translator.options.markdown)
         this.markdown = (0, import_html2markdown.default)(this.html);
     }
@@ -38574,7 +38570,6 @@ ${indent}${this.formatError(e.error, "  ")}
       log.debug(`collectednotes.${context}: ${JSON.stringify(Array.from(args))}`);
     }
     write_collection(collection, level = 1) {
-      log.debug(`collection ${collection.name} @ ${level} with ${collection.collections.length} subcollections`);
       this.levels = Math.max(this.levels, level);
       this.body += `<h${level}>${html(collection.name)}</h${level}>
 `;
@@ -38602,7 +38597,6 @@ ${indent}${this.formatError(e.error, "  ")}
       if (!collection)
         return true;
       collection.collections = collection.collections.filter((sub) => !this.prune(sub));
-      log.debug(`prune: ${collection.name}: ${collection.items.length} items, ${collection.collections.length} collections: ${!collection.items.length && !collection.collections.length}`);
       return !collection.items.length && !collection.collections.length;
     }
     note(note, type2) {

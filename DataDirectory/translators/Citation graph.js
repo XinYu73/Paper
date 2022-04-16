@@ -16,19 +16,17 @@
 	},
 	"priority": 100,
 	"configOptions": {
-		"hash": "56369226cd0982f5e3352f99fa36dfe5e51a1aa3e03ad99aed7fd3242b97b9f3"
+		"hash": "9b1f44390ad4a4443f60656372f982f21e9252cfdb1aa35e3f19a3d1b78933f8"
 	},
-	"lastUpdated": "2022-03-26"
+	"lastUpdated": "2022-04-07"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
 if (typeof ZOTERO_TRANSLATOR_INFO === 'undefined') var ZOTERO_TRANSLATOR_INFO = {"translatorID":"19afa3fd-1c7f-4eb8-a37e-8d07768493e8","label":"Citation graph","description":"exports a citation graph in graphml format. Use gephi or yEd to clean up and visualize","creator":"Emiliano heyns","target":"dot","minVersion":"4.0.27","maxVersion":"","translatorType":2,"browserSupport":"gcsv","inRepository":false,"displayOptions":{"Title":false,"Authors":false,"Year":false},"priority":100};
 var Citationgraph__Translator__doExport = (() => {
-  var __create = Object.create;
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropNames = Object.getOwnPropertyNames;
-  var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
     get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
@@ -55,7 +53,6 @@ var Citationgraph__Translator__doExport = (() => {
     }
     return to;
   };
-  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // node_modules/process/browser.js
@@ -230,201 +227,6 @@ var Citationgraph__Translator__doExport = (() => {
     }
   });
 
-  // node_modules/fast-safe-stringify/index.js
-  var require_fast_safe_stringify = __commonJS({
-    "node_modules/fast-safe-stringify/index.js"(exports, module) {
-      init_globals();
-      module.exports = stringify2;
-      stringify2.default = stringify2;
-      stringify2.stable = deterministicStringify;
-      stringify2.stableStringify = deterministicStringify;
-      var LIMIT_REPLACE_NODE = "[...]";
-      var CIRCULAR_REPLACE_NODE = "[Circular]";
-      var arr = [];
-      var replacerStack = [];
-      function defaultOptions() {
-        return {
-          depthLimit: Number.MAX_SAFE_INTEGER,
-          edgesLimit: Number.MAX_SAFE_INTEGER
-        };
-      }
-      function stringify2(obj, replacer, spacer, options) {
-        if (typeof options === "undefined") {
-          options = defaultOptions();
-        }
-        decirc(obj, "", 0, [], void 0, 0, options);
-        var res;
-        try {
-          if (replacerStack.length === 0) {
-            res = JSON.stringify(obj, replacer, spacer);
-          } else {
-            res = JSON.stringify(obj, replaceGetterValues(replacer), spacer);
-          }
-        } catch (_) {
-          return JSON.stringify("[unable to serialize, circular reference is too complex to analyze]");
-        } finally {
-          while (arr.length !== 0) {
-            var part = arr.pop();
-            if (part.length === 4) {
-              Object.defineProperty(part[0], part[1], part[3]);
-            } else {
-              part[0][part[1]] = part[2];
-            }
-          }
-        }
-        return res;
-      }
-      function setReplace(replace, val, k, parent) {
-        var propertyDescriptor = Object.getOwnPropertyDescriptor(parent, k);
-        if (propertyDescriptor.get !== void 0) {
-          if (propertyDescriptor.configurable) {
-            Object.defineProperty(parent, k, { value: replace });
-            arr.push([parent, k, val, propertyDescriptor]);
-          } else {
-            replacerStack.push([val, k, replace]);
-          }
-        } else {
-          parent[k] = replace;
-          arr.push([parent, k, val]);
-        }
-      }
-      function decirc(val, k, edgeIndex, stack, parent, depth, options) {
-        depth += 1;
-        var i;
-        if (typeof val === "object" && val !== null) {
-          for (i = 0; i < stack.length; i++) {
-            if (stack[i] === val) {
-              setReplace(CIRCULAR_REPLACE_NODE, val, k, parent);
-              return;
-            }
-          }
-          if (typeof options.depthLimit !== "undefined" && depth > options.depthLimit) {
-            setReplace(LIMIT_REPLACE_NODE, val, k, parent);
-            return;
-          }
-          if (typeof options.edgesLimit !== "undefined" && edgeIndex + 1 > options.edgesLimit) {
-            setReplace(LIMIT_REPLACE_NODE, val, k, parent);
-            return;
-          }
-          stack.push(val);
-          if (Array.isArray(val)) {
-            for (i = 0; i < val.length; i++) {
-              decirc(val[i], i, i, stack, val, depth, options);
-            }
-          } else {
-            var keys = Object.keys(val);
-            for (i = 0; i < keys.length; i++) {
-              var key = keys[i];
-              decirc(val[key], key, i, stack, val, depth, options);
-            }
-          }
-          stack.pop();
-        }
-      }
-      function compareFunction(a, b) {
-        if (a < b) {
-          return -1;
-        }
-        if (a > b) {
-          return 1;
-        }
-        return 0;
-      }
-      function deterministicStringify(obj, replacer, spacer, options) {
-        if (typeof options === "undefined") {
-          options = defaultOptions();
-        }
-        var tmp = deterministicDecirc(obj, "", 0, [], void 0, 0, options) || obj;
-        var res;
-        try {
-          if (replacerStack.length === 0) {
-            res = JSON.stringify(tmp, replacer, spacer);
-          } else {
-            res = JSON.stringify(tmp, replaceGetterValues(replacer), spacer);
-          }
-        } catch (_) {
-          return JSON.stringify("[unable to serialize, circular reference is too complex to analyze]");
-        } finally {
-          while (arr.length !== 0) {
-            var part = arr.pop();
-            if (part.length === 4) {
-              Object.defineProperty(part[0], part[1], part[3]);
-            } else {
-              part[0][part[1]] = part[2];
-            }
-          }
-        }
-        return res;
-      }
-      function deterministicDecirc(val, k, edgeIndex, stack, parent, depth, options) {
-        depth += 1;
-        var i;
-        if (typeof val === "object" && val !== null) {
-          for (i = 0; i < stack.length; i++) {
-            if (stack[i] === val) {
-              setReplace(CIRCULAR_REPLACE_NODE, val, k, parent);
-              return;
-            }
-          }
-          try {
-            if (typeof val.toJSON === "function") {
-              return;
-            }
-          } catch (_) {
-            return;
-          }
-          if (typeof options.depthLimit !== "undefined" && depth > options.depthLimit) {
-            setReplace(LIMIT_REPLACE_NODE, val, k, parent);
-            return;
-          }
-          if (typeof options.edgesLimit !== "undefined" && edgeIndex + 1 > options.edgesLimit) {
-            setReplace(LIMIT_REPLACE_NODE, val, k, parent);
-            return;
-          }
-          stack.push(val);
-          if (Array.isArray(val)) {
-            for (i = 0; i < val.length; i++) {
-              deterministicDecirc(val[i], i, i, stack, val, depth, options);
-            }
-          } else {
-            var tmp = {};
-            var keys = Object.keys(val).sort(compareFunction);
-            for (i = 0; i < keys.length; i++) {
-              var key = keys[i];
-              deterministicDecirc(val[key], key, i, stack, val, depth, options);
-              tmp[key] = val[key];
-            }
-            if (typeof parent !== "undefined") {
-              arr.push([parent, k, val]);
-              parent[k] = tmp;
-            } else {
-              return tmp;
-            }
-          }
-          stack.pop();
-        }
-      }
-      function replaceGetterValues(replacer) {
-        replacer = typeof replacer !== "undefined" ? replacer : function(k, v) {
-          return v;
-        };
-        return function(key, val) {
-          if (replacerStack.length > 0) {
-            for (var i = 0; i < replacerStack.length; i++) {
-              var part = replacerStack[i];
-              if (part[1] === key && part[0] === val) {
-                val = part[2];
-                replacerStack.splice(i, 1);
-                break;
-              }
-            }
-          }
-          return replacer.call(this, key, val);
-        };
-      }
-    }
-  });
-
   // translators/Citation graph.ts
   var Citation_graph_exports = {};
   __export(Citation_graph_exports, {
@@ -461,6 +263,7 @@ var Citationgraph__Translator__doExport = (() => {
     "bibtexURL",
     "cacheFlushInterval",
     "caching",
+    "charmap",
     "citeCommand",
     "citekeyFold",
     "citekeyFormat",
@@ -536,6 +339,7 @@ var Citationgraph__Translator__doExport = (() => {
     bibtexParticleNoOp: ["Better BibTeX"],
     bibtexURL: ["Better BibTeX"],
     caching: ["Better BibLaTeX", "Better BibTeX", "Better CSL JSON", "Better CSL YAML"],
+    charmap: ["Better BibLaTeX", "Better BibTeX"],
     csquotes: ["Better BibLaTeX", "Better BibTeX"],
     DOIandURL: ["Better BibLaTeX", "Better BibTeX"],
     exportBibTeXStrings: ["Better BibLaTeX", "Better BibTeX"],
@@ -579,6 +383,7 @@ var Citationgraph__Translator__doExport = (() => {
     bibtexURL: "off",
     cacheFlushInterval: 5,
     caching: true,
+    charmap: "",
     citeCommand: "cite",
     citekeyFold: true,
     citekeyFormat: "[auth:lower][shorttitle3_3][year]",
@@ -643,7 +448,7 @@ var Citationgraph__Translator__doExport = (() => {
   var schema = {
     autoExport: {
       preferences: ["asciiBibLaTeX", "asciiBibTeX", "biblatexExtendedNameFormat", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
-      displayOptions: ["exportNotes", "useJournalAbbreviation"]
+      displayOptions: ["useJournalAbbreviation", "exportNotes"]
     },
     translator: {
       "Better CSL JSON": {
@@ -653,25 +458,21 @@ var Citationgraph__Translator__doExport = (() => {
         displayOptions: [],
         types: {}
       },
-      "Better BibLaTeX": {
-        autoexport: true,
-        cached: true,
-        preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
-        displayOptions: ["exportNotes", "useJournalAbbreviation"],
-        types: {
-          asciiBibLaTeX: { type: "boolean" },
-          biblatexExtendedNameFormat: { type: "boolean" },
-          DOIandURL: { enum: ["both", "doi", "url"] },
-          exportNotes: { type: "boolean" },
-          useJournalAbbreviation: { type: "boolean" }
-        }
-      },
       "Better CSL YAML": {
         autoexport: true,
         cached: true,
         preferences: [],
         displayOptions: [],
         types: {}
+      },
+      "BetterBibTeX JSON": {
+        autoexport: true,
+        cached: false,
+        preferences: [],
+        displayOptions: ["exportNotes"],
+        types: {
+          exportNotes: { type: "boolean" }
+        }
       },
       "Better BibTeX": {
         autoexport: true,
@@ -687,13 +488,17 @@ var Citationgraph__Translator__doExport = (() => {
           useJournalAbbreviation: { type: "boolean" }
         }
       },
-      "BetterBibTeX JSON": {
+      "Better BibLaTeX": {
         autoexport: true,
-        cached: false,
-        preferences: [],
-        displayOptions: ["exportNotes"],
+        cached: true,
+        preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
+        displayOptions: ["exportNotes", "useJournalAbbreviation"],
         types: {
-          exportNotes: { type: "boolean" }
+          asciiBibLaTeX: { type: "boolean" },
+          biblatexExtendedNameFormat: { type: "boolean" },
+          DOIandURL: { enum: ["both", "doi", "url"] },
+          exportNotes: { type: "boolean" },
+          useJournalAbbreviation: { type: "boolean" }
         }
       }
     }
@@ -705,20 +510,6 @@ var Citationgraph__Translator__doExport = (() => {
     Components.utils.import("resource://zotero/config.js");
   var client = ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "");
 
-  // content/logger.ts
-  init_globals();
-
-  // content/stringify.ts
-  init_globals();
-  var import_fast_safe_stringify = __toESM(require_fast_safe_stringify());
-  function asciify(str) {
-    return str.replace(/[\u007F-\uFFFF]/g, (chr) => `\\u${`0000${chr.charCodeAt(0).toString(16)}`.substr(-4)}`);
-  }
-  function stringify(obj, replacer, indent, ucode) {
-    const stringified = import_fast_safe_stringify.default.stable(obj, replacer, indent);
-    return ucode ? asciify(stringified) : stringified;
-  }
-
   // content/environment.ts
   init_globals();
   var environment = {
@@ -728,89 +519,6 @@ var Citationgraph__Translator__doExport = (() => {
     name: ""
   };
   environment.name = Object.entries(environment).map(([name, on]) => on ? name : "").filter((name) => name).join("/");
-
-  // content/logger.ts
-  var inTranslator = environment.worker || typeof ZOTERO_TRANSLATOR_INFO !== "undefined";
-  var Logger = class {
-    constructor() {
-      this.verbose = false;
-    }
-    format({ error = false, worker = "", translator = "" }, msg) {
-      let diff = null;
-      const now = Date.now();
-      if (this.timestamp)
-        diff = now - this.timestamp;
-      this.timestamp = now;
-      if (typeof msg !== "string") {
-        let output = "";
-        for (const m of msg) {
-          const type = typeof m;
-          if (type === "string" || m instanceof String || type === "number" || type === "undefined" || type === "boolean" || m === null) {
-            output += m;
-          } else if (m instanceof Error || m instanceof ErrorEvent || m.toString() === "[object ErrorEvent]") {
-            output += this.formatError(m);
-          } else if (m && type === "object" && m.message) {
-            output += this.formatError({ message: m.errorCode ? `${m.message} (${m.errorCode})` : m.message, filename: m.fileName, lineno: m.lineNumber, colno: m.column, stack: m.stack });
-          } else if (this.verbose) {
-            output += stringify(m, null, 2);
-          } else {
-            output += stringify(m);
-          }
-          output += " ";
-        }
-        msg = output;
-      }
-      if (environment.worker) {
-        worker = worker || workerContext.worker;
-        translator = translator || workerContext.translator;
-      } else {
-        if (worker)
-          worker = `${worker} (but environment is ${environment.name})`;
-        if (!translator && inTranslator)
-          translator = ZOTERO_TRANSLATOR_INFO.label;
-      }
-      const prefix = ["better-bibtex", translator, error && ":error:", worker && `(worker ${worker})`].filter((p) => p).join(" ");
-      return `{${prefix}} +${diff} ${asciify(msg)}`;
-    }
-    formatError(e, indent = "") {
-      let msg = [e.name, e.message].filter((s) => s).join(": ");
-      if (e.filename || e.fileName)
-        msg += ` in ${e.filename || e.fileName}`;
-      if (e.lineno || e.lineNumber) {
-        msg += ` line ${e.lineno}`;
-        if (e.colno)
-          msg += `, col ${e.colno}`;
-      }
-      if (e.stack)
-        msg += `
-${indent}${e.stack.replace(/\n/g, `${indent}
-`)}`;
-      if (e.error)
-        msg += `
-${indent}${this.formatError(e.error, "  ")}
-`;
-      return `${indent}<Error: ${msg}>`;
-    }
-    get enabled() {
-      if (!inTranslator)
-        return Zotero.Debug.enabled;
-      if (!environment.worker)
-        return true;
-      return !workerContext || workerContext.debugEnabled;
-    }
-    debug(...msg) {
-      if (this.enabled)
-        Zotero.debug(this.format({}, msg));
-    }
-    error(...msg) {
-      Zotero.debug(this.format({ error: true }, msg));
-    }
-    status({ error = false, worker = "", translator = "" }, ...msg) {
-      if (error || this.enabled)
-        Zotero.debug(this.format({ error, worker, translator }, msg));
-    }
-  };
-  var log = new Logger();
 
   // content/ping.ts
   init_globals();
@@ -911,6 +619,7 @@ ${indent}${this.formatError(e.error, "  ")}
         dir: void 0,
         path: void 0
       };
+      this.cacheable = true;
       this.initialized = false;
       this.header = ZOTERO_TRANSLATOR_INFO;
       this[this.header.label.replace(/[^a-z]/ig, "")] = true;
@@ -945,17 +654,22 @@ ${indent}${this.formatError(e.error, "  ")}
         caseSensitive: this.platform !== "mac" && this.platform !== "win",
         sep: this.platform === "win" ? "\\" : "/"
       };
+      try {
+        if (Zotero.getOption("caching") === false)
+          this.cacheable = false;
+      } catch (err) {
+      }
       for (const key in this.options) {
         if (typeof this.options[key] === "boolean") {
-          this.options[key] = !!Zotero.getOption(key);
-        } else {
           this.options[key] = Zotero.getOption(key);
+        } else {
+          this.options[key] = !!Zotero.getOption(key);
         }
       }
       if (mode === "export") {
         this.cache = {
           hits: 0,
-          misses: 0
+          requests: 0
         };
         this.export = {
           dir: Zotero.getOption("exportDir"),
@@ -963,13 +677,13 @@ ${indent}${this.formatError(e.error, "  ")}
         };
         if ((_a = this.export.dir) == null ? void 0 : _a.endsWith(this.paths.sep))
           this.export.dir = this.export.dir.slice(0, -1);
+        this.options.cacheUse = Zotero.getOption("cacheUse");
       }
       this.preferences = Object.entries(defaults).reduce((acc, [pref, dflt]) => {
         var _a2, _b2;
         acc[pref] = (_b2 = (_a2 = this.getPreferenceOverride(pref)) != null ? _a2 : Zotero.getHiddenPref(`better-bibtex.${pref}`)) != null ? _b2 : dflt;
         return acc;
       }, {});
-      log.debug("prefs: @load", this.preferences);
       this.skipFields = this.preferences.skipFields.toLowerCase().split(",").map((field) => this.typefield(field)).filter((s) => s);
       this.skipField = this.skipFields.reduce((acc, field) => {
         acc[field] = true;
@@ -981,33 +695,32 @@ ${indent}${this.formatError(e.error, "  ")}
       this.csquotes = this.preferences.csquotes ? { open: this.preferences.csquotes[0], close: this.preferences.csquotes[1] } : null;
       this.preferences.testing = Zotero.getHiddenPref("better-bibtex.testing");
       if (mode === "export") {
-        this.unicode = !Translator.preferences[`ascii${this.header.label.replace(/Better /, "")}`];
+        this.unicode = !this.preferences[`ascii${this.header.label.replace(/Better /, "")}`];
         if (this.preferences.baseAttachmentPath && (this.export.dir === this.preferences.baseAttachmentPath || ((_b = this.export.dir) == null ? void 0 : _b.startsWith(this.preferences.baseAttachmentPath + this.paths.sep)))) {
           this.preferences.relativeFilePaths = true;
         }
-        this.cacheable = Zotero.getOption("caching") && !(this.options.exportFileData || this.preferences.relativeFilePaths || this.preferences.baseAttachmentPath && ((_c = this.export.dir) == null ? void 0 : _c.startsWith(this.preferences.baseAttachmentPath)));
+        this.cacheable = this.cacheable && this.preferences.caching && !(this.options.exportFileData || this.preferences.relativeFilePaths || this.preferences.baseAttachmentPath && ((_c = this.export.dir) == null ? void 0 : _c.startsWith(this.preferences.baseAttachmentPath)));
         if (this.BetterTeX) {
-          Translator.preferences.separatorList = Translator.preferences.separatorList.trim();
-          Translator.preferences.separatorNames = Translator.preferences.separatorNames.trim();
+          this.preferences.separatorList = this.preferences.separatorList.trim();
+          this.preferences.separatorNames = this.preferences.separatorNames.trim();
           this.and = {
             list: {
-              re: new RegExp(escapeRegExp(Translator.preferences.separatorList), "g"),
-              repl: ` {${Translator.preferences.separatorList}} `
+              re: new RegExp(escapeRegExp(this.preferences.separatorList), "g"),
+              repl: ` {${this.preferences.separatorList}} `
             },
             names: {
-              re: new RegExp(` ${escapeRegExp(Translator.preferences.separatorNames)} `, "g"),
-              repl: ` {${Translator.preferences.separatorNames}} `
+              re: new RegExp(` ${escapeRegExp(this.preferences.separatorNames)} `, "g"),
+              repl: ` {${this.preferences.separatorNames}} `
             }
           };
-          Translator.preferences.separatorList = ` ${Translator.preferences.separatorList} `;
-          Translator.preferences.separatorNames = ` ${Translator.preferences.separatorNames} `;
+          this.preferences.separatorList = ` ${this.preferences.separatorList} `;
+          this.preferences.separatorNames = ` ${this.preferences.separatorNames} `;
         }
       }
       this.collections = {};
       if (mode === "export" && ((_d = this.header.configOptions) == null ? void 0 : _d.getCollections) && Zotero.nextCollection) {
         let collection;
         while (collection = Zotero.nextCollection()) {
-          log.debug("getCollection:", collection);
           this.registerCollection(collection, "");
         }
       }
@@ -1033,7 +746,10 @@ ${indent}${this.formatError(e.error, "  ")}
     }
     getPreferenceOverride(pref) {
       try {
-        return Zotero.getOption(`preference_${pref}`);
+        const override = Zotero.getOption(`preference_${pref}`);
+        if (typeof override !== "undefined")
+          this.cacheable = false;
+        return override;
       } catch (err) {
         return void 0;
       }

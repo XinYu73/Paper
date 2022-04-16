@@ -1,0 +1,2947 @@
+Intel® Fortran Compiler User and Reference Guides
+Document number: 304970-005US
+
+Disclaimer and Legal Information
+INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL(R) PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER, AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES RELATING TO FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT. UNLESS OTHERWISE AGREED IN WRITING BY INTEL, THE INTEL PRODUCTS ARE NOT DESIGNED NOR INTENDED FOR ANY APPLICATION IN WHICH THE FAILURE OF THE INTEL PRODUCT COULD CREATE A SITUATION WHERE PERSONAL INJURY OR DEATH MAY OCCUR. Intel may make changes to specifications and product descriptions at any time, without notice. Designers must not rely on the absence or characteristics of any features or instructions marked "reserved" or "undefined." Intel reserves these for future definition and shall have no responsibility whatsoever for conflicts or incompatibilities arising from future changes to them. The information here is subject to change without notice. Do not finalize a design with this information. The products described in this document may contain design defects or errors known as errata which may cause the product to deviate from published specifications. Current characterized errata are available on request. Contact your local Intel sales office or your distributor to obtain the latest specifications and before placing your product order. Copies of documents which have an order number and are referenced in this document, or other Intel literature, may be obtained by calling 1-800-548-4725, or by visiting Intel's Web Site.
+
+Intel processor numbers are not a measure of performance. Processor numbers differentiate features within each processor family, not across different processor families. See http://www.intel.com/products/processor_number for details. This document contains information on products in the design phase of development. BunnyPeople, Celeron, Celeron Inside, Centrino, Centrino Atom, Centrino Atom Inside, Centrino Inside, Centrino logo, Core Inside, FlashFile, i960, InstantIP, Intel, Intel logo, Intel386, Intel486, IntelDX2, IntelDX4, IntelSX2, Intel Atom, Intel Atom Inside, Intel Core, Intel Inside, Intel Inside logo, Intel. Leap ahead., Intel. Leap ahead. logo, Intel NetBurst, Intel NetMerge, Intel NetStructure, Intel SingleDriver, Intel SpeedStep, Intel StrataFlash, Intel Viiv, Intel vPro, Intel XScale, Itanium, Itanium Inside, MCS, MMX, Oplus, OverDrive, PDCharm, Pentium, Pentium Inside, skoool, Sound Mark, The Journey Inside, Viiv Inside, vPro Inside, VTune, Xeon, and Xeon Inside are trademarks of Intel Corporation in the U.S. and other countries. * Other names and brands may be claimed as the property of others. Copyright (C) 1996-2008, Intel Corporation. All rights reserved. Portions Copyright (C) 2001, Hewlett-Packard Development Company, L.P.
+
+Table of Contents
+Intel(R) Fortran Compiler User and Reference Guides .........................................1 Intel® Fortran Compiler User and Reference Guides........................................1 Disclaimer and Legal Information ......................................................................1 Welcome to the Intel® Fortran Compiler ...........................................................2 See Also ........................................................................................................2 Conventions ......................................................................................................3 Notational Conventions..................................................................................3 Platform Labels..............................................................................................7 Introduction to the Intel® Fortran Compiler .......................................................8 Product Website and Support ........................................................................8 System Requirements ...................................................................................9 FLEXlm* Electronic Licensing........................................................................9 Related Publications..........................................................................................9 Tutorial information ........................................................................................9 Standard and Specification Documents.......................................................10 Associated Intel Documents ........................................................................11 Optimization and Vectorization Terminology and Technology .....................11 Additional Training on the Intel® Fortran Compiler ......................................12 Compiler Options.............................................................................................13 Overview: Compiler Options ........................................................................13 New Options ................................................................................................14 Deprecated and Removed Compiler Options ..............................................34 Alphabetical Compiler Options.....................................................................40 Quick Reference Guides and Cross References .......................................699 Related Options .........................................................................................795 Floating-point Operations ..............................................................................805 Overview: Floating-point Operations..........................................................805 Floating-point Options Quick Reference ....................................................806 Understanding Floating-point Operations ..................................................811
+v
+
+Intel® Fortran Compiler User and Reference Guides Tuning Performance ..................................................................................822 Handling Floating-point Exceptions ...........................................................826 Understanding IEEE Floating-point Standard ............................................847
+vi
+
+Intel(R) Fortran Compiler User and Reference Guides
+Intel® Fortran Compiler User and Reference Guides
+Document number: 304970-005US Start Here www.intel.com Disclaimer and Legal Information
+Disclaimer and Legal Information
+INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL(R) PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER, AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES RELATING TO FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT. UNLESS OTHERWISE AGREED IN WRITING BY INTEL, THE INTEL PRODUCTS ARE NOT DESIGNED NOR INTENDED FOR ANY APPLICATION IN WHICH THE FAILURE OF THE INTEL PRODUCT COULD CREATE A SITUATION WHERE PERSONAL INJURY OR DEATH MAY OCCUR. Intel may make changes to specifications and product descriptions at any time, without notice. Designers must not rely on the absence or characteristics of any features or instructions marked "reserved" or "undefined." Intel reserves these for future definition and shall have no responsibility whatsoever for conflicts or incompatibilities arising from future changes to them. The information here is
+1
+
+Intel® Fortran Compiler User and Reference Guides
+subject to change without notice. Do not finalize a design with this information. The products described in this document may contain design defects or errors known as errata which may cause the product to deviate from published specifications. Current characterized errata are available on request. Contact your local Intel sales office or your distributor to obtain the latest specifications and before placing your product order. Copies of documents which have an order number and are referenced in this document, or other Intel literature, may be obtained by calling 1-800-548-4725, or by visiting Intel's Web Site. Intel processor numbers are not a measure of performance. Processor numbers differentiate features within each processor family, not across different processor families. See http://www.intel.com/products/processor_number for details. This document contains information on products in the design phase of development. BunnyPeople, Celeron, Celeron Inside, Centrino, Centrino Atom, Centrino Atom Inside, Centrino Inside, Centrino logo, Core Inside, FlashFile, i960, InstantIP, Intel, Intel logo, Intel386, Intel486, IntelDX2, IntelDX4, IntelSX2, Intel Atom, Intel Atom Inside, Intel Core, Intel Inside, Intel Inside logo, Intel. Leap ahead., Intel. Leap ahead. logo, Intel NetBurst, Intel NetMerge, Intel NetStructure, Intel SingleDriver, Intel SpeedStep, Intel StrataFlash, Intel Viiv, Intel vPro, Intel XScale, Itanium, Itanium Inside, MCS, MMX, Oplus, OverDrive, PDCharm, Pentium, Pentium Inside, skoool, Sound Mark, The Journey Inside, Viiv Inside, vPro Inside, VTune, Xeon, and Xeon Inside are trademarks of Intel Corporation in the U.S. and other countries. * Other names and brands may be claimed as the property of others. Copyright (C) 1996-2008, Intel Corporation. All rights reserved. Portions Copyright (C) 2001, Hewlett-Packard Development Company, L.P.
+Welcome to the Intel® Fortran Compiler
+The Intel® Fortran Compiler lets you build and optimize Fortran applications for the Linux* OS (operating system).
+See Also
+2
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+• Introduction • Building Applications • Compiler Options • Optimizing Applications • Floating-point Operations • Language Reference For details on getting started with the Intel Fortran Compiler, see: • Getting Started • Invoking the Compiler from the Command Line
+
+Conventions
+Information in this documentation applies to all supported operating systems and architectures unless otherwise specified. This documentation uses the following conventions: • Notational Conventions • Platform Labels
+
+Notational Conventions
+THIS TYPE Indicates statements, data types, directives, and other language keywords. Examples of statement keywords are WRITE, INTEGER, DO, and OPEN.
+
+this type
+
+Indicates command-line or option arguments, new terms, or emphasized text. Most new terms are defined in the Glossary.
+
+This type Indicates a code example.
+
+This type Indicates what you type as input.
+
+This type
+
+Indicates menu names, menu items, button names, dialog window names, and other user-interface items.
+
+File>Open
+
+Menu names and menu items joined by a greater than (>) sign indicate a sequence of actions. For example, "Click File>Open" indicates that in the File menu, click Open to perform this action.
+
+3
+
+Intel® Fortran Compiler User and Reference Guides
+
+{value | value} Indicates a choice of items or values. You can usually only choose one of the values in the braces.
+
+[item]
+
+Indicates items that are optional. Brackets are also used in code examples to show arrays.
+
+item [, item ]...
+
+Indicates that the item preceding the ellipsis (three dots) can be repeated. In some code examples, a horizontal ellipsis means that not all of the statements are shown.
+
+Windows* OS These terms refer to all supported Microsoft* Windows*
+
+Windows
+
+operating systems.
+
+operating
+
+system
+
+Linux* OS
+
+These terms refer to all supported Linux* operating systems.
+
+Linux operating
+
+system
+
+Mac OS* X Mac OS X operating system
+
+These terms refer to Intel®-based systems running the Mac OS* X operating system.
+
+Microsoft
+
+An asterisk at the end of a word or name indicates it is a third-
+
+Windows XP* party product trademark.
+
+compiler option This term refers to Windows* OS options, Linux* OS options, or MAC OS* X options that can be used on the compiler command line.
+
+Conventions Used in Compiler Options
+
+/option or
+
+A slash before an option name indicates the option is
+
+-option
+
+available on Windows OS. A dash before an option name
+
+indicates the option is available on Linux OS* and Mac
+
+OS* X systems. For example:
+
+4
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows option: /fast Linux and Mac OS X option: -fast Note: If an option is available on Windows* OS, Linux* OS, and Mac OS* X systems, no slash or dash appears in the general description of the option. The slash and dash will only appear where the option syntax is described.
+
+/option:argument Indicates that an option requires a argument (parameter).
+
+or
+
+For example, you must specify an argument for the
+
+-option argument following options:
+
+Windows OS option: /Qdiag-error-limit:n
+
+Linux OS and Mac OS X option: -diag-error-limit n
+
+/option:keyword or -option keyword
+
+Indicates that an option requires one of the keyword values.
+
+/option[:keyword ] Indicates that the option can be used alone or with an
+
+or
+
+optional keyword.
+
+-option [keyword ]
+
+option[n]
+
+Indicates that the option can be used alone or with an optional value; for example, in /Qunroll[:n] or unroll[n], the n can be omitted or a valid value can be specified for n.
+
+option[-]
+
+Indicates that a trailing hyphen disables the option; for example, /Qglobal_hoist- disables the Windows OS option /Qglobal_hoist.
+
+[no]option or [no-]option
+
+Indicates that "no" or "no-" preceding an option disables the option. For example: In the Windows OS option /[no]traceback, /traceback enables the option, while /notraceback
+
+5
+
+Intel® Fortran Compiler User and Reference Guides
+
+disables it. In the Linux OS and Mac OS X option -[no]global_hoist, -global_hoist enables the option, while -no-global_hoist disables it. In some options, the "no" appears later in the option name; for example, -fno-alias disables the -falias option.
+
+Conventions Used in Language Reference
+This color Indicates extensions to the Fortran 95 Standard. These extensions may or may not be implemented by other compilers that conform to the language standard.
+
+Intel Fortran This term refers to the name of the common compiler language supported by the Intel® Visual Fortran Compiler and the Intel® Fortran Compiler. For more information on these compilers, see http://developer.intel.com/software/products/.
+
+Fortran
+
+This term refers to language information that is common to ANSI FORTRAN 77, ANSI/ISO Fortran 95 and 90, and Intel Fortran.
+
+Fortran 95/90
+
+This term refers to language information that is common to ANSI FORTRAN 77, ANSI/ISO Fortran 95, ANSI/ISO Fortran 90, and Intel Fortran.
+
+Fortran 95 This term refers to language features specific to ANSI/ISO Fortran 95.
+
+integer
+
+This term refers to the INTEGER(KIND=1), INTEGER(KIND=2), INTEGER (INTEGER(KIND=4)), and INTEGER(KIND=8) data types as a group.
+
+real
+
+This term refers to the REAL (REAL(KIND=4)), DOUBLE
+
+PRECISION (REAL(KIND=8)), and REAL(KIND=16) data types as
+
+a group.
+
+6
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+REAL
+
+This term refers to the default data type of objects declared to be REAL. REAL is equivalent to REAL(KIND=4), unless a compiler option specifies otherwise.
+
+complex
+
+This term refers to the COMPLEX (COMPLEX(KIND=4)), DOUBLE COMPLEX (COMPLEX(KIND=8)), and COMPLEX(KIND=16) data types as a group.
+
+logical
+
+This term refers to the LOGICAL(KIND=1), LOGICAL(KIND=2), LOGICAL (LOGICAL(KIND=4)), and LOGICAL(KIND=8) data types as a group.
+
+Compatibility This term introduces a list of the projects or libraries that are compatible with the library routine.
+
+< Tab>
+
+This symbol indicates a nonprinting tab character.
+
+^
+
+This symbol indicates a nonprinting blank character.
+
+Platform Labels
+A platform is a combination of operating system and central processing unit (CPU) that provides a distinct environment in which to use a product (in this case, a computer language). An example of a platform is Microsoft* Windows* XP on processors using IA-32 architecture. In this documentation, information applies to all supported platforms unless it is otherwise labeled for a specific platform (or platforms). These labels may be used to identify specific platforms:
+
+L*X Applies to Linux* OS on processors using IA-32 architecture, Intel® 64 architecture, and IA-64 architecture.
+
+L*X32 Applies to Linux* OS on processors using IA-32 architecture and Intel® 64 architecture.
+
+L*X64 Applies to Linux OS on processors using IA-64 architecture.
+
+M*X Applies to Apple* Mac OS* X on processors using IA-32 architecture and Intel® 64 architecture.
+
+7
+
+Intel® Fortran Compiler User and Reference Guides
+M*X32 Applies to Apple* Mac OS* X on processors using IA-32 architecture. M*X64 Applies to Apple* Mac OS* X on processors using Intel® 64 architecture. W*32 Applies to Microsoft Windows* 2000, Windows XP, and Windows Server
+2003 on processors using IA-32 architecture and Intel® 64 architecture. For a complete list of supported Windows* operating systems, see your Release Notes. W*64 Applies to Microsoft Windows* XP operating systems on IA-64 architecture. i32 Applies to 32-bit operating systems on IA-32 architecture. i64em Applies to 32-bit operating systems on Intel® 64 architecture. i64 Applies to 64-bit operating systems on IA-64 architecture.
+Introduction to the Intel® Fortran Compiler
+The Intel® Fortran Compiler can generate code for IA-32, Intel® 64, or IA-64 applications on any Intel®-based Linux* system. IA-32 applications (32-bit) can run on all Intel®-based Linux systems. Intel® 64 applications and IA-64 applications can only run on Intel® 64-based or IA-64-based Linux systems. For more information about the compiler features and other components, see your Release Notes. This documentation assumes that you are familiar with the Fortran programming language and with your processor's architecture. You should also be familiar with the host computer's operating system.
+Product Website and Support
+For general information on support for Intel software products, visit the Intel web site http://developer.intel.com/software/products/ At this site, you will find comprehensive product information, including: • Links to each product, where you will find technical information such as white
+papers and articles • Links to user forums
+8
+
+Intel(R) Fortran Compiler User and Reference Guides
+• Links to news and events To find technical support information, to register your product, or to contact Intel, please visit: http://www.intel.com/software/products/support/ For additional information, see the Technical Support section of your Release Notes.
+System Requirements
+For detailed information on system requirements, see the Release Notes.
+FLEXlm* Electronic Licensing
+The Intel® Fortran Compiler uses Macrovision*'s FLEXlm* licensing technology. The compiler requires a valid license file in the licenses directory in the installation path. The default directory is /opt/intel/licenses. License files have a file extension of .lic. For information on how to install and use the Intel® License Manager for FLEXlm to configure a license server for systems using counted licenses, see Using the Intel® License Manager for FLEXlm* (flex_ug.pdf).
+Related Publications
+Tutorial information
+The following commercially published documents provide reference or tutorial information on Fortran 2003, Fortran 95, and Fortran 90: • Fortran 95/2003 for Scientists & Engineers by S. Chapman; published by
+McGraw-Hill Science/Engineering/Math, ISBN 0073191574. • Fortran 95/2003 Explained by M. Metcalf, J. Reid, and M. Cohen; published
+by Oxford University Press, ISBN 0-19-852693-8. • Compaq Visual Fortran by N. Lawrence; published by Digital Press*
+(Butterworth-Heinemann), ISBN 1-55558-249-4. • Digital Visual Fortran Programmers Guide by M. Etzel and K. Dickinson;
+published by Digital Press (Butterworth-Heinemann), ISBN 1-55558-218-4 • Fortran 90 Explained by M. Metcalf and J. Reid; published by Oxford
+University Press, ISBN 0-19-853772-7. • Fortran 90/95 Explained by M. Metcalf and J. Reid; published by Oxford
+University Press, ISBN 0-19-851888-9.
+9
+
+Intel® Fortran Compiler User and Reference Guides
+• Fortran 90/95 for Scientists and Engineers by S. Chapman; published by McGraw-Hill, ISBN 0-07-011938-4.
+• Fortran 90 Handbook by J. Adams, W. Brainerd, J. Martin, B. Smith, and J. Wagener; published by Intertext Publications (McGraw-Hill), ISBN 0-07000406-4.
+• Fortran 90 Programming by T. Ellis, I. Philips, and T. Lahey; published by Addison-Wesley, ISBN 0201-54446-6.
+• Introduction to Fortran 90/95 by Stephen J. Chapman; published by McGrawHill, ISBN 0-07-011969-4.
+• User's guide to Fortran 90, Second Edition by W. Brainerd, C. Goldberg, and J. Adams; published by Unicomp, ISBN 0-07-000248-7.
+Intel does not endorse these books or recommend them over other books on the same subjects.
+Standard and Specification Documents
+The following copyrighted standard and specification documents provide descriptions of many of the features found in Intel® Fortran: • American National Standard Programming Language FORTRAN, ANSI X3.9-
+1978 • American National Standard Programming Language Fortran 90, ANSI
+X3.198-1992 This Standard is equivalent to: International Standards Organization Programming Language Fortran, ISO/IEC 1539:1991 (E). • American National Standard Programming Language Fortran 95, ANSI X3J3/96-007 This Standard is equivalent to: International Standards Organization Programming Language Fortran, ISO/IEC 1539-1:1997 (E). • International Standards Organization Information Technology - Programming Languages - Fortran, ISO/IEC 1539-1:2004 (E) This is the Fortran 2003 Standard. • High Performance Fortran Language Specification, Version 1.1, Technical Report CRPC-TR-92225
+10
+
+Intel(R) Fortran Compiler User and Reference Guides
+• OpenMP Fortran Application Program Interface, Version 1.1, November 1999 • OpenMP Fortran Application Program Interface, Version 2.0, November 2000
+Associated Intel Documents
+The following Intel documents provide additional information about the Intel® Fortran Compiler, Intel® architecture, Intel® processors, or tools: • Using the Intel® License Manager for FLEXlm* • Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 1:
+Basic Architecture, Intel Corporation • Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 2A:
+Instruction Set Reference, A-M, Intel Corporation • Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 2B:
+Instruction Set Reference, N-Z, Intel Corporation • Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 3A:
+System Programming Guide, Intel Corporation • Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 3B:
+System Programming Guide, Intel Corporation • Intel® 64 and IA-32 Architectures Optimization Reference Manual • Intel® Itanium® Architecture Software Developer's Manual - Volume 1:
+Application Architecture, Revision 2.2 • Intel® Itanium® Architecture Software Developer's Manual - Volume 2:
+System Architecture, Revision 2.2 • Intel® Itanium® Architecture Software Developer's Manual - Volume 3:
+Instruction Set Reference, Revision 2.2 • Intel® Processor Identification with the CPUID Instruction, Intel Corporation,
+doc. number 241618 • IA-64 Architecture Assembler User's Guide • IA-64 Architecture Assembly Language Reference Guide Most Intel documents can be found at the Intel web site http://developer.intel.com/software/products/
+Optimization and Vectorization Terminology and Technology
+11
+
+Intel® Fortran Compiler User and Reference Guides
+The following documents provide details on basic optimization and vectorization terminology and technology: • Intel® Architecture Optimization Reference Manual • Dependence Analysis, Utpal Banerjee (A Book Series on Loop
+Transformations for Restructuring Compilers). Kluwer Academic Publishers. 1997. • The Structure of Computers and Computation: Volume I, David J. Kuck. John Wiley and Sons, New York, 1978. • Loop Transformations for Restructuring Compilers: The Foundations, Utpal Banerjee (A Book Series on Loop Transformations for Restructuring Compilers). Kluwer Academic Publishers. 1993. • Loop parallelization, Utpal Banerjee (A Book Series on Loop Transformations for Restructuring Compilers). Kluwer Academic Publishers. 1994. • High Performance Compilers for Parallel Computers, Michael J. Wolfe. Addison-Wesley, Redwood City. 1996. • Supercompilers for Parallel and Vector Computers, H. Zima. ACM Press, New York, 1990. • An Auto-vectorizing Compiler for the Intel® Architecture, Aart Bik, Paul Grey, Milind Girkar, and Xinmin Tian. Submitted for publication • Efficient Exploitation of Parallelism on Pentium® III and Pentium® 4 Processor-Based Systems, Aart Bik, Milind Girkar, Paul Grey, and Xinmin Tian. • The Software Vectorization Handbook. Applying Multimedia Extensions for Maximum Performance, A.J.C. Bik. Intel Press, June, 2004. • Multi-Core Programming: Increasing Performance through Software Multithreading, Shameem Akhter and Jason Roberts. Intel Press, April, 2006.
+Additional Training on the Intel® Fortran Compiler
+For additional training on the Intel Fortran Compiler, choose a course in the Intel® Software College - Course Catalog at http://shale.intel.com/SoftwareCollege/CourseCatalog.asp
+12
+
+Intel(R) Fortran Compiler User and Reference Guides
+For additional technical product information including white papers about Intel compilers, open the page associated with your product at http://developer.intel.com/software/products/
+Compiler Options
+Overview: Compiler Options
+This document provides details on all current Linux*, Mac OS* X, and Windows* compiler options. It provides the following information: • New options
+This topic lists new compiler options in this release. • Deprecated
+This topic lists deprecated and removed compiler options for this release. Some deprecated options show suggested replacement options. • Alphabetical Compiler Options This topic is the main source in the documentation set for general information on all compiler options. Options are described in alphabetical order. The Overview describes what information appears in each compiler option description. • Quick Reference Guide and Cross Reference This topic contains tables summarizing compiler options. The tables show the option name, a short description of the option, the default setting for the option, and the equivalent option on the operating system, if any. • Related Options This topic lists related options that can be used under certain conditions. In this guide, compiler options are available on all supported operating systems and architectures unless otherwise identified. For further information on compiler options, see Building Applications and Optimizing Applications.
+Functional Groupings of Compiler Options
+13
+
+Intel® Fortran Compiler User and Reference Guides
+
+To see functional groupings of compiler options, specify a functional category for
+
+option help on the command line. For example, to see a list of options that affect
+
+diagnostic messages displayed by the compiler, enter one of the following
+
+commands:
+
+-help diagnostics
+
+! Linux and Mac OS X systems
+
+/help diagnostics
+
+! Windows systems
+
+For details on the categories you can specify, see help.
+
+New Options
+This topic lists the options that provide new functionality in this release. Some compiler options are only available on certain systems, as indicated by these labels:
+
+Label
+
+Meaning
+
+i32
+
+The option is available on systems using IA-32 architecture.
+
+i64em
+
+The option is available on systems using Intel® 64 architecture.
+
+i64
+
+The option is available on systems using IA-64 architecture.
+
+If no label appears, the option is available on all supported systems. If "only" appears in the label, the option is only available on the identified system. For more details on the options, refer to the Alphabetical Compiler Options section. For information on conventions used in this table, see Conventions. New compiler options are listed in tables below: • The first table lists new options that are available on Windows* systems. • The second table lists new options that are available on Linux* and Mac OS*
+X systems. If an option is only available on one of these operating systems, it is labeled.
+
+Windows* Options
+
+Description
+
+Default
+
+/arch:IA32 (i32 only)
+
+Generates code that OFF will run on any Pentium or later
+
+14
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows* Options
+
+Description
+
+Default
+
+processor.
+
+/arch:SSE3 (i32, i64em)
+
+Optimizes for Intel® Streaming SIMD Extensions 3 (Intel® SSE3).
+
+OFF
+
+/arch:SSSE3 (i32, i64em)
+
+Optimizes for Intel® Supplemental Streaming SIMD Extensions 3 (Intel® SSSE3).
+
+OFF
+
+/arch:SSE4.1 (i32, i64em)
+
+Optimizes for Intel® OFF Streaming SIMD Extensions 4 Vectorizing Compiler and Media Accelerators.
+
+/GS (i32, i64em)
+
+Determines whether the compiler generates code that detects some buffer overruns.
+
+/GS-
+
+/QaxSSE2 (i32, i64em)
+
+Can generate Intel® OFF SSE2 and SSE instructions for Intel processors, and it can optimize for Intel® Pentium® 4 processors, Intel®
+
+15
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options
+/QaxSSE3 (i32, i64em)
+/QaxSSSE3 (i32, i64em)
+/QaxSSE4.1 (i32, i64em)
+
+Description
+
+Default
+
+Pentium® M processors, and Intel® Xeon® processors with Intel® SSE2.
+
+Can generate Intel® OFF SSE3, SSE2, and SSE instructions for Intel processors and it can optimize for processors based on Intel® Core™ microarchitecture and Intel NetBurst® microarchitecture.
+
+Can generate Intel® OFF SSSE3, SSE3, SSE2, and SSE instructions for Intel processors and it can optimize for the Intel® Core™2 Duo processor family.
+
+Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator instructions for Intel processors. Can
+
+OFF
+
+16
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows* Options /QaxSSE4.2 (i32, i64em)
+/Qdiag-error-limit:n
+
+Description
+
+Default
+
+generate Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for Intel® 45nm Hi-k next generation Intel® Core™ microarchitecture.
+
+Can generate Intel® OFF SSE4 Efficient Accelerated String and Text Processing instructions supported by Intel® Core™ i7 processors. Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator, Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for the Intel® Core™ processor family.
+
+Specifies the
+
+n=30
+
+maximum number of
+
+errors allowed before
+
+compilation stops.
+
+17
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options
+
+Description
+
+Default
+
+/Qdiag-once:id[,id,...] Tells the compiler to OFF issue one or more diagnostic messages only once.
+
+/Qfast-transcendentals Enables the compiler OFF to replace calls to transcendental functions with faster but less precise implementations.
+
+/Qfma (i64 only)
+
+Enables the
+
+ON
+
+combining of floating-
+
+point multiplies and
+
+add/subtract
+
+operations.
+
+/Qfp-relaxed (i64 only)
+
+Enables use of faster OFF but slightly less accurate code sequences for math functions.
+
+/Qinstruction:[no]movbe Determines whether ON
+
+(i32, i64em)
+
+MOVBE instructions
+
+are generated for Intel
+
+processors.
+
+/Qopenmp-link:library
+
+Controls whether the /Qopenmpcompiler links to static link:dynamic or dynamic OpenMP run-time libraries.
+
+18
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows* Options
+
+Description
+
+Default
+
+/Qopenmpthreadprivate:type
+
+Lets you specify an OpenMP* threadprivate implementation.
+
+/Qopenmpthreadprivate:legacy
+
+/Qopt-block-factor:n
+
+Lets you specify a OFF loop blocking factor.
+
+/Qopt-jumptables:keyword
+
+Enables or disables generation of jump tables for switch statements.
+
+/Qopt-jumptables:default
+
+/Qopt-loadpair (i64 only)
+
+Enables loadpair optimization.
+
+/Qopt-loadpair-
+
+/Qopt-mod-versioning (i64 only)
+
+Enables versioning of /Qopt-modmodulo operations for versioningcertain types of operands.
+
+/Qopt-prefetch-initial- Enables or disables /Qopt-prefetch-
+
+values
+
+prefetches that are initial-values
+
+(i64 only)
+
+issued before a loop
+
+is entered.
+
+/Qopt-prefetch-issueexcl-hint (i64 only)
+
+Determines whether /Qopt-prefetchthe compiler issues issue-excl-hintprefetches for stores with exclusive hint.
+
+/Qopt-prefetch-nextiteration (i64 only)
+
+Enables or disables /Qopt-prefetch-next-
+
+prefetches for a
+
+iteration
+
+memory access in the
+
+19
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options /Qopt-subscript-inrange (i32, i64em)
+/Qprof-data-order
+/Qprof-func-order
+/Qprof-hotnessthreshold /Qprof-src-dir
+
+Description
+
+Default
+
+next iteration of a loop.
+
+Determines whether /Qopt-subscript-inthe compiler assumes rangeno overflows in the intermediate computation of subscript expressions in loops.
+
+Enables or disables /Qprof-data-order data ordering if profiling information is enabled.
+
+Enables or disables /Qprof-func-order function ordering if profiling information is enabled.
+
+Lets you set the
+
+OFF
+
+hotness threshold for
+
+function grouping and
+
+function ordering.
+
+Determines whether /Qprof-src-dir directory information of the source file under compilation is considered when looking up profile data records.
+
+20
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows* Options /Qprof-src-root
+/Qprof-src-root-cwd
+/Qtcollect-filter
+/Quse-msasm-symbols (i32, i64em) /Qvc9 (i32, i64em) /Qvec (i32, i64em)
+
+Description
+
+Default
+
+Lets you use relative OFF directory paths when looking up profile data and specifies a directory as the base.
+
+Lets you use relative OFF directory paths when looking up profile data and specifies the current working directory as the base.
+
+Lets you enable or disable the instrumentation of specified functions.
+
+OFF
+
+Tells the compiler to OFF use a dollar sign ("$") when producing symbol names.
+
+Specifies compatibility varies with Microsoft* Visual Studio 2008.
+
+Enables or disables vectorization and transformations enabled for vectorization.
+
+/Qvec
+
+21
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options /QxHost (i32, i64em)
+/QxSSE2 (i32, i64em)
+/QxSSE3 (i32, i64em)
+
+Description
+
+Default
+
+Can generate
+
+OFF
+
+specialized code
+
+paths for the highest
+
+instruction set and
+
+processor available
+
+on the compilation
+
+host.
+
+Can generate Intel® ON SSE2 and SSE instructions for Intel processors, and it can optimize for Intel® Pentium® 4 processors, Intel® Pentium® M processors, and Intel® Xeon® processors with Intel® SSE2.
+
+Can generate Intel® OFF SSE3, SSE2, and SSE instructions for Intel processors, and it can optimize for processors based on Intel® Core™ microarchitecture and Intel NetBurst® microarchitecture.
+
+22
+
+Windows* Options /QxSSE3_ATOM (i32, i64em)
+/QxSSSE3 (i32, i64em)
+/QxSSE4.1 (i32, i64em)
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Description
+
+Default
+
+Can generate
+
+OFF
+
+MOVBE instructions
+
+for Intel processors
+
+and it can optimize for
+
+the Intel® Atom™
+
+processor and Intel®
+
+Centrino® Atom™
+
+Processor
+
+Technology.
+
+Can generate Intel® OFF SSSE3, SSE3, SSE2, and SSE instructions for Intel processors and it can optimize for the Intel® Core™2 Duo processor family.
+
+Can generate Intel® OFF SSE4 Vectorizing Compiler and Media Accelerator instructions for Intel processors. Can generate Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for Intel® 45nm Hi-k next generation Intel® Core™
+
+23
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options /QxSSE4.2 (i32, i64em)
+Linux* and Mac OS* X Options -axSSE2 (i32, i64em)
+
+Description
+
+Default
+
+microarchitecture.
+
+Can generate Intel® OFF SSE4 Efficient Accelerated String and Text Processing instructions supported by Intel® Core™ i7 processors. Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator, Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for the Intel® Core™ processor family.
+
+Description
+
+Default
+
+Can generate Intel® OFF SSE2 and SSE instructions for Intel processors, and it can optimize for Intel® Pentium® 4 processors, Intel® Pentium® M processors, and Intel®
+
+24
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options -axSSE3 (i32, i64em)
+-axSSSE3 (i32, i64em)
+-axSSE4.1 (i32, i64em)
+
+Description
+
+Default
+
+Xeon® processors with Intel® SSE2.
+Can generate Intel® OFF SSE3, SSE2, and SSE instructions for Intel processors, and it can optimize for processors based on Intel® Core microarchitecture and Intel NetBurst® microarchitecture.
+Can generate Intel® OFF SSSE3, SSE3, SSE2, and SSE instructions for Intel processors and it can optimize for the Intel® Core™2 Duo processor family.
+Can generate Intel® OFF SSE4 Vectorizing Compiler and Media Accelerator instructions for Intel processors. Can generate Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for
+
+25
+
+Intel® Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+
+Description
+
+Default
+
+Intel® 45nm Hi-k next generation Intel® Core™ microarchitecture.
+
+-axSSE4.2 (i32, i64em)
+
+Can generate Intel® OFF SSE4 Efficient Accelerated String and Text Processing instructions supported by Intel® Core™ i7 processors. Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator, Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for the Intel® Core™ processor family.
+
+-diag-error-limit n
+
+Specifies the maximum n=30 number of errors allowed before compilation stops.
+
+-diag-once id[,id,...] Tells the compiler to issue one or more diagnostic messages
+
+OFF
+
+26
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+
+Description
+
+Default
+
+only once.
+
+-falign-stack (i32 only)
+
+Tells the compiler the -falignstack alignment to use stack=default on entry to routines.
+
+-fast-transcendentals Enables the compiler to OFF replace calls to transcendental functions with faster but less precise implementation.
+
+-finline
+
+Tells the compiler to -fno-inline inline functions declared with cDEC$ ATTRIBUTES FORCEINLINE.
+
+-fma (i64 only; Linux only)
+
+Enables the combining ON of floating-point multiplies and add/subtract operations.
+
+-fp-relaxed (i64 only; Linux only)
+
+Enables use of faster but slightly less accurate code sequences for math functions.
+
+OFF
+
+-fpie (Linux only)
+
+Tells the compiler to OFF
+
+27
+
+Intel® Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+
+Description
+
+Default
+
+generate positionindependent code to link into executables.
+
+-fstack-protector (i32, i64em)
+
+Determines whether -fno-stack-protector the compiler generates code that detects some buffer overruns. Same as option -fstacksecurity-check.
+
+-m32, -m64 (i32, i64em)
+
+Tells the compiler to generate code for a specific architecture.
+
+OFF
+
+-mia32 (i32 only)
+
+Generates code that OFF will run on any Pentium or later processor.
+
+-
+
+Determines whether ON
+
+minstruction=[no]movbe MOVBE instructions
+
+(i32, i64em)
+
+are generated for Intel
+
+processors.
+
+-mssse3 (i32, i64em)
+
+Generates code for Intel® Supplemental Streaming SIMD Extensions 3 (Intel® SSSE3).
+
+Linux systems: OFF Mac OS X systems using Intel® 64 architecture: ON
+
+-msse4.1 (i32, i64em)
+
+Generates code for OFF Intel® Streaming SIMD
+
+28
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+
+Description
+
+Default
+
+Extensions 4 Vectorizing Compiler and Media Accelerators.
+
+-openmp-link library
+
+Controls whether the -openmp-link dynamic compiler links to static or dynamic OpenMP run-time libraries.
+
+-openmpthreadprivate=type (Linux only)
+
+Lets you specify an -openmpOpenMP* threadprivate threadprivate=legacy implementation.
+
+-opt-block-factor=n
+
+Lets you specify a loop OFF blocking factor.
+
+-opt-jumptables=keyword
+
+Enables or disables generation of jump tables for switch statements.
+
+-opt-jumptables=default
+
+-opt-loadpair (i64 only; Linux only)
+
+Enables loadpair optimization.
+
+-no-opt-loadpair
+
+-opt-mod-versioning (i64 only; Linux only)
+
+Enables versioning of -no-opt-modmodulo operations for versioning certain types of operands.
+
+-opt-prefetch-initial- Enables or disables -opt-prefetch-
+
+values
+
+prefetches that are initial-values
+
+(i64 only; Linux only)
+
+issued before a loop is
+
+29
+
+Intel® Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+
+Description
+
+Default
+
+entered.
+
+-opt-prefetch-issueexcl-hint (i64 only)
+
+Determines whether the compiler issues prefetches for stores with exclusive hint.
+
+-no-opt-prefetchissue-excl-hint
+
+-opt-prefetch-nextiteration (i64 only; Linux only)
+
+Enables or disables -opt-prefetch-next-
+
+prefetches for a
+
+iteration
+
+memory access in the
+
+next iteration of a loop.
+
+-opt-subscript-inrange (i32, i64em)
+
+Determines whether -no-opt-subscriptthe compiler assumes in-range no overflows in the intermediate computation of subscript expressions in loops.
+
+-pie (Linux only)
+
+Produces a position- OFF independent executable on processors that support it.
+
+-prof-data-order (Linux only)
+
+Enables or disables -no-prof-data-order data ordering if profiling information is enabled.
+
+-prof-func-groups (i32, i64em; Linux only)
+
+Enables or disables function grouping if
+
+-no-prof-func-groups
+
+30
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+
+Description
+
+Default
+
+profiling information is enabled.
+
+-prof-func-order (Linux only)
+
+Enables or disables -no-prof-func-order function ordering if profiling information is enabled.
+
+-prof-hotnessthreshold (Linux only)
+
+Lets you set the
+
+OFF
+
+hotness threshold for
+
+function grouping and
+
+function ordering.
+
+-prof-src-root
+
+Lets you use relative OFF directory paths when looking up profile data and specifies a directory as the base.
+
+-prof-src-root-cwd
+
+Lets you use relative OFF directory paths when looking up profile data and specifies the current working directory as the base.
+
+-staticlib
+
+Invokes the libtool
+
+OFF
+
+(i32, i64em; Mac OS X only) command to generate
+
+static libraries.
+
+-tcollect-filter (Linux only)
+
+Lets you enable or disable the
+
+OFF
+
+31
+
+Intel® Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options -vec (i32, i64em)
+-xHost (i32, i64em)
+-xSSE2 (i32, i64em)
+-xSSE3 (i32, i64em)
+
+Description
+
+Default
+
+instrumentation of specified functions.
+
+Enables or disables vectorization and transformations enabled for vectorization.
+
+-vec
+
+Can generate
+
+OFF
+
+instructions for the
+
+highest instruction set
+
+and processor
+
+available on the
+
+compilation host.
+
+Can generate Intel® Linux systems:ON Mac OS
+
+SSE2 and SSE
+
+X systems: OFF
+
+instructions for Intel
+
+processors, and it can
+
+optimize for Intel®
+
+Pentium® 4
+
+processors, Intel®
+
+Pentium® M
+
+processors, and Intel®
+
+Xeon® processors with
+
+Intel® SSE2.
+
+Can generate Intel® Linux systems:OFF Mac SSE3, SSE2, and SSE OS X systems using IA-32 instructions for Intel architecture: ON
+
+32
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+-xSSE3_ATOM (i32, i64em)
+-xSSSE3 (i32, i64em)
+-xSSE4.1 (i32, i64em)
+
+Description
+
+Default
+
+processors and it can optimize for processors based on Intel® Core™ microarchitecture and Intel NetBurst® microarchitecture.
+Can generate MOVBE OFF instructions for Intel processors and it can optimize for the Intel® Atom™ processor and Intel® Centrino® Atom™ Processor Technology.
+Can generate Intel® Linux systems:OFF Mac SSSE3, SSE3, SSE2, OS X systems using Intel® and SSE instructions 64 architecture: ON for Intel processors and it can optimize for the Intel® Core™2 Duo processor family.
+Can generate Intel® OFF SSE4 Vectorizing Compiler and Media Accelerator instructions for Intel processors. Can generate Intel®
+
+33
+
+Intel® Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options
+-xSSE4.2 (i32, i64em)
+
+Description
+
+Default
+
+SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for Intel® 45nm Hi-k next generation Intel® Core™ microarchitecture.
+Can generate Intel® OFF SSE4 Efficient Accelerated String and Text Processing instructions supported by Intel® Core™ i7 processors. Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator, Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for the Intel® Core™ processor family.
+
+Deprecated and Removed Compiler Options
+This topic lists deprecated and removed compiler options and suggests replacement options, if any are available.
+Deprecated Options
+34
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Occasionally, compiler options are marked as "deprecated." Deprecated options are still supported in the current release, but are planned to be unsupported in future releases. The following options are deprecated in this release of the compiler:
+
+Linux* and Mac OS* X Options Suggested Replacement
+
+-axK
+
+None
+
+-axN
+
+-axSSE2
+
+-axP
+
+-axSSE3
+
+-axS
+
+-axSSE4.1
+
+-axT
+
+-axSSSE3
+
+-axW
+
+-msse2
+
+-func-groups
+
+-prof-func-groups
+
+-i-dynamic
+
+-shared-intel
+
+-i-static
+
+-static-intel
+
+-inline-debug-info
+
+-debug
+
+-IPF-flt-eval-method0 -fp-model source
+
+-IPF-fltacc -no-IPF-fltacc
+
+-fp-model precise -fp-model fast
+
+-IPF-fma
+
+-fma
+
+-IPF-fp-relaxed
+
+-fp-relaxed
+
+-march=pentiumii
+
+None
+
+-march=pentiumiii
+
+-march=pentium3
+
+-mcpu
+
+-mtune
+
+-mp
+
+-fp-model
+
+-Ob
+
+-inline-level
+
+35
+
+Intel® Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options Suggested Replacement
+
+-openmp-lib legacy
+
+None
+
+-openmpP
+
+-openmp
+
+-openmpS
+
+-openmp-stubs
+
+-prefetch
+
+-opt-prefetch
+
+-prof-genx
+
+-prof-gen=srcpos
+
+-use-asm
+
+None
+
+-use-pch
+
+-pch-use
+
+-xK
+
+-mia32
+
+-xN
+
+-xSSE2
+
+-xO
+
+-msse3
+
+-xP
+
+-xSSE3
+
+-xS
+
+-xSSE4.1
+
+-xT
+
+-xSSSE3
+
+-xW
+
+-msse2
+
+Windows* Options
+
+Suggested Replacement
+
+/4Nb
+
+/check:none
+
+/4Yb
+
+/check:all
+
+/debug:partial
+
+None
+
+/Fm
+
+/map
+
+/G5
+
+None
+
+/G6 (or /GB)
+
+None
+
+/G7
+
+None
+
+/Ge
+
+/Gs0
+
+36
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows* Options
+
+Suggested Replacement
+
+/ML and/MLd
+
+None
+
+/Op
+
+/fp
+
+/QaxK
+
+None
+
+/QaxN
+
+/QaxSSE2
+
+/QaxP
+
+/QaxSSE3
+
+/QaxS
+
+/QaxSSE4.1
+
+/QaxT
+
+/QaxSSSE3
+
+/QaxW
+
+/arch:SSE2
+
+/Qinline-debug-info None
+
+/QIPF-flt-eval-method0 /fp:source
+
+/QIPF-fltacc /QIPF-fltacc-
+
+/fp:precise /fp:fast
+
+/QIPF-fma
+
+/Qfma
+
+/QIPF-fp-relaxed
+
+/Qfp-relaxed
+
+/Qopenmp-lib:legacy None
+
+/Qprefetch
+
+/Qopt-prefetch
+
+/Qprof-genx
+
+/Qprof-gen=srcpos
+
+/Quse-asm
+
+None
+
+/QxK
+
+None
+
+/QxN
+
+/QxSSE2
+
+/QxO
+
+/arch:SSE3
+
+/QxP
+
+/QxSSE3
+
+/QxS
+
+/QxSSE4.1
+
+37
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options
+
+Suggested Replacement
+
+/QxT
+
+/QxSSSE3
+
+/QxW
+
+/arch:SSE2
+
+/Zd
+
+/debug:minimal
+
+Deprecated options are not limited to this list.
+
+Removed Options
+
+Some compiler options are no longer supported and have been removed. If you use one of these options, the compiler issues a warning, ignores the option, and then proceeds with compilation. This version of the compiler no longer supports the following compiler options:
+
+Linux* and Mac OS* X Options Suggested Replacement
+
+-axB
+
+-axSSE2
+
+-axi
+
+None
+
+-axM -cxxlib-gcc[=dir]
+
+None -cxxlib[=dir]
+
+-cxxlib-icc
+
+None
+
+-F
+
+-preprocess-only or -P
+
+-fp
+
+-fno-omit-frame-pointer
+
+-fpstkchk
+
+-fp-stack-check
+
+-IPF-fp-speculation
+
+-fp-speculation
+
+-ipo-obj (and -ipo_obj)
+
+None
+
+-Kpic, -KPIC
+
+-fpic
+
+-mtune=itanium
+
+None
+
+-nobss-init
+
+-no-bss-init
+
+38
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux* and Mac OS* X Options Suggested Replacement
+
+-opt-report-level
+
+-opt-report
+
+-prof-format-32
+
+None
+
+-prof-gen-sampling
+
+None
+
+-qp
+
+-p
+
+-shared-libcxa
+
+-shared-libgcc
+
+-ssp
+
+None
+
+-static-libcxa
+
+-static-libgcc
+
+-syntax
+
+-syntax-only or -fsyntax-only
+
+-tpp1
+
+None
+
+-tpp2
+
+-mtune=itanium2
+
+-tpp5
+
+None
+
+-tpp6
+
+None
+
+-tpp7
+
+-mtune=pentium4
+
+-xB
+
+-xSSE2
+
+-xi
+
+None
+
+-xM
+
+None
+
+Windows* Options
+
+Suggested Replacement
+
+/4ccD (and /4ccd)
+
+None
+
+/G1
+
+None
+
+/QaxB
+
+/QaxSSE2
+
+/Qaxi
+
+None
+
+/QaxM
+
+None
+
+/Qfpstkchk
+
+/Qfp-stack-check
+
+39
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows* Options
+
+Suggested Replacement
+
+/QIPF-fp-speculation /Qfp-speculation
+
+/Qipo-obj (and /Qipo_obj) None
+
+/Qopt-report-level
+
+/Qopt-report
+
+/Qprof-format-32
+
+None
+
+/Qprof-gen-sampling None
+
+/Qssp
+
+None
+
+/Qvc6
+
+None
+
+/Qvc7
+
+None
+
+/QxB
+
+/QxSSE2
+
+/Qxi
+
+None
+
+/QxM
+
+None
+
+Removed options are not limited to these lists.
+
+Alphabetical Compiler Options
+
+Compiler Option Descriptions and General Rules
+
+This section describes all the current Linux*, Mac OS* X, and Windows* compiler options in alphabetical order.
+
+Option Descriptions
+Each option description contains the following information: • A short description of the option. • IDE Equivalent
+This shows information related to the integrated development environment (IDE) Property Pages on Windows, Linux, and Mac OS X systems. It shows on which Property Page the option appears, and under what category it's listed. The Windows IDE is Microsoft* Visual Studio* .NET; the Linux IDE is Eclipse*; the Mac OS X IDE is Xcode*. If the option has no IDE equivalent, it
+
+40
+
+Intel(R) Fortran Compiler User and Reference Guides
+will specify "None". Note that in this release, there is no IDE support for Fortran on Linux. • Architectures This shows the architectures where the option is valid. Possible architectures are: o IA-32 architecture o Intel® 64 architecture o IA-64 architecture • Syntax This shows the syntax on Linux and Mac OS X systems and the syntax on Windows systems. If the option has no syntax on one of these systems, that is, the option is not valid on a particular system, it will specify "None". • Arguments This shows any arguments (parameters) that are related to the option. If the option has no arguments, it will specify "None". • Default This shows the default setting for the option. • Description This shows the full description of the option. It may also include further information on any applicable arguments. • Alternate Options These are options that are synonyms of the described option. If there are no alternate options, it will specify "None". Many options have an older spelling where underscores ("_") instead of hyphens ("-") connect the main option names. The older spelling is a valid alternate option name. Some option descriptions may also have the following: • Example This shows a short example that includes the option
+41
+
+Intel® Fortran Compiler User and Reference Guides
+• See Also This shows where you can get further information on the option or related options.
+General Rules for Compiler Options
+You cannot combine options with a single dash (Linux and Mac OS X) or slash (Windows). For example: • On Linux and Mac OS X systems: This is incorrect: -wc; this is correct: -w -
+c • On Windows systems: This is incorrect: /wc; this is correct: /w /c All Linux and Mac OS X compiler options are case sensitive. Many Windows options are case sensitive. Some options have different meanings depending on their case; for example, option "c" prevents linking, but option "C" checks for certain conditions at run time. Options specified on the command line apply to all files named on the command line. Options can take arguments in the form of file names, strings, letters, or numbers. If a string includes spaces, the string must be enclosed in quotation marks. For example: • On Linux and Mac OS X systems, -dynamic-linker mylink (file name) or
+-Umacro3 (string) • On Windows systems, /Famyfile.s (file name) or /V"version 5.0" (string) Compiler options can appear in any order. On Windows systems, all compiler options must precede /link options, if any, on the command line. Unless you specify certain options, the command line will both compile and link the files you specify. You can abbreviate some option names, entering as many characters as are needed to uniquely identify the option. Certain options accept one or more keyword arguments following the option name. For example, the arch option accepts several keywords.
+42
+
+Intel(R) Fortran Compiler User and Reference Guides
+To specify multiple keywords, you typically specify the option multiple times. However, there are exceptions; for example, the following are valid: -axNB (Linux) or /QaxNB (Windows).
+Note
+On Windows systems, you can sometimes use a comma to separate keywords. For example, the following is valid:
+ifort /warn:usage,declarations test.f90
+On these systems, you can use an equals sign (=) instead of the colon:
+ifort /warn=usage,declarations test.f90
+Compiler options remain in effect for the whole compilation unless overridden by a compiler directive. To disable an option, specify the negative form of the option. On Windows systems, you can also disable one or more options by specifying option /Od last on the command line.
+Note
+On Windows systems, the /Od option is part of a mutually-exclusive group of options that includes /Od, /O1, /O2, /O3, and /Ox. The last of any of these options specified on the command line will override the previous options from this group. If there are enabling and disabling versions of an option on the command line, the last one on the command line takes precedence.
+Lists and Functional Groupings of Compiler Options
+To see a list of all the compiler options, specify option help on the command line. To see functional groupings of compiler options, specify a functional category for option help. For example, to see a list of options that affect diagnostic messages displayed by the compiler, enter one of the following commands:
+43
+
+Intel® Fortran Compiler User and Reference Guides
+
+-help diagnostics
+
+! Linux and Mac OS X systems
+
+/help diagnostics
+
+! Windows systems
+
+For details on the categories you can specify, see help.
+
+1 See onetrip.
+
+4I2, 4I4, 4I8 See integer-size.
+
+4L72, 4L80, 4L132 See extend-source.
+
+4Na, 4Ya See automatic.
+
+4Naltparam, 4Yaltparam See altparam.
+
+4Nb,4Yb See check.
+
+4Nd,4Yd See warn.
+
+4Nf See fixed.
+
+4Nportlib, 4Yportlib Determines whether the compiler links to the library of portability routines.
+
+IDE Equivalent
+
+44
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Windows: Libraries > Use Portlib Library Linux: None Mac OS X: None
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: None
+
+Windows:
+
+/4Nportlib
+
+/4Yportlib
+
+Arguments
+None
+
+Default
+/4Yportlib The library of portability routines is linked during compilation.
+
+Description
+Option /4Yportlib causes the compiler to link to the library of portability routines. This also includes Intel's functions for Microsoft* compatibility. Option /4Nportlib prevents the compiler from linking to the library of portability routines.
+Alternate Options
+None
+See Also Building Applications: Portability Routines
+4Ns,4Ys
+
+45
+
+Intel® Fortran Compiler User and Reference Guides
+
+See stand.
+
+4R8,4R16 See real-size.
+
+4Yf See free.
+
+4Nportlib, 4Yportlib Determines whether the compiler links to the library of portability routines.
+
+IDE Equivalent
+Windows: Libraries > Use Portlib Library Linux: None Mac OS X: None
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: None
+
+Windows:
+
+/4Nportlib
+
+/4Yportlib
+
+Arguments
+None
+Default
+/4Yportlib The library of portability routines is linked during compilation.
+
+Description
+46
+
+Intel(R) Fortran Compiler User and Reference Guides
+Option /4Yportlib causes the compiler to link to the library of portability routines. This also includes Intel's functions for Microsoft* compatibility. Option /4Nportlib prevents the compiler from linking to the library of portability routines.
+Alternate Options
+None
+See Also Building Applications: Portability Routines
+66 See f66.
+72,80,132 See extend-source.
+align Tells the compiler how to align certain data items.
+IDE Equivalent
+Windows: Data > Structure Member Alignment (/align:recnbyte) Data > Common Element Alignment (/align:[no]commons, /align:[no]dcommons) Data > SEQUENCE Types Obey Alignment Rules (/align:[no]sequence) Linux: None Mac OS X: Data > Structure Member Alignment (-align rec<1,2,4,8,16>byte) Data > Common Element Alignment (-align [no]commons, /align:[no]dcommons) Data > SEQUENCE Types Obey Alignment Rules (-align [no]sequence)
+47
+
+Intel® Fortran Compiler User and Reference Guides
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -align [keyword] -noalign
+
+Windows:
+
+/align[:keyword]
+
+/noalign
+
+Arguments
+
+keyword Specifies the data items to align. Possible values are:
+
+none
+
+Prevents padding bytes anywhere in common blocks and structures.
+
+[no]commons Affects alignment of common block entities.
+
+[no]dcommons Affects alignment of common block entities.
+
+[no]records Affects alignment of derived-type components and fields of record structures.
+
+recnbyte
+
+Specifies a size boundary for derivedtype components and fields of record structures.
+
+[no]sequence Affects alignment of sequenced derived-type components.
+
+all
+
+Adds padding bytes whenever
+
+possible to data items in common
+
+blocks and structures.
+
+48
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Default
+
+nocommons
+
+Adds no padding bytes for alignment of common blocks.
+
+nodcommmons
+
+Adds no padding bytes for alignment of common blocks.
+
+records
+
+Aligns derived-type components and record structure fields on default natural boundaries.
+
+nosequence
+
+Causes derived-type components declared with
+
+the SEQUENCE statement to be packed, regardless of current alignment rules set by the
+
+user.
+
+By default, no padding is added to common blocks but padding is added to
+
+structures.
+
+Description
+
+This option specifies the alignment to use for certain data items. The compiler adds padding bytes to perform the alignment.
+
+Option
+
+Description
+
+align none Tells the compiler not to add padding bytes anywhere in common blocks or structures. This is the same as specifying noalign.
+
+align commons
+align
+
+Aligns all common block entities on natural boundaries up to 4 bytes, by adding padding bytes as needed. The align nocommons option adds no padding to common blocks. In this case, unaligned data can occur unless the order of data items specified in the COMMON statement places the largest numeric data item first, followed by the next largest numeric data (and so on), followed by any character data.
+Aligns all common block entities on natural boundaries up to 8
+
+49
+
+Intel® Fortran Compiler User and Reference Guides
+
+Option dcommons
+align norecords align recnbyte
+
+Description
+bytes, by adding padding bytes as needed. This option is useful for applications that use common blocks, unless your application has no unaligned data or, if the application might have unaligned data, all data items are four bytes or smaller. For applications that use common blocks where all data items are four bytes or smaller, you can specify /align:commons instead of /align:dcommons. The align nodcommons option adds no padding to common blocks. On Windows systems, if you specify the /stand:f90 or /stand:f95 option, /align:dcommons is ignored. On Linux and Mac OS X systems, if you specify any -std option or the -stand f90 or -stand f95 option, -align dcommons is ignored.
+Aligns components of derived types and fields within record structures on arbitrary byte boundaries with no padding. The align records option requests that multiple data items in record structures and derived-type structures without the SEQUENCE statement be naturally aligned, by adding padding as needed.
+Aligns components of derived types and fields within record structures on the smaller of the size boundary specified (n) or the boundary that will naturally align them. n can be 1, 2, 4, 8, or 16. When you specify this option, each structure member after the first is stored on either the size of the member type or n-byte boundaries, whichever is smaller. For example, to specify 2 bytes as the packing boundary (or alignment constraint) for all structures and unions in the file prog1.f, use the following
+
+50
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Option align sequence
+align all
+
+Description
+command:
+ifort {-align rec2byte | /align:rec2byte} prog1.f
+This option does not affect whether common blocks are naturally aligned or packed.
+Aligns components of a derived type declared with the SEQUENCE statement (sequenced components) according to the alignment rules that are currently in use. The default alignment rules are to align unsequenced components on natural boundaries. The align nosequence option requests that sequenced components be packed regardless of any other alignment rules. Note that align none implies align nosequence. If you specify an option for standards checking, /align:sequence is ignored.
+Tells the compiler to add padding bytes whenever possible to obtain the natural alignment of data items in common blocks, derived types, and record structures. Specifies align nocommons, align dcommons, align records, align nosequence. This is the same as specifying align with no keyword.
+
+Alternate Options
+
+align none
+
+Linux and Mac OS X: -noalign Windows: /noalign
+
+align
+
+Linux and Mac OS X: -align rec16byte, -Zp16
+
+records Windows: /align:rec16byte, /Zp16
+
+align
+
+Linux and Mac OS X: -Zp1, -align rec1byte
+
+norecords
+
+51
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows: /Zp1, /align:rec1byte
+
+align
+
+Linux and Mac OS X: -Zp{1|2|4|8|16}
+
+recnbyte Windows: /Zp{1|2|4|8|16}
+
+align all Linux and Mac OS X: -align commons -align dcommons -align records -align nosequence Windows: /align:nocommons,dcommons,records,nosequence
+
+See Also Optimizing Applications: Setting Data Type and Alignment
+allow Determines whether the compiler allows certain behaviors.
+
+IDE Equivalent None Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -allow keyword
+
+Windows:
+
+/allow:keyword
+
+Arguments
+keyword Specifies the behaviors to allow or disallow. Possible values are: [no]fpp_comments Determines how the fpp preprocessor treats Fortran endof-line comments in preprocessor
+
+52
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+directive lines.
+
+Default
+fpp_comments The compiler recognizes Fortran-style end-of-line comments in preprocessor lines.
+
+Description
+
+This option determines whether the compiler allows certain behaviors.
+
+Option
+
+Description
+
+allow nofpp_comments Tells the compiler to disallow Fortran-style end-ofline comments on preprocessor lines. Comment indicators have no special meaning.
+
+Alternate Options
+None
+Example
+Consider the following:
+#define MAX_ELEMENTS 100 ! Maximum number of elements
+By default, the compiler recognizes Fortran-style end-of-line comments on preprocessor lines. Therefore, the line above defines MAX_ELEMENTS to be "100" and the rest of the line is ignored. If allow nofpp_comments is specified, Fortran comment conventions are not used and the comment indicator "!" has no special meaning. So, in the above example, "! Maximum number of elements" is interpreted as part of the value for the MAX_ELEMENTS definition. Option allow nofpp_comments can be useful when you want to have a Fortran directive as a define value; for example:
+#define dline(routname) !dec$ attributes alias:"__routname":: routname
+altparam
+
+53
+
+Intel® Fortran Compiler User and Reference Guides
+
+Allows alternate syntax (without parentheses) for PARAMETER statements.
+
+IDE Equivalent
+Windows: Language > Enable Alternate PARAMETER Syntax Linux: None Mac OS X: Language > Enable Alternate PARAMETER Syntax
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -altparam
+
+-noaltparam
+
+Windows:
+
+/altparam
+
+/noaltparam
+
+Arguments
+None
+
+Default
+altparam The alternate syntax for PARAMETER statements is allowed.
+
+Description
+This option specifies that the alternate syntax for PARAMETER statements is allowed. The alternate syntax is:
+PARAMETER c = expr [, c = expr] ...
+This statement assigns a name to a constant (as does the standard PARAMETER statement), but there are no parentheses surrounding the assignment list. In this alternative statement, the form of the constant, rather than implicit or explicit typing of the name, determines the data type of the variable.
+
+54
+
+Intel(R) Fortran Compiler User and Reference Guides
+Alternate Options
+altparam Linux and Mac OS X: -dps Windows: /Qdps, /4Yaltparam
+noaltparam Linux and Mac OS X: -nodps Windows: /Qdps-, /4Naltparam
+
+ansi-alias, Qansi-alias
+Tells the compiler to assume that the program adheres to Fortran Standard type aliasability rules.
+
+IDE Equivalent None Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -ansi-alias
+
+-no-ansi-alias
+
+Windows:
+
+Qansi-alias Qansi-alias-
+
+Arguments
+None
+
+Default
+-ansi- Programs adhere to Fortran Standard type aliasability rules. alias or /Qansi-
+
+55
+
+Intel® Fortran Compiler User and Reference Guides
+alias
+Description
+This option tells the compiler to assume that the program adheres to type aliasability rules defined in the Fortran Standard. For example, an object of type real cannot be accessed as an integer. For information on the rules for data types and data type constants, see "Data Types, Constants, and Variables" in the Language Reference. This option directs the compiler to assume the following: • Arrays are not accessed out of arrays' bounds. • Pointers are not cast to non-pointer types and vice-versa. • References to objects of two different scalar types cannot alias. For example,
+an object of type integer cannot alias with an object of type real or an object of type real cannot alias with an object of type double precision. If your program adheres to the Fortran Standard type aliasability rules, this option enables the compiler to optimize more aggressively. If it doesn't adhere to these rules, then you should disable the option with -no-ansi-alias (Linux and Mac OS X) or /Qansi-alias- (Windows) so the compiler does not generate incorrect code.
+Alternate Options
+None
+arch Tells the compiler to generate optimized code specialized for the processor that executes your program.
+IDE Equivalent
+Windows: Code Generation > Enable Enhanced Instruction Set Linux: None Mac OS X: None
+56
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Architectures
+IA-32, Intel® 64 architectures
+
+Syntax
+
+Linux and Mac OS X: -archprocessor
+
+Windows:
+
+/arch:processor
+
+Arguments
+processor
+
+Is the processor type. Possible values are:
+
+IA32
+
+Generates code that will run on any Pentium or later processor. Disables any default extended instruction settings, and any previously set extended instruction settings. This value is only available on Linux and Windows systems using IA-32 architecture.
+
+SSE
+
+This is the same as specifying
+
+IA32.
+
+SSE2
+
+Generates code for Intel® Streaming SIMD Extensions 2 (Intel® SSE2). This value is only available on Linux and Windows systems.
+
+SSE3
+
+Generates code for Intel® Streaming SIMD Extensions 3 (Intel® SSE3).
+
+SSSE3
+
+Generates code for Intel®
+
+57
+
+Intel® Fortran Compiler User and Reference Guides
+
+SSE4.1
+
+Supplemental Streaming SIMD Extensions 3 (Intel® SSSE3).
+Generates code for Intel® Streaming SIMD Extensions 4 Vectorizing Compiler and Media Accelerators.
+
+Default
+Windows For more information on the default values, see Arguments and Linux above. systems: SSE2 Mac OS X systems using IA-32 architecture: SSE3 Mac OS X systems using Intel® 64 architecture: SSSE3
+Description
+This option tells the compiler to generate optimized code specialized for the processor that executes your program. Code generated with the values IA32, SSE, SSE2 or SSE3 should execute on any compatible non-Intel processor with support for the corresponding instruction set.
+
+58
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+For compatibility with Compaq* Visual Fortran, the compiler allows the following keyword values. However, you should use the suggested replacements.
+
+Compatibility Suggested Replacement Value
+
+pn1
+
+-mia32 or /arch:IA32
+
+pn2
+
+-mia32 or /arch:IA32
+
+pn3
+
+-mia32 or /arch:IA32
+
+pn4
+
+-msse2 or /arch:SSE2
+
+Alternate Options
+Linux and Mac OS X: -m Windows: /architecture
+See Also x, Qx compiler option ax, Qax compiler option m compiler option
+architecture See arch.
+asmattr Specifies the contents of an assembly listing file.
+IDE Equivalent
+Windows: Output > Assembler Output Linux: None Mac OS X: None
+Architectures
+
+59
+
+Intel® Fortran Compiler User and Reference Guides
+
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: None
+
+Windows:
+
+/asmattr:keyword
+
+/noasmattr
+
+Arguments
+
+keyword Specifies the contents of the assembly listing file. Possible
+
+values are:
+
+none
+
+Produces no assembly listing.
+
+machine
+
+Produces an assembly listing with machine code.
+
+source
+
+Produces an assembly listing with source code.
+
+all
+
+Produces an assembly listing with
+
+machine code and source code.
+
+Default
+/noasmattr No assembly listing is produced.
+
+Description
+
+This option specifies what information, in addition to the assembly code, should be generated in the assembly listing file. To use this option, you must also specify option /asmfile, which causes an assembly listing to be generated.
+
+Option
+
+Description
+
+/asmattr:none Produces no assembly listing. This is the same as
+
+60
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Option
+
+Description
+
+specifying /noasmattr.
+
+/asmattr:machine Produces an assembly listing with machine code. The assembly listing file shows the hex machine instructions at the beginning of each line of assembly code. The file cannot be assembled; the filename is the name of the source file with an extension of .cod.
+
+/asmattr:source Produces an assembly listing with source code. The assembly listing file shows the source code as interspersed comments. Note that if you use alternate option -fsource-asm, you must also specify the -S option.
+
+/asmattr:all
+
+Produces an assembly listing with machine code and source code. The assembly listing file shows the source code as interspersed comments and shows the hex machine instructions at the beginning of each line of assembly code. This file cannot be assembled.
+
+Alternate Options
+
+/asmattr:none
+
+Linux and Mac OS X: None Windows: /noasmattr
+
+/asmattr:machine Linux and Mac OS X: -fcode-asm Windows: /FAc
+
+/asmattr:source Linux and Mac OS X: -fsource-asm Windows: /FAs
+
+/asmattr:all
+
+Linux and Mac OS X: None Windows: /FAcs
+
+61
+
+Intel® Fortran Compiler User and Reference Guides
+
+See Also asmfile compiler option
+asmfile Specifies that an assembly listing file should be generated.
+
+IDE Equivalent
+Windows: Output > ASM Listing Name Linux: None Mac OS X: None
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: None
+
+Windows:
+
+/asmfile[:file | dir]
+
+/noasmfile
+
+Arguments
+file dir
+
+Is the name of the assembly listing file. Is the directory where the file should be placed. It can include file.
+
+Default
+/noasmfile No assembly listing file is produced.
+
+Description
+This option specifies that an assembly listing file should be generated (optionally named file).
+
+62
+
+Intel(R) Fortran Compiler User and Reference Guides
+If file is not specified, the filename will be the name of the source file with an extension of .asm; the file is placed in the current directory.
+Alternate Options
+Linux and Mac OS X: -S Windows: /Fa
+See Also S compiler option
+assume Tells the compiler to make certain assumptions.
+IDE Equivalent
+Windows: Compatibility > Treat Backslash as Normal Character in Strings (/assume:[no]bscc) Data > Assume Dummy Arguments Share Memory Locations (/assume:[no]dummy_aliases) Data > Constant Actual Arguments Can Be Changed (/assume:[no]protect_constants) Data > Use Bytes as RECL=Unit for Unformatted Files (/assume:[no]byterecl) Floating Point > Enable IEEE Minus Zero Support (/assume:[no]minus0) Optimization > I/O Buffering (/assume:[no]buffered_io) Preprocessor > Default Include and Use Path (/assume:[no]source_include) Preprocessor > OpenMP Conditional Compilation (/assume:[no]cc_omp) External Procedures > Append Underscore to External Names (/assume:[no]underscore) Linux: None Mac OS X: Optimization > I/O Buffering (-assume [no]buffered_io)
+63
+
+Intel® Fortran Compiler User and Reference Guides
+
+Preprocessor > OpenMP Conditional Compilation (-assume [no]cc_omp) Preprocessor > Default Include and Use Path (-assume [no]source_include) Compatibility > Treat Backslash as Normal Character in Strings (-assume [no]bscc) Data > Assume Dummy Arguments Share Memory Locations (-assume [no]dummy_aliases) Data > Constant Actual Arguments Can Be Changed (-assume [no]protect_constants) Data > Use Bytes as RECL=Unit for Unformatted Files (-assume [no]byterecl) Floating Point > Enable IEEE Minus Zero Support (-assume [no]minus0) External Procedures > Append Underscore to External Names (-assume [no]underscore)
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -assume keyword
+
+Windows:
+
+/assume:keyword
+
+Arguments
+
+keyword Specifies the assumptions to be made. Possible values are:
+
+none
+
+Disables all assume options.
+
+[no]bscc
+
+Determines whether the backslash character is treated as a C-style control
+
+64
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+[no]buffered_io [no]byterecl [no]cc_omp [no]dummy_aliases
+[no]minus0
+
+character syntax in character literals.
+Determines whether data is immediately written to disk or accumulated in a buffer.
+Determines whether units for the OPEN statement RECL specifier (record length) value in unformatted files are in bytes or longwords (fourbyte units).
+Determines whether conditional compilation as defined by the OpenMP Fortran API is enabled or disabled.
+Determines whether the compiler assumes that dummy arguments to procedures share memory locations with other dummy arguments or with COMMON variables that are assigned.
+Determines whether the compiler uses Fortran 95 or Fortran 90/77 standard
+
+65
+
+Intel® Fortran Compiler User and Reference Guides
+
+semantics in the SIGN intrinsic when treating -0.0 and +0.0 as 0.0, and how it writes the value on formatted output.
+
+[no]old_boz
+
+Determines whether the binary, octal, and hexadecimal constant arguments in intrinsic functions INT, REAL, DBLE, and CMPLX are treated as signed integer constants.
+
+[no]old_unit_star
+
+Determines whether READs or WRITEs to UNIT=* go to stdin or stdout, respectively.
+
+[no]old_xor
+
+Determines whether .XOR. is defined by the compiler as an intrinsic operator.
+
+[no]protect_constants Determines whether a constant actual argument or a copy of it is passed to a called routine.
+
+[no]protect_parens
+
+Determines whether the optimizer honors parentheses in REAL and COMPLEX expression evaluations by not
+
+66
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+reassociating operations.
+
+[no]realloc_lhs
+
+Determines whether allocatable objects on the left-hand side of an assignment are treated according to Fortran 95/90 rules or Fortran 2003 rules.
+
+[no]source_include
+
+Determines whether the compiler searches for USE modules and INCLUDE files in the default directory or in the directory where the source file is located.
+
+[no]std_mod_proc_name Determines whether the names of module procedures are allowed to conflict with user external symbol names.
+
+[no]underscore
+
+Determines whether the compiler appends an underscore character to external user-defined names.
+
+[no]2underscores (Linux and Mac OS X)
+
+Determines whether the compiler appends two underscore characters to external user-defined names.
+
+67
+
+Intel® Fortran Compiler User and Reference Guides
+
+[no]writeable-strings Determines whether character constants go into non-read-only memory.
+
+Default
+nobscc nobuffered_io
+nobyterecl nocc_omp
+nodummy_aliases
+
+The backslash character is treated as a normal character in character literals.
+Data in the internal buffer is immediately written (flushed) to disk (OPEN specifier BUFFERED='NO'). If you set the FORT_BUFFERED environment variable to true, the default is assume buffered_io.
+Units for OPEN statement RECL values with unformatted files are in four-byte (longword) units.
+Conditional compilation as defined by the OpenMP Fortran API is disabled unless option -openmp (Linux) or /Qopenmp (Windows) is specified. If compiler option -openmp (Linux and Mac OS X) or /Qopenmp (Windows) is specified, the default is assume cc_omp.
+Dummy arguments to procedures do not share memory locations with other dummy arguments or with variables shared through use association, host association, or common block use.
+
+68
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+nominus0
+
+The compiler uses Fortran 90/77 standard semantics in the SIGN intrinsic to treat -0.0 and +0.0 as 0.0, and writes a value of 0.0 with no sign on formatted output.
+
+noold_boz
+
+The binary, octal, and hexadecimal constant arguments in intrinsic functions INT, REAL, DBLE, and CMPLX are treated as bit strings that represent a value of the data type of the intrinsic, that is, the bits are not converted.
+
+old_unit_star
+
+The READs or WRITEs to UNIT=* go to stdin or stdout, respectively, even if UNIT=5 or 6 has been connected to another file.
+
+old_xor
+
+Intrinsic operator .XOR. is defined by the compiler.
+
+protect_constants
+
+A constant actual argument is passed to a called routine. Any attempt to modify it results in an error.
+
+noprotect_parens
+
+The optimizer reorders REAL and COMPLEX expressions without regard for parentheses if it produces faster executing code.
+
+norealloc_lhs
+
+The compiler uses Fortran 95/90 rules when interpreting assignment statements. The lefthand side is assumed to be allocated with the correct shape to hold the right-hand side. If it is not, incorrect behavior will occur.
+
+source_include
+
+The compiler searches for USE modules and INCLUDE files in the directory where the source file is located.
+
+69
+
+Intel® Fortran Compiler User and Reference Guides
+
+nostd_mod_proc_name The compiler allows the names of module procedures to conflict with user external symbol names.
+
+Windows: nounderscore Linux and Mac OS X: underscore
+
+On Windows systems, the compiler does not append an underscore character to external user-defined names. On Linux and Mac OS X systems, the compiler appends an underscore character to external user-defined names.
+
+no2underscores (Linux and Mac OS X)
+
+The compiler does not append two underscore characters to external user-defined names that contain an embedded underscore.
+
+nowriteable-strings The compiler puts character constants into read-only memory.
+
+Description
+
+This option specifies assumptions to be made by the compiler.
+
+Option
+
+Description
+
+assume none
+
+Disables all the assume options.
+
+assume bscc
+
+Tells the compiler to treat the backslash character (\) as a C-style control (escape) character syntax in character literals. The "bscc" keyword means "BackSlashControlCharacters."
+
+assume buffered_io Tells the compiler to accumulate records in a buffer. This sets the default for opening sequential output files to BUFFERED='YES', which also occurs if the FORT_BUFFERED run-time environment variable is specified. When this option is specified, the internal buffer is
+
+70
+
+Option
+assume byterecl assume cc_omp assume dummy_aliases
+
+Intel(R) Fortran Compiler User and Reference Guides
+Description
+filled, possibly by many record output statements (WRITE), before it is written to disk by the Fortran runtime system. If a file is opened for direct access, I/O buffering is ignored. Using buffered writes usually makes disk I/O more efficient by writing larger blocks of data to the disk less often. However, if you request buffered writes, records not yet written to disk may be lost in the event of a system failure. The OPEN statement BUFFERED specifier applies to a specific logical unit. In contrast, the assume [no]buffered_io option and the FORT_BUFFERED environment variable apply to all Fortran units.
+Specifies that the units for the OPEN statement RECL specifier (record length) value are in bytes for unformatted data files, not longwords (four-byte units). For formatted files, the RECL value is always in bytes. If a file is open for unformatted data and assume byterecl is specified, INQUIRE returns RECL in bytes; otherwise, it returns RECL in longwords. An INQUIRE returns RECL in bytes if the unit is not open.
+Enables conditional compilation as defined by the OpenMP Fortran API. That is, when "!$space" appears in free-form source or "c$spaces" appears in column 1 of fixed-form source, the rest of the line is accepted as a Fortran line.
+Tells the compiler that dummy (formal) arguments to procedures share memory locations with other dummy
+
+71
+
+Intel® Fortran Compiler User and Reference Guides
+
+Option
+assume minus0 assume old_boz assume noold_unit_star
+
+Description
+arguments (aliases) or with variables shared through use association, host association, or common block use. Specify the option when you compile the called subprogram. The program semantics involved with dummy aliasing do not strictly obey the Fortran 95/90 standards and they slow performance, so you get better run-time performance if you do not use this option. However, if a program depends on dummy aliasing and you do not specify this option, the run-time behavior of the program will be unpredictable. In such programs, the results will depend on the exact optimizations that are performed. In some cases, normal results will occur, but in other cases, results will differ because the values used in computations involving the offending aliases will differ.
+Tells the compiler to use Fortran 95 standard semantics for the treatment of the IEEE* floating value -0.0 in the SIGN intrinsic, which distinguishes the difference between -0.0 and +0.0, and to write a value of -0.0 with a negative sign on formatted output.
+Tells the compiler that the binary, octal, and hexadecimal constant arguments in intrinsic functions INT, REAL, DBLE, and CMPLX should be treated as signed integer constants.
+Tells the compiler that READs or WRITEs to UNIT=* go to whatever file UNIT=5 or 6 is connected.
+
+72
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Option
+
+Description
+
+assume noold_xor
+
+Prevents the compiler from defining .XOR. as an intrinsic operator. This lets you use .XOR. as a userdefined operator. This is a Fortran 2003 feature.
+
+assume
+
+Tells the compiler to pass a copy of a constant actual
+
+noprotect_constants argument. This copy can be modified by the called
+
+routine, even though the Fortran standard prohibits
+
+such modification. The calling routine does not see any
+
+modification to the constant.
+
+assume protect_parens
+
+Tells the optimizer to honor parentheses in REAL and COMPLEX expression evaluations by not reassociating operations. For example, (A+B)+C would not be evaluated as A+(B+C). If assume noprotect_parens is specified, (A+B)+C would be treated the same as A+B+C and could be evaluated as A+(B+C) if it produced faster executing code. Such reassociation could produce different results depending on the sizes and precision of the arguments. For example, in (A+B)+C, if B and C had opposite signs and were very large in magnitude compared to A, A+B could result in the value as B; adding C would result in 0.0. With reassociation, B+C would be 0.0; adding A would result in a non-zero value.
+
+assume realloc_lhs Tells the compiler that when the left-hand side of an assignment is an allocatable object, it should be reallocated to the shape of the right-hand side of the assignment before the assignment occurs. This is the Fortran 2003 definition. This feature may cause extra
+
+73
+
+Intel® Fortran Compiler User and Reference Guides
+
+Option
+
+Description
+
+overhead at run time.
+
+assume nosource_include
+
+Tells the compiler to search the default directory for module files specified by a USE statement or source files specified by an INCLUDE statement. This option affects fpp preprocessor behavior and the USE statement.
+
+assume std_mod_proc_name
+
+Tells the compiler to revise the names of module procedures so they do not conflict with user external symbol names. For example, procedure proc in module m would be named m_MP_proc. The Fortran 2003 Standard requires that module procedure names not conflict with other external symbols. By default, procedure proc in module m would be named m_mp_proc, which could conflict with a userdefined external name m_mp_proc.
+
+assume underscore
+
+Tells the compiler to append an underscore character to external user-defined names: the main program name, named common blocks, BLOCK DATA blocks, global data names in MODULEs, and names implicitly or explicitly declared EXTERNAL. The name of a blank (unnamed) common block remains _BLNK__, and Fortran intrinsic names are not affected.
+
+assume 2underscores Tells the compiler to append two underscore (Linux and Mac OS X) characters to external user-defined names that contain
+an embedded underscore: the main program name, named common blocks, BLOCK DATA blocks, global data names in MODULEs, and names implicitly or explicitly declared EXTERNAL. The name of a blank
+
+74
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Option
+
+Description
+
+(unnamed) common block remains _BLNK__, and Fortran intrinsic names are not affected. This option does not affect external names that do not contain an embedded underscore. By default, the compiler only appends one underscore to those names. For example, if you specify assume 2underscores for external names my_program and myprogram, my_program becomes my_program__, but myprogram becomes myprogram_.
+
+assume writeable- Tells the compiler to put character constants into non-
+
+strings
+
+read-only memory.
+
+Alternate Options
+assume nobscc
+assume dummy_aliases assume underscore assume nounderscore
+
+Linux and Mac OS X: -nbs Windows: /nbs
+Linux and Mac OS X: -common-args Windows: /Qcommon-args
+Linux and Mac OS X: -us Windows: /us
+Linux and Mac OS X: -nus Windows: None
+
+auto, Qauto See automatic. auto-scalar, Qauto-scalar
+
+75
+
+Intel® Fortran Compiler User and Reference Guides
+
+Causes scalar variables of intrinsic types INTEGER, REAL, COMPLEX, and LOGICAL that do not have the SAVE attribute to be allocated to the run-time stack.
+
+IDE Equivalent
+Windows: Data > Local Variable Storage (/Qsave, /Qauto, /Qauto_scalar) Linux: None Mac OS X: None
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -auto-scalar
+
+Windows:
+
+/Qauto-scalar
+
+Arguments
+None
+
+Default
+
+-auto- Scalar variables of intrinsic types INTEGER, REAL,
+
+scalar COMPLEX, and LOGICAL that do not have the SAVE attribute
+
+or
+
+are allocated to the run-time stack. Note that if option
+
+/Qauto- recursive, -openmp (Linux and Mac OS X), or /Qopenmp
+
+scalar (Windows) is specified, the default is automatic.
+
+Description
+This option causes allocation of scalar variables of intrinsic types INTEGER, REAL, COMPLEX, and LOGICAL to the run-time stack. It is as if they were declared with the AUTOMATIC attribute.
+
+76
+
+Intel(R) Fortran Compiler User and Reference Guides
+It does not affect variables that have the SAVE attribute (which include initialized locals) or that appear in an EQUIVALENCE statement or in a common block. This option may provide a performance gain for your program, but if your program depends on variables having the same value as the last time the routine was invoked, your program may not function properly. Variables that need to retain their values across subroutine calls should appear in a SAVE statement. You cannot specify option save, auto, or automatic with this option.
+Note
+On Windows NT* systems, there is a performance penalty for addressing a stack frame that is too large. This penalty may be incurred with /automatic, /auto, or /Qauto because arrays are allocated on the stack along with scalars. However, with /Qauto-scalar, you would have to have more than 32K bytes of local scalar variables before you incurred the performance penalty. /Qauto-scalar enables the compiler to make better choices about which variables should be kept in registers during program execution.
+Alternate Options
+None
+See Also auto compiler option save compiler option
+autodouble, Qautodouble See real-size.
+automatic Causes all local, non-SAVEd variables to be allocated to the run-time stack.
+IDE Equivalent
+77
+
+Intel® Fortran Compiler User and Reference Guides
+
+Windows: Data > Local Variable Storage Linux: None Mac OS X: None
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -automatic -noautomatic
+
+Windows:
+
+/automatic /noautomatic
+
+Arguments
+None
+
+Default
+
+-auto- Scalar variables of intrinsic types INTEGER, REAL,
+
+scalar COMPLEX, and LOGICAL are allocated to the run-time stack.
+
+or
+
+Note that if one of the following options are specified, the
+
+/Qauto- default is automatic:recursive, -openmp (Linux and Mac
+
+scalar OS X), or /Qopenmp (Windows).
+
+Description
+This option places local variables (scalars and arrays of all types), except those declared as SAVE, on the run-time stack. It is as if the variables were declared with the AUTOMATIC attribute. It does not affect variables that have the SAVE attribute or ALLOCATABLE attribute, or variables that appear in an EQUIVALENCE statement or in a common block.
+
+78
+
+Intel(R) Fortran Compiler User and Reference Guides
+This option may provide a performance gain for your program, but if your program depends on variables having the same value as the last time the routine was invoked, your program may not function properly. If you want to cause variables to be placed in static memory, specify option save (Linux and Mac OS X) or /Qsave (Windows). If you want only scalar variables of certain intrinsic types to be placed on the run-time stack, specify option auto-scalar.
+
+Note
+On Windows NT* systems, there is a performance penalty for addressing a stack frame that is too large. This penalty may be incurred with /automatic, /auto, or /Qauto because arrays are allocated on the stack along with scalars. However, with /Qauto-scalar, you would have to have more than 32K bytes of local scalar variables before you incurred the performance penalty. /Qauto-scalar enables the compiler to make better choices about which variables should be kept in registers during program execution.
+
+Alternate Options
+automatic
+noautomatic
+
+Linux and Mac OS X: -auto Windows: /auto, /Qauto, /4Ya
+Linux and Mac OS X: -save, -noauto Windows: /Qsave, /noauto, /4Na
+
+See Also auto-scalar compiler option save, Qsave compiler option
+ax, Qax
+
+79
+
+Intel® Fortran Compiler User and Reference Guides
+
+Tells the compiler to generate multiple, processor-specific auto-dispatch code paths for Intel processors if there is a performance benefit.
+
+IDE Equivalent
+Windows: Code Generation > Add Processor-Optimized Code Path Optimization > Generate Alternate Code Paths Linux: None Mac OS X: Code Generation > Add Processor-Optimized Code Path
+
+Architectures
+IA-32, Intel® 64 architectures
+
+Syntax
+
+Linux and Mac OS X: -axprocessor
+
+Windows:
+
+/Qaxprocessor
+
+Arguments
+processor
+
+Indicates the processor for which code is generated. The following descriptions refer to Intel® Streaming SIMD Extensions (Intel® SSE) and Supplemental Streaming SIMD Extensions (Intel® SSSE). Possible values are:
+
+SSE4.2
+
+Can generate Intel® SSE4 Efficient Accelerated String and Text Processing instructions supported by Intel® Core™ i7 processors. Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator, Intel® SSSE3,
+
+80
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+SSE4.1
+SSSE3 SSE3
+
+SSE3, SSE2, and SSE instructions and it can optimize for the Intel® Core™ processor family.
+Can generate Intel® SSE4 Vectorizing Compiler and Media Accelerator instructions for Intel processors. Can generate Intel® SSSE3, SSE3, SSE2, and SSE instructions and it can optimize for Intel® 45nm Hi-k next generation Intel® Core™ microarchitecture. This replaces value S, which is deprecated.
+Can generate Intel® SSSE3, SSE3, SSE2, and SSE instructions for Intel processors and it can optimize for the Intel® Core™2 Duo processor family. This replaces value T, which is deprecated.
+Can generate Intel® SSE3, SSE2, and SSE instructions for Intel processors and it can optimize for processors based on Intel® Core™ microarchitecture and Intel
+
+81
+
+Intel® Fortran Compiler User and Reference Guides
+
+SSE2
+
+NetBurst® microarchitecture. This replaces value P, which is deprecated.
+Can generate Intel® SSE2 and SSE instructions for Intel processors, and it can optimize for Intel® Pentium® 4 processors, Intel® Pentium® M processors, and Intel® Xeon® processors with Intel® SSE2. This value is not available on Mac OS X systems. This replaces value N, which is deprecated.
+
+Default
+
+OFF
+
+No auto-dispatch code is generated. Processor-specific code is generated and is controlled by the setting of compiler option -m (Linux), compiler option /arch (Windows), or compiler option -x (Mac OS* X).
+
+Description
+This option tells the compiler to generate multiple, processor-specific autodispatch code paths for Intel processors if there is a performance benefit. It also generates a baseline code path. The baseline code is usually slower than the specialized code. The baseline code path is determined by the architecture specified by the -x (Linux and Mac OS X) or /Qx (Windows) option. While there are defaults for the -x or /Qx option that depend on the operating system being used, you can specify an architecture for the baseline code that is higher or lower than the
+
+82
+
+Intel(R) Fortran Compiler User and Reference Guides
+default. The specified architecture becomes the effective minimum architecture for the baseline code path. If you specify both the -ax and -x options (Linux and Mac OS X) or the /Qax and /Qx options (Windows), the baseline code will only execute on processors compatible with the processor type specified by the -x or /Qx option. This option tells the compiler to find opportunities to generate separate versions of functions that take advantage of features of the specified Intel® processor. If the compiler finds such an opportunity, it first checks whether generating a processor-specific version of a function is likely to result in a performance gain. If this is the case, the compiler generates both a processor-specific version of a function and a baseline version of the function. At run time, one of the versions is chosen to execute, depending on the Intel processor in use. In this way, the program can benefit from performance gains on more advanced Intel processors, while still working properly on older processors. You can use more than one of the processor values by combining them. For example, you can specify -axSSE4.1,SSSE3 (Linux and Mac OS X) or /QaxSSE4.1,SSSE3 (Windows). You cannot combine the old style, deprecated options and the new options. For example, you cannot specify -axSSE4.1,T (Linux and Mac OS X) or /QaxSSE4.1,T (Windows). Previous values W and K are deprecated. The details on replacements are as follows: • Mac OS X systems: On these systems, there is no exact replacement for W
+or K. You can upgrade to the default option -msse3 (IA-32 architecture) or option -mssse3 (Intel® 64 architecture). • Windows and Linux systems: The replacement for W is -msse2 (Linux) or /arch:SSE2 (Windows). There is no exact replacement for K. However, on Windows systems, /QaxK is interpreted as /arch:IA32; on Linux systems, -axK is interpreted as -mia32. You can also do one of the following:
+83
+
+Intel® Fortran Compiler User and Reference Guides
+
+• Upgrade to option -msse2 (Linux) or option /arch:SSE2 (Windows). This will produce one code path that is specialized for Intel® SSE2. It will not run on earlier processors
+• Specify the two option combination -mia32 -axSSE2 (Linux) or /arch:IA32 /QaxSSE2 (Windows). This combination will produce an executable that runs on any processor with IA-32 architecture but with an additional specialized Intel® SSE2 code path.
+The -ax and /Qax options enable additional optimizations not enabled with option -m or option /arch.
+
+Alternate Options
+None
+
+See Also
+x, Qx compiler option m compiler option arch compiler option
+B
+Specifies a directory that can be used to find include files, libraries, and executables.
+
+IDE Equivalent None Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -Bdir
+
+Windows:
+
+None
+
+Arguments
+84
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+dir
+
+Is the directory to be used. If necessary, the
+
+compiler adds a directory separator character at
+
+the end of dir.
+
+Default
+OFF The compiler looks for files in the directories specified in your PATH environment variable.
+
+Description
+This option specifies a directory that can be used to find include files, libraries, and executables. The compiler uses dir as a prefix. For include files, the dir is converted to -I/dir/include. This command is added to the front of the includes passed to the preprocessor. For libraries, the dir is converted to -L/dir. This command is added to the front of the standard -L inclusions before system libraries are added. For executables, if dir contains the name of a tool, such as ld or as, the compiler will use it instead of those found in the default directories. The compiler looks for include files in dir /include while library files are looked for in dir. Another way to get the behavior of this option is to use the environment variable GCC_EXEC_PREFIX.
+Alternate Options
+None
+Bdynamic Enables dynamic linking of libraries at run time.
+IDE Equivalent None
+85
+
+Intel® Fortran Compiler User and Reference Guides
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+Linux: Mac OS X: Windows:
+
+-Bdynamic None None
+
+Arguments
+None
+
+Default
+OFF Limited dynamic linking occurs.
+
+Description
+This option enables dynamic linking of libraries at run time. Smaller executables are created than with static linking. This option is placed in the linker command line corresponding to its location on the user command line. It controls the linking behavior of any library that is passed using the command line. All libraries on the command line following option -Bdynamic are linked dynamically until the end of the command line or until a -Bstatic option is encountered. The -Bstatic option enables static linking of libraries.
+Alternate Options
+None
+See Also Bstatic compiler option
+bigobj
+
+86
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Increases the number of sections that an object file can contain.
+
+IDE Equivalent None Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: None
+
+Windows:
+
+/bigobj
+
+Arguments
+None
+
+Default
+OFF An object file can hold up to 65,536 (2**16) addressable sections.
+
+Description
+This option increases the number of sections that an object file can contain. It increases the address capacity to 4,294,967,296(2**32). An .obj file produced with this option can only be effectively passed to a linker that shipped in Microsoft Visual C++* 2005 or later. Linkers shipped with earlier versions of the product cannot read .obj files of this size. This option may be helpful for .obj files that can hold more sections, such as machine generated code.
+Alternate Options
+None
+bintext Places a text string into the object file (.obj) being generated by the compiler.
+87
+
+Intel® Fortran Compiler User and Reference Guides
+
+IDE Equivalent
+Windows: Code Generation > Object Text String Linux: None Mac OS X: None
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: None
+
+Windows:
+
+/bintext:string
+
+/nobintext
+
+Arguments
+string Is the text string to go into the object file.
+
+Default
+/nobintext No text string is placed in the object file.
+
+Description
+This option places a text string into the object file (.obj) being generated by the compiler. The string also gets propagated into the executable file. For example, this option is useful if you want to place a version number or copyright information into the object and executable. If the string contains a space or tab, the string must be enclosed by double quotation marks ("). A backslash (\) must precede any double quotation marks contained within the string. If the command line contains multiple /bintext options, the last (rightmost) one is used.
+Alternate Options
+
+88
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Linux and Mac OS X: None Windows: /Vstring
+
+Bstatic Enables static linking of a user's library.
+
+IDE Equivalent None Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+Linux: Mac OS X: Windows:
+
+-Bstatic None None
+
+Arguments
+None
+Default
+OFF Default static linking occurs.
+
+Description
+This option enables static linking of a user's library. This option is placed in the linker command line corresponding to its location on the user command line. It controls the linking behavior of any library that is passed using the command line. All libraries on the command line following option -Bstatic are linked statically until the end of the command line or until a -Bdynamic option is encountered. The -Bdynamic option enables dynamic linking of libraries.
+
+89
+
+Intel® Fortran Compiler User and Reference Guides
+
+Alternate Options
+None
+
+See Also Bdynamic compiler option
+c Prevents linking.
+
+IDE Equivalent None Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -c
+
+Windows:
+
+/c
+
+Arguments
+None
+
+Default
+OFF Linking is performed.
+
+Description
+This option prevents linking. Compilation stops after the object file is generated. The compiler generates an object file for each Fortran source file.
+Alternate Options
+Linux and Mac OS X: None Windows: /compile-only, /nolink
+
+90
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+C See check.
+
+CB See check.
+
+ccdefault
+Specifies the type of carriage control used when a file is displayed at a terminal screen.
+
+IDE Equivalent
+Windows: Run-time > Default Output Carriage Control Linux: None Mac OS X: Run-time > Default Output Carriage Control
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -ccdefault keyword
+
+Windows:
+
+/ccdefault:keyword
+
+Arguments
+
+keyword Specifies the carriage-control setting to use. Possible values are:
+
+none
+
+Tells the compiler to use no carriage control processing.
+
+default
+
+Tells the compiler to use the default carriage-control setting.
+
+91
+
+Intel® Fortran Compiler User and Reference Guides
+
+fortran list
+
+Tells the compiler to use normal Fortran interpretation of the first character. For example, the character 0 causes output of a blank line before a record.
+Tells the compiler to output one line feed between records.
+
+Default
+ccdefault The compiler uses the default carriage control setting. default
+Description
+This option specifies the type of carriage control used when a file is displayed at a terminal screen (units 6 and *). It provides the same functionality as using the CARRIAGECONTROL specifier in an OPEN statement. The default carriage-control setting can be affected by the vms option. If vms is specified with ccdefault default, carriage control defaults to normal Fortran interpretation (ccdefault fortran) if the file is formatted and the unit is connected to a terminal. If novms (the default) is specified with ccdefault default, carriage control defaults to list (ccdefault list).
+Alternate Options
+None
+check Checks for certain conditions at run time.
+IDE Equivalent
+Windows:
+
+92
+
+Intel(R) Fortran Compiler User and Reference Guides
+
+Run-time > Runtime Error Checking (/nocheck, /check:all, or /xcheck:none) Run-time > Check Array and String Bounds (/check:[no]bounds) Run-time > Check Uninitialized Variables (/check:[no]uninit) Run-time > Check Edit Descriptor Data Type (/check:[no]format) Run-time > Check Edit Descriptor Data Size (/check:[no]output_conversion) Run-time > Check For Actual Arguments Using Temporary Storage (/check:[no]arg_temp_created) Run-time > Check For Null Pointers and Allocatable Array References (/check:[no]pointers) Linux: None Mac OS X: Run-time > Runtime Error Checking (-check all, -check none) Run-time > Check Array and String Bounds (-check [no]bounds) Run-time > Check Edit Descriptor Data Type (-check [no]format) Run-time > Check Edit Descriptor Data Size (-check [no]output_conversion) Run-time > Check For Actual Arguments Using Temporary Storage (-check [no]arg_temp_created) Run-time > Check for Uninitialized Variables (-check [no]uninit) Run-time > Check For Null Pointers and Allocatable Array References (/check:[no]pointers)
+
+Architectures
+IA-32, Intel® 64, IA-64 architectures
+
+Syntax
+
+Linux and Mac OS X: -check [keyword] -nocheck
+
+Windows:
+
+/check[:keyword]
+
+93
+
+Intel® Fortran Compiler User and Reference Guides
+
+/nocheck
+
+Arguments
+
+keyword Specifies the conditions to check. Possible values are:
+
+none
+
+Disables all check options.
+
+[no]arg_temp_created Determines whether checking occurs for actual arguments before routine calls.
+
+[no]bounds
+
+Determines whether checking occurs for array subscript and character substring expressions.
+
+[no]format
+
+Determines whether checking occurs for the data type of an item being formatted for output.
+
+[no]output_conversion Determines whether checking occurs for the fit of data items within a designated format descriptor field.
+
+[no]pointers
+
+Determines whether checking occurs for certain disassociated or uninitialized pointers or unallocated allocatable objects.
+
+[no]uninit
+
+Determines whether
+
+94
+

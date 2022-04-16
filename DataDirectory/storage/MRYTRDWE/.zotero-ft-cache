@@ -1,0 +1,1640 @@
+2nd Edition
+Web Scraping with Python
+COLLECTING MORE DATA FROM THE MODERN WEB
+Ryan Mitchell
+
+SECOND EDITION
+Web Scraping with Python
+Collecting More Data from the Modern Web
+Ryan Mitchell
+Beijing Boston Farnham Sebastopol Tokyo
+
+Web Scraping with Python
+by Ryan Mitchell
+
+Copyright © 2018 Ryan Mitchell. All rights reserved.
+
+Printed in the United States of America.
+
+Published by O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
+
+O’Reilly books may be purchased for educational, business, or sales promotional use. Online editions are also available for most titles (http://oreilly.com/safari). For more information, contact our corporate/insti‐ tutional sales department: 800-998-9938 or corporate@oreilly.com.
+
+Editor: Allyson MacDonald Production Editor: Justin Billing Copyeditor: Sharon Wilkey Proofreader: Christina Edwards
+
+Indexer: Judith McConville Interior Designer: David Futato Cover Designer: Karen Montgomery Illustrator: Rebecca Demarest
+
+April 2018:
+
+Second Edition
+
+Revision History for the Second Edition 2018-03-20: First Release
+
+See http://oreilly.com/catalog/errata.csp?isbn=9781491985571 for release details.
+
+The O’Reilly logo is a registered trademark of O’Reilly Media, Inc. Web Scraping with Python, the cover image, and related trade dress are trademarks of O’Reilly Media, Inc. While the publisher and the author have used good faith efforts to ensure that the information and instructions contained in this work are accurate, the publisher and the author disclaim all responsibility for errors or omissions, including without limitation responsibility for damages resulting from the use of or reliance on this work. Use of the information and instructions contained in this work is at your own risk. If any code samples or other technology this work contains or describes is subject to open source licenses or the intellectual property rights of others, it is your responsibility to ensure that your use thereof complies with such licenses and/or rights.
+
+978-1-491-98557-1 [LSI]
+
+Table of Contents
+
+Preface. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ix
+
+Part I. Building Scrapers
+
+1. Your First Web Scraper. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+
+Connecting
+
+3
+
+An Introduction to BeautifulSoup
+
+6
+
+Installing BeautifulSoup
+
+6
+
+Running BeautifulSoup
+
+8
+
+Connecting Reliably and Handling Exceptions
+
+10
+
+2. Advanced HTML Parsing. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+You Don’t Always Need a Hammer
+
+15
+
+Another Serving of BeautifulSoup
+
+16
+
+find() and find_all() with BeautifulSoup
+
+18
+
+Other BeautifulSoup Objects
+
+20
+
+Navigating Trees
+
+21
+
+Regular Expressions
+
+25
+
+Regular Expressions and BeautifulSoup
+
+29
+
+Accessing Attributes
+
+30
+
+Lambda Expressions
+
+31
+
+3. Writing Web Crawlers. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+Traversing a Single Domain
+
+33
+
+Crawling an Entire Site
+
+37
+
+Collecting Data Across an Entire Site
+
+40
+
+Crawling Across the Internet
+
+42
+
+4. Web Crawling Models. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+
+Planning and Defining Objects
+
+50
+
+Dealing with Different Website Layouts
+
+53
+
+iii
+
+Structuring Crawlers
+
+58
+
+Crawling Sites Through Search
+
+58
+
+Crawling Sites Through Links
+
+61
+
+Crawling Multiple Page Types
+
+64
+
+Thinking About Web Crawler Models
+
+65
+
+5. Scrapy. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+
+Installing Scrapy
+
+67
+
+Initializing a New Spider
+
+68
+
+Writing a Simple Scraper
+
+69
+
+Spidering with Rules
+
+70
+
+Creating Items
+
+74
+
+Outputting Items
+
+76
+
+The Item Pipeline
+
+77
+
+Logging with Scrapy
+
+80
+
+More Resources
+
+80
+
+6. Storing Data. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83
+
+Media Files
+
+83
+
+Storing Data to CSV
+
+86
+
+MySQL
+
+88
+
+Installing MySQL
+
+89
+
+Some Basic Commands
+
+91
+
+Integrating with Python
+
+94
+
+Database Techniques and Good Practice
+
+97
+
+“Six Degrees” in MySQL
+
+100
+
+Email
+
+103
+
+Part II. Advanced Scraping
+
+7. Reading Documents. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 107
+
+Document Encoding
+
+107
+
+Text
+
+108
+
+Text Encoding and the Global Internet
+
+109
+
+CSV
+
+113
+
+Reading CSV Files
+
+113
+
+PDF
+
+115
+
+Microsoft Word and .docx
+
+117
+
+8. Cleaning Your Dirty Data. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 121
+
+Cleaning in Code
+
+121
+
+iv | Table of Contents
+
+Data Normalization
+
+124
+
+Cleaning After the Fact
+
+126
+
+OpenRefine
+
+126
+
+9. Reading and Writing Natural Languages. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 131
+
+Summarizing Data
+
+132
+
+Markov Models
+
+135
+
+Six Degrees of Wikipedia: Conclusion
+
+139
+
+Natural Language Toolkit
+
+142
+
+Installation and Setup
+
+142
+
+Statistical Analysis with NLTK
+
+143
+
+Lexicographical Analysis with NLTK
+
+145
+
+Additional Resources
+
+149
+
+10. Crawling Through Forms and Logins. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 151
+
+Python Requests Library
+
+151
+
+Submitting a Basic Form
+
+152
+
+Radio Buttons, Checkboxes, and Other Inputs
+
+154
+
+Submitting Files and Images
+
+155
+
+Handling Logins and Cookies
+
+156
+
+HTTP Basic Access Authentication
+
+157
+
+Other Form Problems
+
+158
+
+11. Scraping JavaScript. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 161
+
+A Brief Introduction to JavaScript
+
+162
+
+Common JavaScript Libraries
+
+163
+
+Ajax and Dynamic HTML
+
+165
+
+Executing JavaScript in Python with Selenium
+
+166
+
+Additional Selenium Webdrivers
+
+171
+
+Handling Redirects
+
+171
+
+A Final Note on JavaScript
+
+173
+
+12. Crawling Through APIs. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175
+
+A Brief Introduction to APIs
+
+175
+
+HTTP Methods and APIs
+
+177
+
+More About API Responses
+
+178
+
+Parsing JSON
+
+179
+
+Undocumented APIs
+
+181
+
+Finding Undocumented APIs
+
+182
+
+Documenting Undocumented APIs
+
+184
+
+Finding and Documenting APIs Automatically
+
+184
+
+Combining APIs with Other Data Sources
+
+187
+
+Table of Contents | v
+
+More About APIs
+
+190
+
+13. Image Processing and Text Recognition. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 193
+
+Overview of Libraries
+
+194
+
+Pillow
+
+194
+
+Tesseract
+
+195
+
+NumPy
+
+197
+
+Processing Well-Formatted Text
+
+197
+
+Adjusting Images Automatically
+
+200
+
+Scraping Text from Images on Websites
+
+203
+
+Reading CAPTCHAs and Training Tesseract
+
+206
+
+Training Tesseract
+
+207
+
+Retrieving CAPTCHAs and Submitting Solutions
+
+211
+
+14. Avoiding Scraping Traps. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 215
+
+A Note on Ethics
+
+215
+
+Looking Like a Human
+
+216
+
+Adjust Your Headers
+
+217
+
+Handling Cookies with JavaScript
+
+218
+
+Timing Is Everything
+
+220
+
+Common Form Security Features
+
+221
+
+Hidden Input Field Values
+
+221
+
+Avoiding Honeypots
+
+223
+
+The Human Checklist
+
+224
+
+15. Testing Your Website with Scrapers. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 227
+
+An Introduction to Testing
+
+227
+
+What Are Unit Tests?
+
+228
+
+Python unittest
+
+228
+
+Testing Wikipedia
+
+230
+
+Testing with Selenium
+
+233
+
+Interacting with the Site
+
+233
+
+unittest or Selenium?
+
+236
+
+16. Web Crawling in Parallel. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 239
+
+Processes versus Threads
+
+239
+
+Multithreaded Crawling
+
+240
+
+Race Conditions and Queues
+
+242
+
+The threading Module
+
+245
+
+Multiprocess Crawling
+
+247
+
+Multiprocess Crawling
+
+249
+
+Communicating Between Processes
+
+251
+
+vi | Table of Contents
+
+Multiprocess Crawling—Another Approach
+
+253
+
+17. Scraping Remotely. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 255
+
+Why Use Remote Servers?
+
+255
+
+Avoiding IP Address Blocking
+
+256
+
+Portability and Extensibility
+
+257
+
+Tor
+
+257
+
+PySocks
+
+259
+
+Remote Hosting
+
+259
+
+Running from a Website-Hosting Account
+
+260
+
+Running from the Cloud
+
+261
+
+Additional Resources
+
+262
+
+18. The Legalities and Ethics of Web Scraping. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 263
+
+Trademarks, Copyrights, Patents, Oh My!
+
+263
+
+Copyright Law
+
+264
+
+Trespass to Chattels
+
+266
+
+The Computer Fraud and Abuse Act
+
+268
+
+robots.txt and Terms of Service
+
+269
+
+Three Web Scrapers
+
+272
+
+eBay versus Bidder’s Edge and Trespass to Chattels
+
+272
+
+United States v. Auernheimer and The Computer Fraud and Abuse Act 274
+
+Field v. Google: Copyright and robots.txt
+
+275
+
+Moving Forward
+
+276
+
+Index. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 279
+
+Table of Contents | vii
+
+Preface
+To those who have not developed the skill, computer programming can seem like a kind of magic. If programming is magic, web scraping is wizardry: the application of magic for particularly impressive and useful—yet surprisingly effortless—feats. In my years as a software engineer, I’ve found that few programming practices cap‐ ture the excitement of both programmers and laymen alike quite like web scraping. The ability to write a simple bot that collects data and streams it down a terminal or stores it in a database, while not difficult, never fails to provide a certain thrill and sense of possibility, no matter how many times you might have done it before. Unfortunately, when I speak to other programmers about web scraping, there’s a lot of misunderstanding and confusion about the practice. Some people aren’t sure it’s legal (it is), or how to handle problems like JavaScript-heavy pages or required logins. Many are confused about how to start a large web scraping project, or even where to find the data they’re looking for. This book seeks to put an end to many of these com‐ mon questions and misconceptions about web scraping, while providing a compre‐ hensive guide to most common web scraping tasks. Web scraping is a diverse and fast-changing field, and I’ve tried to provide both highlevel concepts and concrete examples to cover just about any data collection project you’re likely to encounter. Throughout the book, code samples are provided to demonstrate these concepts and allow you to try them out. The code samples them‐ selves can be used and modified with or without attribution (although acknowledg‐ ment is always appreciated). All code samples are available on GitHub for viewing and downloading.
+What Is Web Scraping?
+The automated gathering of data from the internet is nearly as old as the internet itself. Although web scraping is not a new term, in years past the practice has been more commonly known as screen scraping, data mining, web harvesting, or similar
+ix
+
+variations. General consensus today seems to favor web scraping, so that is the term I use throughout the book, although I also refer to programs that specifically traverse multiple pages as web crawlers or refer to the web scraping programs themselves as bots. In theory, web scraping is the practice of gathering data through any means other than a program interacting with an API (or, obviously, through a human using a web browser). This is most commonly accomplished by writing an automated program that queries a web server, requests data (usually in the form of HTML and other files that compose web pages), and then parses that data to extract needed information. In practice, web scraping encompasses a wide variety of programming techniques and technologies, such as data analysis, natural language parsing, and information security. Because the scope of the field is so broad, this book covers the fundamental basics of web scraping and crawling in Part I and delves into advanced topics in Part II. I suggest that all readers carefully study the first part and delve into the more specific in the second part as needed.
+Why Web Scraping?
+If the only way you access the internet is through a browser, you’re missing out on a huge range of possibilities. Although browsers are handy for executing JavaScript, displaying images, and arranging objects in a more human-readable format (among other things), web scrapers are excellent at gathering and processing large amounts of data quickly. Rather than viewing one page at a time through the narrow window of a monitor, you can view databases spanning thousands or even millions of pages at once. In addition, web scrapers can go places that traditional search engines cannot. A Google search for “cheapest flights to Boston” will result in a slew of advertisements and popular flight search sites. Google knows only what these websites say on their content pages, not the exact results of various queries entered into a flight search application. However, a well-developed web scraper can chart the cost of a flight to Boston over time, across a variety of websites, and tell you the best time to buy your ticket. You might be asking: “Isn’t data gathering what APIs are for?” (If you’re unfamiliar with APIs, see Chapter 12.) Well, APIs can be fantastic, if you find one that suits your purposes. They are designed to provide a convenient stream of well-formatted data from one computer program to another. You can find an API for many types of data you might want to use, such as Twitter posts or Wikipedia pages. In general, it is pref‐ erable to use an API (if one exists), rather than build a bot to get the same data. How‐ ever, an API might not exist or be useful for your purposes, for several reasons:
+x | Preface
+
+• You are gathering relatively small, finite sets of data across a large collection of websites without a cohesive API.
+• The data you want is fairly small or uncommon, and the creator did not think it warranted an API.
+• The source does not have the infrastructure or technical ability to create an API. • The data is valuable and/or protected and not intended to be spread widely.
+Even when an API does exist, the request volume and rate limits, the types of data, or the format of data that it provides might be insufficient for your purposes. This is where web scraping steps in. With few exceptions, if you can view data in your browser, you can access it via a Python script. If you can access it in a script, you can store it in a database. And if you can store it in a database, you can do virtually any‐ thing with that data. There are obviously many extremely practical applications of having access to nearly unlimited data: market forecasting, machine-language translation, and even medical diagnostics have benefited tremendously from the ability to retrieve and analyze data from news sites, translated texts, and health forums, respectively. Even in the art world, web scraping has opened up new frontiers for creation. The 2006 project “We Feel Fine” by Jonathan Harris and Sep Kamvar scraped a variety of English-language blog sites for phrases starting with “I feel” or “I am feeling.” This led to a popular data visualization, describing how the world was feeling day by day and minute by minute. Regardless of your field, web scraping almost always provides a way to guide business practices more effectively, improve productivity, or even branch off into a brand-new field entirely.
+About This Book
+This book is designed to serve not only as an introduction to web scraping, but as a comprehensive guide to collecting, transforming, and using data from uncooperative sources. Although it uses the Python programming language and covers many Python basics, it should not be used as an introduction to the language. If you don’t know any Python at all, this book might be a bit of a challenge. Please do not use it as an introductory Python text. With that said, I’ve tried to keep all con‐ cepts and code samples at a beginning-to-intermediate Python programming level in order to make the content accessible to a wide range of readers. To this end, there are occasional explanations of more advanced Python programming and general com‐ puter science topics where appropriate. If you are a more advanced reader, feel free to skim these parts!
+Preface | xi
+
+If you’re looking for a more comprehensive Python resource, Introducing Python by Bill Lubanovic (O’Reilly) is a good, if lengthy, guide. For those with shorter attention spans, the video series Introduction to Python by Jessica McKellar (O’Reilly) is an excellent resource. I’ve also enjoyed Think Python by a former professor of mine, Allen Downey (O’Reilly). This last book in particular is ideal for those new to pro‐ gramming, and teaches computer science and software engineering concepts along with the Python language. Technical books are often able to focus on a single language or technology, but web scraping is a relatively disparate subject, with practices that require the use of data‐ bases, web servers, HTTP, HTML, internet security, image processing, data science, and other tools. This book attempts to cover all of these, and other topics, from the perspective of “data gathering.” It should not be used as a complete treatment of any of these subjects, but I believe they are covered in enough detail to get you started writing web scrapers! Part I covers the subject of web scraping and web crawling in depth, with a strong focus on a small handful of libraries used throughout the book. Part I can easily be used as a comprehensive reference for these libraries and techniques (with certain exceptions, where additional references will be provided). The skills taught in the first part will likely be useful for everyone writing a web scraper, regardless of their partic‐ ular target or application. Part II covers additional subjects that the reader might find useful when writing web scrapers, but that might not be useful for all scrapers all the time. These subjects are, unfortunately, too broad to be neatly wrapped up in a single chapter. Because of this, frequent references are made to other resources for additional information. The structure of this book enables you to easily jump around among chapters to find only the web scraping technique or information that you are looking for. When a concept or piece of code builds on another mentioned in a previous chapter, I explic‐ itly reference the section that it was addressed in.
+Conventions Used in This Book
+The following typographical conventions are used in this book: Italic
+Indicates new terms, URLs, email addresses, filenames, and file extensions. Constant width
+Used for program listings, as well as within paragraphs to refer to program ele‐ ments such as variable or function names, databases, data types, environment variables, statements, and keywords.
+xii | Preface
+
+Constant width bold Shows commands or other text that should be typed by the user.
+Constant width italic Shows text that should be replaced with user-supplied values or by values deter‐ mined by context. This element signifies a tip or suggestion.
+This element signifies a general note.
+This element indicates a warning or caution.
+Using Code Examples
+Supplemental material (code examples, exercises, etc.) is available for download at https://github.com/REMitchell/python-scraping. This book is here to help you get your job done. If the example code in this book is useful to you, you may use it in your programs and documentation. You do not need to contact us for permission unless you’re reproducing a significant portion of the code. For example, writing a program that uses several chunks of code from this book does not require permission. Selling or distributing a CD-ROM of examples from O’Reilly books does require permission. Answering a question by citing this book and quoting example code does not require permission. Incorporating a significant amount of example code from this book into your product’s documentation does require permission. We appreciate, but do not require, attribution. An attribution usually includes the title, author, publisher, and ISBN. For example: “Web Scraping with Python, Second Edition by Ryan Mitchell (O’Reilly). Copyright 2018 Ryan Mitchell, 978-1-491-998557-1.”
+Preface | xiii
+
+If you feel your use of code examples falls outside fair use or the permission given here, feel free to contact us at permissions@oreilly.com. Unfortunately, printed books are difficult to keep up-to-date. With web scraping, this provides an additional challenge, as the many libraries and websites that the book ref‐ erences and that the code often depends on may occasionally be modified, and code samples may fail or produce unexpected results. If you choose to run the code sam‐ ples, please run them from the GitHub repository rather than copying from the book directly. I, and readers of this book who choose to contribute (including, perhaps, you!), will strive to keep the repository up-to-date with required modifications and notes. In addition to code samples, terminal commands are often provided to illustrate how to install and run software. In general, these commands are geared toward Linuxbased operating systems, but will usually be applicable for Windows users with a properly configured Python environment and pip installation. When this is not the case, I have provided instructions for all major operating systems, or external refer‐ ences for Windows users to accomplish the task.
+O’Reilly Safari
+Safari (formerly Safari Books Online) is a membership-based training and reference platform for enterprise, government, educators, and individuals.
+Members have access to thousands of books, training videos, Learning Paths, interac‐ tive tutorials, and curated playlists from over 250 publishers, including O’Reilly Media, Harvard Business Review, Prentice Hall Professional, Addison-Wesley Profes‐ sional, Microsoft Press, Sams, Que, Peachpit Press, Adobe, Focal Press, Cisco Press, John Wiley & Sons, Syngress, Morgan Kaufmann, IBM Redbooks, Packt, Adobe Press, FT Press, Apress, Manning, New Riders, McGraw-Hill, Jones & Bartlett, and Course Technology, among others. For more information, please visit http://oreilly.com/safari.
+How to Contact Us
+Please address comments and questions concerning this book to the publisher: O’Reilly Media, Inc. 1005 Gravenstein Highway North Sebastopol, CA 95472 800-998-9938 (in the United States or Canada)
+xiv | Preface
+
+707-829-0515 (international or local) 707-829-0104 (fax) We have a web page for this book, where we list errata, examples, and any additional information. You can access this page at http://oreil.ly/1ePG2Uj. To comment or ask technical questions about this book, send email to bookques‐ tions@oreilly.com. For more information about our books, courses, conferences, and news, see our web‐ site at http://www.oreilly.com. Find us on Facebook: http://facebook.com/oreilly Follow us on Twitter: http://twitter.com/oreillymedia Watch us on YouTube: http://www.youtube.com/oreillymedia
+Acknowledgments
+Just as some of the best products arise out of a sea of user feedback, this book never could have existed in any useful form without the help of many collaborators, cheer‐ leaders, and editors. Thank you to the O’Reilly staff and their amazing support for this somewhat unconventional subject; to my friends and family who have offered advice and put up with impromptu readings; and to my coworkers at HedgeServ, whom I now likely owe many hours of work. Thank you, in particular, to Allyson MacDonald, Brian Anderson, Miguel Grinberg, and Eric VanWyk for their feedback, guidance, and occasional tough love. Quite a few sections and code samples were written as a direct result of their inspirational sugges‐ tions. Thank you to Yale Specht for his limitless patience for the past four years and two editions, providing the initial encouragement to pursue this project, and stylistic feedback during the writing process. Without him, this book would have been written in half the time but would not be nearly as useful. Finally, thanks to Jim Waldo, who really started this whole thing many years ago when he mailed a Linux box and The Art and Science of C to a young and impression‐ able teenager.
+Preface | xv
+
+PART I
+Building Scrapers
+This first part of this book focuses on the basic mechanics of web scraping: how to use Python to request information from a web server, how to perform basic handling of the server’s response, and how to begin interacting with a website in an automated fashion. By the end, you’ll be cruising around the internet with ease, building scrapers that can hop from one domain to another, gather information, and store that infor‐ mation for later use. To be honest, web scraping is a fantastic field to get into if you want a huge payout for relatively little upfront investment. In all likelihood, 90% of web scraping projects you’ll encounter will draw on techniques used in just the next six chapters. This sec‐ tion covers what the general (albeit technically savvy) public tends to think of when they think of “web scrapers”:
+• Retrieving HTML data from a domain name • Parsing that data for target information • Storing the target information • Optionally, moving to another page to repeat the process This will give you a solid foundation before moving on to more complex projects in Part II. Don’t be fooled into thinking that this first section isn’t as important as some of the more advanced projects in the second half. You will use nearly all the informa‐ tion in the first half of this book on a daily basis while writing web scrapers!
+
+CHAPTER 1
+Your First Web Scraper
+Once you start web scraping, you start to appreciate all the little things that browsers do for you. The web, without a layer of HTML formatting, CSS styling, JavaScript execution, and image rendering, can look a little intimidating at first, but in this chapter, as well as the next one, we’ll cover how to format and interpret data without the help of a browser. This chapter starts with the basics of sending a GET request (a request to fetch, or “get,” the content of a web page) to a web server for a specific page, reading the HTML output from that page, and doing some simple data extraction in order to iso‐ late the content that you are looking for.
+Connecting
+If you haven’t spent much time in networking or network security, the mechanics of the internet might seem a little mysterious. You don’t want to think about what, exactly, the network is doing every time you open a browser and go to http:// google.com, and, these days, you don’t have to. In fact, I would argue that it’s fantastic that computer interfaces have advanced to the point where most people who use the internet don’t have the faintest idea about how it works. However, web scraping requires stripping away some of this shroud of interface—not just at the browser level (how it interprets all of this HTML, CSS, and JavaScript), but occasionally at the level of the network connection. To give you an idea of the infrastructure required to get information to your browser, let’s use the following example. Alice owns a web server. Bob uses a desktop com‐ puter, which is trying to connect to Alice’s server. When one machine wants to talk to another machine, something like the following exchange takes place:
+3
+
+1. Bob’s computer sends along a stream of 1 and 0 bits, indicated by high and low voltages on a wire. These bits form some information, containing a header and body. The header contains an immediate destination of his local router’s MAC address, with a final destination of Alice’s IP address. The body contains his request for Alice’s server application.
+2. Bob’s local router receives all these 1s and 0s and interprets them as a packet, from Bob’s own MAC address, destined for Alice’s IP address. His router stamps its own IP address on the packet as the “from” IP address, and sends it off across the internet.
+3. Bob’s packet traverses several intermediary servers, which direct his packet toward the correct physical/wired path, on to Alice’s server.
+4. Alice’s server receives the packet at her IP address. 5. Alice’s server reads the packet port destination in the header, and passes it off to
+the appropriate application—the web server application. (The packet port desti‐ nation is almost always port 80 for web applications; this can be thought of as an apartment number for packet data, whereas the IP address is like the street address.) 6. The web server application receives a stream of data from the server processor. This data says something like the following: - This is a GET request. - The following file is requested: index.html. 7. The web server locates the correct HTML file, bundles it up into a new packet to send to Bob, and sends it through to its local router, for transport back to Bob’s machine, through the same process. And voilà! We have The Internet. So, where in this exchange did the web browser come into play? Absolutely nowhere. In fact, browsers are a relatively recent invention in the history of the internet, con‐ sidering Nexus was released in 1990. Yes, the web browser is a useful application for creating these packets of information, telling your operating system to send them off, and interpreting the data you get back as pretty pictures, sounds, videos, and text. However, a web browser is just code, and code can be taken apart, broken into its basic components, rewritten, reused, and made to do anything you want. A web browser can tell the processor to send data to the application that handles your wireless (or wired) interface, but you can do the same thing in Python with just three lines of code:
+4 | Chapter 1: Your First Web Scraper
+
+from urllib.request import urlopen html = urlopen('http://pythonscraping.com/pages/page1.html') print(html.read())
+To run this, you can use the iPython notebook for Chapter 1 in the GitHub reposi‐ tory, or you can save it locally as scrapetest.py and run it in your terminal by using this command:
+$ python scrapetest.py
+Note that if you also have Python 2.x installed on your machine and are running both versions of Python side by side, you may need to explicitly call Python 3.x by running the command this way:
+$ python3 scrapetest.py
+This command outputs the complete HTML code for page1 located at the URL http:// pythonscraping.com/pages/page1.html. More accurately, this outputs the HTML file page1.html, found in the directory <web root>/pages, on the server located at the domain name http://pythonscraping.com. Why is it important to start thinking of these addresses as “files” rather than “pages”? Most modern web pages have many resource files associated with them. These could be image files, JavaScript files, CSS files, or any other content that the page you are requesting is linked to. When a web browser hits a tag such as <img src="cuteKit ten.jpg">, the browser knows that it needs to make another request to the server to get the data at the file cuteKitten.jpg in order to fully render the page for the user. Of course, your Python script doesn’t have the logic to go back and request multiple files (yet); it can only read the single HTML file that you’ve directly requested.
+from urllib.request import urlopen
+means what it looks like it means: it looks at the Python module request (found within the urllib library) and imports only the function urlopen. urllib is a standard Python library (meaning you don’t have to install anything extra to run this example) and contains functions for requesting data across the web, han‐ dling cookies, and even changing metadata such as headers and your user agent. We will be using urllib extensively throughout the book, so I recommend you read the Python documentation for the library. urlopen is used to open a remote object across a network and read it. Because it is a fairly generic function (it can read HTML files, image files, or any other file stream with ease), we will be using it quite frequently throughout the book.
+Connecting | 5
+
+An Introduction to BeautifulSoup
+Beautiful Soup, so rich and green, Waiting in a hot tureen! Who for such dainties would not stoop? Soup of the evening, beautiful Soup!
+The BeautifulSoup library was named after a Lewis Carroll poem of the same name in Alice’s Adventures in Wonderland. In the story, this poem is sung by a character called the Mock Turtle (itself a pun on the popular Victorian dish Mock Turtle Soup made not of turtle but of cow). Like its Wonderland namesake, BeautifulSoup tries to make sense of the nonsensical; it helps format and organize the messy web by fixing bad HTML and presenting us with easily traversable Python objects representing XML structures.
+Installing BeautifulSoup
+Because the BeautifulSoup library is not a default Python library, it must be installed. If you’re already experienced at installing Python libraries, please use your favorite installer and skip ahead to the next section, “Running BeautifulSoup” on page 8. For those who have not installed Python libraries (or need a refresher), this general method will be used for installing multiple libraries throughout the book, so you may want to reference this section in the future. We will be using the BeautifulSoup 4 library (also known as BS4) throughout this book. The complete instructions for installing BeautifulSoup 4 can be found at Crummy.com; however, the basic method for Linux is shown here:
+$ sudo apt-get install python-bs4
+And for Macs:
+$ sudo easy_install pip
+This installs the Python package manager pip. Then run the following to install the library:
+$ pip install beautifulsoup4
+Again, note that if you have both Python 2.x and 3.x installed on your machine, you might need to call python3 explicitly:
+$ python3 myScript.py
+Make sure to also use this when installing packages, or the packages might be installed under Python 2.x, but not Python 3.x:
+$ sudo python3 setup.py install
+If using pip, you can also call pip3 to install the Python 3.x versions of packages:
+6 | Chapter 1: Your First Web Scraper
+
+$ pip3 install beautifulsoup4
+Installing packages in Windows is nearly identical to the process for Mac and Linux. Download the most recent BeautifulSoup 4 release from the download page, navigate to the directory you unzipped it to, and run this:
+> python setup.py install
+And that’s it! BeautifulSoup will now be recognized as a Python library on your machine. You can test this out by opening a Python terminal and importing it:
+$ python > from bs4 import BeautifulSoup
+The import should complete without errors.
+In addition, there is an .exe installer for pip on Windows, so you can easily install and manage packages:
+> pip install beautifulsoup4
+Keeping Libraries Straight with Virtual Environments
+If you intend to work on multiple Python projects, or you need a way to easily bundle projects with all associated libraries, or you’re worried about potential conflicts between installed libraries, you can install a Python virtual environment to keep everything separated and easy to manage. When you install a Python library without a virtual environment, you are installing it globally. This usually requires that you be an administrator, or run as root, and that the Python library exists for every user and every project on the machine. Fortu‐ nately, creating a virtual environment is easy:
+$ virtualenv scrapingEnv
+This creates a new environment called scrapingEnv, which you must activate to use:
+$ cd scrapingEnv/ $ source bin/activate
+After you have activated the environment, you will see that environment’s name in your command-line prompt, reminding you that you’re currently working with it. Any libraries you install or scripts you run will be under that virtual environment only. Working in the newly created scrapingEnv environment, you can install and use BeautifulSoup; for instance:
+(scrapingEnv)ryan$ pip install beautifulsoup4 (scrapingEnv)ryan$ python > from bs4 import BeautifulSoup >
+An Introduction to BeautifulSoup | 7
+
+You can leave the environment with the deactivate command, after which you can no longer access any libraries that were installed inside the virtual environment:
+(scrapingEnv)ryan$ deactivate ryan$ python > from bs4 import BeautifulSoup Traceback (most recent call last):
+File "<stdin>", line 1, in <module> ImportError: No module named 'bs4'
+Keeping all your libraries separated by project also makes it easy to zip up the entire environment folder and send it to someone else. As long as they have the same ver‐ sion of Python installed on their machine, your code will work from the virtual envi‐ ronment without requiring them to install any libraries themselves. Although I won’t explicitly instruct you to use a virtual environment in all of this book’s examples, keep in mind that you can apply a virtual environment anytime sim‐ ply by activating it beforehand.
+Running BeautifulSoup
+The most commonly used object in the BeautifulSoup library is, appropriately, the BeautifulSoup object. Let’s take a look at it in action, modifying the example found in the beginning of this chapter:
+from urllib.request import urlopen from bs4 import BeautifulSoup
+html = urlopen('http://www.pythonscraping.com/pages/page1.html') bs = BeautifulSoup(html.read(), 'html.parser') print(bs.h1)
+The output is as follows:
+<h1>An Interesting Title</h1>
+Note that this returns only the first instance of the h1 tag found on the page. By con‐ vention, only one h1 tag should be used on a single page, but conventions are often broken on the web, so you should be aware that this will retrieve the first instance of the tag only, and not necessarily the one that you’re looking for. As in previous web scraping examples, you are importing the urlopen function and calling html.read() in order to get the HTML content of the page. In addition to the text string, BeautifulSoup can also use the file object directly returned by urlopen, without needing to call .read() first:
+bs = BeautifulSoup(html, 'html.parser')
+This HTML content is then transformed into a BeautifulSoup object, with the fol‐ lowing structure:
+8 | Chapter 1: Your First Web Scraper
+
+• html → <html><head>...</head><body>...</body></html> — head → <head><title>A Useful Page<title></head> — title → <title>A Useful Page</title> — body → <body><h1>An Int...</h1><div>Lorem ip...</div></body> — h1 → <h1>An Interesting Title</h1> — div → <div>Lorem Ipsum dolor...</div>
+Note that the h1 tag that you extract from the page is nested two layers deep into your BeautifulSoup object structure (html → body → h1). However, when you actually fetch it from the object, you call the h1 tag directly:
+bs.h1
+In fact, any of the following function calls would produce the same output:
+bs.html.body.h1 bs.body.h1 bs.html.h1
+When you create a BeautifulSoup object, two arguments are passed in:
+bs = BeautifulSoup(html.read(), 'html.parser')
+The first is the HTML text the object is based on, and the second specifies the parser that you want BeautifulSoup to use in order to create that object. In the majority of cases, it makes no difference which parser you choose. html.parser is a parser that is included with Python 3 and requires no extra installa‐ tions in order to use. Except where required, we will use this parser throughout the book. Another popular parser is lxml. This can be installed through pip:
+$ pip3 install lxml
+lxml can be used with BeautifulSoup by changing the parser string provided:
+bs = BeautifulSoup(html.read(), 'lxml')
+lxml has some advantages over html.parser in that it is generally better at parsing “messy” or malformed HTML code. It is forgiving and fixes problems like unclosed tags, tags that are improperly nested, and missing head or body tags. It is also some‐ what faster than html.parser, although speed is not necessarily an advantage in web scraping, given that the speed of the network itself will almost always be your largest bottleneck. One of the disadvantages of lxml is that it has to be installed separately and depends on third-party C libraries to function. This can cause problems for portability and ease of use, compared to html.parser.
+An Introduction to BeautifulSoup | 9
+
+Another popular HTML parser is html5lib. Like lxml, html5lib is an extremely for‐ giving parser that takes even more initiative correcting broken HTML. It also depends on an external dependency, and is slower than both lxml and html.parser. Despite this, it may be a good choice if you are working with messy or handwritten HTML sites. It can be used by installing and passing the string html5lib to the BeautifulSoup object:
+bs = BeautifulSoup(html.read(), 'html5lib')
+I hope this small taste of BeautifulSoup has given you an idea of the power and sim‐ plicity of this library. Virtually any information can be extracted from any HTML (or XML) file, as long as it has an identifying tag surrounding it or near it. Chapter 2 delves more deeply into more-complex BeautifulSoup function calls, and presents regular expressions and how they can be used with BeautifulSoup in order to extract information from websites.
+Connecting Reliably and Handling Exceptions
+The web is messy. Data is poorly formatted, websites go down, and closing tags go missing. One of the most frustrating experiences in web scraping is to go to sleep with a scraper running, dreaming of all the data you’ll have in your database the next day—only to find that the scraper hit an error on some unexpected data format and stopped execution shortly after you stopped looking at the screen. In situations like these, you might be tempted to curse the name of the developer who created the web‐ site (and the oddly formatted data), but the person you should really be kicking is yourself, for not anticipating the exception in the first place! Let’s take a look at the first line of our scraper, after the import statements, and figure out how to handle any exceptions this might throw:
+html = urlopen('http://www.pythonscraping.com/pages/page1.html')
+Two main things can go wrong in this line: • The page is not found on the server (or there was an error in retrieving it). • The server is not found.
+In the first situation, an HTTP error will be returned. This HTTP error may be “404 Page Not Found,” “500 Internal Server Error,” and so forth. In all of these cases, the urlopen function will throw the generic exception HTTPError. You can handle this exception in the following way:
+from urllib.request import urlopen from urllib.error import HTTPError
+try:
+10 | Chapter 1: Your First Web Scraper
+
+html = urlopen('http://www.pythonscraping.com/pages/page1.html') except HTTPError as e:
+print(e) # return null, break, or do some other "Plan B" else: # program continues. Note: If you return or break in the # exception catch, you do not need to use the "else" statement
+If an HTTP error code is returned, the program now prints the error, and does not execute the rest of the program under the else statement. If the server is not found at all (if, say, http://www.pythonscraping.com is down, or the URL is mistyped), urlopen will throw an URLError. This indicates that no server could be reached at all, and, because the remote server is responsible for returning HTTP status codes, an HTTPError cannot be thrown, and the more serious URLError must be caught. You can add a check to see whether this is the case:
+from urllib.request import urlopen from urllib.error import HTTPError from urllib.error import URLError
+try: html = urlopen('https://pythonscrapingthisurldoesnotexist.com')
+except HTTPError as e: print(e)
+except URLError as e: print('The server could not be found!')
+else: print('It Worked!')
+Of course, if the page is retrieved successfully from the server, there is still the issue of the content on the page not quite being what you expected. Every time you access a tag in a BeautifulSoup object, it’s smart to add a check to make sure the tag actually exists. If you attempt to access a tag that does not exist, BeautifulSoup will return a None object. The problem is, attempting to access a tag on a None object itself will result in an AttributeError being thrown. The following line (where nonExistentTag is a made-up tag, not the name of a real BeautifulSoup function)
+print(bs.nonExistentTag)
+returns a None object. This object is perfectly reasonable to handle and check for. The trouble comes if you don’t check for it, but instead go on and try to call another func‐ tion on the None object, as illustrated in the following:
+print(bs.nonExistentTag.someTag)
+This returns an exception:
+AttributeError: 'NoneType' object has no attribute 'someTag'
+An Introduction to BeautifulSoup | 11
+
+So how can you guard against these two situations? The easiest way is to explicitly check for both situations:
+try: badContent = bs.nonExistingTag.anotherTag
+except AttributeError as e: print('Tag was not found')
+else: if badContent == None: print ('Tag was not found') else: print(badContent)
+This checking and handling of every error does seem laborious at first, but it’s easy to add a little reorganization to this code to make it less difficult to write (and, more important, much less difficult to read). This code, for example, is our same scraper written in a slightly different way:
+from urllib.request import urlopen from urllib.error import HTTPError from bs4 import BeautifulSoup
+def getTitle(url): try: html = urlopen(url) except HTTPError as e: return None try: bs = BeautifulSoup(html.read(), 'html.parser') title = bs.body.h1 except AttributeError as e: return None return title
+title = getTitle('http://www.pythonscraping.com/pages/page1.html') if title == None:
+print('Title could not be found') else:
+print(title)
+In this example, you’re creating a function getTitle, which returns either the title of the page, or a None object if there was a problem retrieving it. Inside getTitle, you check for an HTTPError, as in the previous example, and encapsulate two of the Beau‐ tifulSoup lines inside one try statement. An AttributeError might be thrown from either of these lines (if the server did not exist, html would be a None object, and html.read() would throw an AttributeError). You could, in fact, encompass as many lines as you want inside one try statement, or call another function entirely, which can throw an AttributeError at any point.
+12 | Chapter 1: Your First Web Scraper
+
+When writing scrapers, it’s important to think about the overall pattern of your code in order to handle exceptions and make it readable at the same time. You’ll also likely want to heavily reuse code. Having generic functions such as getSiteHTML and getTitle (complete with thorough exception handling) makes it easy to quickly— and reliably—scrape the web.
+An Introduction to BeautifulSoup | 13
+
+CHAPTER 2
+Advanced HTML Parsing
+When Michelangelo was asked how he could sculpt a work of art as masterful as his David, he is famously reported to have said, “It is easy. You just chip away the stone that doesn’t look like David.” Although web scraping is unlike marble sculpting in most other respects, you must take a similar attitude when it comes to extracting the information you’re seeking from complicated web pages. You can use many techniques to chip away the content that doesn’t look like the content that you’re searching for, until you arrive at the information you’re seeking. In this chapter, you’ll take look at parsing complicated HTML pages in order to extract only the information you’re looking for.
+You Don’t Always Need a Hammer
+It can be tempting, when faced with a Gordian knot of tags, to dive right in and use multiline statements to try to extract your information. However, keep in mind that layering the techniques used in this section with reckless abandon can lead to code that is difficult to debug, fragile, or both. Before getting started, let’s take a look at some of the ways you can avoid altogether the need for advanced HTML parsing! Let’s say you have some target content. Maybe it’s a name, statistic, or block of text. Maybe it’s buried 20 tags deep in an HTML mush with no helpful tags or HTML attributes to be found. Let’s say you decide to throw caution to the wind and write something like the following line to attempt extraction:
+bs.find_all('table')[4].find_all('tr')[2].find('td').find_all('div')[1].find('a')
+That doesn’t look so great. In addition to the aesthetics of the line, even the slightest change to the website by a site administrator might break your web scraper alto‐ gether. What if the site’s web developer decides to add another table or another col‐ umn of data? What if the developer adds another component (with a few div tags) to
+15
+
+the top of the page? The preceding line is precarious and depends on the structure of the site never changing. So what are your options?
+• Look for a “Print This Page” link, or perhaps a mobile version of the site that has better-formatted HTML (more on presenting yourself as a mobile device—and receiving mobile site versions—in Chapter 14).
+• Look for the information hidden in a JavaScript file. Remember, you might need to examine the imported JavaScript files in order to do this. For example, I once collected street addresses (along with latitude and longitude) off a website in a neatly formatted array by looking at the JavaScript for the embedded Google Map that displayed a pinpoint over each address.
+• This is more common for page titles, but the information might be available in the URL of the page itself.
+• If the information you are looking for is unique to this website for some reason, you’re out of luck. If not, try to think of other sources you could get this informa‐ tion from. Is there another website with the same data? Is this website displaying data that it scraped or aggregated from another website?
+Especially when faced with buried or poorly formatted data, it’s important not to just start digging and write yourself into a hole that you might not be able to get out of. Take a deep breath and think of alternatives. If you’re certain no alternatives exist, the rest of this chapter explains standard and creative ways of selecting tags based on their position, context, attributes, and con‐ tents. The techniques presented here, when used correctly, will go a long way toward writing more stable and reliable web crawlers.
+Another Serving of BeautifulSoup
+In Chapter 1, you took a quick look at installing and running BeautifulSoup, as well as selecting objects one at a time. In this section, we’ll discuss searching for tags by attributes, working with lists of tags, and navigating parse trees. Nearly every website you encounter contains stylesheets. Although you might think that a layer of styling on websites that is designed specifically for browser and human interpretation might be a bad thing, the advent of CSS is a boon for web scrapers. CSS relies on the differentiation of HTML elements that might otherwise have the exact same markup in order to style them differently. Some tags might look like this:
+<span class="green"></span>
+16 | Chapter 2: Advanced HTML Parsing
+
+Others look like this:
+<span class="red"></span>
+Web scrapers can easily separate these two tags based on their class; for example, they might use BeautifulSoup to grab all the red text but none of the green text. Because CSS relies on these identifying attributes to style sites appropriately, you are almost guaranteed that these class and ID attributes will be plentiful on most modern web‐ sites. Let’s create an example web scraper that scrapes the page located at http:// www.pythonscraping.com/pages/warandpeace.html. On this page, the lines spoken by characters in the story are in red, whereas the names of characters are in green. You can see the span tags, which reference the appropriate CSS classes, in the following sample of the page’s source code:
+<span class="red">Heavens! what a virulent attack!</span> replied <span class="green">the prince</span>, not in the least disconcerted by this reception.
+You can grab the entire page and create a BeautifulSoup object with it by using a program similar to the one used in Chapter 1:
+from urllib.request import urlopen from bs4 import BeautifulSoup
+html = urlopen('http://www.pythonscraping.com/pages/page1.html') bs = BeautifulSoup(html.read(), 'html.parser')
+Using this BeautifulSoup object, you can use the find_all function to extract a Python list of proper nouns found by selecting only the text within <span class="green"></span> tags (find_all is an extremely flexible function you’ll be using a lot later in this book):
+nameList = bs.findAll('span', {'class':'green'}) for name in nameList:
+print(name.get_text())
+When run, it should list all the proper nouns in the text, in the order they appear in War and Peace. So what’s going on here? Previously, you’ve called bs.tagName to get the first occurrence of that tag on the page. Now, you’re calling bs.find_all(tagName, tagAttributes) to get a list of all of the tags on the page, rather than just the first. After getting a list of names, the program iterates through all names in the list, and prints name.get_text() in order to separate the content from the tags.
+Another Serving of BeautifulSoup | 17
+
+When to get_text() and When to Preserve Tags
+.get_text() strips all tags from the document you are working with and returns a Unicode string containing the text only. For example, if you are working with a large block of text that contains many hyperlinks, paragraphs, and other tags, all those will be strip‐ ped away, and you’ll be left with a tagless block of text. Keep in mind that it’s much easier to find what you’re looking for in a BeautifulSoup object than in a block of text. Call‐ ing .get_text() should always be the last thing you do, immedi‐ ately before you print, store, or manipulate your final data. In general, you should try to preserve the tag structure of a document as long as possible.
+find() and find_all() with BeautifulSoup
+BeautifulSoup’s find() and find_all() are the two functions you will likely use the most. With them, you can easily filter HTML pages to find lists of desired tags, or a single tag, based on their various attributes. The two functions are extremely similar, as evidenced by their definitions in the BeautifulSoup documentation:
+find_all(tag, attributes, recursive, text, limit, keywords) find(tag, attributes, recursive, text, keywords)
+In all likelihood, 95% of the time you will need to use only the first two arguments: tag and attributes. However, let’s take a look at all the arguments in greater detail. The tag argument is one that you’ve seen before; you can pass a string name of a tag or even a Python list of string tag names. For example, the following returns a list of all the header tags in a document:1
+.find_all(['h1','h2','h3','h4','h5','h6'])
+The attributes argument takes a Python dictionary of attributes and matches tags that contain any one of those attributes. For example, the following function would return both the green and red span tags in the HTML document:
+.find_all('span', {'class':{'green', 'red'}})
+The recursive argument is a boolean. How deeply into the document do you want to go? If recursive is set to True, the find_all function looks into children, and child‐
+1 If you’re looking to get a list of all h<some_level> tags in the document, there are more succinct ways of writing this code to accomplish the same thing. We’ll take a look at other ways of approaching these types of problems in the section reg_expressions.
+18 | Chapter 2: Advanced HTML Parsing
+
+ren’s children, for tags that match your parameters. If it is False, it will look only at the top-level tags in your document. By default, find_all works recursively (recur sive is set to True); it’s generally a good idea to leave this as is, unless you really know what you need to do and performance is an issue. The text argument is unusual in that it matches based on the text content of the tags, rather than properties of the tags themselves. For instance, if you want to find the number of times “the prince” is surrounded by tags on the example page, you could replace your .find_all() function in the previous example with the following lines:
+nameList = bs.find_all(text='the prince') print(len(nameList))
+The output of this is 7. The limit argument, of course, is used only in the find_all method; find is equiva‐ lent to the same find_all call, with a limit of 1. You might set this if you’re interested only in retrieving the first x items from the page. Be aware, however, that this gives you the first items on the page in the order that they occur, not necessarily the first ones that you want. The keyword argument allows you to select tags that contain a particular attribute or set of attributes. For example:
+title = bs.find_all(id='title', class_='text')
+This returns the first tag with the word “text” in the class_ attribute and “title” in the id attribute. Note that, by convention, each value for an id should be used only once on the page. Therefore, in practice, a line like this may not be particularly useful, and should be equivalent to the following:
+title = bs.find(id='title')
+Keyword Arguments and “Class”
+The keyword argument can be helpful in some situations. However, it is technically redundant as a BeautifulSoup feature. Keep in mind that anything that can be done with keyword can also be accomplished using techniques covered later in this chapter (see regular_express and lambda_express). For instance, the following two lines are identical:
+bs.find_all(id='text') bs.find_all('', {'id':'text'})
+In addition, you might occasionally run into problems using keyword, most notably when searching for elements by their class attribute, because class is a protected keyword in Python. That is, class is a reserved word in Python that cannot be used as a variable or argument name (no relation to the BeautifulSoup.find_all()
+Another Serving of BeautifulSoup | 19
+
+keyword argument, previously discussed).2 For example, if you try the following call, you’ll get a syntax error due to the nonstandard use of class:
+bs.find_all(class='green')
+Instead, you can use BeautifulSoup’s somewhat clumsy solution, which involves adding an underscore:
+bs.find_all(class_='green')
+Alternatively, you can enclose class in quotes:
+bs.find_all('', {'class':'green'})
+At this point, you might be asking yourself, “But wait, don’t I already know how to get a tag with a list of attributes by passing attributes to the function in a dictionary list?” Recall that passing a list of tags to .find_all() via the attributes list acts as an “or” filter (it selects a list of all tags that have tag1, tag2, or tag3...). If you have a lengthy list of tags, you can end up with a lot of stuff you don’t want. The keyword argument allows you to add an additional “and” filter to this.
+Other BeautifulSoup Objects
+So far in the book, you’ve seen two types of objects in the BeautifulSoup library: BeautifulSoup objects
+Instances seen in previous code examples as the variable bs Tag objects
+Retrieved in lists, or retrieved individually by calling find and find_all on a BeautifulSoup object, or drilling down, as follows:
+bs.div.h1
+However, there are two more objects in the library that, although less commonly used, are still important to know about: NavigableString objects
+Used to represent text within tags, rather than the tags themselves (some func‐ tions operate on and produce NavigableStrings, rather than tag objects). Comment object Used to find HTML comments in comment tags, <!--like this one-->.
+2 The Python Language Reference provides a complete list of protected keywords.
+20 | Chapter 2: Advanced HTML Parsing
+
+These four objects are the only objects you will ever encounter in the BeautifulSoup library (at the time of this writing).
+Navigating Trees
+The find_all function is responsible for finding tags based on their name and attributes. But what if you need to find a tag based on its location in a document? That’s where tree navigation comes in handy. In Chapter 1, you looked at navigating a BeautifulSoup tree in a single direction:
+bs.tag.subTag.anotherSubTag
+Now let’s look at navigating up, across, and diagonally through HTML trees. You’ll use our highly questionable online shopping site at http://www.pythonscraping.com/ pages/page3.html, as an example page for scraping, as shown in Figure 2-1.
+Figure 2-1. Screenshot from http://www.pythonscraping.com/pages/page3.html
+Another Serving of BeautifulSoup | 21
+
+The HTML for this page, mapped out as a tree (with some tags omitted for brevity), looks like this:
+• HTML — body — div.wrapper — h1 — div.content — table#giftList — tr — th — th — th — th — tr.gift#gift1 — td — td — span.excitingNote — td — td — img — ...table rows continue... — div.footer
+You will use this same HTML structure as an example in the next few sections.
+Dealing with children and other descendants
+In computer science and some branches of mathematics, you often hear about horri‐ ble things done to children: moving them, storing them, removing them, and even killing them. Fortunately, this section focuses only on selecting them! In the BeautifulSoup library, as well as many other libraries, there is a distinction drawn between children and descendants: much like in a human family tree, children are always exactly one tag below a parent, whereas descendants can be at any level in the tree below a parent. For example, the tr tags are children of the table tag, whereas tr, th, td, img, and span are all descendants of the table tag (at least in our example page). All children are descendants, but not all descendants are children.
+22 | Chapter 2: Advanced HTML Parsing
+
+In general, BeautifulSoup functions always deal with the descendants of the current tag selected. For instance, bs.body.h1 selects the first h1 tag that is a descendant of the body tag. It will not find tags located outside the body. Similarly, bs.div.find_all('img') will find the first div tag in the document, and then retrieve a list of all img tags that are descendants of that div tag. If you want to find only descendants that are children, you can use the .children tag:
+from urllib.request import urlopen from bs4 import BeautifulSoup
+html = urlopen('http://www.pythonscraping.com/pages/page3.html') bs = BeautifulSoup(html, 'html.parser')
+for child in bs.find('table',{'id':'giftList'}).children: print(child)
+This code prints the list of product rows in the giftList table, including the initial row of column labels. If you were to write it using the descendants() function instead of the children() function, about two dozen tags would be found within the table and printed, including img tags, span tags, and individual td tags. It’s definitely important to differentiate between children and descendants!
+Dealing with siblings
+The BeautifulSoup next_siblings() function makes it trivial to collect data from tables, especially ones with title rows:
+from urllib.request import urlopen from bs4 import BeautifulSoup
+html = urlopen('http://www.pythonscraping.com/pages/page3.html') bs = BeautifulSoup(html, 'html.parser')
+for sibling in bs.find('table', {'id':'giftList'}).tr.next_siblings: print(sibling)
+The output of this code is to print all rows of products from the product table, except for the first title row. Why does the title row get skipped? Objects cannot be siblings with themselves. Anytime you get siblings of an object, the object itself will not be included in the list. As the name of the function implies, it calls next siblings only. If you were to select a row in the middle of the list, for example, and call next_siblings on it, only the subsequent siblings would be returned. So, by selecting the title row and calling next_siblings, you can select all the rows in the table, without selecting the title row itself.
+Another Serving of BeautifulSoup | 23
+
+Make Selections Specific
+The preceding code will work just as well, if you select bs.table.tr or even just bs.tr in order to select the first row of the table. However, in the code, I go through all of the trouble of writing everything out in a longer form:
+bs.find('table',{'id':'giftList'}).tr
+Even if it looks like there’s just one table (or other target tag) on the page, it’s easy to miss things. In addition, page layouts change all the time. What was once the first of its kind on the page might someday be the second or third tag of that type found on the page. To make your scrapers more robust, it’s best to be as specific as pos‐ sible when making tag selections. Take advantage of tag attributes when they are available.
+As a complement to next_siblings, the previous_siblings function can often be helpful if there is an easily selectable tag at the end of a list of sibling tags that you would like to get. And, of course, there are the next_sibling and previous_sibling functions, which perform nearly the same function as next_siblings and previous_siblings, except they return a single tag rather than a list of them.
+Dealing with parents
+When scraping pages, you will likely discover that you need to find parents of tags less frequently than you need to find their children or siblings. Typically, when you look at HTML pages with the goal of crawling them, you start by looking at the top layer of tags, and then figure out how to drill your way down into the exact piece of data that you want. Occasionally, however, you can find yourself in odd situations that require BeautifulSoup’s parent-finding functions, .parent and .parents. For example:
+from urllib.request import urlopen from bs4 import BeautifulSoup
+html = urlopen('http://www.pythonscraping.com/pages/page3.html') bs = BeautifulSoup(html, 'html.parser') print(bs.find('img',
+{'src':'../img/gifts/img1.jpg'}) .parent.previous_sibling.get_text())
+This code will print the price of the object represented by the image at the loca‐ tion ../img/gifts/img1.jpg (in this case, the price is $15.00). How does this work? The following diagram represents the tree structure of the por‐ tion of the HTML page you are working with, with numbered steps:
+24 | Chapter 2: Advanced HTML Parsing
+
+• <tr> — td — td — td — "$15.00" — td — <img src="../img/gifts/img1.jpg"> The image tag where src="../img/gifts/img1.jpg" is first selected. You select the parent of that tag (in this case, the td tag). You select the previous_sibling of the td tag (in this case, the td tag that con‐ tains the dollar value of the product). You select the text within that tag, “$15.00.”
+Regular Expressions
+As the old computer science joke goes: “Let’s say you have a problem, and you decide to solve it with regular expressions. Well, now you have two problems.” Unfortunately, regular expressions (often shortened to regex) are often taught using large tables of random symbols, strung together to look like a lot of nonsense. This tends to drive people away, and later they get out into the workforce and write need‐ lessly complicated searching and filtering functions, when all they needed was a oneline regular expression in the first place! Fortunately for you, regular expressions are not all that difficult to get up and run‐ ning with quickly, and can easily be learned by looking at and experimenting with a few simple examples. Regular expressions are so called because they are used to identify regular strings; they can definitively say, “Yes, this string you’ve given me follows the rules, and I’ll return it,” or “This string does not follow the rules, and I’ll discard it.” This can be exception‐ ally handy for quickly scanning large documents to look for strings that look like phone numbers or email addresses.
+Regular Expressions | 25
+
+Notice that I used the phrase regular string. What is a regular string? It’s any string that can be generated by a series of linear rules,3 such as these:
+1. Write the letter a at least once. 2. Append to this the letter b exactly five times. 3. Append to this the letter c any even number of times. 4. Write either the letter d or e at the end. Strings that follow these rules are aaaabbbbbccccd, aabbbbbcce, and so on (there are an infinite number of variations). Regular expressions are merely a shorthand way of expressing these sets of rules. For instance, here’s the regular expression for the series of steps just described:
+aa*bbbbb(cc)*(d|e)
+This string might seem a little daunting at first, but it becomes clearer when you break it into its components: aa*
+The letter a is written, followed by a* (read as a star), which means “any number of as, including 0 of them.” In this way, you can guarantee that the letter a is writ‐ ten at least once. bbbbb No special effects here—just five bs in a row. (cc)* Any even number of things can be grouped into pairs, so in order to enforce this rule about even things, you can write two cs, surround them in parentheses, and write an asterisk after it, meaning that you can have any number of pairs of cs (note that this can mean 0 pairs, as well). (d|e) Adding a bar in the middle of two expressions means that it can be “this thing or that thing.” In this case, you are saying “add a d or an e.” In this way, you can guarantee that there is exactly one of either of these two characters.
+3 You might be asking yourself, “Are there ‘irregular’ expressions?” Nonregular expressions are beyond the scope of this book, but they encompass strings such as “write a prime number of as, followed by exactly twice that number of bs” or “write a palindrome.” It’s impossible to identify strings of this type with a regular expression. Fortunately, I’ve never been in a situation where my web scraper needed to identify these kinds of strings.
+26 | Chapter 2: Advanced HTML Parsing
+
+Experimenting with RegEx
+When learning how to write regular expressions, it’s critical to play around with them and get a feel for how they work. If you don’t feel like firing up a code editor, writing a few lines, and running your program in order to see whether a regular expression works as expected, you can go to a website such as Regex Pal and test your regular expressions on the fly.
+
+Table 2-1 lists commonly used regular expression symbols, with brief explanations and examples. This list is by no means complete, and as mentioned before, you might encounter slight variations from language to language. However, these 12 symbols are the most commonly used regular expressions in Python, and can be used to find and collect almost any string type.
+
+Table 2-1. Commonly used regular expression symbols
+
+Symbol(s) Meaning
+
+Example
+
+*
+
+Matches the preceding character, subexpression, or bracketed character, 0 a*b*
+
+or more times.
+
++
+
+Matches the preceding character, subexpression, or bracketed character, 1 a+b+
+
+or more times.
+
+[]
+
+Matches any character within the brackets (i.e., “Pick any one of these [A-Z]*
+
+things”).
+
+()
+
+A grouped subexpression (these are evaluated first, in the “order of
+
+(a*b)*
+
+operations” of regular expressions).
+
+{m, n} Matches the preceding character, subexpression, or bracketed character a{2,3}b{2,3} between m and n times (inclusive).
+
+[^]
+
+Matches any single character that is not in the brackets.
+
+[^A-Z]*
+
+|
+
+Matches any character, string of characters, or subexpression, separated b(a|i|e)d
+
+by the I (note that this is a vertical bar, or pipe, not a capital i).
+
+.
+
+Matches any single character (including symbols, numbers, a space, etc.). b.d
+
+^
+
+Indicates that a character or subexpression occurs at the beginning of a ^a
+
+string.
+
+\
+
+An escape character (this allows you to use special characters as their \. \| \\
+
+literal meanings).
+
+$
+
+Often used at the end of a regular expression, it means “match this up to [A-Z]*[a-z]*$
+
+the end of the string.” Without it, every regular expression has a de facto
+
+“.*” at the end of it, accepting strings where only the first part of the
+
+string matches. This can be thought of as analogous to the ^ symbol.
+
+Example matches aaaaaaaa, aaabbbbb, bbbbbb aaaaaaaab, aaabbbbb, abbbbbb APPLE, CAPITALS, QWERTY aaabaab, abaaab, ababaaaaab aabbb, aaabbb, aabb apple, lowercase, qwerty bad, bid, bed
+bad, bzd, b$d, b d apple, asdf, a
+. | \
+ABCabc, zzzyx, Bob
+
+Regular Expressions | 27
+
+Symbol(s) ?!
+
+Meaning
+“Does not contain.” This odd pairing of symbols, immediately preceding a character (or regular expression), indicates that that character should not be found in that specific place in the larger string. This can be tricky to use; after all, the character might be found in a different part of the string. If trying to eliminate a character entirely, use in conjunction with a ^ and $ at either end.
+
+Example ^((?![A-Z]).)*$
+
+Example matches
+no-caps-here, $ymb0ls a4e f!ne
+
+One classic example of regular expressions can be found in the practice of identifying email addresses. Although the exact rules governing email addresses vary slightly from mail server to mail server, we can create a few general rules. The corresponding regular expression for each of these rules is shown in the second column:
+
+Rule 1
+
+[A-Za-z0-9\._+]+
+
+The first part of an email address
+
+The regular expression shorthand is pretty smart. For
+
+contains at least one of the
+
+example, it knows that “A-Z” means “any uppercase letter,
+
+following: uppercase letters,
+
+A through Z.” By putting all these possible sequences and
+
+lowercase letters, the numbers 0–9, symbols in brackets (as opposed to parentheses), you are
+
+periods (.), plus signs (+), or
+
+saying, “This symbol can be any one of these things we’ve
+
+underscores (_).
+
+listed in the brackets.” Note also that the + sign means
+
+“these characters can occur as many times as they want to,
+
+but must occur at least once.”
+
+Rule 2 After this, the email address contains the @ symbol.
+
+@ This is fairly straightforward: the @ symbol must occur in the middle, and it must occur exactly once.
+
+Rule 3 The email address then must contain at least one uppercase or lowercase letter.
+
+[A-Za-z]+ You may use only letters in the first part of the domain name, after the @ symbol. Also, there must be at least one character.
+
+Rule 4 This is followed by a period (.).
+
+\. You must include a period (.) before the domain name. The backspace is used here as an escape character.
+
+28 | Chapter 2: Advanced HTML Parsing
+
+Rule 5
+
+(com|org|edu|net)
+
+Finally, the email address ends with
+
+This lists the possible sequences of letters that can occur
+
+com, org, edu, or net (in reality,
+
+after the period in the second part of an email address.
+
+there are many possible top-level
+
+domains, but these four should
+
+suffice for the sake of example).
+
+By concatenating all of the rules, you arrive at this regular expression:
+[A-Za-z0-9\._+]+@[A-Za-z]+\.(com|org|edu|net)
+When attempting to write any regular expression from scratch, it’s best to first make a list of steps that concretely outlines what your target string looks like. Pay attention to edge cases. For instance, if you’re identifying phone numbers, are you considering country codes and extensions?
+Regular Expressions: Not Always Regular!
+The standard version of regular expressions (the one covered in this book and used by Python and BeautifulSoup) is based on syn‐ tax used by Perl. Most modern programming languages use this or one similar to it. Be aware, however, that if you are using regular expressions in another language, you might encounter problems. Even some modern languages, such as Java, have slight differences in the way they handle regular expressions. When in doubt, read the docs!
+Regular Expressions and BeautifulSoup
+If the previous section on regular expressions seemed a little disjointed from the mis‐ sion of this book, here’s where it all ties together. BeautifulSoup and regular expres‐ sions go hand in hand when it comes to scraping the web. In fact, most functions that take in a string argument (e.g., find(id="aTagIdHere")) will also take in a regular expression just as well. Let’s take a look at some examples, scraping the page found at http://www.python‐ scraping.com/pages/page3.html. Notice that the site has many product images, which take the following form:
+<img src="../img/gifts/img3.jpg">
+If you wanted to grab URLs to all of the product images, it might seem fairly straight‐ forward at first: just grab all the image tags by using .find_all("img"), right? But there’s a problem. In addition to the obvious “extra” images (e.g., logos), modern web‐
+
+Regular Expressions and BeautifulSoup | 29
+
+sites often have hidden images, blank images used for spacing and aligning elements, and other random image tags you might not be aware of. Certainly, you can’t count on the only images on the page being product images. Let’s also assume that the layout of the page might change, or that, for whatever rea‐ son, you don’t want to depend on the position of the image in the page in order to find the correct tag. This might be the case when you are trying to grab specific ele‐ ments or pieces of data that are scattered randomly throughout a website. For instance, a featured product image might appear in a special layout at the top of some pages, but not others. The solution is to look for something identifying about the tag itself. In this case, you can look at the file path of the product images:
+from urllib.request import urlopen from bs4 import BeautifulSoup import re
+html = urlopen('http://www.pythonscraping.com/pages/page3.html') bs = BeautifulSoup(html, 'html.parser') images = bs.find_all('img',
+{'src':re.compile('\.\.\/img\/gifts/img.*\.jpg')}) for image in images:
+print(image['src'])
+This prints only the relative image paths that start with ../img/gifts/img and end in .jpg, the output of which is the following:
+../img/gifts/img1.jpg ../img/gifts/img2.jpg ../img/gifts/img3.jpg ../img/gifts/img4.jpg ../img/gifts/img6.jpg
+A regular expression can be inserted as any argument in a BeautifulSoup expression, allowing you a great deal of flexibility in finding target elements.
+Accessing Attributes
+So far, you’ve looked at how to access and filter tags and access content within them. However, often in web scraping you’re not looking for the content of a tag; you’re looking for its attributes. This becomes especially useful for tags such as a, where the URL it is pointing to is contained within the href attribute; or the img tag, where the target image is contained within the src attribute. With tag objects, a Python list of attributes can be automatically accessed by calling this:
+myTag.attrs
+30 | Chapter 2: Advanced HTML Parsing
+
+Keep in mind that this literally returns a Python dictionary object, which makes retrieval and manipulation of these attributes trivial. The source location for an image, for example, can be found using the following line:
+myImgTag.attrs['src']
+Lambda Expressions
+If you have a formal education in computer science, you probably learned about lambda expressions once in school and then never used them again. If you don’t, they might be unfamiliar to you (or familiar only as “that thing I’ve been meaning to learn at some point”). This section doesn’t go deeply into these types of functions, but does show how they can be useful in web scraping. Essentially, a lambda expression is a function that is passed into another function as a variable; instead of defining a function as f(x, y), you may define a function as f(g(x), y) or even f(g(x), h(x)). BeautifulSoup allows you to pass certain types of functions as parameters into the find_all function. The only restriction is that these functions must take a tag object as an argument and return a boolean. Every tag object that BeautifulSoup encounters is evaluated in this function, and tags that evaluate to True are returned, while the rest are discarded. For example, the following retrieves all tags that have exactly two attributes:
+bs.find_all(lambda tag: len(tag.attrs) == 2)
+Here, the function that you are passing as the argument is len(tag.attrs) == 2. Where this is True, the find_all function will return the tag. That is, it will find tags with two attributes, such as the following:
+<div class="body" id="content"></div> <span style="color:red" class="title"></span>
+Lambda functions are so useful you can even use them to replace existing Beauti‐ fulSoup functions:
+bs.find_all(lambda tag: tag.get_text() == 'Or maybe he\'s only resting?')
+This can also be accomplished without a lambda function:
+bs.find_all('', text='Or maybe he\'s only resting?')
+However, if you remember the syntax for the lambda function, and how to access tag properties, you may never need to remember any other BeautifulSoup syntax again!
+Lambda Expressions | 31
+
+Because the provided lambda function can be any function that returns a True or False value, you can even combine them with regular expressions to find tags with an attribute matching a certain string pattern.
+32 | Chapter 2: Advanced HTML Parsing
+
+CHAPTER 3
+Writing Web Crawlers
+So far, you’ve seen single static pages with somewhat artificial canned examples. In this chapter, you’ll start looking at real-world problems, with scrapers traversing mul‐ tiple pages and even multiple sites. Web crawlers are called such because they crawl across the web. At their core is an element of recursion. They must retrieve page contents for a URL, examine that page for another URL, and retrieve that page, ad infinitum. Beware, however: just because you can crawl the web doesn’t mean that you always should. The scrapers used in previous examples work great in situations where all the data you need is on a single page. With web crawlers, you must be extremely consci‐ entious of how much bandwidth you are using and make every effort to determine whether there’s a way to make the target server’s load easier.
+Traversing a Single Domain
+Even if you haven’t heard of Six Degrees of Wikipedia, you’ve almost certainly heard of its namesake, Six Degrees of Kevin Bacon. In both games, the goal is to link two unlikely subjects (in the first case, Wikipedia articles that link to each other, and in the second case, actors appearing in the same film) by a chain containing no more than six total (including the two original subjects). For example, Eric Idle appeared in Dudley Do-Right with Brendan Fraser, who appeared in The Air I Breathe with Kevin Bacon.1 In this case, the chain from Eric Idle to Kevin Bacon is only three subjects long.
+1 Thanks to The Oracle of Bacon for satisfying my curiosity about this particular chain. 33
+
+In this section, you’ll begin a project that will become a Six Degrees of Wikipedia sol‐ ution finder: You’ll be able to take the Eric Idle page and find the fewest number of link clicks that will take you to the Kevin Bacon page.
+But What About Wikipedia’s Server Load?
+According to the Wikimedia Foundation (the parent organization behind Wikipedia), the site’s web properties receive approximately 2,500 hits per second, with more than 99% of them to the Wikipedia domain (see the “Traffic Volume” section of the “Wiki‐ media in Figures” page). Because of the sheer volume of traffic, your web scrapers are unlikely to have any noticeable impact on Wikipedia’s server load. However, if you run the code samples in this book extensively, or create your own projects that scrape Wikipedia, I encourage you to make a tax-deductible donation to the Wikimedia Foundation—not just to offset your server load, but also to help make education resources available for everyone else. Also keep in mind that if you plan on doing a large project involving data from Wiki‐ pedia, you should check to make sure that data isn’t already available from the Wiki‐ pedia API. Wikipedia is often used as a website to demonstrate scrapers and crawlers because it has a simple HTML structure and is relatively stable. However, its APIs often make this same data more efficiently accessible.
+You should already know how to write a Python script that retrieves an arbitrary Wikipedia page and produces a list of links on that page:
+from urllib.request import urlopen from bs4 import BeautifulSoup
+html = urlopen('http://en.wikipedia.org/wiki/Kevin_Bacon') bs = BeautifulSoup(html, 'html.parser') for link in bs.find_all('a'):
+if 'href' in link.attrs: print(link.attrs['href'])
+If you look at the list of links produced, you’ll notice that all the articles you’d expect are there: “Apollo 13,” “Philadelphia,” “Primetime Emmy Award,” and so on. However, there are some things that you don’t want as well:
+//wikimediafoundation.org/wiki/Privacy_policy //en.wikipedia.org/wiki/Wikipedia:Contact_us
+In fact, Wikipedia is full of sidebar, footer, and header links that appear on every page, along with links to the category pages, talk pages, and other pages that do not contain different articles:
+/wiki/Category:Articles_with_unsourced_statements_from_April_2014 /wiki/Talk:Kevin_Bacon
+34 | Chapter 3: Writing Web Crawlers
+
+Recently a friend of mine, while working on a similar Wikipedia-scraping project, mentioned he had written a large filtering function, with more than 100 lines of code, in order to determine whether an internal Wikipedia link was an article page. Unfortunately, he had not spent much time upfront trying to find patterns between “article links” and “other links,” or he might have discovered the trick. If you examine the links that point to article pages (as opposed to other internal pages), you’ll see that they all have three things in common:
+• They reside within the div with the id set to bodyContent. • The URLs do not contain colons. • The URLs begin with /wiki/.
+You can use these rules to revise the code slightly to retrieve only the desired article links by using the regular expression ^(/wiki/)((?!:).)*$"):
+from urllib.request import urlopen from bs4 import BeautifulSoup import re
+html = urlopen('http://en.wikipedia.org/wiki/Kevin_Bacon') bs = BeautifulSoup(html, 'html.parser') for link in bs.find('div', {'id':'bodyContent'}).find_all(
+'a', href=re.compile('^(/wiki/)((?!:).)*$')): if 'href' in link.attrs:
+print(link.attrs['href'])
+If you run this, you should see a list of all article URLs that the Wikipedia article on Kevin Bacon links to. Of course, having a script that finds all article links in one, hardcoded Wikipedia arti‐ cle, while interesting, is fairly useless in practice. You need to be able to take this code and transform it into something more like the following:
+• A single function, getLinks, that takes in a Wikipedia article URL of the form /wiki/<Article_Name> and returns a list of all linked article URLs in the same form.
+• A main function that calls getLinks with a starting article, chooses a random article link from the returned list, and calls getLinks again, until you stop the program or until no article links are found on the new page.
+Here is the complete code that accomplishes this:
+from urllib.request import urlopen from bs4 import BeautifulSoup import datetime import random import re
+Traversing a Single Domain | 35
+
+random.seed(datetime.datetime.now()) def getLinks(articleUrl):
+html = urlopen('http://en.wikipedia.org{}'.format(articleUrl)) bs = BeautifulSoup(html, 'html.parser') return bs.find('div', {'id':'bodyContent'}).find_all('a',
+href=re.compile('^(/wiki/)((?!:).)*$'))
+links = getLinks('/wiki/Kevin_Bacon') while len(links) > 0:
+newArticle = links[random.randint(0, len(links)-1)].attrs['href'] print(newArticle) links = getLinks(newArticle)
+The first thing the program does, after importing the needed libraries, is set the random-number generator seed with the current system time. This practically ensures a new and interesting random path through Wikipedia articles every time the program is run.
+Pseudorandom Numbers and Random Seeds
+The previous example used Python’s random-number generator to select an article at random on each page in order to continue a random traversal of Wikipedia. However, random numbers should be used with caution. Although computers are great at calculating correct answers, they’re terrible at mak‐ ing things up. For this reason, random numbers can be a challenge. Most randomnumber algorithms strive to produce an evenly distributed and hard-to-predict sequence of numbers, but a “seed” number is needed to give these algorithms some‐ thing to work with initially. The exact same seed will produce the exact same sequence of “random” numbers every time, so for this reason I’ve used the system clock as a starter for producing new sequences of random numbers, and, thus, new sequences of random articles. This makes the program a little more exciting to run. For the curious, the Python pseudorandom number generator is powered by the Mersenne Twister algorithm. While it produces random numbers that are difficult to predict and uniformly distributed, it is slightly processor intensive. Random numbers this good don’t come cheap!
+Next, the program defines the getLinks function, which takes in an article URL of the form /wiki/..., prepends the Wikipedia domain name, http://en.wikipe dia.org, and retrieves the BeautifulSoup object for the HTML at that domain. It then extracts a list of article link tags, based on the parameters discussed previously, and returns them. The main body of the program begins with setting a list of article link tags (the links variable) to the list of links in the initial page: https://en.wikipedia.org/wiki/
+36 | Chapter 3: Writing Web Crawlers
+
+Kevin_Bacon. It then goes into a loop, finding a random article link tag in the page, extracting the href attribute from it, printing the page, and getting a new list of links from the extracted URL. Of course, there’s a bit more to solving a Six Degrees of Wikipedia problem than building a scraper that goes from page to page. You must also be able to store and analyze the resulting data. For a continuation of the solution to this problem, see Chapter 6.
+Handle Your Exceptions!
+Although these code examples omit most exception handling for the sake of brevity, be aware that many potential pitfalls could arise. What if Wikipedia changes the name of the bodyContent tag, for example? When the program attempts to extract the text from the tag, it throws an AttributeError. So although these scripts might be fine to run as closely watched examples, autonomous production code requires far more excep‐ tion handling than can fit into this book. Look back to Chapter 1 for more information about this.
+Crawling an Entire Site
+In the previous section, you took a random walk through a website, going from link to link. But what if you need to systematically catalog or search every page on a site? Crawling an entire site, especially a large one, is a memory-intensive process that is best suited to applications for which a database to store crawling results is readily available. However, you can explore the behavior of these types of applications without running them full-scale. To learn more about running these applications by using a database, see Chapter 6.
+The Dark and Deep Webs
+You’ve likely heard the terms deep web, dark web, or hidden web being thrown around a lot, especially in the media lately. What do they mean? The deep web is any part of the web that’s not part of the surface web.2 The surface is part of the internet that is indexed by search engines. Estimates vary widely, but the deep web almost certainly makes up about 90% of the internet. Because Google can’t do things like submit forms, find pages that haven’t been linked to by a top-level
+
+2 See “Exploring a ‘Deep Web’ that Google Can’t Grasp” by Alex Wright.
+
+Crawling an Entire Site | 37
+
+domain, or investigate sites where robots.txt prohibits it, the surface web stays rela‐ tively small. The dark web, also known as the darknet, is another beast entirely.3 It is run over the existing network hardware infrastructure but uses Tor, or another client, with an application protocol that runs on top of HTTP, providing a secure channel to exchange information. Although it is possible to scrape the dark web, just as you’d scrape any other website, doing so is outside the scope of this book. Unlike the dark web, the deep web is relatively easy to scrape. Many tools in this book will teach you how to crawl and scrape information from many places that Google bots can’t go.
+When might crawling an entire website be useful, and when might it be harmful? Web scrapers that traverse an entire site are good for many things, including the fol‐ lowing: Generating a site map
+A few years ago, I was faced with a problem: an important client wanted an esti‐ mate for a website redesign, but did not want to provide my company with access to the internals of their current content management system, and did not have a publicly available site map. I was able to use a crawler to cover the entire site, gather all internal links, and organize the pages into the actual folder structure used on the site. This allowed me to quickly find sections of the site I wasn’t even aware existed, and accurately count how many page designs would be required and how much content would need to be migrated. Gathering data Another client of mine wanted to gather articles (stories, blog posts, news arti‐ cles, etc.) in order to create a working prototype of a specialized search platform. Although these website crawls didn’t need to be exhaustive, they did need to be fairly expansive (we were interested in getting data from only a few sites). I was able to create crawlers that recursively traversed each site and collected only data found on article pages. The general approach to an exhaustive site crawl is to start with a top-level page (such as the home page), and search for a list of all internal links on that page. Every one of those links is then crawled, and additional lists of links are found on each one of them, triggering another round of crawling. Clearly, this is a situation that can blow up quickly. If every page has 10 internal links, and a website is 5 pages deep (a fairly typical depth for a medium-size website), then
+3 See “Hacker Lexicon: What is the Dark Web?” by Andy Greenberg.
+38 | Chapter 3: Writing Web Crawlers
+
+the number of pages you need to crawl is 105, or 100,000 pages, before you can be sure that you’ve exhaustively covered the website. Strangely enough, although “5 pages deep and 10 internal links per page” are fairly typical dimensions for a website, very few websites have 100,000 or more pages. The reason, of course, is that the vast majority of internal links are duplicates. To avoid crawling the same page twice, it is extremely important that all internal links discovered are formatted consistently, and kept in a running set for easy lookups, while the program is running. A set is similar to a list, but elements do not have a specific order, and only unique elements will be stored, which is ideal for our needs. Only links that are “new” should be crawled and searched for additional links:
+from urllib.request import urlopen from bs4 import BeautifulSoup import re
+pages = set() def getLinks(pageUrl):
+global pages html = urlopen('http://en.wikipedia.org{}'.format(pageUrl)) bs = BeautifulSoup(html, 'html.parser') for link in bs.find_all('a', href=re.compile('^(/wiki/)')):
+if 'href' in link.attrs: if link.attrs['href'] not in pages: #We have encountered a new page newPage = link.attrs['href'] print(newPage) pages.add(newPage) getLinks(newPage)
+getLinks('')
+To show you the full effect of how this web crawling business works, I’ve relaxed the standards of what constitutes an internal link (from previous examples). Rather than limit the scraper to article pages, it looks for all links that begin with /wiki/, regardless of where they are on the page, and regardless of whether they contain colons. Remember: article pages do not contain colons, but file-upload pages, talk pages, and the like do contain colons in the URL. Initially, getLinks is called with an empty URL. This is translated as “the front page of Wikipedia” as soon as the empty URL is prepended with http://en.wikipe dia.org inside the function. Then, each link on the first page is iterated through and a check is made to see whether it is in the global set of pages (a set of pages that the script has encountered already). If not, it is added to the list, printed to the screen, and the getLinks function is called recursively on it.
+Crawling an Entire Site | 39
+
+A Warning Regarding Recursion
+This is a warning rarely seen in software books, but I thought you should be aware: if left running long enough, the preceding pro‐ gram will almost certainly crash. Python has a default recursion limit (the number of times a pro‐ gram can recursively call itself) of 1,000. Because Wikipedia’s net‐ work of links is extremely large, this program will eventually hit that recursion limit and stop, unless you put in a recursion counter or something to prevent that from happening. For “flat” sites that are fewer than 1,000 links deep, this method usually works well, with a few unusual exceptions. For instance, I once encountered a bug in a dynamically generated URL that depended on the address of the current page to write the link on that page. This resulted in infinitely repeating paths like /blogs/ blogs.../blogs/blog-post.php. For the most part, however, this recursive technique should be fine for any typical website you’re likely to encounter.
+Collecting Data Across an Entire Site
+Web crawlers would be fairly boring if all they did was hop from one page to the other. To make them useful, you need to be able to do something on the page while you’re there. Let’s look at how to build a scraper that collects the title, the first para‐ graph of content, and the link to edit the page (if available). As always, the first step to determine how best to do this is to look at a few pages from the site and determine a pattern. By looking at a handful of Wikipedia pages (both articles and nonarticle pages such as the privacy policy page), the following things should be clear:
+• All titles (on all pages, regardless of their status as an article page, an edit history page, or any other page) have titles under h1 → span tags, and these are the only h1 tags on the page.
+• As mentioned before, all body text lives under the div#bodyContent tag. How‐ ever, if you want to get more specific and access just the first paragraph of text, you might be better off using div#mw-content-text → p (selecting the first para‐ graph tag only). This is true for all content pages except file pages (for example, https://en.wikipedia.org/wiki/File:Orbit_of_274301_Wikipedia.svg), which do not have sections of content text.
+40 | Chapter 3: Writing Web Crawlers
+
+• Edit links occur only on article pages. If they occur, they will be found in the li#ca-edit tag, under li#ca-edit → span → a.
+By modifying our basic crawling code, you can create a combination crawler/datagathering (or, at least, data-printing) program:
+from urllib.request import urlopen from bs4 import BeautifulSoup import re
+pages = set() def getLinks(pageUrl):
+global pages html = urlopen('http://en.wikipedia.org{}'.format(pageUrl)) bs = BeautifulSoup(html, 'html.parser') try:
+print(bs.h1.get_text()) print(bs.find(id ='mw-content-text').find_all('p')[0]) print(bs.find(id='ca-edit').find('span')
+.find('a').attrs['href']) except AttributeError:
+print('This page is missing something! Continuing.')
+for link in bs.find_all('a', href=re.compile('^(/wiki/)')): if 'href' in link.attrs: if link.attrs['href'] not in pages: #We have encountered a new page newPage = link.attrs['href'] print('-'*20) print(newPage) pages.add(newPage) getLinks(newPage)
+getLinks('')
+The for loop in this program is essentially the same as it was in the original crawling program (with the addition of printed dashes for clarity, separating the printed con‐ tent). Because you can never be entirely sure that all the data is on each page, each print statement is arranged in the order that it is likeliest to appear on the site. That is, the h1 title tag appears on every page (as far as I can tell, at any rate) so you attempt to get that data first. The text content appears on most pages (except for file pages), so that is the second piece of data retrieved. The Edit button appears only on pages in which both titles and text content already exist, but it does not appear on all of those pages.
+Crawling an Entire Site | 41
+
+Different Patterns for Different Needs
+Obviously, some dangers are involved with wrapping multiple lines in an exception handler. You cannot tell which line threw the exception, for one thing. Also, if for some reason a page contains an Edit button but no title, the Edit button would never be logged. However, it suffices for many instances in which there is an order of likeliness of items appearing on the site, and inadvertently miss‐ ing a few data points or keeping detailed logs is not a problem.
+You might notice that in this and all the previous examples, you haven’t been “collect‐ ing” data so much as “printing” it. Obviously, data in your terminal is hard to manip‐ ulate. You’ll look more at storing information and creating databases in Chapter 5.
+Handling Redirects
+Redirects allow a web server to point one domain name or URL to a piece of content at a different location. There are two types of redirects:
+• Server-side redirects, where the URL is changed before the page is loaded • Client-side redirects, sometimes seen with a “You will be redirected in 10 sec‐
+onds” type of message, where the page loads before redirecting to the new one With server-side redirects, you usually don’t have to worry. If you’re using the urllib library with Python 3.x, it handles redirects automatically! If you’re using the requests library, make sure to set the allow-redirects flag to True:
+r = requests.get('http://github.com', allow_redirects=True) Just be aware that, occasionally, the URL of the page you’re crawling might not be exactly the URL that you entered the page on. For more information on client-side redirects, which are performed using JavaScript or HTML, see Chapter 12.
+Crawling Across the Internet
+Whenever I give a talk on web scraping, someone inevitably asks, “How do you build Google?” My answer is always twofold: “First, you get many billions of dollars so that you can buy the world’s largest data warehouses and place them in hidden locations all around the world. Second, you build a web crawler.” When Google started in 1996, it was just two Stanford graduate students with an old server and a Python web crawler. Now that you know how to scrape the web, you offi‐ cially have the tools you need to become the next tech multibillionaire!
+42 | Chapter 3: Writing Web Crawlers
+
+In all seriousness, web crawlers are at the heart of what drives many modern web technologies, and you don’t necessarily need a large data warehouse to use them. To do any cross-domain data analysis, you do need to build crawlers that can interpret and store data across the myriad of pages on the internet. Just as in the previous example, the web crawlers you are going to build will follow links from page to page, building out a map of the web. But this time, they will not ignore external links; they will follow them.
+Unknown Waters Ahead
+Keep in mind that the code from the next section can go any‐ where on the internet. If we’ve learned anything from Six Degrees of Wikipedia, it’s that it’s entirely possible to go from a site such as http://www.sesamestreet.org/ to something less savory in just a few hops. Kids, ask your parents before running this code. For those with sensitive constitutions or with religious restrictions that might pro‐ hibit seeing text from a prurient site, follow along by reading the code examples but be careful when running them.
+Before you start writing a crawler that follows all outbound links willy-nilly, you should ask yourself a few questions:
+• What data am I trying to gather? Can this be accomplished by scraping just a few predefined websites (almost always the easier option), or does my crawler need to be able to discover new websites I might not know about?
+• When my crawler reaches a particular website, will it immediately follow the next outbound link to a new website, or will it stick around for a while and drill down into the current website?
+• Are there any conditions under which I would not want to scrape a particular site? Am I interested in non-English content?
+• How am I protecting myself against legal action if my web crawler catches the attention of a webmaster on one of the sites it runs across? (Check out Chap‐ ter 18 for more information on this subject.)
+A flexible set of Python functions that can be combined to perform a variety of types of web scraping can be easily written in fewer than 60 lines of code:
+from urllib.request import urlopen from urllib.parse import urlparse from bs4 import BeautifulSoup import re import datetime import random
+Crawling Across the Internet | 43
+
+pages = set() random.seed(datetime.datetime.now())
+#Retrieves a list of all Internal links found on a page def getInternalLinks(bs, includeUrl):
+includeUrl = '{}://{}'.format(urlparse(includeUrl).scheme, urlparse(includeUrl).netloc)
+internalLinks = [] #Finds all links that begin with a "/" for link in bs.find_all('a',
+href=re.compile('^(/|.*'+includeUrl+')')): if link.attrs['href'] is not None:
+if link.attrs['href'] not in internalLinks: if(link.attrs['href'].startswith('/')): internalLinks.append( includeUrl+link.attrs['href']) else: internalLinks.append(link.attrs['href'])
+return internalLinks
+#Retrieves a list of all external links found on a page def getExternalLinks(bs, excludeUrl):
+externalLinks = [] #Finds all links that start with "http" that do #not contain the current URL for link in bs.find_all('a',
+href=re.compile('^(http|www)((?!'+excludeUrl+').)*$')): if link.attrs['href'] is not None:
+if link.attrs['href'] not in externalLinks: externalLinks.append(link.attrs['href'])
+return externalLinks
+def getRandomExternalLink(startingPage): html = urlopen(startingPage) bs = BeautifulSoup(html, 'html.parser') externalLinks = getExternalLinks(bs, urlparse(startingPage).netloc) if len(externalLinks) == 0: print('No external links, looking around the site for one') domain = '{}://{}'.format(urlparse(startingPage).scheme, urlparse(startingPage).netloc) internalLinks = getInternalLinks(bs, domain) return getRandomExternalLink(internalLinks[random.randint(0, len(internalLinks)-1)]) else: return externalLinks[random.randint(0, len(externalLinks)-1)]
+def followExternalOnly(startingSite): externalLink = getRandomExternalLink(startingSite) print('Random external link is: {}'.format(externalLink)) followExternalOnly(externalLink)
+44 | Chapter 3: Writing Web Crawlers
+
+followExternalOnly('http://oreilly.com')
+The preceding program starts at http://oreilly.com and randomly hops from external link to external link. Here’s an example of the output it produces:
+http://igniteshow.com/ http://feeds.feedburner.com/oreilly/news http://hire.jobvite.com/CompanyJobs/Careers.aspx?c=q319 http://makerfaire.com/
+External links are not always guaranteed to be found on the first page of a website. To find external links in this case, a method similar to the one used in the previous crawling example is employed to recursively drill down into a website until it finds an external link. Figure 3-1 illustrates the operation as a flowchart.
+Figure 3-1. Flowchart for our script that crawls through sites on the internet Don’t Put Example Programs into Production I keep bringing this up, but for the sake of space and readability, the example programs in this book do not always contain the nec‐ essary checks and exception handling required for productionready code. For example, if an external link is not found anywhere on a site that this crawler encounters (unlikely, but it’s bound to happen at some point if you run it for long enough), this program will keep running until it hits Python’s recursion limit. One easy way to increase the robustness of this crawler would be to combine it with the connection exception-handling code in Chap‐ ter 1. This would allow the code to choose a different URL to go to if an HTTP error or server exception was encountered when retrieving the page. Before running this code for any serious purpose, make sure that you are putting checks in place to handle potential pitfalls.
+Crawling Across the Internet | 45
+
+The nice thing about breaking up tasks into simple functions such as “find all external links on this page” is that the code can later be easily refactored to perform a different crawling task. For example, if your goal is to crawl an entire site for external links, and make a note of each one, you can add the following function:
+# Collects a list of all external URLs found on the site allExtLinks = set() allIntLinks = set() def getAllExternalLinks(siteUrl):
+html = urlopen(siteUrl) domain = '{}://{}'.format(urlparse(siteUrl).scheme,
+urlparse(siteUrl).netloc) bs = BeautifulSoup(html, 'html.parser') internalLinks = getInternalLinks(bs, domain) externalLinks = getExternalLinks(bs, domain) for link in externalLinks:
+if link not in allExtLinks: allExtLinks.add(link) print(link)
+for link in internalLinks: if link not in allIntLinks: allIntLinks.add(link) getAllExternalLinks(link)
+allIntLinks.add('http://oreilly.com') getAllExternalLinks('http://oreilly.com')
+This code can be thought of as two loops—one gathering internal links, one gathering external links—working in conjunction with each other. The flowchart looks some‐ thing like Figure 3-2.
+46 | Chapter 3: Writing Web Crawlers
+
+Figure 3-2. Flow diagram for the website crawler that collects all external links Jotting down or making diagrams of what the code should do before you write the code itself is a fantastic habit to get into, and one that can save you a lot of time and frustration as your crawlers get more complicated.
+Crawling Across the Internet | 47
+
+CHAPTER 4
+Web Crawling Models
+Writing clean and scalable code is difficult enough when you have control over your data and your inputs. Writing code for web crawlers, which may need to scrape and store a variety of data from diverse sets of websites that the programmer has no con‐ trol over, often presents unique organizational challenges. You may be asked to collect news articles or blog posts from a variety of websites, each with different templates and layouts. One website’s h1 tag contains the title of the article, another’s h1 tag contains the title of the website itself, and the article title is in <span id="title">. You may need flexible control over which websites are scraped and how they’re scra‐ ped, and a way to quickly add new websites or modify existing ones, as fast as possi‐ ble, without writing multiple lines of code. You may be asked to scrape product prices from different websites, with the ultimate aim of comparing prices for the same product. Perhaps these prices are in different currencies, and perhaps you’ll also need to combine this with external data from some other nonweb source. Although the applications of web crawlers are nearly endless, large scalable crawlers tend to fall into one of several patterns. By learning these patterns and recognizing the situations they apply to, you can vastly improve the maintainability and robust‐ ness of your web crawlers. This chapter focuses primarily on web crawlers that collect a limited number of “types” of data (such as restaurant reviews, news articles, company profiles) from a variety of websites, and that store these data types as Python objects that read and write from a database.
+49
+
+Planning and Defining Objects
+One common trap of web scraping is defining the data that you want to collect based entirely on what’s available in front of your eyes. For instance, if you want to collect product data, you may first look at a clothing store and decide that each product you scrape needs to have the following fields:
+• Product name • Price • Description • Sizes • Colors • Fabric type • Customer rating
+Looking at another website, you find that it has SKUs (stock keeping units, used to track and order items) listed on the page. You definitely want to collect that data as well, even if it doesn’t appear on the first site! You add this field:
+• Item SKU
+Although clothing may be a great start, you also want to make sure you can extend this crawler to other types of products. You start perusing product sections of other websites and decide you also need to collect this information:
+• Hardcover/Paperback • Matte/Glossy print • Number of customer reviews • Link to manufacturer
+Clearly, this is an unsustainable approach. Simply adding attributes to your product type every time you see a new piece of information on a website will lead to far too many fields to keep track of. Not only that, but every time you scrape a new website, you’ll be forced to perform a detailed analysis of the fields the website has and the fields you’ve accumulated so far, and potentially add new fields (modifying your Python object type and your database structure). This will result in a messy and difficult-to-read dataset that may lead to problems using it. One of the best things you can do when deciding which data to collect is often to ignore the websites altogether. You don’t start a project that’s designed to be large and scalable by looking at a single website and saying, “What exists?” but by saying,
+50 | Chapter 4: Web Crawling Models
+
+“What do I need?” and then finding ways to seek the information that you need from there. Perhaps what you really want to do is compare product prices among multiple stores and track those product prices over time. In this case, you need enough information to uniquely identify the product, and that’s it:
+• Product title • Manufacturer • Product ID number (if available/relevant) It’s important to note that none of this information is specific to a particular store. For instance, product reviews, ratings, price, and even description are specific to the instance of that product at a particular store. That can be stored separately. Other information (colors the product comes in, what it’s made of) is specific to the product, but may be sparse—it’s not applicable to every product. It’s important to take a step back and perform a checklist for each item you consider and ask yourself the following questions: • Will this information help with the project goals? Will it be a roadblock if I don’t
+have it, or is it just “nice to have” but won’t ultimately impact anything? • If it might help in the future, but I’m unsure, how difficult will it be to go back
+and collect the data at a later time? • Is this data redundant to data I’ve already collected? • Does it make logical sense to store the data within this particular object? (As
+mentioned before, storing a description in a product doesn’t make sense if that description changes from site to site for the same product.) If you do decide that you need to collect the data, it’s important to ask a few more questions to then decide how to store and handle it in code: • Is this data sparse or dense? Will it be relevant and populated in every listing, or just a handful out of the set? • How large is the data? • Especially in the case of large data, will I need to regularly retrieve it every time I run my analysis, or only on occasion? • How variable is this type of data? Will I regularly need to add new attributes, modify types (such as fabric patterns, which may be added frequently), or is it set in stone (shoe sizes)?
+Planning and Defining Objects | 51
+
+Let’s say you plan to do some meta analysis around product attributes and prices: for example, the number of pages a book has, or the type of fabric a piece of clothing is made of, and potentially other attributes in the future, correlated to price. You run through the questions and realize that this data is sparse (relatively few products have any one of the attributes), and that you may decide to add or remove attributes fre‐ quently. In this case, it may make sense to create a product type that looks like this:
+• Product title • Manufacturer • Product ID number (if available/relevant) • Attributes (optional list or dictionary) And an attribute type that looks like this: • Attribute name • Attribute value This allows you to flexibly add new product attributes over time, without requiring you to redesign your data schema or rewrite code. When deciding how to store these attributes in the database, you can write JSON to the attribute field, or store each attribute in a separate table with a product ID. See Chapter 6 for more information about implementing these types of database models. You can apply the preceding questions to the other information you’ll need to store as well. For keeping track of the prices found for each product, you’ll likely need the fol‐ lowing: • Product ID • Store ID • Price • Date/Timestamp price was found at But what if you have a situation in which the product’s attributes actually modify the price of the product? For instance, stores might charge more for a large shirt than a small one, because the large shirt requires more labor or materials. In this case, you may consider splitting the single shirt product into separate product listings for each size (so that each shirt product can be priced independently) or creating a new item type to store information about instances of a product, containing these fields: • Product ID • Instance type (the size of the shirt, in this case)
+52 | Chapter 4: Web Crawling Models
+
+And each price would then look like this: • Product Instance ID • Store ID • Price • Date/Timestamp price was found at
+While the subject of “products and prices” may seem overly specific, the basic ques‐ tions you need to ask yourself, and the logic used when designing your Python objects, apply in almost every situation. If you’re scraping news articles, you may want basic information such as the follow‐ ing:
+• Title • Author • Date • Content But say some articles contain a “revision date,” or “related articles, or a “number of social media shares.” Do you need these? Are they relevant to your project? How do you efficiently and flexibly store the number of social media shares when not all news sites use all forms of social media, and social media sites may grow or wane in popu‐ larity over time? It can be tempting, when faced with a new project, to dive in and start writing Python to scrape websites immediately. The data model, left as an afterthought, often becomes strongly influenced by the availability and format of the data on the first website you scrape. However, the data model is the underlying foundation of all the code that uses it. A poor decision in your model can easily lead to problems writing and maintaining code down the line, or difficulty in extracting and efficiently using the resulting data. Especially when dealing with a variety of websites—both known and unknown —it becomes vital to give serious thought and planning to what, exactly, you need to collect and how you need to store it.
+Dealing with Different Website Layouts
+One of the most impressive feats of a search engine such as Google is that it manages to extract relevant and useful data from a variety of websites, having no upfront knowledge about the website structure itself. Although we, as humans, are able to
+Dealing with Different Website Layouts | 53
+
+immediately identify the title and main content of a page (barring instances of extremely poor web design), it is far more difficult to get a bot to do the same thing. Fortunately, in most cases of web crawling, you’re not looking to collect data from sites you’ve never seen before, but from a few, or a few dozen, websites that are preselected by a human. This means that you don’t need to use complicated algorithms or machine learning to detect which text on the page “looks most like a title” or which is probably the “main content.” You can determine what these elements are manually. The most obvious approach is to write a separate web crawler or page parser for each website. Each might take in a URL, string, or BeautifulSoup object, and return a Python object for the thing that was scraped. The following is an example of a Content class (representing a piece of content on a website, such as a news article) and two scraper functions that take in a Beauti fulSoup object and return an instance of Content:
+import requests
+class Content: def __init__(self, url, title, body): self.url = url self.title = title self.body = body
+def getPage(url): req = requests.get(url) return BeautifulSoup(req.text, 'html.parser')
+def scrapeNYTimes(url): bs = getPage(url) title = bs.find("h1").text lines = bs.find_all("p", {"class":"story-content"}) body = '\n'.join([line.text for line in lines]) return Content(url, title, body)
+def scrapeBrookings(url): bs = getPage(url) title = bs.find("h1").text body = bs.find("div",{"class","post-body"}).text return Content(url, title, body)
+url = 'https://www.brookings.edu/blog/future-development' '/2018/01/26/delivering-inclusive-urban-access-3-unc' 'omfortable-truths/'
+content = scrapeBrookings(url) print('Title: {}'.format(content.title)) print('URL: {}\n'.format(content.url)) print(content.body)
+url = 'https://www.nytimes.com/2018/01/25/opinion/sunday/'
+54 | Chapter 4: Web Crawling Models
+
+'silicon-valley-immortality.html" content = scrapeNYTimes(url) print('Title: {}'.format(content.title)) print('URL: {}\n'.format(content.url)) print(content.body)
+As you start to add scraper functions for additional news sites, you might notice a pattern forming. Every site’s parsing function does essentially the same thing:
+• Selects the title element and extracts the text for the title • Selects the main content of the article • Selects other content items as needed • Returns a Content object instantiated with the strings found previously
+The only real site-dependent variables here are the CSS selectors used to obtain each piece of information. BeautifulSoup’s find and find_all functions take in two argu‐ ments—a tag string and a dictionary of key/value attributes—so you can pass these arguments in as parameters that define the structure of the site itself and the location of the target data. To make things even more convenient, rather than dealing with all of these tag argu‐ ments and key/value pairs, you can use the BeautifulSoup select function with a sin‐ gle string CSS selector for each piece of information you want to collect and put all of these selectors in a dictionary object:
+class Content: """ Common base class for all articles/pages """
+def __init__(self, url, title, body): self.url = url self.title = title self.body = body
+def print(self): """ Flexible printing function controls output """ print("URL: {}".format(self.url)) print("TITLE: {}".format(self.title)) print("BODY:\n{}".format(self.body))
+class Website: """ Contains information about website structure """
+Dealing with Different Website Layouts | 55
+
+def __init__(self, name, url, titleTag, bodyTag): self.name = name self.url = url self.titleTag = titleTag self.bodyTag = bodyTag
+Note that the Website class does not store information collected from the individual pages themselves, but stores instructions about how to collect that data. It doesn’t store the title “My Page Title.” It simply stores the string tag h1 that indicates where the titles can be found. This is why the class is called Website (the information here pertains to the entire website) and not Content (which contains information from just a single page). Using these Content and Website classes you can then write a Crawler to scrape the title and content of any URL that is provided for a given web page from a given web‐ site:
+import requests from bs4 import BeautifulSoup
+class Crawler:
+def getPage(self, url): try: req = requests.get(url) except requests.exceptions.RequestException: return None return BeautifulSoup(req.text, 'html.parser')
+def safeGet(self, pageObj, selector): """ Utility function used to get a content string from a Beautiful Soup object and a selector. Returns an empty string if no object is found for the given selector """ selectedElems = pageObj.select(selector) if selectedElems is not None and len(selectedElems) > 0: return '\n'.join( [elem.get_text() for elem in selectedElems]) return ''
+def parse(self, site, url): """ Extract content from a given page URL """ bs = self.getPage(url) if bs is not None: title = self.safeGet(bs, site.titleTag) body = self.safeGet(bs, site.bodyTag) if title != '' and body != '':
+56 | Chapter 4: Web Crawling Models
+
+content = Content(url, title, body) content.print()
+And here’s the code that defines the website objects and kicks off the process:
+crawler = Crawler()
+siteData = [ ['O\'Reilly Media', 'http://oreilly.com', 'h1', 'section#product-description'], ['Reuters', 'http://reuters.com', 'h1', 'div.StandardArticleBody_body_1gnLA'], ['Brookings', 'http://www.brookings.edu', 'h1', 'div.post-body'], ['New York Times', 'http://nytimes.com', 'h1', 'p.story-content']
+] websites = [] for row in siteData:
+websites.append(Website(row[0], row[1], row[2], row[3]))
+crawler.parse(websites[0], 'http://shop.oreilly.com/product/'\ '0636920028154.do')
+crawler.parse(websites[1], 'http://www.reuters.com/article/'\ 'us-usa-epa-pruitt-idUSKBN19W2D0')
+crawler.parse(websites[2], 'https://www.brookings.edu/blog/'\ 'techtank/2016/03/01/idea-to-retire-old-methods-of-policy-education/')
+crawler.parse(websites[3], 'https://www.nytimes.com/2018/01/'\ '28/business/energy-environment/oil-boom.html')
+While this new method might not seem remarkably simpler than writing a new Python function for each new website at first glance, imagine what happens when you go from a system with 4 website sources to a system with 20 or 200 sources. Each list of strings is relatively easy to write. It doesn’t take up much space. It can be loaded from a database or a CSV file. It can be imported from a remote source or handed off to an nonprogrammer with some frontend experience to fill out and add new websites to, and they never have to look at a line of code. Of course, the downside is that you are giving up a certain amount of flexibility. In the first example, each website gets its own free-form function to select and parse HTML however necessary, in order to get the end result. In the second example, each website needs to have a certain structure in which fields are guaranteed to exist, data must be clean coming out of the field, and each target field must have a unique and reliable CSS selector. However, I believe that the power and relative flexibility of this approach more than makes up for its real or perceived shortcomings. The next section covers specific applications and expansions of this basic template so that you can, for example, deal
+Dealing with Different Website Layouts | 57
+
+with missing fields, collect different types of data, crawl only through specific parts of a website, and store more-complex information about pages.
+Structuring Crawlers
+Creating flexible and modifiable website layout types doesn’t do much good if you still have to locate each link you want to scrape by hand. The previous chapter showed various methods of crawling through websites and finding new pages in an automated way. This section shows how to incorporate these methods into a well-structured and expandable website crawler that can gather links and discover data in an automated way. I present just three basic web crawler structures here, although I believe that they apply to the majority of situations that you will likely need when crawling sites in the wild, perhaps with a few modifications here and there. If you encounter an unusual situation with your own crawling problem, I also hope that you will use these struc‐ tures as inspiration in order to create an elegant and robust crawler design.
+Crawling Sites Through Search
+One of the easiest ways to crawl a website is via the same method that humans do: using the search bar. Although the process of searching a website for a keyword or topic and collecting a list of search results may seem like a task with a lot of variability from site to site, several key points make this surprisingly trivial:
+• Most sites retrieve a list of search results for a particular topic by passing that topic as a string through a parameter in the URL. For example: http://exam ple.com?search=myTopic. The first part of this URL can be saved as a property of the Website object, and the topic can simply be appended to it.
+• After searching, most sites present the resulting pages as an easily identifiable list of links, usually with a convenient surrounding tag such as <span class="result">, the exact format of which can also be stored as a property of the Website object.
+• Each result link is either a relative URL (e.g., /articles/page.html) or an absolute URL (e.g., http://example.com/articles/page.html). Whether or not you are expect‐ ing an absolute or relative URL can be stored as a property of the Website object.
+• After you’ve located and normalized the URLs on the search page, you’ve suc‐ cessfully reduced the problem to the example in the previous section—extracting data from a page, given a website format.
+58 | Chapter 4: Web Crawling Models
+
+Let’s look at an implementation of this algorithm in code. The Content class is much the same as in previous examples. You are adding the URL property to keep track of where the content was found:
+class Content: """Common base class for all articles/pages"""
+def __init__(self, topic, url, title, body): self.topic = topic self.title = title self.body = body self.url = url
+def print(self): """ Flexible printing function controls output """ print("New article found for topic: {}".format(self.topic)) print("TITLE: {}".format(self.title)) print("BODY:\n{}".format(self.body)) print("URL: {}".format(self.url))
+The Website class has a few new properties added to it. The searchUrl defines where you should go to get search results if you append the topic you are looking for. The resultListing defines the “box” that holds information about each result, and the resultUrl defines the tag inside this box that will give you the exact URL for the result. The absoluteUrl property is a boolean that tells you whether these search results are absolute or relative URLs.
+class Website: """Contains information about website structure"""
+def __init__(self, name, url, searchUrl, resultListing, resultUrl, absoluteUrl, titleTag, bodyTag): self.name = name self.url = url self.searchUrl = searchUrl self.resultListing = resultListing self.resultUrl = resultUrl self.absoluteUrl=absoluteUrl self.titleTag = titleTag self.bodyTag = bodyTag
+crawler.py has been expanded a bit and contains our Website data, a list of topics to search for, and a two loops that iterate through all the topics and all the websites. It also contains a search function that navigates to the search page for a particular web‐ site and topic, and extracts all the result URLs listed on that page.
+import requests from bs4 import BeautifulSoup
+Structuring Crawlers | 59
+
+class Crawler:
+def getPage(self, url): try: req = requests.get(url) except requests.exceptions.RequestException: return None return BeautifulSoup(req.text, 'html.parser')
+def safeGet(self, pageObj, selector): childObj = pageObj.select(selector) if childObj is not None and len(childObj) > 0: return childObj[0].get_text() return ""
+def search(self, topic, site): """ Searches a given website for a given topic and records all pages found """ bs = self.getPage(site.searchUrl + topic) searchResults = bs.select(site.resultListing) for result in searchResults: url = result.select(site.resultUrl)[0].attrs["href"] # Check to see whether it's a relative or an absolute URL if(site.absoluteUrl): bs = self.getPage(url) else: bs = self.getPage(site.url + url) if bs is None: print("Something was wrong with that page or URL. Skipping!") return title = self.safeGet(bs, site.titleTag) body = self.safeGet(bs, site.bodyTag) if title != '' and body != '': content = Content(topic, title, body, url) content.print()
+crawler = Crawler()
+siteData = [ ['O\'Reilly Media', 'http://oreilly.com', 'https://ssearch.oreilly.com/?q=','article.product-result', 'p.title a', True, 'h1', 'section#product-description'], ['Reuters', 'http://reuters.com', 'http://www.reuters.com/search/news?blob=', 'div.search-result-content','h3.search-result-title a', False, 'h1', 'div.StandardArticleBody_body_1gnLA'], ['Brookings', 'http://www.brookings.edu', 'https://www.brookings.edu/search/?s=', 'div.list-content article', 'h4.title a', True, 'h1',
+60 | Chapter 4: Web Crawling Models
+
+'div.post-body'] ] sites = [] for row in siteData:
+sites.append(Website(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7]))
+topics = ['python', 'data science'] for topic in topics:
+print("GETTING INFO ABOUT: " + topic) for targetSite in sites:
+crawler.search(topic, targetSite)
+This script loops through all the topics in the topics list and announces before it starts scraping for a topic:
+GETTING INFO ABOUT python
+Then it loops through all of the sites in the sites list and crawls each particular site for each particular topic. Each time that it successfully scrapes information about a page, it prints it to the console:
+New article found for topic: python URL: http://example.com/examplepage.html TITLE: Page Title Here BODY: Body content is here
+Note that it loops through all topics and then loops through all websites in the inner loop. Why not do it the other way around, collecting all topics from one website, and then all topics from the next website? Looping through all topics first is a way to more evenly distribute the load placed on any one web server. This is especially important if you have a list of hundreds of topics and dozens of websites. You’re not making tens of thousands of requests to one website at once; you’re making 10 requests, waiting a few minutes, making another 10 requests, waiting a few minutes, and so forth. Although the number of requests is ultimately the same either way, it’s generally bet‐ ter to distribute these requests over time as much as is reasonable. Paying attention to how your loops are structured is an easy way to do this.
+Crawling Sites Through Links
+The previous chapter covered some ways of identifying internal and external links on web pages and then using those links to crawl across the site. In this section, you’ll combine those same basic methods into a more flexible website crawler that can fol‐ low any link matching a specific URL pattern.
+Structuring Crawlers | 61
+
+This type of crawler works well for projects when you want to gather all the data from a site—not just data from a specific search result or page listing. It also works well when the site’s pages may be disorganized or widely dispersed. These types of crawlers don’t require a structured method of locating links, as in the previous section on crawling through search pages, so the attributes that describe the search page aren’t required in the Website object. However, because the crawler isn’t given specific instructions for the locations/positions of the links it’s looking for, you do need some rules to tell it what sorts of pages to select. You provide a targetPat tern (regular expression for the target URLs) and leave the boolean absoluteUrl variable to accomplish this:
+class Website: def __init__(self, name, url, targetPattern, absoluteUrl, titleTag, bodyTag): self.name = name self.url = url self.targetPattern = targetPattern self.absoluteUrl=absoluteUrl self.titleTag = titleTag self.bodyTag = bodyTag
+class Content: def __init__(self, url, title, body): self.url = url self.title = title self.body = body
+def print(self): print("URL: {}".format(self.url)) print("TITLE: {}".format(self.title)) print("BODY:\n{}".format(self.body))
+The Content class is the same one used in the first crawler example. The Crawler class is written to start from the home page of each site, locate internal links, and parse the content from each internal link found:
+import re
+class Crawler: def __init__(self, site): self.site = site self.visited = []
+def getPage(self, url): try: req = requests.get(url) except requests.exceptions.RequestException: return None return BeautifulSoup(req.text, 'html.parser')
+62 | Chapter 4: Web Crawling Models
+
+def safeGet(self, pageObj, selector): selectedElems = pageObj.select(selector) if selectedElems is not None and len(selectedElems) > 0: return '\n'.join([elem.get_text() for elem in selectedElems]) return ''
+def parse(self, url): bs = self.getPage(url) if bs is not None: title = self.safeGet(bs, self.site.titleTag) body = self.safeGet(bs, self.site.bodyTag) if title != '' and body != '': content = Content(url, title, body) content.print()
+def crawl(self): """ Get pages from website home page """ bs = self.getPage(self.site.url) targetPages = bs.findAll('a', href=re.compile(self.site.targetPattern)) for targetPage in targetPages: targetPage = targetPage.attrs['href'] if targetPage not in self.visited: self.visited.append(targetPage) if not self.site.absoluteUrl: targetPage = '{}{}'.format(self.site.url, targetPage) self.parse(targetPage)
+reuters = Website('Reuters', 'https://www.reuters.com', '^(/article/)', False, 'h1', 'div.StandardArticleBody_body_1gnLA')
+crawler = Crawler(reuters) crawler.crawl()
+Another change here that was not used in previous examples: the Website object (in this case, the variable reuters) is a property of the Crawler object itself. This works well to store the visited pages (visited) in the crawler, but means that a new crawler must be instantiated for each website rather than reusing the same one to crawl a list of websites.
+Whether you choose to make a crawler website-agnostic or choose to make the web‐ site an attribute of the crawler is a design decision that you must weigh in the context of your own specific needs. Either approach is generally fine.
+Another thing to note is that this crawler will get the pages from the home page, but will not continue crawling after all those pages have been logged. You may want to write a crawler incorporating one of the patterns in Chapter 3 and have it look for more targets on each page it visits. You can even follow all the URLs on each page
+Structuring Crawlers | 63
+
+(not just ones matching the target pattern) to look for URLs containing the target pattern.
+Crawling Multiple Page Types
+Unlike crawling through a predetermined set of pages, crawling through all internal links on a website can present a challenge in that you never know exactly what you’re getting. Fortunately, there are a few basic ways to identify the page type:
+By the URL All blog posts on a website might contain a URL (http://example.com/blog/title-ofpost, for example).
+By the presence or lack of certain fields on a site If a page has a date, but no author name, you might categorize it as a press release. If it has a title, main image, price, but no main content, it might be a product page.
+By the presence of certain tags on the page to identify the page You can take advantage of tags even if you’re not collecting the data within the tags. Your crawler might look for an element such as <div id="relatedproducts"> to identify the page as a product page, even though the crawler is not interested in the content of the related products.
+To keep track of multiple page types, you need to have multiple types of page objects in Python. This can be done in two ways: If the pages are all similar (they all have basically the same types of content), you may want to add a pageType attribute to your existing web-page object:
+class Website: """Common base class for all articles/pages"""
+def __init__(self, type, name, url, searchUrl, resultListing, resultUrl, absoluteUrl, titleTag, bodyTag): self.name = name self.url = url self.titleTag = titleTag self.bodyTag = bodyTag self.pageType = pageType
+If you’re storing these pages in an SQL-like database, this type of pattern indicates that all these pages would probably be stored in the same table, and that an extra pageType column would be added. If the pages/content you’re scraping are different enough from each other (they con‐ tain different types of fields), this may warrant creating new objects for each page type. Of course, some things will be common to all web pages—they will all have a
+64 | Chapter 4: Web Crawling Models
+
+URL, and will likely also have a name or page title. This is an ideal situation in which to use subclasses:
+class Webpage: """Common base class for all articles/pages"""
+def __init__(self, name, url, titleTag): self.name = name self.url = url self.titleTag = titleTag
+This is not an object that will be used directly by your crawler, but an object that will be referenced by your page types:
+class Product(Website): """Contains information for scraping a product page""" def __init__(self, name, url, titleTag, productNumber, price): Website.__init__(self, name, url, TitleTag) self.productNumberTag = productNumberTag self.priceTag = priceTag
+class Article(Website): """Contains information for scraping an article page""" def __init__(self, name, url, titleTag, bodyTag, dateTag): Website.__init__(self, name, url, titleTag) self.bodyTag = bodyTag self.dateTag = dateTag
+This Product page extends the Website base class and adds the attributes prod uctNumber and price that apply only to products, and the Article class adds the attributes body and date, which don’t apply to products. You can use these two classes to scrape, for example, a store website that might con‐ tain blog posts or press releases in addition to products.
+Thinking About Web Crawler Models
+Collecting information from the internet can be like drinking from a fire hose. There’s a lot of stuff out there, and it’s not always clear what you need or how you need it. The first step of any large web scraping project (and even some of the small ones) should be to answer these questions. When collecting similar data across multiple domains or from multiple sources, your goal should almost always be to try to normalize it. Dealing with data with identical and comparable fields is much easier than dealing with data that is completely depen‐ dent on the format of its original source. In many cases, you should build scrapers under the assumption that more sources of data will be added to them in the future, and with the goal to minimize the program‐ ming overhead required to add these new sources. Even if a website doesn’t appear to
+Thinking About Web Crawler Models | 65
+
+fit your model at first glance, there may be more subtle ways that it does conform. Being able to see these underlying patterns can save you time, money, and a lot of headaches in the long run. The connections between pieces of data should also not be ignored. Are you looking for information that has properties such as “type,” “size,” or “topic” that span across data sources? How do you store, retrieve, and conceptualize these attributes? Software architecture is a broad and important topic that can take an entire career to master. Fortunately, software architecture for web scraping is a much more finite and manageable set of skills that can be relatively easily acquired. As you continue to scrape data, you will likely find the same basic patterns occurring over and over. Cre‐ ating a well-structured web scraper doesn’t require a lot of arcane knowledge, but it does require taking a moment to step back and think about your project.
+66 | Chapter 4: Web Crawling Models
+
+CHAPTER 5
+Scrapy
+The previous chapter presented some techniques and patterns for building large, scal‐ able, and (most important!) maintainable web crawlers. Although this is easy enough to do by hand, many libraries, frameworks, and even GUI-based tools will do this for you, or at least try to make your life a little easier. This chapter introduces one of the best frameworks for developing crawlers: Scrapy. During the writing of the first edition of Web Scraping with Python, Scrapy had not yet been released for Python 3.x, and its inclusion in the text was limited to a single section. Since then, the library has been updated to support Python 3.3+, additional features have been added, and I’m excited to expand this section into its own chapter. One of the challenges of writing web crawlers is that you’re often performing the same tasks again and again: find all links on a page, evaluate the difference between internal and external links, go to new pages. These basic patterns are useful to know and to be able to write from scratch, but the Scrapy library handles many of these details for you. Of course, Scrapy isn’t a mind reader. You still need to define page templates, give it locations to start scraping from, and define URL patterns for the pages that you’re looking for. But in these cases, it provides a clean framework to keep your code organized.
+Installing Scrapy
+Scrapy offers the tool for download from its website, as well as instructions for instal‐ ling Scrapy with third-party installation managers such as pip. Because of its relatively large size and complexity, Scrapy is not usually a framework that can be installed in the traditional way with
+67
+
+$ pip install Scrapy
+Note that I say “usually” because, though it is theoretically possible, I usually run into one or more tricky dependency issues, version mismatches, and unsolvable bugs. If you’re determined to install Scrapy from pip, using a virtual environment (see the “Keeping Libraries Straight with Virtual Environments” on page 7 for more on virtual environments) is highly recommended. The installation method that I prefer is through the Anaconda package manager. Anaconda is a product, produced by the company Continuum, designed to reduce friction when it comes to finding and installing popular Python data science pack‐ ages. Many of the packages it manages, such as NumPy and NLTK, will be used in later chapters as well. After Anaconda is installed, you can install Scrapy by using this command:
+conda install -c conda-forge scrapy
+If you run into issues, or need up-to-date information, check out the Scrapy Installa‐ tion guide for more information.
+Initializing a New Spider
+Once you’ve installed the Scrapy framework, a small amount of setup needs to be done for each spider. A spider is a Scrapy project that, like its arachnid namesake, is designed to crawl webs. Throughout this chapter, I use “spider” to describe a Scrapy project in particular, and “crawler” to mean “any generic program that crawls the web, using Scrapy or not.” To create a new spider in the current directory, run the following from the command line:
+$ scrapy startproject wikiSpider
+This creates a new subdirectory in the directory the project was created in, with the title wikiSpider. Inside this directory is the following file structure:
+• scrapy.cfg • wikiSpider
+— spiders — __init.py__
+— items.py — middlewares.py — pipelines.py — settings.py
+68 | Chapter 5: Scrapy
+
+— __init.py__
+These Python files are initialized with stub code to provide a fast means of creating a new spider project. Each section in this chapter works with this wikiSpider project.
+Writing a Simple Scraper
+To create a crawler, you will add a new file inside the spiders directory at wikiSpider/ wikiSpider/spiders/article.py. In your newly created article.py file, write the following:
+import scrapy
+class ArticleSpider(scrapy.Spider): name='article'
+def start_requests(self): urls = [ 'http://en.wikipedia.org/wiki/Python_' '%28programming_language%29', 'https://en.wikipedia.org/wiki/Functional_programming', 'https://en.wikipedia.org/wiki/Monty_Python'] return [scrapy.Request(url=url, callback=self.parse) for url in urls]
+def parse(self, response): url = response.url title = response.css('h1::text').extract_first() print('URL is: {}'.format(url)) print('Title is: {}'.format(title))
+The name of this class (ArticleSpider) is different from the name of the directory (wikiSpider), indicating that this class in particular is responsible for spidering through only article pages, under the broader category of wikiSpider, which you may later want to use to search for other page types. For large sites with many types of content, you might have separate Scrapy items for each type (blog posts, press releases, articles, etc.), each with different fields, but all running under the same Scrapy project. The name of each spider must be unique within the project. The other key things to notice about this spider are the two functions start_requests and parse. start_requests is a Scrapy-defined entry point to the program used to gener‐ ate Request objects that Scrapy uses to crawl the website. parse is a callback function defined by the user, and is passed to the Request object with callback=self.parse. Later, you’ll look at more-powerful things that can be done with the parse function, but for now it prints the title of the page.
+Writing a Simple Scraper | 69
+
+You can run this article spider by navigating to the wikiSpider/wikiSpider directory and running:
+$ scrapy runspider article.py
+The default Scrapy output is fairly verbose. Along with debugging information, this should print out lines like the following:
+2018-01-21 23:28:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://en.wikipedia.org/robots.txt> (referer: None) 2018-01-21 23:28:57 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://en.wikipedia.org/wiki/ Python_%28programming_language%29> from <GET http://en.wikipedia.org/ wiki/Python_%28programming_language%29> 2018-01-21 23:28:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://en.wikipedia.org/wiki/Functional_programming> (referer: None) URL is: https://en.wikipedia.org/wiki/Functional_programming Title is: Functional programming 2018-01-21 23:28:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://en.wikipedia.org/wiki/Monty_Python> (referer: None) URL is: https://en.wikipedia.org/wiki/Monty_Python Title is: Monty Python
+The scraper goes to the three pages listed as the start_urls, gathers information, and then terminates.
+Spidering with Rules
+The spider in the previous section isn’t much of a crawler, confined to scraping only the list of URLs it’s provided. It has no ability to seek new pages on its own. To turn it into a fully fledged crawler, you need to use the CrawlSpider class provided by Scrapy.
+Code Organization Within the GitHub Repository
+Unfortunately, the Scrapy framework cannot be easily run from within a Jupyter notebook, making a linear progression of code dif‐ ficult to capture. For the purpose of presenting all code samples in the text, the scraper from the previous section is stored in the arti‐ cle.py file, while the following example, creating a Scrapy spider that traverses many pages, is stored in articles.py (note the use of the plural). Later examples will also be stored in separate files, with new file‐ names given in each section. Make sure you are using the correct filename when running these examples.
+This class can be found in articles.py in the Github repository:
+70 | Chapter 5: Scrapy
+
+from scrapy.contrib.linkextractors import LinkExtractor from scrapy.contrib.spiders import CrawlSpider, Rule
+class ArticleSpider(CrawlSpider): name = 'articles' allowed_domains = ['wikipedia.org'] start_urls = ['https://en.wikipedia.org/wiki/' 'Benevolent_dictator_for_life'] rules = [Rule(LinkExtractor(allow=r'.*'), callback='parse_items', follow=True)]
+def parse_items(self, response): url = response.url title = response.css('h1::text').extract_first() text = response.xpath('//div[@id="mw-content-text"]//text()') .extract() lastUpdated = response.css('li#footer-info-lastmod::text') .extract_first() lastUpdated = lastUpdated.replace( 'This page was last edited on ', '') print('URL is: {}'.format(url)) print('title is: {} '.format(title)) print('text is: {}'.format(text)) print('Last updated: {}'.format(lastUpdated))
+This new ArticleSpider extends the CrawlSpider class. Rather than providing a start_requests function, it provides a list of start_urls and allowed_domains. This tells the spider where to start crawling from and whether it should follow or ignore a link based on the domain. A list of rules is also provided. This provides further instructions on which links to follow or ignore (in this case, you are allowing all URLs with the regular expres‐ sion .*). In addition to extracting the title and URL on each page, a couple of new items have been added. The text content of each page is extracted using an XPath selector. XPath is often used when retrieving text content including text in child tags (for example, an <a> tag inside a block of text). If you use the CSS selector to do this, all text within child tags will be ignored. The last updated date string is also parsed from the page footer and stored in the lastUpdated variable. You can run this example by navigating to the wikiSpider/wikiSpider directory and running this:
+$ scrapy runspider articles.py
+Spidering with Rules | 71
+
+Warning: This Will Run Forever
+This spider will run from the command line in the same way as the previous one, but it will not terminate (at least not for a very, very long time) until you halt execution by using Ctrl-C or by closing the terminal. Please be kind to Wikipedia’s server load and do not run it for long.
+When run, this spider traverses wikipedia.org, following all links under the domain wikipedia.org, printing titles of pages, and ignoring all external (offsite) links:
+2018-01-21 01:30:36 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.chicagomag.com': <GET http://www.chicagomag.com/Chicago-Magazine/June-2009/ Street-Wise/> 2018-01-21 01:30:36 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET https://en.wikipedia.org/w/ index.php?title=Adrian_Holovaty&action=edit&section=3> title is: Ruby on Rails URL is: https://en.wikipedia.org/wiki/Ruby_on_Rails text is: ['Not to be confused with ', 'Ruby (programming language)',
+'.', '\n', '\n', 'Ruby on Rails', ... ] Last updated: 9 January 2018, at 10:32.
+This is a pretty good crawler so far, but it could use a few limits. Instead of just visit‐ ing article pages on Wikipedia, it’s free to roam to nonarticle pages as well, such as:
+title is: Wikipedia:General disclaimer
+Let’s take a closer look at the line by using Scrapy’s Rule and LinkExtractor:
+rules = [Rule(LinkExtractor(allow=r'.*'), callback='parse_items', follow=True)]
+This line provides a list of Scrapy Rule objects that define the rules that all links found are filtered through. When multiple rules are in place, each link is checked against the rules in order. The first rule that matches is the one that is used to deter‐ mine how the link is handled. If the link doesn’t match any rules, it is ignored. A Rule can be provided with six arguments:
+link_extractor The only mandatory argument, a LinkExtractor object.
+callback The function that should be used to parse the content on the page.
+cb_kwargs A dictionary of arguments to be passed to the callback function. This dictionary is formatted as {arg_name1: arg_value1, arg_name2: arg_value2} and can be a handy tool for reusing the same parsing functions for slightly different tasks.
+72 | Chapter 5: Scrapy
+
+follow Indicates whether you want links found at that page to be included in a future crawl. If no callback function is provided, this defaults to True (after all, if you’re not doing anything with the page, it makes sense that you’d at least want to use it to continue crawling through the site). If a callback function is provided, this defaults to False.
+LinkExtractor is a simple class designed solely to recognize and return links in a page of HTML content based on the rules provided to it. It has a number of argu‐ ments that can be used to accept or deny a link based on CSS and XPath selectors, tags (you can look for links in more than just anchor tags!), domains, and more.
+The LinkExtractor class can even be extended, and custom arguments can be cre‐ ated. See Scrapy’s documentation on link extractors for more information.
+Despite all the flexible features of the LinkExtractor class, the most common argu‐ ments you’ll probably use are these:
+allow Allow all links that match the provided regular expression.
+deny Deny all links that match the provided regular expression.
+Using two separate Rule and LinkExtractor classes with a single parsing function, you can create a spider that crawls Wikipedia, identifying all article pages and flag‐ ging nonarticle pages (articlesMoreRules.py):
+from scrapy.contrib.linkextractors import LinkExtractor from scrapy.contrib.spiders import CrawlSpider, Rule
+class ArticleSpider(CrawlSpider): name = 'articles' allowed_domains = ['wikipedia.org'] start_urls = ['https://en.wikipedia.org/wiki/' 'Benevolent_dictator_for_life'] rules = [ Rule(LinkExtractor(allow='^(/wiki/)((?!:).)*$'), callback='parse_items', follow=True, cb_kwargs={'is_article': True}), Rule(LinkExtractor(allow='.*'), callback='parse_items', cb_kwargs={'is_article': False}) ]
+def parse_items(self, response, is_article): print(response.url) title = response.css('h1::text').extract_first() if is_article: url = response.url text = response.xpath('//div[@id="mw-content-text"]'
+Spidering with Rules | 73
+
+'//text()').extract() lastUpdated = response.css('li#footer-info-lastmod'
+'::text').extract_first() lastUpdated = lastUpdated.replace('This page was '
+'last edited on ', '') print('Title is: {} '.format(title)) print('title is: {} '.format(title)) print('text is: {}'.format(text)) else: print('This is not an article: {}'.format(title))
+Recall that the rules are applied to each link in the order that they are presented in the list. All article pages (pages that start with /wiki/ and do not contain a colon) are passed to the parse_items function first with the default parameter is_arti cle=True. Then all the other nonarticle links are passed to the parse_items function with the argument is_article=False. Of course, if you’re looking to collect only article-type pages and ignore all others, this approach would be impractical. It would be much easier to ignore pages that don’t match the article URL pattern and leave out the second rule (and the is_arti cle variable) altogether. However, this type of approach may be useful in odd cases where information from the URL, or information collected during crawling, impacts the way the page should be parsed.
+Creating Items
+So far, you’ve looked at many ways of finding, parsing, and crawling websites with Scrapy, but Scrapy also provides useful tools to keep your collected items organized and stored in custom objects with well-defined fields. To help organize all the information you’re collecting, you need to create an Article object. Define a new item called Article inside the items.py file. When you open the items.py file, it should look like this:
+# -*- coding: utf-8 -*-
+# Define here the models for your scraped items # # See documentation in: # http://doc.scrapy.org/en/latest/topics/items.html
+import scrapy
+class WikispiderItem(scrapy.Item): # define the fields for your item here like: # name = scrapy.Field() pass
+74 | Chapter 5: Scrapy
+
+Replace this default Item stub with a new Article class extending scrapy.Item:
+import scrapy
+class Article(scrapy.Item): url = scrapy.Field() title = scrapy.Field() text = scrapy.Field() lastUpdated = scrapy.Field()
+You are defining three fields that will be collected from each page: a title, URL, and the date the page was last edited. If you are collecting data for multiple page types, you should define each separate type as its own class in items.py. If your items are large, or you start to move more parsing functionality into your item objects, you may also wish to extract each item into its own file. While the items are small, however, I like to keep them in a single file. In the file articleSpider.py note the the changes that were made to the ArticleSpider class in order to create the new Article item:
+from scrapy.contrib.linkextractors import LinkExtractor from scrapy.contrib.spiders import CrawlSpider, Rule from wikiSpider.items import Article
+class ArticleSpider(CrawlSpider): name = 'articleItems' allowed_domains = ['wikipedia.org'] start_urls = ['https://en.wikipedia.org/wiki/Benevolent' '_dictator_for_life'] rules = [ Rule(LinkExtractor(allow='(/wiki/)((?!:).)*$'), callback='parse_items', follow=True), ]
+def parse_items(self, response): article = Article() article['url'] = response.url article['title'] = response.css('h1::text').extract_first() article['text'] = response.xpath('//div[@id=' '"mw-content-text"]//text()').extract() lastUpdated = response.css('li#footer-info-lastmod::text') .extract_first() article['lastUpdated'] = lastUpdated.replace('This page was ' 'last edited on ', '') return article
+When this file is run with
+$ scrapy runspider articleItems.py
+Creating Items | 75
+
+it will output the usual Scrapy debugging data along with each article item as a Python dictionary:
+2018-01-21 22:52:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wikimediafoundation.org': <GET https://wikimediafoundation.org/wiki/Terms_of_Use> 2018-01-21 22:52:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://en.wikipedia.org/wiki/Benevolent_dictator_for_life #mw-head> (referer: https://en.wikipedia.org/wiki/Benevolent_ dictator_for_life) 2018-01-21 22:52:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://en.wikipedia.org/wiki/Benevolent_dictator_for_life> {'lastUpdated': ' 13 December 2017, at 09:26.', 'text': ['For the political term, see ',
+'Benevolent dictatorship', '.', ...
+Using Scrapy Items isn’t just for promoting good code organization or laying things out in a readable way. Items provide many tools for outputting and processing data, covered in the next sections.
+Outputting Items
+Scrapy uses the Item objects to determine which pieces of information it should save from the pages it visits. This information can be saved by Scrapy in a variety of ways, such as CSV, JSON, or XML files, using the following commands:
+$ scrapy runspider articleItems.py -o articles.csv -t csv $ scrapy runspider articleItems.py -o articles.json -t json $ scrapy runspider articleItems.py -o articles.xml -t xml
+Each of these runs the scraper articleItems and writes the output in the specified format to the provided file. This file will be created if it does not exist already. You may have noticed that in the articles spider created in previous examples, the text variable is a list of strings rather than a single string. Each string in this list represents text inside a single HTML element, whereas the content inside <div id="mwcontent-text">, from which you are collecting the text data, is composed of many child elements. Scrapy manages these more complex values well. In the CSV format, for example, it converts lists to strings and escapes all commas so that a list of text displays in a single CSV cell. In XML, each element of this list is preserved inside child value tags:
+<items> <item>
+<url>https://en.wikipedia.org/wiki/Benevolent_dictator_for_life</url>
+76 | Chapter 5: Scrapy
+
+<title>Benevolent dictator for life</title> <text>
+<value>For the political term, see </value> <value>Benevolent dictatorship</value> ... </text> <lastUpdated> 13 December 2017, at 09:26.</lastUpdated> </item> ....
+In the JSON format, lists are preserved as lists.
+Of course, you can use the Item objects yourself and write them to a file or a database in whatever way you want, simply by adding the appropriate code to the parsing function in the crawler.
+The Item Pipeline
+Although Scrapy is single threaded, it is capable of making and handling many requests asynchronously. This makes it faster than the scrapers written so far in this book, although I have always been a firm believer that faster is not always better when it comes to web scraping. The web server for the site you are trying to scrape must handle each of these requests, and it’s important to be a good citizen and evaluate whether this sort of server hammering is appropriate (or even wise for your own self-interests, as many websites have the ability and the will to block what they might see as malicious scrap‐ ing activity). For more information about the ethics of web scraping, as well as the importance of appropriately throttling scrapers, see Chapter 18. With that said, using Scrapy’s item pipeline can improve the speed of your web scra‐ per even further by performing all data processing while waiting for requests to be returned, rather than waiting for data to be processed before making another request. This type of optimization can sometimes even be necessary when data processing requires a great deal of time or processor-heavy calculations must be performed. To create an item pipeline, revisit the settings.py file that was created at the beginning of the chapter. You should see the following commented lines:
+# Configure item pipelines # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html #ITEM_PIPELINES = { # 'wikiSpider.pipelines.WikispiderPipeline': 300, #}
+Uncomment the last three lines and replace with the following:
+ITEM_PIPELINES = { 'wikiSpider.pipelines.WikispiderPipeline': 300,
+}
+The Item Pipeline | 77
+
+This provides a Python class, wikiSpider.pipelines.WikispiderPipeline, that will be used to process the data, as well as an integer that represents the order in which to run the pipeline if there are multiple processing classes. Although any integer can be used here, the numbers 0–1000 are typically used, and will be run in ascending order. Now you need to add the pipeline class and rewrite your original spider so that the spider collects data and the pipeline does the heavy lifting of the data processing. It might be tempting to write the parse_items method in your original spider to return the response and let the pipeline create the Article object:
+def parse_items(self, response): return response
+However, the Scrapy framework does not allow this, and an Item object (such as an Article, which extends Item) must be returned. So the goal of parse_items is now to extract the raw data, doing as little processing as possible, so that it can be passed to the pipeline:
+from scrapy.contrib.linkextractors import LinkExtractor from scrapy.contrib.spiders import CrawlSpider, Rule from wikiSpider.items import Article
+class ArticleSpider(CrawlSpider): name = 'articlePipelines' allowed_domains = ['wikipedia.org'] start_urls = ['https://en.wikipedia.org/wiki/Benevolent_dictator_for_life'] rules = [ Rule(LinkExtractor(allow='(/wiki/)((?!:).)*$'), callback='parse_items', follow=True), ]
+def parse_items(self, response): article = Article() article['url'] = response.url article['title'] = response.css('h1::text').extract_first() article['text'] = response.xpath('//div[@id=' '"mw-content-text"]//text()').extract() article['lastUpdated'] = response.css('li#' 'footer-info-lastmod::text').extract_first() return article
+This file is saved as articlePipelines.py in the GitHub repository. Of course, now you need to tie the settings.py file and the updated spider together by adding the pipeline. When the Scrapy project was first initialized, a file was created at wikiSpider/wikiSpider/settings.py:
+# -*- coding: utf-8 -*-
+# Define your item pipelines here #
+78 | Chapter 5: Scrapy
+
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+class WikispiderPipeline(object): def process_item(self, item, spider): return item
+This stub class should be replaced with your new pipeline code. In previous sections, you’ve been collecting two fields in a raw format, and these could use additional pro‐ cessing: lastUpdated (which is a badly formatted string object representing a date) and text (a messy array of string fragments). The following should be used to replace the stub code in wikiSpider/wikiSpider/ settings.py:
+from datetime import datetime from wikiSpider.items import Article from string import whitespace
+class WikispiderPipeline(object): def process_item(self, article, spider): dateStr = article['lastUpdated'] article['lastUpdated'] = article['lastUpdated'] .replace('This page was last edited on', '') article['lastUpdated'] = article['lastUpdated'].strip() article['lastUpdated'] = datetime.strptime( article['lastUpdated'], '%d %B %Y, at %H:%M.') article['text'] = [line for line in article['text'] if line not in whitespace] article['text'] = ''.join(article['text']) return article
+The class WikispiderPipeline has a method process_item that takes in an Article object, parses the lastUpdated string into a Python datetime object, and cleans and joins the text into a single string from a list of strings. process_item is a mandatory method for every pipeline class. Scrapy uses this method to asynchronously pass Items that are collected by the spider. The parsed Article object that is returned here will be logged or printed by Scrapy if, for exam‐ ple, you are outputting items to JSON or CSV as was done in the previous section. You now have two choices when it comes to deciding where to do your data process‐ ing: the parse_items method in the spider, or the process_items method in the pipeline. Multiple pipelines with different tasks can be declared in the settings.py file. However, Scrapy passes all items, regardless of item type, to each pipeline in order. Itemspecific parsing may be better handled in the spider, before the data hits the pipeline. However, if this parsing takes a long time, you may want to consider moving it to the
+The Item Pipeline | 79
+
+pipeline (where it can be processed asynchronously) and adding a check on the item type:
+def process_item(self, item, spider): if isinstance(item, Article): # Article-specific processing here
+Which processing to do and where to do it is an important consideration when it comes to writing Scrapy projects, especially large ones.
+Logging with Scrapy
+The debug information generated by Scrapy can be useful, but, as you’ve likely noticed, it is often too verbose. You can easily adjust the level of logging by adding a line to the settings.py file in your Scrapy project:
+LOG_LEVEL = 'ERROR'
+Scrapy uses a standard hierarchy of logging levels, as follows:
+• CRITICAL • ERROR • WARNING • DEBUG • INFO
+If logging is set to ERROR, only CRITICAL and ERROR logs will be displayed. If logging is set to INFO, all logs will be displayed, and so on. In addition to controlling logging through the settings.py file, you can control where the logs go from the command line. To output logs to a separate logfile instead of the terminal, define a logfile when running from the command line:
+$ scrapy crawl articles -s LOG_FILE=wiki.log
+This creates a new logfile, if one does not exist, in your current directory and outputs all logs to it, leaving your terminal clear to display only the Python print statements you manually add.
+More Resources
+Scrapy is a powerful tool that handles many problems associated with crawling the web. It automatically gathers all URLs and compares them against predefined rules, makes sure all URLs are unique, normalizes relative URLs where needed, and recur‐ ses to go more deeply into pages.
+80 | Chapter 5: Scrapy
+
+Although this chapter hardly scratches the surface of Scrapy’s capabilities, I encourage you to check out the Scrapy documentation as well as Learning Scrapy, by Dimitrios Kouzis-Loukas (O’Reilly), which provides a comprehensive discourse on the frame‐ work. Scrapy is an extremely large and sprawling library with many features. Its features work together seamlessly, but have many areas of overlap that allow users to easily develop their own particular style within it. If there’s something you’d like to do with Scrapy that has not been mentioned here, there is likely a way (or several) to do it!
+More Resources | 81
+
