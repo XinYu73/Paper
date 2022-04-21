@@ -14,10 +14,10 @@
 	"inRepository": false,
 	"configOptions": {
 		"getCollections": true,
-		"hash": "99b63fe664bcdd5a5d04cd1358531f2a14f25e2c72561e7b01202347b9108a73"
+		"hash": "15a8c6ee65e528dfc004c399cbb4b8ea9478768a9c55f6b742acc9e93c2e0f26"
 	},
 	"priority": 100,
-	"lastUpdated": "2022-04-07"
+	"lastUpdated": "2022-04-20"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
@@ -1056,8 +1056,8 @@ var Collectednotes__Translator__doExport = (() => {
     "node_modules/vfile/node_modules/unist-util-stringify-position/index.js"(exports, module) {
       init_globals();
       var own = {}.hasOwnProperty;
-      module.exports = stringify2;
-      function stringify2(value) {
+      module.exports = stringify;
+      function stringify(value) {
         if (!value || typeof value !== "object") {
           return "";
         }
@@ -1094,7 +1094,7 @@ var Collectednotes__Translator__doExport = (() => {
   var require_vfile_message = __commonJS({
     "node_modules/vfile/node_modules/vfile-message/index.js"(exports, module) {
       init_globals();
-      var stringify2 = require_unist_util_stringify_position();
+      var stringify = require_unist_util_stringify_position();
       module.exports = VMessage;
       function VMessagePrototype() {
       }
@@ -1118,7 +1118,7 @@ var Collectednotes__Translator__doExport = (() => {
           position = null;
         }
         parts = parseOrigin(origin);
-        range = stringify2(position) || "1:1";
+        range = stringify(position) || "1:1";
         location = {
           start: { line: null, column: null },
           end: { line: null, column: null }
@@ -1629,7 +1629,7 @@ var Collectednotes__Translator__doExport = (() => {
         processor.attachers = attachers;
         processor.use = use;
         processor.parse = parse;
-        processor.stringify = stringify2;
+        processor.stringify = stringify;
         processor.run = run;
         processor.runSync = runSync;
         processor.process = process2;
@@ -1800,7 +1800,7 @@ var Collectednotes__Translator__doExport = (() => {
             bail(error);
           }
         }
-        function stringify2(node, doc) {
+        function stringify(node, doc) {
           var file = vfile(doc);
           var Compiler;
           freeze();
@@ -2960,7 +2960,7 @@ var Collectednotes__Translator__doExport = (() => {
     "node_modules/space-separated-tokens/index.js"(exports) {
       init_globals();
       exports.parse = parse;
-      exports.stringify = stringify2;
+      exports.stringify = stringify;
       var empty = "";
       var space = " ";
       var whiteSpace = /[ \t\n\r\f]+/g;
@@ -2968,7 +2968,7 @@ var Collectednotes__Translator__doExport = (() => {
         var input = String(value || empty).trim();
         return input === empty ? [] : input.split(whiteSpace);
       }
-      function stringify2(values) {
+      function stringify(values) {
         return values.join(space).trim();
       }
     }
@@ -2979,7 +2979,7 @@ var Collectednotes__Translator__doExport = (() => {
     "node_modules/comma-separated-tokens/index.js"(exports) {
       init_globals();
       exports.parse = parse;
-      exports.stringify = stringify2;
+      exports.stringify = stringify;
       var comma = ",";
       var space = " ";
       var empty = "";
@@ -3004,7 +3004,7 @@ var Collectednotes__Translator__doExport = (() => {
         }
         return values;
       }
-      function stringify2(values, options) {
+      function stringify(values, options) {
         var settings = options || {};
         var left = settings.padLeft === false ? empty : space;
         var right = settings.padRight ? space : empty;
@@ -15044,9 +15044,9 @@ var Collectednotes__Translator__doExport = (() => {
   var require_remark_stringify = __commonJS({
     "node_modules/remark-stringify/index.js"(exports, module) {
       init_globals();
-      module.exports = stringify2;
+      module.exports = stringify;
       var toMarkdown = require_mdast_util_to_markdown();
-      function stringify2(options) {
+      function stringify(options) {
         var self = this;
         this.Compiler = compile;
         function compile(tree) {
@@ -15513,7 +15513,7 @@ var Collectednotes__Translator__doExport = (() => {
         const rehypeParse = require_rehype_parse();
         const rehype2remark = require_rehype_remark();
         const rehypeInsert = require_rehype_insert();
-        const stringify2 = require_remark_stringify();
+        const stringify = require_remark_stringify();
         const squeezeLinks = require_remark_squeeze_links();
         const gfm = require_to_markdown5();
         const remark = unified().data("toMarkdownExtensions", [gfm()]).use(rehypeParse).use(rehypeInsert, {
@@ -15536,7 +15536,7 @@ var Collectednotes__Translator__doExport = (() => {
           },
           ...toMdastOptions
         });
-        return remark.use(squeezeLinks).use(stringify2, {
+        return remark.use(squeezeLinks).use(stringify, {
           listItemIndent: "1",
           bullet: "*",
           commonmark: true,
@@ -15559,10 +15559,10 @@ var Collectednotes__Translator__doExport = (() => {
   var require_fast_safe_stringify = __commonJS({
     "node_modules/fast-safe-stringify/index.js"(exports, module) {
       init_globals();
-      module.exports = stringify2;
-      stringify2.default = stringify2;
-      stringify2.stable = deterministicStringify;
-      stringify2.stableStringify = deterministicStringify;
+      module.exports = stringify;
+      stringify.default = stringify;
+      stringify.stable = deterministicStringify;
+      stringify.stableStringify = deterministicStringify;
       var LIMIT_REPLACE_NODE = "[...]";
       var CIRCULAR_REPLACE_NODE = "[Circular]";
       var arr = [];
@@ -15573,7 +15573,7 @@ var Collectednotes__Translator__doExport = (() => {
           edgesLimit: Number.MAX_SAFE_INTEGER
         };
       }
-      function stringify2(obj, replacer, spacer, options) {
+      function stringify(obj, replacer, spacer, options) {
         if (typeof options === "undefined") {
           options = defaultOptions();
         }
@@ -15747,6 +15747,268 @@ var Collectednotes__Translator__doExport = (() => {
           return replacer.call(this, key, val);
         };
       }
+    }
+  });
+
+  // node_modules/jsesc/jsesc.js
+  var require_jsesc = __commonJS({
+    "node_modules/jsesc/jsesc.js"(exports, module) {
+      init_globals();
+      var object = {};
+      var hasOwnProperty = object.hasOwnProperty;
+      var forOwn = (object2, callback) => {
+        for (const key in object2) {
+          if (hasOwnProperty.call(object2, key)) {
+            callback(key, object2[key]);
+          }
+        }
+      };
+      var extend = (destination, source2) => {
+        if (!source2) {
+          return destination;
+        }
+        forOwn(source2, (key, value) => {
+          destination[key] = value;
+        });
+        return destination;
+      };
+      var forEach = (array, callback) => {
+        const length = array.length;
+        let index = -1;
+        while (++index < length) {
+          callback(array[index]);
+        }
+      };
+      var fourHexEscape = (hex) => {
+        return "\\u" + ("0000" + hex).slice(-4);
+      };
+      var hexadecimal = (code2, lowercase) => {
+        let hexadecimal2 = code2.toString(16);
+        if (lowercase)
+          return hexadecimal2;
+        return hexadecimal2.toUpperCase();
+      };
+      var toString = object.toString;
+      var isArray = Array.isArray;
+      var isBuffer = (value) => {
+        return typeof Buffer === "function" && Buffer.isBuffer(value);
+      };
+      var isObject = (value) => {
+        return toString.call(value) == "[object Object]";
+      };
+      var isString = (value) => {
+        return typeof value == "string" || toString.call(value) == "[object String]";
+      };
+      var isNumber = (value) => {
+        return typeof value == "number" || toString.call(value) == "[object Number]";
+      };
+      var isFunction = (value) => {
+        return typeof value == "function";
+      };
+      var isMap = (value) => {
+        return toString.call(value) == "[object Map]";
+      };
+      var isSet = (value) => {
+        return toString.call(value) == "[object Set]";
+      };
+      var singleEscapes = {
+        "\\": "\\\\",
+        "\b": "\\b",
+        "\f": "\\f",
+        "\n": "\\n",
+        "\r": "\\r",
+        "	": "\\t"
+      };
+      var regexSingleEscape = /[\\\b\f\n\r\t]/;
+      var regexDigit = /[0-9]/;
+      var regexWhitespace = /[\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000]/;
+      var escapeEverythingRegex = /([\uD800-\uDBFF][\uDC00-\uDFFF])|([\uD800-\uDFFF])|(['"`])|[^]/g;
+      var escapeNonAsciiRegex = /([\uD800-\uDBFF][\uDC00-\uDFFF])|([\uD800-\uDFFF])|(['"`])|[^ !#-&\(-\[\]-_a-~]/g;
+      var jsesc2 = (argument, options) => {
+        const increaseIndentation = () => {
+          oldIndent = indent;
+          ++options.indentLevel;
+          indent = options.indent.repeat(options.indentLevel);
+        };
+        const defaults2 = {
+          "escapeEverything": false,
+          "minimal": false,
+          "isScriptContext": false,
+          "quotes": "single",
+          "wrap": false,
+          "es6": false,
+          "json": false,
+          "compact": true,
+          "lowercaseHex": false,
+          "numbers": "decimal",
+          "indent": "	",
+          "indentLevel": 0,
+          "__inline1__": false,
+          "__inline2__": false
+        };
+        const json = options && options.json;
+        if (json) {
+          defaults2.quotes = "double";
+          defaults2.wrap = true;
+        }
+        options = extend(defaults2, options);
+        if (options.quotes != "single" && options.quotes != "double" && options.quotes != "backtick") {
+          options.quotes = "single";
+        }
+        const quote = options.quotes == "double" ? '"' : options.quotes == "backtick" ? "`" : "'";
+        const compact = options.compact;
+        const lowercaseHex = options.lowercaseHex;
+        let indent = options.indent.repeat(options.indentLevel);
+        let oldIndent = "";
+        const inline1 = options.__inline1__;
+        const inline2 = options.__inline2__;
+        const newLine = compact ? "" : "\n";
+        let result;
+        let isEmpty = true;
+        const useBinNumbers = options.numbers == "binary";
+        const useOctNumbers = options.numbers == "octal";
+        const useDecNumbers = options.numbers == "decimal";
+        const useHexNumbers = options.numbers == "hexadecimal";
+        if (json && argument && isFunction(argument.toJSON)) {
+          argument = argument.toJSON();
+        }
+        if (!isString(argument)) {
+          if (isMap(argument)) {
+            if (argument.size == 0) {
+              return "new Map()";
+            }
+            if (!compact) {
+              options.__inline1__ = true;
+              options.__inline2__ = false;
+            }
+            return "new Map(" + jsesc2(Array.from(argument), options) + ")";
+          }
+          if (isSet(argument)) {
+            if (argument.size == 0) {
+              return "new Set()";
+            }
+            return "new Set(" + jsesc2(Array.from(argument), options) + ")";
+          }
+          if (isBuffer(argument)) {
+            if (argument.length == 0) {
+              return "Buffer.from([])";
+            }
+            return "Buffer.from(" + jsesc2(Array.from(argument), options) + ")";
+          }
+          if (isArray(argument)) {
+            result = [];
+            options.wrap = true;
+            if (inline1) {
+              options.__inline1__ = false;
+              options.__inline2__ = true;
+            }
+            if (!inline2) {
+              increaseIndentation();
+            }
+            forEach(argument, (value) => {
+              isEmpty = false;
+              if (inline2) {
+                options.__inline2__ = false;
+              }
+              result.push((compact || inline2 ? "" : indent) + jsesc2(value, options));
+            });
+            if (isEmpty) {
+              return "[]";
+            }
+            if (inline2) {
+              return "[" + result.join(", ") + "]";
+            }
+            return "[" + newLine + result.join("," + newLine) + newLine + (compact ? "" : oldIndent) + "]";
+          } else if (isNumber(argument)) {
+            if (json) {
+              return JSON.stringify(argument);
+            }
+            if (useDecNumbers) {
+              return String(argument);
+            }
+            if (useHexNumbers) {
+              let hexadecimal2 = argument.toString(16);
+              if (!lowercaseHex) {
+                hexadecimal2 = hexadecimal2.toUpperCase();
+              }
+              return "0x" + hexadecimal2;
+            }
+            if (useBinNumbers) {
+              return "0b" + argument.toString(2);
+            }
+            if (useOctNumbers) {
+              return "0o" + argument.toString(8);
+            }
+          } else if (!isObject(argument)) {
+            if (json) {
+              return JSON.stringify(argument) || "null";
+            }
+            return String(argument);
+          } else {
+            result = [];
+            options.wrap = true;
+            increaseIndentation();
+            forOwn(argument, (key, value) => {
+              isEmpty = false;
+              result.push((compact ? "" : indent) + jsesc2(key, options) + ":" + (compact ? "" : " ") + jsesc2(value, options));
+            });
+            if (isEmpty) {
+              return "{}";
+            }
+            return "{" + newLine + result.join("," + newLine) + newLine + (compact ? "" : oldIndent) + "}";
+          }
+        }
+        const regex = options.escapeEverything ? escapeEverythingRegex : escapeNonAsciiRegex;
+        result = argument.replace(regex, (char, pair, lone, quoteChar, index, string) => {
+          if (pair) {
+            if (options.minimal)
+              return pair;
+            const first = pair.charCodeAt(0);
+            const second = pair.charCodeAt(1);
+            if (options.es6) {
+              const codePoint = (first - 55296) * 1024 + second - 56320 + 65536;
+              const hex2 = hexadecimal(codePoint, lowercaseHex);
+              return "\\u{" + hex2 + "}";
+            }
+            return fourHexEscape(hexadecimal(first, lowercaseHex)) + fourHexEscape(hexadecimal(second, lowercaseHex));
+          }
+          if (lone) {
+            return fourHexEscape(hexadecimal(lone.charCodeAt(0), lowercaseHex));
+          }
+          if (char == "\0" && !json && !regexDigit.test(string.charAt(index + 1))) {
+            return "\\0";
+          }
+          if (quoteChar) {
+            if (quoteChar == quote || options.escapeEverything) {
+              return "\\" + quoteChar;
+            }
+            return quoteChar;
+          }
+          if (regexSingleEscape.test(char)) {
+            return singleEscapes[char];
+          }
+          if (options.minimal && !regexWhitespace.test(char)) {
+            return char;
+          }
+          const hex = hexadecimal(char.charCodeAt(0), lowercaseHex);
+          if (json || hex.length > 2) {
+            return fourHexEscape(hex);
+          }
+          return "\\x" + ("00" + hex).slice(-2);
+        });
+        if (quote == "`") {
+          result = result.replace(/\$\{/g, "\\${");
+        }
+        if (options.isScriptContext) {
+          result = result.replace(/<\/(script|style)/gi, "<\\/$1").replace(/<!--/g, json ? "\\u003C!--" : "\\x3C!--");
+        }
+        if (options.wrap) {
+          result = quote + result + quote;
+        }
+        return result;
+      };
+      jsesc2.version = "3.0.2";
+      module.exports = jsesc2;
     }
   });
 
@@ -31586,10 +31848,10 @@ var Collectednotes__Translator__doExport = (() => {
       };
       CSL2.Util.PageRangeMangler = {};
       CSL2.Util.PageRangeMangler.getFunction = function(state, rangeType) {
-        var rangerex, pos, len, stringify2, listify, expand, minimize, minimize_internal, chicago, lst, m, b, e, ret, begin, end, ret_func;
+        var rangerex, pos, len, stringify, listify, expand, minimize, minimize_internal, chicago, lst, m, b, e, ret, begin, end, ret_func;
         var range_delimiter = state.getTerm(rangeType + "-range-delimiter");
         rangerex = /([0-9]*[a-zA-Z]+0*)?([0-9]+[a-z]*)\s*(?:\u2013|-)\s*([0-9]*[a-zA-Z]+0*)?([0-9]+[a-z]*)/;
-        stringify2 = function(lst2) {
+        stringify = function(lst2) {
           len = lst2.length;
           for (pos = 1; pos < len; pos += 2) {
             if (typeof lst2[pos] === "object") {
@@ -31654,7 +31916,7 @@ var Collectednotes__Translator__doExport = (() => {
               }
             }
           }
-          return stringify2(lst2);
+          return stringify(lst2);
         };
         minimize_internal = function(begin2, end2, minchars, isyear) {
           if (!minchars) {
@@ -31698,7 +31960,7 @@ var Collectednotes__Translator__doExport = (() => {
               m[2] = range_delimiter;
             }
           }
-          return stringify2(lst2);
+          return stringify(lst2);
         };
         var sniff = function(str, func, minchars, isyear) {
           var ret2;
@@ -31709,11 +31971,11 @@ var Collectednotes__Translator__doExport = (() => {
         };
         if (!state.opt[rangeType + "-range-format"]) {
           ret_func = function(str) {
-            return sniff(str, stringify2);
+            return sniff(str, stringify);
           };
         } else if (state.opt[rangeType + "-range-format"] === "expanded") {
           ret_func = function(str) {
-            return sniff(str, stringify2);
+            return sniff(str, stringify);
           };
         } else if (state.opt[rangeType + "-range-format"] === "minimal") {
           ret_func = function(str) {
@@ -34645,6 +34907,7 @@ var Collectednotes__Translator__doExport = (() => {
     "citeCommand",
     "citekeyFold",
     "citekeyFormat",
+    "citekeyFormatBackup",
     "citekeySearch",
     "csquotes",
     "DOIandURL",
@@ -34764,7 +35027,8 @@ var Collectednotes__Translator__doExport = (() => {
     charmap: "",
     citeCommand: "cite",
     citekeyFold: true,
-    citekeyFormat: "[auth:lower][shorttitle3_3][year]",
+    citekeyFormat: "'' + auth.lower + shorttitle(3,3) + year",
+    citekeyFormatBackup: "",
     citekeySearch: true,
     csquotes: "",
     DOIandURL: "both",
@@ -34829,28 +35093,12 @@ var Collectednotes__Translator__doExport = (() => {
       displayOptions: ["useJournalAbbreviation", "exportNotes"]
     },
     translator: {
-      "Better CSL JSON": {
-        autoexport: true,
-        cached: true,
-        preferences: [],
-        displayOptions: [],
-        types: {}
-      },
       "Better CSL YAML": {
         autoexport: true,
         cached: true,
         preferences: [],
         displayOptions: [],
         types: {}
-      },
-      "BetterBibTeX JSON": {
-        autoexport: true,
-        cached: false,
-        preferences: [],
-        displayOptions: ["exportNotes"],
-        types: {
-          exportNotes: { type: "boolean" }
-        }
       },
       "Better BibTeX": {
         autoexport: true,
@@ -34866,6 +35114,15 @@ var Collectednotes__Translator__doExport = (() => {
           useJournalAbbreviation: { type: "boolean" }
         }
       },
+      "BetterBibTeX JSON": {
+        autoexport: true,
+        cached: false,
+        preferences: [],
+        displayOptions: ["exportNotes"],
+        types: {
+          exportNotes: { type: "boolean" }
+        }
+      },
       "Better BibLaTeX": {
         autoexport: true,
         cached: true,
@@ -34878,6 +35135,13 @@ var Collectednotes__Translator__doExport = (() => {
           exportNotes: { type: "boolean" },
           useJournalAbbreviation: { type: "boolean" }
         }
+      },
+      "Better CSL JSON": {
+        autoexport: true,
+        cached: true,
+        preferences: [],
+        displayOptions: [],
+        types: {}
       }
     }
   };
@@ -34886,7 +35150,7 @@ var Collectednotes__Translator__doExport = (() => {
   init_globals();
   if (typeof Components !== "undefined")
     Components.utils.import("resource://zotero/config.js");
-  var client = ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "");
+  var client = typeof Zotero !== "undefined" ? ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "") : "zotero";
 
   // content/environment.ts
   init_globals();
@@ -35183,12 +35447,9 @@ var Collectednotes__Translator__doExport = (() => {
   function asciify(str) {
     return str.replace(/[\u007F-\uFFFF]/g, (chr) => `\\u${`0000${chr.charCodeAt(0).toString(16)}`.substr(-4)}`);
   }
-  function stringify(obj, replacer, indent, ucode) {
-    const stringified = import_fast_safe_stringify.default.stable(obj, replacer, indent);
-    return ucode ? asciify(stringified) : stringified;
-  }
 
   // content/logger.ts
+  var import_jsesc = __toESM(require_jsesc());
   var inTranslator = environment.worker || typeof ZOTERO_TRANSLATOR_INFO !== "undefined";
   var Logger = class {
     constructor() {
@@ -35211,9 +35472,9 @@ var Collectednotes__Translator__doExport = (() => {
           } else if (m && type2 === "object" && m.message) {
             output += this.formatError({ message: m.errorCode ? `${m.message} (${m.errorCode})` : m.message, filename: m.fileName, lineno: m.lineNumber, colno: m.column, stack: m.stack });
           } else if (this.verbose) {
-            output += stringify(m, null, 2);
+            output += (0, import_jsesc.default)(m, { compact: false, indent: "  " });
           } else {
-            output += stringify(m);
+            output += (0, import_jsesc.default)(m);
           }
           output += " ";
         }
@@ -38434,12 +38695,13 @@ ${indent}${this.formatError(e.error, "  ")}
     const extraFields = {
       kv: {},
       creator: {},
+      creators: [],
       tex: {},
       citationKey: "",
       aliases: []
     };
     let ef;
-    extra = extra.split("\n").filter((line) => {
+    extra = extra.split("\n").filter((line, i) => {
       const m = line.match(re.old) || line.match(re.new);
       if (!m)
         return true;
@@ -38471,6 +38733,7 @@ ${indent}${this.formatError(e.error, "  ")}
             case "name":
               extraFields.creator[field] = extraFields.creator[field] || [];
               extraFields.creator[field].push(value);
+              extraFields.creators.push({ name: value, type: field });
               break;
             case "text":
             case "date":
@@ -38483,11 +38746,11 @@ ${indent}${this.formatError(e.error, "  ")}
         return false;
       }
       if (options.tex && tex && !key.includes(" ")) {
-        extraFields.tex[tex + key] = { value, raw };
+        extraFields.tex[tex + key] = { value, raw, line: i };
         return false;
       }
       if (options.tex && !tex && otherFields.includes(key.replace(/[- ]/g, ""))) {
-        extraFields.tex[`tex.${key.replace(/[- ]/g, "")}`] = { value };
+        extraFields.tex[`tex.${key.replace(/[- ]/g, "")}`] = { value, line: i };
         return false;
       }
       return true;

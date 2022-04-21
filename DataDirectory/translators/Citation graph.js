@@ -16,9 +16,9 @@
 	},
 	"priority": 100,
 	"configOptions": {
-		"hash": "9b1f44390ad4a4443f60656372f982f21e9252cfdb1aa35e3f19a3d1b78933f8"
+		"hash": "249e90689294ceb6f3df7df0612d3029f96e43f338e1476be240c45ea85b4ec8"
 	},
-	"lastUpdated": "2022-04-07"
+	"lastUpdated": "2022-04-20"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
@@ -267,6 +267,7 @@ var Citationgraph__Translator__doExport = (() => {
     "citeCommand",
     "citekeyFold",
     "citekeyFormat",
+    "citekeyFormatBackup",
     "citekeySearch",
     "csquotes",
     "DOIandURL",
@@ -386,7 +387,8 @@ var Citationgraph__Translator__doExport = (() => {
     charmap: "",
     citeCommand: "cite",
     citekeyFold: true,
-    citekeyFormat: "[auth:lower][shorttitle3_3][year]",
+    citekeyFormat: "'' + auth.lower + shorttitle(3,3) + year",
+    citekeyFormatBackup: "",
     citekeySearch: true,
     csquotes: "",
     DOIandURL: "both",
@@ -451,28 +453,12 @@ var Citationgraph__Translator__doExport = (() => {
       displayOptions: ["useJournalAbbreviation", "exportNotes"]
     },
     translator: {
-      "Better CSL JSON": {
-        autoexport: true,
-        cached: true,
-        preferences: [],
-        displayOptions: [],
-        types: {}
-      },
       "Better CSL YAML": {
         autoexport: true,
         cached: true,
         preferences: [],
         displayOptions: [],
         types: {}
-      },
-      "BetterBibTeX JSON": {
-        autoexport: true,
-        cached: false,
-        preferences: [],
-        displayOptions: ["exportNotes"],
-        types: {
-          exportNotes: { type: "boolean" }
-        }
       },
       "Better BibTeX": {
         autoexport: true,
@@ -488,6 +474,15 @@ var Citationgraph__Translator__doExport = (() => {
           useJournalAbbreviation: { type: "boolean" }
         }
       },
+      "BetterBibTeX JSON": {
+        autoexport: true,
+        cached: false,
+        preferences: [],
+        displayOptions: ["exportNotes"],
+        types: {
+          exportNotes: { type: "boolean" }
+        }
+      },
       "Better BibLaTeX": {
         autoexport: true,
         cached: true,
@@ -500,6 +495,13 @@ var Citationgraph__Translator__doExport = (() => {
           exportNotes: { type: "boolean" },
           useJournalAbbreviation: { type: "boolean" }
         }
+      },
+      "Better CSL JSON": {
+        autoexport: true,
+        cached: true,
+        preferences: [],
+        displayOptions: [],
+        types: {}
       }
     }
   };
@@ -508,7 +510,7 @@ var Citationgraph__Translator__doExport = (() => {
   init_globals();
   if (typeof Components !== "undefined")
     Components.utils.import("resource://zotero/config.js");
-  var client = ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "");
+  var client = typeof Zotero !== "undefined" ? ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "") : "zotero";
 
   // content/environment.ts
   init_globals();
