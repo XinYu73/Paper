@@ -1,0 +1,961 @@
+www.nature.com/npjcompumats
+
+ARTICLE OPEN
+Evaluation of thermodynamic equations of state across chemistry and structure in the materials project
+Katherine Latimer1, Shyam Dwaraknath2, Kiran Mathew3, Donald Winston2 and Kristin A. Persson2,3
+Thermodynamic equations of state (EOS) for crystalline solids describe material behaviors under changes in pressure, volume, entropy and temperature, making them fundamental to scientiﬁc research in a wide range of ﬁelds including geophysics, energy storage and development of novel materials. Despite over a century of theoretical development and experimental testing of energy–volume (E–V) EOS for solids, there is still a lack of consensus with regard to which equation is indeed optimal, as well as to what metric is most appropriate for making this judgment. In this study, several metrics were used to evaluate quality of ﬁt for 8 different EOS across 87 elements and over 100 compounds which appear in the literature. Our ﬁndings do not indicate a clear “best” EOS, but we identify three which consistently perform well relative to the rest of the set. Furthermore, we ﬁnd that for the aggregate data set, the RMSrD is not strongly correlated with the nature of the compound, e.g., whether it is a metal, insulator, or semiconductor, nor the bulk modulus for any of the EOS, indicating that a single equation can be used across a broad range of classes of materials.
+npj Computational Materials (2018)4:40 ; doi:10.1038/s41524-018-0091-x
+
+INTRODUCTION
+Thermodynamic equations of state (EOS) for crystalline solids describe material behaviors under changes in pressure, volume, entropy and temperature; making them fundamental to scientiﬁc research in a wide range of ﬁelds, including geophysics, energy storage and development of novel materials.1–3 Despite over a century of theoretical development and experimental testing of EOS for solids,4,5 there is still a lack of consensus on the most appropriate EOS under various conditions or even the metric to evaluate appropriateness. Previous attempts6,7 have focused on comparison with the experimental data, which limits the range of the accessible data. By contrast, computational studies can span chemical and structural space in a consistent and methodical manner, and are often able to probe extreme conditions beyond the range of current experimental techniques. Density-functional theory (DFT) is gaining grounds as a ﬁrst principles methodology that can accurately and efﬁciently search material space for complex functionality. In well-characterized systems, DFT calculations have been shown to be precise and reliable.8 In particular, Lajaeghere et al. recently benchmarked results for DFT-calculated thermodynamic properties of the elements, and found overall satisfactory agreement between prediction and experiment (excepting cases where magnetic, correlative, or relativistic effects are signiﬁcant; or in cases where van der Waals forces are dominant).9 While direct calculations of systems under pressure are possible in most DFT codes, the equations of state provide a simple mathematical handle with minimum computational cost. These considerations pave the way for high-throughput studies that probe extreme conditions using DFT generated EOS.
+There are three key questions to answer in order to utilize highthroughput DFT-based EOS. Which EOS best encapsulates the fundamental physics presented by DFT and are there rules or
+
+metrics that deﬁne EOS applicability? Are the optimal DFT-based EOS consistent with experimental values, and are therefore likely to reﬂect our physical reality? What are the limitations of these EOS?
+
+RESULTS AND DISCUSSIONS Equations of state The equations investigated in this study are described in detail below, and summarized in Table 1.
+
+Birch (Euler and Lagrange)
+Both forms of the Birch equation were derived by Francis Birch in 1947 for crystalline solids of cubic symmetry.10 The derivation was based on Francis Murnaghan’s extensive tensor formalism for analyzing ﬁnite strains.11 The ﬁrst Birch equation uses the Eulerian strain metric; the second form is based on the Lagrangian metric
+(roughly the inverse of the Eulerian). As noted by both Birch and Murnaghan, the Eulerian metric is generally considered to be a more apt description of elastic behavior for non-inﬁnitesimal strains, since it treats the ﬁnal (rather than initial) coordinates as the independent variable. The energy–volume relation arising from the Eulerian viewpoint is:
+
+E
+
+¼
+
+Eo
+
+þ
+
+ BVo νÀ23
+
+À
+
+2 1þ
+
+C 2
+
+ νÀ23
+
+À
+
+3 1;
+
+(1)
+
+where
+
+ν
+
+
+
+V Vo
+
+,
+
+and
+
+Eo
+
+and
+
+Vo
+
+are
+
+the
+
+calculated
+
+equilibrium
+
+energy
+
+and volume, respectively, at zero pressure and absolute zero
+
+temperature. As for all subsequent formulations, the values of bulk
+
+modulus (K) and its pressure derivative (K′) at ν = 1 may be
+
+1Department of Physics, University of California Berkeley, Berkeley, CA 94720, USA; 2Energy Storage and Distributed Resources Division, Lawrence Berkeley National Lab, Berkeley, CA 94720, USA and 3Department of Materials Science, University of California Berkeley, Berkeley, CA 94720, USA Correspondence: Kristin A. Persson (kapersson@lbl.gov)
+Received: 3 November 2017 Revised: 4 June 2018 Accepted: 11 June 2018
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+Evaluation of thermodynamic equations of state across chemistry and K Latimer et al.
+2
+
+Table 1. Theoretical isothermal EOS investigated in this study
+
+Equation
+
+E(νa)
+
+K(ν = 1)
+
+K′(ν = 1)
+
+Ref
+
+Birch (Euler) Birch (Lagrange)
+
+E E
+
+= =
+
+Eob Eo
+
+þ þ
+
+ BVo νÀ23
+
+À
+
+2 1þ 
+
+C 2
+
+BVoC
+
+À
+
+BVo
+
+ν
+
+2 3
+
+ðC À
+
+ νÀ23
+ 2Þ 1
+
+À À
+
+3 1
+
+ν
+
+2 3
+
+2
+
+ þC 1
+
+À
+
+ν2 3
+
+
+
+þ
+
+C
+
+
+
+8B 9
+16B 9
+
+C+4
+
+10
+
+C−2
+
+10
+
+
+
+
+
+Mie–Gruneisen
+
+E
+
+=
+
+Eo
+
+þ
+
+BVo C
+
+À
+
+BVo CÀ1
+
+νÀ13
+
+À
+
+1 C
+
+νÀC3
+
+B
+
+7þC
+
+6
+
+9
+
+3
+
+
+
+
+
+Murnaghan
+
+E
+
+=
+
+Eo
+
+þ
+
+BVo ðCþ1Þ
+
+νÀC À1 C
+
+þ
+
+ν
+
+À
+
+1
+
+B
+
+C+1
+
+13
+
+Pack–Evans–James
+
+E
+
+=
+
+Eo
+
+þ
+
+BVo C
+
+
+1
+C
+
+
+
+1
+
+e3C ð1Àν3 Þ
+
+À
+
+ 1
+
+À
+
+ 31
+
+À
+
+ ν1
+3
+
+B
+
+C+1
+
+14
+
+Poirier–Tarantola Tait Vinet
+
+E = Eo + BVo(ln(ν))2(3 − C(ln(ν)))
+
+E
+
+=
+
+Eo
+
+þ
+
+BVo C
+
+À ν
+
+À
+
+1
+
+þ
+
+1 C
+
+ÀeCð1ÀνÞ
+
+À
+
+ÁÁ 1
+
+E
+
+=
+
+Eo
+
+þ
+
+BVo C2
+
+ 1
+
+À
+
+ 1
+
+þ
+
+
+
+C
+
+ν1 3
+
+À
+
+ 1  1 eÀCðν3À1Þ
+
+abνEo¼=VVEo,(νw=he1r)e Vo is the volume at zero pressure
+
+6B
+
+C+2
+
+15
+
+B
+
+C−1
+
+16
+
+B 9
+
+2 3
+
+C
+
+þ
+
+1
+
+18
+
+1234567890():,;
+
+expressed in terms of the ﬁtting parameters B and C:
+
+K ¼ 8B
+
+(2)
+
+9
+
+K0 ¼ C þ 4
+
+(3)
+
+Birch’s equation from the Lagrangian viewpoint is:
+
+E
+
+¼
+
+Eo
+
+þ
+
+BVoC
+
+À
+
+
+
+BVo
+
+ν2 3
+
+ðC
+
+À
+
+ 2Þ 1
+
+À
+
+ν
+
+2 3
+
+2
+
+þC
+
+ 1
+
+À
+
+ ν2
+3
+
+þ
+
+ C;
+
+(4)
+
+where:
+
+K ¼ 16B
+
+(5)
+
+9
+
+K0 ¼ C À 2
+
+(6)
+
+Mie–Gruneisen The Mie–Gruneisen EOS is based on the well-established empirical form of a general interatomic potential:4,5
+
+E ¼ αrm þ βrn
+
+(7)
+
+Setting m = −1 gives a reasonable representation of the
+
+Coulombic interaction between two atoms;12 under the restriction
+
+that E = Eo at r = ro reduces the four parameters in Eq. (7) to two
+
+to give:
+
+
+
+
+
+E
+
+¼
+
+Eo
+
+þ
+
+BVo C
+
+À
+
+BVo CÀ1
+
+νÀ13 À 1 νÀC3 C
+
+;
+
+(8)
+
+where:
+
+K ¼B
+
+(9)
+
+9
+
+K0 ¼ 7 þ C
+
+(10)
+
+3
+
+respect to pressure.13 This hypothesis leads to the equation:
+
+E
+
+¼
+
+Eo
+
+þ
+
+BVo ðC þ 1Þ
+
+νÀC À C
+
+1
+
+þ
+
+ν
+
+À
+
+ 1;
+
+(11)
+
+where:
+
+K ¼B
+
+(12)
+
+K0 ¼ C þ 1
+
+(13)
+
+Pack–Evans–James
+
+Pack et al. posited an exponential variation of pressure with
+
+respect to changes in volume (based on quantum mechanics), and
+
+adjusted their expression to ensure proper limiting behavior as
+
+pressure approaches zero or inﬁnity:14
+
+E
+
+¼
+
+Eo
+
+þ
+
+BVo C
+
+ 1 C
+
+
+
+1
+
+e3C ð1Àν 3 Þ
+
+À
+
+ 1
+
+À
+
+ 31
+
+À
+
+
+
+ν1 3
+
+;
+
+(14)
+
+where:
+
+K ¼B
+
+(15)
+
+K0 ¼ C þ 1
+
+(16)
+
+Poirier–Tarantola
+Poirier and Tarantola proposed that pressure is best expressed in terms of a logarithmic strain metric (as opposed to the Eulerian or Lagrangian metrics of Birch’s equations).15 The resulting energy–volume relationship is:
+
+E ¼ Eo þ BVoðlnðνÞÞ2ð3 À CðlnðνÞÞÞ;
+
+(17)
+
+where:
+
+K ¼ 6B
+
+(18)
+
+K0 ¼ C þ 2
+
+(19)
+
+Murnaghan
+Interestingly, the Murnaghan equation is based not on Francis Murnaghan’s prodigious 1937 paper, but rather on a short communication from 1944 in which he proposed a relatively simple EOS based on a linear variation of the bulk modulus with
+
+Tait
+The Tait equation was developed nearly 150 years ago based entirely on the empirical observations of Peter Tait, who was investigating the compressibility of seawater, and modiﬁed a few decades later by Gustav Tammann from a linear average to a
+
+npj Computational Materials (2018) 40
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+Evaluation of thermodynamic equations of state across chemistry and K Latimer et al.
+3
+
+Fig. 1 RMSrD values for theoretical EOS ﬁtted to DFT calculations of the elements
+
+differential form,16 leading to the relation:
+
+E
+
+¼
+
+Eo
+
+þ
+
+BVo C
+
+ ν
+
+À
+
+1
+
+þ
+
+1 C
+
+ eCð1ÀνÞ
+
+À
+
+ 1;
+
+(20)
+
+where:
+
+K ¼B
+
+(21)
+
+K0 ¼ C À 1
+
+(22)
+
+Vinet
+
+The Vinet equation was shown by Stacey to be equivalent in formulation to the Rydberg potential:7,17
+
+E ¼ Dðar þ 1ÞeÀar
+
+(23)
+
+This leads to the following energy–volume equation:18
+
+E
+
+¼
+
+Eo
+
+þ
+
+BVo C2
+
+ 1
+
+À
+
+ 1
+
+þ
+
+
+
+C
+
+ν1 3
+
+À
+
+ À
+
+Á
+1
+
+1 eC 1Àν3 ;
+
+(24)
+
+where:
+
+K ¼B
+
+(25)
+
+9
+
+K0 ¼ 2C þ 1
+
+(26)
+
+3
+
+The Jellium EOS,19 a third-order polynomial ﬁt to energies, has
+
+historically shown a high quality of ﬁt when utilized with the DFT
+
+data.8 The authors for this EOS motivate their equation (wÀ1h=i3ch is
+
+essentially a polynomial expansion in powers of x 
+
+V V0
+
+) by
+
+arguing that each power of x corresponds to a contribution to the
+
+energy of a crystal structure as a function of its cell volume. However, it does not appear that these justiﬁcations are entirely physical. For example, the x2 term in the Jellium model is aimed to
+
+represent the kinetic energy of an electron gas surrounding the
+
+atoms in the crysta2l. However, if the total energy varies roughly in
+
+proportion to
+
+V V0
+
+À
+
+V V0
+
+(as is the case with NaCl, for instance),
+
+this coefﬁcient is almost certainly negative if one examines the
+
+Taylor expansion of E as a function of x. Hence, as the Jellium EOS
+
+may in some cases revert to a non-physical polynomial function,
+
+we did not include it in this study.
+
+Fig. 2 Violin plots showing distribution of RMSrD values for each EOS across the combined set of elements and compounds
+
+Optimal equation of state
+
+Metrics and correlations were derived from the equation of state
+
+and data compiled in the Materials Project. The relative root mean
+
+square deviation (RMSrD) was used as the primary metric for
+
+quality of ﬁt, deﬁned as:20
+
+RMSrD ¼ v u u u tiﬃP¼ﬃNﬃﬃ1ﬃﬃﬃﬃEﬃﬃiDﬃﬃFEﬃTﬃiDÀﬃﬃFﬃTEﬃﬃiFﬃITﬃﬃﬃﬃﬃ2ﬃ:
+
+(27)
+
+NÀ1
+
+The RMSrD values for the ﬁts of all EOS across the investigated material set are shown for the elements (Fig. 1) (see Supplementary Fig. S1 in SI for data on the compound set). Noble gases have been excluded from the elemental set due to drastic deviations from ideal behavior for solids: in the most extreme case, oscillations in the E–V curve of Kr lead to an RMSrD of 37%, orders of magnitude larger than the mean values in Fig. 2. Other studies have shown that it is necessary to incorporate the effects of van der Waals forces in the calculations to adequately capture the energy curve behavior of noble gases,21 however, these forces were not included in our simulations. There is an interesting periodic trend in the plot of Fig. 1, which indicates a correlation between error in EOS ﬁt and number of valence electrons for a given element. We conjecture that this is due to the inability of the simpliﬁed EOS models to capture the physics of systems with greater numbers of interacting bodies (the implicit assumption being that DFT is able to do so more accurately, although previous comparison to experimental data has demonstrated that this
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+npj Computational Materials (2018) 40
+
+Evaluation of thermodynamic equations of state across chemistry and K Latimer et al.
+4
+
+Fig. 3 Plot of the squared strain metrics ηEul and ηLag, which are the bases for Eqs. (1) and (4), respectively. Note that the graph of η2Eul more closely resembles a physical E–V relation for a solid with positive coefﬁcient of linear expansion
+Fig. 4 RMSrD values for theoretical EOS ﬁtted to DFT calculations of various polymorphs of Al2O3 method is likely still prone to some error.9) It is clear from this plot that the Lagrangian formulation of the Birch EOS (Eq. (5)) fares signiﬁcantly worse than the other EOS under consideration and for this reason, it has been removed from subsequent plots in order not to obscure other data. This property has been remarked by previous authors,6,10 however, we do not believe any physical interpretation has previously been offered. We therefore point out that in approximately harmonic systems, where the E–V curve is dominated by a quadratic strain term, the Eulerian metric more closely resembles the true E–V relation for most solids (Fig. 3). This observation might be taken into consideration for future theoretical work.
+There is a large degree of variability in RMSrD from material to material, captured by the violin plot in Fig. 2 which displays the distribution for the combined set of elemental and compound materials. The average relative deviations are less than 1% regardless of material or theoretical equation used to ﬁt the E–V data for most materials investigated, which suggests that for general purposes of approximation, the particular choice of EOS is not crucial. Because the mean RMSrD values for some of the equations were quite close to each other, we also compared EOS performance on the basis of a few other error metrics: maximum
+
+Fig. 5 RMSrD values for theoretical EOS ﬁtted to DFT calculations of various polymorphs of Ga
+relative deviation (MrD), the greatest magnitude of fractional deviation for a given ﬁtted E–V curve from DFT-calculated points; statistical uncertainty for each of the ﬁt parameters (E0, V0, K, K′) as calculated from the least-squares. These analyses do not indicate a clearly superior EOS (see for example, Supplementary Fig. S2 in the SI), however, do suggest that the Birch (Eulerian), Tait, and Vinet equations tend to show lower deviation from calculated data points and less variability of ﬁtting parameters than the other equations investigated.
+The RMSrD values did not exhibit strong correlation with the bulk modulus or the band gap in the elemental and compound sets (see Supplementary Tables S1 and S2 and Supplementary Figs. S3 and S4 in SI). This suggests that neither the metallic/ insulating nature nor softness of the material are predictive of error in the ﬁtted EOS. The effect of structure within a ﬁxed chemical system was also investigated for several materials, examples of which are shown in Figs. 4 and 5 for various polymorphs of Al2O3 and Ga, respectively. Al2O3 shows essentially no variation of quality of ﬁt for any equation across a range of crystal systems. This is especially notable in light of the fact that both forms of the Birch equation were derived for media of cubic symmetry,10 with the rest assuming an isotropic medium. In contrast, Ga does exhibit noticeable variation in RMSrD between different polymorphs. Similar trends were observed for other chemical systems, with stiff metal oxides exhibiting low variability relative to softer metals (see Supplementary Figures S5 and S6 in SI). It is true that structures with different space groups may still have similar physical properties; this typically occurs when one structure is a slight distortion of another with higher symmetry. We examined the supergroup/subgroup relations of the given systems, and did not ﬁnd this to be the determining factor in the similarity or difference in error trends. For example, the only relation of this type in the alumina polymorph set (besides the trivial P1, which is a subgroup of every space group) is P21/c and C2/m (numbers 14 and 12, respectively); whereas for gallium, Cmce (number 64) is a subgroup of Cmcm (number 63) and I4/ mmm (number 139). These ﬁndings suggest that variations in structure are not necessarily predictive of variations in error for ﬁtted EOS.
+Benchmarking to Experiment
+Given the overall quality of performance of the Birch (Eulerian), Tait, and Vinet equations, these were selected further benchmarking analysis. To verify the ability of DFT-based EOS to predict
+
+npj Computational Materials (2018) 40
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+Evaluation of thermodynamic equations of state across chemistry and K Latimer et al.
+5
+
+Fig. 6 Comparison of experimental and calculated values of bulk moduli (K) for elements and compounds (using the Vinet EOS, Eq. (24) to derive K). Dashed lines show least-squares linear regression. References for experimental bulk modulus values are given in Supplementary Tables S3 and S4 of SI
+experimentally observed behavior, we compared the values of the bulk modulus (K) derived from the EOS for each material with values found in the literature. All three equations yielded similar results as determined by the mean unsigned percent error between calculation and experiment, which was in every case about 18% for the elemental set and 12% for the compound set. Results are shown in Figs. 6 and 7 for the Vinet equation, which had the smallest overall average error (by less than one percent). Similar plots for the other two EOS are provided in Supplementary Figs. S8–S11 of SI. There is limited experimental data on secondorder elastic constants (used to calculate K′), but a few systems are compared in Fig. 8.
+Agreement between experimental and calculated values of elemental and compound bulk moduli is good, with regression slope and R2 values for both sets very close to 1 (Fig. 6). Previous studies have indicated that zero-point energy can lead to greater discrepancy between 0 K calculations and experiment for lighter elements,22 however, the error in bulk modulus values was not correlated to atomic mass for the elemental data set in this study (see Supplementary Figure S7). A few elements show variation from experimental data of greater than 50 GPa, labeled on the ﬁgure. Of these, Cr, Np, and Pa have been studied elsewhere by
+
+Fig. 7 Comparison of EOS- and elastic tensor-derived values of bulk moduli (K) for elements and compounds (using the Vinet EOS, Eq. (24) to derive K). Dashed lines show least-squares linear regression
+both experiment and calculation, and have shown similar systematic deviations as reported here. The discrepancy for Cr arises from magnetic ordering,23 which was not considered in this study. Previous experimental studies have shown that the bulk modulus of this element increases considerably at lower temperatures (nearly 20% from room temperature to 77 K).24 The variations for Np and Pa have been attributed to bonding in 5f orbitals.25,26 Previous studies using exact and overlapping mufﬁn tin orbitals have been able to reproduce experimental elastic properties of actinides, in particular plutonium.27 This all-electron DFT method, while effective, is computationally expensive and difﬁcult to generalize, making it unsuitable for EOS generation in high-throughput schemes.
+Comparison to experimental values of K′ is more difﬁcult, since they are small dimensionless quantities (typically in the range of 1–10), and the combination of experimental uncertainties and inherent variability due to different methods of ﬁtting data lead to a wide range of cited literature values even for a single material. Figure 8 shows a few representative examples. Since the bulk modulus pressure derivative can be used to derive other material properties, such as behavior at ﬁnite temperatures,7 it is useful to have an internally consistent method for deriving K′ (although it
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+npj Computational Materials (2018) 40
+
+Evaluation of thermodynamic equations of state across chemistry and K Latimer et al.
+
+6
+
+the validity of the pseudopotential approximation, extrapolation
+
+of the EOS may in some cases give a more physically valid (and
+
+computationally cheaper) prediction than simply performing
+
+higher-pressure calculations.
+
+Many of the materials exhibit phase transformations far below
+
+the pressure range of the DFT curves, in which case the question is
+
+no longer whether a single DFT-derived EOS is valid at high
+
+pressures, but whether we can use DFT-based EOS of multiple
+
+polymorphs to predict these transitions. This analysis calls for
+
+simulations at ﬁnite temperatures, and has not been included in
+
+the present study.
+
+In summary, the energy–volume curves of over 200 elemental,
+
+binary, and ternary crystalline solids were calculated using DFT,
+
+and the resulting data were ﬁt to several theoretical EOS
+
+commonly cited in the literature. Although the quality of ﬁt, as
+
+measured by RMSrD, did not vary greatly across the investigated
+
+set of equations, the Birch (Eulerian), Tait, and Vinet equations
+
+were found to give the best overall quality of ﬁt to calculated
+
+energy–volume curves as compared to the other equations under
+
+examination. Band gap and bulk modulus were not found to be
+
+useful indicators of EOS quality of ﬁt for the aggregate set of
+
+materials, although we observed that quality of ﬁt does vary with
+
+structure for polymorphs within certain chemical systems. Bulk
+
+modulus values derived from the calculated EOS were bench-
+
+Fig. 8 Comparison of experimental and calculated values of bulk modulus pressure derivatives (K′). Gray bar denotes range of experimental values cited for NaCl,1,42 Fe,14,43,44 Ge,43,45 Mo,42–44 and Pb14,43,44
+
+marked against experimental data, and in general display good agreement.
+
+should be noted that, since K′ is the highest-order ﬁt parameter for the EOS investigated here, it is subject to the largest statistical uncertainty; see Fig. 9e). In light of their demonstrated accuracy in predicting K values, we therefore propose that numericallyderived EOS are valid avenues for analyzing and predicting thermodynamic properties of solid crystalline materials.
+Bulk moduli calculated from the EOS were also compared against bulk moduli calculated from the elastic tensor using the formation detailed in elastic tensor workﬂow for Materials Project.28 For the most part, values are identical, with some elements showing noticeably lower values from the elastic tensor workﬂow (Fig. 7). This is likely due to higher order terms the E–V curves, or asymmetries of the unit cell (e.g., in the cases of Tb and Dy). The discrepancy in carbon is due to the nature of the ground state structure, which is layered (graphite). This leads to a highly anisotropic elastic tensor, and the Voigt-Reuss-Hill averaging scheme is skewed by the low shear modulus of this structure.28 On the other hand, the shear modulus is not accounted for by the isotropic volumetric deformations employed in this study resulting in a far less signiﬁcant effect of the lack of inter-layer cohesive forces on the calculated bulk modulus.
+Since many applications for thermodynamic EOS involve materials subjected to extreme pressures (e.g., in geophysical research,29) it is natural to inquire whether there are pressure limits beyond which the DFT-derived EOS are no longer valid. A rough measure of these limits is given by comparing the maximal value found in the literature for pressure exerted on a material to that reached by the DFT simulation. Our ﬁndings, listed in Supplementary Tables S5 and S6 in SI, indicate that in many cases (e.g., AgCl), the latter of these limits is greater than or equal to the former, so that no extrapolation of the EOS is necessary for comparison with experimental results. However, in some cases, extrapolation would still be necessary: for example, for BeO, a stiff ceramic material, the maximum calculated volumetric compression of 15.7% corresponds to a calculated pressure of 127.5 GPa, whereas pressures of up to 175 GPa have been achieved in laboratory settings30 (see Supplementary Table S5 in SI). Because computations are capable of pressurizing a material well beyond
+
+METHODS The calculation of EOS is automated using self-documenting workﬂows compiled in the atomate31 code base that couples pymatgen32 for materials analysis, custodian33 for just-in-time debugging of DFT codes, and Fireworks34 for workﬂow management. The EOS workﬂow begins with a structure optimization and subsequently calculates the energy of isotropic deformations, including ionic relaxation with volumetric strain ranging from from −33 to 33% (−10 to 10% linear strain) of the optimized structure. Density-functional-theory (DFT) calculations were performed as necessary using the projector augmented wave (PAW) method35,36 as implemented in the Vienna Ab Initio Simulation Package (VASP)37,38 within the Perdew–Burke–Ernzerhof (PBE) Generalized Gradient Approximation (GGA) formulation of the exchange-correlation functional.39 A cutoff for the plane waves of 520 eV is used and a uniform k-point density of approximately 7,000 per reciprocal atom is employed. Convergence tests were performed for selected materials across a range of bulk modulus values, with KPPRA values between 1,000 and 11,000; plots are provided in the SI (Supplementary Figure S12). In addition, standard Materials Project Hubbard U corrections are used for a number of transition metal oxides,40 as documented and implemented in the pymatgen VASP input sets.32 We note that the computational and convergence parameters were chosen consistently with the settings used in the Materials Project41 to enable direct comparisons with the large set of available MP data.
+Data availability
+Numerical EOS for the data set investigated in this study have been included as a Supplementary json File (see explanation of ﬁle structure in SI). The equivalent data are also available for free to the public, via the Materials Project online database.
+Any additional data (compiled experimental values, calculated ﬁtting parameters, etc.) are available from the corresponding author upon request.
+ACKNOWLEDGEMENTS
+Intellectually led by the Center for Next Generation Materials by Design, an Energy Frontier Research Center funded by the U.S. Department of Energy, Ofﬁce of Science, Basic Energy Sciences under Awards DE-AC02-05CH11231 and DE-AC36-089028308. Collaborative support from the Materials Project funded by the Department of Energy (DOE) Basic Energy Sciences (BES) Materials Project program, Contract No KC23MP. Additional funding provided by the Anselm MP&S Fund through the UC Berkeley Summer Undergraduate Research Fellowship program.
+
+npj Computational Materials (2018) 40
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+Evaluation of thermodynamic equations of state across chemistry and K Latimer et al.
+
+7
+
+AUTHOR CONTRIBUTIONS
+
+23. Chromium Structure and Elastic Properties. http://www.materialsdesign.com/
+
+K.L. and S.D. carried out calculation and analyses of DFT EOS. KM developed algorithms for EOS ﬁtting and also contributed to initial DFT EOS data set. D.W. implemented presentation of EOS and accompanying documentation on the Materials Project website. K.P. provided input and guidance for the project. K.L. is guarantor of the research reported in this paper.
+
+appnote/chromium-structure-elastic-properties. 24. Bolef, D. I. & De Klerk, J. Anomalies in the elastic constants and thermal expansion
+of chromium single crystals. Phys. Rev. 129, 1063–1067 (1963). 25. Benedict, U., Spirlet, J. C. & Dufour, C. X-ray diffraction study of proactinium metal
+to 53 GPa. J. Magn. Magn. Mater. 29, 287–290 (1982). 26. Dabos, S., Dufour, C., Benedict, U. & Pages, M. Bulk modulus and P-V relationship
+
+up to 52 GPa of neptunium metal at room temperature. J. Magn. Magn. Mater. 64,
+
+ADDITIONAL INFORMATION
+Supplementary information accompanies the paper on the npj Computational Materials website (https://doi.org/10.1038/s41524-018-0091-x).
+
+661–663 (1987). 27. Söderlind. Ambient pressure phase diagram of plutonium: A uniﬁed theory for a-
+Pu and d-Pu. Europhys. Letts. 55, 525–531 (2001). 28. de Jong, M. et al. Charting the complete elastic properties of inorganic crystalline
+
+Competing interests: The authors declare no competing interests.
+
+compounds. Sci. Data 2, 150009–150021 (2015). 29. Hieu, H. K., Hai, T. T., Hong, N. T., Sang, N. D. & Tuyen, N. V. Pressure dependence
+
+Publisher's note: Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afﬁliations.
+
+of melting temperature and shear modulus of hcp-iron. High. Press. Res. 37, 1–11 (2017). 30. Mori, Y. et al. High-pressure X-ray structural study of BeO and ZnO to 200 GPa.
+
+Phys. Status Solidi (B) Basic Res. 241, 3198–3202 (2004).
+
+REFERENCES
+
+31. Mathew, K. et al. Atomate: A high-level interface to generate, execute, and analyze computational materials science workﬂows. Comput. Mater. Sci. 139,
+
+1. Birch, F. Equation of state and thermodynamic parameters of NaCl to 300 kbar in the high-temperature domain. J. Geophys. Res. 91, 4949–4954 (1986).
+2. Santamaria-Perez, D., Amador, U., Tortajada, J., Dominko, R., & Dompablo, M. High-pressure investigation of Li2 MnSiO4 and Li2 CoSiO4 electrode materials for lithium-ion batteries. Inorg. Chem. 51, 5779–5786 (2012).
+3. McMillan, F. New materials from high-pressure experiments. Nat. Mater. 1, 19–25 (2002).
+4. Mie, G. Zur kinetischen Theorie der einatomigen Körper. Ann. der Phys. 8, 657–697 (1903).
+5. Grüneisen, E. Theorie des festen Zustandes einatomiger Elemente. Ann. der Phys. 344, 257–306 (1912).
+6. Roy, B., & Roy, S. B. Applicability of isothermal three-parameter equations of state of solids: A reappraisal. J. Phys.: Condens. Matter 17, 6193–6216 (2005).
+7. Stacey, F. D., Brennan, B. J. & Irvine, R. D. Finite strain theories and comparisons with seismological data. Geophys. Surv. 4, 189–232 (1981).
+8. Lejaeghere, K. et al. Reproducibility in density-functional theory calculations of solids. Science 351, 1–11 (2016).
+9. Lejaeghere, K., Van Speybroeck, V., Van Oost, G. & S. Cottenier, S. Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals. Crit. Rev. Solid State Mater. Sci. 39, 1–24 (2014).
+10. Birch, F. Finite elastic strain of cubic crystals. Phys. Rev. 71, 809–824 (1947). 11. Murnaghan, F. D. Finite deformations of an elastic solid. Am. J. Math. 59, 235–260
+(1937). 12. Born, M. Uber die elektrische natur der Kohasionskrafte fester Korper. Ann. der
+Phys. 366, 87–106 (1920). 13. Murnaghan, F. D. The compressibility of media under extreme pressures. Proc.
+Natl Acad. Sci. 30, 244–247 (1944). 14. Pack, D., Evans, W. & James, H. The propagation of shock waves in steel and lead.
+Proc. Phys. Soc. 60, 1–8 (1948). 15. Poirier, J. P. & Tarantola, A. A logarithmic equation of state. Phys. Earth Planet.
+
+140–152 (2017). 32. Ong, S. P. et al. Python Materials Genomics (pymatgen): A robust, open-source
+python library for materials analysis. Comput. Mater. Sci. 68, 314–319 (2013). 33. Custodian. https://github.com/materialsproject/custodian. 34. Jain, A. et al. Fireworks: a dynamic workﬂow system designed for high-
+throughput applications. Concurr. Comput.: Pract. Exp. 27, 5037–5059 (2015). 35. Blöchl, E. Projector augmented-wave method. Phys. Rev. B. 50, 17953–17979
+(1994). 36. Kresse, G. & Joubert, D. From ultrasoft pseudopotentials to the projector
+augmented-wave method. Phys. Rev. B 59, 1758–1775 (1999). 37. Kresse, G. & Hafner, J. Ab initio molecular dynamics for liquid metals. Phys. Rev. B
+47, 558–561 (1993). 38. Kresse, G., & Furthmüller, J. Efﬁcient iterative schemes for ab initio total-energy
+calculations using a plane-wave basis set. Phys. Rev. B 54, 11169–11186 (1996). 39. Perdew, J. P., Burke, K., & Ernzerhof, M. Generalized gradient approximation made
+simple. Phys. Rev. Lett. 77, 3865–3868 (1996). 40. Wang, L., Zhou, F., Meng, Y. S., & Ceder, G. First-principles study of surface
+properties of LiFePO4: Surface energy, structure, Wulff shape, and surface redox potential. Phys. Rev. B 76, 165435–165445 (2007). 41. Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation. APL Mater. 1, 011002–011012 (2013). 42. Vinet, P., Ferrante, J., Smith, J. R., & Rose, J. H. A universal equation of state for solids. J. Phys. C: Solid State Phys. 29, 2963–2969 (1986). 43. Rose, J. H., Smith, J. R., Guinea, F., & Ferrante, J. Universal features of the equation of state of metals. Phys. Rev. B. 29, 2963–2969 (1984). 44. Vaidya, S. N., & Kennedy, G. C. Compressibility of 18 metals to 45 kbar. J. Phys. Chem. Solids 31, 2329–2345 (1970). 45. McSkimin, H. J., & Jayaraman, A. Elastic moduli of GaAs at moderate pressures and the evaluation of compression to 250 kbar. J. Appl. Phys. 38, 2362–2364 (1967).
+
+Inter. 109, 1–8 (1998).
+
+16. Dymond, J. H. & Malhotra, R. The Tait equation: 100 years on. Int. J. Thermophys. 9, 941–951 (1988).
+17. Rydberg, R. Graphische Darstellung einiger bandenspektroskopischer Ergebnisse. Z. fur Phys. 73, 376–385 (1932).
+18. Vinet., Ferrante, J., Rose, J. H., & Smith, J. R. Compressibility of solids. J. Geophys. Res. 92, 9319–9325 (1987).
+19. Alchagirov, A. B., Perdew, J. P., Boettger, J. C., Albers, R. C., & Fiolhais, C. Energy and pressure versus volume: Equations of state motivated by the stabilized jellium model. Phys. Rev. B. 63, 224115–224130 (2001).
+20. Toher, C. et al. Combining the AFLOW GIBBS and elastic libraries to efﬁciently and robustly screen thermomechanical properties of solids. Phys. Rev. Mater. 1, 015401–015426 (2017).
+
+Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons. org/licenses/by/4.0/.
+
+21. Harl, J. & Kresse, G. Cohesive energy curves for noble gas solids calculated by
+
+adiabatic connection ﬂuctuation-dissipation theory. Phys. Rev. B Condens. Matter Mater. Phys. 4, 1–8 (2008).
+
+© The Author(s) 2018
+
+22. Isaev, E. I. et al. Impact of lattice vibrations on equation of state of the hardest
+
+boron phase. Phys. Rev. B Condens. Matter Mater. Phys. 83, 1–4 (2011).
+
+Published in partnership with the Shanghai Institute of Ceramics of the Chinese Academy of Sciences
+
+npj Computational Materials (2018) 40
+
