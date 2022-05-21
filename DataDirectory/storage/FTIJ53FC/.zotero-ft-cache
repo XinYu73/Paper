@@ -1,0 +1,616 @@
+Chinese Physics B
+ACCEPTED MANUSCRIPT
+Robustness of two-qubit and three-qubit states in correlated quantum channels
+To cite this article before publication: Zhan-Yun Wang et al 2022 Chinese Phys. B in press https://doi.org/10.1088/1674-1056/ac4a61
+Manuscript version: Accepted Manuscript
+Accepted Manuscript is “the version of the article accepted for publication including all changes made as a result of the peer review process, and which may also include the addition to the article by IOP Publishing of a header, an article ID, a cover sheet and/or an ‘Accepted Manuscript’ watermark, but excluding any other editing, typesetting or other changes made by IOP Publishing and/or its licensors” This Accepted Manuscript is © 2022 Chinese Physical Society and IOP Publishing Ltd.
+During the embargo period (the 12 month period from the publication of the Version of Record of this article), the Accepted Manuscript is fully protected by copyright and cannot be reused or reposted elsewhere. As the Version of Record of this article is going to be / has been published on a subscription basis, this Accepted Manuscript is available for reuse under a CC BY-NC-ND 3.0 licence after the 12 month embargo period. After the embargo period, everyone is permitted to use copy and redistribute this article for non-commercial purposes only, provided that they adhere to all the terms of the licence https://creativecommons.org/licences/by-nc-nd/3.0 Although reasonable endeavours have been taken to obtain all necessary permissions from third parties to include their copyrighted content within this article, their full citation and copyright line may not be present in this Accepted Manuscript version. Before using any content from this article, please refer to the Version of Record on IOPscience once published for full citation and copyright details, as permissions will likely be required. All third party content is fully copyright protected, unless specifically stated otherwise in the figure caption in the Version of Record. View the article online for updates and enhancements.
+This content was downloaded from IP address 49.140.189.201 on 16/05/2022 at 11:19
+
+Accepted Manuscript
+
+Robustness of two-qubit and three-qubit states in correlated quantum channels*
+Zhan-Yun Wang(王展云)1 †, Feng-Lin Wu(吴风霖) 2,3, Zhen-Yu Peng(彭振宇)4, and Si-Yuan Liu(刘思远)2,3
+1School of Electronic Engineering, Xi’an University of Posts and Telecommunications, Xi’an 710121, China
+2Institute of Modern Physics, Northwest University, Xi’an 710127, China 3Shaanxi Key Laboratory for Theoretical Physics Frontiers, Xi’an 710127, China
+4School of Physics, Northwest University, Xi’an 710127, China
+Abstract We investigate how the correlated actions of quantum channels affect the robustness of entangled states. We consider the Bell-like state and random two-qubit pure states in the correlated depolarizing, bit flip, bitphase flip, and phase flip channels. It is found that the robustness of two-qubit pure states can be noticeably enhanced due to the correlations between consecutive actions of these noisy channels, and the Bell-like state is always the most robust state. We also consider the robustness of three-qubit pure states in correlated noisy channels. For the correlated bit flip and phase flip channels, the result shows that although the most robust and most fragile states are locally unitary equivalent, they exhibit different robustness in different correlated channels, and the effect of channel correlations on them is also significantly different. However, for the correlated depolarizing and bit-phase flip channels, the robustness of two special three-qubit pure states is exactly the same. Moreover, compared with the random three-qubit pure states, they are neither the most robust states nor the most fragile states. Keywords: correlated quantum channel, entanglement, concurrence, negativity PACS: 03.65.Yz, 03.67.Bg, 03.65.Ud
+1. Introduction
+Quantum entanglement is not only an important feature that distinguishes quantum mechanics from classical physics, but also a key resource for many potential practical applications, such as quantum teleportation, quantum sensing, and quantum cryptography. [1,2] However, in the real world, the inevitable interaction between
+*Project supported by the National Natural Science Foundation of China (Grant Nos. 11705146 and 12175179), the Natural Science Basic Research Program of Shaanxi Province (Grant No. 2019JQ-863), the Open Project of Shaanxi Key Laboratory for Theoretical Physics Frontiers (Grant No. SXKLTPF-K20190606).
+†Corresponding author. E-mail: zywang@xupt.edu.cn
+1
+
+Accepted Manuscript
+
+a quantum system and its surrounding environment will lead to decoherence. [3–5] Therefore, it is of fundamental importance to study the robustness of entangled states in the open systems. In the past several years, many studies have been devoted to the robustness of entangled states in diﬀerent decoherence models. [6–21]
+In 1999, Vidal and Tarrach [6] utilized robustness to characterize the endurance of entanglement against noise and jamming, then in 2002, Simon and Kempe [7] studied the robustness of multipartite entanglement under the local decoherence process. They found that the multipartite entanglement could be surprisingly robust under decoherence, and the robustness can increase with the increasing number of parties. In 2008, Aolita et al. [8] investigated the decay of entanglement for the generalized 𝑁 -particle Greenberger-Horne-Zeilinger (GHZ) states and showed that although the entanglement sudden death time increases with an increase in 𝑁 , the time when the entanglement becomes arbitrarily small is inversely proportional to 𝑁 . The most robust and most fragile states under diﬀerent decoherence channels have also been extensively studied. [9–18] In Ref. [16], it is found that the Bell-like states are the most robust states of all two-qubit states under several kinds of decoherence processes. Li et al. [17] have found the most robust genuine tripartite entangled states and the most fragile ones during three diﬀerent decoherence processes and showed that although the two locally unitary equivalent states have the same entanglement properties, their robustness are signiﬁcantly diﬀerent.
+The previous studies on the robustness of entangled states under diﬀerent decoherence models are based on the premise that each qubit of the system is coupled to its own environment independently. However, when the time windows for a series of qubits in the channel are partially overlapped, the actions of the channel are no longer independent of each other, but may be correlated. A well-studied correlated Pauli channel is proposed in Refs. [22–24], which considers the memory induced by the classical correlations between multiple actions of the channels. The inﬂuence of correlated channels on quantum coherence, [25–28] quantum teleportation, [29] quantum Fisher information, [30] and measurement uncertainty, [31] have been explored recently.
+In this paper, the robustness of entanglement for two- and three-qubit pure states in diﬀerent correlated noisy channels are studied. For the two-qubit states, we use concurrence [32–36] as a measure of entanglement, while for the three-qubit states, we use negativity [37,38] as a measure of entanglement. We use the degree of decoherence noise that induces the entanglement of the time-evolved state decays to 1/𝑐 (𝑐 > 1) of the initial entanglement as a measure of the robustness during decoherence. The main purpose of this paper is to study how the robustness of entangled states changes when one varies the correlation strength of the channels.
+This paper is arranged as follows. In section 2, we review brieﬂy the correlated decoherence models. In section 3, we investigate the robustness of entanglement for the Bell-like states and random two-qubit pure states in four typical correlated noisy channels, respectively. Then in section 4, we investigate the robustness of two special three-qubit states and random three-qubit pure states in correlated bit ﬂip and phase ﬂip channels. Finally, section 5 summarizes the main results obtained in this paper.
+2. The model of a correlated quantum channel
+We start with some preliminaries related to the classically correlated quantum channels, which provide a proper mathematical tool to describe the correlations between consecutive actions of the channel ℰ on the sequence of qubits. [22–24]
+We send 𝑁 qubits through the channel, and the state of the 𝑁 qubits is described by the density operator
+2
+
+Accepted Manuscript
+
+𝜌0. If the channel acts independently and identically on each qubit, the corresponding output state of the
+
+system is given by
+
+ℰ (𝜌0) = ∑︁ 𝐸𝑖1···𝑖𝑁 𝜌0𝐸𝑖†1···𝑖𝑁 ,
+
+(1)
+
+𝑖1 ···𝑖𝑁
+where the Kraus operators 𝐸𝑖1···𝑖𝑁 = √𝑝𝑖1···𝑖𝑁 𝜎𝑖1 ⊗ · · · ⊗ 𝜎𝑖𝑁 describe the action of transmission channels,
+
+satisfying
+
+the
+
+normalization
+
+condition
+
+∑︀
+𝑖1 ···𝑖𝑁
+
+𝐸𝑖†1···𝑖𝑁 𝐸𝑖1···𝑖𝑁
+
+= 1.
+
+The
+
+joint probability distribution
+
+function
+
+is
+
+given
+
+by
+
+𝑝𝑖1 ···𝑖𝑁
+
+=
+
+𝑝𝑖1 · · · 𝑝𝑖𝑁 ,
+
+with
+
+𝑝𝑖𝑛
+
+≥
+
+0
+
+and
+
+∑︀
+𝑖𝑛
+
+𝑝𝑖𝑛
+
+=
+
+1.
+
+𝜎0
+
+is
+
+the
+
+2×2
+
+identity
+
+matrix
+
+and
+
+𝜎𝑖𝑛
+
+are
+
+the
+
+Pauli operators in x, y, and z directions. Such a model describes a quantum channel ℰ, which has no memory
+
+on the history of its actions on the sequence of qubits. For two-qubit system, the Kraus operators 𝐸𝑖𝑗 = √𝑝𝑖𝑗𝜎𝑖 ⊗ 𝜎𝑗 and the joint probability distribution function
+
+is given by 𝑝𝑖𝑗 = 𝑝𝑖𝑝𝑗. However, for a channel with partial memory between two consecutive uses, the joint probability distribution takes the the following form [22]
+
+𝑝𝑖𝑗 = (1 − 𝜇)𝑝𝑖𝑝𝑗 + 𝜇𝑝𝑖𝛿𝑖𝑗 .
+
+(2)
+
+The channel memory coeﬃcient 0 𝜇 1 denotes the correlation strength between successive actions of the
+
+channel on the two adjacent qubits. In other words, 𝜇 can be interpreted as the probability that the same
+
+Pauli rotation is applied to the two adjacent qubits. The correlation strength 𝜇 = 0 and 𝜇 = 1 correspond to
+
+the uncorrelated and the fully correlated channels, respectively.
+
+Similarly, for a three-qubit quantum system, it is easy to obtain the following Kraus operators
+
+√
+
+𝐸𝑖𝑗𝑘 = 𝑝𝑖𝑗𝑘𝜎𝑖 ⊗ 𝜎𝑗 ⊗ 𝜎𝑘,
+
+(3)
+
+with 𝑝𝑖𝑗𝑘 = 𝑝𝑖𝑝𝑗|𝑖𝑝𝑘|𝑗 , 𝑝𝑗|𝑖 = (1 − 𝜇)𝑝𝑗 + 𝜇𝛿𝑗𝑖, and likewise for 𝑝𝑘|𝑗 . In the following, we will consider four diﬀerent correlated noisy channels, including the correlated depolariz-
+ing, bit ﬂip, bit-phase ﬂip, and phase ﬂip channels. These four channels have diﬀerent probability distributions, but they all belong to the class of Pauli channels of Eq. (1). The depolarizing channel has the probability distribution 𝑝0 = 1 − 3𝑝/4 and 𝑝1 = 𝑝2 = 𝑝3 = 𝑝/4, with 𝑝 ∈ [0, 1]. The bit ﬂip channel has the probability distribution 𝑝0 = 1 − 𝑝/2, 𝑝1 = 𝑝/2, and 𝑝2 = 𝑝3 = 0. The bit-phase ﬂip channel has the probability distribution 𝑝0 = 1 − 𝑝/2, 𝑝2 = 𝑝/2, and 𝑝1 = 𝑝3 = 0. The phase ﬂip channel has the probability distribution 𝑝0 = 1 − 𝑝/2, 𝑝3 = 𝑝/2, and 𝑝1 = 𝑝2 = 0.
+
+3. Robustness of Bell-Like States in Correlated Quantum Channels
+
+We now begin our discussion about how the correlations between consecutive uses of the channel aﬀecting the robustness of entanglement of the two-qubit states. To this end, we use concurrence to quantify the amount of entanglement associated with the density matrix 𝜌. As stated by Wootters, [32] the concurrence is deﬁned as
+
+√︀ √︀ √︀ √︀
+
+𝐶(𝜌) = max{0, 𝜆1 − 𝜆2 − 𝜆3 − 𝜆4},
+
+(4)
+
+where 𝜆𝑖 (𝑖 = 1, 2, 3, and 4) are the eigenvalues of the Hermitian operator 𝑅 = 𝜌(𝜎2⊗𝜎2)𝜌*(𝜎2⊗𝜎2) in decreasing order and 𝜌* is the complex conjugate of the density matrix 𝜌.
+We take the input state of the channels in the following form
+
+|𝜓⟩ = cos 𝜃 |01⟩ + sin 𝜃 |10⟩ ,
+
+(5)
+
+3
+
+Accepted Manuscript
+
+where 𝜃 ∈ [0, 𝜋/2] and the initial entanglement of the state |𝜓⟩ is 𝐶0 = sin(2𝜃).
+
+3.1. The correlated depolarizing channel
+
+First, we consider the correlated depolarizing channel. For the input state |𝜓⟩, the nonzero elements of
+
+density matrix for the output state can be obtained as
+
+𝑝 (︁ 𝑝 )︁
+
+𝜌11,44 = 2
+
+1− 2
+
+(1 − 𝜇),
+
+𝜌22
+
+=
+
+(︂ 3𝑝 )︂2 4
+
++
+
+(︂ 1
+
+−
+
+3𝑝 )︂ cos2 2
+
+𝜃
+
++
+
+3𝑝 4
+
+(︂ 1
+
+−
+
+3𝑝 )︂ 4
+
+𝜇,
+
+(6)
+
+𝜌33
+
+=
+
+(︂ 3𝑝 )︂2 4
+
++
+
+(︂ 1
+
+−
+
+3𝑝 )︂ sin2 2
+
+𝜃
+
++
+
+3𝑝 4
+
+(︂ 1
+
+−
+
+3𝑝 )︂ 4
+
+𝜇,
+
+𝜌23,32 = sin 𝜃 cos 𝜃[𝜇 + (1 − 𝜇)(1 − 𝑝)2].
+
+By substituting the density matrix (6) into Eq. (4), the concurrence for the time-evolved state can be
+
+obtained as
+
+𝐶 = (1 − 4𝛼)𝐶0 − 2𝛼,
+
+(7)
+
+with
+
+𝑝 (︁ 𝑝 )︁
+
+𝛼 = 1 − (1 − 𝜇).
+
+(8)
+
+2
+
+2
+
+The robustness of entanglement can be understood as a measure of the amount of noise required to disrupt
+
+the entanglement of the system. we use the degree of decoherence noise that induces the entanglement decrease
+
+to 1/𝑐 of its initial value to indicate the robustness of the system in the process of decoherence. The degree of
+
+depolarizing when the concurrence decreases to 𝐶0/𝑐 can be obtained analytically as
+
+√︃
+
+𝑝(𝑐, 𝜇) = 1 − 2𝐶0(1/𝑐 − 𝜇) + (1 − 𝜇) .
+
+(9)
+
+(2𝐶0 + 1)(1 − 𝜇)
+
+To reveal the eﬀect of correlations on the robustness of the two-qubit entangled states in the correlated
+
+depolarizing channel, we show the 𝐶0 dependence of the depolarizing degree 𝑝(𝑐, 𝜇) with diﬀerent correlation strength when the entanglement decays to 𝐶0/𝑐 (𝑐 = 2, 4, 8, 16) in Fig. 1.
+
+1
+
+1
+
+0.8
+
+0.8
+
+0.6
+
+0.6
+
+0.4
+
+0.4
+
+0.2
+
+(a) 0.2
+
+(b)
+
+0
+
+0
+
+1
+
+1
+
+0.8
+
+0.8
+
+0.6
+
+0.6
+
+0.4
+
+0.4
+
+0.2
+
+(c) 0.2
+
+(d)
+
+0
+
+0
+
+0 0.2 0.4 0.6 0.8 1 0 0.2 0.4 0.6 0.8 1
+
+Fig. 1. (color online) Robustness of entanglement for |𝜓⟩ in correlated depolarizing channel. We plot the depolarizing degree 𝑝(𝑐, 𝜇) when the entanglement decreases to 𝐶0/𝑐 (𝑐 = 2, 4, 8, 16) in (a), (b), (c) and (d), respectively. The ten color curves (from bottom to top) correspond to the correlation strength 𝜇 = 0, 0.1, 0.2, ..., 0.9, respectively.
+It can be seen from the plots in Fig. 1 that the depolarizing degree 𝑝(𝑐, 𝜇) has a monotonic relationship with the initial entanglement 𝐶0 and the entanglement of two-qubit system will become more robust as the
+
+4
+
+Accepted Manuscript
+
+correlation strength increases. This indicates that the classical correlation in the correlated channels is beneﬁcial to the robustness of entangled states, so it may reduce the speed of entanglement decay. As can be seen from Eq. (9), there exists a critical correlation strength 𝜇𝑐,1 = (𝑐 + 2)/3𝑐. When 𝜇 < 𝜇𝑐,1, 𝑝(𝑐, 𝜇) has a maximum value 𝑝(𝑐, 𝜇)𝑚 = 1 − √︀[2(1/𝑐 − 𝜇)]/[3(1 − 𝜇)] + 1/3. When the correlation strength 𝜇 ≥ 𝜇𝑐,1, the maximum value of 𝑝(𝑐, 𝜇) is 1. At this time, the maximum value of initial concurrence can only take the value 𝐶0,𝜇 = (1 − 𝜇)/[2(𝜇 − 1/𝑐)].
+In order to study the robustness of two-qubit states systematically, we explored the decoherence process of all two-qubit pure states in the correlated depolarizing channel. We generate a large number of randomly distributed two-qubit pure states according to the Haar measure. [39] Both the real and the imaginary parts of each state vector elements are Gaussian random numbers with a zero mean and unit variance. Then we normalize the vectors and calculate their concurrence. We show the depolarizing degree 𝑝(𝑐, 𝜇) for the state |𝜓⟩ and 50000 random two-qubit pure states in correlated depolarizing channel with diﬀerent correlation strength when the concurrence decreases to 𝐶0/2, 𝐶0/4, 𝐶0/8, and 𝐶0/16 in Fig. 2, respectively.
+Fig. 2. (color online) Robustness of entanglement for |𝜓⟩ (solid lines) and 50000 random two-qubit pure states (black dots) in the correlated depolarizing channel. We plot the depolarizing degree 𝑝(𝑐, 𝜇) for 𝑐 = 2, 4, 8, and 16 corresponding to Fig. 2(ai), (bi), (ci), and (di), respectively. Here 𝑖 = 1, 2, and 3 correspond to correlation strength 𝜇 = 0.25, 𝜇 = 0.50 and 𝜇 = 0.75, respectively.
+By comparing with 50000 random two-qubit pure states, as shown in Fig. 2, the degree of depolarizing 𝑝(𝑐, 𝜇) of the Bell-like state is the upper bound of all the two-qubit pure states during decoherence in the correlated depolarizing channel. It is obvious that the Bell-like state is always the most robust state, irrespective of the strength of the classical correlation.
+5
+
+Accepted Manuscript
+
+3.2. The correlated bit flip, bit-phase flip, and phase flip channels
+
+Next, we consider the case of the correlated bit ﬂip channel. For the input state |𝜓⟩, the nonzero elements
+
+of the density matrix of the output state can be obtained as
+
+𝑝 (︁ 𝑝 )︁
+
+𝜌11,44 = 2
+
+1− 2
+
+(1 − 𝜇),
+
+𝑝 (︁ 𝑝 )︁
+
+𝜌14,41 = 2
+
+1− 2
+
+(1 − 𝜇) sin(2𝜃),
+
+[︂
+
+(︁ 𝑝 )︁2 𝑝2 ]︂
+
+𝜌23,32 = sin 𝜃 cos 𝜃
+
+1 + (1 − 𝜇)
+
+1− 2
+
++, 4
+
+(10)
+
+𝜌22
+
+=
+
+𝑝2 4
+
++
+
+(1
+
+−
+
+𝑝) cos2
+
+𝜃
+
++
+
+𝑝 2
+
+(︁ 1
+
+−
+
+𝑝 )︁ 𝜇,
+2
+
+𝜌33
+
+=
+
+𝑝2 4
+
++
+
+(1
+
+−
+
+𝑝) sin2
+
+𝜃
+
++
+
+𝑝 2
+
+(︁ 1
+
+−
+
+𝑝 )︁ 𝜇,
+2
+
+then by substituting the density matrix (10) into Eq. (4), the entanglement of the output state can be obtained
+
+as
+
+𝐶 = (1 − 4𝛼)𝐶0.
+
+(11)
+
+For the bit-phase ﬂip channel, a further calculation shows that the density matrix and the concurrence of the output state have completely the same form to those for the bit ﬂip channel, so we do not list the corresponding results here. For the correlated phase ﬂip channel, the nonzero elements of the density operator for the output state can be obtained as
+
+𝜌22 = cos2 𝜃, 𝜌33 = sin2 𝜃, (12)
+𝜌23,32 = sin 𝜃 cos 𝜃[𝜇 + (1 − 𝜇)(1 − 𝑝)2],
+
+from which one can get that the concurrence of the output state is exactly the same as Eq. (11). So the
+
+inﬂuence of correlations between consecutive actions of the three channels on the robustness of two-qubit states
+
+is exactly the same. In the following, we take the phase ﬂip channel as an example, and the results also apply
+
+to the other two channels.
+
+The phase ﬂip degree when the concurrence 𝐶0 decreases to 𝐶0/𝑐 can be easily obtained as
+
+√︃
+
+1 − 𝑐𝜇
+
+𝑝(𝑐, 𝜇) = 1 −
+
+,
+
+(13)
+
+𝑐(1 − 𝜇)
+
+from which one can see that when the concurrence decreases to 𝐶0/𝑐, there exists a critical correlation strength 𝜇𝑐,2 = 1/𝑐. When 𝜇 > 1/𝑐, there is no solution to 𝑝(𝑐, 𝜇).
+
+6
+
+Accepted Manuscript
+
+Fig. 3. (color online) Robustness of entanglement for |𝜓⟩ (solid lines) and 50000 random two-qubit pure states (black dots) in the correlated phase flip channel. The phase flip degree 𝑝(𝑐, 𝜇) of |𝜓⟩ when the entanglement decreases to 𝐶0/𝑐 (𝑐 = 2, 4) with different 𝜇 are plotted in (a) and (b), respectively. The solid black, blue, red, green and purple lines (from bottom to top) correspond to 𝜇 = 0, 0.1, 0.2, 0.3, and 0.4, respectively. The phase flip degree 𝑝(𝑐, 𝜇) for |𝜓⟩ and 50000 random two-qubit pure states with 𝜇 = 0.1 when the entanglement decreases to 𝐶0/𝑐 (𝑐 = 2, 4) are shown in (c) and (d), respectively.
+We can see from Fig. 3(a) and (b) that the entanglement of two-qubit states can become more robust as the correlation strength increases, and the inﬂuence of correlation on robustness is independent of the initial entanglement. In addition, for diﬀerent 𝑐, the upper limit of correlation strength is 1/𝑐. Similarly, we plot the phase ﬂip degree 𝑝(𝑐, 𝜇) for the Bell-like state |𝜓⟩ and 50000 random two-qubit pure states in the correlated phase ﬂip channel with 𝜇 = 0.1 when the entanglement decreases to 𝐶0/2 and 𝐶0/4 in Fig. 3(c) and (d), respectively. It is obvious that the phase ﬂip degree of all the random pure states do not exceed the two blue lines which describe the robustness of the Bell-like states. In the correlated bit ﬂip, bit-phase ﬂip and phase ﬂip channels, the state |𝜓⟩ in (5) is the most robust state in the process of decoherence, irrespective of the strength of the classical correlation.
+
+4. Robustness of Three-Qubit States in Correlated Quantum Channels
+
+For a three-qubit state 𝜌 with the three qubits being denoted by 𝐴, 𝐵, and 𝐶, we concentrate on the bipartition 𝐴|𝐵𝐶 of the system. Then the negativity is deﬁned as twice of the sum of the absolute values of the negative eigenvalues of the partial transpose of 𝜌𝑇𝐴 , which can be written as [38]
+
+𝑁 (𝜌) = ‖𝜌𝑇𝐴 ‖1 − 1,
+
+(14)
+
+where 𝑇𝐴 denotes the partial transpose with respect to the subsystem 𝐴. We consider the three-qubit pure state [17]
+
+cos 𝜃
+
+sin 𝜃
+
+|Ψ⟩ = √ (|001⟩ + |010⟩) + i √ (|100⟩ + |111⟩),
+
+(15)
+
+2
+
+2
+
+where 𝜃 ∈ [0, 𝜋/2], and the following pure state which is locally unitarily equivalent to |Ψ⟩, i.e.,
+
+𝑒i𝜃
+
+𝑒−i𝜃
+
+|Φ⟩ = (|000⟩ + |111⟩) + (|011⟩ + |100⟩).
+
+(16)
+
+2
+
+2
+
+In the following, we focus on the robustness of three-qubit states in the correlated phase ﬂip and bit ﬂip
+
+channels. For the correlated phase ﬂip channel, the negativity of the output state for the input state |Ψ⟩ can
+
+be obtained as
+
+𝑁 = (1 − 4𝛼)𝑁0,
+
+(17)
+
+where 𝛼 is given in Eq. (8) and 𝑁0 = sin(2𝜃) is the initial negativity of |Ψ⟩. When the negativity decreases to 𝑁0/𝑐 (𝑐 ≥ 1), we can obtain the phase ﬂip degree as follows
+
+√︃
+
+1 − 𝑐𝜇
+
+𝑝(𝑐, 𝜇) = 1 −
+
+.
+
+(18)
+
+𝑐(1 − 𝜇)
+
+7
+
+Accepted Manuscript
+
+We ﬁnd that Eqs. (17) and (18) have exactly the same form as Eqs. (11) and (13) corresponding to the Bell-like
+
+state in the correlated phase ﬂip channel, respectively. Similarly, there exists a critical correlation strength
+
+𝜇𝑐 = 1/𝑐. When the negativity decreases to 𝑁0/𝑐, the upper limit of correlation strength is 1/𝑐. We do not list the analytical expression of the negativity of state |Φ⟩ here due to its complexity. Instead, we
+
+numerically solve the entanglement evolution of |Ψ⟩ and |Φ⟩ and plot the degree of phase ﬂip 𝑝(𝑐, 𝜇) when the
+
+negativity decreases to 𝑁0/𝑐 (𝑐 = 2, 4) with diﬀerent 𝜇 in Fig. 4(a) and (b). It can be seen that the inﬂuence of correlations on |Ψ⟩ is completely diﬀerent from that on |Φ⟩. For the state |Ψ⟩, the phase ﬂip degree 𝑝(𝑐, 𝜇)
+
+is independent of 𝑁0 and increases with the increasing correlation strength 𝜇 in the range of 𝜇 ∈ (0, 1/𝑐). For the state |Φ⟩, 𝑝(𝑐, 𝜇) increases with the increase of 𝑁0 in the whole region of 𝜇. As a comparison, we plot the degree of bit ﬂip 𝑝(𝑐, 𝜇) when the negativity decreases to 𝑁0/𝑐 (𝑐 = 2, 4) with diﬀerent correlation strength in Fig. 4(c) and (d). Obviously, the eﬀect of correlated correlations on state |Φ⟩ (|Ψ⟩) in correlated phase ﬂip
+
+channel is the same as that of correlated correlations on state |Ψ⟩ (|Φ⟩) in correlated bit ﬂip channel.
+
+1
+
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+(a) 0
+
+(b)
+
+(c)
+
+(d)
+
+0 0.5 1 0 0.5 1 0 0.5 1 0 0.5 1
+
+Fig. 4. (color online) For the correlated phase flip [panels (a) and (b)] and bit flip [panels (c) and (d)] channels, we plot the degree of decoherence 𝑝(𝑐, 𝜇) when the negativity decreases to 𝑁0/2 and 𝑁0/4 for |Ψ⟩ (red dotted lines) and |Φ⟩ (blue dotted lines), respectively. For each state, the dotted lines from bottom to top correspond to the increase of 𝜇 from 0 with an equal interval 0.1.
+In order to study the robustness of all three-qubit pure states, we randomly sampled 50000 three-qubit pure states and plot the phase ﬂip degree 𝑝(𝑐, 𝜇) when the negativity decreases to 𝑁0/𝑐 (𝑐 = 2, 4) in Fig. 5(ai) and (bi), respectively. As a contrast, the degree of bit ﬂip 𝑝(𝑐, 𝜇) when the negativity decreases to 𝑁0/𝑐 (𝑐 = 2, 4) are plotted in Fig. 5(ci) and (di), respectively. Here 𝑖 = 1 and 𝑖 = 2 correspond to correlation strength 𝜇 = 0.1 and 𝜇 = 0.2, respectively.
+
+8
+
+Accepted Manuscript
+
+Fig. 5. (color online) Robustness of entanglement for three-qubit pure states in correlated phase flip [panels (ai) and (bi)] and bit flip [panels (ci) and (di)] channels with 𝑖 = 1 and 2 corresponding to 𝜇 = 0.1 and 0.2, respectively. We plot the degree of decoherence 𝑝(𝑐, 𝜇) when the negativity decreases to 𝑁0/2 and 𝑁0/4, respectively. The state |Ψ⟩, |Φ⟩, and 50000 random sampled pure states are shown with red dotted lines, blue dotted lines, and black dots, respectively.
+Obviously, the phase ﬂip degree of all the randomly sampled pure states are between the red dotted lines and the blue dotted lines. Regardless of the value of 𝜇, |Ψ⟩ is always the most robust state, while |Φ⟩ is always the most fragile state in the correlated phase ﬂip channel. On the contrary, we can see that in the correlated bit ﬂip channel, the state |Φ⟩ is always the most robust state and the state |Ψ⟩ is always the most fragile state.
+For the correlated depolarizing and bit-phase ﬂip channels, the robustness of the state |Ψ⟩ is exactly the same as that of state |Φ⟩, and their robustness in these two channels is slightly diﬀerent, as shown in the ﬁrst row in Fig. 6. The second row in Fig. 6 shows the comparison of the robustness of states |Ψ⟩ and |Φ⟩ with 50000 random three-qubit pure states in the two correlated channels when the correlation strength 𝜇 = 0.1. We can see that state |Ψ⟩ and state |Φ⟩ are neither the most robust nor the most fragile states.
+Fig. 6. (color online) Robustness of entanglement for |Ψ⟩ (red dotted lines), |Φ⟩ (blue dotted lines), and 50000 random sampled pure states (black dots) in correlated depolarizing [panels (ai) and (bi)] and bit-phase flip [panels (ci) and (di)] channels. (a1)-(d1) 𝑝(𝑐, 𝜇) (𝑐 = 2, 4) with 𝜇 increases from 0 to 1 with an equal interval 0.1. (a2)-(d2) 𝑝(𝑐, 𝜇) (𝑐 = 2, 4) for the state |Ψ⟩, |Φ⟩, and 50000 random three-qubit pure states with 𝜇 = 0.1, respectively.
+5. Conclusion
+In summary, we have explored the robustness of entangled states in diﬀerent correlated quantum channels. It is found that the robustness of entangled states can be enhanced due to the correlations between consecutive actions of these noisy channels. Moreover, the robustness of the entangled state increases gradually when the correlation strength increases at equal intervals. First, we consider the Bell-like state and random two-qubit pure states in the correlated depolarizing, bit ﬂip, bit-phase ﬂip, and phase ﬂip channels, respectively. We show explicitly that the entanglement depends on the type of quantum channels as well as the decoherence degree and the correlation strength. The Bell-like state is always the most robust state, regardless of the correlation strength, and the increase of correlation strength can enhance the robustness of quantum states. On the other hand, the eﬀects of the correlated actions of the depolarizing channel on the robustness of the two-qubit states is completely diﬀerent from that in the other three channels: (i) For the correlated depolarizing channel, the decoherence degree 𝑝(𝑐, 𝜇) always behaves as an increasing function of 𝜇 and 𝐶0. (ii) For the correlated bit ﬂip, bit-phase ﬂip, and phase ﬂip channels, the decoherence degree 𝑝(𝑐, 𝜇) increases with the increase of 𝜇, and
+9
+
+Accepted Manuscript
+
+it does not depend on the initial entanglement 𝐶0. Moreover, there exists a limit for the value of correlation strength 𝜇𝑐,2 = 1/𝑐.
+For the three-qubit states, we numerically study the robustness of entanglement for two locally unitary equivalent states and random three-qubit pure states in four correlated channels. For the correlated phase ﬂip and bit ﬂip channels, we ﬁnd that the most robust state and the most fragile state during decoherence in these two typical correlated channels are the same as those in the uncorrelated channels in Ref. [18]. Although the two states are locally unitary equivalent, they exhibit diﬀerent robustness in these two diﬀerent channels. The eﬀects of the correlated actions on the most robust state is diﬀerent from that on the most fragile one, while it has the same eﬀect on the most robust states in two diﬀerent channels, although the most robust states in diﬀerent channels are diﬀerent. The same is true for the most fragile state. We see that the robustness of entangled states can be changed by local unitary transformation. We hope that the analysis presented here can help to construct eﬀective schemes to enhance the robustness of entangled states in open quantum systems.
+References
+[1] Nielsen M A and Chuang I L 2000 Quantum Computation and Quantum Information (Cambridge: Cambridge University Press)
+[2] Horodecki R, Horodecki P, Horodecki M and Horodecki K 2009 Rev. Mod. Phys. 81 865 [3] Breuer H P and Petruccione F 2006 The Theory of Open Quantum Systems (Oxford: Oxford University Press) [4] Hu M L, Hu X, Wang J C, Peng Y, Zhang Y R and Fan H 2018 Phys. Rep. 762–764 1–100 [5] Hu M L and Fan H 2016 Sci. Rep. 6 29260 [6] Vidal G and Tarrach R 1999 Phys. Rev. A 59 141 [7] Simon C and Kempe J 2002 Phys. Rev. A 65 052327 [8] Aolita L, Chaves R, Cavalcanti D, Ac´ın A and Davidovich L 2008 Phys. Rev. Lett. 100 080501 [9] Aolita L, Cavalcanti D, Ac´ın A, Salles A, Tiersch M, Buchleitner A and de Melo F 2009 Phys. Rev. A 79 032322 [10] Borras A, Majtey A P, Plastino A R, Casas M, Plastino A 2009 Phys. Rev. A 79 022108 [11] Cavalcanti D, Chaves R, Aolita L, Davidovich L and Ac´ın A 2009 Phys. Rev. Lett. 103 030502 [12] Aolita L, Cavalcanti D, Chaves R, Dhara C, Davidovich L and Ac´ın A 2010 Phys. Rev. A 82 032317 [13] Pang C Q, Zhang F L, Jiang Y, Liang M L and Chen J L 2013 Quant. Inf. Comput. 13 0645 [14] Ali M. and Gu¨hne O 2014 J. Phys. B: At. Mol. Opt. Phys. 47 055503 [15] Ali M. 2015 Chin. Phys. Lett. 32 060302 [16] Kim K I, Zhao B K, Li H M and Lu J B 2014 Commun. Theor. Phys. 62 667 [17] Li H M and Zhao B K 2018 Ann. Phys. (Berlin) 530 1800053 [18] Li H M and Su X M 2019 Eur. Phys. J. D 73 56 [19] Liu Z and Fan H 2009 Phys. Rev. A 79 064305 [20] Zhao B K and Deng F G 2010 Phys. Rev. A 82 014301 [21] Filippov S N, Melnikov A A and Ziman M 2013 Phys. Rev. A 88 062328 [22] Macchiavello C and Palma G M 2002 Phys. Rev. A 65 050301 [23] Caruso F, Giovannetti V, Lupo C and Mancini S 2014 Rev. Mod. Phys. 86 1203 [24] Addis C, Karpat G, Macchiavello C and Maniscalco S 2016 Phys. Rev. A 94 032121 [25] Hu M L and Zhou W 2019 Laser Phys. Lett. 16 045201 [26] Hu M L and Fan H 2020 Sci. China-Phys. Mech. Astron. 63 230322 [27] Hu M L, Zhang Y H and Fan H 2021 Chin. Phys. B 30 030308 [28] Xie Y X and Qin Z Y 2020 Quantum Inf. Process. 19 375 [29] Wang Z Y and Qin Z Y 2020 Laser Phys. 30 055201
+10
+
+Accepted Manuscript
+
+[30] Hu M L and Wang H F 2020 Ann. Phys. (Berlin) 532 1900378 [31] Karpat G 2018 Can. J. Phys. 96 700 [32] Wootters W K 1998 Phys. Rev. Lett. 80 2245 [33] Carvalho A R R, Mintert F and Buchleitner A 2004 Phys. Rev. Lett. 93 230501 [34] Abliz A, Gao H J, Xie X C, Wu Y S and Liu W M 2006 Phys. Rev. A 74 052105 [35] Lee B, Witzel W M and Sarma S D 2008 Phys. Rev. Lett. 100 160505 [36] Hu M L and Fan H 2012 Ann. Phys. (N.Y.) 327 851 [37] Z˙ yczkowski K, Horodecki P, Sanpera A and Lewenstein M 1998 Phys. Rev. A 58, 883 [38] Vidal G and Werner R F 2002 Phys. Rev. A 65 032314 [39] Mehta M L 2004 Random Matrices (Amsterdam: Elsevier)
+11
+

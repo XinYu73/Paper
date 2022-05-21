@@ -1,0 +1,852 @@
+Molecular Dynamics
+Part I : Fundamentals Part II: Calculation of properties Part III: Advanced techniques
+
+The total energy of a system
+
+ETOT  Kinetic Energy  Potential Energy
+
+ 
+
+I
+
+1 2
+
+M
+
+I
+
+RI2
+
+
+
+E(r1,...; R1...)
+
+Classical Dynamics For atomic nuclei
+
+• Force Field • Quantum Mechanics
+
+~ 105-7 atoms
+
+~ 102-4 atoms
+
+Potential Energy Function
+Empirical potential or ab initio (force field) fits to the ground state electronic potential energy surface
+
+pressure
+
+This approximation is valid near equilibrium and no substantial change in the electronic wavefunction (state)
+
+Newtonian Mechanics
+The forces can be computed from first principles from Hellman-Feynman Theorem. The classical trajectory can then be computed.
+
+End of Lecture !!!
+
+Molecular dynamics is an amalgamation of
+ Classical mechanics  Thermodynamics  Statistical mechanics  Numerical analysis  Computational Science
+
+The Lagrangian formulation of classical mechanics
+The Lagrangian function, L, for a system is defined to be the difference between the kinetic and potential energies expressed as a function of positions and velocities.
+The classical equations of motion are given by the so called EulerLagrange equation:
+The solution of the equations of motion for a given initial condition is known as a trajectory of the system. The Euler-Lagrange equation results from what is known as an action principle.
+
+Lagrangian Dynamics
+The Euler-Lagrange formulation is completely equivalent to Newton's second law. In order to see this,
+Therefore,
+which is just Newton's equation of motion. An important property of the Lagrangian formulation is that it can be used to obtain the equations of motion of a system in any set of coordinates, not just the standard Cartesian coordinates, via the Euler-Lagrange equation
+
+The Hamiltonian formulation of classical mechanics
+The Hamiltonian of a system is defined to be the sum of the kinetic and potential energies expressed as a function of positions and their conjugate momenta. A general definition of conjugate momentum, valid for any set of coordinates, is given in terms of the Lagrangian:
+In terms of Cartesian momenta, the kinetic energy is given by
+The Hamiltonian is defined to be the sum, K+U, expressed as a function of positions and momenta, is given by
+
+In terms of the Hamiltonian, the equations of motion of a system are given by Hamilton's equations:
+The solution of Hamilton's equations of motion will yield a trajectory in terms of positions and momenta as functions of time.
+Hamilton's equations can be easily shown to be equivalent to Newton's equations, and, like the Lagrangian formulation, Hamilton's equations can be used to determine the equations of motion of a system in any set of coordinates.
+The Hamiltonian can be directly obtained from the Lagrangian by a Legendre transformation,
+
+An example
+Single particle dynamics Hamiltonian: Hamilton equations of motion,
+
+A system described by conservative forces conserves the total energy, it follows that Hamilton's equations of motion conserve the total Hamiltonian. Hamilton's equations of motion conserve the Hamiltonian
+
+Statistical Mechanics provides the connection between microscopic motion of individual atoms of matter and macroscopically observable properties such as temperature, pressure, entropy, free energy, heat capacity, chemical potential, viscosity, spectra, reaction rates, …, etc
+Ensemble is a large number of systems each described by the same set of microscopic forces and sharing some common macroscopic property (e.g. the same total energy) in which each system evolves under the microscopic laws of motion from a different initial condition so that the time evolution of each system will be different from all the others. Such a collection of systems is called an ensemble. The ensemble concept then states that macroscopic observables can be calculated by performing averages over the systems in the ensemble.
+
+A statistical ensemble is a probability distribution for the state of the system.
+A thermodynamic ensemble is a specific variety of statistical ensemble that, among other properties, is in statistical equilibrium, and is used to derive the properties of thermodynamic systems from the laws of classical or quantum mechanics.
+A partition function (Z) describes the statistical properties (probability) of a system in thermodynamic equilibrium. For
+example, for canonical ensemble,  = 1/kBT and Es is the energy of
+microstate s,
+For a canonical ensemble that is classical and continuous, the canonical partition function is defined as,
+The thermodynamic potential is given by the Boltzmann law, F = kBT ln Z
+
+Classical partition function
+
+In a classical picture, the probability Pi for finding a system in state i is,
+
+ Pi 
+
+exp Ei / kBT  exp Ei / kBT 
+
+i
+
+This is the Boltzmann distribution for a system at temperature T and the average energy is given by,
+
+   E
+
+
+
+i
+
+Ei Pi 
+
+i
+
+Ei exp Ei exp Ei /
+
+/ kBT
+kBT 
+
+
+
+
+
+
+
+ 
+
+ln
+
+i
+
+exp Ei / 1 / kBT 
+
+kBT 
+
+
+
+
+
+
+ ln Q
+1 / kBT 
+
+i
+
+The thermal average of a quantity A is,
+
+ Ai exp Ei / kBT  i A i
+
+ A  Ei Pi  i  i
+
+exp Ei / kBT 
+
+i
+
+For a N particle system, the total energy is simply the sum of the kinetic and potential energies. The average of A is
+
+      dpN
+
+dr
+
+N
+
+ exp
+
+
+
+ 
+
+pi2
+
+/
+
+2mi
+
+U
+
+rN
+
+ 
+
+A
+
+pN ,rN
+
+A
+
+ i
+
+
+
+    dpN
+
+dr
+
+N
+
+ exp
+
+
+
+ 
+
+pi2
+
+/
+
+2mi
+
+U
+
+rN
+
+ 
+
+ i
+
+
+
+This is the starting point for virtually all classical simulation of many-body systems
+
+Thus, if A is a macroscopic property and let a denote a microscopic function that is used to compute A. An example of A would be the temperature, and a would be the kinetic energy (a microscopic function of velocities). Then, is obtained by calculating the value of a in each system of the ensemble and performing an average over all systems in the ensemble:
+
+Ergodicity
+The idea of ensemble averaging can also be expressed in terms of an average over all such microstates (which comprise the ensemble). A given macroscopic property, A, and its microscopic function a = a(x) , which is a function of the positions and momenta of a system, i.e. the phase space vector, are related by
+In reality, measurements are made only on a single system and all the microscopic detailed motion is present. However, what one observes is still an average, but it is an average over time of the detailed motion, an average that also washes out the microscopic details. Thus, the time average and the ensemble average should be equivalent, i.e.
+This statement is known as the ergodic hypothesis. A system that is ergodic is one for which, given an infinite amount of time, it will visit all possible microscopic states available to it
+
+Ergodicity
+
+isolated
+
+Thermodynamics Ensembles
+Coupled to heat bath
+
+Open
+
+(N,V, E) Micro-canonical
+A = H - TS
+
+(N,P.T) or (N,V,T) Canonical or
+Isothermal-isobaric
+G = PV+ H - TS
+
+(,V, T) Grand-Canonical
+
+Microcanonical Ensemble (NVE)
+The N = number of particles, V = volume and E= total energy of the system are fixed. The probability of distribution, P is
+𝑃 = 𝛿 𝐻 𝑝𝑁, 𝑟𝑁 − 𝐸
+The state function is the Helmholtz free energy, ANVE
+F NVE = ANVE = H + TS
+Since no external forces are acting on this system, there is no heat bath to define the temperature.
+
+Common Thermodynamics Ensembles
+
+Microcanonical Ensemble (NVE)
+
+  FNVE (N,V , E) 
+
+dr N
+V
+
+dpN [1(r N , pN ;V )  E]F (r N , pN ;V ) N !(N,V , E)
+
+where
+
+  (N,V , E) 
+
+dr N
+V
+
+dpN [1(r N , pN ;V )  E]
+
+N!
+
+Canonical Ensemble (NVT)
+
+  dr N dpN exp[ 1(r N , pN ;V )]F (r N , pN ;V )
+
+FNVT (N ,V ,T )  V
+
+kT N !Q(N,V ,T )
+
+where
+
+  dr N dpN exp[ 1(r N , pN ;V )]
+
+Q(N,V ,T )  V
+
+kT
+
+N!
+
+Isothermal-isobaric Ensemble (NPT) Isoenthalpic-isobaric Ensemble (NPH)
+
+      
+dV dr N V
+FNPT (N , P,T )  0
+
+dpN exp[ [PV  1(r N , pN ;V )]]F (r N , pN ;V ) kT
+N !(N, P,T )
+
+
+dV dr N V
+FNPH (N , P, H )  0
+
+dpN [1(r N , pN ;V )  PV  H ]F (r N , pN ;V ) N !(N, P, H )
+
+where
+
+   
+dV
+
+dr N dpN exp[ [PV  1(r N , pN ;V )]]
+
+V
+(N, P,T )  0
+
+kT
+
+N!
+
+where
+
+
+
+   dV drN V
+
+dpN [1(r N , pN ;V )  PV  H ]
+
+(N, P, H )  0 N!
+
+The Helmholtz free energy A(N,V,T) is a natural function of N, V and T. The isothermal-isobaric ensemble is generated by transforming the volume V in favor of the pressure P so that the natural variables are N, P and T (which are conditions under which many experiments are performed)
+where G(N,P,T) is the Gibb free energy. The differential of G is
+But from G=A+PV, we have
+
+Evaluation of thermodynamics variables
+
+An example
+Hamilton equations of motion Integration
+
+Integration (trajectories)
+
+How to choose the time step t? F = -U
+𝒅𝒗 𝑭 = 𝒎 𝒅𝒕
+t= 𝒎𝑭 v
+Normally choose a time step 1/10 of the maximum vibrational frequency. For example, the maximum frequency of a H2 is 4200 cm-1 or 4200/33.3 THz. A reason time step t ~ (1/10)(33.3/4200)10-12 sec = 0.8 fs (10-15 s)
+
+Lyapunov Instability
+The Verlet Algorithm
+
+Lyapunov Instability
+The finite precision of the computer calculation (typically between 8 and 14 decimal digits) would result in the upper ball's landing some distance away from the top of the lower ball, inducing a horizontal acceleration and velocity. Both the acceleration and the velocity would then act to increase the offset on the second bounce, roughly by a factor of ten, and then the offset would continue to increase exponentially.
+
+Variable-cell Molecular Dynamics (Rahman-Parrinello)
+
+ri  hs i
+
+a c
+b
+
+Hydrostatic medium
+(N,P,T) (N,P,H)
+
+G = hTh
+
+Parrinello-Rahman Molecular Dynamics
+
+Molecular dynamics
+
+Box dynamics
+
+M. Parrinello and A. Rahman, J. Appl. Phys., 52, 1782 (1981)
+
+Molecular Dynamics
+S. Nose and M.L. Klein, Mol. Phys., 50, 1055 (1983)
+
+(Fictitious) Box Dynamics
+
+Controlling the temperature
+Velocity scaling
+Particle velocities are chosen randomly from [-0.5,0.5] and the rescaled to result in a desired temperature given by the relation
+
+𝐴 = 𝜋𝑟2
+
+Then scale the current temperature of the particle Tc to the desired
+
+temperature Ts by,
+
+𝑣′ = 𝑣𝑐
+
+𝑇𝑠 𝑇𝑐
+
+This method cannot be used to conduct a simulation in the canonical ensemble, but is perfectly fine to use in a warmup or initialization phase.
+
+Extended system (variables) dynamics e.g. Nose constant pressure - constant temperature
+
+Coupled to heat bath
+(N,P.T) or (N,V,T) Canonical or
+Isothermal-isobaric
+
+To keep the temperature of the model system constant, heat must be exchange Between the model system and a heat bath stochastically (randomly)
+However, the procedure must satisfy the ergodicity condition, i.e. the sampling must reproduce the Boltzmann distribution
+
+Nose constant pressure - constant temperature Molecular dynamics
+Canonical-ensemble molecular dynamics. The physical system of interest is composed of N atoms with co-ordinates q’i masses mi and potential energy U(q'). The Hamiltonian written in terms of real variables is,
+and the Lagrangian is
+Application of the Euler-Lagrangian equation
+
+yields the equation of motion,
+The idea behind the extended-system method is to imagine that the system of interest is coupled to a heat bath to control the temperature. Nose choice the coupling expressed via a variable s. The extended system (i.e. system of interest plus the heat bath) is described by virtual variables, co-ordinates qi momenta pi time t and the coupling parameter s. The interaction between the physical system and the heat bath is expressed through the scaling of the particles velocities,
+The Lagrangian of the extended system is written as,
+where Ks and Us are the kinetic and potential energies associated with the variable s.
+
+The kinetic energy is assumed to have the form,
+Q is the “mass : for the variable s, but it has the dimension energy(time)2 What is the functional form of Us? In terms of virtual variables, the Lagrangian is
+To obtain the equations of motion for the virtual variables we apply the Euler-Lagrangian equation,
+and
+
+The fact that the time average of vanishes enables us to guess the required functional form for U,.
+This allows us to relate the kinetic energy, and hence the temperature, to the potential Us .
+where g is the number of degrees of freedom (3N) in the extended system, T the temperature of the heat bath and kB Boltzmann's constant. The Hamiltonian postulated by Nose to describe the extended system based on the above arguments was,
+
+Nose obtained the distribution function for the physical system by integrating the expression for the extended system over the phase space of the variable s. The particular choice of Us ensures that the partition function has the form,
+With the ergodic hypothesis, which relates the time average along a trajectory to the ensemble average, the average of any static quantity expressed as a function of pi and qi along the trajectory is exactly that in the canonical ensemble.
+Now it is straightforward to write down the Hamiltonian for Nose constant-temperature constant-pressure molecular dynamics in term of the virtual variable s,
+
+How to choose the Q parameter?
+Theoretically, static quantities are independent of the value chosen for the parameter Q. In practice because of the finite number of time steps, the ergodic condition is not always satisfied. With small Q values, the degree of freedom associated with s tends to decouple from the physical system. On the other hand, large Q values lead to inefficient sampling of phase space. The most efficient calculation will be done by choosing same order of time scales for the physical system and the variable s. If we only consider the fluctuation of s around the averaged value <s> , the equation of motion for s,
+can be simplified to
+The frequency of this harmonic equation is
+Q can be chosen such that  gives the same order of magnitude as the second moment of the frequency spectrum of the velocity autocorrelation function of the physical system.
+
+The first 1250 steps carried out with standard MD. At step 2500, the simulation is changed to constant temperature method with Teq=100. At step 5000, Teq is changed to 150K.
+
+How to choose the W parameter?
+For a Nose-Hoover barostat, the fictitious mass W should be chosen according to
+where d is the dimensionality of the system, b is the frequency of the required volume fluctuations. The choice of b depends on the time scale on which the particle motions of interest occur. A useful aide when choosing this frequency is the NVT temperature spectrum (TS). The character of this spectrum should not be significantly disrupted bythe addition of a barostat. In practice this means choosing b to be less than the smallest frequency component in the TS.
+
+Langevin Dynamics
+An efficient way to create heat exchange via stochastic collisions with the heat bath the Langevin dynamics. Once again, any useful must generate the isobaric–isothermal ensemble.
+Langevin equations of motion
+ is a friction coefficient representing viscous damping due to fictitious heat bath particles. The random force Ri represents the effect of collisions with these particles. It can be shown that the average value of Ri over a time step (in thermal equilibrium) should be a random deviate drawn from a Gaussian distribution of zero mean and unit variance scaled by,
+
+Equation of motion for Langevin dynamics in a Hoover-style extended system with correct sampling of the isobaric–isothermal ensemble.
+In the form shown above, the deterministic equations for the evolution of both the particle and barostat velocity in d dimensions with different friction constants. Values of RP are drawn from a Gaussian distribution of zero mean and unit variance scaled by
+
+The choice of the parameter  for the atom is a compromise between statistical sampling efficiency and preservation of accuracy in shortterm dynamics. However, in the case where the process approximated by the stochastic components can be simulated by another method, it is possible to determine an optimal value of  numerically.
+The value of  should be equal to
+where act is the actual memory function of the system we wish to simulate. Calculation of the optimal therefore requires prior knowledge of the memory function which can be obtained from an NVE simulation or from other NVT/NPT techniques.
+In addition to γ for atomic degrees of freedom, also the friction coefficient for lattice degrees of freedom has to be defined in the case of Parrinello-Rahman dynamics. However, the choice of the piston thermostat parameter P is of less importance.
+
+Average values of (a) the potential energy per particle, (b) the instantaneous
+pressure and (c) the slope of the effective energy per particle, plotted as functions of
+the friction  . The calculations are performed with different time steps: t = 0.0025 (◦), t = 0.005 (×), t = 0.01 (△),t = 0.015 () and t = 0.02 (▽). All the quantities are in Lennard-Jones reduced units.
+
+Normalized autocorrelation function of (a) the potential energy and (b) the instantaneous pressure, for different choices of the friction coefficient , as indicated. The fastest decorrelation is observed when  is set to an optimal value
+of 20. All the quantities are in Lennard-Jones reduced units.
+
+How to perform a MD simulation
+Initialization: Generate random velocities for the atoms for the chosen temperature from Gaussian (Maxwell-Boltzmann) distribution and zero net momentum Perform MD calculations and maintain the desirable temperature by scaling of the velocities.
+Equilibration: Run a trajectory without constraint (e.g. remove velocity scaling). Monitor fluctuations in the state variables (i.e. V, T, E, P … etc.)
+Data collection: Continue from equilibration and then run for may time steps, usually 10 -100 ps. How long is long enough?
+Data Analysis
+
+Equilibration
+reject!
+
+Always examine All the output information
+
+Always examine All the output information
+
+Part II. Time correlation functions
+
+What is a correlation function?
+
+Consider a series of measurements of a quantity of a random nature at different times.
+
+Perfectly harmonic potential
+
+Shift the data by time tcorr and multiply the values in new data set to the values of the
+original data set.
+
+tcorr
+
+t
+
+A(t)A(0) tcorr
+
+Harmonic oscillator
+
+Time domain
+
+x(t) = A0cos(0t)
+
+A(t)A(0) tcorr
+
+Energy (frequency) domain
+
+0
+
+What is a correlation function?
+Consider a series of measurements of a quantity of a random nature at different times.
+Shift the data by time tcorr and multiply the values in new data set to the values of the original data set.
+
+Fourier transforms (FT) take a signal and express it in terms of the frequencies of the waves that make up that signal.
+
+The Fourier transform relates the function's time domain, shown in red, to the function's frequency domain, shown in blue. The component frequencies, spread across the frequency spectrum, are represented as peaks in the frequency domain.
+
+The average over the whole time range and get a single number C(tcorr). If the two data sets are lined up, the peaks and troughs are aligned and we will obtain a big value from this multiply-andintegrate operation. As we increase tcorr the C(tcorr) declines to a constant value.
+The operation of multiplying two curves together and integrating them over the x-axis is called an overlap integral, since it gives a big value if the curves both have high and low values in the same places.
+The overlap integral is called the correlation function, C(ttorr ) = <A(t0)A(t0+tcorr)>
+This is not a function of time, this is function of the shift in time or correlation time tcorr.
+Decay of the correlation function is occurring on the timescale of the fluctuations of the measured quantity undergoing random fluctuations.
+
+Although the value of A(t) is changing randomly, for two measurements taken at times t’ and t” that are close to each other there are good chances that A(t’) and A(t”) have similar values  their values are correlated. If two measurements taken at times t’ and t” that are far apart, there is no relationship between values of A(t’) and A(t”)  their values are uncorrelated.
+1
+-1
+
+A(t)A(0)/A(0)A(0)
+
+Time domain
+
+Harmonic oscillator
+x(t) = A0cos(0t)
+
+Energy (frequency) domain 0
+
+Fourier transform of time correlation function
+
+A typical self correlation function
+
+Fourier analysis of time correlation functions
+The time-correlation function formalism is a general approach. It can be applied to a system that is subject to a time-dependent perturbation . The perturbation will produce a time-dependent response to the probe, which can be Fourier analyzed into what is called a frequency-dependent susceptibility.
+∞
+𝑍(𝜔) = 𝑒−𝑖𝜔𝑡 𝐴 𝑡 𝐴(0) 𝑑𝑡
+−∞
+The Fourier-Laplace Transform is more representative of the type of formula that results from time-correlation function theory. For example, the diffusion coefficient D implies that this expression is the zero-frequency limit of some more general quantity.
+Therefore, any ordinary thermal transport coefficient such as the self-diffusion coefficient is a zero frequency result, meaning that it is valid only for slow processes.
+
+Static structure factor S(Q)
+The density operator is defined as
+The static structure factor S(Q) which is the total scattering at a given value of Q and represents the summation over all inelastic processes with this value of Q.
+
+Reciprocal space  real space
+The quantity S(Q) can be partitioned into a contribution from coherent (Bragg) scattering,
+
+cristobalite 14 GPa
+
+stistovite 20 GPa
+
+and a remainder, the diffuse scattering (disorder)
+Neutron diffraction structure factor S(Q) for lithium sulphate in its cubic rotator phase. The Bragg vectors are labelled by the integers (lmn), the Bragg and diffuse contributions are indicated by filled and open regions. Inset is the experimental neutron diffraction pattern.
+
+Onsager regression hypothesis
+The relaxation of macroscopic non-equilibrium disturbances is governed by the same laws as the regression of spontaneous microscopic fluctuations in an equilibrium system. This is a consequence of the fluctuation-dissipation theorem
+
+Define A(t) as the instantaneous deviation (fluctuation) of A from its equilibrium average,
+
+A(t)  A(t)  A
+
+Invoking the ergodic hypothesis, with the equilibrium average as
+
+a time average,
+
+A(0) A(t)
+
+ lim 1
+
+T
+ d A() A(  t)
+
+T  T 0
+
+A(t)  C(t) A(0) C(0)
+
+with
+
+A(t)  A(t)  A
+
+and C(t)  A(0) A(t)
+
+Ina system close to equilibrium, we cannot distinguish between
+
+
+
+sepxtoenrtnaanlelyopursefpluacrteuda.tions and deviations from equilibrium that are
+
+Transport coefficients
+The macroscopic coefficient an be expressed terms of an ensemble average of microscopic variables. If  is the macroscopic transport coefficient and A(t) is some function of microscopic dynamical variables,
+A(t) can be written as the integral of dA/dt, and the equation can be transformed into the desired form,
+
+Self-diffusion coefficient
+
+Macroscopic (Fick’s 2nd law): C(r,t)  D 2C(r,t) t
+N
+Microscopic: (r,t)  r  r j (t)
+j1
+C(r,t)  (r,t) (0,0) (associated correlation function)
+
+Notethat
+
+(r,t) (0,0)
+
+= P(r,t) = the conditional probability distribution
+that a particle is at r at time t given that
+
+
+
+the particle was at the origin at time
+
+zero.
+
+
+Recall C(r,t)  (0,0) (r,t)  (0,0)(r,t)   2
+
+Einstein’s equation for diffusion
+
+According to Onsager’s regression hypothesis, C(r,t) should obeys Fick’s 2nd law.
+
+P(r,t)  D 2P(r,t) t
+Define the mean square displacement
+
+ R2(t) 
+
+2
+r1(t)  r1(0)
+
+
+
+d rr 2P( r,t )
+
+   d R2(t)  dr r2 P(r,t)  dr r2D2P(r,t)  6 dr DP(r,t)
+
+dt
+
+t
+
+
+ d R2(t)  6D as d rDP( r,t )  1
+dt
+
+
+
+Self-diffusion coefficient
+
+The self-diffusion coefficient is related to the mean square displacement of
+
+the particle,
+
+t
+ r1(t)  r1(0)  d v()
+0
+
+  R2(t) 
+
+2
+r1(t)  r1(0)
+
+t
+
+t
+
+ d d v()  v()
+
+0
+
+0
+
+Taking the derivative
+
+ d R2(t)  2 t d v(t)  v()
+
+
+
+dt
+
+0
+
+t
+
+2  d v(t)  v()  2 v(t)  r(t)  r(0)  2 v(0)  r(0)  r(t)
+
+0
+
+
+
+2
+
+0
+
+
+d
+
+v(0)  v()
+
+t
+ 2  d
+
+v(0)  v()
+
+t
+ 2  d
+
+v(0)  v()
+
+t
+
+0
+
+0
+
+ d R2(t)  2 t d v(0)  v()
+
+dt
+
+0
+
+ d R2(t)  2 t d v(0)  v()
+
+dt
+
+0
+
+The left-hand side goes to 6D in the limit of large times,
+
+
+
+lim d R2( t )  6D
+
+t dt
+
+
+
+ D
+
+
+
+1 3
+
+d v(0)  v()
+
+0
+
+This equation relates a transport coefficient to an integral of an
+autocorrelation function. Such relationships are known as GreenKubo formulas.
+
+Formulas for transport coefficients
+Note that each of these equations is dependent only upon various functions of the momenta of the particles.
+
+Transport coefficients are related to the long-time behaviour of correlation functions. Short-time correlations, on the other hand, may be linked with static equilibrium ensemble averages, by expanding in a Taylor series. For example, the velocity of particle i is,
+Multiplying by vi(0) and ensemble averaging yields
+The odd terms in the expansion vanish as the time correlation function is an even function (time reversal). Furthermore,
+. Thus, the short-time velocity autocorrelation function is related to the mean square acceleration, i.e. to the mean square force. This is analogous to the Einstein frequency E of an atom vibrating in the mean force field of its neighbours,
+
+Single-particle dynamics
+Velocity autocorrelation functions.
+The significance of Zi(t) is that its Fourier transformed power spectrum is the phonon density of states Zi(). Take the example of an oscillator with amplitude A, frequency  and phase . The displacement is given by,
+and
+then Average over an ensemble of random phases and obtain,
+It then follows that where Z() is the normalized phonon density of states, i.e. the number of oscillators with frequency .
+
+An example
+Velocity a.c.f. Z(t) and its associated power spectrum Z () for three phases of CF4. The full curves were obtained from conventional constant-volume MD calculations and the dots from constant-pressure MD calculations.
+
+Total and projected vibrational density of states
+Quartz, 300 K
+The calculated vibrational density of states for a-quartz. The solid line is the contribution from the silicon and the dashed line is the contribution from the oxygen.
+
+Dynamic (Van Hove) structure factor S(Q, )
+Lattice Dynamics -Phonon dispersion
+The allowed values of Q are determined completely by the size of the MD simulation cell,
+Q = 2/3 to K
+
+Thermal conductivity
+Ar
+
+Viscosity
+
+   V
+kBT
+
+
+0 dtP (t)P (0)
+
+Pαβ: five independent components of the stress tensor , Pxy, Pyz, Pzx, ½ (Pxx-Pyy), ½ (Pyy-Pzz).
+
+Viscosity of liquid Al
+liquid Al at 1000 K  = 2470 kg m-3
+
+Our calculation with 64-atom supercell
+
+Spectroscopic properties
+We use the absorption of an electromagnetic radiation field as an example Consider a system of N interacting molecules in the quantum state i
+(initial) interacts with an electric field, E(t) = E0cos(t), of frequency 
+transitions into other quantum states f (final) will occur if the frequency of the radiation is close to (Ei – Ef)/ħ. The interaction between the field and the system can be written as,
+
+where M is the total electric dipole moment operator of the N-body system.
+According to Golden Rule of time-dependent quantum-mechanical perturbation theory, the probability per unit time that a transition from the state i to the state f is
+where fi = f - i
+
+the rate of energy loss from the radiation to the system
+Sum over the second  function gives, If the system is initially in equilibrium, then so The absorption lineshape I() is given by
+
+We can convert the equation to the Heisenberg picture by introducing the Fourier transform of the Dirac delta function,
+giving States |i  and |f are eigenstates of the system excluding the radiation,
+Thus, the equation can be written as
+with The summation over the set of final states can be removed by using the closure relation
+
+For an isotropic system one can average E over all directions
+The lineshape function I() has been written as the Fourier transform of the time-correlation function of the dipole moment operator of the absorbing system in the absence of the field!
+
+Infrared spectra of -quartz
+A2 (z) E (x,y)
+
+Lattice dynamics
+Molecular dynamics Experiment
+
+Inter-determinecy of phase factor – Berry phase
+
+_ +
+
+
+
+_ +_ +_ +_ +_ +_ +
+
+But for a period solid The choice of unit cell is arbitrary
+_ +_ +_ +_ +_ +_ +
+
+-
+
+(phase changed by !)
+
+?????
+
+Infrared spectrum – Berry phase
+In a molecular dynamics scheme employing periodic boundary conditions, the IR absorption coefficient I() can be computed from
+For systems with periodic boundary conditions, the total dipole moment of the supercell is an ill-defined quantity. In the limit only the zone-center point () is used; the total electronic dipole moment projection onto the unit cell vector is given as,
+with the Berry phase
+and un(r,t) is the electronic wave function at the  point at the time step. The self-correlation function M(t)M(0) can be evaluated from the trajectory of the simulation.
+
+Infrared spectrum – Wannier function
+An interesting property of the Wannier function is that the dipole moment of a molecule can be calculated from the ion and the WFC positions by assuming that the electronic charge is concentrated in the point charges located on the WFCs.
+There are four sites of charge concentration corresponding to the two O–H bonds and the two lone pairs. The WFC from the oxygen atom for the covalent O–H bond is 0.53 °A and 0.30 °A for the lone pair. The molecular dipole moment computed from the positions of the WFC is 1.87 D, in excellent agreement with the experimental value of 1.86 D.
+
+High pressure solid hydrogen
+
+Elastic Constants
+Starting from t he Parrinello-Rahman Variable Cell Lagrangian
+
+where
+
+and Vel is the elastic energy
+
+with S , the applied stress ,  is strain and 0 = ||h0||, the unstrained volume
+Parrinello and Rahman identified the strain as,
+
+G(t) is the instantaneous value of the metric tensor in the strained state, and h0 is the average of the matrix determining the MD cell in the reference state. The equilibrium fluctuations of strain in the (S,H,N) ensemble are related to the adiabatic compliances sijkl according to,
+
+
+Time step (fs)
+

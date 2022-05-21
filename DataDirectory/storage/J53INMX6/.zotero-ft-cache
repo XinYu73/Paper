@@ -1,0 +1,524 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JavaScript is disabled on your browser. Please enable JavaScript to use all the features on this page. Skip to main content Skip to article
+Elsevier logo ScienceDirect
+
+    Journals & Books 
+
+Register Sign in
+You have institutional access
+
+    View  PDF
+    Download full issue 
+
+Outline
+
+    Highlights
+    Abstract
+    Keywords
+    1. Introduction
+    2. Computational details
+    3. Results and discussion
+    4. Conclusion
+    Data availability
+    CRediT authorship contribution statement
+    Declaration of competing interest
+    Acknowledgments
+    References 
+
+Show full outline
+Cited By (3)
+Figures (4)
+
+    Fig.1. Supercell of graphite after the optimization (a) and graphite (111) surface…
+    Fig.2. Optimized structures, frontier molecular orbitals density distribution (HOMO,…
+    Fig.3. Total, average total, Van der Waals, electrostatic and intramolecular energies…
+    Fig.4. Side views of the stable adsorption configurations for SO2and CO2/400…
+
+Tables (6)
+
+    Table 1
+    Table 2
+    Table 3
+    Table 4
+    Table 5
+    Table 6 
+
+Elsevier
+Current Research in Green and Sustainable Chemistry
+Volume 4 , 2021, 100085
+Current Research in Green and Sustainable Chemistry
+Combined DFT and MD simulation approach for the study of SO 2 and CO 2 adsorption on graphite (111) surface in aqueous medium
+Author links open overlay panel M. Khnifira a A. Mahsoune a M.E. Belghiti b L. Khamar c M. Sadiq a M. Abdennouri a N. Barka a
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.crgsc.2021.100085 Get rights and content
+Under a Creative Commons license
+Open access
+Highlights
+
+•
+
+    DFT and MD simulation to understand the adsorption mechanism of SO 2 and CO 2 on the graphite surface.
+•
+
+    The global reactivity descriptors and the dynamic descriptors were calculated and discussed.
+•
+
+    Strong electron acceptor ability and high adsorption energy suggest good adsorption ability.
+•
+
+    High binding energies and negative interaction energies indicate strong and stable adsorption.
+•
+
+    Larger E ads and smaller bond distances indicate higher sensitivity of graphite to interact with SO 2 and CO 2 .
+
+Abstract
+
+In this study, density functional theory (DFT) calculations combined with molecular dynamics (MD) simulation have been used to understand the adsorption mechanism of sulfur dioxide (SO 2 ) and carbon dioxide (CO 2 ) on the graphite surface in aqueous medium, in view of analytical and environmental application. The global reactivity descriptors, such as the frontier molecular orbital energies (E HOMO and E LUMO ), gap energy (ΔE gap ), absolute hardness (η) and softens (σ), fraction of electrons transferred (ΔN) and electronegativity (χ) were evaluated. The dynamic descriptors calculated by the MD simulation such as the adsorption energy (E ads ), total energy (E tot ), deformation energy (E def ), rigid adsorption energy (RAE) and dE ads /dNi were also calculated and discussed. The obtained results indicated strong electron acceptor ability and high adsorption energy, which can suggest good adsorption ability. The interaction energies (ΔE interaction ) were negative for both gases indicating strong attractive force between the molecules and the graphite surface. The highest values of the binding energy (ΔE binding ) indicate that the adsorption of each molecule is strong and stable, which is in agreement with the interaction energies. The values of E HOMO and E ads were negative, indicating that the complete chemical processes occur spontaneously. Furthermore, MD simulation was applied to investigate the most stable configuration of the molecules on the graphite (111) surface. The larger E ads and the smaller bond distances indicate that graphite exhibited higher sensitivity to interact with SO 2 and CO 2 molecules in an aqueous medium.
+
+    Previous article in issue
+    Next article in issue 
+
+Keywords
+Greenhouse gases
+Graphite
+Density functional theory
+Molecular dynamics simulation
+1. Introduction
+
+Atmospheric pollution stands as one of the more important environmental issues, conducting to great social impact problems, such as depletion of the ozone layer, acid rain, photochemical smog or greenhouse effect [ 1 ]. The change observed during the last decades in the natural greenhouse is due to the release in the atmosphere by the human activities of certain gases, so-called as greenhouse gases. Among these atmospheric pollutants, CO 2 and SO 2 are critical ones, being majors responsible for acid rain, in addition to their inherent toxicity [ 2 ]. In many industrial processes, coal and oil burning will generate a large volume of these gases.
+
+The emissions from the combustion of fossil fuels are contributing to an increase in the concentration of CO 2 in the atmosphere, resulting in serious environmental problems [ [3] , [4] , [5] ]. This gas is usually accepted as the most contributing specie in the global climate change [ 6 , 7 ]. Moreover, it is the most important greenhouse gas, accounting for 78% of the global anthropogenic emission in 2011 [ 8 ]. In addition, SO 2 is a well-known local pollutant and one of the primary waste gases released from a number of industrial activities, such as combustion processes, like refining of sulfur-rich minerals or production of sulfuric acid . The average emission factor of SO 2 for gas-turbine, steam and combined-cycle power plants is equal to 3.842, 15.276 and 2.325 ​g kWh −1 respectively [ 9 ]. In view of the environmental and health problems [ 10 , 11 ], the detection and the removal of SO 2 and CO 2 are highly encouraged. There are extremely toxic and harmful for both human health and the environment [ 12 ]. Many studies have been devoted to the development of gas molecules sensors as a safety precaution device [ 13 ]. Researchers attach the importance to continuous on-site surveillance of air pollutants to protect the human body from damage.
+
+Among the different techniques used to trap gases, the adsorption on mineral-based absorbents appears as a method of choice for the chemical industry because of its easy operation, flexibility, simplicity in design and insensitivity [ 14 ]. In addition, the adsorption process is the most important process contributing in the development of gas molecule sensors. To the best of our knowledge there is no research in literatures on the study of interaction of SO 2 and CO 2 molecules on the graphite surface. Because of important roles of abovementioned species in atmosphere, developing straightforward methods and introducing new adsorbent materials seems to be essential. Many adsorbents such as activated carbon, carbon nanotubes , Pt-doped and Au-doped single-walled carbon nanotube, zeolite, titan dioxide, graphene, magnesium oxide and graphite that is, have been applied for the adsorption of gas [ [15] , [16] , [17] , [18] , [19] , [20] , [21] ]. In this study, we choose graphite as an adsorbent because it is the most promising, owing to soft, non-flammable, non-toxic, low cost, does not emit fumes, and has a low coefficient of friction . Moreover, this adsorbent respect the environment. The studies of the adsorption behaviors based on the analysis of the geometric structure, adsorption energy , charge transfer, and electronic property of SO 2 and CO 2 gaseous species on the Bernal phase of graphite. This hexagonal crystal phase, more abundant in nature, is characterized by purely covalent in-plane bonding and a weak Van der Waals interaction in the inter-planar bonding [ 22 ].
+
+In this study, we combine the density functional theory calculations with molecular dynamics to investigate the electrical properties and adsorption capacity of graphite monolayer, exploring the feasibility of graphite monolayer for SO 2 and CO 2 sensor applications . The more favorable adsorption configurations are determined through the calculation of adsorption energy, charge transfer and adsorption distance. Electron localization function and electronic structures (molecular electrostatic potential and Mulliken charge) have also been calculated to further explain the adsorption mechanism. Furthermore, we consider adsorption capacity as a normative parameter to explore suitable gas molecule sensor.
+2. Computational details
+2.1. Density functional theory detail
+
+Gaussian 09 ​W program package was used for the calculations [ 23 ]. The first task of the computing study was to determine the optimized geometry of the considered molecules using the M06 [ 24 ] with LanL2DZ basis set. Theoretical parameters, such as energy of the LUMO (E LUMO ), energy of the HOMO (E HOMO ), electronic affinity (A ​= ​-E LUMO ), ionization potential (I ​= ​-E HOMO ), energy gap (ΔE gap  ​= ​E HOMO - E LUMO ), dipole moment (μ), hardness (η), absolute electronegativity (χ) and the number of transferred electrons (ΔN) have been used to understand the favorable adsorption sites for the molecules. Absolute electronegativity (χ), hardness (ɳ), softness (S) and ΔE back-donation were calculated from the energies of the frontier molecular orbitals using Eqs. (1) , (2) , (3) , (4) , respectively [ 25 ]: (1) χ = − I + A 2 = - ( E HOMO + E LUMO ) 2 (2) η = - ( E HOMO − E LUMO ) 2 (3) S = 1 η = - 2 E HOMO − E LUMO (4) Δ E back - donation  ​ = - η 4
+
+The fraction of electrons transferred from the gaseous molecule to carbon graphite surface, ΔN max , was calculated according to Eq. (5) [ 26 ]: (5) Δ Ν max = χ 2 η
+2.2. Molecular dynamic simulation procedure
+
+The molecular dynamic (MD) simulations were used to calculate the low-configuration adsorption energy of the interaction between the adsorbates and the graphite surface in an aqueous medium. Chemical descriptors calculated using the adsorption locator module (Accelrys, San Diego, CA, USA) implemented in Material Studio 8.0, distributed by BIOVIA society [ 27 ] were used to build substrate/molecule/solvent system. The simulation of the interaction between the single molecule (SO 2 or CO 2 ) and the graphite (111) surface was carried out in a simulation box (35 ​Å) 3 . A vacuum plate of 35 ​Å thickness was introduced on the graphite (111) surface and was then enlarged to a supercell (7 ​× ​7 ​× ​7) as shown in Fig. 1 . MD calculation was realized by applying five cycles (2000 steps in each cycle) of simulated annealing. The lowest potential energy configurations were sampled at the steps of low temperatures. MD simulations were obtained using an NVT canonical ensemble at 298 ​K and simulation time of 300 ps (1 fs time step). The long-range electrostatic interactions were treated using the Ewald summation method. Interactions with Van der Waals have been treated by a cutoff distance of 12.5 ​Å and a spline width of 1 ​Å. For the whole simulation procedure, COMPASS force field [ 28 ] was used to optimize the structures of all components of the system (graphite surface/gas molecule/400 water molecules). The adsorption study of the molecule, or molecules set, is based on the preliminary determination of the potential interaction energy of the adsorbate-substrate system. This energy is generally written as the sum of three contributions:
+
+-
+
+    The total interaction energy between the molecule and the equilibrium surface denoted E molecule+surface .
+-
+
+    The total internal energy of the surface, after possible relaxation, without the presence of the molecule, noted E surface .
+-
+
+    The total energy of the molecule relaxed without the surface, noted E molecule . Thus, the adsorption energy of the surface molecule system is in the form:
+
+(6) E ads = E molecule + surface − E surface − E molecule wherein E ads denotes as the interaction energy between the single gas molecules and graphite (111) surface.
+
+Fig. 1
+
+    Download : Download high-res image (333KB)
+    Download : Download full-size image 
+
+Fig. 1 . Supercell of graphite after the optimization (a) and graphite (111) surface models (b).
+3. Results and discussion
+3.1. Density functional theory and molecular dynamics simulations
+3.1.1. Electronic distribution
+
+The frontier molecular orbitals HOMO and LUMO and the molecular electrostatic potential of the chemical species are very important in defining their reactivity and determining the electrophilic and nucleophilic sites [ 29 ]. To study the effect of the electronic properties and the molecular structure towards the adsorption of the SO 2 and CO 2 on the graphite surface, a quantum chemical calculation has been applied. The optimized structure, the frontier molecular orbital density distributions (HOMO and LUMO) and molecular electrostatic potential (MEP) of the molecules obtained by the M06/LanL2DZ method are shown in Fig. 1 . The nucleophilic ones are colored in light blue and blue and the red and yellow colors in MEP map indicate the electrophilic active region. The initial and promoted molecules give chelated species on the surface by exchanging electrons between atoms of molecules and p-orbital of carbon of graphite surface to from covalent coordinate through the chemical adsorption process. Fig. 2 shows clearly that the more electron-rich regions are mainly localized around the oxygen atoms. The electrophilic sites are localized at the oxygen atoms of both SO 2 and CO 2 . The more negatively charged heteroatom can interacts with surface, through an electron donor-acceptor reaction type [ 21 , 30 ].
+Fig. 2
+
+    Download : Download high-res image (333KB)
+    Download : Download full-size image 
+
+Fig. 2 . Optimized structures, frontier molecular orbitals density distribution (HOMO, LUMO) and molecular electrostatic potential (MEP) for SO 2 and CO 2 species.
+3.1.2. Quantum chemical parameters
+
+Theoretical studies at the molecular level have been reported to gain insight on the molecules chemical activity taking into account their structural and electronic properties. The energy of the lowest unoccupied molecular orbital (E LUMO ) is related to the ability of a molecule to accept electrons, a low value of the E LUMO means that the molecule is favorable to accept electrons. On the other hand, the energy of the highest occupied molecular orbital (E HOMO ) generally describes the ability of a molecule to give electrons. For this reason, the E LUMO and E HOMO are very beneficial parameters that can be utilized to understand the chemical reactivity of the gas molecule. These molecular orbitals have a crucial role in the understanding of the chemical reactivity at the atomic level. Furthermore, they are other important descriptors for the explanation of various chemical reactions. The calculated global descriptors responsible for the reactivity of SO 2 and CO 2 , such as E HOMO , E LUMO , energy gap (ΔE gap ), softness (S), hardness (η), electronegativity (χ), number of transferred electrons (ΔN) and energy change (ΔE back-donation ), are shown in Table 1 .
+
+Table 1 . Quantum chemical parameters of CO 2 and SO 2 calculated by DFT at M06/LANL2DZ level (in eV).
+Molecule	E HOMO 	E LUMO 	ΔE gap 	S	Η	χ	ΔN max 	ΔE back-donation
+CO 2 	−9.671	−1.508	8.162	0.245	4.081	5.590	0.685	0.393
+SO 2 	−9.406	−6.256	3.149	0.635	1.575	7.831	2.486	1.020
+
+A high value of the E HOMO facilitates the tendency of gas molecules to yield electrons to acceptable compounds of electrons having unoccupied molecular orbitals with low energy levels. Consequently, this elevated value designates the affinity of electrons transfer to a suitable acceptor molecule which hence favors the adsorption of the gas molecules onto the graphite surface [ 31 ]. Moreover, the ΔE gap is an important parameter that indicates the reactivity tendency of molecule towards the graphite surface [ 32 ]. When, ΔE gap decreases, the adsorption performance of the coating molecule on the graphite surface increases. The examination of the data presented in Table 2 , shows that the high values of E HOMO (−9.671eV for CO 2 and -9.406 for SO 2 ) reveal the elevated adsorbed capacity, which does not correlate well with other quantum parameters and adsorption energy . The results obtained indicated that the trend in the E LUMO is as follows: SO 2  ​< ​CO 2 , which implies that SO 2 molecule, is more suitable to accept electrons from the p-orbital of the graphite leading to the formation of a covalent bond . Therefore, the formation of this last depends on the low value of the gap energy (3.149 ​eV). So, the absorption effectiveness increases with the increase in the electron transfer ability to the graphite surface. Moreover, the relationship between quantum chemical properties and adsorption is often based on the Lewis theory of acids-bases. The Hardness (η) and softness (S) are also two features to measure the molecular stability and reactivity [ [33] , [34] , [35] ]. The carbon graphite would preferentially interact with molecules that have low η and high S values, as the soft molecule with the lower value of ΔE gap exchange easily electrons with their environment.
+
+Table 2 . Comparison of quantum chemical parameters calculated by DFT/M06/LANL2DZ of CO 2 and SO 2 should be compared with other studies in the literature (in eV).
+Gas	Method	E HOMO 	E LUMO 	ΔE gap 	References
+CO 2 	TD-SCF B3LYP/6-31G (d)	−10.067	0.814	10.881	[ 36 ]
+DFT/B3PW91/LANL2DZ	−10.377	−0.346	10.031	[ 37 ]
+DFT/M06/LANL2DZ	−9.671	−1.508	8.162	This study
+SO 2 	TD-SCF B3LYP/6-31G (d)	−8.984	−3.617	5.367	[ 36 ]
+DFT/B3LYP/6-31G (d,p)	−8.98	−3.62	5.36	[ 38 ]
+DFT/M06/LANL2DZ	−9.406	−6.256	3.149	This study
+
+The calculations indicate also that SO 2 has the highest electronegativity value compared to CO 2 . The fraction of electrons transferred for both gases is negative so the studied gases were the acceptor of electrons, and the carbon surface was the donor of electrons. The higher ΔN max was obtained for SO 2 , confirming that this molecule can donate electrons to the vacant orbital of graphite surface favoring the formation of adsorptive bonds. This result confirms the good chemical adsorption of SO 2 compared to CO 2 . Finally, ΔE back-donation was negative in both cases, indicating an energetically favored back-donation from the molecule to graphite. The electron donating ability follows the order SO 2  ​> ​CO 2 in good agreement with the molecular dynamic studies .
+
+Some quantum chemical parameters obtained from the DFT/M06/LAN2DZ using Gaussian-09 program package were compared with the previous records of various methods as listed in Table 2 . Excitation of CO 2 and SO 2 molecules becomes easier when their ΔE gap converges or becomes smaller. Generally, DFT/M06 method used in calculating the ΔE gap of CO 2 and SO 2 gave values that are low and are quite smaller than the band gap of other methods. Moreover, it can be observed that the theoretical data of the present study were found to be better than those of some corresponding quantum chemical study in the literature.
+3.1.3. Mulliken charge distribution
+
+Mulliken population analysis provides information about the active sites of a molecule. The Mulliken charge calculated for the oxygen, sulfur and carbon atoms in the SO 2 and CO 2 molecules are gathered in Table 3 . The table indicates that the oxygen atoms carry negative charges in both molecules, while carbon and sulfur atoms carry more positive charges. This result means that oxygen atoms can offer electrons to the graphite atoms to form coordinate bond. We can also emphasize that the highest negative charges were found for the oxygen atoms of SO 2 , which therefore imply that SO 2 bind strongly to the surface of graphite than CO 2 .
+
+Table 3 . Calculated Mulliken atomic charges for atoms of SO 2 and CO 2 using DFT at the M06/LANL2DZ basis set.
+Empty Cell 	C	O2	O3	S
+SO 2 		−0.577	−0.577	1.153
+CO 2 	0.474	−0.237	−0.237	
+3.1.4. Binding energy
+
+Interaction energy, which results from the binding of gas molecules to graphite surface, was calculated to measure the stability of gas-graphite (111) surface complexes. A more negative value of differential interaction energy indicates that the adsorption system is stronger and stable [ 39 , 40 ]. There are many gas molecule interaction modes with carbon graphite and a better description can be obtained by calculating the difference between the total bond energy of C graphite -gas (C graphite -SO 2 or C graphite -CO 2 ) complexes (E total ) and energy isolated from gas molecule (E gas ) and energy isolated from carbon (E C ) using DFT method. However, the interaction or binding energies were estimated according to Eq. (7) [ 41 ]: (7) Δ E  ​binding = - Δ Ε int = ( E gas + E C ) - E system where E system is the total energy of the full system carbon and adsorbed gas molecule, E gas is the energy of the molecule without the surface, E C is the energy of graphite (111) surface without the gas molecule.
+
+The values of the interaction energy of the molecules on graphite (111) surface are regrouped in Table 4 . The Table indicates that SO 2 systems has higher negative interaction energy compared to the CO 2 systems. Therefore, the adsorption of sulfur dioxide on the graphite surface in aqueous solution is easier than carbon dioxide. Thus, the adsorption of SO 2 and CO 2 onto a graphite surface occurs at the part of the molecule which has the greatest softness, lowest hardness, large binding energy and higher negative interaction energy.
+
+Table 4 . Total, gases and graphite interactions of the gas-graphite complexes calculated by DFT method at M06/LANL2DZ basis set (in kJ/mol).
+Gas	E total 	E gas 	E C 	ΔE interaction
+CO 2 	−594424.788	−494813.365	−99178.398	−433.025
+SO 2 	−520941.812	−420978.721	−99178.3981	−784.693
+3.2. Molecular dynamic simulation study
+
+Molecular dynamic simulation was performed to further study the adsorption behavior of gaseous molecules on the graphite (111) surface. Thus, MD simulation reasonably predicts the most favorable configuration of the adsorbed molecules on the low adsorption energy graphite surface. The Van der Waals, total, electrostatic, average total, and intermolecular energies for the systems under study; graphite (111)/(SO 2 , CO 2 ) with solvent molecules (400 H 2 O) are calculated and presented in Fig. 3 .
+Fig. 3
+
+    Download : Download high-res image (407KB)
+    Download : Download full-size image 
+
+Fig. 3 . Total, average total, Van der Waals, electrostatic and intramolecular energies distribution for SO 2 and CO 2 /400 H 2 O/graphite (111) obtained by adsorption locator module.
+
+The total energy of configuration E m is calculated according to Eq. (8) [ 42 ]: (8) E m = E m AA + E m AS + U m A where E m AA is the intermolecular energy between the gaseous molecules, E m AS is the interaction energy between the gas molecule and the graphite surface, and U m AS is the total intramolecular energy of the gas.
+
+The intramolecular energy of the gas is not included as its structure is fixed throughout the simulation. Therefore, this energy contribution is fixed and vanishes, since only energy differences play a role in adsorption locator calculations.
+
+The total intramolecular energy is the sum of the intramolecular energy of all adsorbates of all components [ 42 ]: (9) U A = ∑ { N } m U intra where {N} denotes the set of adsorbate loadings of all components in configuration m .
+
+As the simulation starts with a clean graphite (111) surface, the first stage is to adsorb the specified number of water molecules and gas molecules. This is accomplished by a random series of insertion steps and equilibration moves (only moves that do not change the loading are permitted) until the specified loading has been reached. During this stage, only insertion steps that do not create structures with intermolecular close contacts and that pass all adsorbate location constraints are accepted [ 42 ].
+
+For both CO 2 and SO 2 molecules adsorption in the presence of water molecules, it is noted that the electrostatic energy is equal zero, on the other hand, the intramolecular energy is different to 0, but admits a stable energy value for both molecules, which means that it has no electric charge with a point responsible for electrostatic interactions (electrostatic bonding). It was also observed that the total energy and the average total energy were positive, which do not exceed 400 ​kcal/mol. Moreover, the energy of Van der Waals admits negative and positive values that do not exceed the values of average total energy. The Van der Waals interaction has a dominant contribution to the molecule’s adsorption on the graphite. From Fig. 3 , it can be seen that the intermolecular energy is stable. Therefore, this energy causes covalent bonds between the gas molecules and the graphite atoms.
+
+System equilibrium state and the best adsorption configurations of the substrate-adsorbed gas, obtained by adsorption locator module (COMPASS force field) [ 29 ] are depicted in Fig. 4 . As can be seen from the figure, the interaction between the gas molecules and the graphite surface is in a parallel orientation from the surface. The molecules are adsorbed nearly plane on the graphite (111) surface in water solvent molecules with maximum surface coverage and contact, ensuring a strong interaction between adsorbate and substrate. In addition, the strong interaction of the system ensures that the adsorption process is chemical nature, which was confirmed by the high rigid adsorption energy (RAE.) values (in absolute values). Otherwise, the dipole moment (μ) of CO 2 is zero due to the lack of charge separation, on the other hand, the dipole moments of SO 2 (3.447D) are greater than zero. After adsorption, the values of the dipole moment increase significantly and become 3.115 D for CO 2 –C and 7.639 D for the SO 2 –C, due to the perturbation in the electron density at the interface of the graphite surface. Generally, molecules with high dipole moment tend to form strong dipole-dipole interactions with the adsorbate surface, resulting in strong adsorption on the surface [ 43 ]. Consequently, the numbers of electrons transferred are negatives, which imply that the graphite carbon becomes rich in electrons and the positive charges are accumulated on the gas molecules.
+Fig. 4
+
+    Download : Download high-res image (878KB)
+    Download : Download full-size image 
+
+Fig. 4 . Side views of the stable adsorption configurations for SO 2 and CO 2 /400 H 2 O/graphite (111) interface obtained by adsorption locator module.
+
+MD simulation was also applied to calculate the adsorption energies for the interaction of the molecules with graphite (111) surface. The calculated descriptors by the adsorption locator and the total energy, in kcal/mol, of the substrate-adsorbate configurations are presented in Table 5 . The total energy is defined as the sum of the energy of the adsorbate components, the rigid adsorption energy and the deformation energy. While, adsorption energy (kcal/mol) reports energy released (or required) when the relaxed adsorbate components (molecule in H 2 O) are adsorbed on the substrate. This energy is defined as the sum of the rigid adsorption energy and the deformation energy for the adsorbate components. Table 5 also shows (dE ads /dNi), which reports the energies of SO 2 , CO 2 and H 2 O configurations, when one adsorbate component has been removed.
+
+Table 5 . Outputs and descriptors calculated by the MD simulation for the adsorption of the SO 2 and CO 2 on the graphite (111) surface (kcal/mol).
+Molecule	E tot 	E ads 	RAE	E def 	dE ads /dNi gas 	dE ads /dNi H2O
+SO 2 	−633.93	−893.95	−634.02	−259.31	−33.30	−1.44
+CO 2 	−614.37	−846.20	−614.87	−231.34	−5.24	−1.32
+
+Moreover, MD simulation can help to study the non-reactive, physical interactions between the adsorbed molecule and the surface. Once the chemical bond is formed during the realistic adsorption, the formation of bond can be studied by first-principle calculations with appropriate modeling and the formation energy along with other quantum descriptors is adopted to investigate the adsorption behavior. For surface adsorption with a periodic system, the formation energy per adsorbate molecule per unit cell is a negative quantity, which defined in Eq. (10) [ 44 ]: (10) E def = E adsorbed - system − ( E molecule//molecule + E surface//surface ) where E adsorbed-system is the energy of a fully relaxed unitary cell containing the slab in interaction with the adsorbed molecule, E molecule//molecule is the energy of the free and fully optimized adsorbed molecule and E surface//surface is the energy of a fully relaxed unitary cell containing the slab alone.
+
+Table 5 shows that the values of adsorption energies are negative corresponding to an exothermic process , and the high absolute value of the adsorption energy reflects a strong adsorption behavior [ 44 ]. The large negative value for SO 2 indicates that its complex is more stable and strongly adsorbed on graphite surface compared to CO 2 [ 45 ]. This result is in agreement with the quantum descriptors obtained by DFT.
+
+The larger E ads and the smaller bond distances shown in Table 6 indicate that graphite exhibited higher sensitivity to interact with SO 2 and CO 2 molecules. The distances between molecules atoms (S, O or C) and the carbon atom of graphite show that both molecules have higher stability. The measured shortest bond distances between the active sites (=O) and the graphite (111) surface of the C graphite -CO 2 or C graphite -SO 2 complexes, in aqueous solution at equilibrium, were as follows: d C-O : 3.456 ​Å and d C-S : 3.345 ​Å, respectively. These distances are short and lower to the value of 3.5 ​Å, which indicates a strong chemical interaction [ 46 ]. This chemical interaction of the system was confirmed by the high energy value of RAE (in absolute values) and the high value of E HOMO .
+
+Table 6 . Bond length for C graphite -molecule atoms (in Å).
+Distance	d C-C 	d C-O 	d C-S
+SO 2 		4.478	3.345
+CO 2 	3.891	3.456	
+4. Conclusion
+
+In this work, density functional theory and molecular dynamic simulation were employed to evaluate the adsorption behavior of SO 2 and CO 2 molecules on graphite surface at the molecular level. The quantum chemical parameters calculated by DFT/M06/LANL2DZ level for C graphite -SO 2 and C graphite -CO 2 complexes have provided information on the stability of interaction. It was found that the adsorption was chemical in nature and was spontaneous. SO 2 molecule was strongly adsorbed on the vacancy-defected graphite compared to CO 2 . It can be seen from the results that the negative values of adsorption energies increase in the order of SO 2  ​> ​CO 2 , which is in good agreement with the quantum parameters. The number of electron transfer was negative which implies that the graphite played the role of electron donor and the gas molecules are accepted electrons. The larger E ads and the smaller bond distances indicate that graphite exhibited higher sensitivity to interact with SO 2 and CO 2 molecules in an aqueous medium.
+Data availability
+
+The data used to support the findings of this study are available from the corresponding author upon request.
+CRediT authorship contribution statement
+
+M. Khnifira: Performed the calculations; Analyzed and interpreted the data, Formal analysis, Data curation, Writing – original draft. A. Mahsoune: Conceptualization, Conceived and designed the calculations; Analyzed and interpreted the data, Formal analysis, Data curation, Data curation, Writing – original draft, Writing – review & editing, Funding acquisition, Resources, Validation, Data curation, Writing – original draft, Writing – review & editing, Funding acquisition, Resources, Validation. M.E. Belghiti: Conceptualization, Conceived and designed the calculations; Analyzed and interpreted the data, Formal analysis, Data curation. L. Khamar: Conceptualization, Conceived and designed the calculations; Analyzed and interpreted the data, Formal analysis, Data curation. M. Sadiq: Conceptualization, Conceived and designed the calculations; Analyzed and interpreted the data, Formal analysis, Data curation. M. Abdennouri: Supervision, Conceptualization, Formal analysis, Conceived and designed the calculations; Analyzed and interpreted the data; Contributed reagents . N. Barka: Supervision, Conceptualization, Formal analysis, Conceived and designed the calculations; Analyzed and interpreted the data; Contributed reagents .
+Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+Acknowledgments
+
+The authors are thankful to the Sultan Moulay Slimane University for facilitating infrastructure and equipment use.
+References
+
+[1]
+    H. Ye, L. Liu, Y. Xu, L. Wang, X. Chen, K. Zhang, Y. Liu, S. Wee Koh, G. Zhang
+    SnSe monolayer: a promising candidate of SO 2 sensor with high adsorption quantity
+    Appl. Surf. Sci., 484 (2019), pp. 33-38
+    Article Download PDF View Record in Scopus Google Scholar
+[2]
+    M. Ghashghaee, Z. Azizi, M. Ghambarian
+    Substitutional doping of black phosphorene with boron, nitrogen, and arsenic for sulfur trioxide detection: a theoretical perspective
+    J. Sulfur Chem., 41 (2020), pp. 399-420
+    Article CrossRef View Record in Scopus Google Scholar
+[3]
+    A. Rafiee, K.R. Khalilpour, D. Milani, M. Panahi
+    Trends in CO 2 conversion and utilization: a review from process systems perspective
+    J. Environ. Chem. Eng., 6 (2018), pp. 5771-5794
+    Article Download PDF View Record in Scopus Google Scholar
+[4]
+    A. Kuang, M. Kuang, H. Yuan, G. Wang, H. Chen, X. Yang
+    Acidic gases (CO 2 , NO 2 and SO 2 ) capture and dissociation on metal decorated phosphorene
+    Appl. Surf. Sci., 410 (2017), pp. 505-512
+    Article Download PDF View Record in Scopus Google Scholar
+[5]
+    Y. Wang, Y. Tian, L. Yan, Z. Su
+    DFT study on sulfur-doped g-C3N4 nanosheets as a photocatalyst for CO 2 reduction reaction
+    J. Phys. Chem. C, 122 (2018), pp. 7712-7719
+    CrossRef View Record in Scopus Google Scholar
+[6]
+    A.K. Mishra, S. Ramaprabhu
+    Study of CO 2 adsorption in low cost graphite nanoplatelets
+    Inter. J. Chem. Eng. Appl., 1 (2010), Article 0221
+    Google Scholar
+[7]
+    X. Tan, L. Kou, H.A. Tahini, S.C. Smith
+    Conductive graphitic carbon nitride as an ideal material for electrocatalytically switchable CO 2 capture
+    J. Sci. Rep., 5 (2015), p. 17636
+    View Record in Scopus Google Scholar
+[8]
+    A. Jamnongchob, O. Duangphakdee, P. Hanpattanakit
+    CO 2 emission of tourist transportation in Suan Phueng Mountain, Thailand
+    Energy Procedia, 136 (2017), pp. 438-443
+    Article Download PDF View Record in Scopus Google Scholar
+[9]
+    S. Nazari, O. Shahhoseini, A. Sohrabi-Kashani, S. Davari, R. Paydar, Z. Delavar-Moghadam
+    Experimental determination and analysis of CO 2 , SO 2 and NO x emission factors in Iran’s thermal power plants
+    Energy, 35 (2010), pp. 2992-2998
+    Article Download PDF View Record in Scopus Google Scholar
+[10]
+    M. Happel, N. Luckas, F. Vines, M. Sobota, M. Laurin, A. Gorling, J. Libuda
+    SO 2 adsorption on Pt (111) and oxygen precovered Pt (111): a combined infrared reflection absorption spectroscopy and density functional study
+    J. Phys. Chem. C, 115 (2011), p. 479
+    CrossRef View Record in Scopus Google Scholar
+[11]
+    R. Jiang, W. Guo, M. Li, H. Zhu, J. Li, L. Zhao, D. Fu, H. Shan
+    Density functional study of the reaction of SO 2 on Ir (111)
+    J. Phys. Chem. C, 113 (2009), p. 18223
+    CrossRef View Record in Scopus Google Scholar
+[12]
+    D. Stirling
+    The Sulfur Problem: Cleaning up Industrial Feedstocks
+    RSC Publishing (2000)
+    Google Scholar
+[13]
+    Y. Shimizu, N. Matsunaga, T. Hyodo, M. Egashira
+    Improvement of SO2 sensing properties of WO 3 by noble metal loading
+    J. Sens. Actuators B Chem., 77 (2001), pp. 35-40
+    Article Download PDF View Record in Scopus Google Scholar
+[14]
+    R. Sharma, T. Segato, M.P. Delplancke, H. Terryn, G.V. Baron, J.F.M. Denayer, J. Cousin-Saint-Remi
+    Hydrogen chloride removal from hydrogen gas by adsorption on hydrated ion-exchanged zeolites
+    Chem. Eng. J., 381 (2020), p. 122512
+    Article Download PDF View Record in Scopus Google Scholar
+[15]
+    Y. Yong, H. Cui, Q. Zhou, X. Su, Y. Kuang, X. Li
+    Adsorption of gas molecules on a graphitic GaN sheet and its implications for molecule sensors
+    RSC Adv., 7 (2017), p. 51027
+    CrossRef View Record in Scopus Google Scholar
+[16]
+    H. Basharnavaz, A. Habibi-Yangjeh, S.H. Kamali
+    Adsorption performance of SO 2 gases over the transition metal/P‒codoped graphitic carbon nitride: a DFT investigation
+    Mater. Chem. Phys., 243 (2020), p. 122602
+    Article Download PDF View Record in Scopus Google Scholar
+[17]
+    M. Yoosefian, M. Zahedi, A. Mola, S. Naserian
+    A DFT comparative study of single and double SO 2 adsorption on Pt-doped and Au-doped single-walled carbon nanotube
+    Appl. Surf. Sci., 349 (2015), pp. 864-869
+    Article Download PDF View Record in Scopus Google Scholar
+[18]
+    G. Kaur, S. Gupta, K. Dharamvir
+    Theoretical investigation of adsorption of gas molecules on Li metal adsorbed at H-site of graphene: a search for graphene-based gas sensors
+    Surf. Interface, 8 (2017), pp. 83-90
+    Article Download PDF View Record in Scopus Google Scholar
+[19]
+    T.Y. Mi, D.M. Triet, N.T. Tien
+    Adsorption of gas molecules on penta-graphene nanoribbon and its implication for nanoscale gas sensor
+    Phys. Open, 2 (2020), p. 100014
+    Article Download PDF View Record in Scopus Google Scholar
+[20]
+    KhM. Eid, H.Y. Ammar
+    Adsorption of SO 2 on Li atoms deposited on MgO (1 0 0) surface: DFT calculations
+    Appl. Surf. Sci., 257 (2011), pp. 6049-6058
+    Article Download PDF View Record in Scopus Google Scholar
+[21]
+    M. Khnifira, A. Mahsoune, M.E. Belghiti, L. Khamar, M. Sadiq, M. Abdennouri, N. Barka
+    HF and SiF 4 adsorption on carbon graphite (1 1 1) surface in aqueous medium: a combined DFT and MD simulation approach
+    Mater. Today: Proc., 37 (2021), pp. 3987-3993
+    Article Download PDF Google Scholar
+[22]
+    N. Ooi, A. Rairkar, J.B. Adams
+    Density functional study of graphite bulk and surface properties
+    Carbon, 44 (2006), pp. 231-242
+    Article Download PDF View Record in Scopus Google Scholar
+[23]
+    M.J. Frisch, G.W. Trucks, H.B. Schlegel, G.E. Scuseria, M.A. Robb, et al.
+    Gaussian 03W
+    Gaussian Inc., Wallingford, CT (2004)
+    Google Scholar
+[24]
+    Y. Zhao, ·D.G. Truhlar
+    The M06 suite of density functionals for main group thermochemistry, thermochemical kinetics, noncovalent interactions, excited states, and transition elements: two new functionals and systematic testing of four M06-class functionals and 12 other functionals
+    J. Theor. Chem. Account, 120 (2008), pp. 215-241
+    CrossRef Google Scholar
+[25]
+    M. Khnifira, W. Boumya, M. Abdennouri, M. Sadiq, M. Achak, G. Serdaroğlu, S. Kaya, S. Şimşek, N. Barka
+    A combined molecular dynamic simulation, DFT calculations, and experimental study of the eriochrome black T dye adsorption onto chitosan in aqueous solutions
+    Int. J. Biol. Macromol., 166 (2021), pp. 707-721
+    Article Download PDF View Record in Scopus Google Scholar
+[26]
+    W. Boumya, M. Khnifira, A. Machrouhi, M. Abdennouri, M. Sadiq, M. Achak, G. Serdaroğlu, S. Kaya, S. Şimşek, N. Barka
+    Adsorption of Eriochrome Black T on the chitin surface: experimental study, DFT calculations and molecular dynamics simulation
+    J. Mol. Liq., 331 (2021), p. 115706
+    Article Download PDF View Record in Scopus Google Scholar
+[27]
+    BIOVIA Materials Studio 8.0, Dassault Systemes Biovia, Cambridge, UK (2015)
+    Google Scholar
+[28]
+    H. Sun
+    COMPASS: an ab initio force-field optimized for condensed-phase Applications overview with details on alkane and benzene compounds
+    J. Phys. Chem. B, 102 (1998), pp. 7338-7364
+    Google Scholar
+[29]
+    M. Khnifira, S. El Hamidi, A. Machrouhi, A. Mahsoune, W. Boumya, H. Tounsadi, F.Z. Mahjoubi, M. Sadiq, N. Barka, M. Abdennouri
+    Theoretical and experimental study of the adsorption characteristics of Methylene Blue on titanium dioxide surface using DFT and Monte Carlo dynamic simulation
+    Desalin. Water Treat., 190 (2020), pp. 393-411
+    CrossRef View Record in Scopus Google Scholar
+[30]
+    Y. Karzazi, M.E. Belghiti, F. El-Hajjaji, S. Boudra, B. Hammouti
+    Density functional theory modeling and Monte Carlo simulation assessment of inhibition performance of two quinoxaline derivatives for steel corrosion
+    J. Mater. Environ. Sci., 7 (11) (2016), pp. 4011-4023
+    View Record in Scopus Google Scholar
+[31]
+    A. Guediri, A. Bouguettoucha, D. Chebli, N. Chafai, A. Amrane
+    Molecular dynamic simulation and DFT computational studies on the adsorption performances of methylene blue in aqueous solutions by orange peel-modified phosphoric acid
+    J. Mol. Struct., 1202 (2020), p. 127290
+    Article Download PDF View Record in Scopus Google Scholar
+[32]
+    H. Wang, X. Wang, H. Wang, L. Wang, A. Liu
+    DFT study of new bipyrazole derivatives and their potential activity as corrosion inhibitors
+    J. Mol. Model., 13 (2007), pp. 147-153
+    Google Scholar
+[33]
+    I.B. Obot, N.O. Obi-Egbedi, A.O. Eseola
+    Anticorrosion potential of 2-mesityl-1H-imidazo[4,5-f][1,10]phenanthroline on mild steel in sulfuric acid solution: experimental and theoretical study
+    Ind. Eng. Chem. Res., 50 (2011), pp. 2098-2110
+    CrossRef View Record in Scopus Google Scholar
+[34]
+    M. Ghashghaee, M. Ghambarian
+    Initiation of heterogeneous Schrock-type Mo and W oxide metathesis catalysts: a quantum thermochemical study
+    J. Comput. Mater. Sci., 155 (2018), pp. 197-208
+    Article Download PDF View Record in Scopus Google Scholar
+[35]
+    M. Ghambarian, M. Ghashghaee, Z. Azizi, M. Balar
+    Structural diversity of metallacycle intermediates for ethylene dimerization on heterogeneous NiMCM-41 catalyst: a quantum chemical perspective
+    Struct. Chem., 30 (2019), pp. 137-150
+    CrossRef View Record in Scopus Google Scholar
+[36]
+    Shokuhi Rad Ali, Nazanin Nasimi, Maryam Jafari, Dorsa Sadeghi Shabestari, Elahe Gerami
+    Ab-initio study of interaction of some atmospheric gases (SO 2 , NH 3 , H 2 O, CO, CH 4 and CO 2 ) with polypyrrole (3PPy) gas sensor: DFT calculations
+    Sensor. Actuator. B, 220 (2015), pp. 641-651
+    Google Scholar
+[37]
+    Qiuping Liu, Yu Zhao, Zhe Jiang, Yanhong Cui, Jiawei Wang, Ai Ning
+    Computational and experimental studies on the CO 2 adsorption of layered double hydroxide intercalated by anionic surfactant
+    Appl. Clay Sci., 190 (2020), p. 105556
+    Article Download PDF View Record in Scopus Google Scholar
+[38]
+    Shokuhi Rad Ali, Daryoush Zareyee
+    Adsorption properties of SO 2 and O 3 molecules on Pt-decorated graphene: a theoretical study
+    Vacuum, 130 (2016), pp. 113-118
+    CrossRef View Record in Scopus Google Scholar
+[39]
+    R.S. Oguike, A.M. Kolo, A.M. Shibdawa, H.A. Gyenna
+    ISRN Physical Chemistry
+    (2013), p. 175910
+    Google Scholar
+[40]
+    S. John, J. Joy, M. Prajila, A. Joseph
+    Electrochemical, quantum chemical and molecular dynamics studies on the interaction of 4-amino-4H,3,5-di(methoxy)-1,2,4-triazole (ATD), BATD, and DBATD on copper metal in 1N H 2 SO 4
+    Mater. Corros., 62 (2011), pp. 1031-1041
+    CrossRef View Record in Scopus Google Scholar
+[41]
+    M.M. Kabanda, I.B. Obot, E.E. Ebenso
+    Computational study of some amino acid derivatives as potential corrosion inhibitors for different metal surfaces and in different media
+    Inter. J. Electrochem. Sci., 8 (2013), pp. 10839-10850
+    View Record in Scopus Google Scholar
+[42]
+    K.F. Khaled, S.R. Al-Mhyawi
+    AElectrochemical and density function theory investigations of L- arginine as corrosion inhibitor for steel in 3.5% NaCl
+    Int. J. Electrochem. Sci., 8 (2013), pp. 4055-4072
+    View Record in Scopus Google Scholar
+[43]
+    N. Khalil
+    Quantum chemical approach of corrosion inhibition
+    Electrochim. Acta, 48 (2003), pp. 2635-2640
+    Article Download PDF View Record in Scopus Google Scholar
+[44]
+    H. Zhao, Y. Yang, X. Shu, Y. Wang, Q. Ran
+    Adsorption of organic molecules on mineral surfaces studied by first-principle calculations: a review
+    Adv. Colloid Interface Sci., 256 (2018), pp. 230-241
+    Article Download PDF View Record in Scopus Google Scholar
+[45]
+    P. Dohare, M.A. Quraishi, I.B. Obot
+    A combined electrochemical and theoretical study of pyridine-based Schiff bases as novel corrosion inhibitors for mild steel in hydrochloric acid medium
+    J. Chem. Sci., 130 (2018), p. 8
+    View Record in Scopus Google Scholar
+[46]
+    B.C. Wood, S.Y. Bhide, D. Dutta, V.S. Kandagal, A.D. Path, S.N. Punnathanam, K.G. Ayappa, S. Narasimhan
+    Methane and carbon dioxide adsorption on edge-functionalized graphene: a comparative DFT study
+    J. Chem. Phys., 137 (5) (2012), Article 054702
+    CrossRef View Record in Scopus Google Scholar
+
+Cited by (3)
+
+    Adsorption behaviour of hexagonal boron nitride nanosheets towards cationic, anionic and neutral dyes: Insights from first principle studies
+    2022, Colloids and Surfaces A: Physicochemical and Engineering Aspects
+    Show abstract
+    Efficient removal of mefenamic acid and ibuprofen on organo-Vts with a quinoline-containing gemini surfactant: Adsorption studies and model calculations
+    2022, Chemosphere
+    Show abstract
+    Pharmaceutical pollutants adsorption onto activated carbon: isotherm, kinetic investigations and DFT modeling approaches
+    2022, Comptes Rendus Chimie
+
+© 2021 The Author(s). Published by Elsevier B.V.
+Recommended articles
+
+    Optoelectronic characteristics of as-deposited, annealed and I 2 – Treated thin films of newly synthesized organic dye based on pyrrolo[2,3- b ]pyrrole
+    Current Research in Green and Sustainable Chemistry, Volume 4, 2021, Article 100090
+    Download PDF View details
+    Effective utilization of basic nature of WEB in copper catalyzed Chan-Lam N -arylation reaction under ligand free conditions
+    Current Research in Green and Sustainable Chemistry, Volume 4, 2021, Article 100093
+    Download PDF View details
+    Utilization of low-cost sugarcane waste for the adsorption of aqueous Pb(II): Kinetics and isotherm studies
+    Current Research in Green and Sustainable Chemistry, Volume 4, 2021, Article 100056
+    Download PDF View details
+
+1 2 Next
+Article Metrics
+View article metrics
+Elsevier logo with wordmark
+
+    About ScienceDirect
+    Remote access
+    Shopping cart
+    Advertise
+    Contact and support
+    Terms and conditions
+    Privacy policy 
+
+We use cookies to help provide and enhance our service and tailor content and ads. By continuing you agree to the use of cookies .
+
+Copyright © 2022 Elsevier B.V. or its licensors or contributors. ScienceDirect ® is a registered trademark of Elsevier B.V.
+
+ScienceDirect ® is a registered trademark of Elsevier B.V.
+RELX group home page

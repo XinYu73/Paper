@@ -23,3 +23,33 @@ pymatgen 和 ASE 均有 EOS的模块
 3. 三阶展开做积分得到Birch–Murnaghan equation of state
 
    $$E(V)=E_{0}+\frac{9 V_{0} B_{0}}{16}\left\{\left[\left(\frac{V_{0}}{V}\right)^{\frac{2}{3}}-1\right]^{3} B_{0}^{\prime}+\left[\left(\frac{V_{0}}{V}\right)^{\frac{2}{3}}-1\right]^{2}\left[6-4\left(\frac{V_{0}}{V}\right)^{\frac{2}{3}}\right]\right\}$$
+
+### Hybrid functional
+
+In DFT calculation, we need the exchange-correlation energy functional, Hybrid functionals are a class of approximations to the functional. They are composed of exact exchange from Hartree-Fock theory and other sources like ab initio and empirical.
+
+there are several methods of Hybrid functional, based on the linear combinations of
+
+$$
+E_{\mathrm{x}}^{\mathrm{HF}}=-\frac{1}{2} \sum_{i, j} \iint \psi_{i}^{*}\left(\mathbf{r}_{1}\right) \psi_{j}^{*}\left(\mathbf{r}_{2}\right) \frac{1}{r_{12}} \psi_{j}\left(\mathbf{r}_{1}\right) \psi_{i}\left(\mathbf{r}_{2}\right) d \mathbf{r}_{1} d \mathbf{r}_{2}
+$$
+
+1. B3LYP
+
+   $$
+    E_{\mathrm{xc}}^{\mathrm{B} 3 \mathrm{LYP}}=(1-a) \cdot E_{\mathrm{x}}^{\mathrm{LSDA}}+a E_{\mathrm{x}}^{\mathrm{HF}}+b \Delta E_{\mathrm{x}}^{\mathrm{B}}+(1-c) E_{\mathrm{c}}^{\mathrm{LSDA}}+c E_{\mathrm{c}}^{\mathrm{LYP}}
+    $$
+
+2. PBE0
+
+    $$
+    E_{\mathrm{xc}}^{\mathrm{PBE} 0}=\frac{1}{4} E_{\mathrm{x}}^{\mathrm{HF}}+\frac{3}{4} E_{\mathrm{x}}^{\mathrm{PBE}}+E_{\mathrm{c}}^{\mathrm{PBE}}
+    $$
+
+3. HSE
+
+    $$
+    E_{\mathrm{xc}}^{\omega \mathrm{PBEh}}=a E_{\mathrm{x}}^{\mathrm{HF}, \mathrm{SR}}(\omega)+(1-a) E_{\mathrm{x}}^{\mathrm{PBE}, \mathrm{SR}}(\omega)+E_{\mathrm{x}}^{\mathrm{PBE}, \mathrm{LR}}(\omega)+E_{\mathrm{c}}^{\mathrm{PBE}}
+    $$
+
+4. Meta-hybrid GGA

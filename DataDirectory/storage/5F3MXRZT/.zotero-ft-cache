@@ -1,0 +1,620 @@
+J. Phys. Soc. Jpn. Downloaded from journals.jps.jp by Jilin University on 05/14/22
+Journal of the Physical Society of Japan 91, 014704 (2022) https://doi.org/10.7566/JPSJ.91.014704
+
+Systematic Studies on Magnetism of Divalent 3d Transition Metal Ions in Ordered ReO3-type Fluorides MZrF6 (M = Ti, V, Cr, Mn, Fe, Co, Ni, and Cu)
+Hiroaki Ueda, Tatsuki Inamori, Atsushi Taguchi, Chishiro Michioka, and Kazuyoshi Yoshimura
+Department of Chemistry, Graduate School of Science, Kyoto University, Sakyo, Kyoto 606-8502, Japan
+(Received August 5, 2021; accepted November 22, 2021; published online December 20, 2021) We have investigated eight magnetic ﬂuorides MZrF6 (M = Ti, V, Cr, Mn, Fe, Co, Ni, and Cu) with ordered ReO3type structure, which have face-centered cubic magnetic lattices, using X-ray diﬀraction, magnetization measurement, and heat capacity measurement. The Ni compound shows an antiferromagnetic order at TN = 3.6 K and a spin-ﬂop transition at 1.2 T. The other compounds show no sign of magnetic ordering down to 2 K. For each compound, temperature dependence of magnetic susceptibility and magnetization process at low temperatures are analyzed using mean-ﬁeld approximation. It is revealed that the Ti and V compounds have antiferromagnetic interactions and that geometrical frustration suppresses formation of long range magnetic ordering in these compounds. In addition, Ti2+ with the ﬁctitious spin state of Jeﬀ = 2 makes the magnetic system robust against magnetic ﬁeld.
+
+1. Introduction
+Among various inorganic compounds, perovskites ABX3 have been studied extensively for their interesting physical properties, which include ferroelectricity, superconductivity, colossal magnetoresistance, and so on.1) In addition, there are various perovskite-related structures, which makes the system more fascinating. Among them, in perovskites that has ordered cation arrangements known as double perovskites, there are two types of B-site sublattice: layered- and rocksalttype.2) In the latter case, both B and B0 sites constitute interpenetrating face-centered cubic (fcc) sublattices.
+When nearest neighbor interaction is antiferromagnetic in the face-centered cubic lattice of magnetic ions, the system has geometrical spin frustration. Geometrically frustrated systems have attracted much attention over the past few decades, owing to their exotic ground states, such as spin liquid,3) and spin ice states.4) Several rocksalt-type magnetic B-site ordered double-perovskites are studied in a view point of spin frustration.5)
+If A ions are removed from perovskite AMX3, the system would become MX3 with ReO3 structure. Likewise, ordered ReO3 structure is obtained by removing A ions from rocksalttype double perovskite A2BMX6. Although this structure is hardly found in oxides, many ﬂuorides with chemical formula MBF6 were reported to have ordered ReO3 structure.6) In most of the cases, B is a non-magnetic tetravalent ion and M is a divalent 3d transition metal ion, and M sublattice forms face-centered cubic lattice, which leads possible geometrical frustration. In addition, some of them were reported to exhibit negative thermal expansion.7,8) The ﬂuoride system MZrF6 is of particular interest, because it includes compounds with every divalent 3d transition metal ion. Hence we can compare magnetic properties of them in the same crystal structure and elucidate the eﬀect of the crystal ﬁeld, spin–orbit couplings, magnetic interactions and geometrical spin frustration.
+In this paper, we report physical properties of ordered ReO3-type ﬂuorides MZrF6 (M = Ti, V, Cr, Mn, Fe, Co, Ni, and Cu). Most of the compounds behave as weakly interacting spin systems. However, TiZrF6 and VZrF6 have certain amount of antiferromagnetic interactions owing to exchange coupling through t2g orbitals, leading geometrical
+
+frustration. And TiZrF6 and CoZrF6 exhibit signiﬁcant eﬀect of the residual orbital momentum.
+2. Experimental Details
+Polycrystalline samples of MZrF6 (M = Ti, V, Cr, Mn, Fe, Co, Ni, Cu, and Zn) were synthesized using conventional solid state reactions in Ar atmosphere. As starting materials, we have chosen several substances depending on M. In the case of the Ti and Cr compounds, MF3, M metal and ZrF4 were used. For the V compound, VF3, Zr metal and ZrF4 were used. Otherwise, MF2 and ZrF4 were used. The ﬂuorides MF2, MF3, and ZrF4 were dried or puriﬁed before use. In order to compensate sublimed ZrF4, 5% excess of ZrF4 was added. Mixtures of starting materials were heated at 650– 850 °C for 12 h in sealed copper tubes. Since the samples are very sensitive to water, they were kept in dry Ar atmosphere during synthesis and measurements.
+These samples were characterized using a x-ray diﬀractometer (Miniﬂex600, Rigaku) with Cu Kα radiation. DC magnetization measurements were performed using a SQUID magnetometer (MPMS, Quantum Design) in Research Center for Low Temperature and Materials Sciences, Kyoto University. Heat capacity measurements were carried out using a two-τ relaxation method (PPMS-14LHS, Quantum Design). The contributions of the lattice heat capacity were evaluated from the heat capacity of ZnZrF6.
+3. Results and Discussions
+We successfully synthesized eight magnetic ﬂuorides MZrF6 (M = Ti, V, Cr, Mn, Fe, Co, Ni, and Cu) and one non-magnetic ZnZrF6, all of which have ordered ReO3-type structure. Powder x-ray diﬀraction showed that crystal structures of all compounds at room temperatures are consistent with previous reports as explained below. For early 3d transition metal compounds, the structure is cubic9,10) down to low temperatures. Owing to Jahn–Teller eﬀect of Cr2+ and Cu2+, CrZrF6 and CuZrF6 are tetragonal at room temperatures.11,12) For Ni, the structure at room temperature is rhombohedral.13) The structures of the others are cubic at high temperatures, and rhombohedral at low temperatures.6,13,14)
+Magnetic ions in these compounds form face-centered cubic lattices, although some of them are slightly distorted
+
+014704-1
+
+©2022 The Physical Society of Japan
+
+J. Phys. Soc. Jpn. Downloaded from journals.jps.jp by Jilin University on 05/14/22
+
+J. Phys. Soc. Jpn. 91, 014704 (2022)
+
+H. Ueda et al.
+
+especially at low temperatures. To understand magnetic properties of MZrF6 with various 3d transition metal ions, we measured and analyzed their magnetic susceptibility and
+magnetization process. Temperature T dependence of magnetic susceptibility χ of
+interacting spin system is often described using the Curie– Weiss law, which is written as
+
+
+
+¼
+
+NAg22BSðS þ 1Þ 3kBðT À WÞ
+
+;
+
+where NA is Avogadro’s number, g is g-factor, B is Bohr magneton, S is total spin quantum number, kB is Boltzmann constant, and W is Weiss temperature. Hence, one obtains
+
+À1SðS
+
+þ
+
+1Þ
+
+¼
+
+3kB NAg22B
+
+ðT
+
+À
+
+WÞ:
+
+If g equals to the constant value 2, a À1SðS þ 1Þ–T plot should be a line with a constant slope.
+In Fig. 1, T dependences of À1SðS þ 1Þ are shown, where S is calculated supposing high spin states. For all compounds,
+the curves show linear behavior at high temperatures. Except
+for the Co compound, the curves have almost the same slope as that of the above mentioned theoretical curve with g ¼ 2, which is displayed by a black broken line in the ﬁgure. This fact indicates that they are well-described as high spin state,
+which is consistent with previous reports on the V and Cu compounds.12,15)
+For TiZrF6 and CoZrF6, the slopes at low temperatures are diﬀerent from those at high temperatures. These changes in slopes are qualitatively explained in terms of level split owing to spin–orbit couplings, since Ti2+ and Co2+ in an
+
+χ−1S (S + 1) (102 mol/emu)
+M /H (10−2emu/mol)
+
+8 12
+
+11 5
+
+2
+
+10
+
+6
+
+1
+
+9 0.5 T
+
+NiZrF6
+
+8
+
+02468
+
+4
+
+T (K)
+
+Ti
+
+Cr
+
+V
+
+Mn Ni Cu Fe
+
+Co
+
+2
+
+M ZrF4
+
+0
+
+0
+
+50 100 150 200 250 300
+
+T (K)
+
+Fig. 1. (Color online) Main panel shows temperature dependence of
+normalized inverse magnetic susceptibility. Black broken line indicates the theoretical value of W ¼ 0 K. Colored broken curves are calculated curves obtained by considering spin–orbit couplings for TiZrF6 and CoZrF6 using  ¼ 86 and −247 K, respectively. For NiZrF6, data at 5 T is used and ferromagnetic component owing to Ni metal is subtracted. The amount of Ni
+metal is evaluated to be approximately 0.3%. The other samples are measured
+at 1 T. The inset shows M=H of NiZrF6 at low temperatures.
+
+octahedral crystal ﬁeld have residual orbital momentum. In Fig. 1, colored broken curves show the results of theoretical calculation16) for non-interacting Ti2+ and Co2+ in octahedral crystal ﬁeld with spin–orbit couplings H ¼ L Á S, where λ is spin–orbit coupling constant and L is total orbital quantum
+number. They are written as
+
+ðTi2þÞ
+
+¼
+
+NA2B 3kBT
+
+Â
+
+8 þ ð3x À 8ÞeÀ3x=2
+
+xf2 þ eÀ3x=2g
+
+
+
+
+
+;
+
+
+
+
+
+
+
+ðCo2þÞ
+
+¼
+
+NA2B 3kBT
+
+Â
+
+3
+
+63x þ 98 þ 20 25
+
+640x þ 4312
+
+eÀ
+
+15x 4
+
+þ
+
+169x À 490 eÀ6x
+
+225 2025
+
+36 81
+
+xf3 þ 2eÀ145x þ eÀ6xg
+
+;
+
+where x ¼ =kBT. For CoZrF6, the diﬀerence between the experimental data and this calculation is suﬃciently small, suggesting that Co2+ in CoZrF6 is well-described as a noninteracting spin with spin–orbit couplings. In contrast for
+TiZrF6, the experimental data and calculation are substantially diﬀerent. This fact indicates that Ti2+ ions in TiZrF6 are
+not expressed as non-interacting spins, and hence they are
+highly interacted with each other.
+
+slope
+
+of
+
+a
+
+BSðxÞ–
+
+Sþ1 S
+
+x
+
+curve
+
+is
+
+independent
+
+of
+
+S.
+
+In
+
+the
+
+above
+
+formula, M=S–ðS þ 1ÞH curves have a S-independent slope at
+
+constant T at low ﬁelds.
+
+In Fig. 2, M=S of MZrF6 at 2 K are plotted as a function of ðS þ 1Þ0H, where M was measured up to 7 T. For NiZrF6, which has S ¼ 1 spins, the slope of the curve increases
+
+approximately at ðS þ 1Þ0H ¼ 2:5 T. This fact indicates that a spin-ﬂop transition occurs by applying magnetic ﬁeld to the
+
+The magnetic susceptibility of NiZrF6 has a maximum at TN ¼ 3:6 K as shown in the inset of Fig. 1. This behavior suggests antiferromagnetic ordering below TN. Below TN, M=H increases with increasing H, which will be discussed
+
+magnetically ordered state of NiZrF6. This is the origin of ﬁeld dependence of M=H in the inset of Fig. 1. For TiZrF6 and VZrF6, M increases almost linearly up to 7 T. For the other compounds, the shapes of the curves are qualitatively
+
+later. The other compounds showed no signs of magnetic similar to Brillouin function. However, the slopes at low
+
+ordering down to 2 K, indicating that they are paramagnetic. ﬁelds are smaller than the theoretical value for non-
+
+To clarify the magnetic states at low temperatures, interacting spins, which is indicated by dotted curves in the magnetization process is useful. Magnetization M of a free ﬁgure. This fact suggests that they have certain amount of
+
+spin under magnetic ﬁeld H is expressed as
+
+
+
+
+
+MðHÞ ¼ gSBBS
+
+gSBH kBT
+
+;
+
+where BSðxÞ is Brillouin function for spin S. In small x
+
+region,
+
+BSðxÞ
+
+is
+
+approximately
+
+equal
+
+to
+
+Sþ1 3S
+
+x.
+
+Hence
+
+initial
+
+antiferromagnetic interactions.
+
+If spins interact with each other, mean-ﬁeld approximation
+
+gives
+
+
+
+
+
+M ¼ gSBBS
+
+gSBH þ 2zJSM=gB kBT
+
+;
+
+014704-2
+
+©2022 The Physical Society of Japan
+
+J. Phys. Soc. Jpn. Downloaded from journals.jps.jp by Jilin University on 05/14/22
+
+J. Phys. Soc. Jpn. 91, 014704 (2022)
+
+H. Ueda et al.
+
+M S (μB/f.u.)
+
+2.0
+
+Cu
+
+S=1 2
+
+1.5
+
+52
+
+Cr
+
+1.0
+V
+
+0.5
+
+Mn Co Fe
+Ni
+M ZrF4
+
+− θW (K)
+
+100
+
+80
+
+M ZrF6
+
+60
+
+χ−1−T
+
+40
+
+20
+
+M −H
+
+0
+
+−20 3.0
+
+Ti
+
+g factor
+
+2.5
+
+0.0
+
+0
+
+5 (S + 1)1μ00H (T) 15
+
+20
+
+2.0
+
+χ−1−T
+
+Fig. 2. (Color online) The magnetization processes of MZrF6 at 2 K. Measured curves are shown using solid lines. Theoretical curves for noninteracting S ¼ 1=2 and 5=2 are displayed using dotted curves. Results of mean-ﬁeld ﬁttings are drawn using broken curves.
+
+M −H 1.5
+Ti V Cr Mn Fe Co Ni Cu
+
+where J is nearest neighbor exchange coupling and z is the number of nearest neighbor spins. Using this formula, we ﬁtted the obtained data, results of which are shown as broken curves in Fig. 2. For Cr, Mn, Fe, and Co compounds, it seems that each M=S tends to saturate. Hence, we deals g as a free parameter in addition to J. For the other compounds, it is diﬃcult to determine g, and g is ﬁxed to 2. Our ﬁttings are consistent with the experimental data as shown in the ﬁgure.
+We can calculate W from obtained values of J using a formula
+
+W
+
+¼
+
+2zJSðS þ 3kB
+
+1Þ
+
+:
+
+Values of g and W are also evaluated from ﬁttings of À1–T
+data within high temperature regions where the plots are
+almost linear. These evaluated values are plotted in Fig. 3.
+As shown in the upper panel of Fig. 3, except for TiZrF6 and CoZrF6, absolute values of W for both À1–T and M–H ﬁttings are smaller than 20 K, indicating that they have small
+exchange interactions. As already shown in Fig. 1, the slopes of calculated À1–T plot for CoZrF6 diﬀer in low temperature region and in high temperature region owing to mixing of
+excited states at high temperatures. This makes a large
+negative value of W at high temperatures, even if there is no antiferromagnetic interactions. The very small diﬀerence between the measured À1–T curve and the calculation with crystal ﬁeld and spin–orbit couplings suggests that Co2+ in
+CoZrF6 acts as a nearly free spin. The small value of W evaluated using the M–H curve is consistent with this scenario. In the M–H measurement at 2 K, the spin state of Co2+ remains the ground state even under magnetic ﬁeld of 7 T and the eﬀect of excited state is negligible. Hence, the value obtained using M–H data is more reliable than that using À1–T data. For TiZrF6, both W values evaluated using two kinds of ﬁtting are negative, indicating that Ti2+ ions are
+antiferromagnetically coupled. Absolute value of W evaluated using À1–T ﬁtting is larger than that using the M–H curve. This is seemingly because that of À1–T ﬁtting is enhanced by residual orbital momentum of Ti2+. In addition,
+
+Fig. 3. Weiss temperatures W and g factors evaluated by ﬁtting χ–T data in Fig. 1 (triangle) and M–H data in Fig. 2 (circle). Open circles indicate that g is ﬁxed to 2.
+
+the values of W evaluated using both kinds of ﬁtting for VZrF6 are almost the same negative value of −10 K,
+indicating small antiferromagnetic interactions. Electron conﬁgurations of Ti2+ and V2+ are t22g and t23g, respectively. In the crystal structure, nearest neighboring transition metal
+
+ions interact through their t2g orbitals. Although the distance between two magnetic ions is relatively large, kinetic
+
+exchange interactions through t2g orbitals are likely to be the origin of antiferromagnetic interactions in TiZrF6 and VZrF6. Since, they show no sign of magnetic ordering down to 2 K, the frustration indices f ¼ jWj=TN of Ti and V compounds are f > 27 and 5, respectively.
+
+The lower panel of Fig. 3 shows that all the g values evaluated using À1–T plots are approximately 2, except for
+
+the Co compound. The discrepancy from 2 in the Co compound is due to spin–orbit coupling. In contrast, g values evaluated using M–H plots of Cr, Fe, and Co compounds are
+
+substantially smaller than 2, which is consistent with the fact that M of these three compounds tend to saturate below 2SB. This is possibly because their magnetic ions have degen-
+
+erated spin states and residual orbital moments. Speciﬁc heat measurements under magnetic ﬁeld were
+
+conducted to clarify the magnetic state of CoZrF6. In the upper panel of Fig. 4, magnetic speciﬁc heat Cm divided by T is plotted as a function of T under each magnetic ﬁeld. Under each magnetic ﬁeld, a Schottky-type peak is observed, and
+
+the position of the peak shifts to higher temperature by applying magnetic ﬁeld. These curves are well-ﬁtted using
+
+the formula of two level Schottky model
+
+C
+
+¼
+
+ Á 2 R
+kBT ð1
+
+eÁ=kB T þ eÁ=kBTÞ2
+
+;
+
+where R is the gas constant, and Δ is gap energy. Obtained values of Δ are plotted as a function of magnetic ﬁeld in the inset of Fig. 4. The magnetic ground state of free Co2+ in
+a octahedral crystal ﬁeld is described using ﬁctitious spin
+
+014704-3
+
+©2022 The Physical Society of Japan
+
+J. Phys. Soc. Jpn. Downloaded from journals.jps.jp by Jilin University on 05/14/22
+
+J. Phys. Soc. Jpn. 91, 014704 (2022)
+
+H. Ueda et al.
+
+1.2 30
+
+1.0
+
+/kB = 3.53× ΒH
+
+20
+
+1.0
+
+10
+
+R ln3
+
+0.8
+
+8
+
+-1 -2
+Cm/T (J mol K )
+
+-1 -2
+Cm/T (J mol K ) /kB (K)
+
+-1 -1
+Sm (J mol K )
+
+0.8 10
+
+0.6
+
+0
+
+0 2 4 6 8 10
+
+0.4
+
+0H (T)
+
+0.6
+
+6
+
+TiZrF6
+
+0.4
+
+4
+
+0.2
+
+0 T
+
+2
+
+14 T
+
+0.2
+0.0 6 R ln2
+
+-1 -1
+Sm (J mol K )
+
+4
+
+0 T
+
+1 T
+
+2
+
+CoZrF6
+
+3 T 5 T
+
+7 T
+
+10 T
+
+0
+
+0
+
+10
+
+20
+
+30
+
+40
+
+T (K)
+
+Fig. 4. (Color online) Upper panel shows temperature dependence of
+
+magnetic heat capacity divided by temperature, Cm=T, of CoZrF6. Lattice
+
+contributions have been already subtracted. The broad peaks imply Schottky-
+
+type heat capacity. Black solid lines are Schottky-type ﬁtting curves for each
+
+Cm=T except for H ¼ 0 T and the gap energy Δ is plotted in the inset. The
+
+lower panel shows magnetic entropy. The horizontal solid line indicates
+
+Sm
+
+¼
+
+R
+
+ln 2,
+
+which
+
+is
+
+expected
+
+for
+
+S
+
+¼
+
+1 2
+
+.
+
+Jeﬀ ¼ 1=2, which is formed owing to spin–orbit couplings between spin and residual orbital momentum. The Zeeman splitting of Jeﬀ ¼ 1=2 state under magnetic ﬁeld equals to g0BH, which is the origin of Schottky-type T-dependence of C. From the linear ﬁtting of Δ as a function of H, we obtained g ¼ 3:53 as shown in the inset of Fig. 4. Hence, magnetic moment is gJeﬀ ¼ 1:76. This value is approximately 25% smaller than the value of gS ¼ 2:4 for S ¼ 3=2, which is evaluated using the M–H ﬁtting. In the ﬁctitious spin model under slightly distorted octahedral crystal ﬁeld,
+powder averaged g-value is evaluated to be in the range of 2
+to 2.2. This model is consistent with our experimental values,
+which are smaller than the spin only value of 3. The smaller value evaluated from Schottky-type ﬁttings is likely due to
+anisotropy of g factor.
+The lower panel of Fig. 4 shows magnetic entropy, which
+is obtained by integrating Cm=T. At low temperatures, S decreases with applying magnetic ﬁeld owing to the
+increasement of Zeeman splitting. The magnetic entropy under each ﬁeld is close to R ln 2 at 40 K rather than R ln 4. Magnetic entropy also indicates that Co2+ is not in a spin state of S ¼ 3=2 but in a ﬁctitious spin state of Jeﬀ ¼ 1=2.
+In contrast, speciﬁc heat of TiZrF6 is robust against magnetic ﬁeld. As shown in Fig. 5, temperature dependence
+of Cm=T is similar to a Schottky behavior, in which the broad peak is approximately at 8.1 K. However, the behavior under
+14 T is almost the same as that under 0 T. This fact suggests
+that the magnetic state of TiZrF6 is almost independent of applied magnetic ﬁeld. This is possibly because of strong
+
+0.0
+
+0
+
+0
+
+20 40 60 80
+
+T (K)
+
+Fig. 5. (Color online) Temperature dependence of magnetic heat capacity divided by temperature, Cm=T of TiZrF6. Lattice contribution have been already subtracted. Filled circles and open squares denote data measured at 0 and 14 T, respectively. Solid lines denote magnetic entropy Sm. The horizontal solid line indicates Sm ¼ R ln 3, which is expected for S ¼ 1.
+
+exchange ﬁeld owing to antiferromagnetic interaction, which is indicated by the analysis of χ–T curve. The Schottky-like T-dependence is thought to be not due to existence of two
+energy levels but due to development of short-range magnetic
+orderings driven by nearest neighbor antiferromagnetic
+interactions. With increasing temperature, magnetic entropy gradually
+increases, and reaches R ln 3 approximately at 60 K, which is close to jWj obtained from the M–H curve. However, it is not natural that all magnetic entropy of S ¼ 1 is released at jWj. Owing to the residual orbital momentum in octahedral crystal ﬁeld, the ground state of Ti2+ ions is in a ﬁctitious spin state of Jeﬀ ¼ 2, which has entropy of R ln 5. It is natural to think that 68% of magnetic entropy of Jeﬀ ¼ 2 is released at jWj. Above experimental observation suggests that Ti2+ ions of TiZrF6 is in a Jeﬀ ¼ 2 state rather than an S ¼ 1 state.
+In summary, we have studied magnetic properties of
+MZrF6 (M = Ti, V, Cr, Mn, Fe, Co, Ni, and Cu), all of which have ordered ReO3-type structure. The Ni compound shows an antiferromagnetic order at TN ¼ 3:6 K and the other compounds show no sign of magnetic ordering down to 2 K. Analysis using mean-ﬁeld approximation revealed that the Ti and V compounds have antiferromagnetic interactions
+through t2g electrons and that the other compounds have small magnetic interactions. In addition, geometrical spin frustration has large eﬀect on physical properties of TiZrF6. Although magnetic susceptibility of the Co compound gives
+negative Weiss temperature, this is not due to the presence of
+antiferromagnetic interaction but due to the formation of ﬁctitious spin state of Jeﬀ ¼ 1=2.
+Acknowledgments This work was supported by a Grant-in-Aid for Scientiﬁc Research (B) Grant Number 18H01179 from the Japan Society for the Promotion of Science.
+
+1) A. S. Bhalla, R. Guo, and R. Roy, Mater. Res. Innovations 4, 3 (2000). 2) M. T. Anderson, K. B. Greenwood, G. A. Taylor, and K. R.
+Poeppelmeier, Prog. Solid State Chem. 22, 197 (1993). 3) L. Savary and L. Balents, Rep. Prog. Phys. 80, 016502 (2017). 4) S. T. Bramwell and M. J. P. Gingras, Science 294, 1495 (2001). 5) T. Aharen, J. E. Greedan, C. A. Bridges, A. A. Aczel, J. Rodriguez, G.
+
+014704-4
+
+©2022 The Physical Society of Japan
+
+J. Phys. Soc. Jpn. Downloaded from journals.jps.jp by Jilin University on 05/14/22
+
+J. Phys. Soc. Jpn. 91, 014704 (2022)
+
+H. Ueda et al.
+
+MacDougall, G. M. Luke, T. Imai, V. K. Michaelis, S. Kroeker, H. Zhou, C. R. Wiebe, and L. M. D. Cranswick, Phys. Rev. B 81, 224409 (2010). 6) V. D. Reinen and F. Steﬀens, Z. Anorg. Allg. Chem. 441, 63 (1978). 7) J. C. Hancock, K. W. Chapman, G. J. Halder, C. R. Morelock, B. S. Kaplan, L. C. Gallington, A. Bongiorno, C. Han, S. Zhou, and A. P. Wilkinson, Chem. Mater. 27, 3912 (2015). 8) J. Xu, L. Hu, Y. Song, F. Han, Y. Qiao, J. Deng, J. Chen, and X. Xing, J. Am. Ceram. Soc. 100, 5385 (2017). 9) M. Kraus, M. Müller, R. Fischer, R. Schmidt, D. Koller, and B. G. Müller, J. Fluorine Chem. 101, 165 (2000). 10) R. Schmidt, M. Kraus, and B. G. Müller, Z. Anorg. Allg. Chem. 627,
+
+2344 (2001). 11) H. Mayer, D. Reinen, and G. Heger, J. Solid State Chem. 50, 213
+(1983). 12) C. Friebel, J. Pebler, F. Steﬀens, M. Weber, and D. Reinen, J. Solid
+State Chem. 46, 253 (1983). 13) B. Garrard and B. Wanklyn, J. Cryst. Growth 47, 159 (1979). 14) V. Rodriguez, M. Couzi, A. Tressaud, J. Grannec, J. P. Chaminade, and
+J. L. Soubeyroux, J. Phys.: Condens. Matter 2, 7373 (1990). 15) T. Le Mercier, J. Chassaing, D. Bizot, and M. Quarton, Mater. Res.
+Bull. 27, 259 (1992). 16) O. Kahn, Molecular Magnetism (Wiley-VCH, Weinheim, 1993).
+
+014704-5
+
+©2022 The Physical Society of Japan
+

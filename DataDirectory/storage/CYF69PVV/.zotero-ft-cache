@@ -1,0 +1,951 @@
+Physica Scripta
+
+PAPER
+Robustness of multipartite entangled states for fermionic systems under noisy channels in noninertial frames
+To cite this article: Kwang-Il Kim et al 2021 Phys. Scr. 96 125122
+View the article online for updates and enhancements.
+
+You may also like
+- Effect of uniform acceleration on multiplayer quantum game H Goudarzi and S Beyrami
+- Three-tangle in non-inertial frame Mi-Ra Hwang, Eylee Jung and DaeKil Park
+- Quantum teleportation via noisy bipartite and tripartite accelerating quantum states: beyond the single mode approximation M Zounia, M Shamirzaie and A Ashouri
+
+This content was downloaded from IP address 49.140.189.201 on 16/05/2022 at 11:24
+
+Phys. Scr. 96 (2021) 125122
+
+https://doi.org/10.1088/1402-4896/ac437c
+
+PAPER
+
+RECEIVED
+21 October 2021
+REVISED
+5 December 2021
+ACCEPTED FOR PUBLICATION
+15 December 2021
+PUBLISHED
+24 December 2021
+
+Robustness of multipartite entangled states for fermionic systems under noisy channels in non-inertial frames
+Kwang-Il Kim , Myong Chol Pak, Tae-Hyok Kim, Jong Chol Kim, Yong-Hae Ko and Hak Chol Pak
+Department of Physics, Kim Il Sung University, Ryongnam Dong, Taesong District, Pyongyang, Democratic Peopleʼs Republic of Korea E-mail: kwangilkim@163.com Keywords: robustnesses, multipartite entangled states, noisy channels, non-inertial frames
+
+Abstract We investigate robustness of bipartite and tripartite entangled states for fermionic systems in noninertial frames, which are under noisy channels. We consider two Bell states and two GreenbergerHorne-Zeilinger (GHZ) states, which possess initially the same amount of entanglement, respectively. By using genuine multipartite (GM) concurrence, we analytically derive the equations that determine the difference between the robustness of these locally unitarily equivalent states under the amplitudedamping channel. We ﬁnd that tendency of the robustness for two GHZ states evaluated by using three-tangle τ and GM concurrence as measures of genuine tripartite entanglement is equal to each other. We also ﬁnd that the robustness of two Bell states is equal to each other under the depolarizing, phase damping and bit ﬂip channels, and that the same is true for two GHZ states.
+1. Introduction
+As a pure quantum mechanical feature, quantum entanglement plays an important role in quantum information. It has been considered as a major resource for quantum information processing [1–5]. However, unavoidable interaction between an entangled quantum system and its environment usually degrades entanglement of the system. This decoherence introduces some disadvantages on the creation and manipulation of multiqubit entanglements in realistic quantum information processing tasks. Especially, under certain environments, entanglement sudden death (ESD) [6] can be induced.
+Recently, many studies on the robustness of multiqubit quantum systems under different noisy channels have been reported [7–17]. Vidal and Tarrach [7] have studied the robustness of two-qubit systems by calculating the minimal amount of mixing with locally prepared states. Some studies [8–10] have shown that the robustness of multiqubit entanglement under local decoherence may increase with the number of qubits. Particularly, in [8], Simon and Kempe found that GHZ states are more robust than other generic ones for three and four qubits. Aolita et al [11] have studied the robustness of generalized GHZ entanglement for arbitrary number of qubits. In 2009, Aolita et al [12] have analytically derived upper bounds for the entanglement of generalized GHZ states coupled to locally depolarizing and dephasing environments. They have also shown that randomly generated initial states tend to violate the bounds and that this discrepancy grows with the number of qubits. In 2010, Zhao and Deng [13] have investigated the relationship between the entanglement and the robustness of multiqubit system under depolarizing noise. They found that the robustness of an arbitrary pure two-qubit state depends completely on its entanglement, but this is not always true for a three-qubit system. By using the Monte Carlo method, we [14] have found that Bell-like states are always the most robust states during decoherence process. Zhang et al [15] have systematically investigated the speed of disentanglement for twoqubit arbitrary states and three-qubit pure states under depolarizing channel and found that GHZ-type states are the most robust. Several studies [16–20] have been devoted to the investigation of the robustness of multiqubit states which are locally unitarily equivalent to each other and therefore initially contain the same amount of entanglement. Borras et al [16] have investigated the decay of entanglement of multiqubit states that are equivalent to GHZ states under local unitary transformations. They have considered ﬁve decoherence models (phase damping, depolarizing, bit ﬂip, phase ﬂip, and bit-phase ﬂip) and studied which models are the most
+© 2021 IOP Publishing Ltd
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+robust for four and six qubit systems. Li and Zhao [17] have done a systematic study on the robustness of threequbit states under amplitude-damping, dephasing and bit ﬂip channels. In each of these decoherence processes, they proved the most robust genuine tripartite entangled states and the most fragile ones. Li et al [18] have investigated the robustness of multiqubit states under dephasing and bit ﬂip channels and showed the difference between the entanglement evolution of the states of the two special forms, which are locally unitarily equivalent to each other. Pan et al [19] have investigated the entanglement dynamics of two-qubit systems including two Bell states for various quantum noises and found that the entanglement of state (∣01ñ + ∣10ñ) 2 is more robust than the state (∣00ñ + ∣11ñ) 2 under the amplitude-damping channel. To study the robustness of genuinely entangled states, ∣GHZ1ñ = (∣000ñ + ∣111ñ) 2 , ∣GHZ2ñ = (∣001ñ + ∣110ñ) 2 and ∣W ñ = (∣001ñ + ∣010ñ + ∣100ñ) 3 , Ali [20] has compared the dynamics of three states with that of random pure states and weighted graph states under collective dephasing, and has found that almost every quantum state in this type of dynamics is robust.
+On the other hand, many recent experiments for quantum information processing include relativistic particles such as photons and are carried out by observers (or detectors) that are in relative motions. The relativistic quantum information is also needed to further complete quantum information theory and to understand black hole physics and quantum gravity. Unfortunately, by the Unruh effect [21], the entanglement shared between inertial and non-inertial observers will also be degraded. There have been many studies on the dynamics of multipartite entanglement under different noisy channels in non-inertial frames [22–32]. Therefore, studying robustness of multipartite entangled states under noisy channels in non-inertial frames is
+very important from both theoretical and practical aspects. This paper is organized as follows. In the next section, by using GM concurrence [33, 34] as a measure of
+bipartite entanglement, we investigate the robustness of two Bell states of fermionic systems under noisy
+channels in non-inertial frames and analytically derive equations for determining the difference between the robustness of two Bell states. In section 3, we also investigate the robustness of two GHZ states by using both GM concurrence and three-tangle τ [35]. Finally, we present some conclusions in section 4.
+
+2. Robustness of two Bell states
+
+As states shared initially by Alice and Bob in an inertial frame, we consider two Bell states
+
+∣Bell1ñ =
+
+1 2
+
+(∣0ñA ∣0ñB
+
++
+
+∣1ñA ∣1ñB ),
+
+(1)
+
+∣Bell2ñ = 1 (∣0ñA ∣1ñB + ∣1ñA ∣0ñB ).
+
+(2)
+
+2
+
+These states are locally unitarily equivalent to each other and thus possess the same amount of entanglement (initially, CGM (∣Bell1ñ) = CGM (∣Bell2ñ) = 1).
+Now we assume that each qubit is coupled to its own noisy environment. These processes may be described by using the quantum operator-sum representation approach [1]. In general, under a noisy channel, the ﬁnal
+density matrix of a single qubit system becomes
+
+r¢ = e(r) = ån Ei (t)rEi†(t),
+
+(3)
+
+i=1
+
+where ρ and r¢ are the initial and the ﬁnal density matrix of a single qubit system, Ei(t)(i = 1, 2, Kn) and Ei†(t ) are the Kraus operators [1, 36] of the channel and their complex conjugate operators.
+
+We then let Bob moves with respect to Alice with uniform acceleration ab. Using the singles-mode approximation, Bobʼs vacuum and excited states are transformed as follows in Minkowski space [37]:
+
+∣0ñM = cos rb ∣0ñI ∣0ñII + sin rb ∣1ñI ∣1ñII ,
+
+(4)
+
+∣1ñM = ∣1ñI ∣0ñII ,
+
+(5)
+
+where cos rb = (e-2pwc ab + 1)-1 2, ω is frequency of the Dirac particle, c is the speed of light in vacuum. In equations (4) and (5), {án∣I } and {án∣II } indicate Rindler modes in regions I and II, respectively.
+We ﬁrst consider the case of the amplitude-damping channel. In this case, Kraus operators are
+
+E0j
+
+=
+
+⎛1
+
+⎜
+⎝
+
+0
+
+1
+
+0 -
+
+Pj
+
+⎞
+⎟
+
+,
+
+⎠
+
+E1j
+
+=
+
+⎛0
+⎜
+⎝0
+
+Pj ⎟ ⎞. 0⎠
+
+(6)
+
+2
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+Here j = (A, B), PA and PB are the decay parameters in Alice’s and Bob’s channel, respectively. Using equations (3)–(6) as in [22, 32], we can get the density matrix r¢ for Bell1 state. Nonzero elements of the desity matrix are given by
+
+r¢
+11
+
+=
+
+1 2
+
+[cos2
+
+rb
+
++
+
+PB
+
+sin2
+
+rb
+
++
+
+PA PB],
+
+r¢
+22
+
+=
+
+1 2
+
+[(1
+
+-
+
+PB)
+
+sin2
+
+rb
+
++
+
+PA (1
+
+-
+
+PB)],
+
+r¢
+33
+
+=
+
+1 2
+
+PB (1
+
+-
+
+PA),
+
+r¢
+44
+
+=
+
+1 2
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PB),
+
+r¢ = r¢
+14 41
+
+=
+
+1 2
+
+cos rb
+
+1 - PA
+
+1 - PB .
+
+(7)
+
+The density matrix r¢ has an X-form [38], therefore we obtain
+
+CGM (Bell1) = max [0, 1 - PA ·
+
+· 1 - PB (cos rb - PB (PA + sin2 rb) )].
+
+(8)
+
+Similarly, nonzero elements of the density matrix r¢ for Bell2 state are given by
+
+r¢
+11
+
+=
+
+1 2
+
+[PA
+
+cos2
+
+rb
+
++
+
+PB (PA
+
+sin2
+
+rb
+
++
+
+1)],
+
+r¢
+22
+
+=
+
+1 2
+
+(1
+
+-
+
+PB) (PA
+
+sin2 rb
+
++
+
+1),
+
+r¢
+33
+
+=
+
+1 2
+
+(1
+
+-
+
+PA)(cos2 rb
+
++
+
+PB sin2 rb),
+
+r¢
+44
+
+=
+
+1 2
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PB)
+
+sin2
+
+rb,
+
+r¢ = r¢
+23 32
+
+=
+
+1 2
+
+cos rb
+
+1 - PA
+
+1 - PB .
+
+(9)
+
+So we obtain
+
+CGM (Bell2) = max [0, 1 - PA 1 - PB (cos rb-
+
+-sin rb PA cos2 rb + PB (PA sin2 rb + 1) )].
+
+(10)
+
+Now let’s compare two GM concurrences. From equations (8) and (10) we can see that the relationship
+between two GM concurrences, CGM (Bell1) and CGM (Bell2), depends on the values of two decay parameters PA and PB, and the acceleration rb. For any values of rb, PA and PB, in order to CGM (Bell1)  CGM (Bell2), the following relation must be satisﬁed:
+
+PB (PA + sin2 rb) - sin2 rb (PA cos2 rb + PB (PA sin2 rb + 1))  0.
+
+(11)
+
+More speciﬁcally, if PA = 0, then we get CGM (Bell1) = CGM (Bell2) regardless of PB and rb. In other words, if
+there is no inﬂuence of noisy channel acting on Alice’s qubit, the robustness of two Bell states is always equal to each other. If PA ≠ 0, instead, then CGM (Bell1)  CGM (Bell2) only when
+
+PB  1
+
+sin2 rb + sin2
+
+rb
+
+.
+
+(12)
+
+Obviously, one can see that equation (12) does not depend on the state of Alice, but only on the state of Bob, i.e., only on the relationship between noise acting on Bob and his acceleration.
+Let us consider the cases where one of the two GM concurrences is always more robust than the other. For example, in the case when rb = 0, PA ≠ 0 and PB ≠ 0 we get
+
+CGM (Bell1) = max [0, 1 - PA 1 - PB (1 - PA PB )],
+
+(13)
+
+CGM (Bell2) = max [0, 1 - PA 1 - PB ],
+
+(14)
+
+3
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+Figure 1. GM concurrences for Bell1 (dot-dashed line) and Bell2 (solid line) states as functions of P(= PA = PB) under amplitudedamping channel for several values of rb [rb = 0 (red), rb = π/6 (green), rb = π/4 (blue)].
+
+Figure 2. GM concurrences for Bell1 (dot-dashed line) and Bell2 (solid line) states as functions of PA under amplitude-damping channel for several values of PB [PB = 0.1 (red), PB = 0.4 (green), PB = 0.7 (blue)] when rb = 0.
+
+and therefore always CGM (Bell1)  CGM (Bell2). But, in the case when rb ≠ 0, PA ≠ 0 and PB = 0 we obtain
+
+CGM (Bell1) = max [0, 1 - PA cos rb],
+
+(15)
+
+4
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+Figure 3. GM concurrences for Bell1 (dot-dashed line) and Bell2 (solid line) states as functions of PA under amplitude-damping channel for several values of rb [rb = π/12 (red), rb = π/6 (green), rb = π/4 (blue)] when PB = 0.
+
+CGM (Bell2) = max [0, 1 - PA cos rb (1 - sin rb PA )],
+
+(16)
+
+and always CGM (Bell2)  CGM (Bell1). In ﬁgure 1 we plot GM concurrences for two Bell states as a function of the decay parameter P(= PA = PB)
+under the amplitude-damping channel for several values of the acceleration parameter rb. For two special cases, the GM concurrences of two Bell states are shown in ﬁgures 2 and 3, respectively. These ﬁgures show how Bobʼs
+acceleration and the noisy channel acting on his qubit would change the relationship between the robustness of Bell1 state and the one of Bell2 state. One can see that in an inertial frame (rb = 0), the GM concurrence of Bell2 state is always more robust than that of Bell1 state for all values of decay parameters (see ﬁgure 2), which is consistent with the results of [19]. But if there is no inﬂuence of noisy channel acting on Bobʼs qubit in a noninertial frame (rb ≠ 0 and PB = 0), the opposite is true (see ﬁgure 3).
+In the cases of the depolarizing, phase damping and bit ﬂip channels, we ﬁnd that two GM concurrences are
+always equal to each other.
+
+3. Robustness of two GHZ states
+
+We now continue the above discussion to the case of genuine tripartite entanglement states, GHZ states. We assume that three observers, Alice, Bob and Charlie, share two GHZ states:
+
+∣GHZ1ñ =
+
+1 2
+
+(∣0ñA ∣0ñB ∣0ñC
+
++
+
+∣1ñA ∣1ñB ∣1ñC ),
+
+(17)
+
+∣GHZ2ñ = 1 (∣0ñA ∣0ñB ∣0ñC + ∣1ñA ∣1ñB ∣1ñC ).
+
+(18)
+
+2
+
+where ∣0ñA(B,C) and ∣1ñA(B,C) are vacuum and excited states from the perspective of an inertial observer. These two states, again, have the same amount of initial entanglement (CGM (GHZ1) = CGM (GHZ2) = 1).
+Let rb and rc are Bobʼs and Charlieʼs accelerations, PA, PB and PC are the decay parameters in Aliceʼs, Bobʼs and Charlieʼs channel, respectively. As in section 2, we ﬁrst consider the case of the amplitude-damping channel. We can get the density matrix r¢ for GHZ1 state as in our previous work [32] to obtain its nonzero entries
+5
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+r¢ =
+11
+
+1 2
+
+(cos2
+
+rb
+
+cos2
+
+rc
+
++
+
+PB PC
+
+sin2 rb sin2 rc
+
++
+
++ PC cos2 rb sin2 rc + PB sin2 rb cos2 rc + PA PB PC),
+
+r¢
+22
+
+=
+
+1 2
+
+(1
+
+-
+
+PC ) (cos2
+
+rb
+
+sin2 rc
+
++
+
+PB
+
+sin2 rb
+
+sin2
+
+rc
+
++
+
+PA PB),
+
+r¢
+33
+
+=
+
+1 2
+
+(1
+
+-
+
+PB)(sin2 rb
+
+cos2
+
+rc
+
++
+
+PC
+
+sin2 rb
+
+sin2
+
+rc
+
++
+
+PA PC),
+
+r¢
+44
+
+=
+
+1 2
+
+(1
+
+-
+
+PB) (1
+
+-
+
+PC)(sin2 rb
+
+sin2
+
+rc
+
++
+
+PA),
+
+r¢
+55
+
+=
+
+1 2
+
+PB
+
+PC
+
+(1
+
+-
+
+PA),
+
+r¢
+66
+
+=
+
+1 2
+
+PB
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PC),
+
+r¢
+77
+
+=
+
+1 2
+
+PC
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PB),
+
+r¢
+88
+
+=
+
+1 2
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PB) (1
+
+-
+
+PC),
+
+r¢18 = r¢81 = 1 1 - PA 1 - PB 1 - PC cos rb cos rc,
+
+(19)
+
+2
+
+and for GHZ2 state,
+
+r¢
+11
+
+=
+
+1 2
+
+(PC
+
+cos2 rb
+
++
+
+PB PC sin2 rb + PA PB cos2 rc + PA PB PC sin2 rc),
+
+r¢
+22
+
+=
+
+1 2
+
+(1
+
+-
+
+PC ) (cos2
+
+rb
+
++
+
+PB
+
+sin2
+
+rb
+
++
+
+PA PB
+
+sin2 rc),
+
+r¢
+33
+
+=
+
+1 2
+
+(1
+
+-
+
+PB) (PC
+
+sin2
+
+rb
+
++
+
+PA cos2 rc + PA PC sin2 rc),
+
+r¢
+44
+
+=
+
+1 2
+
+(1
+
+-
+
+PB) (1
+
+-
+
+PC)(sin2 rb
+
++
+
+PA sin2 rc),
+
+r¢
+55
+
+=
+
+1 2
+
+(1
+
+-
+
+PA)PB (cos2 rc
+
++
+
+PC
+
+sin2
+
+rc ) ,
+
+r¢
+66
+
+=
+
+1 2
+
+(1
+
+-
+
+PA)PB (1
+
+-
+
+PC ) sin2
+
+rc ,
+
+r¢
+77
+
+=
+
+1 2
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PB) (cos2
+
+rc
+
++
+
+PC
+
+sin2 rc),
+
+r¢
+88
+
+=
+
+1 2
+
+(1
+
+-
+
+PA) (1
+
+-
+
+PB) (1
+
+-
+
+PC)sin2 rc,
+
+r¢ = r¢ = 1
+
+27
+
+72 2
+
+1 - PA
+
+1 - PB
+
+1 - PC cos rb cos rc.
+
+(20)
+
+Therefore we obtain
+
+CGM (GHZ1) = max [0, (1 - PA)(1 - PB)(1 - PC) ·
+
+· (cos rb cos rc - a + d - b + d - g + d )],
+
+(21)
+
+CGM (GHZ2) = max [0, (1 - PA)(1 - PB)(1 - PC) ·
+
+· (cos rb cos rc - a + q - b + q - g + q )],
+
+(22)
+
+where
+
+a = PC cos2 rb sin2 rc + PB PC sin2 rb sin2 rc,
+
+b = PB PC sin2 rb sin2 rc + PB sin2 rb cos2 rc,
+
+g = PB PC sin2 rb sin2 rc,
+
+d = PA PB PC,
+
+q = PA PB cos2 rc sin2 rc + PA PB PC sin4 rc.
+
+(23)
+
+Now we compare two GM concurrences, CGM (GHZ1) and CGM (GHZ2). For any values of rb, rc, PA, PB and PC, in order to CGM (GHZ1)  CGM (GHZ2), the relation δ  θ must be satisﬁed. The two GM concurrences becomes equal to each other if at least one of two decay parameters, PA and PB, is zero. However, if both of two decay parameters, PA and PB, are nonzero, then the required condition for CGM (GHZ1)  CGM (GHZ2) is
+
+6
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+Figure 4. GM concurrences and three-tangle τ for GHZ1 (dot-dashed line) and GHZ2 (solid line) states as functions of P(= PA = PB = PC) under amplitude-damping channel for several values of rb and rc [rb = rc = 0(red), rb = rc = π/6 (green), rb = rc = π/4 (blue)].
+
+PC  1
+
+sin2 rc + sin2
+
+rc
+
+.
+
+(24)
+
+One can see that equation (24) does not depend on the states of Alice and Bob, but only on the state of
+Charlie, i.e., only on the noise acting on Charlie and his acceleration. As in the previous section, we consider the cases where one of the two GM concurrences is always more robust than the other. For example, when rb = 0, rc = 0, PA ≠ 0, PB ≠ 0 and PC ≠ 0, we get
+
+CGM (GHZ1) = max [0, 1 - PA 1 - PB 1 - PB (1 - 3 d )],
+
+(25)
+
+CGM (GHZ2) = max [0, 1 - PA 1 - PB 1 - PC ],
+
+(26)
+
+and ﬁnd that the GM concurrence of GHZ2 state is more robust than the one of GHZ1 state. But, in the case when rb = 0, rc ≠ 0, PA ≠ 0, PB ≠ 0 and PC = 0, we obtain
+
+CGM (GHZ1) = max [0, 1 - PA 1 - PB cos rc],
+
+(27)
+
+CGM (GHZ2) = max [0, 1 - PA 1 - PB ·
+
+· cos rc (1 - 3 PA PB sin rc)].
+
+(28)
+
+and ﬁnd that the GM concurrence of GHZ1 state is more robust than the one of GHZ2 state. On the other hand, given the density matrix for GHZ states, we can also calculate three-tangle τ as a measure
+of tripartite entanglement. The three-tangle τ is a good measure for tripartite entanglement states but in general, it is difﬁcult to calculate the three-tangle τ analytically for mixed three-qubit states. By using the conjugate gradient method [39] as in [32], we numerically calculate the three-tangle τ of GHZ states.
+In ﬁgure 4 we plot GM concurrences and three-tangle τ of two GHZ states as functions of the decay parameter P(= PA = PB = PC) under the amplitude-damping channel for several values of the acceleration parameters rb and rc. For two special cases, GM concurrences and three-tangle τ are shown in ﬁgures 5 and 6, respectively. In ﬁgures 4–6, we can see that three-tangle τ of two GHZ states decreases faster than GM concurrences but tendency of the robustness of two GHZ states evaluated by using three-tangle τ and GM concurrence is equal to each other. In other words, equation (24) obtained by using GM concurrence can be applied when evaluating the robustness of two GHZ states by using three-tangle τ. These ﬁgures show how
+
+7
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+Figure 5. GM concurrences and three-tangle τ for GHZ1 (dot-dashed line) and GHZ2 (solid line) states as functions of PA under amplitude-damping channel for several values of PB and PC [PB = PC = 0.1 (red), PB = PC = 0.4 (green), PB = PC = 0.7 (blue)] when rb = rc = 0.
+
+Figure 6. GM concurrences and three-tangle τ for GHZ1 (dot-dashed line) and GHZ2 (solid line) states as functions of P(= PA = PB) under amplitude-damping channel for several values of rc [rc = π/12 (red), rc = π/6 (green), rc = π/4 (blue)] when PC = 0.
+8
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+Charlieʼs acceleration and the noisy channel acting on his qubit would change the relationship between the robustness of GHZ1 and GHZ2 states.
+In the cases of the depolarizing, phase damping and bit ﬂip channels, we again ﬁnd that two GM concurrences are always equal to each other, and that the same is true for two three-tangles.
+4. Conclusion
+In this paper we investigated robustness of two Bell states ((∣01ñ + ∣10ñ) 2 and (∣00ñ + ∣11ñ) 2 ) and two GHZ states ((∣000ñ + ∣111ñ) 2 and (∣001ñ + ∣110ñ) 2 ) of fermionic systems under different noisy channels in non-inertial frames. The two Bell states are locally, unitarily equivalent to each other and so are the two GHZ states. We found that the robustness of multipartite entangled states is affected not only by noisy channel, but also by acceleration. By using genuine multipartite (GM) concurrence as a measure of multipartite entanglement, we analytically derived explicit equations that determine the difference between the robustness of locally unitarily equivalent states under the amplitude-damping channel in non-inertial frames. In particular, robustness of two GHZ states showed the same tendency for the two different measures of genuine tripartite entanglement used in this study: three-tangle τ and GM concurrence. In contrast with the case of the amplitudedamping channel, robustness of two Bell states and two GHZ states is equal to each other, respectively, under the depolarizing, phase damping and bit ﬂip channels. Our results will further enrich the results of robustness of multipartite entangled states in practical quantum information processing tasks.
+Acknowledgments
+We thank Ok Song An and Un Gyong Ri for useful discussions. This work was supported by the National Program on Key Science Reseach of Democratic Peopleʼs Republic of Korea(Grant No.18-1-2).
+Data availability statement
+All data that support the ﬁndings of this study are included within the article (and any supplementary ﬁles).
+ORCID iDs
+Kwang-Il Kim https://orcid.org/0000-0002-6237-9832
+References
+[1] Nielsen M A and Chuang I L 2010 Quantum Computation and Quantum Information (Cambridge: Cambridge University Press) [2] Horodecki R, Horodecki P, Horodecki M and Horodecki K 2009 Quantum entanglement Rev. Mod. Phys. 81 865 [3] Bennett C H, Brassard G and Mermin N D 1992 Quantum cryptography without Bell’s theorem Phys. Rev. Lett. 68 557 [4] Long G L and Liu X S 2002 Theoretically efﬁcient high-capacity quantum-key-distribution scheme Phys. Rev. A 65 032302 [5] Deng F G, Long G L and Liu X S 2003 Two-step quantum direct communication protocol using the Einstein-Podolsky-Rosen pair
+block Phys. Rev. A 68 042317 [6] Yu T and Eberly J H 2004 Finite-time disentanglement via spontaneous emission Phys. Rev. Lett. 93 140404 [7] Vidal G and Tarrach R 1999 Robustness of entanglement Phys. Rev. A 59 141 [8] Simon C and Kempe J 2002 Robustness of multiparty entanglement Phys. Rev. A 65 052327 [9] Hein M, Dür W and Briegel H J 2005 Entanglement properties of multipartite entangled states under the inﬂuence of decoherence Phys.
+Rev. A 71 032350 [10] Liu Z and Fan H 2009 Decay of multiqudit entanglement Phys. Rev. A 79 064305 [11] Aolita L, Chaves R, Cavalcanti D, Acin A and Davidovich L 2008 Scaling laws for the decay of multiqubit entanglement Phys. Rev. Lett.
+100 080501 [12] Aolita L, Cavalcanti D, Acin A, Salles A, Tiersch M, Buchleitner A and de Melo F 2009 Scalability of Greenberger-Horne-Zeilinger and
+random-state entanglement in the presence of decoherence Phys. Rev. A 79 032322 [13] Zhao B K and Deng F G 2010 Residual effect on the robustness of multiqubit entanglement Phys. Rev. A 82 014301 [14] Kim K I, Zhao B K and Li H M 2014 Robustness of entanglement during decoherence Commun. Theor. Phys. 62 667 [15] Zhang F L, Jiang Y and Liang M L 2013 Speed of disentanglement in multiqubit systems under a depolarizing channel Ann. Phys.
+(Amsterdam, Neth.) 333 136 [16] Borras A, Majtey A P, Plastino A R, Casas M and Plastino A 2009 Robustness of highly entangled multiqubit states under decoherence
+Phys. Rev. A 79 022108 [17] Li H M and Zhao B K 2018 Most robust and fragile states with the same entanglement properties Ann. Phys. (Berlin) 530 1800053 [18] Li H M, Guo M D, Zhang R and Su X M 2019 Boundary states for entanglement robustness under dephasing and bit ﬂip channels Chin.
+Phys. B 28 100302 [19] Pan C N, Li F, Fang J S and Fang M F 2011 Entanglement dynamics of two-qubit systems in different quantum noises Chin. Phys. B 20
+020304
+9
+
+Phys. Scr. 96 (2021) 125122
+
+K-I Kim et al
+
+[20] Ali M 2015 Robustness of genuine tripartite entanglement under collective dephasing Chin. Phys. Lett. 32 060302 [21] Unruh W G 1976 Notes on black-hole evaporation Phys. Rev. D 14 870 [22] Wang J and Jing J 2010 Quantum decoherence in noninertial frames Phys. Rev. A 82 032324 [23] Khan S and Khan M K 2011 Open quantum systems in noninertial frames J. Phys. A: Math. Theor. 44 045305 [24] Wang J and Jing J 2012 System-environment dynamics of X-type states in noninertial frames Ann. Phys. 327 283 [25] Khan S 2012 Entanglement of tripartite states with decoherence in non-inertial frames J. Mod. Opt. 59 250 [26] Piao M Z and Ji X 2012 Quantum decoherence under phase damping in non-inertial frames J. Mod. Opt. 59 21 [27] Ramzan M and Khan M K 2012 Decoherence and entanglement degradation of a qubit-qutrit system in non-inertial frames Quantum
+Inf. Process. 11 443 [28] Ramzan M 2013 Entanglement dynamics of non-inertial observers in a correlated environment Quantum Inf. Process. 12 83 [29] Zounia M, Shamirzaie M and Ashouri A 2017 Quantum teleportation via noisy bipartite and tripartite accelerating quantum states:
+beyond the single mode approximation J. Phys. A : Math. Theor. 50 395302 [30] Sun W Y, Wang D, Yang J and Ye L 2017 Enhancement of multipartite entanglement in an open system under non-inertial frames
+Quantum Inf. Process. 16 90 [31] Chen X and Chan K W C 2019 Quantum teleportation of Dirac ﬁelds in noninertial frames with amplitude damping Phys. Rev. A 99
+022334 [32] Kim K I, Pak M C and Kim T H 2020 Decoherence of multipartite entanglement states under amplitude-damping environment in non-
+inertial frames Eur. Phys. J. D 74 124 [33] Wootters W K 1998 Entanglement of formation of an arbitrary state of two qubits Phys. Rev. Lett. 80 2245 [34] Ma Z H, Chen Z H, Chen J L, Spengler C, Gabriel A and Huber M 2011 Measure of genuine multipartite entanglement with computable
+lower bounds Phys. Rev. A 83 062325 [35] Coffman V, Kundu J and Wootters W K 2000 Distributed entanglement Phys. Rev. A 61 052306 [36] Kraus K 1983 States, Effect, and Operation: Fundamental Notions in Quantum Theory (Berlin: Springer) [37] Alsing P M, Fuentes-Schuller I, Mann R B and Tessier T E 2006 Entanglement of Dirac ﬁelds in non-inertial frames Phys. Rev. A 74
+032326 [38] Hashemi Rafsanjani S M, Huber M, Broadbent C J and Eberly J H 2012 Genuinely multipartite concurrence of N-qubit X matrices
+Phys. Rev. A 86 062303 [39] Nocedal J and Wright S J 1999 Numerical Optimization (New York: Springer)
+
+10
+

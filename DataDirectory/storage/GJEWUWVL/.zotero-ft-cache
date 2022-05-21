@@ -1,0 +1,254 @@
+arXiv:0805.1112v1 [cond-mat.mtrl-sci] 8 May 2008
+
+Electronic Structure, Phonons and Dielectric Anomaly in Ferromagnetic Insulating Double Perovskite La2NiMnO6
+Hena Das1, Umesh V. Waghmare2, T. Saha-Dasgupta∗,1 and D. D. Sarma3,4 1 Satyandranath Bose National Centre for Basic Sciences, Kolkata 700098, India 2 Jawaharlal Nehru Centre for Advanced Scientiﬁc Research, Jakkur, Bangalore 560064, India 3 Centre for Advanced Materials, Indian Association for the Cultivation of Science, Jadavpur, Kolkata 700032, India and 4 Solid State and Structural Chemistry Unit, Indian Institute of Science, Bangalore-560012, India
+(Dated: October 25, 2018)
+Using ﬁrst-principles density functional calculations, we study the electronic and magnetic properties of ferromagnetic insulating double-perovskite compound La2NiMnO6, which has been reported to exhibit interesting magnetic ﬁeld sensitive dielectric anomaly as a function of temperature. Our study reveals existence of very soft infra-red active phonons that couple strongly with spins at the Ni and Mn sites through modiﬁcation of the super-exchange interaction. We suggest that these modes are the origin for observed dielectric anomaly in La2NiMnO6.
+PACS numbers: 71.20.-b,75.30.Et,71.45.Gm
+
+Double perovskite La2NiMnO6 (LNMO) is an interesting compound which is a ferromagnetic (FM) insulator with a Curie temperature close to room temperature (Tc ∼ 280 K). Recently large magnetic ﬁeld induced changes in dielectric properties have been observed in this compound1, which makes this compound a promising material for potential device applications2. In spite of great technological importance, the theoretical eﬀort for understanding this material is rather limited. To our knowledge, there exists only one report of linear augmented plane wave based basic electronic structure calculations of LNMO, by Matar et al.3.
+In this letter, we carried out ﬁrst-principles density functional calculations to understand the ferromagnetic insulating behavior in this compound as well as to understand the origin of dielectric anomaly that has been observed experimentally1. We used a combination of two types of methods, namely: (a) muﬃn-tin orbital based linear muﬃn-tin orbital4 and N-th order muﬃntin orbital (NMTO)5 methods, and (b) plane wave-based methods. In the latter, we used ultra-soft pseudopotentials with an energy cutoﬀ of 25 Ry (150 Ry) on the plane wave basis for wave functions (charge density) and a 6×6×6 mesh of k-points in sampling the Brillouin zone for a phase with unit cell containing one formula unit and equivalent for other phases. In particular, the structural optimization and phonon calculations have been carried out using QUANTUM ESPRESSO6 and eﬀective charges and dielectric response have been carried out using ABINIT7. The analysis of hopping interactions by constructing eﬀective orbitals, on the other hand, has been carried out within the framework of NMTO. In our LMTO and NMTO calculations, we have used four different empty spheres to achieve the space ﬁlling. We used a spin polarized generalized gradient approximation (GGA)8 to the exchange correlation functional.
+∗Corresponding Author: tanusri@bose.res.in
+
+TABLE I: Energy-minimized structural parameters of LNMO.
+Lattice constants have been kept constant at the experimental values11.
+
+Rhombohedral
+
+a(˚A) b(˚A) c(˚A)
+
+x
+
+y
+
+z
+
+5.474 5.474 5.474 La 0.24980 0.24980 0.24980
+
+α
+
+β
+
+γ Ni 0.0
+
+0.0
+
+0.0
+
+60.671 60.671 60.671 Mn 0.5
+
+0.5
+
+0.5
+
+O 0.81403 0.67182 0.25889
+
+Monoclinic
+
+a(˚A) b(˚A) c(˚A)
+
+x
+
+y
+
+z
+
+5.467 5.510 7.751 La 0.00838 0.03781 0.24968
+
+α
+
+β
+
+γ Ni 0.0
+
+0.5
+
+0.0
+
+Mn 0.5
+
+0.0
+
+0.0
+
+90.000 90.119 90.000 O1 0.22344 0.20903 0.04140
+
+O2 0.29189 0.27756 0.45700
+
+O3 0.42219 0.01454 0.24243
+
+LNMO, having the general structure of a double ordered perovskite (A2BB′O6), is distorted from the ideal double perovskite, and the amount of distortion changes as the temperature varies. The structure of La2NiMnO6 is rhombohedral (R¯3) at high temperature and transforms to monoclinic (P21/n) at low temperature, with these two structures coexisting over a wide temperature range9,10. In view of the fact that the positions of light atoms are often not well characterized within the exper-
+imental technique, we have carried out structural optimization of both rhombohedral (RH) and monoclinic
+(MC) phases where the internal degrees of freedom associated with La and O atoms have been optimized keep-
+ing the lattice parameters ﬁxed at experimentally determined values9. The relaxed structural parameters of the
+rhombohedral FM state (see Table I) agree well within 3 % with experimental ones proving the reliability of our
+calculation scheme. The position of oxygen atoms, in
+
+2
+
+particular, the x co-ordinate of O3 oxygen of the MC
+phase, however diﬀer noticeably (a deviation of about 22 %) from the experimental values (compared Table 3 in ref9). Our results may provide basis to further reﬁnement of the experimental structure. Each NiO6 octahedra in the rhombohedral phase is tilted with respect to MnO6 octahedra giving rise to Ni-O-Mn bond angle of 157◦. The tilting is further increased by 2◦ in the monoclinic phase.We determined the electronic structure of geometry optimized FM LNMO, for rhombohedral and monoclinic phases using the LMTO4 basis, as well as using the plane wave basis6. Both methods resulted in simi-
+lar features in the computed density of states and band structures, and insulating solutions for both RH and MC
+phases. The spin resolved partial density of states (DOS) of LNMO in the rhombohedral phase, calculated using
+ESPRESSO, is shown in upper panel of Fig.1. Below 2 eV the predominant contribution is from O-2p states.
+The octahedral surrounding of Mn and Ni atoms split the Mn and Ni d-manifolds into t2g and eg levels. In the up spin channel, the Ni-t2g and Ni-eg levels are found in the energy range ∼ -2 eV to Fermi energy and show a sig-
+niﬁcant mixing with Mn-d states and O-p states. In the down spin channel the Ni-t2g bands are located between O-p states and Fermi level, while Ni-eg states lye ∼ 1.2 eV above the Fermi level. This correspond to the nominal valence of Ni2+ (d8: t62ge2g). In the up spin channel the Mn-t2g bands are localized between Ni-t2g and Ni-eg bands and are ﬁlled, while the Mn-eg bands are separated by a gap of ∼ 2.5 eV from the Mn-t2g bands and remains empty. In the down spin channel, both Mn-t2g and Mn-eg bands are located above Fermi level in the energy range ∼ 1.5 eV to 5 eV. This leads to conclusion that the oxidation state of Mn is nominally 4+ (d3: t32ge0g), which agree with the Mn NMR and X-ray absorption spectroscopy results12,13, though disagree with one of neutron diﬀraction study10. Our spin-polarized LMTO calculations gave a moment of 3.0 µB at the Mn site within a muﬃn-tin(MT) radius of 1.32 ˚A, which agree with experimental value of 3.0 µB1. The magnetic moment at the Ni site, for a MT radius of 1.52 ˚Ais found to be 1.43 µB, which is less than the experimentally measured value of 1.9 µB. The residual moment is found to
+reside at the oxygen sites giving rise to the total magnetization of 5.0 µB in agreement with the experimental value1. The spin resolved density of states in the monoclinic structure is shown in the lower panel of Fig.1. The
+basic nature of DOS is similar to that of rhombohedral phase of LNMO. The occupation of the Ni-d states and
+Mn-d states suggests again the nominal oxidation states of Ni and Mn ions to be 2+ and 4+, respectively. The
+moments are found to be 2.91 µB within a MT radius of 1.38 ˚Aat the Mn site, 1.35 µB at the Ni site within a MT sphere of radius 1.52 ˚A, and ∼ 0.10 µB (for 0.95 ˚AMT radius) at the oxygen site, giving rise to ∼ 5.0/f.u total
+magnetic moment, which is again in agreement with the experimental ﬁndings.
+LNMO being an insulator, the ferromagnetism in this
+
+DOS(states/eV/cell)
+
+10
+
+O-p
+
+Ni-t2g Mn-t2g Rhombohedral
+
+Ni-eg Mn-eg
+
+0
+
+O-p -10
+
+Ni-eg
+
+Mn-eg
+
+Ni-t2g
+
+Mn-t2g
+
+O-p
+
+Ni-t2g Mn-t2g
+
+Monoclinic
+
+10
+
+Ni-eg Mn-eg
+
+0
+
+-10
+
+Ni-eg
+
+Mn-eg
+
+O-p
+
+Ni-t2g
+
+Mn-t2g
+
+-8
+
+-6
+
+-4
+
+-2
+
+0
+
+2
+
+4
+
+E(eV)
+
+FIG. 1: GGA DOS of LNMO in geometry optimized rhombohedral and monoclinic phases. Zero of the energy is set at the GGA Fermi energy.
+
+compound is expected to be dominated by the localized super-exchange kind of interaction, resulting from the interaction of the half-ﬁlled d orbital of one metal ion with the vacant d orbital of another metal ion through anion p orbital. In the following, we show the feasibility of such a scenario by considering the calculated hopping interactions between eﬀective Ni-d orbitals and Mn-d orbitals. The construction of eﬀective Ni- and Mn-d orbitals have been carried out with NMTO- downfolding procedure, by integrating out O and La orbital degrees of freedom and keeping active only the Mn- and Ni-d degrees of freedom. This procedure generates the effective Ni- and Mn-d orbitals (see Fig. 2) which takes into account the renormalization from the integrated-out oxygen and also La degrees of freedom. Considering an extended Kugel-Khomskii model14 that includes the hybridization between half-ﬁlled Ni eg orbitals and vacant Mn eg orbitals, the virtual hopping of parallely aligned spins is allowed and is favored over the virtual hopping of antiparallely aligned spins due to the energy gain via the Hund’s coupling JH . The net exchange can be expressed in terms of the sum of the square of the Ni egMn eg hopping interactions, m,m′ (tem,em′ )2, the onsite energy diﬀerences ∆e,e, the onsite Coulomb U and the Hund’s coupling JH as:
+
+JN(1i)−M n
+
+=
+
+−4 (U
+
++
+
+m,m′ (tem,em′ )2JH ∆e,e − JH )(U + ∆e,e)
+
+(1)
+
+Considering the hoppings, and onsite energy diﬀerences for Ni-Mn neighbors, m,m′ (tem,em′ )2 turns out to be about 0.2 eV while ∆e,e turns out to be about 1.9 eV. Considering a typical U value of 4 eV and JH of 0.9 eV, it gives rise to a value of about -24.5 meV for the FM
+exchange interaction between Ni and Mn.
+However, the Ni-Mn exchange interaction has contri-
+
+3
+
+FIG. 2: (Color on-line) Overlap between eﬀective x2 − y2 orbitals, placed at neighboring NiO6 and MnO6 octahedra of LNMO calculated in the monoclinic phase, showing the super-exchange path mediated by the corner-shared oxygen. Plotted are the orbital shapes (constant-amplitude surfaces) with lobes of opposite signs colored as black(magenta) and white(cyan) respectively for Mn(Ni).
+
+bution also from the interaction between half-ﬁlled Ni eg orbitals and Mn t2g orbitals, which should be antiferromagnetic (AFM) in nature, given by:
+
+JN(2i)−Mn = 4
+
+m,m′ (tem,tm′ )2 (U + ∆e,t)
+
+(2)
+
+The summation m, m′ in the above runs over half-ﬁlled
+eg and t2g orbitals at Ni and Mn sites, respectively. The computed sum of squares of the Ni eg- Mn t2g hopping interactions in the basis of NMTO-Wannier functions turns out to be about 0.02 eV, while the on-site energy diﬀer-
+ence turns out to be about 0.25 eV. Putting these values in Eqn.(2) it gives rise to a value of about 19 meV for J(2).
+The net exchange interaction, therefore, comes out to be ferromagnetic with a value of about 5 meV15, which is a
+reasonable estimate considering the rather approximate nature of the perturbative approach. The mean-ﬁeld Tc computed with this estimate of Ni-Mn exchange interaction comes out to be 350 K compared to experimental estimate of 280 K16.
+In the following, we investigate the origin of mag-
+netocapacitance in LNMO manifested in the dielectric anomaly1 as a function of magnetic ﬁeld. The dielectric constant of LNMO is known1 to increase with temperature and exhibit a jump at Tjump. Tjump depends sensitively on magnetic ﬁeld, particularly for small ﬁelds
+(≤ 0.1 T). Since the electronic contribution to dielectric constant of insulators such as LNMO is typically much smaller17 than the magnitude of jump in the dielectric constant, we expect the origin of this coupling between
+magnetic ﬁeld and dielectric response to emerge from the couplings between spin and structure, i.e., phonons.
+To determine the coupling between spin and various phonons, we studied the response of optimized FM rhom-
+bohedral structure to changes in magnetic ordering: e.g. changes in phonon frequencies with changes in magnetic
+
+FIG. 3: (Color online) Phonon spectra of rhombohedral LNMO in FM (top panel) and FIM (bottom panel) states. The arrows show the shifting of dominant IR active phonon modes. The inset shows the displacement of atoms corresponding to the lowest frequency IR-active mode. The angle between the red dotted lines connecting the Ni(at the center of the oxygen-octahedra)-O and O-Mn (rightmost corner of the cell) is aﬀected by this phonon.
+ordering. We determined changes in phonon frequencies upon changing the neighboring spin to antiparallel, the so called Ferrimagnetic (FIM) alignment. Note that any other diﬀerent spin arrangement other than FM spin arrangement would have been equally qualiﬁed for this purpose. The charge states of Ni and Mn in the FIM state are found to remain same as that in the FM state. Hellman-Feynman forces acting on atoms in the FIM phase, give us the lowest order coupling between spins and phonons which is linear in atomic displacements. We ﬁnd that these forces are equal and opposite for pairs of atoms, hence this coupling is zero for any IR-active modes and should have no direct implications to the observed dielectric anomaly. Next, we determined the Γ−point phonons for the rhombohedral structure with FM and FIM ordering. Shifts in the phonon frequencies give the coupling between spins and atomic displacements at the second order. Since the rhombohedral structure is unstable at T=0 K, we ﬁnd two marginally unstable modes (31i and 19i cm−1) which are IR-inactive and couple strongly with spins: their frequencies change to 64i and 63i cm−1 in the FIM phase. We ﬁnd that frequencies
+
+4
+
+of the lowest energy IR-active phonons soften from 91.3, 149, 228 and 255 cm−1 in the FM phase to 65.5, 120, 184 and 199 cm−1 respectively (indicated by arrows in Fig.3),
+exhibiting a strong coupling with spin. This may be compared with the recently studied case of CdCr2S418 where the signiﬁcant polar mode was found only at frequency of 300 cm−1. This results in change in static dielectric
+constant from 119 in FM state to 221 in the FIM state,
+which is dominated by the softest IR-active mode (see
+inset of Fig.3) with a contribution of 77 and 185, respec-
+tively. Atomic displacements in this softest mode, are
+such that they would make the Ni-O-Mn angles closer to 180o, in an average sense, leading to enhancement of
+the superexchange interaction. The decrease in phonon
+frequency for the spin-paired Ni-Mn in FIM phase com-
+pared to spin-antipaired Ni-Mn in FM phase can be ex-
+plained by analyzing the spin Hamiltonian JSi.Sj and noting that the magnetic super-exchange coupling J depends on ∠ Ni-O-Mn, θ, as cos2(θ). Expanding cos2(θ), about the equilibrium value of ∠ Ni-O-Mn, θ0 ≈ 157o, and assuming θ = θ0 + u, u being the displacement, the spin-phonon coupling turns out to be positive for the
+term linear in u and negative for the term quadratic in u.
+The latter eﬀectively gives a positive change in phonon
+frequency due to the additional negative sign, associated
+with FM nature of the magnetic interaction (cf. Eqn.1.).
+To conclude, we carried out ﬁrst principles DFT calcu-
+lations to examine the electronic and magnetic structure
+
+of La2NiMnO6, in particular, to understand the origin of the dielectric anomaly reported recently. We could correctly reproduce the ferromagnetic insulating behavior of the compound, the ferromagnetism being governed by the super-exchange interaction. Our study further showed presence of soft IR-active phonon modes exhibiting strong coupling with spin,which explains the observed dielectric anomaly. The fact that the jump in the dielectric constant at H=0 T, occurs at a temperature Tjump below Tc happens because close to Tc the magnetic moment is not fully developed due to thermal ﬂuctuation while at lower temperature the moment gets fully developed and makes the eﬀect of coupling to phonon degrees of freedom appreciable enough to observe the jump in dielectric constant. This is corroborated by the fact that Tjump becomes closer to Tc upon application of magnetic ﬁeld, which helps overcoming the thermal ﬂuctuation and enhance the magnetization. Note that superexchange driven B-site magnetism based dielectric anomaly discussed here is complementary to the mechanism of the low-temperature dielectric anomaly discussed for EuTiO319, which is A-site based weak magnetism driven.
+Acknowledgment- T.S.-D and D.D.S acknowledge support of Swarnajayanti and J.C.Bose grants. U.V.W. thanks SNBose Centre for hospitality during the execution of the work and CCMS at JNCASR for partial support.
+
+1 Nyrissa S. Rogado, Jun Li, Arthur W. Sleight, and Mas A.
+Subramanian, Adv. Mater. 17, 2225 (2005). 2 M. Hashisaka, D. Kan, A. Masuno, T. Terashima, M.
+Takano and K. Mibu, Journal of Magnetism and Magnetic
+Materials 310, 1975 (2007); H. Guo et al. Appl. Phys. Lett.
+89, 022509 (2006). 3 S. F. Matar, M. A. Subramanian, V. Eyert, M. Whangbo
+and A. Villesuzanne (unpublished). 4 O. K. Andersen, Phys. Rev. B, 12(1975) 3060. 5 O. K. Andersen and T. Saha-Dasgupta, Phys. Rev. B 62,
+R16219(2000). 6 S. Baroni et. al. http://www.pwscf.org/. 7 Gonze et. al. http://www.abinit.org/. 8 J. P. Perdew, K. Burke , and M. Ernzerhof , Phys. Rev.
+Lett. 77, 3865 (19 96). 9 C. L. Bull, D. Gleeson, K. S. Knight, J. Phys. Condens.
+Matter 15, 4927 (2003). 10 K. Asai et. al. J. Phys. Soc. Jpn. 47, 1054 (1979). 11 We have also carried out volume optimization of the crystal
+structure both for RH and monoclinic phases. The GGA
+theoretical lattice parameters are very close to the experimental estimates [by less than 0.5%]: 5.537 ˚A and 5.478 ˚A instead of experimental estimates of 5.510 ˚A and 5.474 ˚A
+for monoclinic and RH phases respectively. The structural
+co-ordinates change at the most by 0.2% for the monoclinic
+phase and less than 0.1% for the RH phase. 12 M. Sonobe, K. Asai, J. Phys. Soc. Jpn. 61, 4193 (1992). 13 M. C. Sanchez et. al. Phys. Rev. B 65, 144 409 (2002).
+
+14 K. I. Kugel and D. I. Khomskii, Sov. Phys. Ups. 25 231 (1982).
+15 In this simplictic formulation, we have assumed that the value of U and JH to be the same between Ni and Mn. While JH is fairly constant between diﬀerent elements, U can vary. Mn is expected to have a smaller U value than Ni. Considering a U value of 3 eV for Mn and 5 eV for Ni, one gets an average U value of 4 eV. Changing U by 5 to 10%, we ﬁnd that the calculated eﬀective J turn out to be having a value between 4 - 7 meV.
+16 We also attempted to extract the net magnetic coupling, J, by taking the total energy diﬀerence between FM and FIM conﬁguration of Ni and Mn spins. LDA total energy diﬀerences are however known to overestimate the value of J due to LDA overbinding problem. Our computed J turned out to be about 14 meV, which overestimate the
+perturbatively computed J by a factor of about 3. Introduction of spin-orbit coupling changes the magnitude of J by less than 1%, maintaining the FM nature of J. 17 This is supported by our ab-initio calculation, which gives ǫ∞ equal to 22 and 20 for two diﬀerent magnetic phases, namely FM and ferrimagnetic phases. 18 C. J. Fennie and K. M. Rabe, Phys. Rev. B 72 214123 (2005). 19 C. J. Fennie and K. M. Rabe, Phys. Rev. Lett. 97, 267602 (2006).
+

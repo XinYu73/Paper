@@ -16,9 +16,9 @@
 	},
 	"priority": 100,
 	"configOptions": {
-		"hash": "249e90689294ceb6f3df7df0612d3029f96e43f338e1476be240c45ea85b4ec8"
+		"hash": "66b478bf62a57ffff2e963e336977ced696b3ef252fe10a93257e30594e23f7e"
 	},
-	"lastUpdated": "2022-04-20"
+	"lastUpdated": "2022-05-05"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
@@ -261,8 +261,8 @@ var Citationgraph__Translator__doExport = (() => {
     "biblatexExtractEprint",
     "bibtexParticleNoOp",
     "bibtexURL",
+    "cache",
     "cacheFlushInterval",
-    "caching",
     "charmap",
     "citeCommand",
     "citekeyFold",
@@ -339,7 +339,7 @@ var Citationgraph__Translator__doExport = (() => {
     biblatexExtractEprint: ["Better BibLaTeX", "Better BibTeX"],
     bibtexParticleNoOp: ["Better BibTeX"],
     bibtexURL: ["Better BibTeX"],
-    caching: ["Better BibLaTeX", "Better BibTeX", "Better CSL JSON", "Better CSL YAML"],
+    cache: ["Better BibLaTeX", "Better BibTeX", "Better CSL JSON", "Better CSL YAML"],
     charmap: ["Better BibLaTeX", "Better BibTeX"],
     csquotes: ["Better BibLaTeX", "Better BibTeX"],
     DOIandURL: ["Better BibLaTeX", "Better BibTeX"],
@@ -382,12 +382,12 @@ var Citationgraph__Translator__doExport = (() => {
     biblatexExtractEprint: true,
     bibtexParticleNoOp: false,
     bibtexURL: "off",
+    cache: true,
     cacheFlushInterval: 5,
-    caching: true,
     charmap: "",
     citeCommand: "cite",
     citekeyFold: true,
-    citekeyFormat: "'' + auth.lower + shorttitle(3,3) + year",
+    citekeyFormat: "auth.lower + shorttitle(3,3) + year",
     citekeyFormatBackup: "",
     citekeySearch: true,
     csquotes: "",
@@ -450,16 +450,9 @@ var Citationgraph__Translator__doExport = (() => {
   var schema = {
     autoExport: {
       preferences: ["asciiBibLaTeX", "asciiBibTeX", "biblatexExtendedNameFormat", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
-      displayOptions: ["useJournalAbbreviation", "exportNotes"]
+      displayOptions: ["exportNotes", "useJournalAbbreviation"]
     },
     translator: {
-      "Better CSL YAML": {
-        autoexport: true,
-        cached: true,
-        preferences: [],
-        displayOptions: [],
-        types: {}
-      },
       "Better BibTeX": {
         autoexport: true,
         cached: true,
@@ -473,6 +466,13 @@ var Citationgraph__Translator__doExport = (() => {
           exportNotes: { type: "boolean" },
           useJournalAbbreviation: { type: "boolean" }
         }
+      },
+      "Better CSL JSON": {
+        autoexport: true,
+        cached: true,
+        preferences: [],
+        displayOptions: [],
+        types: {}
       },
       "BetterBibTeX JSON": {
         autoexport: true,
@@ -496,7 +496,7 @@ var Citationgraph__Translator__doExport = (() => {
           useJournalAbbreviation: { type: "boolean" }
         }
       },
-      "Better CSL JSON": {
+      "Better CSL YAML": {
         autoexport: true,
         cached: true,
         preferences: [],
@@ -657,7 +657,7 @@ var Citationgraph__Translator__doExport = (() => {
         sep: this.platform === "win" ? "\\" : "/"
       };
       try {
-        if (Zotero.getOption("caching") === false)
+        if (Zotero.getOption("cache") === false)
           this.cacheable = false;
       } catch (err) {
       }
@@ -701,7 +701,7 @@ var Citationgraph__Translator__doExport = (() => {
         if (this.preferences.baseAttachmentPath && (this.export.dir === this.preferences.baseAttachmentPath || ((_b = this.export.dir) == null ? void 0 : _b.startsWith(this.preferences.baseAttachmentPath + this.paths.sep)))) {
           this.preferences.relativeFilePaths = true;
         }
-        this.cacheable = this.cacheable && this.preferences.caching && !(this.options.exportFileData || this.preferences.relativeFilePaths || this.preferences.baseAttachmentPath && ((_c = this.export.dir) == null ? void 0 : _c.startsWith(this.preferences.baseAttachmentPath)));
+        this.cacheable = this.cacheable && this.preferences.cache && !(this.options.exportFileData || this.preferences.relativeFilePaths || this.preferences.baseAttachmentPath && ((_c = this.export.dir) == null ? void 0 : _c.startsWith(this.preferences.baseAttachmentPath)));
         if (this.BetterTeX) {
           this.preferences.separatorList = this.preferences.separatorList.trim();
           this.preferences.separatorNames = this.preferences.separatorNames.trim();
