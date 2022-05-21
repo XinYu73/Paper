@@ -1,0 +1,430 @@
+
+JavaScript is disabled on your browser. Please enable JavaScript to use all the features on this page. Skip to main content Skip to article
+Elsevier logo ScienceDirect
+
+You have institutional access
+
+    View  PDF
+    Download full issue 
+
+Elsevier
+Annals of Physics
+Volume 333 , June 2013, Pages 136-154
+Annals of Physics
+Speed of disentanglement in multiqubit systems under a depolarizing channel
+Author links open overlay panel Fu-Lin Zhang Yue Jiang Mai-Lin Liang
+Show more
+Outline Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.aop.2013.03.003 Get rights and content
+Abstract
+
+We investigate the speed of disentanglement in the multiqubit systems under the local depolarizing channel, in which each qubit is independently coupled to the environment. We focus on the bipartition entanglement between one qubit and the remaining qubits constituting the system, which is measured by the negativity. For the two-qubit system, the speed for the pure state completely depends on its entanglement. The upper and lower bounds of the speed for arbitrary two-qubit states, and the necessary conditions for a state achieving them, are obtained. For the three-qubit system, we study the speed for pure states, whose entanglement properties can be completely described by five local-unitary-transformation invariants. An analytical expression of the relation between the speed and the invariants is derived. The speed is enhanced by the three-tangle which is the entanglement among the three qubits, but reduced by the two-qubit correlations outside the concurrence. The decay of the negativity can be restrained by the other two negativity with the coequal sense. The unbalance between two qubits can reduce the speed of disentanglement of the remaining qubit in the system, and even can retrieve the entanglement partially. For the k -qubit systems in an arbitrary superposition of Greenberger–Horne–Zeilinger state and W state, the speed depends almost entirely on the amount of the negativity when k increases to five or six. An alternative quantitative definition for the robustness of entanglement is presented based on the speed of disentanglement, with comparison to the widely studied robustness measured by the critical amount of noise parameter where the entanglement vanishes. In the limit of large number of particles, the alternative robustness of the Greenberger–Horne–Zeilinger-type states is inversely proportional to k , and the one of the W states approaches 1 / k .
+
+    Previous article in issue
+    Next article in issue 
+
+Keywords
+Disentanglement
+Depolarizing channel
+Entanglement invariants
+Robustness
+Multiqubit
+1. Introduction
+
+Entanglement  [1] , which reveals essentially difference between quantum and classical mechanics, plays a vital role in many discussions on the fundamental issues of quantum mechanics . In recent years, it has been found as a resource of quantum communication and computation  [2] , such as quantum key distribution   [3] , [4] , quantum teleportation [5] and quantum dense coding  [6] .
+
+However, it is impossible that a quantum system isolates from its environment completely, so the system unavoidably loses its coherence due to interactions with the environment. In composite systems, entanglement is an manifestation of quantum coherence, which will decay under the influence of decoherence. This dynamics of entanglement in the open systems has recently attracted the interest of many researchers  [7] , [8] , [9] , [10] , [11] , [12] , [13] , [14] , [15] , [16] , [17] , [18] , [19] . It has been shown that in some cases entanglement can vanish in finite times. This phenomenon of sudden loss of entanglement is known as entanglement sudden death (ESD)  [20] , [7] , [8] , [9] , [10] , [11] . The experimental evidences of the interesting phenomenon have been reported for atomic ensembles  [12] and optical setups [13] , [14] .
+
+One of the topics in this direction is about the robustness of entanglement, in which the stability of an entangled system is a major concern to the researchers. Recently, many investigations on the robustness, especially of the multiqubit quantum systems, have been reported. The concept for the robustness of entanglement has been introduced by Vidal and Tarrach [21] as a measure of entanglement corresponds to the minimal amount of mixing with separable states which washed out all entanglement. Then, in some articles  [15] , [16] , [17] , [18] , [19] , the robustness is defined as the critical amount of decoherence, where the entanglement vanishes. In  [15] , the authors pointed out that, under depolarizing channels, the robustness of entanglement for multiqubit systems increased with the qubit number k . Aolita et al.  [16] showed that the time, when the entanglement of a pure Greenberger–Horne–Zeilinger (GHZ) state system became arbitrarily small and useless as a resource, was inversely proportional to the particle number k , although its ESD time increased with k . In  [17] , Man et al. studied the entanglement robustness measured by the time when an entangled state became completely separable or remained entangled with a negligible entangled amount, and showed that entanglement robustness can be enhanced by local operation for the generalized k -qubit GHZ-type states. Zhao and Deng  [19] studied the multiqubit systems under local depolarizing channel, and found a residual effect on the robustness of a three-qubit system in a superposition of GHZ state and W state.
+
+Inspired by the results given by Zhao and Deng  [19] , the main purpose of this paper is to study the relation between the stability of an entangled system and its entanglement properties. However, the robustness, measured by the critical noise parameters where the ESD occurs, is determined by the nature of the series of intermediate states from being entangled to separable under the process of decoherence. In addition, as shown in  [16] , the ESD time is irrelevant to assess the robustness of multiparticle entanglement in some channels. Therefore, we present the linear response of the entanglement under an infinitesimal noise, namely the speed of disentanglement (SoDE), as a quantitative signature of the resistance of an entangled state. On the other hand, the behavior of the entanglement at the beginning of the decoherence process becomes very importance in the application for quantum information , since the coherence time of a qubit has been greatly prolonged in some recent schemes  [22] , [23] . It is not the first time to concern about the time-derivative of the entanglement, for instance, the derivative of the tangle is studied in the investigation about the entanglement flow in multipartite systems  [24] . To exclude the properties of an entangled system affecting the SoDE beside the entanglement, we adopt the model of a multiqubit system in which each qubit is coupled to its own depolarizing environment individually, the same as that in  [15] , [19] . The model is invariable under both the local unitary (LU) transformations and the permutations of the qubits. Furthermore, in the limit of large number of particles, the qualitative behavior of an entangled state is largely independent of the specific decoherence model  [25] .
+
+As the first trial, in the present paper, we only consider speed of the bipartition entanglement between one qubit and the remaining k − 1 qubits constituting the k -qubit system. We adopt the negativity N   [26] , [27] , [28] to measure the entanglement, which is widely used in recent investigations of the entanglement dynamics in multiqubit system  [15] , [19] , [29] , [30] . Compared to other entanglement measurements, such as the concurrence C   [31] , [32] , a distinct advantage of the negativity is its computability. Besides, for the arbitrary bipartite pure states, N > 0 is the necessary and sufficient condition for entanglement  [32] . Most of the recent works about the robustness of entanglement in multiparticle system focus on the pure states case. It is certainly true that our definition of the SoDE is not restricted to the negativity. However, we find the SoDE for concurrence are very close to the one for negativity, in some special cases where the concurrence or its bound can be calculated. The details are given in the conclusion and discussion section.
+
+This paper is organized as follows. In Section  2 we make a brief review for the decoherence model and the entanglement measurements, and give some general formulas for the SoDE. In Sections  3 Two-qubit arbitrary states , 4 Three-qubit pure states , we study the SoDE for two-qubit arbitrary states and three-qubit pure states, respectively. In Section  5 , we give the result for several special states in multiqubit system, such as GHZ-type state, W-type state, etc. Conclusion and discussion are made in Section  6 .
+2. Definitions and general formulas
+2.1. Decoherence model
+
+Under local noise environments, without the interaction between the subsystems in the k -party system, the dynamics of each particle is governed by a master equation which depends on its own environment  [29] . From the master equation, one can obtain a completely positive trace-preserving map ε i which describes the evolution of the corresponding subsystem [29] : ρ i ( t ) = ε i ρ i ( 0 ) , ( i = 1 , … , k ) , and for the whole state ρ ( t ) = ⊗ i = 1 k ε i ρ ( 0 ) . In the Born–Markovian approximation, the channel can be described by its Kraus representation  [29] , [19] , [33] as (1) ε i ρ i ( 0 ) = ∑ j = 0 M E j i ρ i ( 0 ) E j i † where E j i , j = 0 , … , M are the so-called Kraus operators needed to completely characterize the channel.
+
+In detail, for the one-qubit quantum system, the Kraus operators of the partially depolarizing channel can be expressed as (2) E 0 = 1 − p ′ I , E j = p ′ 3 σ j , where I is the unit matrix, p ′ = 3 p 4 with p being the depolarization parameter, and σ j ( j = 1 , 2 , 3 ) are the corresponding Pauli matrices. In the Bloch sphere representation for the qubit density operator, the map can be written as ε ρ = 1 2 ( I + s r ⋅ σ ) , where s = 1 − p . Following the Ref.  [34] , we consider the depolarization parameter s = s ( t ) = e − κ t , where κ is a decay constant determined by the strength of the coupling to the environment and t is the interaction time. Without loss of generality, we set κ = 1 and s = e − t in the present work.
+2.2. Entanglement measurements and invariants
+
+Several concepts have been presented to quantify or describe the entanglement in quantum systems, such as the entanglement of formation [31] , the entanglement cost  [35] , the distillable entanglement  [36] , the relative entropy of entanglement  [37] , and so on. Here, we briefly review the concurrence  [31] and negativity  [26] for bipartition entanglement, and the entanglement invariants for three-qubit pure states, which are utilized in this paper.
+
+The negativity as a measure of entanglement was introduced by Życzkowski et al.  [28] , base on positive partial transpose (PPT) criterion [27] , which is necessary for separability, but sufficient only for 2 ⊗ 2 and 2 ⊗ 3 systems  [38] . For a bipartite system described by the density matrix ρ , the negativity is defined as  [28] , [27] (3) N ( ρ ) = 2 ∑ j | λ j | , where λ j are the negative eigenvalues of ρ T and T denotes the partial transpose operation on one of the subsystems. For a pure m ⊗ n ( m ≤ n ) state in the standard Schmidt form (4) | ψ 〉 = ∑ i a i | μ i ν i 〉 where a i ∈ [ 0 , 1 ] ( i = 1 , … , m ) are the Schmidt coefficients satisfying ∑ i a i 2 = 1 , | μ i 〉 and | ν i 〉 are the orthonormal basis of the two subsystems, the negativity is given by  [32] (5) N ( | ψ 〉 ) = ( ∑ i a i ) 2 − 1 , from which one can find the fact that, N > 0 is the necessary and sufficient condition for the entanglement in pure states.
+
+The concurrence originated in the investigation of the entanglement of formation  [31] . The concurrence of a pure state | ψ 〉 in a bipartite system is given by  [32] (6) C ( | ψ 〉 ) = 2 ( 1 − Tr ρ A 2 ) = 2 ( 1 − Tr ρ B 2 ) , where ρ A = Tr B | ψ 〉 〈 ψ | is the partial trace of | ψ 〉 〈 ψ | over subsystem B , and ρ B has a similar meaning. For a mixed state, the concurrence is defined as the average concurrence of the pure states of the decomposition, minimized over all decompositions of ρ = ∑ j p j | ψ j 〉 〈 ψ j | , (7) C ( ρ ) = min ∑ j p j C ( | ψ j 〉 ) . For the two-qubit case, it is equivalent to the entanglement of formation  [31] and can be expressed explicitly as (8) C ( ρ ) = max { 0 , λ 1 − λ 2 − λ 3 − λ 4 } , in which λ 1 , … , λ 4 are the square roots of the eigenvalues of the operator R = ρ ( σ y ⊗ σ y ) ρ ∗ ( σ y ⊗ σ y ) in decreasing order and σ y is the second Pauli matrix.
+
+For an m ⊗ n ( m ≤ n ) arbitrary quantum state ρ , the negativity is proved to provide a lower bound of the concurrence as  [32] (9) C ( ρ ) ≥ 2 m ( m − 1 ) N ( ρ ) . In the present work, we focus on the bipartite entanglement between the j th qubit and the remain k − 1 qubits constituting the k -qubit system. Under the two measurements, it is denoted by N j and C j respectively. This corresponds to the case of m = 2 in (9) , where the relation reduces to C j ( ρ ) ≥ N j ( ρ ) . And for the k -qubit pure states C j ( | ψ 〉 ) = N j ( | ψ 〉 ) , which can be obtained directly from their definitions in (5) , (6) .
+
+The entanglement invariants   [39] , [40] , [41] of three-qubit pure states are five linear independent polynomials, which is invariance under LU transformations. For the three-qubit pure state ρ = | ψ 〉 〈 ψ | , they are given by I i = Tr ρ i 2 = 1 − N i 2 2 , (10) I 4 = 3 Tr [ ( ρ i ⊗ ρ j ) ρ i j ] − Tr ρ i 3 − Tr ρ j 3 , I 5 = τ 2 = ( N i 2 − C i j 2 − C i k 2 ) 2 , where ρ i = Tr j k ρ ( i , j , k = 1 , 2 , 3 ) are the one-particle density matrices, ρ i j = Tr k ρ are the two-particle density matrices, and N i and C i j are the negativity and concurrence of the reduce states with the corresponding subscripts. The invariants I 1 , 2 , 3 are equivalent to the one-qubit linear entropies, which characterize the entanglement between one qubit and the remaining two qubits. The last invariant I 5 is equivalent to the three-tangle τ , which describes the whole entanglement of the three-qubit system  [42] , [43] . The remaining invariant I 4 is related to the relative entropy of the two-qubit state ρ i j relative to the product state ρ i ⊗ ρ j , and is a second measure of the entanglement of in the reduced states of ρ i j , independent of the concurrence C i j which can be determined by N 1 , 2 , 3 and τ   [39] .
+2.3. SoDE and the perturbation approach
+
+Under the local noise channels, the SoDE we focus on in the present article is the one between the i th qubit and the other part of the whole system. Utilizing the entanglement measure negativity, it can be expressed as (11) η i ( ρ ) = | d N i ( ρ s ) d t | t = 0 , where ρ s = ⊗ j = 1 k ε j ρ is the final state with ρ being the initial one. To compare with the widely utilized definition of the robustness by the ESD noise parameter, we present an alternative definition of robustness of entanglement, which is (12) R η i = 1 − Exp ( − T i ∗ ) , where T i ∗ = N i η i is a characteristic time of the disentanglement.
+
+We find that the SoDE η i can be derived with the perturbation theory   [44] . We called the method as the perturbation approach . In quantum mechanics , the perturbation theory is applied to the systems whose Hamiltonian can be divided into (13) H = H 0 + ϵ W , where ϵ is the smallness parameter, and H 0 is the easily solvable unperturbed Hamiltonian. The eigenvalues and eigenstates of H 0 are given by (14) H 0 | ϕ k 〉 = E k ( 0 ) | ϕ k 〉 . The eigenvalues of the Hamiltonian H can be expanded in powers of the perturbation parameter ϵ , (15) E k = E k ( 0 ) + ϵ E k ( 1 ) + ϵ 2 E k ( 2 ) + ⋯ . For the state | ϕ k 〉 without degeneracy, the first approximation is given by (16) E k ( 1 ) = 〈 ϕ k | W | ϕ k 〉 . When the energy level E k ( 0 ) is d k -fold degenerate, with the eigenstates | ϕ k j 〉 , ( j = 1 , 2 … d k ) , the corresponding eigenvalues of H in the first approximation are (17) E k , α = E k ( 0 ) + ϵ β k , α , α = 1 , 2 … d k , where β k , α is the α -th eigenvalues of the d k × d k matrix W k with the elements W k , i j = 〈 ϕ k i | W | ϕ k j 〉 . One can notice that, when d k = 1 , β k , 1 becomes the result for the non-degenerate case in Eq. (16) . And, the trace of W k satisfies (18) Tr W k = ∑ α = 1 d k β k , α = ∑ j = 1 d k 〈 ϕ k j | W | ϕ k j 〉 .
+
+Through the noise channel in an infinitesimal time d t , the state of a system can be written as (19) ρ s = ρ + σ d t , where ρ is the initial state, σ is an Hermitian operator with Tr σ = 0 . The negativity of the final state is given by N i ( ρ s ) = N i ( ρ ) − η i d t . Considering the partial transposed state ρ s T i = ρ T i + σ T i d t as the Hamiltonian of a quantum system, and d t as the smallness parameter, we find the SoDE η i is determined by the first-order response of the eigenvalues of ρ T i under the perturbation σ T i d t . Since the negativity is defined as the sum of the negative eigenvalues of the partial transposed density matrix, only the eigenvectors of ρ T i with the zero and the negative eigenvalues contribute to the speed η i . Namely, the negativity of ρ s is (20) N i ( ρ s ) = − 2 ∑ j λ j , − − 2 ∑ j λ j , − ( 1 ) d t − 2 ∑ l λ l , 0 , − ( 1 ) d t , where λ j , − are the negative eigenvalues of ρ T i and λ j , − ( 1 ) are the first-order response under the perturbation σ T i d t , and λ l , 0 , − ( 1 ) are the negative responses of the zero eigenvalue. Therefore, the speed can be divided into two parts as (21) η i = η i ( − ) − η i ( 0 ) , where η i ( − ) = 2 ∑ j λ j , − ( 1 ) and η i ( 0 ) = − 2 ∑ l λ l , 0 , − ( 1 ) . According to the relations in Eqs. (16) , (17) , (18) the first term can be expressed as (22) η i ( − ) = 2 ∑ k 〈 ψ k − | σ T i | ψ k − 〉 , where | ψ k − 〉 , ( k = 1 , 2 … d − ) are the eigenvectors of ρ T i with negative eigenvalues. And the second one corresponds to the eigenvectors | ψ j 0 〉 ( j = 1 , 2 … d 0 ) with the zero eigenvalues is η i ( 0 ) = ∑ l | λ l , 0 ( 1 ) | − ∑ l λ l , 0 ( 1 ) , where λ l , 0 ( 1 ) are the first-order responses of the zero eigenvalues. It is equivalent to (23) η i ( 0 ) = ‖ σ 0 T i ‖ − Tr σ 0 T i , where σ 0 T i is the d 0 × d 0 matrix with the elements σ 0 , m n T i = 〈 ψ m 0 | σ T i | ψ n 0 〉 , and ‖ ⋅ ‖ stands for the trace norm defined by ‖ G ‖ = Tr G G † .
+3. Two-qubit arbitrary states
+
+First we explore the connection between the SoDE of a two-qubit quantum system and its entanglement properties. Since the entanglement is invariant under permutations of the two qubits, we omit the subscripts of the entanglement and the SoDE.
+3.1. Pure states
+
+The pure states of a two-qubit system are always equivalent to (24) | ψ ( θ ) 〉 = cos θ | 00 〉 + sin θ | 11 〉 , θ ∈ [ 0 , π / 4 ] , under LU transformations, with the entanglement N [ | ψ ( θ ) 〉 ] = C [ | ψ ( θ ) 〉 ] = sin 2 θ . The evolution of the negativity for the states under the local depolarizing channel can be calculated directly. But we are willing to give the following steps to demonstrate the perturbation approach introduced in the above section. The partial transposed density matrix of the pure state (24) is given by (25) ρ T = [ cos 2 θ 0 0 0 0 0 sin 2 θ 2 0 0 sin 2 θ 2 0 0 0 0 0 sin 2 θ ] , which has no zero eigenvalue, and a eigenvector with the negative eigenvalue being | ϕ − 〉 = ( | 01 〉 − | 10 〉 ) / 2 . Under the depolarizing channel in a finite time t , the partial transposed density matrix becomes (26) ρ s T = [ 1 + s 2 + 2 s cos 2 θ 4 0 0 0 0 1 − s 2 4 s 2 sin 2 θ 2 0 0 s 2 sin 2 θ 2 1 − s 2 4 0 0 0 0 1 + s 2 − 2 s cos 2 θ 4 ] , where s = e − t . The perturbation matrix can be derived as (27) σ T = d ρ s T d t | t = 0 = [ − cos 2 θ 0 0 0 0 1 / 2 − sin 2 θ 0 0 − sin 2 θ 1 / 2 0 0 0 0 − sin 2 θ ] . Substituting | ϕ − 〉 and σ T into (21) , (22) , we obtain the SoDE for the two-qubit pure states as (28) η = 2 N + 1 , which is a linear function of the entanglement. It is interesting to notice η → 1 when N → 0 , which indicates the ESD occurs in the pure state of this model even with a slight entanglement. In such a situation, the ESD time equals to the characteristic time T E S D → T ∗ → N , and the robustness in (12) is given by R η → N approaching the result given in  [19] .
+3.2. Frontier states
+
+For the arbitrary two-qubit states, since their entanglement cannot be completely described by one entanglement measure, it is very difficult to derive an analytical expression for the relation between the SoDE and the entanglement properties. Therefore we explore the bounds of SoDE for a given value of negativity and the states achieve the bounds, which is called as the frontier states in this article.
+
+Following the approach in  [45] , [46] , we generate randomly a great number of two-qubit states and plot them in the η – N plane as shown in Fig. 1 (a). We fortunately find the pure states are the frontier states with the maximum of SoDE. To derive the frontier states achieving the lower bound, we begin with the ansatz states [45] , [46] (29) ρ a n s a t z = [ x + γ 2 0 0 γ 2 0 a 0 0 0 0 b 0 γ 2 0 0 y + γ 2 ] , where x , y , a , b , γ ≥ 0 and x + y + a + b + γ = 1 . The region of the ansatz states in the η – N plane is the same as the one of the arbitrary states. By trying to adjust the constrains imposed on the ansatz states without leaving the lower bound, we find the frontier states ρ m on the lower bound when x = y = b = 0 , namely (30) ρ m = γ | ψ ( π / 4 ) 〉 〈 ψ ( π / 4 ) | + ( 1 − γ ) | 01 〉 〈 01 | , with the pure states | ψ ( π / 4 ) 〉 defined in (24) . To verify the frontier state ρ m , we randomly generate weighted random states, namely the mixtures of random states and ρ m with random weights, and plot them in the η – N plane. As shown in Fig. 1 (b), the region of physically acceptable states is encircled perfectly by the curve of the state ρ m . The results of the two families of frontier states presented the lower and upper bounds of the SoDE in two-qubit system as (31) N 2 + 2 N ( N + 1 ) 1 + 2 N − 2 N ( N + 1 ) ≤ η ≤ 2 N + 1 . When N → 0 , the minimum of the SoDE approaches 2 N , and the ESD time and the characteristic time T E S D → T ∗ → N / 2 .
+
+    Download : Download full-size image 
+
+Fig. 1 . Plots of the relations between the SoDE and negativity of randomly generated two-qubit states: (a) 30 000 randomly generated states and the curves showing the upper bound (solid) and the lower bound (dashed) of η ; (b) 5000 randomly generated states weighted with the curve of the lower bound.
+
+According with the results in  [47] , the two families of frontier states exactly is the ones in the comparison of the concurrence and negativity. Specifically, the pure states which has the maximal SoDE achieves the minimal concurrence when the negativity is fixed, and the states ρ m with the minimum of SoDE has the maximum of concurrence for a given negativity. This results indicate that the concurrence reduces the attenuation of the negativity.
+
+Then, a question arises: Is there a definite link between the extreme cases in the two topics? To explore the relations, we introduce four non-negative quantities as ξ 1 = C − N , χ 1 = 2 N + 1 − η , ξ 2 = N − N m i n and χ 2 = η − η m i n , where η m i n is the lower bound of the SoDE in (31) and N m i n = C 2 + ( 1 − C ) 2 + C − 1 is the minimal negativity for a fixed concurrence satisfied by the frontier states ρ m . Plotting the randomly generated states in the ξ 1 – χ 1 and ξ 2 – χ 2 planes as shown in Fig. 2 , in the same approach for η – N , we obtain the frontier states in the two planes. They are the states ρ m for the first case, and (32) ρ k = γ | ψ ( π / 4 ) 〉 〈 ψ ( π / 4 ) | + a ( | 01 〉 〈 01 | + | 10 〉 〈 10 | ) , with γ + 2 a = 1 , for the second, which are shown by the solid lines in Fig. 2 . By straightforward calculations, one can find that, ξ 1 ( ρ m ) is a single-valued function of χ 1 ( ρ m ) , and equally true for ξ 2 ( ρ k ) and χ 2 ( ρ k ) . Hence, the states ρ m has the maximums of ξ 1 for a given χ 1 . When χ 1 ( ρ m ) = 0 , it can be derived that ξ 1 ( ρ m ) = 0 . Therefore, for arbitrary states, χ 1 = 0 ⇒ ξ 1 = 0 . In other words, the concurrence reaching the minimum is a necessary condition for SoDE with the maximum. Similarly, one can find that the concurrence reaching the maximum is a necessary condition for SoDE with the minimum. These demonstrates that there are other factors that affect the SoDE in two-qubit system in addition to the concurrence and negativity.
+
+    Download : Download full-size image 
+
+Fig. 2 . Plots of 30 000 randomly generated states in (a) the ξ 1 – χ 1 plane and (b) the ξ 2 – χ 2 plane. The solid curves are the results of ρ m in (a) and ρ k in (b).
+3.3. Two-parameter states
+
+To study the influence on the SoDE by the concurrence and other quantities related with entanglement, we consider three classes of two-parameter mixed states in the similar form as the ansatz states (29) .
+
+As an analytical example to show the relation between the SoDE and the concurrence, the first two-parameter class of states we studied is (33) ρ C = γ | ψ ( π / 4 ) 〉 〈 ψ ( π / 4 ) | + a | 01 〉 〈 01 | + b | 10 〉 〈 10 | , with γ , a , b ∈ [ 0 , 1 ] and γ + a + b = 1 , which is the ansatz state with x = y = 0 . When a = b , it returns to the states ρ k in (32) , whose concurrence and negativity have the same values. When a b = 0 , it reduces the states with the maximal concurrence, such as ρ m in (30) . Its SoDE can be expressed in terms of N and C as (34) η = 2 N + 1 − 2 ( 1 − C ) ( C − N ) ( 1 + N ) N 2 − C 2 + 2 C ( 1 + N ) , which can returns to the bounds in (31) in the two cases of a = b and a b = 0 respectively. In the Fig. 3 (a), one can notice in this family of states, when the other entanglement measure is fixed, the SoDE increases as the negativity increases, but decrease with the concurrence increasing.
+
+    Download : Download full-size image 
+
+Fig. 3 . Plots of the relations between the SoDE and the negativity of the states (a) ρ C , (b) ρ S L and (c) ρ I t o t , with the contours of the concurrence C , the linear entropy S L and the quantum mutual information I t o t respectively.
+
+Considering the frontier states ρ m in (30) are precisely the maximally entangled mixed states in the region of C ≥ 2 / 3   [45] , we attempt to find the relation between the SoDE and the degree of mixture, measured by the linear entropy as S L ( ρ ) = 4 3 ( 1 − Tr ρ 2 ) . Since, for a given concurrence the pure states has the minimal linear entropy, we choose the hybrid states of (24) , (30) as (35) ρ S L = γ | ψ ( θ ) 〉 〈 ψ ( θ ) | + ( 1 − γ ) | 01 〉 〈 01 | . In Fig. 3 (b), one can notice for a fixed mixture in these states, the relation between the SoDE and negativity is approximately linearity. However, the SoDE does not clearly relate with the linear entropy S L .
+
+Rather than the mixture of the whole state, we are interested in the quantities describing the relations between the subsystems. The total correlation in a bipartite quantum system has been defined as the difference between the sum of the von Neumann entropies of the two subsystems and that of the whole system, called the quantum mutual information   [2] (36) I t o t ( ρ ) = S ( ρ A ) + S ( ρ B ) − S ( ρ ) , where S ( ρ ) = − Tr ( σ ln σ ) and ρ A (and ρ B ) is the reduced density operator. To explore the influence by the correlations outside of the entanglement, we choose a class of two-parameter states as (37) ρ I t o t = ρ a n s a t z | y = 0 , C = f ( N ) , where f ( x ) = − x / 2 + x + 5 x 2 / 4 . Here, actually, the choice of the function f ( x ) is quite arbitrary only requires f ( x ) ≥ x when x ∈ [ 0 , 1 ] . With the above form of the function, the region of the states ρ I t o t in (37) in the η – N plane is large enough, and the influence of the quantum mutual information can be shown clearly. In Fig. 3 (c), one can notice for a given N , of course the concurrence C is fixed, the SoDE decreases with the I t o t increasing. That is, the correlations other than the entanglement described by the concurrence also reduce the SoDE under a noise environment.
+4. Three-qubit pure states
+
+In this section, we explore the SoDE of the three-qubit pure states, whose entanglement properties can be described by the invariants in (10) . For a three-qubit system, there are two inequivalent classes of genuine tripartite entanglement, which are the GHZ state and the W state | GHZ 〉 = 1 2 ( | 000 〉 + | 111 〉 ) , (38) | W 〉 = 1 3 ( | 001 〉 + | 010 〉 + | 100 〉 ) . They cannot be transformed each other by stochastic local operations and classical communication (SLOCC)  [48] . The GHZ state possesses a maximum tripartite entanglement characterized by the three-tangle  [42] , for which case τ ( | GHZ 〉 ) = 1 , but the residual bipartite entanglement of GHZ state is zero. However, the W state possesses zero three-tangle, with τ ( | W 〉 ) = 0 , and maximizes the residual bipartite entanglement.
+
+In  [19] , the authors find the most robust symmetrical three-qubit pure states under the partially depolarizing channel are the GHZ-like states (see below Eq. (40) ), and ascribe the robustness to the three-tangle. Our question is whether the conclusion is established when we consider the SoDE as the signature for the stability of the entanglement. Furthermore, what role do the five entanglement invariants play in the SoDE respectively?
+4.1. Symmetrical states
+
+To answer the first question, we start from the symmetrical pure states, which are invariable under the permutations of the three particles. In this part, the subscripts of the negativity and the SoDE are also omitted. Generally, an arbitrary symmetrical three-qubit entangled pure state can be written as  [19] (39) | Φ 〉 = t 1 | 000 〉 + t 2 | W 〉 + t 3 | W ′ 〉 + t 4 | 111 〉 , where t i ( i = 1 , 2 , 3 , 4 ) is the complex constant, ∑ i | t i | 2 = 1 , and | W ′ 〉 = ( σ x ⊗ σ x ⊗ σ x ) | W 〉 with σ x being the first Pauli operator. The first three entanglement invariants satisfy I 1 = I 2 = I 3 = 1 − N 2 2 , where N is the negativity between one qubit and its complementary two-qubit subsystem. Only three invariants in the symmetrical states are independent.
+
+As the two-qubit arbitrary states case, we can determined the bounds of the SoDE in the present case. The region of the symmetrical three-qubit pure states in the η – N plane is shown by the randomly generated states in Fig. 4 (a). Following the approach in the case of the arbitrary two-qubit states, we obtain the two frontier states on the lower and upper bounds are the GHZ-type states and the W-type states respectively | G 〉 = a | 000 〉 + 1 − a | 111 〉 , (40) | J 〉 = b | W 〉 + 1 − b | 111 〉 , where a , b ∈ [ 0 , 1 ] . They can be proved strictly by using the main result of the present subsection given in Eq. (48) . We remark that the states | J 〉 are not equal to the W- like states in  [19] under LU transformation.
+
+    Download : Download full-size image 
+
+Fig. 4 . Plot of (a) 30 000 randomly generated three-qubit symmetrical pure states; (b) 30 000 randomly generated three-qubit arbitrary pure states in the η – N plane. The curves show the upper bounds (solid) and the lower bounds (dashed) in the two cases.
+
+For the state of | G 〉 , the partial transpose over the first qubit is ρ G T = a | 000 〉 〈 000 | + a ( 1 − a ) ( | 011 〉 〈 100 | + | 100 〉 〈 011 | ) + ( 1 − a ) | 111 〉 〈 111 | . The eigenstate with the negative eigenvalue can be obtained as | ϕ G − 〉 = ( | 100 〉 − | 011 〉 ) / 2 , and the ones with zero eigenvalue are | 001 〉 , | 010 〉 , | 101 〉 and | 110 〉 . The corresponding matrix in (23) is positive semidefinite, which is written in the basis { | 001 〉 , | 010 〉 , | 101 〉 , | 110 〉 } as (41) σ G , 0 T = [ a 2 0 0 0 0 a 2 0 0 0 0 1 − a 2 0 0 0 0 1 − a 2 ] . Therefore, the eigenvectors with the zero eigenvalue do not have contribution to the SoDE, η ( 0 ) ( | G 〉 ) = 0 . Similarly, η ( 0 ) ( | J 〉 ) = 0 . Their SoDE are only determined by the responses of the negative eigenvalues under the noise channels, and can be derived as (42) η ( | G 〉 ) = 3 N + 1 2 , η ( | J 〉 ) = 5 2 N + 1 , which are the lower and upper bounds respectively. Hence, in the viewpoint of the SoDE, the GHZ-type states are more robust than the other symmetrical states, which fits with the result given in  [19] .
+
+However, it is very attractive to us that whether the robustness comes from the three-tangle. We can obtain the invariants in the two families of states as N ( | G 〉 ) = 2 ( 1 − a ) a , N ( | J 〉 ) = 2 3 2 b ( 3 − 2 b ) , (43) τ ( | G 〉 ) = 4 ( 1 − a ) a , τ ( | J 〉 ) = 16 1 − b b 3 / 2 3 3 , I 4 ( | G 〉 ) = 1 − 3 a + 3 a 2 , I 4 ( | J 〉 ) = 1 − 3 b + 4 b 2 − 16 b 3 9 . For a given value of negativity, they satisfy τ ( | G 〉 ) ≥ τ ( | J 〉 ) and I 4 ( | G 〉 ) ≥ I 4 ( | J 〉 ) , in which the equalities hold when N = 0 or N = 1 . This suggests that there exists another candidate, the fourth invariant I 4 , for the main factor affecting the stability of the negativity.
+
+To answer the above question, we consider the hybrid states of | G 〉 and | J 〉 , as (44) | Υ 〉 = c 1 | 000 〉 + c 2 | W 〉 + c 3 | 111 〉 , where c j ( j = 1 , 2 , 3 ) are real and ∑ j c j 2 = 1 . Its independent entanglement invariants (regardless of the normalization condition) can be derived as N = 2 3 2 c 2 4 + 9 c 1 2 c 3 2 + 6 c 2 2 c 3 2 , (45) I 4 = c 1 6 + 3 c 1 4 c 2 2 + 2 c 2 6 9 + c 2 4 c 3 2 + c 3 6 + 2 3 c 1 2 c 2 3 ( 3 c 2 + 3 c 3 ) , τ = 4 9 | c 3 ( 4 3 c 2 3 + 9 c 1 2 c 3 ) | . Transposing the states | Υ 〉 〈 Υ | partially on the first qubit, we derive the unique eigenvector with the negative eigenvalue as (46) | ψ − 〉 = 3 N + 4 c 2 2 6 c 1 c 3 | 000 〉 − c 2 3 c 3 | 001 〉 − c 2 3 c 3 | 010 〉 + 3 N + 6 c 1 2 + 4 c 2 4 2 3 c 1 c 2 | 011 〉 − 3 N + 2 3 c 3 2 c 2 c 3 | 100 〉 − 3 N + 2 c 2 2 + 6 c 3 2 6 c 3 | 101 〉 − 3 N + 2 c 2 2 + 6 c 3 2 6 c 1 c 3 | 110 〉 + | 111 〉 , which is non-normalized. Under the depolarizing channel in an infinitesimal time, the form of σ T can be derived directly. Substituting it and the eigenvector into (21) , we obtain the SoDE in terms of the coefficients c j as η ( c 1 , c 2 , c 3 ) . In this case, η ( 0 ) = 0 means the eigenvectors with the zero eigenvalue do not have contribution to the SoDE. Considering the relations τ = N 2 and I 4 = 1 − 3 N 2 / 4 , satisfied by the GHZ-type states, we suppose the SoDE of the states | Υ 〉 can be written as (47) η = 3 N + 1 2 + ( τ − N 2 ) X + ( I 4 − 1 + 3 4 N 2 ) Y , where X and Y are two undetermined functions of N , τ and I 4 . Substituting the invariants (45) into the above expression, and comparing it with η ( c 1 , c 2 , c 3 ) , we obtain the form of SoDE for the state | Υ 〉 as (48) η = 32 − 32 I 4 − 12 N 2 + 84 N 3 + 69 N 4 + 3 τ 2 24 N 2 ( N + 1 ) . Very fortunately, we find the relation is also satisfied by the general symmetry states (39) .
+
+From the above relation between the SoDE and the entanglement invariants, one can clearly notices that, η decreases with the increase of I 4 , but increases as the three-tangle increasing. In other words, the entanglement among the three qubits, quantified by the three-tangle, can enhances the SoDE, but the two-qubit correlations described by I 4 reduces the speed of negativity. Therefore, it is I 4 but not the three-tangle τ making the GHZ-type states to be the most robust symmetric pure states. In the analysis of the Ref.  [19] , the states they considered have no more than two independent parameters, which muddles up the influences of I 4 and τ .
+4.2. General states
+
+The discovery of the analytic expression of the relation between the SoDE and the entanglement invariants in symmetrical states in (48) reveals the SoDE is an effective tool to explore the role of different entanglement in the stability of multipartite entanglement. This motivates us to extend it to more general case, and study the influences of the other invariants on the SoDE.
+
+The general the form of the three-qubit pure states is given by (49) | Ψ 〉 = c 0 | 000 〉 + c 1 | 001 〉 + c 2 | 010 〉 + c 3 | 011 〉 + c 4 | 100 〉 + c 5 | 101 〉 + c 6 | 110 〉 + c 7 | 111 〉 , where c i ( i = 0 , 1 , 2 , … , 7 ) are complex constants and ∑ i | c i | 2 = 1 . Without loss of generality, the analysis can be restricted to the negativity between the first qubit and the subsystem containing the other two qubits.
+
+Following our schedule in the symmetrical states case, we first derive the bounds of the SoDE for the arbitrary pure states. Plotting the randomly generated three-qubit pure states in the η 1 – N 1 plane, we find only the lower bound are different with the one of the symmetrical states in the region of N 1 > 1 / 2 . And the altered lower bound corresponds to nothing but the result of the pure two-qubit state in (28) . Thus, the frontier states on the lower bound of the SoDE for three-qubit pure states are the GHZ-type states when N 1 ≤ 1 / 2 , and the direct product states of an entangled state containing the first qubit and a single partite state of the remaining qubit, such as | μ 〉 = | ψ ( θ ) 〉 | 0 〉 with the | ψ ( θ ) 〉 defined in (24) . Besides the symmetric pure states | J 〉 , we also find the frontier states on the upper bound contain the family of states as (50) | Π 〉 = α | 0 〉 | ψ ( θ 0 ) 〉 + β | 1 〉 | ψ ′ ( θ 1 ) 〉 , where | α | 2 + | β | 2 = 1 , | ψ ′ ( θ ) 〉 = ( I ⊗ σ x ) | ψ ( θ ) 〉 and ( θ 0 − π / 4 ) ( θ 1 − π / 4 ) = 0 .
+
+To realize the ultimate aim of the SoDE for the arbitrary pure states, we consider the subclass of states of Ψ as (51) | Λ 〉 = c 0 | 000 〉 + c 1 | 001 〉 + c 6 | 110 〉 , where c i are restricted in the real numbers. It can be regarded a hybrid state of the two frontier states on the lower bound of the SoDE, which becomes the GHZ-type state when c 0 = 0 and returns to | μ 〉 with c 1 = 0 . Its five entanglement invariants can be derived as I 1 = I 2 = 1 − N 1 2 2 , (52) I 3 = 1 − 2 c 1 2 c 6 2 , I 4 = c 0 6 + 3 c 0 4 c 1 2 + 3 c 0 2 c 1 4 + c 1 6 + c 6 6 , τ = 4 c 1 2 c 6 2 , where N 1 = 2 ( c 0 2 + c 1 2 ) c 6 2 . In the perturbation approach, the first term of the SoDE for | Λ 〉 the can be gotten as (53) η 1 ( − ) ( | Λ 〉 ) = 5 2 N 1 + 1 − ( 1 − N 1 ) ( 1 − I 3 ) N 1 2 . There exist four eigenstates of the partial transposed density matrix of | Λ 〉 with the zero eigenvalue, which span the degenerate subspace { | 111 〉 , c 1 | 100 〉 − c 0 | 101 〉 , | 011 〉 , c 1 | 000 〉 − c 0 | 001 〉 } . And the matrix σ 0 T 1 defined in (23) in the subspace is given by (54) σ 0 T 1 = [ c 6 2 2 0 0 0 0 c 1 2 c 6 2 2 ( c 0 2 + c 1 2 ) c 0 2 c 6 2 c 0 2 + c 1 2 0 0 c 0 2 c 6 2 c 0 2 + c 1 2 c 1 2 2 0 0 0 0 c 0 2 + c 1 2 2 ] . The criterion for the matrix σ 0 T 1 having a negative eigenvalue is c 1 4 c 6 2 − c 0 4 c 6 2 < 0 . From the relations in (52) , we find it can be replaced by Θ = ( I 2 − I 3 ) 2 − τ 2 / 4 > 0 , which is verified as the universal criterion for nonzero η 1 ( 0 ) for arbitrary three-qubit pure states. By using the relations in (10) , the criterion can be rewritten as | τ 12 − τ 13 | − τ > 0 , where τ i j = C i j 2 are the two-tangle. The second part of the SoDE for | Λ 〉 can be written as (55) η 1 ( 0 ) ( | Λ 〉 ) = { 0 , Θ ≤ 0 , ( 1 − I 3 ) 2 + N 1 2 Θ − ( 1 − I 3 ) N 1 2 , Θ > 0 .
+
+On the other hand, we calculate a class of states without the three-tangle as (56) | Ω 〉 = c 0 | 000 〉 + c 1 | 001 〉 + c 2 | 010 〉 + c 4 | 100 〉 , where ∑ j | c j | 2 = 1 with j = 0 , 1 , 2 , 4 . It can be considered as a generalization of the W-like states in  [19] Similarly, for | Ω 〉 , following the perturbation approach and replacing c j by the invariants, we get the SoDE (57) η 1 ( | Ω 〉 ) = − 16 − 32 I 4 + 36 N 1 2 + 84 N 1 3 + 57 N 1 4 − 12 ( I 2 − I 3 ) 2 + 12 ( I 2 + I 3 ) ( 2 − N 1 2 ) 24 N 1 2 ( N 1 + 1 ) − M 2 + ( I 2 − I 3 ) 2 N 1 2 − M N 1 2 where M = 1 3 ( 5 − 3 I 1 − 3 I 2 − 3 I 3 + 4 I 4 ) = 1 6 ( 4 − 6 I 2 − 6 I 3 + 8 I 4 + 3 N 1 2 ) .
+
+Based on an overall consideration of the analytic results of SoDE in the states | Φ 〉 , | Λ 〉 and | Ω 〉 , we guess the form of SoDE for general three-qubit pure states to be (58) η 1 ( | Ψ 〉 ) = − 16 − 12 Θ − 32 I 4 + 36 N 1 2 + 84 N 1 3 + 57 N 1 4 + 12 ( I 2 + I 3 ) ( 2 − N 1 2 ) 24 N 1 2 ( N 1 + 1 ) − { 0 , Θ ≤ 0 ; M 2 + N 1 2 Θ − M N 1 2 , Θ > 0 . By the numerical validation, the above unified form almost is fulfilled by most all the three-qubit pure states. Namely, we take Δ η = | η 1 − η m | , where η m is the numerical solution by the finite difference method with Δ t = 1 0 − 9 . We generate 200 000 sets of data for the Δ η , which show that Δ η is less than 1 0 − 5 when N 1 ≥ 1 0 − 5 . When N 1 < 1 0 − 5 , since the emergence of the phenomenon of ESD, the finite difference method is no longer suitable.
+
+From the form in (58) , one can notice the conclusions about the influences of I 4 and τ on the SoDE drawn from the symmetrical states also exist in the general case. The sum of the invariants I 2 and I 3 can enhance the SoDE. In the other words, the decay of the negativity between the first qubit and the subsystem containing the other two qubits, can be restrained by the other two negativity with the coequal sense. The unbalance between the second and the third qubits, shown by the differences ( I 2 − I 3 ) 2 and | τ 12 − τ 13 | , can reduce the SoDE of the first qubit. Especially when | τ 12 − τ 13 | > τ , the vanishing negativity can be partially brought back, which reflected in nonzero η 1 ( 0 ) .
+5. Multiqubit states
+
+For the multiqubit system, in which the SoDE will be more complex, due to the absence of a uniform measure of entanglement, we only study some special symmetrical states.
+
+The k -qubit GHZ-type states have been investigated widely as a family of exemplary states in the topic about the decay of entanglement in multiparty systems. It is given by (59) | G 〉 k = α | 0 〉 ⊗ k + β | 1 〉 ⊗ k , where α , β are complex constant and | α | 2 + | β | 2 = 1 . For the case of k ≥ 3 , the SoDE under the local depolarizing channel can be calculated directly as (60) η ( | G 〉 k ) = k N + 1 2 , where the negativity N = 2 | α β | . And, the alternative robustness is given by (61) R η ( | G 〉 k ) = 1 − Exp ( − 2 N 2 k N + 1 ) . It is interesting to notice the SoDE given by (28) of the two-qubit GHZ-type states is not contained in the form of (60) . Based on the results in (42) , we present a possible explanation as, the slop in the SoDE (28) of the two-qubit state comes from its similarity with the GHZ-type states, but the intercept is related with its property of the W-type states, since they are the two different generalizations of the two-qubit pure states to the three-qubit system. In the limit of large number of particles k → + ∞ , the robustness (61) and the corresponding characteristic time approach R η → 1 / k and T ∗ → 1 / k , which conforms to the time at which such entanglement becomes arbitrarily small  [16] .
+
+The second class of k -qubit entangled states we considered are the W states (62) | W 〉 k = 1 k ( | 00 … 01 〉 + | 00 … 10 〉 + ⋯ + | 10 … 00 〉 ) , whose negativity is N = 2 k − 1 / k . The corresponding SoDE can be obtained as (63) η ( | W 〉 k ) = ( k + 2 ) k − 1 + 2 ( k − 1 ) − ( k − 2 ) k − 2 k . It is plotted in Fig. 5 (a), one can find that the SoDE η increases with k for 2 ≤ k ≤ 4 , but decreases with k when k ≥ 5 . However, the robustness of | W 〉 k only decrease with k . When the number of particles k → + ∞ , the negativity N → 2 / k , and the SoDE approaches a constant η ( | W 〉 k ) → 2 . And then the alternative robustness of | W 〉 k is given by R η ( | W 〉 k ) = 1 − Exp ( − N / η ) → 1 / k . It is worth mentioning the result in  [49] that, for the k -qubit system initial with the W states under the amplitude-damping channel, the negativity of the least balanced partitions decays with 1 / k .
+
+    Download : Download full-size image 
+
+Fig. 5 . (a) Plot of the relation between the SoDE and the number of qubit for | W 〉 k . (b) Plot of the maximal influence of φ on the SoDE of the states | Z ( q , φ ) 〉 k for k = 3 (solid), k = 4 (dashed) and k = 5 (dot-dashed).
+
+When the number of qubits k = 3 , the GHZ states | GHZ 〉 k = ( | 0 〉 ⊗ k + | 1 〉 ⊗ k ) / 2 and the W states in (62) become the two frontier states (40) for the symmetric case with a = 1 / 2 and b = 1 . And the negativity of their superposition (64) | Z ( q , φ ) 〉 k = q | GHZ 〉 k − e i φ 1 − q | W 〉 k , does not depend on the phase factor φ   [19] . Therefore, the influence of φ on the SoDE is related with the entanglement properties described by τ and I 4 . Since, for arbitrary values of k , the negativity of | Z ( q , φ ) 〉 k (65) N = ( − k 2 + 6 k − 4 ) q 2 + 2 ( k 2 − 5 k + 4 ) q + 4 ( k − 1 ) k . also only depends on the parameter q , we can consider the maximal effect of φ (66) Δ η ( q ) = max { η [ | Z ( q , φ a ) 〉 k ] − η [ | Z ( q , φ b ) 〉 k ] } , as a characteristic quantity to indicate the affection of the entanglement besides the negativity. In Fig. 5 (b), we plot the relation between Δ η ( q ) and q for k = 3 , 4 , 5 . It is shown that, when k = 3 , the phase φ presents a significant affection on the SoDE for arbitrary q . But, for the case of k = 4 , the influence is not distinct when q < 0.4 , where the proportion of the GHZ state in | Z ( q , φ ) 〉 k is less than the one of the W state. When k = 5 , the values of Δ η ( q ) can hardly be seen in the Fig. 5 (b). With a numerical simulation, we find the amount of Δ η ( q ) is no more than 10 −4 , for k = 5 and 6. That is, the SoDE of the states | Z ( q , φ ) 〉 k are almost entirely on the negativity when k becomes large.
+
+By contrast, one can choose the GHZ-type states (59) with the negativity N = 2 k − 1 / k , and derive the difference between the values of SoDE in (60) , (63) . It is easy to find the difference increases with increasing number of qubits, when k ≥ 4 . This reveals, the affection of the entanglement besides the negativity on the SoDE becomes more prominent as the number k increases. According to these results, the family of the states | Z ( q , φ ) 〉 k is not a good sample to explore the role of different entanglement components in the stability of the entanglement in the systems with a large number of particles.
+6. Conclusion and discussion
+
+In the present study, we investigate the dynamical properties of entanglement of multiqubit systems under local partially depolarizing channels. In this model, each qubit is independent couples with its own environment. Our main concern is the bipartite entanglement between one qubit and its complementary subsystem, measured by negativity. The relations between the SoDE and the entanglement properties in an entangled state are explored.
+
+In two-qubit system, for the pure states, we get the analytical expression of the SoDE, which is determined completely by the negativity. For the arbitrary states, using the form of the ansatz states, we gain the upper and lower bounds of the SoDE. The pure states has the maximal SoDE, and the mixture of mutually orthogonal a Bell state and a separable pure state as (30) achieves the minimum of SoDE. The minimum and the maximum of concurrence are shown to be the necessary conditions for the two bounds respectively. With the aid of some classes of two-parameter states, we find the SoDE can be reduced by both the concurrence and the total correlation.
+
+In three-qubit system, we derive the analytical expression of the SoDE in terms of the entanglement invariants for arbitrary pure states. The GHZ-type states are shown to be the most robust, which is consistent with the result in  [19] . However, by the relation between the SoDE and the invariants, we find the main reason for the robustness in the GHZ-type states is the two-qubit correlation described by the fourth invariant I 4 . On the contrary, the three-tangle among the whole system can enhance the speed of negativity under the local depolarizing channel. The decay of the negativity can be restrained by the other two negativity with the coequal sense. The unbalance between two qubits can reduce the SoDE of the remaining one in the three-qubit system. Especially when | τ 12 − τ 13 | > τ , the vanishing negativity of the first qubit can be partially brought back.
+
+At last, we study k -qubit system with the aid of some families of exemplary states. For the k -qubit systems in an arbitrary superposition of GHZ state and W state, the influence of the entanglement outside the negativity becomes less noticeable when k increases to five or six. In the limit of large number of particles, for the GHZ-type states, the characteristic time and the corresponding robustness defined in (12) base on the SoDE, is inversely proportional to k . This coincide with the result of the time at which such entanglement becomes arbitrarily small given in  [16] . Under the same condition, the robustness of the k -qubit W states approaches 1 / k . A similar behavior has been reported in  [49] , exhibited by the negativity of the least balanced partitions, in the k -qubit system initial with the W states under the amplitude-damping channel. These results show the effectiveness of the SoDE and the corresponding alternative robustness to quantize the stability of the entanglement in multipartite quantum systems.
+
+Finally, we briefly discuss the universality of our definitions and results, especially about the choices of the entanglement measures and the noise channels. The main reason for adopting the negativity as the entanglement measure in our present work about the SoDE is its computability, and fatherly its speed being also computable effectively with the aid of perturbation theory . A computable quantity always has more advantages for physicists. Because of the necessity and sufficiency of N > 0 for entanglement in pure states, the SoDE defined in (11) and the related alternative robustness can be used to explore the stability of the entanglement in arbitrary dimensional multiparty pure states. In addition, although N > 0 only is the sufficiency condition for entanglement in mixed states with the dimension larger than six, the speed of negativity can still be considered as a signature for stability of the entanglement in the states with a nonzero N . Meanwhile, the robustness related with the ESD noise parameter is suspect, because its practical computation is usually based on the PPT criterion.
+
+In principle, on can choose any measures of entanglement and study the corresponding SoDE. We conjecture that, in the multiparty system with pure states, the qualitative conclusions for other entanglement measure are similar with the ones for negativity.
+
+Taking the concurrence in (7) for instance, one can define its speed as the form in (11) (67) η C = | d C d t | t = 0 . From the relation in (9) , it is directly to find the speed of the concurrence for a pure state in multiqubit system satisfies (68) η C ≤ η N , where η N denotes the corresponding SoDE in (11) . Especially, for the two-qubit case, (69) η C = 2 C + 1 = η N . And, for the k -qubit GHZ-type states (70) k C + C 2 ≤ η C ≤ k C + 1 2 = η N , where the upper bound comes from (68) , and the lower bound can be derived as following. After passage through the depolarizing channel, the final state can be divided as (71) ρ s G = [ 1 − δ ( s ) ] ρ e ( s ) + δ ( s ) ρ d ( s ) , where ρ e ( s ) is a state in the space of { | 0 〉 , | 1 〉 } ⊗ { | 0 〉 ⊗ ( k − 1 ) , | 1 〉 ⊗ ( k − 1 ) } , ρ d ( s ) is a separable diagonal state, and they together with the non-negative coefficient δ ( s ) depend on the noise parameter s . By the convexity of concurrence, (72) C ( ρ s G ) ≤ [ 1 − δ ( s ) ] C [ ρ e ( s ) ] which leads to the lower bound in (70) . Moreover, based on the bounds in (70) , we can obtain the corresponding alternative robustness R η C = 1 − Exp ( − C / η C ) → 1 / k , when k → ∞ , which is the same as the result for negativity. Then, the above results left a interesting question for us: Can we find a explicitly expression for η C of the multiqubit pure states?
+
+However, for the mixed states, the speed of concurrence has a problem of singularity . For example, in the two-qubit system, the form of ansatz states (29) is held under the local depolarizing channel. The speed of concurrence can be obtained as η C = b a ∂ a ∂ t + a b ∂ b ∂ t − ∂ γ ∂ t , which approaches infinity when a > 0 and b → 0 (or a → 0 and b > 0 ). This property also exists under other local operations  [50] , which holds the form of the ansatz states and drastically enforces full rank of the states when a = 0 or b = 0 . However the corresponding alternative robustness R η C has a finite value.
+
+In order to compare with the depolarizing channel, we also calculate the SoDE of the GHZ-type states | G 〉 k under the local dephasing channel, which is described by the Kraus operators as E 0 = ( 1 + e − t ) / 2 I and E 1 = ( 1 − e − t ) / 2 σ 3 . The SoDE for both the concurrence and the negativity are (73) η = k C = k N , which also lead the alternative robustness R η → 1 / k , with k → ∞ . This is in accord with the conclusion about the limit of large number of particles in [25] .
+Acknowledgments
+
+We are grateful to the reviewer for valuable comments. F.L.Z. thanks Jing-Ling Chen, Fu-Guo Deng and Bao-Kui Zhao for their valuable discussions and encouragement. This work is supported by the NSF of China (Grant No. 11105097 ).
+References
+
+[1]
+    A. Einstein, B. Podolsky, N. Rosen
+    Phys. Rev., 47 (1935), p. 777
+    View Record in Scopus
+[2]
+    M. Nielsen, I. Chuang
+    Quantum Computation and Information
+    Cambridge University Press, Cambridge, UK (2000)
+    Google Scholar
+[3]
+    A. Ekert
+    Phys. Rev. Lett., 67 (1991), p. 661
+[4]
+    C. Bennett, G. Brassard, N. Mermin
+    Phys. Rev. Lett., 68 (1992), p. 557
+[5]
+    C. Bennett, G. Brassard, C. Crépeau, R. Jozsa, A. Peres, W. Wootters
+    Phys. Rev. Lett., 70 (1993), p. 1895
+    View Record in Scopus
+[6]
+    C.H. Bennett, S.J. Wiesner
+    Phys. Rev. Lett., 69 (1992), p. 2881
+    View Record in Scopus
+[7]
+    T. Yu, J.H. Eberly
+    Phys. Rev. Lett., 93 (2004), p. 140404
+[8]
+    M. Yönaç, T. Yu, J. Eberly
+    J. Phys. B: At. Mol. Opt. Phys., 39 (2006), p. S621
+    View Record in Scopus
+[9]
+    A. Al-Qasimi, D. James
+    Phys. Rev. A, 77 (2008), p. 012117
+    CrossRef View Record in Scopus
+[10]
+    T. Yu, J. Eberly
+    Science, 323 (2009), p. 598
+    CrossRef
+[11]
+    K. Roszak, P. Horodecki, R. Horodecki
+    Phys. Rev. A, 81 (2010), p. 042308
+    CrossRef View Record in Scopus
+[12]
+    J. Laurat, K. Choi, H. Deng, C. Chou, H. Kimble
+    Phys. Rev. Lett., 99 (2007), p. 180504
+    CrossRef View Record in Scopus
+[13]
+    M. Almeida, F. De Melo, M. Hor-Meyll, A. Salles, S. Walborn, P. Ribeiro, L. Davidovich
+    Science, 316 (2007), p. 579
+    CrossRef View Record in Scopus
+[14]
+    A. Salles, F. de Melo, M.P. Almeida, M. Hor-Meyll, S.P. Walborn, P.H. Souto Ribeiro, L. Davidovich
+    Phys. Rev. A, 78 (2008), p. 022322
+    CrossRef View Record in Scopus
+[15]
+    C. Simon, J. Kempe
+    Phys. Rev. A, 65 (2002), p. 052327
+[16]
+    L. Aolita, R. Chaves, D. Cavalcanti, A. Acin, L. Davidovich
+    Phys. Rev. Lett., 100 (2008), p. 80501
+[17]
+    Z. Man, Y. Xia, N. An
+    Phys. Rev. A, 78 (2008), p. 064301
+    CrossRef View Record in Scopus
+[18]
+    Z. Liu, H. Fan
+    Phys. Rev. A, 79 (2009), p. 064305
+    CrossRef View Record in Scopus
+[19]
+    B. Zhao, F. Deng
+    Phys. Rev. A, 82 (2010), p. 014301
+    CrossRef View Record in Scopus
+[20]
+    K. Życzkowski, P. Horodecki, M. Horodecki, R. Horodecki
+    Phys. Rev. A, 65 (2001), p. 012101
+[21]
+    G. Vidal, R. Tarrach
+    Phys. Rev. A, 59 (1999), p. 141
+    View Record in Scopus
+[22]
+    Y. Sagi, I. Almog, N. Davidson
+    Phys. Rev. Lett., 105 (2010), p. 053201
+    CrossRef View Record in Scopus
+[23]
+    J. Du, X. Rong, N. Zhao, Y. Wang, J. Yang, R. Liu
+    Nature, 461 (2009), p. 1265
+    CrossRef
+[24]
+    T. Cubitt, F. Verstraete, J. Cirac
+    Phys. Rev. A, 71 (2005), p. 052308
+    CrossRef View Record in Scopus
+[25]
+    M. Hein, W. Dür, H.-J. Briegel
+    Phys. Rev. A, 71 (2005), p. 032350
+    CrossRef View Record in Scopus
+[26]
+    G. Vidal, R.F. Werner
+    Phys. Rev. A, 65 (2002), p. 032314
+    View Record in Scopus
+[27]
+    A. Peres
+    Phys. Rev. Lett., 77 (1996), p. 1413
+    View Record in Scopus
+[28]
+    K. Życzkowski, P. Horodecki, A. Sanpera, M. Lewenstein
+    Phys. Rev. A, 58 (1998), p. 883
+    View Record in Scopus
+[29]
+    A. Borras, A.P. Majtey, A.R. Plastino, M. Casas, A. Plastino
+    Phys. Rev. A, 79 (2009), p. 022108
+    CrossRef View Record in Scopus
+[30]
+    Y.S. Weinstein
+    Phys. Rev. A, 82 (2010), p. 032326
+    CrossRef View Record in Scopus
+[31]
+    W. Wootters
+    Phys. Rev. Lett., 80 (1998), p. 2245
+    View Record in Scopus
+[32]
+    K. Chen, S. Albeverio, S.-M. Fei
+    Phys. Rev. Lett., 95 (2005), p. 040504
+    CrossRef View Record in Scopus
+[33]
+    Kraus
+    States, Effects, and Operations: Fundamental Notions of Quantum Theory
+    Springer-Verlag, Berlin (1983)
+    Google Scholar
+[34]
+    W. Dür, H. Briegel
+    Phys. Rev. Lett., 92 (2004), p. 180403
+    View Record in Scopus
+[35]
+    C.H. Bennett, D.P. DiVincenzo, J.A. Smolin, W.K. Wootters
+    Phys. Rev. A, 54 (1996), p. 3824
+[36]
+    C.H. Bennett, G. Brassard, S. Popescu, B. Schumacher, J.A. Smolin, W.K. Wootters
+    Phys. Rev. Lett., 76 (1996), p. 722
+    View Record in Scopus
+[37]
+    V. Vedral, M.B. Plenio, K. Jacobs, P.L. Knight
+    Phys. Rev. A, 56 (1997), p. 4452
+    View Record in Scopus
+[38]
+    M. Horodecki, P. Horodecki, R. Horodecki
+    Phys. Lett. A, 223 (1996), p. 1
+    Article Download PDF View Record in Scopus
+[39]
+    A. Sudbery
+    J. Phys. A: Math. Gen., 34 (2001), p. 643
+    View Record in Scopus
+[40]
+    A. Acin, A. Andrianov, L. Costa, E. Jane, J. Latorre, R. Tarrach
+    Phys. Rev. Lett., 85 (2000), p. 1560
+[41]
+    A. Acin, A. Andrianov, E. Jané, R. Tarrach
+    J. Phys. A: Math. Gen., 34 (2001), p. 6725
+    View Record in Scopus
+[42]
+    V. Coffman, J. Kundu, W. Wootters
+    Phys. Rev. A, 61 (2000), p. 052306
+[43]
+    R. Lohmayer, A. Osterloh, J. Siewert, A. Uhlmann
+    Phys. Rev. Lett., 97 (2006), p. 260502
+    CrossRef View Record in Scopus
+[44]
+    W. Greiner
+    Quantum Mechanics: An Introduction
+    (fourth ed.), Springer (2000), p. 273
+    Google Scholar
+[45]
+    W.J. Munro, D.F.V. James, A.G. White, P.G. Kwiat
+    Phys. Rev. A, 64 (2001), p. 030302
+[46]
+    T. Wei, K. Nemoto, P. Goldbart, P. Kwiat, W. Munro, F. Verstraete
+    Phys. Rev. A, 67 (2003), p. 022110
+[47]
+    F. Verstraete, K. Audenaert, J. Dehaene, B. Moor
+    J. Phys. A: Math. Gen., 34 (2001), p. 10327
+    View Record in Scopus
+[48]
+    W. Dür, G. Vidal, J. Cirac
+    Phys. Rev. A, 62 (2000), p. 062314
+[49]
+    R. Chaves, L. Davidovich
+    Phys. Rev. A, 82 (2010), p. 052308
+    CrossRef View Record in Scopus
+[50]
+    F. Verstraete, J. Dehaene, B. DeMoor
+    Phys. Rev. A, 64 (2001), p. 010101
+
+Cited by (8)
+
+    Linear response of tripartite entanglement to infinitesimal noise
+    2014, Annals of Physics
+    Citation Excerpt :
+
+    For the bipartite entanglement in a multipartite system measured by negativity [7], which is an eigenvalue problem, the response can be treated by using the perturbation theory [8]. Consequently, the first author of the present article and his coworkers [6] derive an analytical expression of the linear response of negativity (LRN) for an arbitrary three-qubit pure state in terms of its entanglement invariants [9]. The roles of different initial entanglements in the decay of bipartite entanglement are shown clearly in the analytical result.
+    Show abstract
+    Dependence of noise induced effects on state preparation in multiqubit systems
+    2013, Physics Letters, Section A: General, Atomic and Solid State Physics
+    Citation Excerpt :
+
+    In the cases of 3- and 4-qubit systems we consider the extra qubits, after they are traced out, as a form of local fermionic environment and quantify the entanglement with the concurrence of the 2-qubit subsystem. We study numerically the dependence of disentanglement time (or entanglement sudden death (E.S.D.)) [14–21] on the strength of the applied noise for zero and non-zero temperature and for various initial states. We have observed the effects of increase of decoherence, stochastic resonance, stochastic anti-resonance and noise-shielding.
+    Show abstract
+    Robustness of multipartite entangled states for fermionic systems under noisy channels in non-inertial frames
+    2021, Physica Scripta
+    Boundary states for entanglement robustness under dephasing and bit flip channels
+    2019, Chinese Physics B
+    Most Robust and Fragile States with the Same Entanglement Properties
+    2018, Annalen der Physik
+    Open-system dynamics of entanglement: A key issues review
+    2015, Reports on Progress in Physics
+
+View all citing articles on Scopus
+View Abstract
+Copyright © 2013 Elsevier Inc. All rights reserved.
+Recommended articles
+
+    WKB analysis of relativistic Stern–Gerlach measurements
+    Annals of Physics, Volume 336, 2013, pp. 505-516
+    Download PDF View details
+    The generalized Schrödinger–Langevin equation
+    Annals of Physics, Volume 346, 2014, pp. 59-65
+    Download PDF View details
+    Finite-time response function of uniformly accelerated entangled atoms
+    Annals of Physics, Volume 396, 2018, pp. 266-291
+    Download PDF View details
+
+1 2 Next
+Article Metrics
+View article metrics
+Elsevier logo with wordmark
+
+    About ScienceDirect
+    Remote access
+    Shopping cart
+    Advertise
+    Contact and support
+    Terms and conditions
+    Privacy policy 
+
+We use cookies to help provide and enhance our service and tailor content and ads. By continuing you agree to the use of cookies .
+
+Copyright © 2022 Elsevier B.V. or its licensors or contributors. ScienceDirect ® is a registered trademark of Elsevier B.V.
+
+ScienceDirect ® is a registered trademark of Elsevier B.V.
+RELX group home page

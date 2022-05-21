@@ -1,0 +1,1267 @@
+arXiv:1202.2798v4 [quant-ph] 27 Jan 2013
+
+Most robust and fragile two-qubit entangled states under depolarizing channels ∗
+Chao-Qian Pang,1 Fu-Lin Zhang,1, † Yue Jiang,2 Mai-Lin Liang,1 and Jing-Ling Chen3, 4
+1Physics Department, School of Science, Tianjin University, Tianjin 300072, China 2School of Science, Tianjin Institute of Urban Construction, Tianjin 300384, China 3Theoretical Physics Division, Chern Institute of Mathematics, Nankai University, Tianjin, 300071, China 4Centre for Quantum Technologies, National University of Singapore, 3 Science Drive 2, Singapore 117543
+(Dated: November 10, 2018)
+For a two-qubit system under local depolarizing channels, the most robust and most fragile states are derived for a given concurrence or negativity. For the one-sided channel, the pure states are proved to be the most robust ones, with the aid of the evolution equation for entanglement given by Konrad et al. [Nat. Phys. 4, 99 (2008)]. Based on a generalization of the evolution equation for entanglement, we classify the ansatz states in our investigation by the amount of robustness, and consequently derive the most fragile states. For the two-sided channel, the pure states are the most robust for a ﬁxed concurrence. Under the uniform channel, the most fragile states have the minimal negativity when the concurrence is given in the region [1/2, 1]. For a given negativity, the most robust states are the ones with the maximal concurrence, and the most fragile ones are the pure states with minimum of concurrence. When the entanglement approaches zero, the most fragile states under general nonuniform channels tend to the ones in the uniform channel. Inﬂuences on robustness by entanglement, degree of mixture, and asymmetry between the two qubits are discussed through numerical calculations. It turns out that the concurrence and negativity are major factors for the robustness. When they are ﬁxed, the impact of the mixedness becomes obvious. In the nonuniform channels, the most fragile states are closely correlated with the asymmetry, while the most robust ones with the degree of mixture.
+PACS numbers: 03.67.Mn,03.65.Ud,03.65.Yz
+
+I. INTRODUCTION
+Quantum coherent superposition makes quantum information conceptually more powerful than classical information, which is the essential distinction between a quantum system and a classical one. Entanglement is a manifestation of the distinction in composite systems [1] and is one of the key resources in the ﬁeld of quantum information [2]. However, unavoidable coupling between a real quantum system and its environment can cause decoherence, leading to the destruction of entanglement among subsystems simultaneously.
+Because of its important role both in fundamental theory and applications in quantum information, dynamics of entanglement in a quantum system under decoherence has attracted wide attention in recent years. And many signiﬁcant and interesting results have been reported. For instance, the concept of entanglement sudden death (ESD) has been presented by Yu and Eberly [3, 4], which means that entanglement can decay to zero abruptly in a ﬁnite time while complete decoherence requires an inﬁnite amount of time. This interesting phenomenon has been recently observed in two sophistically designed experiments with photonic qubits [5] and atomic band [6]. In [7], by utilizing the Jamiolkowski isomorphism, Konrad et al. presented a factorization law for a two qubit system, which described the evolution of entanglement
+∗to appear in Quantum Information & Computation (QIC) †Email: ﬂzhang@tju.edu.cn
+
+in a simple and general way, and has been extended in many directions [8–11].
+This paper is concerned with the robustness of entanglement in a quantum system coupled to noise environments. Vidal and Tarrach [12] introduced the robustness of entanglement as a measure of entanglement, corresponding to the minimal amount of mixing with separable states which washed out all entanglement. Subsequently, Simon and Kempe [13] considered the critical amount of depolarization where the entanglement vanishes as a quantitative signature of the robustness of the entanglement, when they studied the robustness of multiparty entanglement under local decoherence, modeled by partially depolarizing channels acting independently on each subsystem. This deﬁnition was adopted in the recent work [14], in which an interesting residual eﬀect was pointed out on the robustness of a three-qubit system in an arbitrary superposition of Greenberger-HorneZeilinger state and W state.
+We notice that, even in the two-qubit system, there are still some questions about the robustness to explore. For instance, the results of [14] show the robustness increases synchronously with the degree of entanglement for a two-qubit pure state. Obviously, it should be very hard to extend this conclusion to mixed states, because the measures of entanglement for mixed states are not unique [15–17], which would inﬂuence the robustness simultaneously . Then, a question arises: For a given value of entanglement, which states are the most robust ones and which are the most fragile ones? In general, the degree of entanglement in a two-qubit system correlates positively with the resource of preparation [15, 16] and
+
+2
+
+its capacity in quantum information [18, 19], therefore it is necessary to compare the stability of states with same entanglement. Many similar investigations have been reported about ten years. For example, the famous maximally entangled mixed states [20, 21] can be considered to have the most residual entanglement under a global noise channel. In [22], Yu and Eberly studied the robustness and fragility of entanglement in some exactly solvable dephasing models. In the recent work of Novotny` et al. [23], they present a general and analytically solvable decoherence model without any weak-coupling or Markovian assumption and distinguish the robust and fragile states.
+In the present work, we investigate the most robust entangled states (MRES) and the most fragile entangled states (MFES) for a given amount of initial entanglement in the two-qubit system under a local noise channel, and analyze connections between the robustness of entanglement and the properties of initial state. Similar analyses have been done for Werner states in dephasing channel [24], X-states of two two-level atoms in the electromagnetic radiation ﬁeld [25], and dephased pure states in amplitude damping channel [26]. We extend the scope to arbitrary two-qubit entangled states and focus on their properties relating to entanglement, and therefore consider the local depolarizing channels which is invariant under local unitary operations. In our work, the model in [13] and [14] is generalized to the nonuniform case. Namely, the coupling strengths of the two qubits with their environments are diﬀerent from each other. This generalization is more close to practical cases , in which the entangled two qubits undergo diﬀerent environments. We adopted the concurrence [15, 16] and the negativity [17] as two measures of entanglement for comparison. In Sec. II, we review the deﬁnitions adopted in this paper and introduce some notations. In Sec. III, we selectively give the results of the one-sided channel, which is an extreme case of the nonuniform channels. To derive the MFES in this case, a generalization of the evolution equation for quantum entanglement in [7] is presented. In Sec. IV, both the uniform and nonuniform channels are studied. Conclusions and discussions are made in the last section.
+II. NOTATIONS AND DEFINITIONS
+A. Channels and robustness
+Under local decoherence channels with no interaction between the two qubits, the dynamics of each qubit is governed by a master equation depending on its own environment [27]. The evolution of each reduced density matrix is described by a completely positive trace-preserving map: ρi(t) = εi(t)ρi(0), i = 1, 2, and for the whole state ρ(t) = ε1(t) ⊗ ε2(t)ρ(0). In the BornMarkov approximation these maps (or channels) can be
+
+described using its Kraus representation
+
+M
+
+εi(t)ρi(0) = Ejiρi(0)Ej†i
+
+(1)
+
+j=0
+
+where Eji satisfying
+
+M −1 j=0
+
+Eji Ej†i
+
+=
+
+I,
+
+are
+
+the
+
+Kraus
+
+operators, and M is the number of operators needed to
+
+completely characterize the channel. For the depolarizing
+
+channels, the Kraus operators are
+
+E0i
+
+=
+
+1 2
+
+√ 3si
+
++ 1Ii,
+
+Eji
+
+=
+
+1 2
+
+√ 1
+
+−
+
+si σji ,
+
+(2)
+
+where σji (j = 1, 2, 3) is the jth Pauli matrix for
+
+the ith qubit. We consider the noise parameter si =
+
+exp(−κit), where κi is the decay constant determined by
+
+the strength of the interaction of the ith qubit with its
+
+environment and t is the interaction time [28]. In the
+
+Bloch sphere representation for the qubit density opera-
+
+tor, the transformation in Eqs. (1) and (2) is given by
+
+ρi(t)
+
+=
+
+1 2
+
+(Ii
+
++ siri
+
+· σi)
+
+with
+
+ri
+
+being
+
+the
+
+the
+
+initial
+
+Bloch
+
+vector.
+
+Following the method in [13] and [14], we adopt the
+critical noise parameter , which is positively associated with the ESD time, as the deﬁnition of the robustness.
+The asymmetry between the environments interacting with the two qubits is described by the time-independent parameter ∆ = (κ1 −κ2)/(κ1 +κ2). It is easy to ﬁnd that the MRES and MFES for a given value of initial entan-
+glement are independent of the value of κ1 +κ2, when the uniform parameter ∆ is ﬁxed. Therefore, without loss of generality, we choose the decay constants κ1 = 1 + ∆ and κ2 = 1 − ∆, with the uniform parameter ∆ ∈ [0, 1]. Then, the noise parameters are written as s1 = s1+∆ and s2 = s1−∆, where s = e−t. The robustness for a state ρ under a nonuniform channel is written as
+
+R(ρ) = 1 − scrit(ρ),
+
+(3)
+
+where scrit(ρ) denotes the critical value of the noise parameter s, at which ESD of the two-qubit system occurs with the initial state ρ. Though the ESD time is irrelevant to assessing the asymptotic behavior of the robustness in multi-qubit systems in the limit of large number of particles [29, 30], it is still practicable to compare the robustness of entangled states in a given two-qubit or three-qubit system. In our recent work [30], we present the speed of disentanglement as a quantitative signature of the robustness of the entanglement and show it is effective to reﬂect the asymptotic behavior in multi-qubit systems. One can ﬁnd that, MRES and MFES in subsection IV B for the uniform channels and the most robust symmetrical three-qubit pure states in [14] coincide with the results in [30].
+
+3
+
+B. Measures of entanglement
+
+1.0
+
+The concurrence of a pure two-qubit state |ψ = c1|00 + c2|01 + c3|10 + c4|11 is given by C(|ψ ) = 2|c1c4 − c2c3|. For a mixed state, the concurrence is deﬁned as the average concurrence of the pure states of
+the decomposition, minimized over all decompositions of ρ = j pj |ψj ψj |,
+
+C(ρ) = min pjC(|ψj ).
+
+(4)
+
+j
+
+It can √be ex√pressed√ expli√citly as [15, 16] C(ρ) = max{0, λ1 − λ2 − λ3 − λ4}, in which λ1, ..., λ4 are the eigenvalues of the operator R = ρ(σy ⊗σy)ρ∗(σy ⊗σy) in decreasing order and σy is the second Pauli matrix.
+For a bipartite system described by the density matrix
+ρ, the negativity is deﬁned as [17, 31]
+
+N (ρ) = 2 |λj|,
+
+(5)
+
+j
+
+where λj are the negative eigenvalues of ρT2 and T2 denotes the partial transpose with respect to the second
+subsystem. For the two-qubit system, the partially transposed density matrix ρT2 has at most one negative eigen-
+value [21].
+
+C. Ansatz states
+To derive MRES and MFES for a given value of concurrence or negativity, we adopt the approach in [20, 21]. We randomly generate two-qubit states and derive their degree of entanglement and robustness under a series of nonuniform parameter ∆ ∈ {0, 0.1, 0.2, ...1}. Plotting them in the corresponding robustness-entanglement planes (such as the ones in Fig. 2), we fortunately ﬁnd that, their regions are always the same as the states
+ρansatz(r, θ) = r|ψ(θ) ψ(θ)| + (1 − r)|01 01|, (6)
+where r ∈ [0, 1] and |ψ(θ) = cos θ|00 + sin θ|11 with θ ∈ [0, π/2]. For each value of ∆, and for both the entanglement measures, this is supported by 150000 random states ρrandom and 150000 weighted random states ρδ,random. Here, the random states ρrandom are uniform in the Hilbert space preserving the Haar measure [17, 32], and ρδ,random = (1 − δ)ρansatz(r, θ) + δρrandom with random parameters r, θ and δ with the uniform distributions on the interval [0, 1], [0, π/2] and [0, 0.05] respectively. The numerical results indicate that, the family of states (6) contains the entangled states with the maximal or minimal robustness for a given degree of entanglement. Therefore, MRES or MFES can be represented in the form of (6) with a constraint on its parameters r and θ, which we will derive in the following sections. We call the state (6) the ansatz state in this paper.
+
+Negativity
+
+0.8 Entangled States
+0.6
+
+0.4 Ρansatz 1,Θ 0.2
+
+Ρansatz r,Π 4
+
+0.0
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Concurrence
+
+FIG. 1: (color online) Region of the two-qubit entangled states in the concurrence-negativity plane with the curves of ρansatz(1, θ) (pure state) and ρansatz(r, π/4). The ﬁgure is a slightly modiﬁed version of a ﬁgure from [33].
+
+One point to be mentioned is that, the two extreme cases of the states correspond to the bounds in the com-
+parison of negativity and concurrence [33]. As shown in Fig. 1, for a ﬁxed amount of concurrence, the pure state ρansatz(1, θ) = |ψ(θ) ψ(θ)| achieves the maximum of negativity, and ρansatz(r, π/4) has the minimal negativity. Similarly, when the negativity is given, the state ρansatz(r, π/4) is at the upper bound of concurrence and ρansatz(1, θ) at the lower one.
+
+III. ONE-SIDED NOISY CHANNEL
+
+A. Robustness vs concurrence in one-sided channel
+
+When ∆ = 1, s1 = s2 and s2 = 1, the channel reduces the one-sided depolarizing channel, where only the ﬁrst qubit is inﬂuenced by its environment. The central result of [7] is the factorization law for an arbitrary pure state |ψ under a one-sided noisy channel
+
+C[($ ⊗ I)|ψ ψ|] = C[($ ⊗ I)|ψ+ ψ+|]C(|ψ ), (7)
+
+where |ψ+ = |ψ(π/4) and $ denotes an arbitrary channel not restricted to a completely positive tracepreserving map. An evident corollary is that, ESD of systems set initially in any entangled pure states occurs at the same time, and consequently all pure states have the same robustness.
+An application of (7) in [7] is the inequality for mixed states ρ0,
+
+C[($ ⊗ I)ρ0] ≤ C[($ ⊗ I)|ψ+ ψ+|]C(ρ0).
+
+(8)
+
+From (7) and (8), one can ﬁnd that under a given onesided channel, ESD of a mixed state comes not later than
+
+4
+
+Robustness
+
+0.4
+
+1
+
+2
+
+3
+
+0.3
+
+0.2
+
+0.1
+
+4
+
+a
+
+0.0
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Concurrence
+
+0.4
+
+1
+
+2
+
+3
+
+0.3
+
+0.2 4
+0.1
+
+0.0
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+Negativity
+
+b
+
+0.8
+
+1.0
+
+Robustness
+
+FIG. 2: (color online) Plots of the states ρ(c, p) in the (a) robustness-concurrence plane and (b) robustness-negativity plane under one-sided noise channel. The dotted lines correspond to the parameter c = 1, 0.8, 0.6, 0.4, 0.2 from top to bottom, in both (a) and (b). The dashed lines refer to the parameter (1) p = tan(0.1 × π/2), (2) p = tan(0.2 × π/2), (3) p = tan(0.3 × π/2) and (4) p = tan(0.4 × π/2). The solid lines are the MFES in the two cases.
+
+the pure state with the same concurrence. Hence, MRES
+with a ﬁxed concurrence is the pure state. Under the one-sided channel, the state |ψ+ becomes
+
+ρs =
+
+1 + s2 4
+
+|00
+
+00| + |11
+
+11|
+
++
+
+1
+
+− 4
+
+s2
+
+|01
+
+01| + |10
+
+10|
+
++
+
+s2 2
+
+|00
+
+11| + |11
+
+00| .
+
+Its concurrence is C(ρs) = max{(3s2 − 1)/4, 0}. We can derive the value of robustness
+
+RM RE S
+
+=
+
+R(|ψ
+
+)
+
+=
+
+1−
+
+√1 , 3
+
+(9)
+
+which is a constant and independent of the concurrence.
+To obtain MFES, we generalize the factorization law (7) to the arbitrary two-qubit states. Namely, if two states satisfy
+
+ρ1 = γ(I ⊗ M )ρ0(I ⊗ M †)
+
+(10)
+
+with 1/γ = Tr[(I ⊗M )ρ0(I ⊗M †)] and M = I +a·σ, (a ∈ [0, 1]), the relation
+
+C[($ ⊗ I)ρ1]C(ρ0) = C[($ ⊗ I)ρ0]C(ρ1)
+
+(11)
+
+holds for all one-sided channels $. We omit the proof of the above relation, which is exactly the same as the process for (7) in [7]. As for the pure states, we can conclude that the robustness of ρ0 and ρ1 in (10) have the same value.
+Then, we ﬁnd that the ansatz states (6) can be classiﬁed by the amount of robustness, with the aid of the generalized factorization law (11). Namely, choosing ρ0 = ρansatz(c, π/4) and a = (0, 0, (1 − p)/(1 + p)), the ansatz states are written as
+
+ρansatz(r, θ) = ρ(c, p) = γ(I ⊗ M )ρ0(I ⊗ M †), (12)
+
+where the relations between the two pairs of parameters are
+
+c
+
+=
+
+r 1
+
+− −
+
+r r
+
+cos cos
+
+2θ 2θ
+
+,
+
+p = tan θ.
+
+(13)
+
+The robustness of the ansatz state depends only on the parameter c in ρ0 and is given by
+
+R[ρ(c, p)] = 1 −
+
+2 2
+
+− +
+
+c c
+
+,
+
+(14)
+
+which which becomes the result for the pure states in (9) when c = 1. The concurrence is obtained as
+
+C[ρ(c, p)] =
+
+2cp c + (2 − c)p2
+
+=
+
+r sin 2θ.
+
+(15)
+
+In Fig. 2 (a), we plot the ansatz states with some discrete values of c or p in the robustness-concurrence plane. One can ﬁnd that MFES achieve the maximal concurrence when the value of robustness is ﬁxed. It is easy to determine the maximal value of concurrence in (15) with a ﬁxed c. Then the constraint on the ansatz sates for the MFES can be obtained as
+
+c(1 + p2) − 2p2 = 0,
+
+(16)
+
+where 0 ≤ p ≤ 1, or equivalently
+
+2r cos2 θ = 1,
+
+(17)
+
+with 0 ≤ θ ≤ π/4 and 1/2 ≤ r ≤ 1. It is interesting that
+the conditions leading to the length of the Bloch vector for the two qubit are r1 = 2(1 − r) and r2 = 0, and their diﬀerence δr = r1 −r2 satisﬁes δr +N = 1. Our numerical result shows that, MFES maximize the diﬀerence δr with a ﬁxed value of concurrence.
+
+B. Robustness vs negativity in one-sided channel
+It is easy to prove that MRES under an arbitrary onesided noise channel for a given negativity are also pure states, with the aid of the results in above subsection. This conclusion can be obtained by supposing ρ denotes an arbitrary entangled two-qubit state, |ψ1 and |ψ2 are
+
+5
+
+Robustness
+
+0.5
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0.0
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Concurrence
+
+FIG. 3: (color online) The relation between the robustness and the concurrence of a two-qubit system in a pure entangled state. From top to bottom the curves refer to ∆ = 1, 0.75, 0.5, 0.25, 0.
+
+two pure states, and N (ρ) = N (|ψ1 ) and C(ρ) = C(|ψ2 ). Two relations can be obtained as R(ρ) ≤ R(|ψ2 ) and R(|ψ1 ) = R(|ψ2 ), from which we deduce the conclusion.
+In Fig. 2, one can notice that the region of the ansatz states in the robustness-negativity plane and the one in the robustness-concurrence case are similar. Thus, in order to determine MFES we can just derive the states ρ(c, p) with the maximal negativity for a ﬁxed c. The negativity of the ansatz states is
+
+N [ρansatz(r, θ)] = r2 sin2 2θ + (1 − r)2 − (1 − r). (18)
+
+Inserting the relations (13) into Eq. (18), one can ﬁnd that the maximal negativity occurs when
+
+√
+
+p=
+
+2
+
+2
+
+− c(−1 + c)c3/2 −8 + 24c − 20c2
+
++ +
+
+2c2 5c3
+
+−
+
+c3
+
+.
+
+(19)
+
+The corresponding relation of the parameters r and θ is very close to the numerical results for ∆ = 0.99 in Fig. 6 (a) in the following section.
+In the MFES, when the parameter c → 1, the entanglement N → 1 + 2(c − 1) and the diﬀerence between the lengthes of the two Bloch vectors δr approaches 2(1 − c). In other words, MFES with negativity close to 1 reaches the maximal δr. At the other extreme, when the parameter θ → 0, and meanwhile entanglement of the entangled composition decreases, its proportion r → 1. However, the MFES for concurrence given in (16) and (17), the proportion r drops to 1/2 when θ → 0. Now, MFES have the maximal entropy among the family of the ansatz states.
+
+IV. TWO-SIDED NOISY CHANNEL
+We fail in generalizing the relations in (10) and (11) to the two-sided channel case. Therefore, we calculate the
+
+ESD critical condition of the ansatz states directly
+
+P = 4r2 sin2 2θs21s22 − [1 + (1 − 2r)s1s2]2 +[r cos 2θ(s1 − s2) + (1 − r)(s1 + s2)]2 = 0,(20)
+
+which is one of the main bases to determine MRES and MFES in this section. When r = 1, one can obtain the relation between the entanglement of pure states and their critical noise parameters
+
+C2(|ψ
+
+)
+
+=
+
+N 2(|ψ
+
+)
+
+=
+
+(1 − s21)(1 4s21s22 − (s1
+
+− −
+
+s22) s2)2
+
+.
+
+(21)
+
+For the Bell state |ψ+ , the√above equation gives the robustness R(|ψ+ ) = 1 − 1/ 3, which is independent of the nonuniform parameter ∆. In this sense, our generalization of robustness is reasonable and rational. When ∆ = 0, R(|ψ ) = 1 − 1/ 2C(|ψ ) + 1, which is the result of the uniform channels given in [14]. In Fig. 3, we plot the robustness and the entanglement of the pure state. Under a ﬁxed ∆, the robustness is a monotone increasing function of the entanglement. A non-maximally entangled pure state becomes more fragile as ∆ decreases.
+
+A. Robustness vs concurrence in two-sided channel
+
+Because of the invariance of the depolarizing channels
+under LU transformations, we can show that MRES for concurrence under the two-sided channel are the pure
+states, which has the maximal negativity for a ﬁxed concurrence as shown in Fig. 1. According to the procedure
+given by Wootters [16], one can always obtain a decomposition {|φi } minimizing the average concurrence in Eq. (4), ρ0 = i ti|φi φi|, in which i ti = 1 and all the elements |φi φi| have the same value of concurrence as the mixed state ρ0. The elements are equivalent under LU transformation to the same state |ψ
+
+|φi = UiA ⊗ UiB|ψ ,
+
+(22)
+
+with the concurrence C(|ψ ) = C(ρ0). After passage through a basis-independent local channel $1 ⊗ $2, the concurrence C[($1 ⊗ $2)|φi φi|] = C[($1 ⊗ $2)|ψ ψ|]. It
+then immediately follows, by convexity, that
+
+C[($1 ⊗ $2)ρ0] ≤ C[($1 ⊗ $2)|ψ ψ|],
+
+(23)
+
+which proves that MRES for ﬁxed concurrence are the pure states.
+Similar to the case of the one-sided depolarizing channels, MFES in the present case are also the states achieving the maximal concurrence for a given value of robustness, which can be noticed in Fig. 4. From (15) and (20), we ﬁnd that for a given pair of the critical noise paraments s1 and s2, or equivalently the robustness R and the nonuniform parameter ∆, MFES can be obtained by
+
+6
+
+Robustness
+
+0.4
+
+0.4
+
+0.3
+
+0.3
+
+0.2
+
+0.2
+
+0.1
+
+0.75
+
+0.1
+
+0.5
+
+0.0
+
+0.0
+
+0.0 0.2 0.4 0.6 0.8 1.0
+
+0.0 0.2 0.4 0.6 0.8 1.0
+
+0.4
+
+0.4
+
+0.3
+
+0.3
+
+0.2
+
+0.2
+
+0.1
+
+0.25
+
+0.1
+
+0
+
+0.0
+
+0.0
+
+0.0 0.2 0.4 0.6 0.8 1.0
+
+0.0 0.2 0.4 0.6 0.8 1.0
+
+Concurrence
+
+FIG. 4: (color online) The relation between the robustness and the concurrence of the MRES and MFES under different nonuniform parameters, ∆ = 0.75, 0.5, 0.25, 0. The dots on the lines denote the quasi-MFES, whose parameters β = 0.1, 0.2, 0.3, 0.4, with the values of concurrence increasing .
+
+applying the restraint
+
+α
+
+=
+
+1 4
+
+1+
+
+8Ω(2β − 1)β + 1
+
+(24)
+
+on the ansatz states (6), where α = r cos2 θ ∈ [0, 1/2],
+
+β = r sin2 θ ∈ [0, 1/2] and Ω =
+
+. s21 (1−s22 )
+s22 (1−s21 )
+
+When ∆ = 1,
+
+the parameter Ω = 0 and the restraint reduces to α =
+
+1/2, which is precisely the result of the one-sided channels
+
+in (16) and (17).
+
+For the uniform noise channels where ∆ = 0 and Ω = 1,
+
+the relation in (24) becomes α = 1/2 − β when β ≤ 1/4,
+
+and α = β when β > 1/4. Consequently, the MFES can
+
+be written in two corresponding regions as
+
+ρMF ES =
+
+r12|[ψ|ψ+(θ)ψ+ψ| (+θ)(|1+−|0r1)|0011|]0,1|,
+
+C C
+
+< ≥
+
+1/2 1/2
+
+, .
+
+(25)
+
+In the region C ≥ 1/2, r ≥ 1/2 and θ = π/4 , the MFES
+
+are the states ρansatz(r, π/4) with the minimal negativity for a ﬁxed concurrence [33] (see Fig. 1). In the
+
+other, where C < 1/2, r = 1/2 and θ ∈ [0, π/4), MFES
+
+have the maximal mixedness among the ansatz states.
+
+Here,
+
+we
+
+adopt
+
+the
+
+linear
+
+entropy
+
+SL(σ)
+
+=
+
+4 3
+
+(1
+
+−
+
+Trσ2
+
+)
+
+as the measure of mixedness, and for the ansatz states
+
+SL(ρansatz )
+
+=
+
+8 3
+
+(1
+
+−
+
+r)r.
+
+One can notice that, MFES
+
+in this region satisfy SL(ρMEMS ) ≥ SL(ρMF ES ) ≥
+
+SL[ρansatz(r, π/4)] and N (ρMEMS ) ≥ N (ρMF ES ) ≥
+
+N [ρansatz(r, π/4)], where ρMEMS are the maximally en-
+
+tangled mixed states in [20].
+
+When 0 < ∆ < 1, MFES for the arbitrary depolarizing
+
+channels is given by the solution of equations (20) and
+
+(24), which is shown in Fig. 4 for some values of ∆. It can
+
+be noticed that, the diﬀerence between the robustness
+
+of MRES and MFES decreases with the decrease in the
+
+nonuniform parameter ∆. When β → 0, the concurrence
+
+C → 0, the proportion of the entangled state in MFES
+
+approaches 1/2.
+
+Considering the absence of a brief expression of MFES,
+
+we present a family of quasi-MFES. Namely, we replace
+
+Robustness
+
+0.4 r 0.2 r 0.4
+
+0.3
+
+r 0.6
+
+r 0.8
+
+0.2
+
+0.1 0.0
+0.0
+0.4 0.3 0.2 0.1 0.0
+0.0
+
+a
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Negativity
+
+Π
+
+Θ 0.2
+
+Π
+
+2
+
+Θ 0.1
+
+2
+
+Π Θ 0.3
+2
+
+Π Θ 0.4
+2
+
+b
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Negativity
+
+Robustness
+
+FIG. 5: (color online) Plots of the states ρ(r, θ) in the robustness-negativity planes with the MRES and MFES when the nonuniform parameters ∆ = 0.5. The parameters r/θ takes a set of discrete values in (a)/(b), which are labeled nearby the tangent points with the MRES/MFES.
+
+the critical depolarizing parameter s2 ∈ [1/3, 1] in (24)
+
+by
+
+its
+
+mean
+
+value
+
+2/3,
+
+and
+
+obtain
+
+Ω
+
+→
+
+Ω
+
+=
+
+. (2/3)∆−1−1
+(2/3)−∆−1 −1
+
+Obviously Ω|∆=0 = 1 and Ω|∆=1 = 0. The positions of
+
+the quasi-MFES in the robustness-concurrence plane are
+
+shown in Fig. (4), which are very close to the MFES. Our
+
+numerical result shows, for a given β, the ﬁdelity of the
+
+quasi-MFES and the MFES F 1 − 10−4 with F (ρ1, ρ2) = Tr
+
+(ρq√uaρs1i−ρ2M√FρE1S
+
+,
+
+ρMF ES ) 2, which
+
+≥ is
+
+supported by one million pairs of randomly generated
+
+quasi-MFES and MFES.
+
+B. Robustness vs negativity in two-sided channel
+
+The MRES or MFES for the negativity under the twosided depolarizing channels are also the states which minimize or maximize the negativity for a ﬁxed robustness. We adopt the method of Lagrange multiplier to derive the extremum of the negativity in (18) under the constraint (20), where s1 and s2 are constants. It is obtained that the parameters r and θ satisfy the the condition,
+
+∂N ∂r
+
+∂P ∂θ
+
+−
+
+∂N ∂θ
+
+∂P ∂r
+
+=
+
+0,
+
+(26)
+
+when the negativity of an ansatz state reaches an extremum for a ﬁxed robustness. Forms of MRES and MFES are given by the physically accepted solutions to the Eqs. (20) and (26).
+When ∆ = 0, one can check that the two solutions θ = π/4 and r = 1 correspond to MRES and MFES
+
+7
+
+1.0
+
+0.9
+
+r
+
+0.8
+
+0.00
+
+0.7
+
+0.25
+
+0.50
+
+0.6
+
+0.75
+
+a
+
+0.99
+
+0.5 0
+
+Π
+
+Π
+
+3Π
+
+Π
+
+16
+
+8
+
+16
+
+4
+
+Θ
+Π 2
+
+Θ
+
+3Π 8
+
+Π 4
+
+Π 8
+
+b
+
+0
+
+0.0
+
+0.2
+
+0.25
+
+0.50
+
+0.75
+
+0.00
+
+0.99
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+r
+
+FIG. 6: (color online) Relations of the parameters r and θ for the MFES (a) and MRES (b) with diﬀerent inhomogeneous parameters, ∆ = 0.99, 0.75, 0.5, 0.25, 0. The robustness takes a set of regularly spaced values.
+
+respectively. In other words, under the uniform channel, MRES are ρMRES = ρansatz(r, π/4), and MFES ρMF ES = ρansatz(1, θ) are the pure states. As shown in Fig. 1, for a given value of negativity, ρansatz(r, π/4) has the maximum of concurrence and the pure state ρansatz(1, θ) has the minimum. This result and the corresponding one for concurrence indicate that, in the uniform channel, when one of the two degrees of entanglement is ﬁxed, the other is the main factor aﬀecting the robustness.
+We were not able to derive an explicit expression of the solution to (20) and (26) for arbitrary nonuniform parameter ∆ ∈ (0, 1). Thus we plot the ansatz states in the robustness negativity plane for various values of the nonuniform parameter ∆, one of which is shown in Fig. 5. One can notice that, MRES can be expressed as the ansatz states with a constrain as θ = θ(r), with r varying from 0 to 1. And the constrain for MRES is r = r(θ) , where the domain is θ ∈ [0, π/4]. Then we search the constrains by numerical computation, and plot them in Fig. 6. It is obvious that the proportion of the entangled composition r in MFES is always more than 3/4. The proportion approaches 1 when the entanglement N → 0, and increases with decreasing ∆. Under a ﬁxed ∆, the parameter θ seldom ﬂuctuates when the robustness varies
+
+in a very large region. When r approaches 1, θ decreases to π/4√quickly, and the robustness tends to the maximum 1 − 1/ 3. When ∆ → 1, th√e domain of the robustness becomes a point R = 1 − 1/ 3, where r = 1 and θ varies from π/2 to π/4.
+
+V. CONCLUSION AND DISCUSSION
+
+In conclusion, we have investigated the robustness of entangled states for two-qubit system under local depolarizing channels. MRES and MFES are derived for a given amount of entanglement measured by concurrence and negativity. With a numerical simulation, we ﬁnd a family of ansatz states ρansatz(r, θ) in (6), which contains MRES and MFES. In Table I, we list the constrains on the parameters r and θ corresponding to MRES and MFES in the one-sided channel and the uniform channel.
+
+∆=0
+
+∆=1
+
+MRES MFES MRES MFES
+
+C
+
+r=1
+
+r= θ=
+
+1 π2
+4
+
+for C < for C ≥
+
+1 21 2
+
+r=1
+
+2r cos2 θ = 1
+
+N
+
+θ
+
+=
+
+π 4
+
+r=1
+
+r=1
+
+Deﬁned by Eqs. (19) and (13)
+
+TABLE I: The constrains on the parameters in the ansatz state ρansatz(r, θ) when it achieves the MRES or MFES for a ﬁxed value of concurrence C or negativity N in the one-sided channel (∆ = 1) and the uniform channel (∆ = 0).
+
+Under the one-sided channel, for both measures of entanglement the pure states are proved to be MRES by utilizing the factorization law for the evolution of concurrence given by [7]. A generalized factorization law is presented in (10) and (11). Based on this result, we classify the ansatz states by the values of robustness and derive MFES for the two measures of entanglement. In MFES for concurrence, the length of the Bloch vector for the free qubit is zero, and the diﬀerence between the lengthes of the two Bloch vectors, δr, reaches its maximum for a given concurrence. When the value of negativity approaches 1, the corresponding MFES approach the states with the maximal δr for a ﬁxed negativity.
+Under the uniform two-sided channel, MFES for a given negativity are the pure states, and MRES are ρansatz(r, π/4). In contrast, MRES for concurrence are the pure states, while MFES are ρansatz(r, π/4), when C ≥ 1/2, but the states ρansatz(1/2, θ) with θ ∈ [0, π/4) when C < 1/2. The pure states and states ρansatz(r, π/4) are precisely on the boundaries of the region for arbitrary two-qubit entangled states in the concurrencenegativity plane [33], which is shown in Fig. 1. The states ρansatz(1/2, θ) have the maximal linear entropy among the ansatz states, and both its negativity and linear entropy are between the ones of ρansatz(r, π/4) and ρMEMS , when they have the equal concurrence. Under
+
+8
+
+Concurrence
+
+1.0 a
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+0.0
+
+0.0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+1.0 b
+0.8
+
+Robustness
+
+0.6
+
+0.4
+
+0.2
+
+0.0
+
+0.0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+Robustness 0.8
+
+Negativity
+
+0.6
+
+SL
+
+0.4
+
+0.2
+
+c
+
+0.0
+
+0.0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+Robustness
+
+FIG. 7: (color online) Averages of (a) concurrence, (b) negativity and (c) linear entropy SL of the states with a given amount of robustness in the case of ∆ = 0 (dots) and ∆ = 1 (squares).
+
+general two-sided channels, the pure states are proved to be most robust when the concurrence is given. When the entanglement approaches zero, MFES for the two entanglement measures tend to the results in the uniform channel.
+To make a interpretation to the characteristics of the MRES and MFES mentioned above, we analyze the inﬂuence on the robustness caused by the entanglement properties and other possible factors based on 300000 random entangled states. We adopt the decomposition of the random states in [17] as ρrandom = U ρDU †, and generate the 4 × 4 unitary matrices U uniformly under the Haar measure [32]. The diﬀerence from [17] is that we generate three independent numbers αj, (j = 1, 2, 3) uniformly in the interval [0, π/2] and get the nonzero elements of the diagonal density matrices ρD as {cos2 α1 cos2 α2,cos2 α1 sin2 α2, sin2 α1 cos2 α3,
+
+0.8
+
+0.7
+
+SL
+
+0.6
+
+0.5
+
+0.4
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+RC, RN
+
+FIG. 8: (color online) Averages of linear entropy SL of the states a given amount of normalized robustness R˜C (dots) and R˜N (squares) when ∆ = 0.
+
+sin2 α1 sin2 α3}. In this scenario, without aﬀecting the qualitative conclusions in the following paragraphs, the probability of the states nearby the MFES and MRES is increased. Based on the random entangled states, the averages of some quantities of the states with the given values of the robustness or normalized robustness are plotted in Figs. 7,8, and 9. Here, the normalized robustness R˜C and R˜N are deﬁned as
+
+R˜ C,N (ρ)
+
+=
+
+R(ρ) − R(ρMF ES ) R(ρMRES ) − R(ρMF ES
+
+)
+
+,
+
+(27)
+
+where ρMRES and ρMF ES are the MRES and MFES with the same concurrence or negativity as ρ, corresponding
+
+to the subscripts C and N respectively.
+
+In Fig. 7, one can ﬁnd that, in the statistical sense, the
+
+robustness increases with the entanglement, measured by
+
+concurrence and negativity, but decreases with the de-
+
+gree is in
+
+oafccmoirxdtuwreit.hTFhieg.tr7e(ncd),obf utthethlieneonfoerfoR˜rCR˜iNn
+
+Fig. 8 shows
+
+an opposite tendency. These indicate two points: (1)
+
+When the value of negativity is given, the concurrence
+
+is the dominating factor for the robustness in the uni-
+
+form channel, and the trend of the linear entropy results
+
+from the changes of concurrence; (2) For the case with
+
+a ﬁxed concurrence, the degree of mixture may be a in-
+
+ﬂuential factor of the robustness besides the negativity.
+
+These agree with the MRES and MFES in the uniform
+
+channel. For a ﬁxed negativity, MRES maximize the con-
+
+currence and MFES minimize it. For a ﬁxed concurrence,
+
+MRES maximize the negativity and minimize the linear
+
+entropy, and MFES minimize the negativity in the region
+
+of C ≥ 1/2 but has the maximal linear entropy among the
+
+ansatz states for C < 1/2. And both the negativity and
+
+the linear entropy of MFES for C < 1/2 are between the
+
+MEMS and the states minimizing the negativity.
+
+One can compare the results for ∆ = 0 and ∆ = 1
+
+in Fig. 7 and ﬁnd that when the noise channels become
+
+nonuniform, the inﬂuence of the entanglement on the ro-
+
+bustness decrease, and the relationship between the lin-
+
+ear entropy and the robustness weakens for R close to
+
+9
+
+0.10
+
+0.05
+
+∆r
+
+0.00
+
+0.05
+
+0.10
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+RC, RN
+
+FIG. 9: (color online) Averages of δr of the states a given amount of normalized robustness R˜C (dots) and R˜N (squares)
+when ∆ = 1.
+
+zero but strengthens near its maximum. It is obvious that the robustness in the nonuniform channel is aﬀected by the unbalance between the two qubits. Here, we consider δr as a quantitative signature of the asymmetry. It is shown in Fig. 9 that, in the one-sided noise channel, when the value of concurrence or negativity is ﬁxed, the relationship between δr and robustness is signiﬁcant when the normalized robustness is less than 0.4, but becomes less evident when the robustness approaches its maximum. Therefore, we surmise that, as the channel becomes nonuniform, MFES are closely correlated with δr, but MRES with the linear entropy. This point is well represented in the MRES and MFES. When the amount of concurrence is given, MRES under general two-sided channels maximize the negativity and minimize the linear entropy, and MFES in the one-sided channel achieve the maximum of δr. When the negativity is ﬁxed, the MRES changes from the states with maximal concurrence to the
+
+states minimizing the linear entropy as the nonuniform parameter ∆ increases from 0 to 1. The MFES for negativity in the one-sided channel have the maximal δr when N → 1.
+At last, we make some prospects for further extension of the results in this paper. Based on the classiﬁcation of the ansatz states under one-sided channel, it is easy to study the relation between robustness and entanglement. It leaves us a question of whether the arbitrary two-qubit states can be classiﬁed by robustness? The answer to this question would bring us an explicit expression of robustness under one-sided channel. The evolution equation of entanglement given in [7] has been generalized in many directions [8–11]. As an application of the generalized evolution equations, it is interesting to study robustness of entanglement in multi-qubit or multi-qudit systems. On the other hand, the capacity of an entangled qubit pair in quantum information [18, 19] does not depend on the amount of entanglement only. It is necessary to investigate the robustness of the capacities in a speciﬁc quantum information process. Our scenario to derive the MRES or MFES when an analytic proof is absent can be applied directly to these topics.
+Acknowledgments
+The authors are very grateful to the reviewers for helpful comments and criticisms. F.L.Z. is supported by NSF of China (Grant No. 11105097). J.L.C. is supported by National Basic Research Program (973 Program) of China under Grant No. 2012CB921900, NSF of China (Grant Nos. 10975075 and 11175089) and also partly supported by National Research Foundation and Ministry of Education, Singapore (Grant No. WBS: R-710000-008-271).
+
+[1] A. Einstein, B. Podosky, and N. Rosen, Physical Review 47, 777 (1935).
+[2] M. A. Nielsen and I. L. Chuang, Quantum Computation and Quantum Information (Cambridge University Press, Cambridge, 2000).
+[3] T. Yu and J. Eberly, Physical Review Letters 93, 140404 (2004).
+[4] T. Yu and J. H. Eberly, Physical Review Letters 97, 140403 (2006).
+[5] M. Almeida, F. De Melo, M. Hor-Meyll, A. Salles, S. Walborn, P. Ribeiro, and L. Davidovich, Science 316, 579 (2007).
+[6] J. Laurat, K. Choi, H. Deng, C. Chou, and H. Kimble, Physical Review Letters 99, 180504 (2007).
+[7] T. Konrad, F. De Melo, M. Tiersch, C. Kasztelan, A. Arag˜ao, and A. Buchleitner, Nature Physics 4, 99 (2007).
+[8] C. Yu, X. X. Yi, and H. S. Song, Physical Review A 78, 062330 (2008).
+[9] Z. G. Li, S. M. Fei, Z. D. Wang, and W. M. Liu, Physical Review A 79, 024303 (2009).
+[10] Z. Liu and H. Fan, Physical Review A 79, 032306 (2009).
+
+[11] M. Tiersch, F. De Melo, and A. Buchleitner, Physical Review Letters 101, 170502 (2008).
+[12] G. Vidal and R. Tarrach, Physical Review A 59, 141 (1999).
+[13] C. Simon and J. Kempe, Physical Review A 65, 052327 (2002).
+[14] B.-K. Zhao and F.-G. Deng, Physical Review A 82, 014301 (2010).
+[15] S. Hill and W. K. Wootters, Physical Review Letters 78, 5022 (1997).
+[16] W. K. Wootters, Physical Review Letters 80, 2245 (1998).
+[17] K. Z˙ yczkowski, P. Horodecki, A. Sanpera, and M. Lewenstein, Physical Review A 58, 883 (1998).
+[18] J. Lee and M. S. Kim, Physical Review Letters 84, 4236 (2000).
+[19] G. Bowen and S. Bose, Physical Review Letters 87, 267901 (2001).
+[20] W. J. Munro, D. F. V. James, A. G. White, and P. G. Kwiat, Physical Review A 64, 030302(R) (2001).
+[21] T.-C. Wei, K. Nemoto, P. M. Goldbart, P. G. Kwiat,
+
+10
+
+W. J. Munro, and F. Verstraete, Physical Review A 67, 022110 (2003). [22] T. Yu and J. H. Eberly, Physical Review B 66, 193306 (2002). [23] J. Novotny`, G. Alber, and I. Jex, Physical Review Letters 107, 090501 (2011). [24] K. Ann and G. Jaeger, Physical Review A 76, 044101 (2007). [25] M. Ali, G. Alber, and A. R. P. Rau, Journal of Physics B: Atomic, Molecular and Optical Physics 42, 025501 (2008). [26] X.-F. Qian and J. Eberly, Physics Letters A 376, 2931 (2012). [27] A. Borras, A. P. Majtey, A. R. Plastino, M. Casas, and A. Plastino, Physical Review A 79, 022108 (2009).
+
+[28] W. Du¨r and H. Briegel, Physical Review Letters 92, 180403 (2004).
+[29] L. Aolita, R. Chaves, D. Cavalcanti, A. Ac´ın, and L. Davidovich, Physical Review Letters 100, 080501 (2008).
+[30] F.-L. Zhang, Y. Jiang, and M.-L. Liang, Arxiv preprint arXiv:1104.5057 (2011).
+[31] G. Vidal and R. F. Werner, Physical Review A 65, 032314 (2002).
+[32] K. Z˙ yczkowski and M. Ku´s, Journal of Physics A: Mathematical and General 27, 4235 (1994).
+[33] F. Verstraete, K. Audenaert, J. Dehaene, and B. Moor, Journal of Physics A: Mathematical and General 34, 10327 (2001).
+

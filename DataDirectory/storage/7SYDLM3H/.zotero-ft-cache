@@ -1,0 +1,1632 @@
+Communications in Theoretical Physics
+
+GENERAL
+Dynamics of Entanglement for a Two-Parameter Class of States in a Qubit-Qutrit System
+To cite this article: et al 2012 Commun. Theor. Phys. 57 983
+View the article online for updates and enhancements.
+
+You may also like
+- Restraining the decoherence of accelerated qubit–qutrit system via local Markovian channels M Y Abd-Rabbou, N Metwally, A-S F Obada et al.
+- Dynamics of quantum correlations in a qubit-qutrit spin system under random telegraph noise Fadwa Benabdallah, Hamid Arian Zad, Mohammed Daoud et al.
+- Quantum discord and its allies: a review of recent progress Anindita Bera, Tamoghna Das, Debasis Sadhukhan et al.
+
+This content was downloaded from IP address 49.140.189.201 on 21/05/2022 at 08:10
+
+Commun. Theor. Phys. 57 (2012) 983–990
+
+Vol. 57, No. 6, June 15, 2012
+
+Dynamics of Entanglement for a Two-Parameter Class of States in a Qubit-Qutrit
+
+System∗
+
+ï ¥ Ó Ù WEI Hai-Rui (
+
+), REN Bao-Cang (
+
+ÄÁ and DENG Fu-Guo (
+
+)†
+
+), LI Tao ( ), HUA Ming ( ),
+
+Department of Physics, Applied Optics Beijing Area Major Laboratory, Beijing Normal University, Beijing 100875, China
+
+(Received November 7, 2011; revised manuscript received March 2, 2012)
+
+Abstract We investigate the dynamics of entanglement for a two-parameter class of states in a hybrid qubit-qutrit
+system under the inﬂuence of various dissipative channels. Our results show that entanglement sudden death (ESD) is a general phenomenon and it usually takes place in a qubit-qutrit system interacting with various noisy channels, not only the case with dephasing and depolarizing channels observed by others. ESD can only be avoided for some initially entangled states under some particular noisy channels. Moreover, the environment aﬀects the entanglement and the coherence of the system in very diﬀerent ways.
+PACS numbers: 03.65.Yz, 03.67.Mn, 03.65.Ta Key words: dynamics of entanglement, qubit-qutrit systems, a two-parameter class of states, dissipative chan-
+nels, entanglement sudden death
+
+1 Introduction
+Quantum entanglement is a vital resource for quantum information processing.[1] However, isolating a quantum system completely from its environment is plainly an impossible task and each quantum system will inevitably interact with its environment. Therefore, it is important to investigate the behavior of an entangled quantum system under the inﬂuence of its environment. Recently, Yu and Eberly[2−3] investigated the dynamics of two-qubit entangled states undergoing various modes of decoherence. They found that it takes an inﬁnite time to complete decoherence locally, the global entanglement may be lost in a ﬁnite time, and the decay of a single-qubit coherence can be slower than the decay of a two-qubit entanglement. The abrupt disappearance of entanglement in a ﬁnite time was named “entanglement sudden death” (ESD). A geometric interpretation of the phenomenon is given in Ref. [4]. In addition, experimental evidences of ESD have been reported for optical setups[5−6] and atomic ensembles.[7] Clearly, ESD can seriously aﬀect the applications of entangled states in a practical quantum information processing. Recently, dynamics of entanglement has received increasing attention.[8−10]
+ESD in ﬁnite-dimensional systems is not limited only to two-qubit systems. It maybe occurs in a composite quantum system with a larger dimension and a multiqubit system as well.[11−17] The dissipative dynamics for a speciﬁc one-parameter class of states in a qubit-qutrit (2 ⊗ 3) system interacting with dephasing and depolarizing channels was studied by Ann et al.[13] and Khan,[14]
+
+respectively. Ann et al.[13] conjectured that ESD exists in all bipartite quantum systems. Khan[14] showed that no ESD happens in any density matrix of a qubit-qutrit system when only the qubit is coupled to its local depolarizing channel but the re-birth of entanglement occurs in particular initial states. However, for general qubit-qutrit states and other common noise channels, the dissipative dynamics of a hybrid qubit-qutrit is not presented.
+In this paper, we devote to investigate the behavior of entanglement for a two-parameter class of states in a qubit-qutrit system under the inﬂuence of both two independent (multi-local) and only one (local) various noise channels, such as dephasing, phase-ﬂip, bit-(trit-) ﬂip, bit(trit-) phase-ﬂip, and depolarizing channels. Using negativity for quantifying entanglement, some analytical or numerical results are presented. We ﬁnd that ESD is a general phenomenon in a qubit-qutrit system undergoing all these noise channels, not only the case with dephasing and depolarizing channels observed by others.[13] It is interesting to show that ESD always takes place in any density matrix when each subsystem couples to its depolarizing channel or only the qutrit couples to its trit-ﬂip or trit-phase-ﬂip channels. ESD can only be avoided in some initial states undergoing particular noise channels. For example, no ESD occurs when the system under the inﬂuence of multi-local (local) dephasing, multi-local (local) phase-ﬂip, local bit-ﬂip, and local bit-phase-ﬂip channels if it is initially in the state shown in Eq. (1) with the parameter b = 0. Our results show that the noise channels aﬀect the entanglement and the coherence of a
+
+∗Supported by the National Natural Science Foundation of China under Grant Nos. 10974020 and 11174039, NCET-11-0031, and the Fundamental Research Funds for the Central Universities
+†Corresponding author, E-mail: fgdeng@bnu.edu.cn c 2011 Chinese Physical Society and IOP Publishing Ltd
+http://www.iop.org/EJ/journal/ctp http://ctp.itp.ac.cn
+
+984
+
+Communications in Theoretical Physics
+
+Vol. 57
+
+hybrid qubit-qutrit system in very diﬀerent ways. For local or multi-local dephasing, phase-ﬂip, and depolarizing noise channels, a time scale of disentanglement is usually shorter than the decay of the oﬀ-diagonal dynamics, and coherence disappears in an inﬁnite-time limit. For multilocal and local bit-ﬂip and bit-phase-ﬂip channels, disentanglement may occur in an inﬁnite time, but coherence does not disappear even though t →∝.
+This paper is organized as follows. In Sec. 2, we motivate the choice of a two-parameter class of states in a qubit-qutrit system, and the physical model are introduced. In Sec. 3, entanglement dynamics of a twoparameter class of states in a qubit-qutrit system under the inﬂuence of local and multi-local dephasing, phaseﬂip, bit-(trit-) ﬂip, bit-(trit-) phase-ﬂip, and depolarizing noise channels are discussed, respectively. Discussion and summary are shown in Sec. 4.
+
+2 Initial States and Noise Model
+
+A two-parameter class of states with real parameters in a hybrid qubit-qutrit (2 ⊗ 3) quantum system[18] can be described as
+ρbc(0) = a(|02 02| + |12 12|) + b(|φ+ φ+| + |φ− φ−| + |ψ+ ψ+|) + c|ψ− ψ−|, (1)
+
+where
+
+|φ± = √1 (|00 ± |11 ), 2
+
+|ψ± = √1 (|01 ± |10 ),
+
+(2)
+
+2
+
+and a, b, and c are three real parameters, and they sat-
+
+isfy the relation 2a + 3b + c = 1. |0 and |1 are the two eigenstates of a two-level quantum system (qubit) or the
+
+eigenstates of a three-level quantum system (qutrit) with
+
+the other eigenstate |2 . The two-parameter class of states
+
+ρbc(0) can be obtained from an arbitrary state of a 2 ⊗ 3
+quantum system by means of local quantum operations and classical communication.[18]
+For an arbitrary mixed state ρAB in a 2 ⊗ 2 or a 2 ⊗ 3
+
+system, its entanglement can well be characterized and quantiﬁed by its negativity,[19−20]
+
+N (ρAB) = ρTB −1,
+
+(3)
+
+which corresponds to the absolute value of the sum of
+
+negative eigenvalues of ρTB (the partial transpose ρTB as-
+
+sociated with an arbitrary product orthonormal basis
+
+fi ⊗ fj is deﬁned by the matrix elements: ρTmBµ,nν ≡ fm ⊗ fµ|ρTB |fn ⊗ fν = ρmν,nµ), i.e.,
+
+N (ρAB) = 2 max{0, −λS},
+
+(4)
+
+where λS represents the sum of all negative eigenvalues of ρTB . N (ρAB) = 0 for an unentangled state. Therefore, from Eq. (1) one can obtain the range of parameters as 3b < c ≤ 1 − 3b, i.e., b ∈ [0, 1/6) for the initial entangled states.
+
+In our physical model of noise for a qubit-qutrit system
+
+(composed of a two-level subsystem A and a three-level
+
+subsystem B), the two subsystems interact with their en-
+
+vironments independently. The evolved states of the ini-
+
+tial density matrix of such a system when it is inﬂuenced
+
+by multi-local environments can be given compactly by
+
+23
+
+ρAbcB(t) =
+
+FjB EiAρAbcB (0)EiA†FjB†.
+
+(5)
+
+i=1 j=1
+
+Here, the operators EiA and FjB are the Kraus operators which are used to describe the noise channels acting on the
+
+qubit A and the qutrit B, respectively. They satisfy the
+
+completeness relations EiA†EiA = I and FjB†FjB = I
+
+i
+
+j
+
+for all t.
+
+3 Dynamics of Entanglement under Decoherence
+It is important to consider the possible degradation of any initially prepared entanglement due to decoherence. In this section we investigate what happens to the entanglement in a qubit-qutrit system under common noise channels for qubit (qutrit): dephasing, phase-ﬂip, bit(trit-) ﬂip, bit-(trit-) phase-ﬂip, and depolarizing channels. The two speciﬁc environment noise situations will be considered: (i) local and (ii) multi-local. In the case (i), only one part of a qubit-qutrit system (S) interacts with its environment. In the case (ii), both the two parts of S interact with their local environments, independently.
+
+3.1 Dephasing Channels
+
+The set of Kraus operators for a single qubit A and a
+
+single qutrit B that reproduce the eﬀect of a dephasing
+
+channel are given by
+
+E1A =
+
+1
+
+0
+
+√
+
+0 1 − γA
+
+⊗ I3,
+
+E2A =
+
+00 0 √γA
+
+⊗ I3,
+
+(6)
+
+1 F1B = I2 ⊗  0
+0
+
+0 √
+1 − γB 0
+
+0
+
+0 √
+
+,
+
+1 − γB
+
+1 F2B = I2 ⊗  0
+0
+
+0 √γB
+0
+
+0 0, 0
+
+1 0 0 
+
+F3B = I2 ⊗  0 0
+
+0 0
+
+0 . √γB
+
+(7)
+
+The time-dependent parameters are deﬁned as γA = 1 − e−tΓA and γB = 1 − e−tΓB . Here γA, γB ∈ [0, 1].
+
+ΓA (ΓB) denotes the decay rate of the subsystem A (B).
+
+According to Eq. (5), the time-dependent evolved den-
+
+sity operator ρAB(t) of a hybrid qubit-qutrit system,
+
+which is initially in the entangled state ρAB(0), is given
+
+by
+
+No. 6
+
+Communications in Theoretical Physics
+
+985
+
+b
+
+0
+
+0
+
+√0
+
+0 0
+
+0 
+
+b+c 2
+
+0
+
+(b−c) (1−γA)(1−γB ) 2
+
+0
+
+0 
+
+ρAB (t)
+
+=
+
+  
+
+0
+
+0
+
+
+
+√0
+(b−c) (1−γA)(1−γB ) 2
+
+1−c−3b 2
+0
+
+0
+b+c 2
+
+0 0
+
+ 
+
+.
+
+0 0
+
+
+
+(8)
+
+ 
+
+0
+
+0
+
+0
+
+0
+
+b
+
+0
+
+ 
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1−c−3b 2
+
+In order to characterize the dynamics of evolution for
+
+the density matrix and consider the entanglement of this
+
+system quantiﬁed by negativity, we should calculate the
+
+eigenvalues of the partial transpose of the time-evolved density matrix ρAB(t) and determine the potential nega-
+
+tive eigenvalues.
+
+(i) Multi-local dephasing channel. The eigenvalue
+
+which can potentially be negative is
+
+c−b
+
+λ = b − 2 (1 − γA)(1 − γB).
+
+(9)
+
+The entanglement of the qubit-qutrit system under a
+
+multi-local dephasing channel is
+
+N mul-loc(ρAB )
+
+= 2 max
+
+0,
+
+c
+
+− 2
+
+b
+
+(1 − γA)(1 − γB) − b . (10)
+
+It is easy to obtain that all the states which are initially
+
+entangled (3b < c ≤ 1 − 3b) become separable when (1 − γA)(1 − γB) ≤ (2b/(c − b))2 and b = 0.
+(ii) Qubit dephasing channel only. If the qutrit ﬁeld
+
+is turned oﬀ (i.e., γB = 0), that is, only a dephasing noise acts on qubit A alone, the entanglement of the qubit-qutrit
+
+system is
+
+N bit(ρAB) = 2 max
+
+0,
+
+c
+
+− 2
+
+b
+
+1 − γA − b .
+
+(11)
+
+All the states which are initially entangled (3b < c ≤ 1 − 3b) become separable as soon as γA ≥ 1 − (2b/(c − b))2 and b = 0.
+
+(iii) Qutrit dephasing channel only. By the same ar-
+
+gument as that made in the qubit dephasing noise, for a
+
+dephasing noise acting on qutrit B alone, the entangle-
+
+ment is
+
+N trit(ρAB) = 2 max
+
+0,
+
+c
+
+− 2
+
+b
+
+1 − γB − b .
+
+(12)
+
+A single-qutrit dephasing channel will induce ESD in the qubit-qutrit system when γB ≥ 1−(2b/(c − b))2 and b = 0.
+Together with these pieces of results, one can see that ESD takes place under local and multi-local dephasing channels in a general qubit-qutrit system if and only if the system is initially in the state shown in Eq. (1) with the parameter b = 0. Moreover, the smaller c/b, the longer the death time range. However, if b = 0, no ESD occurs.
+
+3.2 Phase-Flip Channels
+
+The Kraus operators describing the phase-ﬂip channel for a single qubit A are given by
+
+E1A =
+
+1
+
+−
+
+γA 2
+
+10 01
+
+⊗ I3,
+
+E2A =
+
+γA 2
+
+10 0 −1 ⊗ I3,
+
+(13)
+
+and those for a single qutrit B can be written as
+
+F1B = I2 ⊗
+
+1 0
+
+1
+
+−
+
+2γB 3
+
+
+
+0
+
+1
+
+00
+
+0 0, 1
+
+F2B = I2 ⊗
+
+1
+
+γB 3
+
+0
+
+0
+
+0 e − i 2π/3
+0
+
+0 0 , e i2π/3
+
+F3B = I2 ⊗
+
+1
+
+γB 3
+
+0
+
+0
+
+0 e i2π/3
+0
+
+0 0  , (14) e − i 2π/3
+
+where γA = 1− e−tΓA , γB = 1− e−tΓB , and γA, γB ∈ [0, 1]. ΓA (ΓB) represents the decay rate of the subsystem A (B).
+We can obtain the time-evolved density-matrix dynamics ρAB(t) of the qubit-qutrit system under a phase-
+ﬂip channel, according to Eq. (5). That is,
+
+b
+
+0
+
+0
+
+0
+
+0 0
+
+0
+
+b+c 2
+
+0
+
+(b−c)(1−γA)(1−γB ) 2
+
+0
+
+
+
+ρAB (t)
+
+=
+
+ 
+
+0
+
+ 
+
+0
+
+0
+(b−c)(1−γA)(1−γB ) 2
+
+1−c−3b 2
+0
+
+0
+b+c 2
+
+0 0
+
+ 
+
+0
+
+0
+
+0
+
+0
+
+b
+
+0
+
+
+
+0
+
+ .
+
+0
+
+ 
+
+0
+
+ 
+
+(15)
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1−c−3b 2
+
+With the same argument as that made in dephasing channels, some results can be presented as follows.
+
+(i) Multi-local phase-ﬂip channel. The entanglement of the qubit-qutrit system under a multi-local phase-ﬂip
+
+channel is calculated as
+
+N mul-loc(ρAB) = 2 max
+
+0,
+
+(c
+
+−
+
+3b)
+
++
+
+(c
+
+−
+
+b)((1 − 2
+
+γA)(1
+
+−
+
+γB
+
+)
+
+−
+
+1)
+
+.
+
+(16)
+
+986
+
+Communications in Theoretical Physics
+
+Vol. 57
+
+That is, all the states which are initially entangled (3b < c ≤ 1 − 3b) become separable for all values of (1 − γA)(1 − γB) ≤ 2b/(c − b) and b = 0.
+(ii) Qubit phase-ﬂip channel only. The entanglement of the system is
+
+N bit(ρAB) = 2 max
+
+0,
+
+c
+
+−
+
+3b
+
+−
+
+γA(c 2
+
+−
+
+b)
+
+.
+
+(17)
+
+All the states which are initially entangled (3b < c ≤ 1 − 3b) become separable as soon as γA ≥ (c − 3b)/(c − b) and b = 0.
+(iii) Qutrit phase-ﬂip channel only. The negativity for all the states which are initially entangled (3b < c ≤ 1−3b) is given as
+
+N trit(ρAB ) = 2 max
+
+0,
+
+c
+
+−
+
+3b
+
+−
+
+γB (c 2
+
+−
+
+b)
+
+.
+
+(18)
+
+All the states which are initially entangled become separable when γB ≥ (c − 3b)/(c − b) and b = 0.
+Similar to the case with a dephasing noise, ESD also takes place when the system undergoes a phase-ﬂip noise environment but no ESD occurs when the parameter b = 0.
+
+3.3 Bit-(Trit-) Flip Channels
+
+The Kraus operators describing the bit-ﬂip channel for a single qubit A are given by
+
+E1A =
+
+1
+
+−
+
+γA 2
+
+10 01
+
+⊗ I3,
+
+E2A =
+
+γA 2
+
+01 1 0 ⊗ I3,
+
+(19)
+
+and those for a single qutrit B can be written as
+
+F1B = I2 ⊗
+
+1 0 0
+
+1
+
+−
+
+2γB 3
+
+
+
+0
+
+1
+
+0,
+
+001
+
+F2B = I2 ⊗
+
+0 0 1
+
+γB 3
+
+
+
+1
+
+0
+
+0,
+
+010
+
+0 1 0
+
+F3B = I2 ⊗
+
+γB 3
+
+
+
+0
+
+0
+
+1,
+
+(20)
+
+100
+
+where γA = 1− e−tΓA , γB = 1− e−tΓB , and γA, γB ∈ [0, 1]. The matrix elements of ρ after the interaction time t
+
+under a multi-local bit-(trit-) ﬂip channel are given by
+
+ρ11(t)
+
+=
+
+ρ55(t) =
+
+1 12
+
+(12b
+
++
+
+3(b
+
+−
+
+c)γA(γB
+
+−
+
+1)
+
++ 2(1 − 6b)γB),
+
+ρ22(t)
+
+=
+
+ρ44(t) =
+
+1 12
+
+(6(b
+
++
+
+c)
+
+−
+
+3(b
+
+−
+
+c)γA(γB
+
+−
+
+1)
+
++ (2 − 6b − 6c)γB),
+
+ρ33(t)
+
+=
+
+ρ66(t) =
+
+1 6
+
+(3(1
+
+−
+
+3b
+
+−
+
+c)
+
++
+
+(9b
+
++
+
+3c
+
+−
+
+2)γB )
+
+,
+
+ρ15(t)
+
+=
+
+ρ51(t) =
+
+1 12
+
+(b
+
+−
+
+c)γA(3
+
+−
+
+2γB
+
+),
+
+ρ35(t)
+
+=
+
+ρ53(t) = ρ16(t) = ρ61(t) =
+
+1 12
+
+(b
+
+−
+
+c)(2
+
+−
+
+γA)γB
+
+,
+
+ρ26(t)
+
+=
+
+ρ62(t) = ρ34(t) = ρ43(t) =
+
+1 12
+
+(b
+
+−
+
+c)γA
+
+γB
+
+,
+
+ρ24(t)
+
+=
+
+ρ42(t) =
+
+1 12
+
+(b
+
+−
+
+c)(2
+
+−
+
+γA)(3
+
+−
+
+2γB
+
+),
+
+(21)
+
+and all the remaining matrix elements are zero. Here
+
+ρ = (ρij ) and i, j = 1, . . . , 6. (i) Qubit bit-ﬂip channel only. We obtain the same
+
+results as the case with a phase-ﬂip channel.
+
+(ii) Qutrit trit-ﬂip channel only. The negativity for all
+
+the states which are initially entangled (3b < c ≤ 1 − 3b)
+
+can be given by
+
+N trit(ρAB ) = 2 max
+
+0,
+
+3b
+
+−
+
+9c
+
+−
+
+(1
+
+− 6
+
+8b
+
++
+
+2c)γB
+
+. (22)
+
+The states become separable once
+
+γB ≥ (3c − 9b)/(1 − 8b + 2c).
+
+(iii) Multi-local bit-(trit-) ﬂip channel. For simplicity, we choose the local asympotic bit-(trit-) ﬂip rates ΓA = ΓB = Γ to discuss the eﬀect of this noise on entanglement. Unfortunately, it is diﬃcult to calculate the analytical eigenvalues of the partial transpose of the timeevolved density matrix. Therefore, we take the numerical calculation for various initial states as examples to investigate the dynamics of entanglement of the qubit-qutrit system under a multi-local bit-(trit-) ﬂip channel.
+As the ﬁrst example, we consider the initial entangled states shown in Eq. (1) with the parameter a = 0 which are equivalent to Werner states[21] in a 2 ⊗ 2 systems but with diﬀerent noise channels. Their dynamics of entanglement is shown in Fig. 1. We note that the time-evolved density matrix for the initial state with the parameters a = b = 0 is just the case for the maximally entangled Bell state |ψ− ,[22] and the system does not suﬀer from ESD under a multi-local bit-(trit-) ﬂip channel.
+As a second example, we consider the initial entangled states with the parameter b = 0. Their dynamics of entanglement is shown in Fig. 2.
+
+No. 6
+
+Communications in Theoretical Physics
+
+987
+
+⊲
+⊲
+⊲ N
+⊲
+⊲
+⊲ ⊲ ⊲ ⊲ ⊲ ⊲ ⊲ γ
+Fig. 1 Dynamics of entanglement for the system undergoing the multi-local bit- (trit-) ﬂip noise with a = 0. N represents the negativity of a hybrid qubit-qutrit system. γ is the time-dependent parameter and γA = γB = γ = 1 − e−tΓ. The solid, dashed, short-dashed, dasheddotted, and dotted lines correspond to b = 0, b = 1/30, b = 2/30, b = 3/30, and b = 4/30, respectively.
+⊲
+⊲
+⊲ N
+⊲
+⊲
+⊲ ⊲ ⊲ ⊲ ⊲ ⊲ ⊲ γ
+Fig. 2 Dynamics of entanglement for the system undergoing the multi-local bit-(trit-) ﬂip noise with parameter b = 0. The solid, dashed, dashed-dotted, and dotted lines correspond to c = 1, c = 3/4, c = 1/2, and c = 1/4, respectively.
+Finally, we consider the initial states with a, b, c > 0. The dynamics of entanglement is plotted in Fig. 3 for a particular value of the parameter b = 0.05.
+⊲7
+⊲6
+⊲5
+⊲4
+N ⊲3
+⊲2
+⊲1
+⊲0 ⊲ ⊲ ⊲ ⊲ ⊲ ⊲ γ
+Fig. 3 Dynamics of entanglement for the system undergoing the multi-local bit-(trit-) ﬂip noise with b = 1/20. The solid, dashed, dashed-dotted, and dotted lines correspond to c = 16/20, c = 12/20, c = 8/20, and c = 4/20, respectively.
+From the above analysis and numerical results, we conjecture that ESD in a hybrid qubit-qutrit system under
+
+local and multi-local bit- (trit-) ﬂip channels is a general phenomenon. No ESD takes place under a qubit-ﬂip channel alone if and only if the qubit-qutrit system is initially in the states shown in Eq. (1) with the parameter b = 0. However, ESD always occurs when the system undergoes a qutrit-ﬂip channel alone.
+
+3.4 Bit-(Trit-) Phase-Flip Channels
+
+The Kraus operators describing the bit-phase ﬂip channel for a single qubit A are given by
+
+E1A =
+
+1
+
+−
+
+γA 2
+
+10 01
+
+⊗ I3,
+
+E2A =
+
+γA 2
+
+0 i
+
+−i 0
+
+⊗ I3,
+
+(23)
+
+and those for a single qutrit B can be written as
+
+F1B = I2 ⊗ F2B = I2 ⊗ F3B = I2 ⊗ F4B = I2 ⊗ F5B = I2 ⊗
+
+1 0 0
+
+1
+
+−
+
+2γB 3
+
+
+
+0
+
+1
+
+0,
+
+001
+
+0
+
+γB 6
+
+1
+
+0
+
+0 0 e − i 2π/3
+
+e i2π/3  0 , 0
+
+0
+
+γB 6
+
+1
+
+0
+
+0 0 e i2π/3
+
+e−i2π/3  0 , 0
+
+0
+
+γB 6
+
+0
+
+1
+
+e − i 2π/3 0 0
+
+0 e i2π/3  ,
+0
+
+0
+
+γB 6
+
+0
+
+1
+
+e i2π/3 0 0
+
+0 e−i2π/3  , (24)
+0
+
+where γA = 1− e−tΓA , γB = 1− e−tΓB , and γA, γB ∈ [0, 1]. The elements of the density matrix ρ after the interac-
+tion time t under multi-local bit-(trit-) phase-ﬂip channels are given by
+
+ρ11(t)
+
+=
+
+ρ55(t)
+
+=
+
+b
+
++
+
+1 4
+
+(b
+
+−
+
+c)γA(γB
+
+−
+
+1)
+
++
+
+1 6
+
+−
+
+b
+
+γB ,
+
+1 ρ22(t) = ρ44(t) = 12 (6(b + c) − 3(b − c)γA(γB − 1)
+
++ (2 − 6b − 6c)γB),
+
+ρ33(t)
+
+=
+
+ρ66(t) =
+
+1 6
+
+(3(1
+
+−
+
+3b
+
+−
+
+c)
+
++
+
+(9b
+
++
+
+3c
+
+−
+
+2)γB
+
+),
+
+ρ15(t)
+
+=
+
+ρ51(t)
+
+=
+
+−
+
+1 12
+
+(b
+
+−
+
+c)γA(3
+
+−
+
+2γB ),
+
+ρ16(t) = ρ61(t) = ρ35(t) = ρ53(t)
+
+=
+
+1 24
+
+(b
+
+−
+
+c)(γA
+
+−
+
+2)γB ,
+
+ρ24(t)
+
+=
+
+ρ42(t) =
+
+1 12
+
+(b
+
+−
+
+c)(2
+
+−
+
+γA
+
+)(3
+
+−
+
+2γB
+
+),
+
+ρ26(t) = ρ62(t) = ρ34(t) = ρ43(t)
+
+=
+
+1 12
+
+(b
+
+−
+
+c)γA
+
+γB
+
+,
+
+(25)
+
+and all the remaining matrix elements are zero.
+
+988
+
+Communications in Theoretical Physics
+
+Vol. 57
+
+(i) Local bit-(trit-) phase-ﬂip channel only. We obtain the same results as the case with a bit-(trit-) ﬂip channel.
+⊲
+⊲
+⊲ N
+⊲
+⊲
+⊲ ⊲ ⊲ ⊲ ⊲ ⊲ ⊲ γ
+Fig. 4 Dynamics of entanglement for the system undergoing the multi-local bit-(trit-) phase-ﬂip noise with the parameter a = 0. The solid, dashed, short-dashed, dashed-dotted, and dotted lines correspond to b = 0, b = 1/30, b = 2/30, b = 3/30, and b = 4/30, respectively.
+
+⊲
+
+⊲
+
+⊲ N
+⊲
+
+⊲
+
+⊲
+
+⊲ ⊲
+
+⊲
+
+⊲
+
+⊲
+
+⊲
+
+γ
+
+Fig. 5 Dynamics of entanglement for the system undergoing the multi-local bit-(trit-) phase-ﬂip noise with the parameter b = 0. The solid, dashed, dashed-dotted, and dotted lines correspond to c = 1, c = 3/4, c = 1/2, and c = 1/4, respectively.
+
+⊲7
+⊲6
+⊲5
+⊲4
+N ⊲3
+⊲2
+⊲1
+⊲0 ⊲ ⊲ ⊲ ⊲ ⊲ ⊲ γ
+Fig. 6 Dynamics of entanglement for the system undergoing the multi-local bit-(tri-) phase-ﬂip noise with the parameter b = 1/20. The solid, dashed, dashed-dotted, and dotted lines correspond to c = 16/20, c = 12/20, c = 8/20, and c = 4/20, respectively.
+(ii) Multi-local bit-(trit-) phase-ﬂip channel. For simplicity, the time dependent parameters are also deﬁned as γA = γB = γ. It is diﬃcult to obtain the analytical results. The similar work is made as that in the case with a
+
+bit-(trit-) ﬂip channel, and the dynamics of entanglement of the initial states with the parameter a = 0 is displayed in Fig. 4. Diﬀerent from a multi-local bit-(trit-) ﬂip channel, one can see that there exists ESD for the maximally entangled Bell state (solid line). The dynamics of entanglement of the initial states shown in Eq. (1) with the parameters b = 0 and a, b, c > 0 are displayed in Fig. 5 and Fig. 6, respectively.
+
+3.5 Depolarizing Channels
+
+A depolarizing channel represents the process in which the density matrix is dynamically replaced by the maximally mixed state I/d. Here I is the identity matrix of a single qudit. The set of Kraus operators that reproduces the eﬀect of the depolarizing channel for a single qubit A are given by
+
+E1A =
+
+1
+
+−
+
+3γA 4
+
+I6,
+
+E2A =
+
+γA 4
+
+σ1
+
+⊗
+
+I3,
+
+E3A =
+
+γA 4
+
+σ2
+
+⊗
+
+I3,
+
+E4A =
+
+γA 4
+
+σ3
+
+⊗
+
+I3
+
+,
+
+(26)
+
+where σi (i = 1, 2, 3) are the three Pauli matrices. The
+
+Kraus operators describing a single-qutrit depolarizing
+
+noise are given by[23]
+
+F1B F3B F5B F7B F9B
+
+= = = = =
+
+I2 I2 I2 I2 I2
+
+⊗ ⊗ ⊗ ⊗ ⊗
+
+√√√√3333γγγγ1BBBB−ZYYZ8,2ZZγ9,,2B,FI43BF,F6B=8B=FI=22BI⊗2I=2⊗√⊗I32√γ√B⊗3γ3γYB√B2Y3γ,Y2BZ2ZY, ,2,(27)
+
+where
+
+0 1 0
+
+Y = 0 0 1,
+
+100
+
+1 0
+
+0
+
+Z =  0 e i2π/3
+
+0 ,
+
+00
+
+e − i 2π/3
+
+(28)
+
+and γA = 1 − e−tΓA , γB = 1 − e−tΓB , γA, γB ∈ [0, 1]. The matrix elements of ρ after the interaction time t
+under a multi-local depolarizing channel are given by
+
+ρ11(t)
+
+=
+
+ρ55(t) =
+
+1 12
+
+(12b
+
++
+
+3(b
+
+−
+
+c)(γB
+
+− 1)γA
+
++ 2(1 − 6b)γB),
+
+ρ22(t)
+
+=
+
+ρ44(t) =
+
+1 12
+
+(6(b
+
++
+
+c)
+
+−
+
+3(b
+
+−
+
+c)(γB
+
+− 1)γA
+
++ (2 − 6b − 6c)γB),
+
+ρ33(t)
+
+=
+
+ρ66(t) =
+
+1 6
+
+(3(1
+
+−
+
+3b
+
+−
+
+c)
+
++
+
+(9b
+
++
+
+3c
+
+−
+
+2)γB
+
+),
+
+ρ24(t)
+
+=
+
+ρ42(t) =
+
+1 2
+
+(b
+
+−
+
+c)(1
+
+−
+
+γA)(−γB
+
+),
+
+(29)
+
+No. 6
+
+Communications in Theoretical Physics
+
+989
+
+and all the remaining matrix elements are zero.
+
+(3b < c ≤ 1 − 3b) is given by
+
+(i) Multi-local depolarizing channel. The negativity
+
+N mul-loc(ρAB ) = 2 max{0, −λ},
+
+(30)
+
+for the composite system with initial entangled states where
+
+λ
+
+=
+
+9(b
+
+− c)γA(γB
+
+− 1) +
+
+2γB(1 − 12
+
+9b + 3c) + 18b −
+
+6c .
+
+(31)
+
+It is easy to obtain the result that all the states, which
+
+are initially entangled ones, become separable if and only
+
+if 9(b − c)γA(γB − 1) + 2γB(1 − 9b + 3c) ≥ 6(c − 3b). (ii) Qubit depolarizing channel only. The negativity
+for all the states which are initially entangled (3b < c ≤
+
+1 − 3b) is given by
+
+N bit(ρAB) = 2 max
+
+0,
+
+2c
+
+−
+
+6b
+
+− 3γA(c 4
+
+−
+
+b)
+
+.
+
+(32)
+
+The states become separable for all values of γA ≥ (2c − 6b)/(3(c − b)).
+
+(iii) Qutrit depolarizing channel only. The negativity for all the states which are initially entangled (3b < c ≤ 1 − 3b) can be written as
+
+N trit(ρAB ) = 2 max
+
+0,
+
+3c
+
+−
+
+9b
+
+−
+
+(1
+
+− 6
+
+9b
+
++
+
+3c)γB
+
+. (33)
+
+The states become separable for all values of γB ≥ (3c − 9b)/(1 − 9b + 3c).
+4 Discussion and Summary
+Putting all the pieces of our results together, one can see that ESD is a general phenomenon in a qubit-qutrit system undergoing various independent noise channels and we show the outcomes explicitly in Table 1. “ESD with b = 0” denotes ESD takes places in a qubit-qutrit system if and only if b = 0, that is, if b = 0, no ESD occurs.“exist ESD” denotes ESD may occur in a qubitqutrit system, but not necessary. “ESD” denotes ESD always occurs.
+
+Table 1 ESD in 2 ⊗ 3 systems under certain noises.
+
+dephasing phase-ﬂip bit-(trit-) ﬂip bit-(trit-) phase-ﬂip depolarizing
+
+multi-local ESD with b = 0 ESD with b = 0
+exist ESD exist ESD exist ESD
+
+qubit noise only ESD with b = 0 ESD with b = 0 ESD with b = 0 ESD with b = 0
+ESD
+
+qutrit noise only ESD with b = 0 ESD with b = 0
+ESD ESD ESD
+
+Decoherence which is characterized by the decay of the oﬀ-diagonal elements of the density matrix describing the system,[24] results from the unwanted interactions of a quantum system with its environment. According to Eqs. (8), (15), (21), (25), (29), one can see that the coherence of a qubit-qutrit system can be destroyed completely when the system undergoes the multi-local or local dephasing, phase-ﬂip and depolarizing channels, while the disappearance of coherence does not occur even though γA, γB → 1 for multi-local or local the bit-(trit-)ﬂip and bit-(trit-) phase-ﬂip channels.
+Using the negativity criterion for quantifying entanglement, it is shown that the density matrix of a hybrid qubit-qutrit system always suﬀers from ESD and decoherence under both local and multi-local depolarizing channels, which is diﬀerent from the result that no ESD in any density matrix of a qubit-qutrit system occurs when only the qubit is coupled to its depolarizing channel presented in Ref. [14].
+The entanglement dynamics of a speciﬁc one-
+
+parameter class of states interacting with a local and multi-lcoal dephasing noise in hybrid qubit-qutrit systems has been studied by Ann et al.[13] in 2008. We have generalized their study to a more general case, that is, a twoparameter class of states under the inﬂuence of local and multi-local dephasing, phase-ﬂip, bit-(trit-) ﬂip, bit-(trit) phase-ﬂip, and depolarizing channels. With analytical and numerical analysis, we have shown that ESD is a general phenomenon in a qubit-qutrit system under various noise channels, not only the case with dephasing and depolarizing ones.[13] It can only be avoided in some initial states undergoing particular noise channels.
+In summary, our results show that the environment, which causes dephasing, phase-ﬂip, bit-(trit-) ﬂip, bit(trit-) phase-ﬂip, and depolarizing, aﬀects the entanglement and the coherence of a hybrid qubit-qutrit system in a two-parameter class of entangled states in very diﬀerent ways. ESD is a general phenomenon in a qubit-qutrit system undergoing various independent noise channels and it can only be avoided in some initial states undergoing
+
+990
+
+Communications in Theoretical Physics
+
+Vol. 57
+
+particular noise channels. Moreover, we can divide those noise channels into two groups. For multi-local and local dephasing, phase-ﬂip, and depolarizing noise channels, a time scale of disentanglement is usually shorter than the decay of the oﬀ-diagonal dynamics, and coherence disap-
+
+pears in an inﬁnite-time limit t →∝ in which γA, γB → 1. For multi-local or local bit-(trit-) ﬂip and bit-(trit-) phaseﬂip channels, disentanglement may occur in the inﬁnitetime limit, but the disappearance of coherence does not occur even though γA, γB → 1.
+
+References
+[1] M.A. Nielsen and I.L. Chuang, Quantum Computation and Quantum Information, Cambridge Univ. Press, Cambridge (2000).
+[2] T. Yu and J.H. Eberly, Science 316 (2007) 555. [3] T. Yu and J.H. Eberly, Science 323 (2009) 598. [4] M.O. Terra Cunha, New J. Phys. 9 (2007) 237. [5] M.P. Almeida, et al., Science 316 (2007) 579. [6] A. Salles, F. de Melo, M.P. Almeida, M. Hor-Meyll, S.P.
+Walborn, P.H. Souto Ribeiro, and L. Davidovich, Phys. Rev. A 78 (2008) 022322. [7] J. Laurat, K.S. Choi, H. Deng, C.W. Chou, and H.J. Kimble, Phys. Rev. Lett. 99 (2007) 180504. [8] Y. Li, J. Zhou, and H. Guo, Phys. Rev. A 79 (2009) 012309. [9] B.K. Zhao, F.G. Deng, F.S. Zhang, and H.Y. Zhou, Phys. Rev. A 80 (2009) 052106. [10] B.K. Zhao and F.G. Deng, Phys. Rev. A 82 (2010) 014301. [11] K. Ann and G. Jaeger, Phys. Rev. A 76 (2007) 044101.
+
+[12] G. Jaeger and K. Ann, J. Mod. Opt. 54 (2007) 2327. [13] K. Ann and G. Jaeger, Phys. Lett. A 372 (2008) 579. [14] S. Khan, arXiv:quant-ph/1012.1028. [15] Z.X. Man, Y.J. Xia, and N.B. An, Phys. Rev. A 78 (2008)
+064301. [16] Z.X. Man, Y.J. Xia, and N.B. An, New J. Phys. 12 (2010)
+033020. [17] Z. He, J. Zou, B. Shao, and S.Y. Kong, J. Phys. B: At.
+Mol. Opt. Phys. 43 (2010) 115503. [18] D.P. Chi and S. Lee, J. Phys. A 36 (2003) 11503. [19] G. Vidal and R.F. Werner, Phys. Rev. A 65 (2002)
+032314. [20] S. Lee, D.P. Chi, S.D. Oh, and J. Kim, Phys. Rev. A 68
+(2003) 062304. [21] R.F. Werner, Phys. Rev. A 40 (1989) 4277. [22] B. Groisman and S. Popescu, A. Winter, Phys. Rev. A
+72 (2005) 032317. [23] S. Salimi and M.M. Soltanzadeh, Int. J. Quant. Inf. 7
+(2009) 615. [24] R. Omn`es, Phys. Rev. A 56 (1997) 3383.
+
