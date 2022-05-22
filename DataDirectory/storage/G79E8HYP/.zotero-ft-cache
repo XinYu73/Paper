@@ -1,0 +1,347 @@
+PHYSICAL REVIEW B 80, 094102 ͑2009͒
+
+Melting curve of aluminum up to 300 GPa obtained through ab initio molecular dynamics simulations
+
+J. Bouchet, F. Bottin, G. Jomard, and G. Zérah CEA, DAM, DIF, F-91297 Arpajon, France
+͑Received 21 October 2008; revised manuscript received 28 July 2009; published 4 September 2009͒
+
+The melting curve of aluminum is determined up to 300 GPa using ab initio molecular dynamics simulations. The calculations are based on density functional theory within the generalized gradient approximation. We simulate the melting with two methods, the one-phase or heat until it melts and the two-phase approaches. The ﬁrst one corresponds to a homogeneous melting, while the second one involves a heterogeneous melting of the materials. This conceptual difference gives rise to melting temperatures which can noticeably differ. As expected we observe a melting temperature overestimation in the one-phase approach compared to the twophase approach. To reduce this overheating we use the hysteresis and the Z method which try to combine the advantage of both techniques. We ﬁnally compare our theoretical data with experiments and we discuss the pertinence and the use of the methods.
+
+DOI: 10.1103/PhysRevB.80.094102
+
+PACS number͑s͒: 64.70.DϪ
+
+I. INTRODUCTION
+The last years have seen a growing interest in the calculations of melting curves of materials by ab initio molecular dynamics ͑AIMD͒.1–6 In contrast with classical molecular dynamics ͑CMD͒ where the electronic degrees of freedom are not taken into account and the forces computed from empirical potentials, in AIMD the forces are derived from the Hellmann-Feynman theorem and electronic structure calculations using density functional theory. The cost of this accuracy is computational time for AIMD calculations and those are therefore performed for smaller cells, a few hundreds of atoms, compared to millions of atoms in CMD.
+Two techniques have been used to obtain the melting curve of a material using AIMD, the heat until it melts ͑HUM͒ method which is a one-phase approach and the twophase approach ͑TPA͒.1,7–9 In the ﬁrst method the solid phase is heated gradually until melting occurs and in the second one, simulations are performed on supercells containing the two phases, solid and liquid, separated by an interface. In HUM the crystal is heated homogeneously, the melting initiates in the bulk, whereas in TPA the melting is heterogeneous due to the presence of the interface. This difference can result in a substantial discrepancy between the temperatures of the phase transition obtained with both techniques. While TPA generally yields to the melting temperature Tm obtained from equating the free enthalpies, HUM can overestimate it by as much as 30% depending of the pressure.2,10–12 Since the crystal stays metastably solid above Tm in a HUM simulation, the temperature of the thermal instability is called Tinst to avoid confusion with Tm. Despite of this overheating effect, HUM is commonly used because it needs much less atoms than TPA and for heavy elements or polyatomic systems, TPA is still too computationally demanding. To overcome the overheating, this effect is sometimes evaluated using CMD and Tinst is therefore corrected to approach Tm.8,11
+Aluminum has been extensively studied in the past. Its melting curve has been measured experimentally up to 80 GPa using diamond anvil cells ͑DACs͒13,14 and at 125 GPa
+
+in shock experiments.15 Theoretically, several methods have been applied to determine the melting curve of Al. Moriarty et al.16 used the generalized pseudopotential theory to compare the free energies of the liquid and the solid phases and to obtain the melting temperature at room pressure. Similarly, Mei and Davenport used the embedded atom model to calculate the free energies.17 Later, this potential and the two-phase approach were used by Morris et al.18 to obtain the melting temperature as a function of pressure. de Wijs et al.19 combined ab initio calculations and CMD to compute the melting properties of Al. They used thermodynamic integration to obtain the anharmonic contribution to the solid and liquid free energies. The harmonic solid and a Lennard-Jones ﬂuid were the reference system. Similar calculations were performed by Jesson and Madden.20 More recently, this procedure was improved by Vočadlo and Alfè21 and extended to 150 GPa. Finally, Alfè7 performed fully ab initio calculations at room pressure using TPA to compare with his free-energy results and found a good agreement between the two methods.
+Here we propose to compare the HUM and the TPA and to estimate the overheating effect for Al. We also extend the existing results to higher pressure ͑350 GPa͒. In Sec. II we give details of our calculations. Then, we present our results and we pay a particular attention to the convergence of the melting temperature as a function of the number of atoms for both techniques. We also discuss the degree of overheating. This is followed by a comparison with experimental and previous theoretical results. Finally we use two methods to reduce the overheating, the hysteresis and the Z method, and we discuss their advantages and their drawbacks.
+II. METHODS
+The calculations were done with the ABINIT package,22 norm conserving Troullier-Martins23 pseudopotential with a plane-wave cutoff of 8 Ha, and generalized gradient approximation ͑GGA͒ according to the recipe of Perdew, Burke, and Ernzerhof.24 The pseudopotential was generated with 3s and 3p states as valence electrons and a d nonlocal part and used
+
+1098-0121/2009/80͑9͒/094102͑5͒
+
+094102-1
+
+©2009 The American Physical Society
+
+BOUCHET et al.
+
+PHYSICAL REVIEW B 80, 094102 ͑2009͒
+
+Pressure (GPa)
+Temperature (K)
+
+10
+
+200
+
+32 atoms
+
+108 atoms
+
+5 160
+0
+
+Γ
+
+-5
+
+2x2x2 3x3x3
+
+120
+
+4x4x4
+
+0
+
+100
+
+200
+
+300
+
+400 0
+
+Γ 2x2x2
+
+100
+
+200
+
+FIG. 1. ͑Color online͒ Time variation in pressure for simulation boxes of 32 and 108 atoms and for several k-point meshes.
+
+in previous works.25,26 An efﬁcient scheme of parallelization was used to perform the simulations involving a large number of atoms ͑up to 500͒ and time steps ͑up to 10 000͒.27,28 For HUM the computational supercells were obtained as 2 ϫ 2 ϫ 2, 3 ϫ 3 ϫ 3, and 4 ϫ 4 ϫ 4 face-centered-cubic ͑fcc͒ unit cells corresponding to 32, 108, and 256 atoms, respectively. In TPA we used 3 ϫ 3 ϫ 6 body-centered-tetragonal
+unit cell with a c / a ratio equal to ͱ2 ͑corresponding to fcc͒,
+3 ϫ 3 ϫ 6 fcc unit cell, and 4 ϫ 4 ϫ 8 fcc unit cell corresponding to 108, 216, and 512 atoms, respectively. In the HUM simulations the Brillouin zone was sampled using several Monkhorst-Pack k-point meshes. The evolution of pressure as a function of the k-point mesh is presented in Fig. 1 for supercells involving 32 and 108 atoms. We clearly observe that the ⌫ point is not sufﬁcient for the 32-atom supercell to converge the pressure P. In the following we use the 2 ϫ 2 ϫ 2 k-point mesh for the calculations carried out with this supercell. For the 108-atom supercell the ⌫ point is sufﬁcient, so for this size of cell and subsequently for the larger ones we only use this single k point.
+We conducted our AIMD simulations in the NVT ensemble ͑constant number of particles, constant volume, and temperature͒ for HUM, TPA, and hysteresis methods and the NVE ensemble ͑constant number of particles, constant volume, and energy͒ for the Z method. Calculations were done at six volumes, V = 18.30, 15.04, 12.20, 10.49, 9.73, and 7.63 Å3, which correspond to pressures between 0 and 300 GPa. For each volume, we performed AIMD simulations for different temperatures ͑between 5 and 10͒ using the HUM and the two-phase approaches. We used time steps ͑␶͒ of 1 fs at high pressure and 2 fs at smaller pressure to have a negligible energy drift. After equilibrium P’s were obtained by time averages over a few hundred time steps. In HUM the atoms are initially placed at their crystallographic positions. Then the system is gradually heated until we observe a discontinuous change in P due to the volume difference between the solid and liquid phases. In our two-phase simulations, the initial solid and liquid phases were heated independently as in the one-phase approach. The liquid part is simulated at sufﬁciently high temperature to transform into a molten conﬁguration. Then the solid and liquid parts are put together with a small spacing in the simulation box to avoid overlapping between atoms and reduce the strain at the interface. This supercell is then used as the initial conﬁguration for further simulations. Note that contrary to the phase coexistence approach where simulations are performed in the
+
+8000
+
+6000
+
+108 atoms 216 atoms 512 atoms FEA
+
+4000 2000
+0 0
+
+1200
+
+1100
+
+1000
+
+900
+
+800
+
+700 -2 0 2 4 6 8 10
+
+100
+
+200
+
+300
+
+400
+
+Pressure (GPa)
+
+FIG. 2. ͑Color online͒ Melting curves obtained with the twophase approach and simulations containing 108, 216, and 512 atoms. The dashed line is the curve obtained using the free-energy approach ͑Ref. 21͒ ͑FEA͒. The inset shows the comparison of our data with the data obtained in Ref. 7 with the TPA and simulation boxes of 512 ͑up triangles͒ and 1000 atoms ͑down triangles͒.
+
+NVE ensemble and where the solid and liquid states can coexist,29 our TPA simulations result in a monophase: above
+Tm, the system will become liquid, whereas below Tm, the liquid part will solidify. The hysteresis and the Z method are
+described below.
+
+III. RESULTS
+A. Heat until it melts
+We observe a very fast convergence as a function of the system size. Even a small system containing as few as 32 atoms gives a good approximation. If a shift toward lower temperature is obtained between 32 and 108 atoms, there is no more difference between the 108- and 256-atom supercells except at very high pressure ͑300 GPa͒. Therefore, we conclude that a 108-atom supercell is suitable in the framework of the HUM method, at least in the case of Al. We can compare our system size with those of other AIMD simulations using the HUM method. Recently, Raty et al.3 and Koči et al.30 performed calculations on Na with 128-atom bcc and 108-atom fcc supercell and the one-phase approach. To obtain the melting curve of Pb, Cricchio et al.11 used cells of 108 ͑fcc͒ and 96 ͑hcp͒ atoms. Unfortunately, the convergence of the melting temperature as a function of the system size was not studied in these works. More recently, Belonoshko et al.4 studied the melting curve of Mo. They performed simulations for 32-, 64-, and 108-atom fcc systems. They found the size effect to be negligible in agreement with our results for Al.
+
+B. Two-phase approach
+Our results for the melting curve of Al using the twophase method are shown in Fig. 2 for cells containing 108, 216, and 512 atoms and compared to previous results using the coexistence approach7 and the FEA.21 First of all, let us look at the convergence of the melting curve as a function of
+
+094102-2
+
+MELTING CURVE OF ALUMINUM UP TO 300 GPa…
+
+PHYSICAL REVIEW B 80, 094102 ͑2009͒
+
+10000 8000 6000
+
+HUM-108 atoms hysteresis method
+Z-method TPA-512 atoms DAC Shock
+
+Temperature (K)
+
+4000
+4000
+3000
+
+2000 0 0
+
+2000
+
+1000
+
+0
+
+50
+
+100
+
+200
+
+300
+
+Pressure (GPa)
+
+100
+400
+
+FIG. 3. ͑Color online͒ Melting curves for Al. The data points obtained from our simulations with the TPA ͑512 atoms͒ and the HUM ͑108 atoms͒ methods are shown in blue and dashed red, respectively. The lines are guides for the eyes. The open diamonds and triangles are the melting temperatures obtained with the hysteresis and Z method, respectively. Filled squares: DAC measurements in Refs. 13 and 14, respectively. The shock data in Ref. 15 is represented by a ﬁlled circle. The inset shows the data at low pressure.
+
+the size of the computational box. In contrast with our results for HUM we still observe discrepancies with the size of the cell. Moreover the discrepancy increases with the pressure. Between simulations performed with 108 and 216 atoms we observe a difference of 15– 30 % in the range of pressures presented here. For the two larger boxes ͑216 and 512 atoms͒, the difference drops to around 7% and 15% at low and high pressures, respectively. If we expect a similar trend for the next size of the cell ͑1000 atoms͒, we can consider our 512-atom melting curve as sufﬁciently converged and close to the thermodynamic limit. This is conﬁrmed by the results of Alfè7 who performed calculations with cells of 512 and 1000 atoms near the equilibrium ͑see the inset of Fig. 2͒. He found a difference of 5% between these two cell sizes. We also notice a difference between the 512-atom simulations of Alfè and our melting point at room pressure calculated with the same number of atoms and the same type of functional ͑GGA͒. This can be attributed to the slight difference in the equilibrium lattice constant found with the pseudopotentials. We found a value of 4.03 Å and Alfè reported a value of 4.05 Å.7
+The reliability of the 512-atom melting curve is also supported by the agreement with the curve obtained with the free-energy approach21 for a large range of pressure ͑see Fig. 2͒. As mentioned by the authors, these calculations were fully converged with respect to size and k-point sampling.
+
+C. Comparison with experiments: Degree of overheating
+We compare now the results of Sec. III B with the DAC high-pressure data13,14 and the high-pressure shock datum15 ͑see Fig. 3͒. As expected the curve obtained with the twophase approach shows a better agreement with experimental data than the one-phase calculation. The agreement is almost perfect with all sources of data, DAC, and shock. At room
+
+TABLE I. Melting temperatures and overheating degree. Tm and Tinst are the results of TPA and HUM simulations, respectively. ␦ is
+the degree of overheating.
+
+P ͑GPa͒
+0 20 70 115 150 320
+
+TTPA ͑K͒
+950 2000 3600 4600 5150 6670
+
+Tinst ͑K͒
+1390 2490 4660 5880 6810 9390
+
+␦ ͑%͒
+32 20 23 22 32 29
+
+pressure we obtain a value for Tm of 950 K ͑Ϯ50͒ close to the experimental value of 933 K while the HUM curve sys-
+tematically overestimates the experimental melting points.
+The overheating can be characterized by the degree of overheating deﬁned by ␦ = ͑Tinst − TTPA͒ / Tinst. Our values are listed in Table I. The overheating varies between 20% and
+30% depending on the pressure. These values are similar to those reported for several materials.2,11,31 For example, for Pb, Cricchio et al.11 estimated the degree of overheating
+between 11% and 20% depending on the pressure.
+
+D. Hysteresis and Z method
+
+As an alternative to solid-liquid coexistence approach, two methods have been developed to take into account the overheating in the one-phase approach. In the hysteresis method32 the melting temperature is deduced from the temperatures of the maximum overheating and overcooling states as
+
+Tm = Ts + Tl − ͱTsTl,
+
+͑1͒
+
+where s and l indicate the highest solid state and the lower liquid state, respectively. Equation ͑1͒ is not exact but empirical and based on the homogeneous nucleation theory supported by MD simulations and dynamic experiments.32–34 Ts corresponds to the melting temperature obtained using
+HUM, while Tl is obtained by incremental cooling of the liquid state until it crystallizes.
+We have applied this method to a 108-atom supercell of
+Al; the results are presented in Fig. 4 for Ts, Tl, and Tm. The error bars are calculated using Eq. ͑1͒. Our values for Tm are also reported in Fig. 3 for a comparison with TPA and experiments. As found by Luo et al.32 the hysteresis and two-
+phase method melting temperatures are in good accordance.
+The melting temperatures do not differ by more than 10% at
+high pressures. Let us mention that by simply taking the average of Ts and Tl instead of Eq. ͑1͒ gives a perfect agreement between both methods. This should be tested on other
+materials. The interest of the hysteresis method is obvious
+when we compare the number of atoms needed to converge
+the melting temperature with both methods. Indeed we have
+shown in Sec. III C that 108 atoms were enough to converge
+the one-phase approach when the two-phase approach re-
+quires at least 500 atoms to give reliable results. Moreover in
+the one-phase approach, the system equilibrates much more
+
+094102-3
+
+BOUCHET et al.
+
+10000
+
+8000
+
+Ts
+
+Tl
+
+6000
+
+Tm
+
+4000
+
+11000 10000
+9000 8000
+
+PHYSICAL REVIEW B 80, 094102 ͑2009͒
+NVE 108 atoms NVE 256 atoms
+
+Temperature (K) Temperature (K)
+
+2000
+
+7000
+
+0
+
+0
+
+100
+
+200
+
+300
+
+400
+
+Pressure (GPa)
+
+FIG. 4. ͑Color online͒ Melting curve obtained with the hyster-
+
+esis method. Ts and Tl indicate the higher solid and lower liquid
+
+states, respectively.
+= Ts + Tl − ͱTsTl.
+
+Tm
+
+and
+
+subsequent
+
+error
+
+bars
+
+are
+
+given
+
+by
+
+Tm
+
+rapidly than in the two-phase approach ͑around 2 ps versus 5 ps͒. Combined, these two points make the hysteresis method very fast to obtain a melting curve compared to the TPA. However, we have to mention that the calculations using a 32-atom supercell and in some cases with a larger cell ͑108 atoms͒ were difﬁcult to converge. We did not obtain a clear distinction between the solid and the liquid states at the end of the calculation but something more like a glassy state. It was therefore impossible to calculate correctly Tm in these cases. This fact could be observed for other cell sizes or thermodynamic conditions depending on the material making this method difﬁcult to use.
+The second method, the Z method, has been developed by Belonoshko et al., ﬁrst by using empirical potentials35,36 and recently with ab initio calculations.4 The idea is to simulate the solid in the microcanonical ͑NVE͒ ensemble at a temperature corresponding to the limit of superheating. According to this method, if the simulation is sufﬁciently long, the solid should melt spontaneously and the temperature drops to Tm. We have applied this technique to our chosen volumes and using cells of 32, 108, and 256 atoms. An isochore is presented in Fig. 5 and the melting points are reported on Fig. 3 for comparison with other methods and experiments. First, we clearly observe the characteristic shape of the isochores which gives the name of this method. Therefore the overheating is strongly reduce compared to the HUM method. Overall, the melting points are very close to those given by the hysteresis method. At low pressures ͑under 100 GPa͒ we almost recover the values found using TPA ͑see Fig. 3 with differences around 5%͒. Belonoshko et al.4 found a similar result on Mo around 90 GPa when they compare the Z and the two-phase ͑108 atoms͒ methods. On the other hand at high pressures ͑above 100 GPa͒, we still observe discrepancies between both methods, around 14%. There are several explanations to this fact. First, our TPA values could not be fully converged in terms of cell size as previously mentioned, especially at high pressure ͑see Fig. 2͒. For the Z
+
+6000
+
+320
+
+330
+
+340
+
+350
+
+Pression (GPa)
+
+FIG. 5. Isochoric curves for 108 and 256 atoms. Solid lines are just guides for the eyes.
+
+method we ﬁnd a slight difference for cells containing 108 and 256 atoms, around 5%, only at 300 GPa ͑see Fig. 5͒. Second, and to our opinion the main reason, our NVE simulations are probably too short to observe the melting. This point was already mentioned by Belonoshko et al.35 in their work on critical superheating. For example, in some simulations with 32 atoms we only observe a temperature drop after at least 20 000 time steps. This is the main drawback of the method; it can be very difﬁcult to estimate the number of time steps needed to observe the melting and to be sure to have found the lower liquid temperature. In their work on Mo, Belonoshko et al.4 mentioned about 3000 time steps of 1 fs to achieve equilibrium. This is in agreement with what we observe at low pressure. But at high pressure, when the overheating is larger, the time steps required increase, to about 5000 time steps, depending on the starting temperature. The lower the temperature is, the longer the simulation is. If after 10 000 time steps we did not observe a drop in the temperature we concluded that the temperature was too low to melt the solid. It is obvious that if more than 10 ps or bigger cells are needed to reach the liquid state, the Z method is losing interest.
+
+IV. CONCLUSIONS
+
+We have examined in detail the two techniques commonly used to calculate the melting curve of a material with AIMD, namely, the one-phase or heat until it melts and the twophase approaches. A particular attention has been given to the convergence of the melting temperature with respect to the k-point sampling and the number of atoms contained in the simulation box. We have shown that the HUM method converge much more rapidly with the number of atoms than the TPA. Compared to experiments TPA gives very reliable results while HUM systematically overestimates the melting temperature by at least 20%. Finally we have used the hysteresis and the Z methods which intend to combine the advantages of both techniques, speed and reliability. These methods strongly reduce the overheating but we still observe
+
+094102-4
+
+MELTING CURVE OF ALUMINUM UP TO 300 GPa…
+
+PHYSICAL REVIEW B 80, 094102 ͑2009͒
+
+discrepancies with TPA, especially at high pressure. Moreover, in the hysteresis method a clear distinction between solid and liquid states can be difﬁcult while the runs can be particularly long in the Z method. Despite of these draw-
+
+backs, these methods are certainly a good choice for complex systems and elements with a large number of valence electrons for which the TPA is still intractable due to computational limitations.
+
+1 T. Ogitsu, E. Schwegler, F. Gygi, and G. Galli, Phys. Rev. Lett. 91, 175502 ͑2003͒.
+2 A. B. Belonoshko, S. I. Simak, A. E. Kochetov, B. Johansson, L.
+Burakovsky, and D. L. Preston, Phys. Rev. Lett. 92, 195701 ͑2004͒. 3 J.-Y. Raty, E. Schwegler, and S. A. Bonev, Nature ͑London͒ 449, 448 ͑2007͒. 4 A. B. Belonoshko, L. Burakovsky, S. P. Chen, B. Johansson, A.
+S. Mikhaylushkin, D. L. Preston, S. I. Simak, and D. C. Swift, Phys. Rev. Lett. 100, 135701 ͑2008͒. 5 L. Koči, R. Ahuja, and A. B. Belonoshko, Phys. Rev. B 75, 214108 ͑2007͒. 6 A. B. Belonoshko, S. Davis, A. Rosengren, R. Ahuja, B. Johans-
+son, S. I. Simak, L. Burakovsky, and D. L. Preston, Phys. Rev. B 74, 054114 ͑2006͒. 7 D. Alfè, Phys. Rev. B 68, 064423 ͑2003͒. 8 A. B. Belonoshko, N. V. Skorodumova, A. Rosengren, R. Ahuja,
+B. Johansson, L. Burakovsky, and D. L. Preston, Phys. Rev. Lett. 94, 195701 ͑2005͒. 9 A. B. Belonoshko, Geochim. Cosmochim. Acta 58, 4039 ͑1994͒. 10 A. B. Belonoshko, S. Davis, N. V. Skorodumova, P. H. Lundow,
+A. Rosengren, and B. Johansson, Phys. Rev. B 76, 064121
+͑2007͒. 11 F. Cricchio, A. B. Belonoshko, L. Burakovsky, D. L. Preston,
+and R. Ahuja, Phys. Rev. B 73, 140103͑R͒ ͑2006͒. 12 A. B. Belonoshko, R. Ahuja, and B. Johansson, Phys. Rev. Lett.
+84, 3638 ͑2000͒. 13 R. Boehler and M. Ross, Earth Planet. Sci. Lett. 153, 223
+͑1997͒. 14 A. Hänström and P. Lazor, J. Alloys Compd. 305, 209 ͑2000͒. 15 J. W. Shaner, J. M. Brown, and R. G. McQueen, High Pressure
+in Science and Technology ͑North Holland, Amsterdam, 1984͒. 16 J. A. Moriarty, D. A. Young, and M. Ross, Phys. Rev. B 30, 578
+͑1984͒.
+
+17 J. Mei and J. W. Davenport, Phys. Rev. B 46, 21 ͑1992͒. 18 J. R. Morris, C. Z. Wang, K. M. Ho, and C. T. Chan, Phys. Rev.
+B 49, 3109 ͑1994͒. 19 G. A. de Wijs, G. Kresse, and M. J. Gillan, Phys. Rev. B 57,
+8223 ͑1998͒. 20 B. J. Jesson and P. A. Madden, J. Chem. Phys. 113, 5924 ͑2000͒. 21 L. Vočadlo and D. Alfè, Phys. Rev. B 65, 214105 ͑2002͒. 22 X. Gonze et al., Comput. Mater. Sci. 25, 478 ͑2002͒. 23 N. Troullier and J. L. Martins, Phys. Rev. B 43, 1993 ͑1991͒. 24 J. P. Perdew, K. Burke, and M. Ernzerhof, Phys. Rev. Lett. 77,
+3865 ͑1996͒. 25 V. Recoules, P. Renaudin, J. Clérouin, P. Noiret, and G. Zérah,
+Phys. Rev. E 66, 056412 ͑2002͒. 26 F. Bottin and G. Zérah, Phys. Rev. B 75, 174114 ͑2007͒. 27 A. Knyazev, SIAM J. Sci. Comput. ͑USA͒ 23, 517 ͑2001͒. 28 F. Bottin, S. Leroux, A. Knyazev, and G. Zérah, Comput. Mater.
+Sci. 42, 329 ͑2008͒. 29 D. Alfè, Phys. Rev. B 79, 060101͑R͒ ͑2009͒. 30 L. Koči, R. Ahuja, L. Vitos, and U. Pinsook, Phys. Rev. B 77,
+132101 ͑2008͒. 31 A. B. Belonoshko, R. Ahuja, O. Eriksson, and B. Johansson,
+Phys. Rev. B 61, 3838 ͑2000͒. 32 S. N. Luo, A. Strachan, and D. C. Swift, J. Chem. Phys. 120,
+11640 ͑2004͒. 33 S. N. Luo, T. J. Ahrens, T. Çağin, A. Strachan, W. A. Goddard,
+III, and D. C. Swift, Phys. Rev. B 68, 134206 ͑2003͒. 34 S. N. Luo and T. J. Ahrens, Phys. Earth Planet. Inter. 143-144,
+369 ͑2004͒. 35 A. B. Belonoshko, N. V. Skorodumova, A. Rosengren, and B.
+Johansson, Phys. Rev. B 73, 012201 ͑2006͒. 36 S. M. Davis, A. B. Belonoshko, B. Johansson, N. V. Skorodu-
+mova, and A. C. T. van Duin, J. Chem. Phys. 129, 194508
+͑2008͒.
+
+094102-5
+
