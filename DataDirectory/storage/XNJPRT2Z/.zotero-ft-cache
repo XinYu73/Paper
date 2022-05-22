@@ -1,0 +1,674 @@
+Communications in Theoretical Physics
+
+GENERAL
+
+You may also like
+
+Robustness of Entanglement During Decoherence
+To cite this article: et al 2014 Commun. Theor. Phys. 62 667
+View the article online for updates and enhancements.
+
+- Amplification of quantum entanglement by non-Hermitian operation under phase decoherence source Qiong Wang, Lan Xu, Ji-Bing Yuan et al.
+- Recyclable amplification for single-photon entanglement from photon loss and decoherence Lan Zhou, Ling-Quan Chen, Wei Zhong et al.
+- Entanglement restoration using environment-assisted measurement and quantum measurement reversal Qiong Wang and Lan Xu
+
+This content was downloaded from IP address 49.140.189.201 on 21/05/2022 at 12:39
+
+Commun. Theor. Phys. 62 (2014) 667–672
+
+Vol. 62, No. 5, November 1, 2014
+
+Robustness of Entanglement During Decoherence∗
+
+½ ¥û Ó Ö öñÉ KIMKwang-Il (
+
+),1,2 ZHAO Bao-Kui (
+
+),1,† LI Hong-Mei (
+
+),1 and LU Jing-Bin (
+
+)1
+
+1College of Physics, Jilin University, Changchun 130012, China 2Department of Physics, Kim Il Sung University, Pyongyang, DPR Korea
+
+(Received May 14, 2014; revised manuscript received September 4, 2014)
+
+Abstract Finding the most robust entangled states during the whole process of decoherence is a particularly fun-
+damental problem for quantum physics and quantum information processing. In this paper, the decoherence process of two-qubit system under two individual identical decoherence channels is investigated systematically. We ﬁnd that although the robustness of two-qubit states with same initial entanglement is usually diﬀerent, the Bell-like states are always the most robust entangled states during decoherence. That is to say, aﬀected by the same amount of noise, the remain entanglement of an arbitrary two-qubit state is not more than that of a Bell-like state with the same initial entanglement.
+PACS numbers: 03.65.Yz, 03.65.Ta, 03.65.Ud Key words: decoherence, open systems, entanglement
+
+1 Introduction
+Entanglement, a unique phenomenon in quantum physics,[1−2] lies at the heart of quantum information and it plays a critical role in quantum information processing, especially for quantum computation,[1] quantum teleportation,[3−4] quantum key distribution (QKD),[5−8] entanglement swapping,[9] quantum dense coding,[10−11] quantum secret sharing (QSS),[12−13] and so on. However, an entangled quantum system inevitably interacts with its environment, which usually degrades its entanglement. This decoherence introduces some disadvantages in quantum information processing. The interaction between an entangled quantum system and its environment induces some subtle dynamical features on its bipartite entanglement, such as ﬁnite-time disentanglement, an eﬀect known as entanglement sudden death (ESD).[14−16] This interesting phenomenon has been observed in a two-qubit optical system.[15−16] Recently, some groups have studied the robustness of multiqubit quantum systems,[17−23] including two-qubit systems under mixing with locally prepared states[17] and multi-qubit systems in a Greenberger–Horne–Zeilinger (GHZ) state under local partially depolarizing channels when the number of qubits is increased.[18] In 2008, Batle and Casas[19] found that the entanglement in a three-qubit system with the measure of Mermin’s inequality[24] and its robustness exist the similarities, but do not have a simple relation. In 2009, Liu and Fan[20] investigated the decay of entanglement of a generalized N -qudit GHZ state under local decoherence and obtained the similar results reported in
+
+Ref. [18]. In 2009, Borras et al.[21] investigated the decay of the amount of entanglement of a multqubit system experiencing a decoherence process. In 2010, we[22] found that the robustness of a two-qubit system in an arbitrary pure state depends completely on its entanglement, but there is a residual eﬀect on that of a three-qubit system in an arbitrary superposition of a GHZ state and a W state. In 2012, Zhang et al.[23] presented the speed of disentanglement as a quantitative signature of the robustness of the entanglement in multi-qubit systems and found the most robust symmetrical three-qubit pure states.
+In 2008, Aolit et al.[25] investigated the robustness of entanglement during the whole decoherence process. They showed that although the ESD time of a pure GHZ-state quantum system increases with N , the time at which such entanglement becomes arbitrarily small is inversely proportional to N . Since then, ﬁnding the most robust entangled states during the process of decoherence is a particularly thorny problem for quantum physics and quantum information processing. In this paper, we investigate the decoherence process of a two-qubit system under two individual identical noise channels by using concurrence[26] as the entanglement quantiﬁer. We show that the robustness of the quantum states with the same amount initial entanglement is usually diﬀerent, but the Bell-like states are the most robust states during decoherence process. In detail, aﬀected by the same amount of noise, the robustness of a Bell-like state is the upper bound of those of all two-qubit states with the same initial entanglement.
+
+∗Supported by the National Natural Science Foundation of China under Grant No. 11105061 and the China Postdoctoral Science Foundation under Grant No. 801130050411
+†Corresponding author, E-mail: bkzhao@jlu.edu.cn c 2014 Chinese Physical Society and IOP Publishing Ltd
+http://www.iop.org/EJ/journal/ctp http://ctp.itp.ac.cn
+
+668
+
+Communications in Theoretical Physics
+
+Vol. 62
+
+2 Decoherence Model
+In this work, we assume that each qubit in correlated quantum systems is coupled to its own environment individually, the same as that in Ref. [18]. That is, our study is under local decoherence, modeled by partially depolarizing or dephasing channels acting independently on each qubit. The dynamics of each qubit in a twoqubit correlated quantum system is governed by a master equation from which one can obtain a completely positive trace-preserving map ε which describes the corresponding evolution:[21] ρi(t) = ε(t)ρi(0). The maps (or channels), in the Born–Markovian approximation, can be described using its Kraus representation,[21,27] i.e.,
+
+M
+
+ε(ρi(0)) = Eji(t)ρi(0)Ej†i(t) ,
+
+(1)
+
+j=1
+
+where Ej (t) (j = 1, . . . , M ) are the so-called Kraus operators needed to completely characterize the channel. In detail, depolarization, dephasing and amplitude damping processes are the three types of decoherence we consider in the present paper. Let us deﬁne p as the degree of decoherence of an individual qubit, which lies between 0 and 1, where the value 0 means no decoherence, and 1 means complete decoherence. The Kraus operators for depolarization process can be represented as follows,
+
+E0 =
+
+1 − p′I, Ei =
+
+p′ 3
+
+σi
+
+,
+
+(2)
+
+where p′ = 3p/2, i = 1, 2, 3, and σi (i = 1, 2, 3) are the three Pauli operators
+
+01
+
+0 −i
+
+10
+
+σ1 = 1 0 , σ2 = i 0 , σ3 = 0 −1 . (3)
+
+For dephasing, there are two Kraus operators for a single qubit
+
+10
+
+00
+
+E0 = 0 √1 − p , E1 = 0 √p .
+
+(4)
+
+The Kraus operators for amplitude damping process are
+
+10
+
+0 √p
+
+E0 =
+
+0
+
+√ 1−p
+
+,
+
+E1 =
+
+0
+
+0
+
+.
+
+(5)
+
+3 Bell-Like States under Decoherence Channel
+Firstly, we explore the decoherence process of twoqubit pure states. The depolarizing channel can be viewed as a process in which the initial state is mixed with a source of white noise with the probability p. Because the channel is highly symmetric, all output states are unitarily equivalent. Concurrence is invariant under local unitary operations, e.g. U1 ⊗ U2, hence we only need to consider the Schmidt form of a two-qubit state as follows,
+
+|ψ = sin θ|01 + cos θ|10 ,
+
+(6)
+
+where θ ∈ [0, π/2]. After the depolarizing channel (2), this state will turn into a mixed one in the following X form:
+
+ ρ11 0 0 0 
+
+0
+
+ρ(t)
+
+=
+
+ 
+
+
+
+0
+
+ρ22 ρ23 ρ32 ρ33
+
+0
+
+0
+
+ 
+
+.
+
+
+
+(7)
+
+0 0 0 ρ44
+
+Here
+
+ρ11(t)
+
+=
+
+ρ44(t)
+
+=
+
+1 4
+
+(1
+
+−
+
+s2) ,
+
+ρ22(t)
+
+=
+
+1 4
+
+[2s(cos2
+
+θ
+
+−
+
+sin2
+
+θ)
+
++
+
+1
+
++
+
+s2] ,
+
+ρ33(t)
+
+=
+
+1 4
+
+[2s(sin2
+
+θ
+
+−
+
+cos2
+
+θ)
+
++
+
+1
+
++
+
+s2] ,
+
+ρ23(t) = ρ32(t) = sin θ cos θs2,
+
+(8)
+
+and s ≡ 1 − p. In order to investigate the two-qubit entanglement dy-
+namics, we use concurrence, a useful tool for quantifying the entanglement of a bipartite quantum system AB, as the quantiﬁer. It is given by[26]
+
+CAB = max{0, λ1 − λ2 − λ3 − λ4} ,
+
+(9)
+
+where λi (i = 1, 2, 3, 4) are the square roots of the eigenvalues of the matrix ρAB(σ2A ⊗ σ2B)ρ∗AB(σ2A ⊗ σ2B) in decrease order. Here ρ∗AB is the complex conjugation of the matrix of the bipartite quantum system ρAB and σ2 is the second
+Pauli matrix.
+
+Substituting the density matrix (7) into Eq. (9), we
+
+can easily get the entanglement during the evolution as
+
+follows,
+
+C
+
+=
+
+2s2
+
+sin θ
+
+cos
+
+θ
+
++
+
+s2
+
+− 2
+
+1
+
+.
+
+(10)
+
+In fact, the entanglement during the evolution can also be expressed as follows
+
+C
+
+=
+
+C0s2
+
++
+
+s2
+
+− 2
+
+1
+
+.
+
+(11)
+
+Here C0 = 2 sin θ cos θ is the initial entanglement. Up to now, we have got the decay function of entan-
+
+glement in Eq. (11) for two-qubit pure state under the
+
+depolarizing channel.
+
+If we let
+
+C
+
+=
+
+s2C0
+
++
+
+s2 − 1 2
+
+=
+
+C0 N
+
+,
+
+(12)
+
+we can get the depolarizing degree p ≡ 1 − s when the
+
+concurrence decreases to C0/N as follows,
+
+p=1−
+
+(N + 2C0) N (1 + 2C0)
+
+,
+
+(13)
+
+where N ≥ 1. We also investigate the decoherence processes for a
+two-qubit pure state under two individual identical dephasing channels. When we consider the Bell-like state in
+
+No. 5
+
+Communications in Theoretical Physics
+
+669
+
+form of Eq. (6) under dephasing channels, the state turns into an X form mixed one as follows,
+
+0
+
+0
+
+0
+
+0
+
+ 0 cos2 θ sin θ cos θs2 0 
+
+ρ(t) = 
+
+ 
+
+0
+
+sin θ cos θs2
+
+sin2 θ
+
+ . (14)
+
+0
+
+ 
+
+0
+
+0
+
+0
+
+0
+
+We can directly give the entanglement during decoherence under dephasing channels, similar to the case under depolarizing channel, that is,
+
+C = 2 cos θ sin θs2 = C0s2.
+
+(15)
+
+From above equation, we can easily get the degree of dephasing p = 1 − 1/2 = 0.2929 · · ·, p = 1 − 1/4 = 0.5, p = 1 − 1/8 = 0.6464 · · ·, and p = 1 − 1/16 = 0.75, when the initial entanglement C0 decreases to C0/2, C0/4, C0/8, and C0/16, respectively. In fact, we also check the decoherence process of other forms of Bell-like states and ﬁnd it also share the expression in Eq. (15).
+We also investigate the decoherence process for the Bell-like state in form of Eq. (6) under amplitude damping channels. Aﬀected by amount of noise, the state turns into an X form mixed one as follows,
+
+1−s
+
+0
+
+0
+
+0
+
+0
+
+ρ(t) =   
+
+0
+
+cos2 θs sin θ cos θs 0 
+
+sin θ cos θs
+
+sin2 θ
+
+0
+
+  
+
+.
+
+(16)
+
+0
+
+0
+
+0
+
+0
+
+We can directly give the entanglement during decoherence under amplitude damping channels, similar to the cases under depolarizing channel and dephasing channels, that is,
+
+C = 2 cos θ sin θs = C0s .
+
+(17)
+
+From above equation, we can easily get the degree of amplitude damping p = 1 − 1/2 = 0.5, p = 1 − 1/4 = 0.75, p = 1 − 1/8 = 0.875, and p = 1 − 1/16 = 0.9375, when the initial entanglement C0 decreases to C0/2, C0/4, C0/8, and C0/16, respectively. In fact, we also check the decoherence process of other forms of Bell-like states but we ﬁnd they do not share the expression in Eq. (17).
+
+4 Robustness of Entanglement for All TwoQubit States
+Since the decoherence process for two-qubit Bell-like states can be depicted by a simple functions (11) and (15) , the decoherence process of all two-qubit states under decoherence channels is worth being investigated. In order to study this problem systemly, the numerical method for generating random density matrices is needed. Fortunately, in 2002, Tilma, Byrd, and Sudarshan[28] gave an explicit parametrization method to produce all two-qubit density matrices as follows:
+
+ρ = e iλ3α1 e iλ2α2 e iλ3α3 e iλ5α4 e iλ3α5 e iλ10α6 e iλ3α7 e iλ2α8 e iλ3α9 e iλ5α10 e iλ3α11 e iλ2α12
+
+×
+
+1 4 14
+
++
+
+1 2
+
+(−1
+
++
+
+2ω2)x2y2λ3
+
++
+
+√1 (−2 23
+
++
+
+3x2)y2λ8
+
++
+
+√1 (−3 26
+
++
+
+4y2)λ15
+
+e−iλ2α12 e−iλ3α11 e−iλ5α10 e−iλ3α9 e−iλ2α8
+
+× e−iλ3α7 e−iλ10α6 e−iλ3α5 e−iλ5α4 e−iλ3α3 e−iλ2α2 e−iλ3α1 ,
+
+(18)
+
+where
+
+ω2 = sin2(θ1), x2 = sin2(θ2), y2 = sin2(θ3) , (19)
+with 15 λ are the generators of SU(4),[28] and the ranges for 12 α parameters and the three θ parameters given by
+
+0 ≤ α1, α3, α5, α7, α9, α11 ≤ π ,
+
+0
+
+≤
+
+α2, α4, α6, α8, α10, α12
+
+≤
+
+π 2
+
+,
+
+π 4
+
+≤
+
+θ1
+
+≤
+
+π 2
+
+,
+
+cos−1 √1 3
+
+≤
+
+θ2
+
+≤
+
+π 2
+
+,
+
+π 3
+
+≤
+
+θ3
+
+≤
+
+π 2
+
+.
+
+(20)
+
+The density matrices generated in this way are uniformly
+
+according to the Haar measure.[29]
+
+In order to get the density matrices destroyed by the
+
+noise, we ﬁrstly turn the two-qubit density matrices we
+
+generated randomly into Bloch representation as the following form:
+
+ρ
+
+=
+
+1 4
+
+1⊗1+
+
+3
+(xiσi ⊗ 1 + yi1 ⊗ σi)
+
+i
+
+3
+
++
+
+Tij σi ⊗ σj ,
+
+i,j=1
+
+(21)
+
+where the 15 real parameters xi, yi, and Tij can be given by the following equations:
+
+xi = Trρ(σi ⊗ 1), yi = Trρ(1 ⊗ σi) ,
+
+Tij = Trρ(σi ⊗ σj ) ,
+
+(22)
+
+where σi, i = 1, 2, 3, are the corresponding Pauli matrices. In Bloch representation, the depolarizing process for the three Pauli matrices can be expressed as follows,
+
+σi → sσi, i = 1, 2, 3 .
+
+670
+
+Communications in Theoretical Physics
+
+Vol. 62
+
+The dephasing process is described by
+
+sσi, σi → σi,
+
+i = 1, 2 , i = 3.
+
+The amplitude damping process is described by
+
+σi →
+
+√ sσi,
+sσi,
+
+i = 1, 2 , i =3,
+
+where s ≡ 1 − p.
+
+4.1 Robustness of Entanglement under Depola-
+
+rizing Channel
+
+(23)
+
+According to Eq. (13), one can see that the depolariz-
+
+ing degree p has the following monotone relations with the
+
+initial entanglement C0 when the entanglement decreases
+(24) to be C0/2, C0/4, C0/8, and C0/16 for pure states. We plot these four curves with red solid lines in the insets (a),
+
+(b), (c), and (d) of Fig. 1 respectively.
+
+Fig. 1 (Color online) Robustness of entanglement for all two-qubit states under depolarizing channels. We plot the degree of depolarizing p when the quantum entanglement decreases to C0/2 (dots in black), C0/4 (dots in green), C0/8 (dots in blue) and C0/16 (dots in olive) in the insets (a), (b), (c), and (d) respectively. Robustness of Bell-like states under depolarizing channels is plotted in red solid line.
+
+We randomly produce a large number of two-qubit states through the method in Eq. (18). After turning the two-qubit states into the form of Bloch representation (21), we compute the degree of depolarizing p when the concurrence decreases to C0/2, C0/4, C0/8, and C0/16 respectively. The degree of depolarizing p are plotted in the insets (a), (b), (c), and (d) of Fig. 1 when the concurrence decreases to C0/2, C0/4, C0/8, and C0/16 respectively. From the four insets in the ﬁgure, one can see obviously that there is no one-to-one correspondence between the degree of depolarizing p, which indicates the robustness of the entangled states, and the initial entanglement C0. Furthermore, it is obvious to show that the degree of depolarizing p does not exceed the four red lines, which depict the robustness of Bell-like states, when the concurrence decreases to C0/2, C0/4, C0/8, and C0/16, respectively. In other words, decoherence process of entanglement for two-qubit pure states is the upper bound
+
+of the robustness for all the two-qubit states during decoherence under the depolarizing channels.
+4.2 Robustness of Entanglement under Dephasing Channel
+The decoherence processes of entanglement under dephasing channel are also explored through similar method. We plot the degree of dephasing p when the concurrence decreases to C0/2, C0/4, C0/8 and C0/16 in the insets (a), (b), (c), and (d) of Fig. 2 respectively. It is obviously to show that the degree of dephasing p when the entanglement decreases to C0/2, C0/4, C0/8, and C0/16 are not more than p = 1− 1/2 = 0.2929 · · ·, p = 1− 1/4 = 0.5, p = 1 − 1/8 = 0.6464 · · ·, and p = 1 − 1/16 = 0.75 respectively. In other words, any two-qubit quantum state with initial quantum entanglement of C0 under the dephasing channel, the quantum entanglement will not more than C0(1 − p)2 when the degree of dephasing is p. Just
+
+No. 5
+
+Communications in Theoretical Physics
+
+671
+
+as pointed out in Eq. (14), aﬀected by the dephasing noise p, the remain quantum entanglement of Bell-like states is C0(1 − p)2. That is to say, aﬀected by the same amount of dephasing noise, the remain entanglement of an arbitrary two-qubit state is not more than that of a Bell-like states with the same amount of initial entanglement.
+
+amount of amplitude damping noise, the remain entanglement of an arbitrary two-qubit state is not more than that of a Bell-like states with the same amount of initial entanglement.
+
+Fig. 2 (Color online) Robustness of entanglement for all two-qubit states under the dephasing channel. We plot the degree of dephasing p when the concurrence decreases to C0/2 (dots in black), C0/4 (dots in green), C0/8 (dots in blue) and C0/16 (dots in olive) in the insets (a), (b), (c), and (d) respectively. Robustness of Bell-like states under the dephasing channel is plotted in red solid line.
+4.3 Robustness of Entanglement under Amplitude Damping Channel
+The decoherence process of entanglement under amplitude damping channel are also explored through similar method. We plot the degree of amplitude damping p when the concurrence decreases to C0/2, C0/4, C0/8, and C0/16 in the insets (a), (b), (c), and (d) of Fig. 3 respectively. It is obviously to show that the degree of amplitude damping p when the entanglement decreases to C0/2, C0/4, C0/8, and C0/16 are not more than p = 1−1/2 = 0.5, p = 1−1/4 = 0.75, p = 1−1/8 = 0.875, and p = 1 − 1/16 = 0.9375 respectively. In other words, any two-qubit quantum state with initial quantum entanglement of C0 under the amplitude damping channel, the quantum entanglement will not be more than C0(1 − p) when the degree of amplitude damping is p. Just as pointed out in Eq. (17), aﬀected by the amplitude damping noise p, the remain quantum entanglement of Bell-like states is C0(1 − p). That is to say, aﬀected by the same
+
+Fig. 3 (Color online) Robustness of entanglement for all two-qubit states under the amplitude damping channel. We plot the degree of amplitude damping p when the concurrence decreases to C0/2 (dots in black), C0/4 (dots in green), C0/8 (dots in blue) and C0/16 (dots in olive) in the insets (a), (b), (c), and (d) respectively. Robustness of Bell-like state under the amplitude damping channel is plotted in red solid line.
+5 Conclusion
+In summary, we have investigated the decoherence processes of entanglement for two-qubit system under three typical noise channels respectively. We use the degree of decoherence noise that induce the initial entanglement C0 decay to C0/N (N = 2, 4, 8, 16) as the quantiﬁer of robustness. With the help of the parametrization method to produce all two-qubit density matrices, we obtained the numerical and analytical results for the ability of all two-qubit entangled states against noise during decoherence process. We show that although the robustness of two-qubit states with the same amount of initial entanglement is usually diﬀerent, the Bell-like states in form of Eq. (6) keep robustness during decoherence process. That is to say, aﬀected by the same amount of noise, the remain entanglement of an arbitrary two-qubit state is not more than that of a Bell-like states with the same initial entanglement. In other words, the decoherence process for Bell-like states is the upper bound of that for all the two-qubit states.
+
+References
+[1] M.A. Nielsen and I.L. Chuang, Quantum Computation and Quantum Information, Cambridge University Press,
+
+Cambridge (2000). [2] R. Horodecki, P. Horodecki, M. Horodecki, and K.
+Horodecki, Rev. Mod. Phys. 81 (2009) 865.
+[3] C.H. Bennett, G. Brassard, C. Cr´epeau, R. Jozsa, A.
+
+672
+
+Communications in Theoretical Physics
+
+Vol. 62
+
+Peres, and W.K. Wootters, Phys. Rev. Lett. 70 (1993) 1895.
+[4] M.L. Hu, Ann. Phys. (NY) 327 (2012) 2332.
+[5] A.K. Ekert, Phys. Rev. Lett. 67 (1991) 661.
+[6] C.H. Bennett, G. Brassard, and N.D. Mermin, Phys. Rev. Lett. 68 (1992) 557.
+[7] N. Gisin, G. Ribordy, W. Tittel, and H. Zbinden, Rev. Mod. Phys. 74 (2002) 145.
+[8] F.G. Deng and G.L. Long, Phys. Rev. A 68 (2003) 042315.
+[9] M. Z˙ ukowski, A. Zeilinger, M.A. Horne, and A.K. Ekert, Phys. Rev. Lett. 71 (1993) 4287.
+[10] C.H. Bennett and S.J. Wiesner, Phys. Rev. Lett. 69 (1992) 2881.
+[11] X.S. Liu, G.L. Long, D.M. Tong, and F. Li, Phys. Rev. A 65 (2002) 022304.
+[12] M. Hillery, V. Buˇzek, and A. Berthiaume, Phys. Rev. A 59 (1999) 1829.
+[13] A. Karlsson, M. Koashi, and N. Imoto, Phys. Rev. A 59 (1999) 162.
+[14] T. Yu and J.H. Eberly, Phys. Rev. Lett. 93 (2004) 140404; 97 (2006) 140403.
+[15] M.P. Almeida, F. de Melo, M. Hor-Meyll, A. Salles, S.P. Walborn, P.H. Souto Ribeiro, and L. Davidovich, Science 316 (2007) 579.
+
+[16] A. Salles, F. de Melo, M.P. Almeida, M. Hor-Meyll, S.P. Walborn, P.H. Souto Ribeiro, and L. Davidovich, Phys. Rev. A 78 (2008) 022322.
+[17] G. Vidal and R. Tarrach, Phys. Rev. A 59 (1999) 141. [18] C. Simon and J. Kempe, Phys. Rev. A 65 (2002) 052327. [19] J. Batle and M. Casas, Int. J. Quantum Inform. 6 (2008)
+237. [20] Z. Liu and H. Fan, Phys. Rev. A 79 (2009) 064305. [21] A. Borras, A.P. Majtey, A.R. Plastino, M. Casas, and A.
+Plastino, Phys. Rev. A 79 (2009) 022108. [22] B.K. Zhao and F.G. Deng, Phys. Rev. A 82 (2010)
+014301. [23] F.L. Zhang, Y. Jiang, and M.L. Liang, Ann. Phys. 333
+(2013) 136. [24] N.D. Mermin, Phys. Rev. Lett. 65 (1990) 1838. [25] L. Aolita, R. Chaves, D. Cavalcanti, A. Acin, and L. Davi-
+dovich, Phys. Rev. Lett. 100 (2008) 080501. [26] W.K. Wootters, Phys. Rev. Lett. 80 (1998) 2245. [27] K. Kraus, States, Eﬀect, and Operation: Fundamen-
+tal Notions in Quantum Theory, Springer-Verlag, Berlin (1983). [28] T. Tilma, M. Byrd, and E.C.G. Sudarshan, J. Phys. A 35 (2002) 10445.
+[29] I. Bengtsson and K. Zyczkowski, Geometry of Quantum States: An Introduction to Quantum Entanglement, Cambridge University Press, Cambridge (2006).
+

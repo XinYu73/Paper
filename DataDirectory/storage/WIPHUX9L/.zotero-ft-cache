@@ -1,0 +1,1033 @@
+Chinese Physics B
+
+GENERAL
+Quantum correlation of a three-particle W-class state under quantum decoherence
+To cite this article: et al 2013 Chinese Phys. B 22 100306
+View the article online for updates and enhancements.
+
+You may also like
+- Symmetric quantum discord for a two-qubit state Zhong-Xiao Wang, , Bo-Bo Wang et al.
+- Channel discord and distortion Wei-Wei Zhang, Yuval R. Sanders and Barry C. Sanders
+- Entanglement and discord in spin glass C Y Koh, L C Kwek, S T Wang et al.
+
+This content was downloaded from IP address 49.140.189.201 on 21/05/2022 at 12:29
+
+Chin. Phys. B Vol. 22, No. 10 (2013) 100306
+
+Quantum correlation of a three-particle 𝑊 -class state under quantum decoherence∗
+
+Xu Peng(许 鹏), Wang Dong(王 栋), and Ye Liu(叶 柳)†
+School of Physics and Material Science, Anhui University, Hefei 230039, China
+(Received 24 January 2013; revised manuscript received 2 April 2013)
+We investigate the quantum characteristics of a three-particle W -class state and reveal the relationship between quantum discord and quantum entanglement under decoherence. We can also identify the state for which discord takes a maximal value for a given decoherence factor, and present a strong bound on quantum entanglement–quantum discord. In contrast, a striking result will be obtained that the quantum discord is not always stronger than the entanglement of formation in the case of decoherence. Furthermore, we also theoretically study the variation trend of the monogamy of quantum correlations for the three-particle W -class state under the phase ﬂip channel, and ﬁnd that the three-particle W -class state could transform from polygamous into monogamous, owing to the decoherence.
+
+Keywords: quantum correlations, quantum entanglement, quantum discord, W -class state
+
+PACS: 03.65.Ud, 03.67.–a, 03.67.Mn
+
+DOI: 10.1088/1674-1056/22/10/100306
+
+1. Introduction
+
+prising that for some systems as they reach a certain level
+
+As is well known, quantum entanglement (QE), found at the beginning of the 20th century, has already been recognized as the principal feature of quantum mechanics, which is utilized as a crucial resource for communication and computation. QE is one of the most intriguing aspects of quantum mechanics, and has entered into the limelight of quantum information theoretical research[1] with the advent of quantum computing. The origin of quantum correlation research or, more precisely, the study of quantum entanglement can date back to the literature[2] published in 1935, and nowadays there is no doubt that quantum correlations in quantum states due to entanglement are necessary in the quantum computation to provide exponential speedups over its classical counterpart.[3] However, recently, it has been found that many tasks, e.g., quantum nonlocality without quantum entanglement,[4–6] can be carried out with quantum correlations other than entanglement. To be able to study the quantum correlations in a system, it is important to quantify them. Unlike quantum entanglement, quantum correlations can be created via local operations and classical communication (LOCC), however this does not exist in the classical setting. One method suitable for a pure state[7,8] involves calculating the entropy of the reduced density matrix of the system, which is also known as the entanglement of formation (EOF). To some extent, quantum
+
+of mixture, quantum entanglement is completely lost, a phenomenon which in the study of state dynamics is commonly known as entanglement sudden death (ESD).[13] Recently, many authors have proposed a variety of computable measures to characterize quantum correlations in the composite state: quantum discord (QD),[14,15] geometric discord (GD),[16–18] measurement-induced disturbance (MID),[19] measurementinduced non-locality (MIN),[20] ameliorated MID,[21] etc. One of the major reasons for the aroused interest[22–34] in this novel correlation is that as shown in Ref. [35], even when entanglement is zero in a system, quantum discord can still be ﬁnite. This leads to the hope that by using quantum discord instead of quantum entanglement as a resource, in the ﬁelds of quantum information processing, more abundant research content may be found and more efﬁcient computations may be made. In Ref. [34], quantum discord was characterized in the deterministic quantum computation with 1 bit (DQC1) model[14] for experimental veriﬁcations of its power, which was demonstrated in Ref. [33]. For an important family of two-qubit states, the so-called X states,[35] an algorithm has been proposed to calculate their quantum discord, with minimization taken over only a few simple cases.[25] The quantum discord is always non-negative.[14] As a result, much more new discussion on quantum-correlation can be found in
+
+entanglement for a mixed state is deﬁned to be equal to the Refs. [35]–[42].
+
+weighted sum of the mixed state, which is minimized over all decompositions.[9–11] In fact, almost all quantum states possess nonclassical correlations.[12] It is, therefore, not sur-
+
+As is well known, an entangled quantum system is inevitably immersed in an environment and interacts with it in some way, which usually degrades the entanglement of the
+
+∗Project supported by the National Natural Science Foundation of China (Grant Nos. 11074002, 61275119, and 11247256), the Doctoral Science Foundation
+
+of the Ministry of Education of China (Grant No. 20103401110003), the Fund of the Education Department of Anhui Province for Outstanding Youth, China
+
+(Grant No. 2012SQRL023), the Doctor Scientiﬁc Research Fund of Anhui University, China (Grant No. 33190058), and the Personal Development Foundation
+
+of Anhui Province, China (Grant No. 2008Z018).
+
+†Corresponding author. E-mail: yeliu@ahu.edu.cn
+
+© 2013 Chinese Physical Society and IOP Publishing Ltd
+
+http://iopscience.iop.org/cpb　http://cpb.iphy.ac.cn
+
+100306-1
+
+Chin. Phys. B Vol. 22, No. 10 (2013) 100306
+
+system.[43] Furthermore, “quantumness” is very fragile and its survival over long distance and time is subtly interconnected to the amount of noise coupling into the quantum system through its unavoidable interaction with the classical environment. In this paper, we look for the relationship between quantum discord and quantum entanglement to investigate the connection between these quantities exposed to the case of decoherence. We focus on the study of a three-particle W -class state using general density matrices representing tripartite systems under the phase ﬂip channel. Since there is no analytic expression for quantum discord for the three-particle W -class state, the heart of the work is numeric in nature, involving optimization over all possible measurements that can be performed on one of the subsystems under study. Our numerical work facilitates the principal results presented here: the analytic form of the state under decoherence for which the discord takes extreme values. As will be shown, one can place deﬁnite boundaries on the relationships between quantum entanglement and quantum discord. As we all know, in a multipartite system, sharing quantum entanglement among several parities is restricted by the monogamy of quantum entanglement. As a result, in contrast to the monogamy of the quantum correlations in the ideal channel we take over the conception of monogamy to the three-particle W -class state under the decoherence environment. Such a result is very different from the one obtained through that without decoherence situation.
+2. Quantum discord and quantum entanglement for a two-level bipartite system
+
+= S(ρB) − ∑ PkS(ρkB),
+
+(3)
+
+k
+
+with Pk = Tr(ρABΠkA) and ρkB = TrA(ΠkAρABΠkA)/Pk. In order to eliminate the dependence on speciﬁc measurement, one
+
+takes the optimization procedure to obtain
+
+J(ρ) = max I(ρ {ΠkA}
+
+ΠkA ).
+
+(4)
+
+The discrepancy between the original quantum mutual infor-
+
+mation I and the measurement-induced quantum mutual infor-
+
+mation J is deﬁned as quantum discord
+
+DA(ρ) = I(ρ) − J(ρ) = S(ρA) − S(ρAB)
+
+∑ + min
+{ΠkA}
+
+k
+
+PkS(ρkB).
+
+(5)
+
+The EOF is a measure of quantum entanglement. For
+
+a given density matrix ρ, the EOF is given in terms of concurrence[44] by Wootters. In this case, it can be calculated
+
+as
+
+E(ρ) = H 1 + 1 −C2(ρ) ,
+
+(6)
+
+2
+
+and the concurrence is given by
+
+C(ρ) = max 0, λ1 − λ2 − λ3 − λ4 , (7)
+
+where λi are the eigenvalues, in decreasing order, of the matrix ρρ˜ . The ρ˜ is the time-reversed density operator
+
+ρ˜ = (σy ⊗ σy)ρ∗(σy ⊗ σy),
+
+(8)
+
+where σy is the Pauli matrix.
+
+Consider a bipartite system, which is composed of sub-
+systems A and B, both of which are two-level quantum systems. Let ρAB denote the density operator of the composite bipartite system, and ρA(B) = TrB(A)(ρAB) denote the reduced density operator of the partition A(B). The quantum mutual
+information is deﬁned as
+
+I(ρAB) = S(ρA) − S(ρA ρB ),
+
+(1)
+
+3. Quantum correlations of a three-particle W class state under decoherence
+
+Suppose that a tripartite system |W 123 shared among three parties referred to as Alice, Bob, and Charlie, the state can be given by
+
+|W 123 = √1 (α |001 + β |010 + γ |100 ) ,
+
+(9)
+
+3
+
+where S(ρ) = −Tr(ρ log2 ρ) is the Von Neumann entropy and
+
+S ρA ρB = S ρAB − S ρB
+
+(2)
+
+is the entropy of A conditional on B. For instance, S(ρA) = −Tr(ρA log2 ρA) is the Von Neumann entropy for A.
+It is shown that quantum mutual information is the information-theoretic measure of the total correlation in a bipartite quantum state. In order to determine quantum discord, Ollivier and Zurek used a measurement-based conditional density operator to generalize the classical mutual information. If a complete set of Von Neumann measurements ΠkA is performed on subsystem A, an alternative version of quantum mutual information conditional on this measurement yields
+
+I(ρ ΠkA ) = S(ρB) − S(ρ ΠkA )
+
+where α, β , γ > 0, and they satisfy the uniformization α2 + β 2 + γ2 = 3. Tracing over Charlie’s system yields the bipartite state
+
+ρ12 = Tr3 |W 123 W | ,
+
+(10)
+
+shared by Alice and Bob. Then Eq. (9) can be equivalently characterized by
+
+0 0 0 0
+
+ 0 α2 αβ 0
+
+ 
+
+0
+
+αβ
+
+β2
+
+0
+
+ρ 123
+
+=
+
+1 3
+
+   
+
+0 0
+
+0 αγ
+
+0 βγ
+
+0 0
+
+ 
+
+0
+
+0
+
+00
+
+ 
+
+0
+
+0
+
+00
+
+00 00
+
+0 000
+
+αγ 0 0 0 
+
+βγ
+
+0
+
+0
+
+0
+
+ 
+
+0 γ2
+
+0 0
+
+0 0
+
+0 0
+
+
+
+ 
+
+.
+
+(11)
+
+
+
+0
+
+000
+
+ 
+
+0
+
+000
+
+ 
+
+0 000
+
+100306-2
+
+Chin. Phys. B Vol. 22, No. 10 (2013) 100306
+
+Here, we take the scenario of three qubits under a local phase ﬂip channel,[14,45] and in the operator-sum representa-
+tion the evolved state of such a system under decoherence can be written as[46]
+
+∑ ε(ρAB) =
+
+Γi
+
+(A) (B) (C)
+
+(C)
+
+Γj Γk ρABΓk
+
++
+
+(B)+
+Γj
+
+Γi
+
+(A)+
+
+,
+
+(12)
+
+i, j,k
+
+where
+
+(K)
+Γi
+
+(K
+
+=
+
+A, B,C)
+
+are
+
+Kraus
+
+operators
+
+of
+
+describing
+
+the phase ﬂip channel A, B, and C. For this channel, the Kraus
+
+operators can be represented as
+
+(A)
+Γ1
+
+=
+
+√ PAI
+
+⊗
+
+IB
+
+⊗
+
+IC ,
+
+(A)
+Γ2
+
+=
+
+1 − PAσz ⊗ IB ⊗ IC,
+
+(B)
+Γ1
+
+=
+
+IA
+
+⊗
+
+√ PBI
+
+⊗
+
+IC ,
+
+(B)
+Γ2
+
+=
+
+IA
+
+⊗
+
+1 − PBσz ⊗ IC,
+
+(C)
+Γ1
+
+=
+
+IA
+
+⊗
+
+IB
+
+⊗
+
+PC I ,
+
+(C)
+Γ2
+
+=
+
+IA
+
+⊗
+
+IB
+
+⊗
+
+1 − PCσz,
+
+(13)
+
+in which IA(IB, IC) is the identity matrix of one-qubit Hilbert space, and σz is the Pauli matrix. In addition, we adopt
+
+PA = PB = PC = P = 1 − exp(−κt)
+
+and PA(B) (0 ≤ PA(B,C) ≤ 1) as parametrized time in channel A(B,C), where κ is the decay rate.[47]
+Considering the dynamical evolution of the system under the decoherence channel, the density matrix ρ123 under multi-
+mode noise channel evolves into
+
+0
+
+0
+
+0
+
+0
+
+0
+
+000
+
+0
+
+α2
+
+αβ (2p − 1)2 0
+
+ 
+
+0
+
+αβ (2p − 1)2
+
+β2
+
+0
+
+
+
+αγ (2p − 1)2 0 0 0 
+
+β γ (2p − 1)2
+
+0
+
+0
+
+0
+
+ 
+
+
+
+ε
+
+ρ 123
+
+=
+
+1
+
+  
+
+3
+
+0 0
+
+0 αγ (2p − 1)2
+
+0 β γ (2p − 1)2
+
+0 0
+
+0
+
+000
+
+γ2 0 0 0
+
+ 
+
+.
+
+
+
+(14)
+
+ 
+
+0
+
+0
+
+0
+
+0
+
+0 000
+
+ 
+
+
+
+0
+
+0
+
+0
+
+0
+
+
+
+0 000
+
+
+
+
+
+
+
+0
+
+0
+
+0
+
+0
+
+0 000
+
+As it is the same as other quantum discords between any two qubits, we just take the D ε ρ12 as an example. So the quantum discord between two qubits (Here, we take the qubit 1 and qubit 2 for example.) under phase ﬂip channel can be written as
+
+D ε ρ12
+
+1 =−
+3
+
+α2 +γ2
+
+1 log2 3
+
+α2 +γ2
+
+−
+
+1 3
+
+β
+
+2
+
+log2
+
+1 3
+
+β
+
+2
+
+−
+
+1 3
+
+α
+
+2
+
+log2
+
+α2 α2 +γ2
+
+−
+
+1 3
+
+γ
+
+2
+
+log2
+
+γ2 α2 +γ2
+
++
+
+1 3
+
+α
+
+2
+
+log2
+
+1 3
+
+α
+
+2
+
+
+
+1 1 +
+
+β2 +γ2
+
+−
+
+2 3
+
+
+
+1 β 2 + 1 γ2 2 − 4 β 2γ2 1 − (2p − 1)4 
+
+33
+
+9
+
+
+
+
+
+1 1 × log2 2  3
+
+β2 +γ2
+
+−
+
+
+
+1 3
+
+β
+
+2
+
++
+
+1 3
+
+γ
+
+2
+
+2
+
+−
+
+4 9
+
+β
+
+2γ2
+
+ 1 − (2p − 1)4
+
+
+
+
+1 1 +
+
+β2 +γ2
+
++
+
+2 3
+
+
+
+1 β 2 + 1 γ2 2 − 4 β 2γ2 1 − (2p − 1)4 
+
+33
+
+9
+
+
+
+
+
+
+
+1 1 × log2 2  3
+
+β2 +γ2
+
++
+
+1 3
+
+β
+
+2
+
++
+
+1 3
+
+γ
+
+2
+
+2
+
+−
+
+4 9
+
+β
+
+2γ2
+
+ 1 − (2p − 1)4 ,
+
+
+(15)
+
+where α2 + β 2 + γ2 = 3 and p ∈ (0, 1). The discord is a function of coefﬁcient α, β , γ, and p. For
+a number of random states, we note that when α, β , γ each have a determined value, the quantum discord decreases as p ∈ (0, 0.5) increases. To one’s surprise, with the existence of the decoherence, the quantum discord vanishes suddenly. With a number of states chosen, more surprisingly, the quantum
+
+discord could re-emerge and further increase as p ∈ (0.5, 1) increases. In brief, the quantum discord ﬁrst decreases as p increases from 0 to 0.5, and then increases with p increasing from 0.5 to 1. The critical point for the quantum discord of the three-particle W -class state under phase ﬂip channel can be obtained when p is 0.5. The quantum discords of three random three-particle states are shown in Fig. 1.
+
+100306-3
+
+Chin. Phys. B Vol. 22, No. 10 (2013) 100306
+
+Quantum discord
+
+1.0
+
+0.8
+
+α=√3/2, β=3√3/4, γ=3/4
+
+0.6
+
+α=√6/2, β=√3/2, γ=√3/2
+
+0.4 α=3/2, β=√3/4, γ=3/4
+
+0.2
+
+0
+
+0.2 0.4 0.6 0.8 1.0
+
+p
+
+Fig. 1. (color online) Evolutions of the quantum discord versus p in terms of different α, β , γ in the three-particle W -class state.
+
+quantum computation tasks, how to quantify the quantum correlations in the ideal or decoherence environment and how to well use them play an important role in the development of quantum information science.
+1.0
+
+0.8 α=√3/2, β=3√3/4, γ=3/4
+
+0.6
+
+α=√6/2, β=√3/2, γ=√3/2
+
+0.4
+
+α=3/2, β=√3/4, γ=3/4
+
+EOF ∆
+
+For the given density matrix ε(ρ123), the EOF(ε(ρ12)) is given in terms of concurrence C(ε(ρ12)),
+
+EOF ε ρ12
+
+
+
+
+
+=
+
+−1
+
+ 1+
+
+2
+
+1−
+
+2 3
+
+β
+
+γ
+
+(2
+
+p
+
+−
+
+1)2
+
+2 
+
+
+
+
+
+1
+
+×
+
+log2
+
+2
+
+1 
+
++
+
+1−
+
+2 3
+
+β
+
+γ
+
+(2
+
+p
+
+−
+
+1)2
+
+2 
+
+
+
+
+
+−
+
+1
+
+ 1
+
+−
+
+2
+
+1−
+
+2 3
+
+β
+
+γ
+
+(2
+
+p
+
+−
+
+1)2
+
+2 
+
+
+
+
+
+1
+
+×
+
+log2
+
+2
+
+1 
+
+−
+
+1−
+
+2 3
+
+β
+
+γ
+
+(2
+
+p
+
+−
+
+1)2
+
+2 ,
+
+
+(16)
+
+where β , γ ∈ (0, 1) and P ∈ (0, 1). The EOF also depends on the relation of the coefﬁcient
+β , γ, and the parametrized p. The same as the quantum discord is that the entanglement is sometimes completely lost with the parametrized p, the phenomena in the study of state dynamic are commonly known as entanglement sudden death (ESD). After an abundant calculation during the generic W states, the minimum of the EOF is obtained with p = 0.5. The detailed information about the evolutions of EOF versus p for different values of coefﬁcients β and γ is shown in Fig. 2.
+After our investigation on some three-particle W -class states, the most distinct difference is that the quantum discord is not always larger than the EOF for the three-particle W class state under the phase ﬂip channel. As a contrast, in Fig. 3 we ﬁnd that in an ideal environment, the quantum discord is greater than or equal to the EOF invariably. The relation between quantum discord and EOF under decoherence is shown in Fig. 4.
+In short, and not investigated in the past, the quantum discord that we ﬁnd is not always larger than the EOF under the decoherence environment. Here, we have to state that sometimes the quantum discord disappears abruptly and the entanglement suddenly dies in the decoherence channel, and one could easily ﬁnd in Figs. 1 and 2 as the decoherence factor p increases. As the quantum correlations are fundamental resource for the quantum communication protocols and the
+
+0.2
+
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+p
+
+Fig. 2. (color online) Evolutions of EOF versus p for values of different values of α, β , and γ.
+
+
+
+
+
+ 
+
+θ 
+
+
+
+  φ
+
+Fig. 3. (color online) Plot of ∆ versus θ and φ , where ∆ is the difference between the quantum discord and the EOF ∆ = D ε ρ12 − EOF ε ρ12 under the perfect environment. To see the relation between the D ε ρ12 and EOF ε ρ12 √during as man√y generic states as p√ossible, we set that α/ 3 = cos θ , β / 3 = sin θ sin φ , γ/ 3 = sin θ cos φ , and the θ ∈ (0, π/2) , φ ∈ (0, 2π). Here, one could easily obtain that the quantum discord could not be less than the EOF.
+
+1.0
+W>/   >   > √  >
+0.8
+
+Correlations
+
+0.6
+
+W>/ √2  >   > 1  >
+
+0.4
+
+W>/ √3  >   > √  >
+
+0.2
+
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+p
+
+Fig. 4. (color online) Relations between quantum discord (red line) and EOF (green line) for three random three-particle W -class states with different values of p.
+
+4. Monogamy of quantum correlations for the three-particle W -class state under decoherence
+In order to use quantum correlations as a resource, we are faced with the problem of their distribution through a multipar-
+
+100306-4
+
+Chin. Phys. B Vol. 22, No. 10 (2013) 100306
+
+tite state. In a multipartite setting, an important property for quantum entanglement is monogamy. The monogamy means that in multiparty quantum states, if two subsystems are highly entangled, then they would not share a substantial amount of quantum entanglement with other subsystems.[48–55] Due to the interest aroused by the monogamy of quantum entanglement, several quantum phenomena have been discovered that the generalized Greenberger–Horne–Zeilinger (GHZ) states[56] always meet the monogamy of quantum discord, while the generalized W states[57] always infringe it. Here we give a multipartite state ρ12···n shared among N parties, the monogamy condition in the multipartite state could be expressed as the following inequality
+
+D (ρ12) + D (ρ13) + · · · + D (ρ1n) ≤ D (ρ1:23···n) . (17)
+
+Here ρ12 = tr34···n ρ12···n. On the right-hand side of the above inequality, the quantity D (ρ1:23···n) is the same quantum correlation measures as those obtained in the bipartition 1 : 23 · · · n of the N parties.
+Besides the above work, particularly, we want to investigate whether the monogamy inequality for the three-particle W -class class state will be satisﬁed. For the tripartite system |W 123, the monogamy inequality is
+
+D ρ12 + D ρ13 ≤ D ρ1:23 .
+
+(18)
+
+As is well known, generalized W states under the ideal channel do not follow the monogamy. Interestingly, we ﬁnd that the quantum discord of the three-particle W -class states under the phase ﬂip channel could invariably satisfy the monogamy. In order to illustrate it in more detail, we calculate a crowd of ecumenical W -class states and choose some random states in Fig. 5.
+
+5. Conclusions
+In this paper, we study the various quantum correlations for three-particle W -class states, given by the entanglement of formation and QD, between arbitrary two atoms. We ﬁnd an interesting phenomenon between the QD and the EOF under the decoherence, given by two atoms, and also ﬁnd that the QD is not always larger than the entanglement and the phenomenon may affect the use of the quantum correlations. In our analysis, the critical point appearing wherein the quantum correlations of two atoms is at a maximum under the phase ﬂip channel. For the three-particle W -class states, we also ﬁnd that when only atom 1 is in the decoherence channel, D ρ12 and D ρ13 are affected by the decoherence parameter p, and the D ρ23 is impervious. It is similar to atom 2 and atom 3. If atom 1 and atom 2 are both in the phase ﬂip channel, the inﬂuence on the D ρ12 outweighs the D ρ13 and D ρ23 . The D ρ12 , D ρ13 , and D ρ23 have the same inﬂuence by the decoherence with considering all the three atoms to be in the decoherence environment. On the other hand, we show that the critical coefﬁcient can be one that makes the loss of entanglement in the Werner state. Monogamy as an important aspect of quantum entanglement means that this “invaluable” resource could not be freely sharable. Inspired by this, we study the monogamy of the W -class states in the phase ﬂip channel, which always satisﬁes the monogamy. One of the major obstacles to building an efﬁcient quantum computer is the presence of errors introduced by the environment. In short, we know more characteristics about the different quantum correlations, and we could use them better. We hope and will make sure that more and more work associated with this will be done in the future.
+
+1.0 0.5
+
+δM
+
+-0.5
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+p
+
+-1.0
+Fig. 5. (color online) Monogamy of quantum discord for the three-particle W -class state. Here δM ρ W 123 = D ρ12 + D ρ13 − D ρ1:23 . For sets of {αW , βW , γW }, we obtained that quantum discord of the three-qubit W -class states obeys the monogamy for cases of phase ﬂip. Different curves illustrate the monogamy of quantum discord for the various W states determined by the disparate α, β , γ versus p.
+Monogamy is an intrinsic property for quantum discord, and we have described the monogamy of the quantum discord for a three-particle W -class state under the decoherence environment. The monogamy shows that in the tripartite W -class states, if two subsystems are highly associated, then they cannot share a substantial amount of quantum correlation with the other subsystem freely considering the effect of environment.
+
+References
+[1] Horodecki R, Horodecki P, Horodecki M and Horodecki K 2009 Rev. Mod. Phys. 81 865
+[2] Einstein A, Podolsky B and Rosen N 1935 Phys. Rev. 47 777 [3] Jozsa R, Linden N and Proc R 2003 Proc. R. Soc. Lond. A 459 2011 [4] Bennett C H, DiVincenzo D P, Fuchs C A, Mor T, Rains E, Shor P W,
+Smolin J A and Wootters W K 1999 Phys. Rev. A 59 1070 [5] Horodecki M, Horodecki P, Uorodecki R, Oppenheim J, Sen A, Sen U
+and Synak-Radtke B 2005 Phys. Rev. A 71 062307 [6] Niset J and Cerf N J 2006 Phys. Rev. A 74 052103 [7] Bennett C H, Bernstein H J, Popescu S and Schumacher B 1996 Phys.
+Rev. A 53 2046 [8] Hil Sl and Wootters W K 1997 Phys. Rev. Lett. 78 5022 [9] Bennett C H, DiVincenzo D P, Smolin J A and Wootters W K 1996
+Phys. Rev. A 54 3824 [10] Bennett C H, Brassard G, Popescu S, Schumacher B, Smolin J A and
+Wootters W K 1996 Phys. Rev. Lett. 76 722 [11] Wootters W K 1998 Phys. Rev. Lett. 80 2245 [12] Ferraro A, Aolita L, Cavalcanti D, Cucchietti F M and Acin A 2010
+Phys. Rev. A 81 052318 [13] Yu T and Eberly J H 2004 Phys. Rev. Lett. 93 140404 [14] Ollivier H and Zurek W H 2001 Phys. Rev. Lett. 88 017901 [15] Henderson L and Vedral V 2001 J. Phys. A: Math Gen. 34 6899 [16] Daki’c B, Vedral V and Brukner C 2010 Phys. Rev. Lett. 105 190502 [17] Luo S and Fu S 2010 Phys. Rev. A 82 034302
+
+100306-5
+
+Chin. Phys. B Vol. 22, No. 10 (2013) 100306
+
+[18] Wei H R, Ren B C and Deng F G 2013 Quantum Inf. Process. 12 1109 [19] Luo S 2008 Phys. Rev. A 77 022301 [20] Luo S and Fu S 2011 Phys. Rev. Lett. 106 120401 [21] Wu S, Poulsen U V and Molmer K 2009 Phys. Rev. A 80 032319 [22] Datta A and Gharibian S 2009 Phys. Rev. A 79 042325 [23] Modi K, Paterek T, Son W, Vedral V and Williamson M 2010 Phys.
+Rev. Lett. 104 080501 [24] Werlang T and Rigolin G 2010 Phys. Rev. A 81 044101 [25] Ali M, Rau A R P and Alber G 2010 Phys. Rev. A 81 042105 [26] Ferraro A, Aolita L, Cavalcanti D, Cucchietti F M and Acin A 2010
+Phys. Rev. A 81 052318 [27] Giorda P and Paris M G A 2010 Phys. Rev. Lett. 105 020503 [28] Adesso G and Datta A 2010 Phys. Rev. Lett. 105 030501 [29] Soares-Pinto D O, Celeri L, Auccaise R, Fanchini F, De Azevedo E,
+Maziero J, Bonagamba T and Serra R 2010 Phys. Rev. A 81 062118 [30] Madhok V and Datta A 2011 Phys. Rev. A 83 032323 [31] Bylicka B and Chruscinski D 2010 Phys. Rev. A 81 062102 [32] Werlang T, Souza S, Fanchini F F and Villas-Boas C J 2009 Phys. Rev.
+A 80 024103 [33] Lanyon B P, Barbieri M, Almeida M P and White A G 2008 Phys. Rev.
+Lett. 101 200501 [34] Datta A, Shaji A and Caves C M 2008 Phys. Rev. Lett. 100 050502 [35] Yu T and Eberly J H 2007 Quantum Inf. Comput. 7 459 [36] Seevinck M 2010 Quantum Inf. Process. 9 273 [37] Pawlowski M and Brukner C 2009 Phys. Rev. Lett. 102 030403 [38] Ou Y C and Fan H 2007 Phys. Rev. A 75 062308
+
+[39] Ou Y C, Fan H and Fei S M 2008 Phys. Rev. A 78 012311 [40] Jiang F J, Lu¨ H J, Yan X H and Shi M J 2013 Chin. Phys. B 22 040303 [41] Wang C and Chen Q H 2013 Chin. Phys. B 22 040304 [42] Wang X Y, Ding B F and Zhao H P 2013 Chin. Phys. B 22 040308 [43] Zhao B K and Deng F G 2010 Phys. Rev. A 82 014301 [44] Wooters W K 1998 Phys. Rev. Lett. 80 2245 [45] Preskill J 1998 Nature 391
+http://www.theory.caltech.edu/people/preskill/nature robust.pdf [46] Salles A, de Melo F, Almeida M P, Hor-Meyll M, Walborn S P, Souto
+Ribeiro P H and Davidovich L 2008 Phys. Rev. A 78 022322 [47] Yu T and Ederly J H 2006 Phys. Rev. Lett. 97 140403 [48] Koashi M and Winter A 2004 Phys. Rev. A 69 022309 [49] Osborne T J and Verstraete F 2006 Phys. Rev. Lett. 96 220503 [50] Adesso G, Seraﬁni A and Illuminati F 2006 Phys. Rev. A 73 032345 [51] Hiroshima T, Adesso G and Illuminati F 2007 Phys. Rev. Lett. 98
+050503 [52] Seevinck M 2007 Phys. Rev. A 76 012106 [53] Lee S and Park J 2009 Phys. Rev. A 79 054309 [54] Kay A, Kaszlikowski D and Ramanathan R 2009 Phys. Rev. Lett. 103
+050501 [55] Hayashi M and Chen L 2011 Phys. Rev. A 84 012325 [56] Greenberger D M, Horne M A, Shimony A and Zeilinger A 1989
+Bell’s Theorem, Quantum Theory and Conceptions of the Universe, ed. Kafatos M (Dordrecht: Kluwer Academic) [57] Du¨r W, Vidal G and Cirac J I 2000 Phys. Rev. A 62 062314
+
+100306-6
+
