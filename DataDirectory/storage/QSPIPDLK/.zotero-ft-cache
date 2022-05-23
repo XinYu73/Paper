@@ -1,0 +1,3101 @@
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+Entanglement properties of multipartite entangled states under the inﬂuence of decoherence
+M. Hein,1 W. Dür,1 and H.-J. Briegel1,2 1Institut für Theoretische Physik, Universität Innsbruck, A-6020 Innsbruck, Austria 2Institut für Quantenoptik und Quanteninformation, Österreichische Akademie der Wissenschaften, A-6020 Innsbruck, Austria
+͑Received 2 September 2004; published 30 March 2005͒
+
+We investigate entanglement properties of multipartite states under the inﬂuence of decoherence. We show that the lifetime of ͑distillable͒ entanglement for Greenberger-Horne-Zeilinger ͑GHZ͒ -type superposition states decreases with the size of the system, while for a class of other states—namely, all graph states with constant degree—the lifetime is independent of the system size. We show that these results are largely independent of the speciﬁc decoherence model and are in particular valid for all models which deal with individual couplings of particles to independent environments, described by some quantum optical master equation of Lindblad form. For GHZ states, we derive analytic expressions for the lifetime of distillable entanglement and determine when the state becomes fully separable. For all graph states, we derive lower and upper bounds on the lifetime of entanglement. The lower bound is based on a speciﬁc distillation protocol, while upper bounds are obtained by showing that states resulting from decoherence in general become nondistillable or even separable after a ﬁnite time. This is done using different methods, namely, ͑i͒ the map describing the decoherence process ͑e.g., the action of a thermal bath on the system͒ becomes entanglement breaking, ͑ii͒ the resulting state becomes separable, and ͑iii͒ the partial transposition with respect to certain partitions becomes positive. To this aim, we establish a method to calculate the spectrum of the partial transposition for all mixed states which are diagonal in a graph-state basis. We also consider entanglement between different groups of particles and determine the corresponding lifetimes as well as the change of the kind of entanglement with time. This enables us to investigate the behavior of entanglement under rescaling and in the limit of large number of particles N → ϱ. Finally we investigate the lifetime of encoded quantum superposition states and show that one can deﬁne an effective time in the encoded system which can be orders of magnitude smaller than the physical time. This provides an alternative view on quantum error correction and examples of states whose lifetime of entanglement ͑between groups of particles͒ in fact increases with the size of the system.
+
+DOI: 10.1103/PhysRevA.71.032350
+
+PACS number͑s͒: 03.67.Mn, 03.65.Ud, 03.65.Yz
+
+I. INTRODUCTION
+
+Since the early days of quantum mechanics, entanglement
+
+has remained at the focus of interest. While entangled states
+
+of microscopic samples of matter—such as a few atoms or
+
+ions in a trap—can nowadays be prepared and studied in the laboratory ͓1͔, the question whether entanglement can persist on a macroscopic ͑i.e., classical͒ scale is still the subject of
+
+an ongoing debate. The puzzling consequences of such mac-
+
+roscopic entanglement—highlighted in the notorious gedanken experiment known as “Schrödinger’s cat” ͓2͔ by
+
+Schrödinger in 1935—and the ͑as it seems͒ absence of en-
+
+tanglement in macroscopic objects and hence in our “classi-
+
+cal world” suggests a mechanism which prevents the persis-
+
+tence of entanglement on a macroscopic scale. It is often
+
+argued that decoherence, i.e., interaction of a system with
+
+uncontrollable degrees of freedom of some environment ͓3͔,
+
+provides a way to understand the absence of entanglement on
+
+a macroscopic scale. In particular, the decoherence rate is
+
+believed to grow linearly with the size of the system which
+
+would predict a rapid decay of entanglement for systems
+
+consisting of many particles.
+
+Such an argument can easily seen to be valid for certain
+
+entangled states, e.g., superposition states of the form
+
+͉GHZ͘ ϵ 1/ͱ2͉͑0͘N + ͉1͘N͒,
+
+͑1͒
+
+also called Greenberger-Horne-Zeilinger ͑GHZ͒ states which are states of N spins or qubits, that interact with uncontrol-
+
+lable degrees of freedom of the environment, e.g., described by a heat bath. GHZ states can be viewed as simple models of Schrödinger cat states and are in fact sometimes called cat states. For GHZ states, one can indeed show that if ␬ is the decoherence rate of a single qubit, then the rate at which the N-qubit state decoheres is given by ␬N. However, the observation that multipartite entanglement becomes more fragile with the size of the system is valid for this speciﬁc state only, and a priori it is not clear whether a similar conclusion can be drawn for other multipartite entangled states.
+Moreover, the decoherence rate does not provide complete information about entanglement properties of a system. In the last few years a theory of entanglement has emerged, which allows for a more sophisticated and detailed investigation of the effect of decoherence on the entanglement properties of a multiparticle entangled state. Quite recently, we have shown in Ref. ͓4͔ that for GHZ states not only does the decoherence rate show a scaling behavior with the system size, but also the lifetime of distillable entanglement ͓that is, the time after which ͑distillable͒ entanglement disappears from a system subjected to decoherence͔ in fact decreases with increasing number of particles N, conﬁrming the
+previous reasoning. On the other hand, we have also shown in Ref. ͓4͔ that for a class of other genuine multiparticle entangled states, most notably cluster states ͓5͔, the lifetime of distillable entanglement does not depend on the number of
+particles N and thus the size of the system. This is in sharp
+contrast to the behavior of GHZ states and shows that genu-
+
+1050-2947/2005/71͑3͒/032350͑26͒/$23.00
+
+032350-1
+
+©2005 The American Physical Society
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+ine macroscopic entanglement can indeed persist on time scales which are independent of the size of the system.
+While the investigation in Ref. ͓4͔ was limited to a speciﬁc decoherence model corresponding in physical terms to individual coupling of particles to a thermal reservoir in the inﬁnite-temperature limit, we will show in this article that these observations are largely independent of the speciﬁc model of decoherence. In particular, a similar scaling behavior of the lifetime of N-party distillable entanglement with the size of the system is obtained for all decoherence models dealing with a coupling of each particle to its own environment ͑or heat bath͒, e.g., described by a quantum optical master equation of Lindblad form. The results can even be extended to collective ͑ﬁnite-range͒ couplings of particles to the environment. While for GHZ states we provide analytic results for the lifetime of ͑distillable͒ entanglement, we calculate upper and lower bounds on the lifetime for all states which belong to the family of graph states ͓5,6͔. The lower bound is based on an explicit entanglement distillation protocol, while upper bounds are obtained by three different methods. Using the ﬁrst method we show that the completely positive map describing the decoherence process becomes entanglement breaking ͓7͔ after a ﬁnite time. This implies that all initially entangled states become separable and thus the lifetime of all kinds of entanglement is ﬁnite. The second method is more speciﬁc to graph states and shows that graph states suffering from decoherence become separable after a ﬁnite time. This is done by using a dynamical description of graph states and by showing that the generating operations become separable. The third method is based on the partial transposition criterion and evaluates when the partial transposition with respect to a certain partition becomes positive. To this aim, we develop a method to calculate the spectrum of the partial transposed operator ␳TS for any subset S of parties and all density operators ␳ which are diagonal in a basis constituted by orthogonal graph states.
+We also consider entanglement between M groups of particles, i.e., partitions of the system into M parts. Each of the groups may consist of several particles, which are then considered as a single subsystem with a higher-dimensional state space. We analytically determine the lifetime of distillable entanglement between M groups of particles for arbitrary partitionings for GHZ states and again derive lower and upper bounds for all graph states. In this way we study the change of the kind of entanglement with time and, e.g., show for GHZ states that the effective size of entanglement, i.e., the maximum number of entangled subsystems, decreases with time and entanglement eventually becomes bipartite before it vanishes completely. If we associate a speciﬁc spatial distribution with the particles, e.g., spins distributed on a lattice, one can choose certain partitionings that correspond to a rescaling of the size of the subsystem, as it is used in statical physics. We study in particular the behavior of distillable entanglement under coarsening of the partitions, that is, under rescaling of the size of the subsystem in the asymptotic limit N → ϱ. For cluster states ͑and all other graph states with constant degree͒ we show that the lifetime of distillable entanglement is largely independent of N and thus the same on all scales. For GHZ states, however, we ﬁnd that whenever the size of the subsystems is ﬁnite, dis-
+
+tillable entanglement vanishes after an arbitrary short time on all scales. Only if the size of the subgroups become macroscopic themselves ͑in the sense that N systems are divided into a ﬁxed number M of cells whose size N / M grows to inﬁnity as N → ϱ͒ the lifetime of distillable entanglement ͑between the M cells of macroscopic size͒ becomes ﬁnite and scales to leading order as 1 / ͑␬M͒. We also consider the lifetime of encoded entangled states. When considering entanglement properties between groups of particles where each group constitutes a logical qubit of a ͑concatenated͒ quantum error correction code, one can deﬁne an effective time for the encoded system that incorporates the error correction procedure. The effective time can be orders of magnitude smaller than the physical time. In this way one can show that the lifetime of entanglement between groups of particles can even increase with the size of the system.
+The paper is organized as follows. In Sec. II we introduce decoherence models—most notably individual coupling of a single particle to a reservoir described by a quantum optical master equation of Lindblad form as well as Pauli channels—which we deal with throughout the paper. In Sec. III we introduce basic concepts of entanglement theory. In particular, we review the concepts of separability and distillability in multiparticle systems as well as the partial transposition criterion. We also deﬁne the lifetime of entanglement with respect to certain partitionings of the system. In Sec. IV we determine the lifetime of N-party distillable entanglement of GHZ states for decoherence described by depolarizing channels ͓4͔ as well as general quantum optical channels. In Sec. V we ﬁrst review the concept of graph states ͓6͔ in Sec. V A, and then derive lower and upper bounds on the lifetime of N-party distillable entanglement for graph states subjected to decoherence. We generalize our results to weighted graph states in Sec. VI. In Sec. VII we consider entanglement between groups of particles for GHZ states and determine the lifetime of encoded entangled states in Sec. VII C. We summarize and conclude in Sec. VIII, while some technical details, e.g., regarding the partial transposition criterion and the corresponding upper bound on the lifetime for mixed states which are diagonal in a graph-state basis, can be found in the Appendixes.
+
+II. DECOHERENCE MODELS
+
+We consider a single two-level system ͑qubit͒ coupled to an environment which is described by a thermal reservoir. The evolution of this qubit is governed by a general quantum optical master equation of Lindblad form
+
+‫ץ‬ ‫ץ‬t
+
+␳
+
+=
+
+−
+
+i͓H,
+
+␳͔
+
++
+
+L␳
+
+,
+
+͑2͒
+
+where H describes the coherent evolution while incoherent processes are described by the superoperator L. We have
+
+L␳
+
+=
+
+−
+
+B ͑1 2
+
+−
+
+s͓͒␴+␴−␳
+
++
+
+␳␴+␴−
+
+−
+
+2␴−␳␴+͔
+
+−
+
+B 2 s͓␴−␴+␳
+
+2C − B
+
++ ␳␴−␴+ − 2␴+␳␴−͔ − 8 ͓2␳ − 2␴z␳␴z͔,
+
+͑3͒
+
+with ␴± ϵ ͑1 / 2͒ ͑␴x ± i␴y͒ and 2C ജ B. While the parameters
+
+032350-2
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+B , C give the decay rate of inversion and polarization, s ʦ ͓0 , 1͔ depends on the temperature T of the bath. More precisely s = limt→ϱ͗͑1 + ␴z͒ / 2͘t, where s = 1 / 2 corresponds to T = ϱ. It is straightforward to solve this master equation ͓8͔.
+We consider the case H = 0, i.e., solely decoherence. The eigenoperators and corresponding eigenvalues of L can
+readily be determined and one ﬁnds
+
+L␴x = − C␴x,
+
+͑4͒
+
+L␴y = − C␴y,
+
+͑5͒
+
+L␴z = − B␴z,
+
+͑6͒
+
+L˜␴0
+
+ϵ
+
+L
+
+1 2
+
+͓1
+
++
+
+͑2s
+
+−
+
+1͒␴z͔
+
+=
+
+0
+
+.
+
+͑7͒
+
+For
+
+␳
+
+ϵ
+
+␳͑0͒
+
+=
+
+1 2
+
+1
+
++
+
+aជ
+
+·
+
+␴ជ
+
+=
+
+˜␴0
+
++
+
+ax␴x
+
++
+
+ay␴y
+
++
+
+͓az
+
+−
+
+͑2s
+
+−
+
+1͒
+
+/
+
+2͔␴z,
+
+we have that
+
+␳͑t͒ ϵ eLt␳͑0͒ = ˜␴0 + e−Ct͑ax␴x + ay␴y͒
+
++ e−Bt͓az − ͑2s − 1͒/2͔␴z.
+
+͑8͒
+
+Equivalently, one can describe the resulting completely positive map ͑CPM͒ Et with ␳͑t͒ ϵ Et␳ as follows:
+
+3
+͚ Et␳ = ␭j͑t͒␴j␳␴j + ␮͑t͓͒␴z␳1 + 1␳␴z − i␴x␳␴y + i␴y␳␴x͔, j=0
+͑9͒
+
+with
+
+␭0͑t͒
+
+=
+
+1 ͑1
+4
+
++
+
+2e−Ct
+
++
+
+e−Bt͒ ,
+
+͑10͒
+
+␭1͑t͒
+
+=
+
+␭2͑t͒
+
+=
+
+1 ͑1 4
+
+−
+
+e−Bt͒ ,
+
+͑11͒
+
+␭3͑t͒
+
+=
+
+1 ͑1
+4
+
+−
+
+2e−Ct
+
++
+
+e−Bt͒ ,
+
+͑12͒
+
+␮͑t͒ = 2s − 1͑1 − e−Bt͒.
+
+͑13͒
+
+4
+
+In Sec. V C we will discuss the entanglement properties of this map and show that ͑except for some singular cases͒ it becomes entanglement breaking after some ﬁnite time. For s = 1 / 2 and B = C ϵ ␬, Eq. ͑9͒ describes the coupling of the particle to a thermal bath in the large-T limit equivalent to a so-called depolarizing channel ͑white noise͒:
+
+͚ D␳
+
+=
+
+p͑t͒␳
+
++
+
+1
+
+− p͑t͒ 4
+
+3 j=0
+
+␴j␳␴j
+
+with p͑t͒ = e−␬t. ͑14͒
+
+For B = 0, C ϵ ␬, and arbitrary s, Eq. ͑9͒ describes instead the coupling of the particle to a reservoir, which is equivalent to a dephasing or phase ﬂip channel:
+
+D␳
+
+=
+
+p͑t͒␳
+
++
+
+1
+
+− p͑t͒ ͑␳
+2
+
++
+
+␴3␳␴3͒
+
+with p͑t͒ = e−␬t. ͑15͒
+
+Finally, choosing s = 1 and B = 2C ϵ ␬, one obtains the decay channel ͑pure damping͒
+
+D␳ = E1␳E1† + E2␳E2†,
+
+͑16͒
+
+with the ␥͑t͒ = 1 −
+
+Kraus operators E1 = e−␬t denotes the decay
+
+͑
+
+1 0
+
+0 ͱ1−␥
+
+͒
+
+rate for
+
+and the
+
+E2 = ͑
+decay
+
+0 0
+
+ͱ␥ 0
+
+͒.
+
+from
+
+Here level
+
+͉1͘ into level ͉0͘.
+
+For a system consisting of several particles, we shall be
+
+interested in the effect of decoherence on the entanglement
+
+properties of this system. We consider as a decoherence
+
+model individual coupling of each of the qubits to a thermal
+
+bath, where the evolution of the kth qubit is described by the map Ek given by Eq. ͑9͒ with Pauli operators ␴j acting on
+qubit k. We will be interested in the evolution of a given pure
+
+state ͉⌿͘ of N qubits under this decoherence model. That is,
+
+the initial state ͉⌿͘ suffers from decoherence and evolves in
+
+time to a mixed state ␳͑t͒ given by
+
+␳͑t͒ ϵ E1E2¯EN͉⌿͗͘⌿͉.
+
+͑17͒
+
+In the following we will also consider decoherence due to
+
+individual noise processes of the particles described by some
+
+Pauli channel:
+
+ͩ ͪ 3
+
+3
+
+͚ ͚ D␳ = pi͑t͒␴i␳␴i with
+
+pi͑t͒ = 1 ,
+
+͑18͒
+
+i=0
+
+i=0
+
+which are of particular interest in quantum information
+
+theory, especially in the study of fault-tolerance of quantum
+
+computation. This class contains, for example, ͑1͒ for p0
+
+= ͑1 + 3p͒ / 4 and p1 = p2 = p3 = ͑1 − p͒ / 4 the above depolarizing
+
+channel; ͑2͒ for pi = ␭i the quantum optical channel according
+
+to
+
+Eq.
+
+͑9͒
+
+with
+
+␮=0
+
+͑s =
+
+1 2
+
+͒;
+
+͑3͒
+
+for
+
+p0=͑1+ p͒/2,
+
+p1= p2=0,
+
+and p3 = ͑1 − p͒ / 2 the above dephasing channel; ͑4͒ for p0
+
+= ͑1 + p͒ / 2, p2 = p3 = 0, and p1 = ͑1 − p͒ / 2 the bit-ﬂip channel.
+
+In the remainder of the paper, we will analyze the time
+
+dependence of the entanglement properties of the decohered
+
+state ␳͑t͒ for different initial states ͉⌿͘. The depolarizing
+
+channel is of particular interest, since the decohered state due
+
+to an arbitrary noise channel can be further depolarized to
+
+some state, which might also be obtained by some depolar-
+
+izing channel. Moreover, among the stated noise models the
+
+depolarizing channel is the only channel, that is basis inde-
+
+pendent, i.e., invariant under unitary transformations. We
+
+will frequently use the Pauli channel and will describe the
+
+entanglement properties of ␳͑t͒ in terms of the parameters pi. Nevertheless one has to keep in mind that the time depen-
+
+dence itself is already included in the parameters pi = pi͑t͒.
+
+III. SEPARABILITY, DISTILLABILITY, AND LIFETIME OF N-PARTY ENTANGLEMENT
+For the lifetime of entanglement it is not only necessary to specify the underlying decoherence model, but also the very notion of multiparticle entanglement itself. This is mainly
+
+032350-3
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+due to the fact that multiparty entanglement is a subtle issue in quantum information theory ͑see, e.g., ͓9,11͔͒. Apart from some special cases, the existence of an entanglement mea-
+sure that is satisfying for information theoretic purposes as
+well as applicable and calculable for mixed states is still an
+open problem. In the following we will therefore concentrate
+on the discussion of two qualitative entanglement criteria.
+Throughout the paper we will consider N two-level systems ͑qubits͒ with corresponding Hilbert space H = ͑C2͒N. The N particles are distributed among N parties 1 , … , N. Starting with a pure GHZ or graph state we will consider in Secs. IV
+and V the N-party separability and distillability properties of the decohered state ␳͑t͒ ͓see Eq. ͑17͔͒.
+On the one side of the scale the state ␳͑t͒ can still be
+N-party distillable entangled, as is the case for the corresponding pure states in question. Hereby we call ␳͑t͒ N-party distillable if any other true N-party entangled state ͉⌽͘ can be obtained ͑distilled͒ asymptotically from multiple copies of ␳ under local operations and classical communication ͑LOCC͒ ͓10,11͔:
+
+␳k ——→ ͉⌽͗͘⌽͉.
+
+͑19͒
+
+LOCC
+
+We remark that in the multicopy case all true N-party entangled states are equivalent since they can be transformed into each other by LOCC. That is, the condition that any true N-party entangled state can be created can be replaced by the condition that some N-party entangled state, e.g., the initial pure state, can be created. Disregarding the practicability of the underlying distillation protocol, the state ␳͑t͒ is then as useful as any other entangled state and therefore can in principle be regarded as a universal resource for quantum information processing such as quantum communication.
+On the other end of the scale, ␳͑t͒ might have also become completely separable or classical in the sense that it can be described by a classical mixture of product states, i.e., ␳ is N-party separable, if
+
+͚ ␳͑t͒ = pk␳k͑1͒  ␳k͑2͒  ¯  ␳k͑N͒.
+
+͑20͒
+
+k
+
+If a state is completely separable, it is no longer entangled whatsoever. In between these two extremal cases, ␳͑t͒ can contain different types of blockwise entanglement, which we will discuss in more detail in Sec. VII. There we will consider different partitionings of particles into M groups ͑M ഛ N͒, where each group forms a subsystem with a higherdimensional state space and consists of several particles. M-party distillability (separability) can then be deﬁned with respect to a given partitioning in a similar way, where the notion of local operation has to be adapted accordingly. Moreover we will call ␳͑t͒ M-party distillable, if there exists at least one partitioning with respect to which ␳͑t͒ is M-party distillable.
+Based on the notion of M-party separability and distillability, one can deﬁne the lifetime of entanglement. An N-party state ͉⌿͗͘⌿͉ which is subjected to decoherence for time t evolves into a mixed state ␳͑t͒. The lifetime of N-party distillable entanglement is given by the time after which the
+
+state ␳͑t͒ becomes non-N-party distillable. This implies that lower bounds on the lifetime of distillable entanglement can be obtained by showing that the state ␳͑t͒ is distillable, while an upper bound can be obtained by proving nondistillability of ␳͑t͒. When considering partitions of the system into M groups, the lifetime of M-party entanglement with respect to a given partition is deﬁned accordingly. We refer to the lifetime of M-party entanglement as the time after which ␳͑t͒ is nondistillable with respect to all M-party partitions. In a similar way, one can deﬁne a lifetime with respect to the separability properties of ␳͑t͒.
+In order to determine entanglement properties of the mixed states in question, we will continuously make use of the partial transposition criterion ͓12,13͔, an entanglement criterion which provides necessary conditions for distillability and separability. The partial transposition is deﬁned for bipartite systems only, while a system can in general consist of several parties. Making use of the concept of partitionings of the system, in particular considering all bipartitionings, one can use the partial transposition criteria also for multipartite states. Let A denote a subset of m parties k1 , … , km. In general, given an operator X acting on CdA  CdB, we deﬁne the partial transpose of X with respect to the ﬁrst subsystem in the basis ͕͉1͘ , ͉2͘ , … , ͉dA͖͘, XTA, as follows:
+
+dA dB
+
+͚ ͚ XTA ϵ
+
+͗i,k͉X͉j,l͉͘j,k͗͘i,l͉.
+
+͑21͒
+
+i,j=1 k,l=1
+
+A Hermitian operator X has a nonpositive ͑positive͒ partial transpose ͑NPT͒ ͓͑PPT͔͒ if XTA is not positive ͑positive͒, respectively. That is, XTA is NPT if there exist some ͉⌿͘ such that ͗⌿͉XTA͉⌿͘ Ͻ 0.
+The positivity of the operator ␳TA gives a necessary criterion for separability, whereas the nonpositivity of ␳TA is necessary for the distillability of the density operator ␳. In par-
+ticular, if a bipartite density operator is PPT, then it is
+certainly not distillable ͓12͔. This implies ͓11͔ that if a multiparticle density operator ␳ is PPT with respect to at least one bipartite partition, then ␳ is certainly not N-party distill-
+able. On the other hand, positivity of all bipartite partitions is
+a necessary condition for N-party separability. In the case of two-dimensional systems C2  C2 the PPT ͑NPT͒ criterion is necessary and sufﬁcient for separability ͑distillability͒ ͓13,14͔. A detailed discussion of the application of the partial
+transposition criteria to multipartite systems can be found in
+Ref. ͓11͔.
+
+IV. LIFETIME OF N-PARTY ENTANGLEMENT IN GHZ STATES
+
+We start by considering the lifetime of N-qubit GHZ states
+
+͉GHZ͘ = ͑1/ͱ2͉͒͑0͘N + ͉1͘N͒.
+
+͑22͒
+
+These states are special examples of states that maximally violate multipartite Bell inequalities ͓15͔. GHZ states have also become an interesting resource for multiparty quantum communication, e.g., in the context of secret sharing and
+
+032350-4
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+secure function evaluation ͓16͔. Moreover they can be used to improve frequency standards ͓17͔. For the class of N-party GHZ states the lifetime of most of the above entanglement properties can be determined analytically.
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+A. Large-T limit of reservoir
+We start by reviewing the results of ͓4͔ and consider a model of decoherence with individual coupling of each of the particles to a thermal reservoir in the large-T limit. The process for a single qubit is described by Eq. ͑14͒ and corresponds to white noise with time-dependent parameter p ϵ p͑t͒ = e−␬t where ␬ is a coupling constant. That is, we consider the state ␳͑t͒ given by Eq. ͑17͒ where the CPM Ek is given by the depolarizing channel Dk ͓Eq. ͑14͔͒. It is straightforward to evaluate the effect of decoherence on this kind of states ͓11,18͔. One ﬁnds that ͉GHZ͘ evolves to a state ␳͑t͒,
+
+with
+
+1
+͚ ␳͑t͒ = ␭k1¯kNPk1¯kN + ␮͑␴+N + ␴−N͒, ki=0
+
+͑23͒
+
+Pk1k2¯kN = ͉k1k2¯kN͗͘k1k2¯kN͉,
+
+͑24͒
+
+and ␴± = ͑␴x ± i␴y͒ / 2, i.e., ␴+N = ͉00¯0͗͘11¯1͉. It turns out
+
+that the coefﬁcients ␭k1k2¯kN satisfy ␭k1k2¯kN = ␭k1k2¯kN,
+
+where kj ϵ ͚Nj=1kj,
+
+=1− that
+
+k
+
+j. is,
+
+In␭k1akd2¯diktNio=n␭, l1␭l2k¯1kl2N¯ϵkN␭kdeifpe͚ndNj1koj =nl͚yNj1oljn=
+
+k k.
+
+This implies that ␭k = ␭N−k and one ﬁnds
+
+␭k
+
+=
+
+1 2N+1 ͓͑1
+
++
+
+p͒k͑1
+
+−
+
+p͒N−k
+
++
+
+͑1
+
++
+
+p͒N−k͑1
+
+−
+
+p͒k͔,
+
+␮ = pN .
+
+͑25͒
+
+2
+
+States of the form Eq. ͑23͒ with ␭k1¯kN = ␭k1¯kN can equivalently be written as density operators which are diagonal in a
+basis consisting of orthogonal GHZ states. Such density op-
+erators have been completely characterized with respect to their entanglement properties in Ref. ͓11͔. In particular, it was shown that these states are N-party distillable ͑separable͒ if and only if the partial transpose with respect to all possible partitions is nonpositive ͑positive͒, respectively. One readily ﬁnds that the partial transposition with respect to a group Bk which contains exactly k parties is positive, ␳͑t͒TBk ജ 0, if and only if ͓11͔ ␮2 ഛ ␭k␭N−k, i.e.,
+
+pN ഛ 2␭k.
+
+͑26͒
+
+Making use of the fact that
+
+␭1 ജ ␭2 ജ ¯ ജ ␭͓N/2͔,
+
+͑27͒
+
+it is now straightforward to determine the lifetime of distillable N-party entanglement as well as the time when the state becomes fully separable. From Eqs. ͑26͒ and ͑27͒ follows that the lifetime of distillable N-party entanglement is determined by Eq. ͑26͒ with k = 1, as the partial transpose with
+
+FIG. 1. Upper bound on lifetime ␬␶ of N-party entanglement.
+respect to the partition one-party–͑N − 1͒-parties is the ﬁrst one to become positive. Similarly, Eq. ͑26͒ with k = ͓N / 2͔ determines the time after which the state ␳͑t͒ becomes fully separable, as the partial transposition with respect to the partition N / 2 − N / 2 parties is the last one to become positive.
+One observes that the critical value pcritϵ e−␬tcrit, at which the partial transposition with respect to one party becomes positive increases with N. This implies that for t ജ tcritϵ ␶ the state is no longer N-party distillable entangled and thus the lifetime ␶ of true N-party entanglement decreases with the size of the system as expected ͑see Figs. 1 and 2͒. Note that ﬁnding the threshold value pcrit for a given N exactly is equivalent to ﬁnding the roots of a polynomial of degree N ͑which can be done efﬁciently numerically͒. One can obtain analytic upper and lower bounds on pcrit by approximating ␭k by ͑1 + p͒N−k͑1 − p͒k / 2N+1 or 2͑1 + p͒N−k͑1 − p͒k / 2N+1, respectively, which is done explicitly in Sec. VII B.
+B. Arbitrary individual coupling to the environment We will now investigate the lifetime of distillable entanglement for more general decoherence models. While we continue to assume an individual coupling of particles to independent environments—an assumption which is particu-
+FIG. 2. Same as Fig. 1 but with double-logarithmic axis. Note that the same ﬁgures also display an upper bound on the lifetime ␬␶ of M-party entanglement in systems with N → ϱ particles for different M, as discussed in Sec. VII. In this case the numbers on the x axis have to be considered as the number M of M-party entanglement in question.
+
+032350-5
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+larly well satisﬁed if the entangled states in question are distributed among several parties—we consider now couplings that are described by arbitrary quantum optical master equations of Lindblad form ͑see Sec. II͒. These models include as particular instances decay channels, phase ﬂip channels, and depolarizing channels. We consider the inﬂuence of decoherence—described by the CPM Eq. ͑9͒—on the GHZ state of N particles, i.e., the entanglement properties of the density operator ␳͑t͒ which is given by Eq. ͑17͒. We use the fact that one can write ␳͑0͒ ϵ ͉GHZ͗͘GHZ͉ as
+
+␳͑0͒
+
+=
+
+1 2
+
+͑P0
+
+N
+
++
+
+P1 N
+
++
+
+␴+ N
+
++
+
+␴− N͒ ,
+
+͑28͒
+
+where P0 = ͉0͗͘0͉ = ͑1 + ␴z͒ / 2 , P1 = ͉1͗͘1͉ = ͑1 − ␴z͒ / 2, and ␴± = ͑␴x ± i␴y͒ / 2. It is not difﬁcult to see that the action of the map E ͓Eq. ͑9͔͒ is given by
+EP0 = aP0 + ͑1 − a͒P1,
+
+EP1 = ͑1 − c͒P0 + cP1,
+
+E␴± = b␴±,
+
+͑29͒
+
+where we introduced the new variables a , b , c, which are given by
+
+a = s + ͑1 − s͒e−Bt,
+
+b = e−Ct,
+
+c = ͑1 − s͒ + se−Bt.
+
+͑30͒
+
+It is now straightforward to determine the action of the map E1E2¯EN on the state ␳͑0͒. One ﬁnds that the resulting den-
+sity operator is of the form Eq. ͑23͒. The coefﬁcients ␭k1k2¯kN only depend on ͚Nj=1kj, where
+
+␭k
+
+=
+
+1 ͓ck͑1 2
+
+−
+
+c͒N−k
+
++
+
+͑1
+
+−
+
+a͒kaN−k͔ ,
+
+bN
+
+␮= .
+
+͑31͒
+
+2
+
+The condition that the partial transposition with respect to k parties is positive, ␳TAk ജ 0 reads
+
+͓bN/2͔2 ഛ ␭k␭N−k.
+
+͑32͒
+
+We remark that in contrast to the discussion in Sec. IV A, here we have ␭k ␭N−k. This means that nonpositive ͑positive͒ partial transposition with respect to all partitions is no longer a sufﬁcient condition for N-party distillability ͑separability͒ respectively. However, one can still use the partial transposition criterion to obtain lower and upper bounds on
+the lifetime of distillable entanglement. In particular, if the
+partial transposition with respect to at least one partition is positive, then the state ␳͑t͒ is certainly no longer N-party
+distillable.
+To obtain an upper bound on the lifetime of GHZ states, we make use of the following facts: ͑i͒ ␭k␭N−k ജ ͑ac͒N−k͓͑1
+
+− a͒͑1 − c͔͒k / 4 and ͑ii͒ exp͑−NBt͒ / 4 ജ ͓bN / 2͔2. While ͑i͒ can be checked by direct computation, ͑ii͒ follows from 2C − B ജ 0 ͑see Sec. II͒. Using ͑i͒ and ͑ii͒ together with Eq. ͑32͒, one obtains that ␳͑t͒ certainly has positive partial transposi-
+tion with respect to any group of k parties if
+
+ln͑ac͒ − ln͓͑1 − a͒͑1 − c͔͒
+
+Nജk
+
+,
+
+͑33͒
+
+ln͑ac͒ + Bt
+
+provided that s 0,1 and B Ͼ 0. We remark that the ͑singular͒ case s = 0 corresponds to a decay channel, and for such a channel we have that the state ␳͑t͒ has nonpositive partial
+transposition for all times t. Whenever the temperature of the bath is however not zero ͑i.e., s 0, 1͒ we have that for any time t there exists a ﬁnite number N0 ͓given by the righthand side of Eq. ͑33͒ with k = 1͔ such that for N ജ N0 particles the state ␳͑t͒ is certainly no longer distillable. Thus we
+have, as in the case of depolarizing channels, a scaling of the ͑upper bound on the͒ lifetime of distillable entanglement
+with the number of particles N. If N is sufﬁciently large, the ͑upper bound͒ on the lifetime goes to zero.
+A lower bound on the lifetime of ␳͑t͒ can be obtained as follows. We have that a state of the form Eq. ͑23͒ can be depolarized by means of a ͑stochastic͒ sequence of local operations and classical communication ͑see Ref. ͓11͔͒ such that the resulting state has new coefﬁcients ˜␭k1k2¯kN which satisfy
+
+˜␭k1k2¯kN
+
+=
+
+␭k1k2¯kN
+
++ 2
+
+␭k1k2¯kN ,
+
+͑34͒
+
+and hence ˜␭k =˜␭N−k. It follows that the depolarized state ˜␳͑t͒ is distillable if
+
+͓bN/2͔ Ͼ ˜␭k,
+
+͑35͒
+
+for all k. One can upper bound ˜␭k by ˜␭k ഛ ␭kЈ ϵ max(ak͑1 − a͒N−k , aN−k͑1 − a͒k , ck͑1 − c͒N−k , cN−k͑1 − c͒k) and obtains that ␳͑t͒ is distillable if bN Ͼ 2␭kЈ. By taking the logarithm of this equation, one obtains a bound on the number of particles N
+such that the state remains distillable for a time t.
+
+V. LIFETIME OF N-PARTY ENTANGLEMENT IN GRAPH STATES
+In the previous section the class of generalized GHZ states was shown to have a lifetime of entanglement that decreases ͑except in some singular cases͒ with increasing number of particles N in the system. We will now discuss the lifetime of N-party entanglement in graph states and show that for a signiﬁcant subclass such as cluster states the lifetime of distillable entanglement is essentially independent of N. After recalling some basic deﬁnitions and notations, we will ﬁrst derive a lower bound to N-party distillable entanglement by providing an explicit distillation protocol. We will then use three different techniques to establish upper bounds to the lifetime of N-party entanglement. These methods apply to different decoherence processes and are interesting on their own, since they might ﬁnd applications also in other
+
+032350-6
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+problems not directly related to lifetime of states under decoherence. Finally we will extend our results to a more general class of so-called weighted graph states.
+
+A. Basic deﬁnitions and examples
+
+Graph states are multiparticle spin states of distributed
+
+quantum systems with interesting applications in quantum
+
+information theory: Special instances of graph states are
+
+codewords of quantum error correcting codes, which protect
+
+quantum states against decoherence in quantum computation.
+
+Up to local unitaries all stabilizer states can be represented as
+
+graph states ͓19͔. For example, the Calderblank-Shor-Steane
+
+͑CSS͒ codes correspond to the class of so-called two-
+
+colorable graphs ͓20͔. For this class of graph states entangle-
+
+ment puriﬁcation procedures are known ͓4͔. These protocols
+
+even work in the case of noisy local control operations. Fi-
+
+nally the class of cluster states are known to be a universal
+
+resource for quantum computation in the one-way quantum
+
+computer ͓21͔. For the study of genuine multipartite en-
+
+tanglement graph states are particularly useful, since they
+
+allow for an efﬁcient description even in the regime of many
+
+parties: Thereby the graph essentially encodes an interaction
+
+pattern between the particles. Let G = ͑V , E͒ be a graph,
+
+which is a set of N vertices k ʦ V connected by edges
+
+͕k , l͖ ʦ E that specify the neighborhood relation between the
+
+vertices.
+
+Starting
+
+from
+
+the
+
+state
+
+͉ + ͘V ª kʦV͉ + ͑͘k͒, where ͉ + ͘ = ͑1 / ͱ2͉͒͑0͘ + ͉1͒͘ denotes the
+
+eigenstate of ␴x with eigenvalue ϩ1, the graph state ͉G͘ is
+
+obtained by applying a sequence of Ising-type interactions
+
+Ukl ϵ e−i͑␲/4͒͑1͑k͒−␴z͑k͒͒͑1͑l͒−␴z͑l͒͒
+
+͑36͒
+
+according to the interaction pattern speciﬁed by the graph, i.e.,
+
+͟ ͉G͘ =
+
+Ukl͉ + ͘V.
+
+͑37͒
+
+͕k,l͖ʦE
+
+Graph states occur, e.g., as a result of the Ising interaction
+between neighboring spins on a lattice after a speciﬁc interaction time ͓5͔. An example for a realization of such a system is based on neutral atoms in optical lattices ͓22͔. Alter-
+natively, graph states can be speciﬁed in terms of their stabilizer. For this let Nk = ͕l ʦ V͉͕k , l͖ ʦ E͖ denote the set of neighbors of k. Then the graph state ͉G͘ is the unique state in ͑C2͒V, that is, the common eigenstate for the set of independent commuting observables
+
+͟ KkG ϵ ␴x͑k͒
+
+␴z͑l͒ ,
+
+lʦNk
+
+͑38͒
+
+where the eigenvalues of all k ʦ V are 1. The stabilizer SG of the state is thus generated by the set ͕KkG͉k ʦ V͖, which implies
+
+͚ ͉G͗͘G͉ = ␴.
+
+͑39͒
+
+␴ʦSG
+
+In order to obtain a complete basis for ͑C2͒V we will also consider the eigenstates ͉U͘G = ␴zU͉G͘ of KkG according to different eigenvalues Uk, i.e.,
+
+FIG. 3. ͑Color online͒ The graph states corresponding to the complete graph and the star graph are equivalent to the GHZ state in Eq. ͑22͒ up to some local unitaries ͓6͔.
+
+KkG͉U͘G = ͑− 1͒Uk͉U͘G.
+
+͑40͒
+
+Here and in the following, sets U ʕ V as an upper index for operators will label those vertices where the operator acts nontrivially, e.g.,
+
+␴zU =  ␴z͑k͒.
+kʦU
+
+͑41͒
+
+Moreover we will denote sets U and their corresponding binary vectors U = ͑Uk͒kʦV Ӎ ͑U1 , … , UN͒ over F2V ͑the integer ﬁeld modulo 2͒ with the same symbol. Finally k will also
+
+denote both the vertex and the corresponding one-element
+set ͕k͖. In this notation the stabilizer generators can be written as KkG = ␴xk␴zNk and the original graph state is just that with an error syndrome corresponding to the empty set 0, i.e.,
+
+͉G͘ = ͉0͘G. This is also notationally advantageous, since we
+will use both set and binary operations: e.g., for A , B ʦ P͑V͒ Х F2V we will write A ഫ B, A പ B, and A \ B ͑A ϵ V \ A͒ for the union, intersection, and difference
+
+͑complement͒ as well as A + B and ͗A , B͘ for the addition and
+
+the scalar product modulo 2. The neighborhood relation in a
+
+graph is also often represented in terms of its adjacency ma-
+
+trix ⌫:
+
+ͭ1 if ͕k,l͖ ʦ E,
+⌫kl = 0 otherwise.
+
+͑42͒
+
+In the spirit of the above notation we can therefore also write KkG = ␴x͑k͒͟lʦV͑␴z͑l͒͒⌫kl = ␴xk␴zNk = ␴xk␴z⌫k.
+Coming to some examples, we ﬁrst note that the class of
+multiparty GHZ states in Sec. IV is contained in the class of graph states, since the GHZ state in Eq. ͑22͒ can be transformed by local unitaries into graph states corresponding to
+the graphs depicted in Fig. 3. When considering decoherence
+of a locally equivalent state, we remark that the underlying
+noise process has to be adapted according to the local unitary
+transformation. From this point of view the depolarizing channel in Eq. ͑14͒ has the advantage that it is invariant under local unitary transformation and hence is basis inde-
+pendent. In the following we will also consider the class of cluster states in one, two, or three dimensions ͑see Fig. 4͒, which are of particular interest in the context of “one-way” quantum computation ͓21͔. For more examples and a discussion of equivalence classes of graph states under local unitaries and/or graph isomorphies we refer to ͓6,23͔. We will now discuss the entanglement properties from Sec. III for the
+
+032350-7
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+FIG. 4. ͑Color online͒ Cluster states in two and three dimensions form a universal resource for quantum computation in the framework of the one-way quantum computer ͓21͔.
+state ␳͑t͒ ͓see Eq. ͑17͔͒ that is produced by different decoherence processes described in Sec. II acting on different types of graph states.
+
+B. Lower bound: An explicit distillation protocol
+We establish a lower bound on the lifetime of graph states by considering an explicit distillation protocol. In order to show that a mixed state ␳͑t͒ is N-party distillable, it is sufﬁcient to show that maximally entangled pairs shared between any pair of neighboring parties can be distilled. This is due to the fact that these pairs can be combined by means of local operations ͑e.g., by teleportation͒ to create an arbitrary N-party entangled pure state. We emphasize that we use the distillation of neighboring pairs only as a tool to show N-party distillability. This, however, does not imply that the entanglement contained in the cluster state was in some sense only “bipartite.” One could in principle also use direct multiparty entanglement puriﬁcation protocols, e.g., the one introduced in Ref. ͓24͔; however, the conditions under which these protocols are applicable are in general more complicated to determine.
+First we will consider the case of decoherence of the particles due to the same individual Pauli channel D␳ = ͚i3=0pi͑t͒␴i␳␴i and we will show then how to extend these results to more general decoherence models. We will essentially follow the ideas used in ͓4͔, in which the corresponding result was shown for the case of a depolarizing channel, and make use of the following facts.
+͑i͒ Measuring all but two neighboring particles, say k , l, of a graph state ͉G͘ in the eigenbasis of ␴z results in the creation of another graph state with only a single edge ͕k , l͖ ͓6͔. That is, the resulting state of particles k , l is up to local ␴z operations equivalent to a maximally entangled state of the form
+
+1
+
+͉⌽͘ ϵ ͱ2 ͉͑0͘x͉0͘z + ͉1͘x͉1͘z͒,
+
+͑43͒
+
+where ͉i͘x ͉͑i͘z͒ denote eigenstates of ␴x ͑␴z͒, respectively. ͑ii͒ The action of a Pauli channel Dk acting on particle k
+of a graph state can equivalently be described by a map Mk whose Kraus operators only contain products of Pauli matri-
+ces ␴z and the identity, where here ␴z may act on particle k and its neighbors, i.e., particles which are ͑in the correspond-
+ing graph͒ connected by edges to particle k.
+
+FIG. 5. ͑Color online͒ Ring with seven qubits.
+
+Observation ͑ii͒ follows from the fact that ␴xj͉U͘G = ͑−1͒Uj␴xjKGj ͉U͘G, where ␴xjKGj is an operator that contains only products of ␴z operators at neighboring particles of particle j, and the identity otherwise. Similarly, the action of ␴yj on graph states is up to a phase factor equivalent to the
+action of an operator which contains only products of ␴z operators acting on particle j and all its neighbors. That is,
+
+3
+͚ Dk͉U͘G͗U͉ = pj͑t͒␴kj͉U͘G͗U͉␴kj = Mk͉U͘G͗U͉ j=0
+
+3
+
+͚ = pj͑t͒Skj͉U͘G͗U͉Skj ,
+
+͑44͒
+
+j=0
+
+with S0k = ␴0k, S1k = ␴3Nk, S2k = ␴3Nkഫk, and S3k = ␴3k.
+
+ring ͑Fig. 5͒, for example, we have S2k = ␴3͑k−1͒␴3͑k͒␴3͑k+1͒, and S3k = ␴3͑k͒.
+
+S0k = 1,
+
+In the case of a S1k = ␴3͑k−1͒␴3͑k+1͒,
+
+We now apply ͑i͒ and ͑ii͒ to establish a sufﬁcient condi-
+
+tion when bipartite entanglement between neighboring par-
+
+ticles can be distilled from the state
+
+␳͑t͒ = M1M2¯MN͉G͗͘G͉.
+
+͑45͒
+
+This allows us to obtain a lower bound on the lifetime of
+
+graph states. We concentrate on two speciﬁc neighboring
+
+particles, say k and l. One performs measurements in the
+
+eigenbasis of ␴z on all but particles k and l ͑we remark that measurements on all neighboring particles of particles k , l
+
+would also be sufﬁcient͒. It follows from ͑i͒ and ͑ii͒ that
+
+these measurements commute with the action of the CPM M1M2¯MN on the graph state ͑which equivalently de-
+scribes the action of Pauli channels on these states͒. That is,
+
+the resulting state after the measurements is given by
+
+M1M2¯MN͉⌽˜ ͘k,l͗⌽˜ ͉  ͉␹͗͘␹͉, where ͉␹͘ is a state of the
+
+remaining ͑N − 2͒ particles, and ͉⌽˜ ͘ is a maximally entangled
+
+state equivalent up to ␴z operations ͑which can be deter-
+
+mined from the speciﬁc measurement outcomes͒ to ͉⌽͘ ͓see
+
+Eq. ͑43͔͒. We emphasize that the operator Mj only acts non-
+
+trivially on particle j and its neighbors. This is due to the fact
+
+͓see Mj,
+
+͑ii͔͒ only
+
+that the operators Slj, l affect particle j and/or
+
+= 0,1,2,3, and its neighbors.
+
+thus the map It follows that
+
+in order to determine the reduced density operator of two
+
+neighboring particles ͕k , l͖, ␳kl͑t͒, one has to consider only the action of maps Mj which act on particles k , l or neighbors of k or l on the maximally entangled state ͉⌽͘, i.e.,
+
+032350-8
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+ͩ ͪ ͟ ␳kl͑t͒ = Mj ͉⌽͗͘⌽͉,
+
+͑46͒
+
+jʦI
+
+where I = Nk ഫ Nl ഫ k ഫ l. We have that the reduced density operator ␳kl͑t͒ is distillable if and only if its partial transposition is nonpositive ͓12͔, i.e., ␳kl͑t͒Tk 0. To obtain a lower bound on the time until which the N-particle state ␳͑t͒ re-
+mains distillable one has to consider all neighboring pairs ͕k , l͖, determine the corresponding threshold value on the lifetime of distillable entanglement ␬tϽkl, and take the minimum over all neighboring pairs ͕k , l͖ ʦ E ͓25͔. For graphs corresponding to periodic structures ͑e.g., some lattice geometry͒, such a minimization is, however, not required.
+Thus we have that the threshold value is a function of the local degree ͑i.e., the number of neighbors͒ of the graph, but is independent of the number of particles N. Note, however, that the degree of the graph may itself depend on N, as is, e.g., the case for GHZ states, which then implies that the threshold value will indeed depend on N. In all cases where the degree of the graph is independent of N which is, e.g., the case for all graphs corresponding to some lattice geometry, such as two- or three-dimensional cluster states, hexagonal lattices, lattices with ﬁnite-range interactions, etc., we have no scaling with N, i.e., the lower bound on the lifetime of entanglement is independent of the number of particles N. These results can also be understood in the following way. The measurement in the neighborhood of particles k and l disconnects these two particles from the remaining system, which implies that errors occurring in some outside area do not inﬂuence the two particles in question. This insight is also used in the following sections and allows one to show that the behavior of cluster states is not a consequence of the speciﬁc decoherence model but rather a general feature of such states.
+The exact dependence of the distillability properties of ␳kl͑t͒ ͑and thus the threshold value pϽkl͒ on the graph G can be determined as follows. For j ʦ Nk \ Nl the action of Mj can be described by a phase-ﬂip channel acting solely on particle k, where a phase-ﬂip channel acting on particle k is deﬁned by
+
+M͑jz͒␳
+
+=
+
+pz␳
+
++
+
+1
+
+− pz͑␳ 2
+
++
+
+␴z͑k͒␳␴z͑k͒͒ ,
+
+͑47͒
+
+and we ﬁnd pz = 1 − 2͑p1 + p2͒ = 2͑p0 + p3͒ − 1. The action of Mj for j ʦ Nl \ Nk can similarly be replaced by a phase-ﬂip channel acting only on l. Moreover, the action of Mj when particle j ʦ Nk പ Nl is a common neighbor of particles k , l is
+given by a correlated phase-ﬂip channel,
+
+M͑jzz͒␳
+
+=
+
+pzz␳
+
++
+
+1
+
+− pzz͑␳ 2
+
++
+
+␴z͑k͒␴z͑l͒␳␴z͑k͒␴z͑l͒͒ ,
+
+͑48͒
+
+where pzz = 1 − 2͑p1 + p2͒. Note that the sequential application
+of each of these channels, say the correlated phase-ﬂip chan-
+nel with parameter pz for ͉Nk പ Nl͉ times, is equivalent to a single application of the same channel with new parameter ˜p = p͉NkപNl͉. Finally the Pauli channels Mk and Ml have also to be taken into account. In any case the resulting state ␳kl is diagonal in the “Bell basis” ͕͉⌽͘ , 1␴z͉⌽͘ , ␴z1͉⌽͘ , ␴z␴z͉⌽͖͘,
+
+where ͉⌽͘ is given by Eq. ͑43͒. One can now easily deter-
+
+mine ␳kl͑t͒ for any graph G and thus the condition when ␳kl͑t͒ ͓Eq. ͑46͔͒ has nonpositive partial transposition and is
+thus distillable. After some algebra, one obtains that the
+
+stated protocol yields distillable entanglement between k and
+
+l
+
+if
+
+for
+
+the
+
+depolarizing
+
+channel
+
+D␳
+
+=
+
+p␳
+
++
+
+͑1
+
+−
+
+p͒
+
+1 2
+
+1,
+
+p͉Nk͉+1 + p͉Nk+Nl͉ + p͉Nl͉+1 Ͼ 1
+
+͑49͒
+
+holds; for the bit-ﬂip channel D␳ = p␳ + ͓͑1 − p͒ / 2͔͑␳ + ␴x␳␴x͒,
+
+p͉Nk͉ + p͉Nk+Nl͉ + p͉Nl͉ Ͼ 1
+
+͑50͒
+
+holds; for the phase-ﬂip channel D␳ = p␳ + ͑1 − p͒ / 2͑␳
+
++ ␴z␳␴z͒,
+
+ͱ2 − 1 Ͻ p ഛ 1
+
+͑51͒
+
+holds; and for the quantum optical channel with ␮ = 0, i.e.,
+
+p1= p2= p
+
+and
+
+p3 = q
+
+for
+
+0ഛ p,
+
+qϽ
+
+1 4
+
+,
+
+͓1 − 2͑p + q͔͕͒͑1 − 4p͉͒Nk͉ + ͑1 − 4p͉͒Nl͉
+
++ ͑1 − 4p͉͒Nk+Nl͉−2͓1 − 2͑p + q͔͖͒ Ͼ 1
+
+͑52͒
+
+holds.
+A lower bound on the lifetime of distillable entanglement
+under decoherence due to one of the above Pauli channels
+can then be derived by solving the corresponding polynomial inequalities. From Eq. ͑51͒ it follows for example that in the
+case of the phase-ﬂip channel the lower bound obtained by
+this distillation protocol is the same for all graph states. This
+can be understood by the fact that here only the two individual dephasing channels acting on k and l ͑and not those of their neighbors͒ are relevant for the decoherence of the bell state ͉⌽͘ between k and l. For the bit ﬂip and the depolariz-
+ing channel the critical value pϽ for p, which is proportional to the ﬁdelity with the original pure graph state, increases with ͉Nk͉, ͉Nl͉, or ͉Nk + Nl͉. Similarly, the critical values for ͑p , q͒ decrease with increaring ͉Nk͉, ͉Nl͉, or ͉Nk + Nl͉, since p and q now represent the error probabilities instead of the
+ﬁdelity with original pure graph state. In the following we will consider the condition ͑49͒ for the depolarizing channel with p = e−␬t in more detail: In the case of the N-party GHZ
+state both representations of Fig. 3 yield the same polynomial inequality 2pN + p2 Ͼ 1, since the depolarizing channel is
+invariant under local unitaries. This polynomial inequality can be further estimated from above giving ␬t Ͼ ln͑2͒ / N
+= 0.6931/ N. As depicted in Fig. 6 the corresponding critical value for ␬t is indeed always below the exact value given in Eq. ͑26͒ and decreases with the number of particles N. For linear chains or rings ͉͑Nk͉ = ͉Nk+1͉ = 2 , ͉Nk + Nk+1͉ = 4͒ one ﬁnds a threshold value pϽ = 0.7167, which gives a lower bound on the lifetime ␬tϽ = 0.3331. That is, for p ജ pϽ ͑␬t ഛ ␬tϽ͒ the state ␳͑t͒ is certainly N-party distillable using this speciﬁc protocol. For cluster states corresponding to a regular 2D ͑3D͒ lattice we have that neighboring particles k , l corresponding to inner vertices, i.e., with ͉Nk͉ = ͉Nl͉ = 4, ͉Nk + Nl͉ = 8 ͉͑Nk͉ = ͉Nl͉ = 6 , ͉Nk + Nl͉ = 12͒, will give the most sensitive polynomial inequality p5͑p3 + 2͒ Ͼ 1 ͓p7͑p5 + 2͒ Ͼ 1͔. One hence ﬁnds pϽ = 0.8281 ͑␬tϽ = 0.1886͒
+
+032350-9
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+FIG. 6. ͑Color online͒ Under individual coupling due to the same depolarizing channel the lower bounds on ␬t to the lifetime of
+distillable N-party entanglement for the 1D, 2D, and 3D cluster
+states remain constant for arbitrary system sizes N. For the N-party GHZ state the lower bound as well as the exact value for ␬t according to Eq. ͑26͒, until which GHZ state remains distillable entangled, strictly decrease and go to zero as N → ϱ.
+
+͓pϽ = 0.8765 ͑␬tϽ = 0.1318͔͒, respectively. As can be seen in Fig. 6, whereas the lifetime of N-party GHZ states decreases with increasing size of the system, cluster states do not show such a scaling behavior, since the derived lower bounds for cluster states remain constant.
+In the following we derive a more handy expression for the critical values for p and ␬t. For ﬁxed degrees ͉Nk͉ and ͉Nl͉, one ﬁnds that the strongest lower bound on the lifetime ͑which is thus also valid for all other conﬁgurations of this kind͒ is obtained for ͉Nk പ Nl͉ = 0. This can be understood as follows. Assume that for some given graph one changes the graph such that the degree of two neighboring vertices k , i increases by 1, i.e., ͉N˜ k͉ = ͉Nk͉ + 1 and ͉N˜ l͉ = ͉Nl͉ + 1. The ﬁrst possibility is that this increase is due to the addition of a single common neighbor of k and l, i.e., ͉N˜ k പ N˜ l͉ = ͉Nk പ Nl͉ + 1, which leads to the condition for distillability p͉Nk+Nl͉ + p͉Nk͉+2 + p͉Nl͉+2 Ͼ 1. In the second possibility the neighbor-
+hood of both particles k and l is increased by two different particles, i.e., ͉N˜ k + N˜ l͉ = ͉Nk + Nl͉ + 2. In this case one obtains the condition p͉Nk+Nl͉+2 + p͉Nk͉+2 + p͉Nl͉+2 Ͼ 1 for distillability.
+Clearly, the second condition will give a larger value on p
+and thus provides a stronger bound on the lifetime of distill-
+able entanglement. Intuitively, this can be understood from
+the fact that adding a single joint neighbor corresponds to a
+single additional noise channel with correlated phase noise,
+while adding two independent neighbors corresponds to two
+independent noise channels acting on particles k and l. The
+inﬂuence of two independent noise channels is larger than of a single ͑correlated͒ noise channel. In order to derive a lower
+bound we may therefore evaluate the polynomial inequalities of the different neighboring particles k , l as if the value ͉Nk + Nl͉ was maximal ͑i.e., ͉Nk പ Nl͉ = 0͒, since this will give a stronger or larger critical value than the critical value that
+would be the solution to the exact polynomial inequality. Under this simpliﬁcation and by using that p͉Nk͉+1 + p͉Nl͉+1 ജ 2p͉͑Nk͉+͉Nl͉+2͒/2 = 2p͉͑Nk+Nl͉+2͒/2, one ﬁnds that for
+
+p Ͼ 2−„2/͉͑Nk͉+͉Nl͉+2͒…,
+
+͑53͒
+
+the reduced density operator ␳kl is certainly distillable. This leads to the lower bound on the lifetime
+
+␬tϽ
+
+=
+
+2
+
+ln͑
+
+1 2
+
+͒
+
+͉Nk͉ + ͉Nl͉ +
+
+2
+
+.
+
+͑54͒
+
+Taking ͉Nk͉ and ͉Nl͉ to be the maximal degrees of two neighboring vertices in the graph, this leads to a universal lower
+bound for all graph states under depolarizing noise.
+We remark that the observed behavior, i.e., that the lifetime of multiparticle entanglement for cluster ͑and similar͒ states is essentially independent of the size of the system,
+also holds for more general decoherence models. This follows from the fact that—similar to fact ͑ii͒—the action of any CPM acting on graph states describing an arbitrary de-
+coherence process can be estimated by a CPM whose Kraus operators contain only products of ␴z operators and the identity and thus the measurement ͑i͒ still commutes with the CPM. To this end, we apply after the application of the CPM
+a local depolarization procedure which maps arbitrary den-
+sity operators to operators diagonal in the graph-state basis without changing the diagonal elements ͓24͔. When restricted on graph states, the resulting action of the initial CPM ͑given by ͚k,lak,lOk␳Ol, where Ok,Ol are products of Pauli operators͒ can then be described by a CPM speciﬁed by ͚kak,kOk␳Ok†, where all operators Ok can be expressed in terms of products of ␴z operators. Only operators Ok which act nontrivially on particles k,l or their neighbors in the
+graph affect the resulting maximally entangled pair after the measurement ͑i͒, leading again to a threshold value which is independent of the size of the system for all those decoher-
+ence models where the number of such operators Ok is independent of N. This is for instance the case if each Ok acts nontrivially on a ﬁnite, localized number of subsystems.
+Therefore, the fact that all graph states with ﬁnite maximal
+degree, such as cluster states, the lifetime of distillable
+N-party entanglement will remain ﬁnite, holds in particular
+for all decoherence models based on an arbitrary individual
+coupling to the environment described by a quantum optical channel in Eq. ͑9͒. In the following we will determine upper bounds on the distillable entanglement.
+
+C. Upper bound I: Noise operation becomes entanglement breaking
+
+In our ﬁrst approach, we determine an upper bound to the lifetime of N-party entanglement by considering the capability of the decoherence process to disentangle any state disregarding its speciﬁc form. Hence the upper bounds derived in this way will apply not only to graph states but to an arbitrary state. In turn this method will be restricted to coupling of the particles to individual environments described by an arbitrary channel of the form
+
+3
+
+͚ D␳ = pij␴i␳␴j
+
+͑55͒
+
+i,j=0
+
+like the completely positive map in Eq. ͑9͒. We now make use of the Jamiolkowski isomorphism between CP maps and
+states ͓26͔. Let ͉⌽+͘kkЈ = ͑1 / ͱ2͉͒͑0͘k͉0͘kЈ + ͉1͘k͉1͘kЈ͒ denote
+the maximally entangled state on system k and a copy kЈ of the system k. Then to each CPM D acting on particle k there uniquely corresponds a state
+
+032350-10
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+͑ ͒ ␴DkkЈ ϵ Dk ͉⌽+͘kkЈ͗⌽+͉
+
+͑56͒
+
+on the combined system of k and kЈ. The main fact which we will use in the following is, that ͑i͒ the CPM D is entanglement breaking ͓7͔, i.e., Dk␳kA is separable for any ͑possibly entangled͒ state ␳kA on the composite system, consisting of
+particle k and some other particles hold by the parties A, if and only if the corresponding state ␴DkkЈ is separable ͑with respect to the particles k and kЈ͒.
+Hereby the “only if” implication directly follows from the
+very deﬁnition of the map to be completely disentangling,
+whereas the other direction can be seen as follows: Given the state ␴DkkЈ one obtains the corresponding CPM via the inverse isomorphism, i.e.,
+
+͑ ͒ D␳k0 ϵ 24 ϫ trkk0 ͉⌽+͘kk0͗⌽+͉␳k0  ␴DkkЈ ,
+
+͑57͒
+
+where ␳ is an arbitrary state on another copy k0 of system k, the projection onto ͉⌽+͘k0k is performed with respect to the joint system k0, k, and D is now thought to map system k0 onto system kЈ instead of k onto k. Now, if ␴DkkЈ = ␳1k  ␳2kЈ is separable, then Eq. ͑57͒ factorizes into
+
+kk0͗⌽+͉␳k0  ␳1k͉⌽+͘kk0  ␳2kЈ
+
+͑58͒
+
+regardless of whether␳k0 = ␳k0A is itself entangled with some other parties A or not. The resulting state on system kЈ which corresponds to D␳ is even independent of the input state ␳
+and thus cannot be entangled at all with the parties A.
+In order to derive an upper bound to the entanglement of
+states suffering from decoherence due to individual coupling Dk of the particles to the environment, one can determine the critical value for pij in Eq. ͑55͒, for which the state
+
+3
+
+3
+
+͚ ͚ ␴Dk = pij␴ik͉⌽+͗͘⌽+͉␴kj = pij͉⌽i͗͘⌽j͉ ͑59͒
+
+i,j=0
+
+i,j=0
+
+becomes separable and hence the CPM Dk becomes entanglement breaking. In Eq. ͑59͒ we have used the notation ͉⌽i͘ = ␴i͉⌽+͘, where ͉͑⌽0͘ , ͉⌽1͘ , ͉⌽2͘ , ͉⌽3͒͘ form a complete
+Bell basis. In the following we will restrict attention to the same individual coupling Dk = D of the particles to the envi-
+ronment, which then only requires us to test the separability of one state ␴D. In the case of Pauli channels D␳ = ͚i3=0pi␴i␳␴i this task becomes particularly easy, since the state ␴D is diagonal in the above Bell basis. Moreover for such Bell diagonal states the separability criterion reduces to
+the necessary and sufﬁcient condition that all diagonal en-
+tries pi are smaller than 1 / 2, i.e.,
+
+1
+
+max
+i=0,1,2,3
+
+pi
+
+ഛ
+
+2
+
+.
+
+͑60͒
+
+This can be easily evaluated for the examples given in Sec.
+
+II.
+
+For
+
+the
+
+depolarizing
+
+channel
+
+D␳
+
+=
+
+p␳
+
++
+
+͑1
+
+−
+
+p͒
+
+1 2
+
+1
+
+the
+
+state
+
+␳͑t͒ has certainly become N-party separable, if
+
+1
+
+p ഛ pϾ ϵ 3 .
+
+͑61͒
+
+Note that this condition provides a universal upper bound for
+
+all states exposed to individual depolarizing channels. For
+
+the quantum optical channel with ␮ = 0 in Eq. ͑9͒ one arrives
+
+at
+
+the
+
+condition
+
+2␭1 + ␭3 ജ
+
+1 2
+
+.
+
+In the case of a general quantum optical channel with ␮
+
+0 or an arbitrary noise channel of the form ͑55͒ one can
+
+instead use the fact, that for any two dimensional systems k
+
+and kЈ the PPT ͑NPT͒ criterion, i.e., the positivity ͑nonpositivity͒ of the partial transpose ␳Tk, is necessary and sufﬁcient for separability ͑distillability͒ ͓13,14͔. Thus the CPM D is
+
+entanglement breaking, if and only if
+
+͑ ͒ ␳DkkЈ Tk ജ 0.
+
+͑62͒
+
+For the general quantum optical channel ͑9͒ this leads after some algebra to the condition
+
+ͩ ͪ ␭12 − ␮2 ജ
+
+1 ␭1 + ␭3 − 2
+
+2
+.
+
+͑63͒
+
+In terms of the original parameters B, C, and s of the quantum optical master equation with the superoperator deﬁned in Eq. ͑3͒ this inequality reads
+
+s͑1 − s͓͒eCt͑1 − e−Bt͔͒2 ജ 1.
+
+͑64͒
+
+It is worth remarking that in the terminology of quantum
+
+optics ͑reservoir theory͒ both the equilibrium value s and the
+
+decay rates B,C enter in the inequality in this multiplicative
+
+form. For the example of a decay channel, i.e. ␭ ϵ ␭1 = ␭2
+
+= ␮,
+
+we
+
+have
+
+0
+
+ജ
+
+͑␭
+
++
+
+␭3
+
+−
+
+1 2
+
+͒2,
+
+which
+
+cannot
+
+be
+
+satisﬁed.
+
+Therefore the decay channel cannot become entanglement
+
+breaking and the multiparty GHZ states are examples for
+
+states that remain entangled under decoherence due to this channel ͑see Sec. IV B͒. For the bit-ﬂip channel D␳ = p␳ + ͓͑1 − p͒ / 2͔͑␳ + ␴x␳␴x͒ and the dephasing channel D␳ = p␳
++ ͓͑1 − p͒ / 2͔͑␳ + ␴z␳␴z͒ the upper bound p = 0 obtained from
+Eq. ͑60͒ becomes trivial.
+
+D. Upper bound II: Noisy Ising interaction becomes separable
+In our second approach, we determine an upper bound tϾ on the lifetime of distillable entanglement by showing that after a certain time, the state ␳͑t͒ becomes fully separable and is hence no longer entangled whatsoever. With this aim, we consider the ͑dynamical͒ description of graph states in terms of Ising interactions acting on a speciﬁc separable state. We determine the separability properties of the operator ␳͑t͒ by considering the corresponding interactions which generate the state and show that for a given noise level, these operations itself become separable and hence are not capable of creating entanglement. Consequently, also the state ␳͑t͒ is separable in this case. The main advantage of this approach is that one does not have to consider the N-particle state ␳ itself and determine when it is fully separable ͑a task which is generally very difﬁcult, especially if N is large͒, but has to consider only two-particle operations and determine when these operations are separable.
+We make use of the following properties. ͑i͒ The graph state ͉G͘ corresponding to a graph G can be written as ͑see Sec. V A͒ ͓5͔
+
+032350-11
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+͟ ͉G͘ =
+
+Ukl͉ + ͘N,
+
+͑65͒
+
+͕k,l͖ʦE
+
+ͱ where Ukl ϵ e−i␲͑1͑k͒−␴z͑k͒͒/2͑1͑l͒−␴z͑l͒͒/2 and ͉ + ͘ = 1 / 2͉͑0͘ + ͉1͒͘.
+͑ii͒ We will take only ␴z noise into account. We thus restrict the following analysis to decoherence models due to the same individual noise channel E, that can be decomposed into some noise channel EЈ acting after a dephasing channel D␳ = pz␳ + ͓͑1 − pz͒ / 2͔͓␳ + ␴z␳␴z͔, i.e., E = EЈ ‫ ؠ‬D. A more de-
+tailed analysis of the cases, for which such a decomposition
+is possible, is postponed to Appendix A. For the depolarizing channel Dk͑p͒ ͓Eq. ͑14͒ with noise parameter p ϵ e−␬t͔, such a decomposition is possible by choosing pz = 2p / ͑1 + p͒ and
+
+EЈk␳
+
+=
+
+1
+
++ 2
+
+p ␳
+
++
+
+1
+
+− 4
+
+p ͓␴x͑k͒␳␴x͑k͒
+
++
+
+␴͑yk͒␳␴͑yk͔͒ .
+
+͑66͒
+
+This can be checked by direct calculation.
+We now investigate the inﬂuence of noise on the entangle-
+ment generating unitary operation Ukl and determine when the resulting CPM becomes separable. Since Ukl commutes with Dj͑pz͒, it follows that ␳͑t͒ can be written as ␳͑t͒ = EЈ(˜␳͑t͒), where ˜␳͑t͒ is obtained from the original graph state by considering only phase noise described by Dk͑pz͒, i.e.,
+
+͟ ͟ ˜␳͑t͒ ϵ Dj͑pz͒
+
+Ukl͉ + ͗͘+ ͉NUk†l.
+
+͑67͒
+
+j
+
+͕k,l͖ʦE
+
+Since ␳͑t͒ is obtained from ˜␳͑t͒ by means of separable operations, it is sufﬁcient to determine the condition when ˜␳͑t͒
+becomes separable. In principle, one could also consider this additional noise to obtain a stronger upper bound on the lifetime; however, the analysis becomes more involved in this case as one has to deal with correlated noise. In the following we will therefore consider only noise resulting from phase-ﬂip errors described by Dk, i.e., the map
+
+D˜ kl͑pz,qz͒␳ ϵ Dk͑pz͒Dl͑qz͒Ukl␳Uk†l,
+
+͑68͒
+
+for two different dephasing parameters pz and qz. With this notation the operator ˜␳͑t͒ can be written as
+
+͟ ˜␳͑t͒ =
+
+D˜ kl͑pz1/͉Nk͉, pz1/͉Nl͉͉͒ + ͗͘+ ͉N.
+
+͑k,l͒ʦE
+
+͑69͒
+
+For the vertex k with degree ͉Nk͉ we have split up the action of the map Dk͑pz͒ into ͉Nk͉ parts ͑one for each term in the product which involves Ukl and thus particle k͒ by using a decomposition of the map Dk͑pz͒ into
+
+m
+
+͟ Dk͑pz͒␳ = Dk͑pz1/m͒␳.
+
+͑70͒
+
+j=1
+
+This leads to all maps Dkl͑
+
+the parameter pz1/͉Nk͉ , pz1/͉Nl͉͒ at
+
+pz1/͉Nk͉ in Eq. ͑69͒. If in Eq. ͑69͒ a ﬁxed vertex k are separable, it
+
+immediately follows that also ˜␳͑t͒ is k-versus-rest separable
+
+since the following maps are local and act on a k-versus-rest
+
+separable state.
+
+To determine the entanglement properties of D˜ kl͑pz , qz͒, we make again use of the Jamiolkowski isomorphism ͓26͔
+
+between CPM and mixed states ͓28͔. In particular, we use that a CPM D is separable and hence not able to generate entanglement if the corresponding mixed state D is separable, where
+
+Dk1k2l1l2 = Dk2l2͉⌽+͘k1k2͗⌽+͉  ͉⌽+͘l1l2͗⌽+͉,
+
+͑71͒
+
+and separability has to be determined between parties ͑k1k2͒ and ͑l1l2͒. It turns out to be useful to deﬁne
+
+ͱ ͉␾00͘ ϵ
+
+1 2
+
+͉͑˜0͘k1k2͉˜0͘l1l2
+
++
+
+͉˜1͘k1k2͉˜1͘l1l2͒
+
+,
+
+ͱ ͉␾01͘ ϵ
+
+1 2
+
+͉͑˜0͘k1k2͉˜1͘l1l2
+
++
+
+͉˜1͘k1k2͉˜0͘l1l2͒
+
+,
+
+ͱ ͉␾10͘ ϵ
+
+1 2
+
+͉͑˜0͘k1k2͉˜0͘l1l2
+
+−
+
+͉˜1͘k1k2͉˜1͘l1l2͒
+
+,
+
+ͱ ͉␾11͘ ϵ
+
+1 2
+
+͉͑˜0͘k1k2͉˜1͘l1l2
+
+−
+
+͉˜1͘k1k2͉˜0͘l1l2͒
+
+,
+
+͑72͒
+
+with
+
+͉˜0͘k1k2 ϵ ͉00͘k1k2,
+
+͉˜1͘k1k2 ϵ ͉11͘k1k2,
+
+ͱ ͉˜0͘l1l2 ϵ
+
+1 2 ͉͑00͘l1l2 + ͉11͘l1l2͒,
+
+ͱ ͉˜1͘l1l2 ϵ
+
+1 2 ͉͑00͘l1l2 − ͉11͘l1l2͒.
+
+͑73͒
+
+One ﬁnds that the state D˜ k1k2l1l2͑pz , qz͒ corresponding to the map D˜ kl͑pz , qz͒ is given by
+
+1
+
+͚ D˜ k1k2l1l2͑pz,qz͒ =
+
+␭ij͉⌽ij͗͘⌽ij͉,
+
+i,j=0
+
+͑74͒
+
+where ␭00= ͑1 + pz͒͑1 + qz͒ / 4, ␭01= ͑1 + pz͒͑1 − qz͒ / 4, ␭10= ͑1 + qz͒͑1 − pz͒ / 4, ␭11= ͑1 − pz͒͑1 − qz͒ / 4. This state is separable with respect to ͑k1k2͒ − ͑l1l2͒ if and only if ␭00ഛ 1 / 2, as its partial transposition is positive in this case. Note that for systems in C2  C2, positivity of the partial transposition is a sufﬁcient condition for separability ͓13,14͔. Although the
+system that we consider consists of two four-level systems,
+the resulting state has support only in a four-dimensional
+subspace and thus the results about qubit systems can be
+directly applied. We then obtain that the operator
+D˜ k1k2l1l2͑pz , qz͒ is separable—and hence the CPM D˜ kl͑pz , qz͒ is separable and not able to create entanglement—if and only
+if
+
+͑1 + pz͒͑1 + qz͒ ഛ 2.
+
+͑75͒
+
+We now use the above result to obtain an upper bound for the lifetime of graph states under a decoherence model that
+
+032350-12
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+obeys ͑ii͒. Due to Eq. ͑75͒ we ﬁnd that the map Dkl͑pz1/͉Nk͉ , pz1/͉Nl͉͒ is separable if
+
+͑1 + pz1/͉Nk͉͒͑1 + pz1/͉Nl͉͒ഛ2.
+
+͑76͒
+
+The threshold value pϾ such that state ␳͑t͒ is fully separable
+is then obtained by considering all pairs of particles ͕k , l͖, calculate the corresponding value pϾkl and take the minimum over all ͕k , l͖, i.e., pϾ = min pϾkl. This ensures that all involved operators are separable for pz ഛ pϾ. By estimating ͉Nk͉ and ͉Nl͉ from above with maximal degree m in the graph, we
+arrive at the weaker upper bound
+
+pz ഛ ͑ͱ2 − 1͒m.
+
+͑77͒
+
+For the various decoherence processes, one now has to determine the actual value for pz, which depends on the parameters of the underlying noise model and should be chosen minimal ͑see Appendix A͒, since this gives the strongest upper bound. The exact values for the bounds obtained in this way are however worse than the upper bound derived in Sec. V C, but as we will see in Sec. VI that the way of deriving the upper bound here will turn out to be well suited for all those cases where the initial state is only slightly entangled.
+Moreover, as was the case for the lower bound, the derived upper bound on the lifetime of distillable entanglement does only depend on the maximum degree of the graph and not necessarily on the number of particles N. We remark that the upper and lower bounds on the lifetime of graph states show a different dependence on the degree m of the graph. While the lower bound on the lifetime decreases with increasing m, the upper bound on the lifetime increases with m. We emphasize that this observation applies only to the lower and upper bounds, and no deﬁnitive statement about the actual dependence of the lifetime of distillable entanglement on the degree of the graph can be made ͑although one may expect that the lifetime of entanglement decreases with the degree of the graph͒. The different dependences of the lower and upper bounds can in part be understood by looking at the corresponding derivations. In particular, in the derivation of the upper bound tϾ the inﬂuence of both ␴x and ␴y noise is completely ignored. The inﬂuence of this kind of noise, however, strongly depends on the degree of the graph and is in fact responsible that, e.g., the fragility of GHZ states depends on the number of particles ͓24͔. That is, ␴x noise on all neighboring particles acts as ␴z noise on a given vertex, and the noise accumulates. However, it is not straightforward to take also Ex͑k͒ and E͑yk͒ in above analysis into account, as they lead to correlated noise when expressed in terms of ␴z operators ͓see Eq. ͑44͔͒. This implies that one could no longer consider separability properties of two-qubit maps independently but has to take correlations into account and thus consider a larger ͑or eventually the whole͒ system, thereby losing the main advantage of this approach on determining separability of the resulting state.
+
+E. Upper bound III: Partial transposition criterion for graph diagonal states
+In our third approach, we determine an upper bound on the lifetime by considering the partial transposition with re-
+
+spect to several partitions. Although this upper bound will be worse than the upper bound in Sec. V C ͑except for some singular cases͒, the ability to explicitly compute the partial transpose with respect to different partitions will enable us to compare the aforementioned bounds with the exact critical values for the PPT criterion, at least for graphs with only few vertices ͑N ഛ 10͒. In this case the techniques developed in this section thus lead to stronger results for the lifetime of N-party entanglement. For the following upper bound we make use of the fact that a N-particle state is certainly no longer N-party distillable if at least one of the partial transpositions with respect to all possible bipartite partitions is positive. To this aim, we determine the eigenvalues of partial transposition of ␳͑t͒ with respect to various partitions. Since this is in general a rather complicated task, we will assume that decoherence of the particles is based on the same individual Pauli channel:
+
+3
+
+͚ Dk␳ = pj͑t͒␴kj␳␴kj .
+
+͑78͒
+
+j=0
+
+As it was already used in the derivation of the lower bound,
+under such a Pauli channel the graph state ͉G͘ evolves in time into a mixed state ␳ ϵ ͟kʦVD͑k͉͒G͗͘G͉ that is diagonal in the graph state basis ͉U͘G:
+
+͚ ␳ = ␭U͉U͘G͗U͉.
+
+͑79͒
+
+UʕV
+
+In the following we will make use of the following facts,
+whose proofs are postponed to the Appendix B: ͑i͒ The diagonal elements ␭U in Eq. ͑79͒ can be computed
+to be of the form
+
+͚ ␭U = p0͉V͉
+
+q1͉UЈ\͑⌫UЈ+U͉͒q2͉UЈപ͑⌫UЈ+U͉͒q3͉͑⌫UЈ+U͒\UЈ͉, ͑80͒
+
+UЈʕV
+
+where qiªpi / p0 for i = 1,2,3. In the case of the depolarizing channel ͓qªq1 = q2 = q3 = ͑1 − p͒ / ͑3p + 1͔͒ this simpliﬁes to
+
+͚ ␭U = p0͉V͉
+
+q͉UЈഫ͑⌫UЈ+U͉͒ .
+
+UЈʕV
+
+͑81͒
+
+We note, that in both expressions we have made use of the
+
+notational simpliﬁcations described in Sec. V A. For ex-
+ample ⌫UЈ denotes both the set and the binary vector, that is obtained by the multiplication ͑modulo 2͒ of the adjacency
+matrix ⌫ with the binary vector corresponding to the set UЈ. ͑ii͒ For any state ␳ of the form ͑79͒, i.e., that is diagonal
+in the basis ͉U͘G according to some graph G, the partial transposition ␳TA with respect to some partition A is again
+diagonal in the ͑same͒ graph state basis ͉U͘G. In order to compute the corresponding eigenvalues, let ⌫Ј = ⌫AAc denote the adjacency matrix of the graph between the partition A and its complement Ac, i.e.
+
+ͩ ͪ ⌫A ⌫ATAc = ⌫.
+
+͑82͒
+
+⌫AAc ⌫Ac
+
+Then,
+
+032350-13
+
+HEIN, DÜR, AND BRIEGEL
+
+͚ ␳TA = ␭UЈ ͉U͘G͗U͉ UʕV
+
+with
+
+␭UЈ
+
+=
+
+͉ker ⌫Ј͉ 2͉A͉
+
+͚
+͑X,Y͒ʦ
+
+͑− 1͒͗X,AY͘␭͑U+X+Y͒,
+
+͑ker⌫Ј͒Ќϫ͑Im⌫Ј͒
+
+͑83͒
+
+where AY ʦ A is arbitrary with ⌫ЈAY = Y and the kernel ker or the orthocomplement Ќ are taken with respect to the subspace P͑A͒ spanned by the sets in A.
+͑iii͒ In the case of small noise 0 Ͻ qi = pi / p0 ഛ 1 for i = 1,2,3 the following estimation:
+
+1
+
+q␭U ഛ ␭U+k ഛ q ␭U
+
+͑84͒
+
+can be derived, where q = min͑q1 , q2 , q3͒. The same holds for ␭U+Nk and ␭U+Nk+k instead of ␭U+k.
+Before coming to the upper bound let us give two ex-
+amples for formula ͑83͒. If ⌫Ј is invertible, then ker ⌫Ј
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+= ͕0͖ and ͑ker ⌫Ј͒Ќ = P͑A͒ holds. Moreover Eq. ͑83͒ can be
+simpliﬁed by parametrizing Im ⌫Ј with Y = ⌫ЈA2, where A2 ʕ A:
+
+͚ ␭UЈ
+
+=
+
+1 2͉A͉
+
+A1,A2ʕA
+
+͑−
+
+1͒͗A1,A2͘␭͑U+A1+⌫ЈA2͒ .
+
+͑85͒
+
+If A = ͕k͖ for a nonisolated vertex k ʦ V the eigenvalues of the partial transposition with respect to A are
+
+␭UЈ
+
+=
+
+1 2 ͑␭U
+
++
+
+␭U+Nk
+
++
+
+␭U+k
+
+−
+
+␭U+Nk+k͒ .
+
+͑86͒
+
+Similarly for the partial transposition with respect to the split A = ͕k , l͖ versus rest, where k , l ʦ V are two nonadjacent ver-
+tices with linearly independent neighbor sets Nk and Nl, one obtains
+
+ͩ ͚ ͚ ͪ ␭UЈ
+
+=
+
+1 4
+
+␭U+X −
+
+␭U+X
+
+XʦM+
+
+XʦM−
+
+,
+
+͑87͒
+
+where
+
+M+ = ͕0,k,l,k + l,Nk,Nl,Nk + Nl,k + Nl,l + Nk,k + l + Nk + Nl͖, M− = ͕k + Nk,l + Nl,k + Nk + Nl,l + Nk + Nl,k + l + Nk,k + l + Nl͖.
+
+If k and l are adjacent the same formula holds but with neighbor sets NkЈ = Nk \ l and NlЈ = Nl \ k restricted to Ac.
+Finally we note that for GHZ diagonal states of the form
+
+͑23͒ the positivity ͑nonpositivity͒ of the partial transpose
+
+with respect to all possible partitions was already a necessary
+
+and sufﬁcient condition for N-party separability ͑distillabil-
+
+ity͒. For general graph diagonal states the corresponding PPT
+
+͑NPT͒ criterion is only known to be a necessary condition
+
+for N-party separability ͑distillability͒, whereas the sufﬁ-
+
+ciency of these conditions is presently unknown. But for all partitions ͑A , Ac͒, for which the pure graph state ͉G͘ has
+
+Schmidt measure 1, i.e., it can be decomposed into the form ͉G͘ = ␣1͉a1͘A͉b1͘Ac + ␣2͉a2͘A͉b2͘Ac, the NPT criterion is also
+sufﬁcient condition at least for the distillability of an ͑A , Ac͒-entangled state. If ␳TA in Eq. ͑83͒ has a negative ei-
+
+genvalue ␭UЈ , then the corresponding eigenstate ͉U͘G has a
+
+Schmidt decomposition of the = ␣1͉a1Ј͘A͉b1Ј͘Ac + ␣2͉a2Ј͘A͉b2Ј͘Ac and also
+
+form ͉U͘G = ␴zU͉G͘ a negative overlap
+
+G͗U͉␳TA͉U͘G Ͻ 0, which is sufﬁcient for ͑A , Ac͒ distillability
+
+͓27͔.
+
+These results can now be used to derive upper bounds to
+
+the distillable entanglement in graph states in the presence of
+
+local noise described by a Pauli channel ͑18͒ with pi Ͼ 0 for i = 1,2,3. For example, if one considers the split one-versus-
+
+rest, the eigenvalues ␭UЈ of the partial transposition with respect to the corresponding partition A = ͕k͖ in Eq. ͑86͒ can be
+
+bounded from below by
+
+ͩ ͪ ␭UЈ ജ
+
+1 1 + 2q −
+q
+
+␭U.
+
+͑88͒
+
+Therefore the state ␳ in ͑79͒ is certainly PPT with respect to
+
+the
+
+partition
+
+A = ͕k͖
+
+if
+
+1
+
++
+
+2q
+
+−
+
+1 q
+
+ജ
+
+0,
+
+i.e.,
+
+1 2
+
+ഛ
+
+q
+
+ഛ
+
+1.
+
+In
+
+the
+
+case of the depolarizing channel ͓q = ͑1 − p͒ / ͑3p + 1͔͒ this
+
+means that no ͑A − Ac͒-entangled state can be distilled from
+
+any
+
+graph
+
+state
+
+␳
+
+if
+
+p͑t͒
+
+falls
+
+below
+
+pϾ
+
+=
+
+1 5
+
+.
+
+For the partial transposition with respect to the partition
+
+A = ͕k , l͖ ͓see Eq. ͑87͔͒, Eq. ͑84͒ can be applied twice ͑e.g.,
+
+␭U+k+Nl ജ q␭U+k ജ q2␭W͒ higher-order terms k + l
+
+in order , k + Nl , k
+
+to +l
+
+obtain estimations for the + Nk + Nl , … in M+ and
+
+M−. In this way one arrives at the condition
+
+ͩ ͪ ␭UЈ ജ
+
+1
+
++
+
+4q
+
++
+
+5q2
+
+−
+
+2 q
+
+−
+
+4 q2
+
+␭U ജ 0
+
+͑89͒
+
+for the distillability of ͑A − Ac͒ entanglement. This means that in the case of the depolarizing channel for q ജ 0.8457 or p ഛ 0.0436 any graph state ͉G͘ will become PPT with respect to A = ͕k , l͖. A closer comparison with Sec. V C shows that
+the upper bounds to N-party distillable entanglement derived in this way are worse than the upper bound in Eq. ͑60͒. For the one-versus-rest split, this can be understood for a general Pauli channel with pi Ͼ 0 by rewriting the condition as
+
+032350-14
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+FIG. 7. ͑Color online͒ For the case of particles in rings of size N ഛ 10, which individually decohere according to the same depolarizing channel ͑14͒ with parameter p: the critical value pcrit, after which the ﬁrst ͑last͒ partition becomes PPT ᭝ ͓ᮀ͔, the lower bound according to Sec. V B and the upper bounds according to Secs. V C
+and V E.
+
+min pi
+i=1,2,3
+
+ജ
+
+p0 2
+
+.
+
+͑90͒
+
+Then, due to q ജ 1, p0 must be the maximum in Eq. ͑60͒ and
+
+hence
+
+can
+
+only
+
+be
+
+larger
+
+than
+
+1 2
+
+if
+
+also
+
+p0 / 2 ജ 1 / 4
+
+holds,
+
+which cannot be exceeded by the minimum in ͑90͒. Never-
+
+theless, we think that the derivation can be of interest for
+
+other applications involving the partial transposition of graph
+
+diagonal states. In particular, it is an open question whether
+
+for certain Pauli channels with pi Ͼ 0 the conditions for PPT with respect to larger partitions might yield a stronger upper
+
+bound than the condition in Eq. ͑60͒. This will certainly de-
+
+pend on the solutions to the corresponding polynomial equa-
+
+tion in q. But any upper bound derived with the use of ͑iii͒
+
+will not depend on the topology of the underlying graph in
+
+question. By using a slight modiﬁcation of the argumentation
+
+leading to the estimation in ͑iii͒ we will therefore discuss the
+
+example of the dephasing channel, for which a stronger up-
+
+per bound can be provided, that conversely depends on the
+
+topology of the graph. In any case, the procedure to compute
+
+the eigenvalues of the partial transposition described in ͑iii͒
+
+does not require the diagonalization of a 2N ϫ 2N matrix and
+
+therefore allows the evaluation of the PPT criteria with re-
+
+spect to different partitions, as long as the vector consisting
+
+of the initial eigenvalues ␭U ͑which is already of length 2N͒ is small enough to be stored and—in the case, that it occurs
+
+as a result of Pauli channel—as long as this vector can also
+
+be initialized fast enough. In order to illustrate the aforemen-
+
+tioned results we have, for example, considered rings up to
+
+size N = 10 suffering from decoherence due to the depolariz-
+
+ing channel and examined the partial transpose with respect
+
+to all possible partitions. Figure 7 depicts the critical value
+
+for p, after which the state ␳ ﬁrst becomes PPT with respect
+
+to some partition, which implies that at this point the state ␳
+
+is certainly no longer N-party distillable. For Fig. 7 the criti-
+
+cal value pcrit has also been computed, after which the state ␳ has become PPT with respect to all partitions, i.e., after
+
+which ␳ contains at most bound entanglement with respect to
+
+any partition. In contrast to the case of N-party GHZ states,
+
+FIG. 8. ͑Color online͒ Representatives of the equivalence classes under local unitaries and graph isomorphies of the connected graphs with N = 5,6,7 vertices ͓6͔. The ﬁrst ͑second͒ column depicts a representative of the class, that is the last ͑ﬁrst͒ class of a given size N to become PPT with respect to some partition. Hence the ﬁrst ͑second͒ column contains those graphs for which the PPT criterion indicates that the N-party distillable entanglement contained in these states might be most stable ͑unstable͒ ͑among all graphs with the same number of vertices͒. Similarly the third ͑fourth͒ column shows a graph of the equivalence class, that is, the last ͑ﬁrst͒ of a given size N to become PPT with respect to all partitions. Hence the third ͑fourth͒ column contains those graphs for which the PPT criterion indicates that these states might be the last ͑ﬁrst͒ to become N-party separable.
+
+for which the one-versus-rest partition is the ﬁrst to become PPT, the numerical results for small N indicate that in rings this split seems to be most stable against decoherence due to noise described individual depolarizing channels and that the smallest eigenvalue of the partial transposition with respect to these one-versus-rest splits ͕k͖ is given by ␭Nk+k.
+In Fig. 8 we show representatives of the equivalence classes for connected graphs over N = 5,6,7 vertices discussed in ͓6͔, that are most stable or instable, when exposed to noise described by individual depolarizing channels. In this context we consider two graphs to belong to the same equivalence class if they can be transformed into each other by local unitaries and graph isomorphies. The latter corresponds to an exchange of particles, that maps neighboring particles onto neighboring particles. We note that in this special case of noise due to the same individual depolarizing channel the notion of equivalence classes of graph states under local unitary transformations and graph isomorphies ͑i.e., particle exchange͒ is meaningful, since the decoherence process itself is invariant under these operations. As it can be seen in Fig. 8 for connected graphs on N = 5,6,7 the N-party GHZ states seem to be the ﬁrst that lose N-party distillability.
+Finally we will consider the case of individual dephasing channels D␳ = p␳ + ͓͑1 − p͒ / 2͔͑␳ + ␴z␳␴z͒ ͓i.e., p0 = ͑1 + p͒ / 2, p1 = p2 = 0, p3 = ͑1 − p͒ / 2͔, for which the estimation ͑84͒ is no longer valid in general. It is straightforward to see that
+
+q͉UЈ͉␭U ഛ ␭U+UЈ ഛ q−͉UЈ͉␭U
+
+͑91͒
+
+holds for q = ͑1 − p͒ / ͑1 + p͒ ഛ 1, since ␭U = pNq͉U͉. As in Eq. ͑88͒, we therefore can bound the eigenvalues of the partial
+
+032350-15
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+within the Pauli group is possible. In particular this implies that the results of Sec. V E are no longer applicable to weighted graph states. But in the following we will show, that the other techniques established in the previous sections to obtain lower and upper bounds on the lifetime of entanglement can in fact be extended to cover also weighted graph states. Actually the following analysis will also hold for all states produced from Hkl acting on an arbitrary product state ͉␺͘ = ͉␺1͘¯͉␺N͘, which are not necessarily of the form ͉␺͘ = ͉ + ͘V. Nevertheless, for the sake of simplicity we will restrict the following to this case.
+
+FIG. 9. ͑Color online͒ For the case of particles in rings of size N ഛ 10, which individually decohere according to the same depolarizing channel with parameter p: the critical value pcrit, after which the ﬁrst ͑last͒ partition becomes PPT ᭝ ͑ᮀ͒, the lower bound according to Sec. V B, and the upper bounds according to Secs. V C
+and V E.
+
+transpose ␭UЈ with respect to the partition k from above by
+
+␭UЈ ജ ͑1 + q͉Nk͉ + q − q−͉͑Nk͉+1͒͒␭U.
+
+͑92͒
+
+As depicted in Fig. 9, the above case of a ring ͉͑Nk͉ = 2͒ this inequality yields to the sufﬁcient condition q ജ 0.7549 ͑p ഛ 0.1397͒ for all one-versus-rest splits to have PPT and
+hence yields a stronger criterion for N-party distillable entanglement than Eq. ͑60͒. Note, that the lower bound actually coincides with the computed critical values for p, after which the ring ﬁrst becomes PPT with respect to some partition.
+
+VI. GENERALIZATION TO WEIGHTED GRAPH STATES
+
+In this section we extend the previous results to a more
+general class of initial states, the so-called weighted graph
+states. The graph states discussed so far arise from the Isingtype interaction Hamiltonian Hkl = ͉1͘k͗1͉  ͉1͘l͗1͉ ͓see Eq. ͑36͔͒ acting on a collection of particles V in the ␴x eigenstate ͉ + ͘V for a ﬁxed time ␸ = ␲ according to some interaction pattern speciﬁed by the graph. We will now allow the par-
+ticles to interact according to the same Hamiltonian Hkl but for different interaction times ␸kl. This corresponds to the situation of a disordered system as it occurs, e.g., in a spin
+glass or semiquantal Boltzmann gas. The interaction pattern
+can similarly be summarized by a weighted graph, in which every edge is speciﬁed by a phase ␸kl corresponding to the time the particles k and l have interacted. The weighted graph state ͉G͘ is thus given by
+
+͟ ͉G͘ =
+
+Ukl͉ + ͘V
+
+͑93͒
+
+͕k,l͖ʦE
+
+where the operations Ukl are in this case given by
+
+Ukl ϵ e−i͑␸kl/4͒͑1͑k͒−␴z͑k͒͒͑1͑l͒−␴z͑l͒͒ .
+
+͑94͒
+
+In contrast to this straightforward extension of the interaction picture for weighted graph states, no such generalization of the stabilizer formalism ͓see Eq. ͑38͔͒ in terms of generators
+
+A. Lower bound on lifetime
+In order to obtain a lower bound on the lifetime of
+weighted graph states, we again provide an explicit protocol
+which allows the distillation of maximally entangled states
+between all neighboring pairs of particles and thus to create
+arbitrary N-particle entangled states. In fact, we make use of
+the same protocol as in Sec. V B, however the analysis turns out to be different. To be speciﬁc, we consider the state ␳͑t͒ which is obtained from a weighted graph state ͉G͘ subjected to decoherence—described by individual Pauli channels— for time t. We perform measurement in the eigenbasis of ␴z on all but particles k,l and determine the condition when the resulting reduced density operator ␳kl is distillable. We denote by P0j = ͉0͘j͗0͉, P1j = ͉1͘j͗1͉ projectors acting on particle j and by Pˆ 0,Pˆ 1 the corresponding superoperators, i.e., Pˆ 0␳ = P0␳P0. Similarly, we denote by Uˆ kl ϵ Ukl Uk†l the superoperator corresponding to the unitary operation Ukl. Note that the entanglement properties of the resulting state do not
+depend on the speciﬁc measurement outcomes. For nota-
+tional convenience we restrict our analysis to the case, where
+the measurement result 0 is obtained on all measured particles. Taking noise described by some Pauli channel D␳ = ͚i3=0pi␴i␳␴i, we thus have to consider the ͑unnormalized͒ state
+
+͟ ͟ DkDl Pˆ 0j Dj
+
+Uˆ ab͉ + ͘V͗+ ͉.
+
+͑95͒
+
+j k,l
+
+͕a,b͖ʦE
+
+Using that P0␴0,3 = ␴0,3P0 and P0␴1,2 = ␴1,2P1 we can rewrite Pˆ 0j Dj and obtain
+
+Pˆ 0j Dj = ͑M0j Pˆ 0 + M1j Pˆ 1͒ ,
+
+͑96͒
+
+where
+
+M0 = p0 + p3␴3 ␴3,
+
+M1 = p1␴1 ␴1 + p2␴2 ␴2.
+
+͑97͒
+
+Choosing the computational basis ͉U͘V\͕k,l͖ = ␴xU͉0͘V\͕k,l͖ on the measured particles, we thus can write
+
+͟ ͚ ͟ Pˆ 0j Dj
+j k,l
+
+=
+UʕV\͕k,l͖ j
+
+k,l MUj jPˆ Uj j
+
+.
+
+͑98͒
+
+The projector commutes with the unitary operations Uab and we therefore obtain that Eq. ͑95͒ can be rewritten as
+
+032350-16
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+͚ ͟ ͟ DkDl UʕV\͕k,l͖ j
+
+k,l MUj j͕a,b͖ʦE Uˆ ab
+
+ϫ͉ + + ͘kl͗+ + ͉  ͉U͘V\͕k,l͖͗U͉.
+
+͑99͒
+
+Note that Uab leaves ͉U͘V\͕k,l͖ invariant and it is thus sufﬁcient to consider only Uab that act on particles k,l and/or their neighbors, i.e., the set I = Nk ഫ Nl ഫ k ഫ l. For all other particles j I we thus have expressions of the form MUj͉Uj͘j͗Uj͉ = ͉0͘j͗0͉, i.e., these particles factor out. It follows that the reduced density operator ␳kl which is obtained by tracing out all but particles k,l only depends on particles
+in the set I but not on the other particles j ʦ I or errors ͑noise͒ affecting these other particles. This already shows
+that the lower bound on distillability for weighed graph
+states only depends on the ͑degree of the͒ corresponding in-
+teraction graph as well as the weights of the edges, but is
+independent of the size of the system N as long as the degree
+of the graph itself does not depend on N. In particular, only
+the subgraph of particles j ʦ I determines the entanglement properties of the reduced density operator ␳kl.
+We have that ␳kl is given by
+
+͚ ͟ ͟ trI\͕k,l͖͑DkDl UʕV\͕k,l͖
+
+jʦI
+
+MUj j
+
+a,bʦI
+
+Uˆ ab
+
+͕a,b͖ʦE
+
+ϫ͉ + + ͘kl͗+ + ͉  ͉U͘I\͕k,l͖͗U͉͒,
+
+͑100͒
+
+where the partial trace has to be performed for the remaining neighboring particles I of k and l only. Thus the effect of noise can be localized to the region I around the edge ͕k , l͖ in
+question. In principle, one can now obtain the explicit form of ␳kl for a given ͑weighted͒ graph and determine the condition for pi until when the reduced density operator ␳kl has nonpositive partial transposition and remains thus distillable. The explicit formula is however rather complicated and not particularly illuminating. For the example of a depolarizing channel, it is clear that for smaller values of ␸kl ͑i.e., a weaker edge between particles k and l͒ one obtains stronger threshold values on the parameter p than given by Eq. ͑49͒, i.e., a shorter lifetime.
+What is, however, more important in our context is that also for weighted graph states the lower bound on lifetime of distillable entanglement depends only on the ͑degree͒ of the corresponding interaction graph, but not on the size of the system N. Although the actual values of the lifetime will depend on the speciﬁc weights of the edges, for clusterlike and similar graph states there will be no scaling behavior with N. Moreover, in many cases such as rings, the edge with the smallest weight will give rise to the strongest threshold value condition and will thus determine the lower bound on the lifetime of distillable N-party entanglement. Actually, it is sufﬁcient if one can create maximally entangled pairs between pairs of particles in such a way that there exists a path between each pair of particles ͑i.e., entanglement between all pairs ͕k , l͖ where the edges ͕k , l͖ form a maximally connected graph͒. Thus the state is already N-party distillable, if the subgraph is connected that is generated by all those edges from which a Bell pair can be distilled. This implies that some edges in the original graph—even if they are very
+
+weak—may not play a role if there exists another way to
+obtain singlets between all relevant pairs. For instance, if one
+considers a graph corresponding to a 1D cluster state, where each edge has weight ␲, and one adds in addition an edge 1, k with small weight ␸1k, then it is not necessary that entanglement between particles 1, k can be distilled ͑although the two particles are neighboring ones according to the graph G͒, but it is sufﬁcient to distill entanglement between all pairs of particles k,k + 1.
+
+B. Upper bound on lifetime
+
+The ﬁrst method to obtain an upper bound to the lifetime
+of entanglement certainly also holds for arbitrary weighted
+graph states, since it is independent of the initial state and
+reﬂects the time after which the decoherence process itself
+has become entanglement breaking. Conversely the upper
+bounds derived in this way cannot take into account whether
+the initial state is only slightly entangled or not. In Sec. V D
+it turned out that for ordinary graph states the upper bound is
+weaker than the ﬁrst one derived in Sec. V C. In contrast we
+will show in the following that the upper bound presented in
+Sec. V D will give tighter upper bounds to the entanglement
+in weighted graph states, which contain vertices k with only small interaction phases ␸kl to all their neighbors l ʦ Nk. We use again the dynamical description of the weighted graph state ͉G͘ given by Eq. ͑93͒. The inﬂuence of ͑phase͒ noise on the entanglement properties of Ukl can be determined in a similar way as in Sec. V D, where we had a ﬁxed angle ␸kl = ␲ for all ͕k , l͖ ʦ E. We remark that the upper bound obtained in Sec. V D for a general graph state is also valid
+for all graphs of the same kind where the edges are weighted.
+This is due to the fact that the operations Ukl are most resistant to noise ͑i.e., remain entangling͒, if the angle is ␸kl = ␲, because in this case the operation is—in the ideal case—
+capable of creating maximally entangled states, while for all other values of ␸kl only partially entangled states can be created.
+This observation immediately leads a way to obtain stron-
+ger upper bounds on the lifetime for weighted graph states. To this aim, one determines the threshold values pzkl when the state ˜␳͑t͒ ͓Eq. ͑69͔͒ becomes separable. The value of pzkl now depends on ␸kl. One ﬁnds that the corresponding density operator D˜ k1k2l1l2(͑pzkl͒1/͉Nk͉ , ͑pzkl͒1/͉Nl͉) in Eq. ͑74͒ again has support only in a four-dimensional subspace and is given by
+
+1
+
+͚ D˜ k1k2l1l2 =
+
+␭ij͉⌽ij͗͘⌽ij͉,
+
+i,j=0
+
+͑101͒
+
+with
+
+␭00
+
+=
+
+1 ͓1
+4
+
++
+
+͑pzkl͒1/͉Nk͉͔͓1
+
++
+
+͑ pzkl͒1/͉Nl͉͔ ,
+
+␭01
+
+=
+
+1 ͓1
+4
+
++
+
+͑pzkl͒1/͉Nk͉͔͓1
+
+−
+
+͑ pzkl͒1/͉Nl͉͔ ,
+
+␭10
+
+=
+
+1 ͓1 4
+
+−
+
+͑pzkl͒1/͉Nk͉͔͓1
+
++
+
+͑ pzkl͒1/͉Nl͉͔ ,
+
+032350-17
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+degree m there always exists a range of values for ␸kl, for which the analysis of this section provides a stronger upper bound pcrit than the condition derived in Sec. V C.
+
+FIG. 10. ͑Color online͒ For the case of individual depolarizing
+channels with parameter p the threshold value pcrit= pϾ / ͑2 + pϾ͒ ͓see Eq. ͑66͔͒ as a function of the interaction phase ␸kl ʦ ͓0 , ␲͔ for edges ͕k , l͖ between two vertices k and l with the same increasing
+degree m = ͉Nk͉ = ͉Nl͉ = 2 , 3 , … , 10. The horizontal line depicts the upper bound according to Sec. V C in this case.
+
+␭11
+
+=
+
+1 ͓1
+4
+
+−
+
+͑pzkl͒1/͉Nk͉͔͓1
+
+−
+
+͑ pzkl͒1/͉Nl͉͔ .
+
+͑102͒
+
+The orthogonal states  ͑␴z͑l2͒͒j͉⌽00͘, where
+
+͉⌽ij͘
+
+are
+
+given
+
+by
+
+͑␴z͑k2͒͒i
+
+͉⌽00͘ ϵ ͉˜0͘k͉˜0͘l + ͉˜0͘k͉˜1͘l + ͉˜1͘k͉˜0͘l + ei␸kl͉˜1͘k͉˜1͘l ͑103͒
+
+with ͉˜0͘k = ͉00͘k1k2, ͉˜1͘k = ͉11͘ and similar for particles l1l2. We have again, that D˜ k1k2l1l2 is separable if and only if the partial transposition is positive, which leads to the threshold value pzkl. The separability of the weighted graph state can then be
+determined in a similar way as in Sec. V D. In order to make the operation Ukl separable, ␴z noise with ͑pzkl͒1/͉Nk͉ and ͑pzkl͒1/͉Nl͉ is required at vertices k and l. At a given vertex k0, this leads to a required total value of pϾk0 = minlʦNk0 pϾk0l such that all operations Uk0l become separable. The threshold value pϾ, below which the state is fully separable, is ﬁnally obtained by taking the minimum over all pϾk ͑that is over all vertices͒. That is
+
+pϾ ϵ min pϾk ,
+k
+
+͑104͒
+
+and the state ␳ is certainly separable for pz Ͻ pϾ. For the different decoherence models E allowing for an extraction of a dephasing component ͓see Eq. ͑A2͔͒ one ﬁnally has to
+insert the relation between the dephasing parameter pz and the noise parameter of E in order to obtain the announced
+upper bound on the lifetime for weighted graph states. Figure
+10 depicts the critical value for the depolarizing parameter p in Eq. ͑14͒ as a function of the weight ␸kl at the edge in question. As it was already mentioned in Sec. V D, for a ﬁxed phase ␸kl the obtained upper bound on the lifetime decreases with the degree of the neighboring particles k and l ͑in contrast to the corresponding behavior of the lower bound in Sec. V B͒. Moreover Fig. 10 shows, that for any
+
+VII. BLOCKWISE ENTANGLEMENT AND RESCALING
+Entanglement is a concept which can only be deﬁned between subsystems of the whole system. In our previous analysis, we have identiﬁed subsystems with parties, i.e., we have investigated the lifetime of true N-party entanglement. One can however also consider a slightly more general concept, where subsystems are formed by a collection of several parties ͑see Sec. III͒. Also in this case one can investigate entanglement properties between M such subsystems. That is, one can consider a partitioning of the N-party system into M ഛ N groups and investigate the ͑distillable͒ entanglement between these M groups, where each of these groups consists of one or several of the initial parties. Whenever M Ͻ N, one can have that the state is still M-party entangled although it no longer contains N-party entanglement. Considering such coarser partitions allows one to investigate the change of the kind of entanglement in time and to determine an “effective size” of the entanglement present in the system. One can determine for each kind of entanglement the corresponding lifetime.
+A. Blockwise entanglement: Distillability and lifetime
+Given an N-party system, we consider a partitioning of the N parties into M Ͻ N groups ͑M-partitioning͒. Parties within a given group are allowed to perform joint operations are considered as a single subsystem with a higherdimensional state space. We are interested in the entanglement between these M subsystems. A density operator ␳ is called M-party distillable with respect to a certain M-partitioning if from ͑asymptotically͒ many copies of ␳ one can create some irreducible entangled pure state by means of local ͑in the sense of the M-partitioning in question͒ operations and classical communication. Similarly, a density operator ␳ is separable with respect to a certain M-partitioning if it can be written as convex combination of product states ͑in the sense of the M-partitioning in question͒.
+We say that a density operator is M-party distillable if it is distillable with respect to at least one M-partitioning. It is obvious that if ␳ is M-party distillable, it as also MЈ-party distillable for MЈ ഛ M. The maximal possible M such that a density operator ␳ is M-party distillable can be interpreted as a measure of the “size” of entanglement, as it provides the maximal number of subsystems ͑groups, blocks͒ which are ͑distillable͒ entangled. We will investigate the lifetime of M-party distillable entanglement for all M. We remark that M-partitionings might be completely different in nature. Consider for instance a system consisting of 90 parties Ak, k = 1 , … , 90. Possible three-partitionings include, for instance, ͑A1͒ − ͑A2͒ − ͑A3 , A4 , … , A90͒ as well as ͑A1 , … , A30͒ − ͑A31, … , A60͒ − ͑A61, … , A90͒. For a detailed description of M-partitionings as well as necessary and sufﬁcient conditions for M-party distillability we refer the reader to Ref. ͓11͔.
+
+032350-18
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+FIG. 11. For blockwise entanglement different partitionings of particles into groups are considered.
+Equivalently one may say that we are considering a coarse graining of the partition and investigate the entanglement properties under coarse graining. As a particular instance of such coarse graining we will investigate partitionings that correspond to rescaling of the size of the subsystem as it is used in statistical mechanics. Consider for instance N particles which are arranged on a regular rectangular ͑twodimensional͒ lattice. The ﬁnest partition corresponds to considering each particle individually as a single subsystem. Coarsening of the partition may, e.g., take place by considering blocks of n ϫ n particles ͑arranged as a square͒ as a single subsystem. That is, for n = 2 one considers a speciﬁc M = N / 4 partitioning, while for arbitrary n we have M = N / n2 groups of parties/subsystems, each formed by n2 particles. This concept is also illustrated in Fig. 11. We will investigate how ͑distillable͒ entanglement changes under such rescaling and determine asymptotic properties of the lifetime of M-party entanglement for a macroscopic number of particles, N → ϱ.
+B. Lifetime of GHZ states under coarse graining
+1. Lifetime of entanglement in large-T limit of reservoir
+As in Sec. IV, we consider the lifetime of distillable entanglement for GHZ states when each particle is individually coupled to a thermal reservoir with T → ϱ, described by a depolarizing quantum channel. In order to determine the lifetime of M-party entanglement, we can make use of the results obtained in Sec. IV, together with the classiﬁcation of GHZ diagonal states of Ref. ͓11͔. Recall that the partial transposition with respect to a group ͑subsystem͒ Bk which contains exactly k parties is positive, ␳͑t͒TBk ജ 0 if and only if pN ഛ 2␭k ͓see Eqs. ͑25͒ and ͑26͔͒. In addition, we have ␭1 ജ ␭2 ജ ¯ ജ ␭͓N/2͔ ͓see Eq. ͑27͔͒. This implies that the size of the subsystem, i.e., the number of particles that are contained in a subsystem, determine when the corresponding partial transposition becomes positive. We have that the partial transposition with respect to a single party, ␳͑t͒TAk, is the ﬁrst one that becomes positive, while the partial transposition with respect to a larger subsystem is more stable, i.e., becomes positive at a later time.
+For a given M-partitioning, above observation immediately allows one to identify the bipartite partition ͑which contains the M-partition in question͒ which determines the lifetime of distillable M-party entanglement. In particular, the partial transposition with respect to the subsystem that contains the smallest number of parties is the ﬁrst one to
+
+become positive. We use that a necessary—and in the case of states of the form ␳͑t͒ we deal with in this case also
+sufﬁcient—condition for M-party distillability is that the par-
+tial transposition with respect to all subsystems Bk forming the M-partitioning is nonpositive. To be exact, one also
+needs that all partial transposition with respect to groups
+formed by several such subsystems Bk are also nonpositive, which is in our case, however, automatically satisﬁed as par-
+tial transpositions with respect to larger groups are more
+stable than with respect to smaller groups. If only one of all
+these partial transpositions with respect to various subsystems is positive, it follows that the state ␳͑t͒ is no longer M-party distillable ͑see Ref. ͓11͔͒. Thus we have that the lifetime of M-party distillable entanglement with respect to a
+given M-partitioning is determined by the size of the small-
+est subsystem of the corresponding M-partitioning. For instance, if one considers an arbitrary M-partitioning ͑M Ͻ N͒
+that contains as one subsystem a single party, say A1, we have that the lifetime of entanglement with respect to this
+partitioning is completely determined by the partial transposition with respect to party A1, i.e., the condition pN ഛ 2␭1. In particular, the lifetime of distillable M-party entanglement
+with respect to any such partitioning is exactly the same as for N-party entanglement ͑corresponding to a N-partitioning where each subsystem contains a single party͒.
+It follows that for a given M, M-party entanglement with
+respect to a speciﬁc M-partitioning has longest lifetime if all groups have ͑approximately͒ the same size. For a minimal group size of m particles, an N-particle GHZ state can contain at most M ϵ ͓N / m͔ such groups of size m. This allows
+one to obtain the maximum lifetime of M-party entanglement which is determined by pN ഛ 2␭m ͓Eq. ͑26͒ with k = m͔.
+Determining the threshold value pcrit involves the solution of a polynomial equation of degree N, which can be done
+numerically in an efﬁcient way. One can however also deter-
+mine analytic lower and upper bounds on the lifetime of
+M-party entanglement. One obtains an upper bound on the lifetime of M-party entanglement if one approximates ␭m by some ˜␭m ഛ ␭m and investigate the condition
+
+pN ഛ 2˜␭m,
+
+͑105͒
+
+as in this case automatically also pN ഛ 2␭k and thus the partial transposition with respect to a group that contains m
+parties is certainly positive. We can, e.g., choose
+
+˜␭m ϵ ͑1 − p͒m͑1 + p͒N−m/2N+1,
+
+͑106͒
+
+which obviously satisﬁes ˜␭k ഛ ␭k. The condition Eq. ͑105͒ can then be rewritten as
+
+ln͓2p/͑1 + p͔͒ m ഛ N ln͓͑1 − p͒/͑1 + p͔͒ .
+
+͑107͒
+
+Recall that in the ͑optimal͒ case where all subsystems have the same size we have M ϵ ͓N / m͔. Thus we ﬁnd that an
+N-party system is certainly no longer M-party entangled if
+
+ln͑1 − p͒ − ln͑1 + p͒ M ജ ln͑2p͒ − ln͑1 + p͒ .
+
+͑108͒
+
+032350-19
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+Equation ͑108͒ is a central result in our analysis of the
+properties of the lifetime for GHZ states under rescaling. We have illustrated Eq. ͑108͒ in Figs. 1 and 2.
+On the one hand, Eq. ͑108͒ provides an upper bound on the lifetime ␬␶M of M-party entanglement in the system. This upper bound can be obtained by determining ␬␶M for a ﬁxed M from Eq. ͑108͒, where ␬t is again given by p = e−␬t. On the other hand, for a ﬁxed time t one can determine from Eq. ͑108͒ the maximum M of distillable multipartite entangle-
+ment in the system. That is, the effective size of entangle-
+ment after a time t can be obtained this way. One observes ͑see Figs. 1 and 2͒ that the maximum M rapidly decreases with t. For small times, i.e., ␬t Ӷ 1, one ﬁnds that M scales as
+
+M Ϸ − 2 ln͑␬t͒/͑␬t͒.
+
+͑109͒
+
+For ␬t Ͼ 0.8049 ͓which is obtained from Eq. ͑108͒ by setting M = 2͔, we have that also two-party entanglement disappears. In fact, the state becomes fully separable as all partial transposes are positive ͑which is a sufﬁcient condition for separability for such states ͓11͔͒. We emphasize that the upper bound on the lifetime of M-party entanglement is indepen-
+dent of the number of particles N, in particular it is also valid for a macroscopic number of particles and even for N → ϱ.
+On the one hand this implies that even if the size of the groups m = N / M goes to ϱ ͑for a total number of particles N → ϱ,͒ the maximum number of groups M that can remain entangled after a time t is ﬁnite, i.e., the maximum effective
+size of entanglement is limited for any time t. On the other hand it follows that in the limit N → ϱ any partitioning in groups with ﬁnite size m leads to a vanishing lifetime of the corresponding M = N / m party entanglement ͓see Eq. ͑107͔͒. Only if one considers the limit where the number of subsystems M is ﬁxed as N → ϱ, i.e., the size of each of the groups itself is macroscopic and m → ϱ, one obtains that the lifetime of the corresponding M-party entanglement is ﬁnite. We remark that above results also enable one to obtain ͑upper bounds͒ on the lifetime of N-party entanglement by considering m = 1 and M = N ͑see also Sec. IV͒.
+In an analogous way one can derive a lower bound on the
+lifetime of M-party entanglement. To this aim, one uses that
+if the partial transposition with respect to the smallest sub-
+system is still nonpositive, also all other relevant partial
+transpositions of the system with respect to all other subsystems ͑and combinations thereof͒ are nonpositive. For states of the form Eq. ͑23͒ this ensures that the state ␳͑t͒ is M-party distillable ͓11͔. Thus we can derive an analytic lower bound on the lifetime of M-party distillability by considering the condition Eq. ͑26͒ with k = m and upper bound ␭m by some ˜␭mЈ . We have that if pN Ͼ 2˜␭mЈ ജ 2␭m, then ␳͑t͒ is certainly M-party distillable with respect to a partition which consists of M subsystems of size m = ͓N / M͔. We choose
+
+˜␭mЈ ϵ 2͑1 − p͒m͑1 + p͒N−m/2N+1,
+
+͑110͒
+
+which can readily be checked to satisfy ˜␭mЈ ജ ␭m. The condition pN Ͼ 2˜␭mЈ can be rewritten and one ﬁnds that for
+
+ln͓2͑1 − p͔͒ − ln͑1 + p͒ M ഛ ln͑2p͒ − ln͑1 + p͒
+
+͑111͒
+
+all partial transposition with respect to this M-partitioning are certainly nonpositive, which already ensures that the state ␳͑t͒ is M-party distillable.
+At ﬁrst sight, our results seem to contradict the ones obtained by Simon and Kempe ͓18͔. They observed that the threshold value for p when considering the partition ͑N / 2͒ − ͑N / 2͒ decreases with the size of the system N. Based on this observation, they conclude that GHZ states of more particles are more stable against local decoherence. However, as pointed out in the discussion above, the effective number of subsystems that remain entangled decreases with time. The entanglement becomes bipartite when approaching the threshold value found by Simon and Kempe. In fact, the lifetime of genuine ͑distillable͒ N-party entanglement decreases with the size of the system N.
+
+2. Quantum optical channel
+One can now perform a similar analysis of the lifetime of M-party entanglement for more general couplings of the individual particles to the environment described by a general quantum optical master equation. We have already determined the condition such that the partial transposition with respect to a group of k parties is positive in Sec. IV B ͓see Eq. ͑33͔͒. Following the line of argumentation if Sec. VII B 1 and using the notation of Sec. IV B, it is straightforward to obtain an upper bound on the lifetime of M-party entanglement. In particular, one has that positivity of at least one of the partial transpositions with respect to a speciﬁc subsystem ensures that ␳͑t͒ is no longer M-party distillable. That is, when considering ͑as in the previous section͒ an M-partitioning of the N-party system into M subsystems, each of size m = N / M, an upper bound on the lifetime is given by Eq. ͑33͒ with k = m. In fact, also in this case we have that the subsystem that contains the smallest number of parties gives rise to the strongest condition on the lifetime of M-party entanglement, i.e., the corresponding partial transposition is the ﬁrst one to become positive. This can be seen by considering the condition for positivity of the partial transposition with respect to a group of k particles given by Eq. ͑32͒, ͓bN / 2͔2 ഛ ␭k␭N−k. We have that for 1 ഛ k ഛ ͓N / 2͔
+
+␭k␭N−k ജ ␭k+1␭N−k−1
+
+͑112͒
+
+͓which can be checked by direct computation and considering separately the cases ͑ac͒ Ͼ 0 and ͑ac͒ ഛ 0͔. From this observation the claim already follows, as Eq. ͑112͒ ensures that if ␳͑t͒ has positive partial transposition with respect to k + 1 parties, it automatically has also positive partial transposition with respect to k parties. Hence the subsystem with the smallest number of parties determines the lifetime of M-party entanglement. Using again that for a ﬁxed M one obtains the longest lifetime if all M groups have the same size m = ͓N / M͔, it follows from Eq. ͑33͒ that ␳͑t͒ is certainly no longer M-party distillable entangled if
+
+032350-20
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+ln͑ac͒ − ln͓͑1 − a͒͑1 − c͔͒
+
+Mജ
+
+ln͑ac͒ + Bt
+
+,
+
+͑113͒
+
+where a,b,c are deﬁned by Eq. ͑30͒. Thus an analogous discussion as in Sec. VII B 1 applies, i.e., the scaling properties of the lifetime of GHZ states with the size of the system N and the number of subsystems M is similar for different couplings of the particles to the environment. Only in singular cases ͑such as zero temperature corresponding to s = 0 or s = 1͒, does one discover a different behavior.
+Considering general graph states instead of GHZ states, a detailed analysis of their blockwise entanglement has not been accomplished yet. Nevertheless, the scaling behavior of M-party entanglement is restricted to a range between the upper and lower bounds of Sec. V, which in the case of cluster and similar graph states were shown to be independent of the number N of particles. In this sense also the scaling behavior of blockwise entanglement in these states must be essentially independent of the size of the system.
+
+correcting code and constitute the basis state of a “logical
+qubit.” In the following we will consider an optimal error
+correcting code which allows one to correct an arbitrary error
+on one of the particles and uses ﬁve physical qubits to encode one logical qubit, e.g., the ﬁve-qubit Steane code ͓29͔. In the following discussion we will assume that each of the
+physical qubits is coupled to an independent environment
+and the individual coupling is described by depolarizing quantum channels D͑p͒ ͑corresponding to the coupling to a heat bath in the large-T limit͒, Eq. ͑14͒, with p = e−␬t. We consider the evolution of an arbitrary state of a single logical
+qubit
+
+͉␾L͘ = ␣͉0L͘ + ␤͉1L͘,
+
+͑114͒
+
+under the inﬂuence of depolarizing channels acting on each of the individual particles, i.e.,
+
+C. Lifetime of encoded entangled states
+Until now we have seen two different kinds of scaling behaviors with respect to the number of particles N. For GHZ states, we found that the lifetime of distillable entanglement decreases with N, while for cluster states ͑and similar graph states͒ we have that the lifetime is independent of N. In this section we will show that certain states can show a different scaling behavior, namely that the lifetime of ͑blockwise͒ entanglement can even increase with the number of particles N. Examples of such states are provided by encoded entangled states, i.e., entangled states which are formed by logical qubits where each of the logical qubits corresponds to the codewords of a ͑concatenated͒ quantum error correction code. We ﬁnd that entanglement between M such logical qubits is maintained. Each of the logical qubits forms a subsystem of size m, and we consider entanglement between M such subsystems. We will show that as m increases ͑but is still of ﬁnite size͒, there exist states such that the maximum number of subsystems M that remain entangled increases. In addition, for a ﬁxed M we have that the lifetime of M-party entanglement increases as the block size m increases and tends to inﬁnity as m → ϱ. This shows that ͑encoded͒ macroscopic entangled states—even of GHZ type—can persist for long times. Note that this behavior is in contrast to nonencoded GHZ states, where on the one hand the maximum number of subsystems M that remain entangled after a certain time is ﬁnite and on the other hand also the lifetime of M-party entanglement is ﬁnite ͑even as m → ϱ͒.
+One can interpret these results in the sense that the time in the encoded system is slowed down as compared to the time in the original system. This provides an alternative view on quantum error correction and allows one to understand why encoded macroscopic superposition states can be produced and maintained on a quantum computer.
+1. Quantum error correcting codes
+We consider two orthogonal states of m qubits ͉0L͘, ͉1L͘ ʦ ͑C2͒m which correspond to codewords of some error
+
+͑t͒ = D1͑p͒D2͑p͒D3͑p͒D4͑p͒D5͑p͉͒␾L͗͘␾L͉. ͑115͒
+The action of the map Dk on physical qubit k is such that with probability
+
+q ϵ ͑3p + 1͒/4
+
+͑116͒
+
+no error occurred, while with probability ͑1 − q͒ the qubit
+was affected by some error. In particular, we have that one of the three possible errors described by ␴k, k = 1,2,3 occurred with probability ͑1 − q͒ / 3 = ͑1 − p͒ / 4. Considering now the
+logical qubit consisting of ﬁve physical qubits, we know that there exists a sequence of operations ͑error syndrome measurement followed by a correction step depending of measurement outcome͒ such that the state of the ﬁve qubits remains in the subspace spanned by ͕͉0L͘ , ͉1L͖͘ and the logical qubit remains in the initial state ͉␾L͘ as long as no or only a single error in one of the physical qubits occurred. That is,
+with probability
+
+qL = q5 + 5q4͑1 − q͒,
+
+͑117͒
+
+no or only a single ͑correctable͒ error happened, while with probability ͑1 − qL͒ the logical qubit was affected by some error. By applying ͑correlated͒ random unitary operations on the subspace spanned by ͕͉0L͘ , ͉1L͖͘ at t = 0 and t, one can achieve that the errors can again be described by white noise
+acting on the logical qubit, i.e., a map of the form
+
+3
+
+͚ DL͑pL͒␳L
+
+=
+
+pL␳L
+
++
+
+1
+
+− pL 4
+
+k=0
+
+␴k͑L͒␳L␴k͑L͒ ,
+
+͑118͒
+
+032350-21
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+where on the
+
+pL = ͑4qL − 1͒ / 3 logical qubits,
+
+aen.gd.,␴␴k͑L1͑͒Ld͒ =en͉0oLt͘e͗1PLa͉u+li͉1oLp͘e͗0raLt͉o. rTshaectipnag-
+
+rameter pL is related to the initial p via
+
+pL = ͑3p + 1͒4͑4 − 3p͒/192 − 1/3.
+
+͑119͒
+
+That is, the action of the decoherence process on the logical qubit can ͑after performing a correction step plus depolarization͒ be described by a depolarizing channel acting on the logical qubit, where the parameter pL can be obtained from p—the parameter describing the decoherence process of the individual physical qubits—by Eq. ͑119͒. We thus have that a logical qubit where each of the particles is subjected to decoherence for time ␬t = −ln͑p͒ behaves as if it was sub-
+jected to decoherence described by a depolarizing channel acting on the logical qubit for time ␬tL = −ln͑pL͒. We remark that if p Ͼ 0.825 17 ͑␬t Ͻ 0.192 165 8͒, we have that pL Ͼ p ͑␬tL Ͻ ␬t͒, that is, the logical qubit is less affected by decoherence as a physical one. In other words, the effective time
+tL for which the decoherence acts on the logical qubit is smaller than the physical time and thus the decoherence pro-
+cess on the logical qubit is slowed down.
+In a similar way, one can consider logical qubits which
+are formed by codewords of concatenated quantum error cor-
+rection codes with k concatenation levels. A logical qubit consists in this case of 5k physical qubits. This follows from
+the fact that at concatenation level j, each logical qubit at level j − 1 is replaced by ﬁve such logical qubits ͑of level j − 1͒ which form the new logical qubit at concatenation level j. Following the same reasoning as in the case of a single
+concatenation level, one obtains that a logical qubit at con-
+catenation level j is subjected to decoherence described by a
+depolarizing quantum channel acting at the logical qubit,
+where the noise parameter qj is related to the noise parameter qj−1 of the ͑logical͒ qubits at concatenation level j − 1 by
+
+qj = q5j−1 + 5q4j−1͑1 − qj−1͒,
+
+͑120͒
+
+where qj = ͑3pj + 1͒ / 4 and q0 = q ͑p0 = p͒ corresponds to decoherence acting on the physical qubits. That is, at each con-
+catenation level the effective time tj for which the decoherence acts on the logical qubit of level j decreases as compared to the physical time t ϵ t0 as long as ␬t Ͻ 0.192 165 8. For ␬t0 ϵ 4 / 3⑀0 Ӷ 1 we have that
+
+⑀j Ϸ 10⑀2j−1,
+
+͑121͒
+
+from which follows
+
+͑7.5␬t͒2j ␬tj Ϸ 7.5 .
+
+͑122͒
+
+That is, the effective time ␬tj for the decoherence acting on the logical qubit is drastically decreased. For instance, if ␬t0 = ␬t = 0.01, we have that ␬t1 Ϸ 7.5ϫ 10−4, ␬t2 Ϸ 4.22 ϫ 10−6, ␬t3 Ϸ 1.33ϫ 10−10, ␬t4 Ϸ 1.34ϫ 10−19, ␬t5 Ϸ 1.34 ϫ 10−37, ␬t6 Ϸ 1.35ϫ 10−73. Recall that the number of physi-
+
+cal qubits that form a logical qubit at concatenation level j is given by 5j, which corresponds to 5, 25, 125, 625, 3125, 15 625, respectively. In particular, this implies that by using 625 particles to encode one qubit ͑i.e., j = 4͒, the effective time t4 as compared to the physical time t can be decreased by a factor of 1017.
+2. Lifetime of blockwise entanglement for encoded states
+Using the effective change in the time scale for logical qubits, it is now straightforward to determine the lifetime of encoded entangled states. We consider blockwise entanglement, i.e., entanglement between M subsystems where each subsystem consists of m qubits. We consider lifetime of different kinds of entangled states which are formed by logical qubits and where each physical qubit is subjected to decoherence described by a depolarizing quantum channel ͓Eq. ͑14͔͒ as in Sec. IV A. We emphasize that a logical qubit behaves in this context in exactly the same way as a physical qubit; the only difference is that the effective time tL ͑or noise parameter pL͒ is different. This implies that the results obtained for GHZ and graph states can be directly used to obtain lifetime of such encoded entangled states.
+Consider an entangled state of GHZ type which is given by
+
+͉GHZL͘
+
+=
+
+1 2
+
+͉͑0L͘
+
+
+
+M
+
++
+
+͉1L͘  M͒ ,
+
+͑123͒
+
+where ͕͉0L͘ , ͉1L͖͘ are codewords of ͑concatenated͒ quantum codes ͑with j concatenation levels͒ formed by m physical
+qubits which represent a logical qubit. When considering blockwise entanglement between M blocks of m = 5j qubits,
+this state behaves in exactly the same way as an M-particle
+GHZ state ͓Eq. ͑22͔͒ consisting of physical qubits where one
+considers blocks of size 1. The only difference is that the
+effective time scale tj ͑effective noise parameter pj͒ is changed according to Eqs. ͑120͒ and ͑122͒.
+When considering the original GHZ state and ␬t = 10−2, we obtain from Eq. ͑108͒ ͑i͒ after a time ␬t = 10−2, the maxi-
+mum number of blocks that can be entangled is upper bounded by M = 1057; ͑i͒ for M = 1057, ␬t = 10−2 provides an upper bound on the lifetime of M blocks ͑where in both cases each block may have arbitrary size, i.e., m → ϱ͒.
+For an encoded GHZ state ͓Eq. ͑123͔͒ we have the following results. ͑i͒ The maximum number of blocks of size m = 5j ͑i.e., logical qubits͒ that is entangled after a time ␬t = 10−2 is determined by Eq. ͑108͒, where p in this equation is given by e−␬tj and ␬tj is the effective time. We ﬁnd that for j = 1, M = 2.103ϫ 104; j = 2, M = 6.195ϫ 106; j = 3, M = 3.510 ϫ 1011; i.e., the number of blocks of ﬁxed size m = 5j that remain entangled after some time ␬t is drastically increased. ͑ii͒ An upper bound on the lifetime of M = 1057 blocks consisting of logical qubits of size m = 5j is provided by ␬tj = 10−2, where ␬tj is the effective time. One can determine the time ␬t ͑which provides an upper bound on the lifetime of such systems͒ using the recursive formula Eq. ͑120͒. One
+
+032350-22
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+ﬁnds that for j = 1 , ␬t = 0.0382; j = 2 , ␬t = 0.0778; j = 3 , ␬t = 0.1149; j = 4 , ␬t = 0.1431; j = 5 , ␬t = 0.1621. Again, one sees that the lifetime of M-party entanglement is increased as compared to the original GHZ state, although here we considered only blocks of ﬁnite size m = 5j, while we allowed for blocks of arbitrary size m → ϱ in the case of the ͑original͒ GHZ state. We remark that one can only expect that the encoded system has a longer lifetime as compared to the original GHZ state as long as ␬t Ͻ 0.192 165 8, since only in this case tj Ͻ t.
+In a similar way, the lifetime of M-party cluster and graph states ͑formed by logical qubits͒ is enhanced when considering such states formed by logical qubits.
+VIII. SUMMARY AND CONCLUSIONS
+In this paper we have investigated the lifetime of ͑distillable͒ entanglement under the inﬂuence of decoherence. We found that the qualitative behavior of different kinds of entangled states are largely independent of the speciﬁc decoherence model. In particular, we found for ͑essentially͒ all decoherence models with individual coupling of particles to ͑independent͒ environments that the lifetime of GHZ states decreases with the size of the system. On the other hand the lifetime of cluster states and graph states with a constant degree ͑which does not depend on N͒ is independent of the number of particles N. The last observation can even be extended to all decoherence models which correspond to some correlated but localized noise, i.e., where the Kraus operators of the corresponding map act only nontrivially on a ﬁnite, localized number of subsystems. We have also considered the lifetime of entanglement between subsystems of different size, which allowed us to determine the scaling behavior of entanglement under rescaling of the size of the subsystems. While for cluster states there is essentially no change in the scaling behavior with N, for GHZ states we found that ͑i͒ the lifetime of blockwise entanglement for any number of blocks that contain only a ﬁnite number of particles m tends to zero as N → ϱ, while it can become ﬁnite if the blocks themselves become macroscopic, i.e., m → ϱ as N → ϱ; ͑ii͒ the number of blocks M that remain entangled after a certain time t is ﬁnite, independent of the block size m. In addition, we have shown that for encoded entangled states the number of blocks that can be entangled after a certain time can be drastically increased and the lifetime of M-party entanglement can be enhanced.
+Our results suggest a remarkable robustness of certain kinds of macroscopic entangled states—namely, all graph states with constant degree—under various kinds of decoherence.
+ACKNOWLEDGMENTS
+This work was supported by the Österreichische Akademie der Wissenschaften through project APART ͑W.D.͒, the
+
+European Union ͑Grants No. IST-2001-38877 and No. IST2001-39227͒, and the Deutsche Forschungsgemeinschaft.
+
+APPENDIX A
+
+In this appendix we will give a more detailed analysis of the statement ͑ii͒ of Sec. V D. Given an arbitrary channel
+
+͚ E␳ =
+
+pi j␴i␳␴ j ,
+
+i,j=0,1,2,3
+
+͑A1͒
+
+we ﬁrst consider the question of whether it is possible to decompose it into a dephasing channel D␳ = ͓͑1 + pz͒ / 2͔␳
++ ͓͑1 − pz͒ / 2͔␴z␳␴z with pz ʦ ͓0 , 1͔ followed by some arbitrary noise channel EЈ␳ = ͚i,j=0,1,2,3qij␴i␳␴j, i.e.,
+
+E = EЈ ‫ ؠ‬D.
+
+͑A2͒
+
+Since the upper bound derived in Sec. V D becomes tighter
+with a decreasing dephasing parameter pz, we will also try to minimize pz for those channels E for which an extraction of a dephasing part is nontrivial, i.e., pz Ͻ 1. First of all, with the matrices P = ͑pij͒, Q = ͑qij͒, and
+
+΂ ΃0 0 0 1 0 0 i0 M = 0 − i 0 0 = M†
+
+͑A3͒
+
+1 0 00
+
+we can rewrite Eq. ͑A2͒ as a matrix equation
+
+P = 1 + pzQ + 1 − pzM · Q · M,
+
+͑A4͒
+
+2
+
+2
+
+which is linear in Q. For 0 Ͻ pz ഛ 1 it has the unique solution
+
+Q
+
+=
+
+pz
+
++
+
+1 P
+
++
+
+pz
+
+−
+
+1 M
+
+·
+
+P
+
+·
+
+M.
+
+2pz
+
+2pz
+
+͑A5͒
+
+Since the matrices Q and P coincide with the states ␴kEkЈЈ and ␴kEkЈ obtained via the Jamiolkowski isomorphism ͓26͔ ͑see
+
+Sec. V C͒, the conditions that Q actually corresponds to a
+
+completely positive and trace preserving map EЈ are ͑a͒
+
+trkЈQ = ␴0k and ͑b͒ Q Ͼ 0, i.e., that Q is a density matrix. It is
+
+straightforward
+
+state
+
+␴0 =
+
+1 2
+
+1
+
+on
+
+to show that trkЈQ particle k whenever
+
+is the maximally mixed trkЈP = ␴0k and hence that
+
+for 0 Ͻ pz ഛ 1 condition ͑a͒ is always satisﬁed. On the other
+
+hand the positivity ͑b͒ imposes further constraints on the
+
+allowed parameter range of pz, for which the channel E per-
+
+mits a decomposition of the form ͑A2͒. For Pauli channels
+
+E␳ = ͚i=0,1,2,3pi␴i␳␴i the solution Q is again a diagonal
+
+matrix:
+
+1 Q = 2pz diag(͑pz + 1͒p0 + ͑pz − 1͒p3,͑pz + 1͒p1 + ͑pz − 1͒p2,͑pz + 1͒p2 + ͑pz − 1͒p1,͑pz + 1͒p3 + ͑pz − 1͒p0).
+032350-23
+
+͑A6͒
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+Now the positivity ͑b͒ yields the four inequalities 1 − pz ഛ p0 ഛ 1 + pz , 1 + pz p3 1 − pz
+
+1 − pz ഛ p1 ഛ 1 + pz , 1 + pz p2 1 − pz
+
+͑A7͒
+
+which imply that in particular either both p1 and p2 ͑p0 and p3͒ are zero or none of them. Therefore in the case of a
+bit-ﬂip channel, as to be expected, no dephasing component
+
+can be extracted in the above sense. Moreover, it is straight-
+
+forward to see that the minimal value for pz that allows for
+
+such an extraction is given by
+
+ͭ ͮ 1
+1
+
+− +
+
+pz pz
+
+ഛ
+
+qmin
+
+ϵ
+
+min
+
+p0, p1, p3, p2 p3 p2 p0 p1
+
+,
+
+͑A8͒
+
+i.e., pz ജ ͑1 − qmin͒ / ͑1 + qmin͒. In the trivial case of a dephasing channel itself with parameter p, i.e., p0 = ͑1 + p͒ / 2, p3 = ͑1 − p͒ / 2, and p1 = p2 = 0, this clearly gives a minimal value for pz = p. For the depolarizing channel ͓p0 = ͑1 + 3p͒ / 4 , p1 = p2 = p3 = ͑1 − p͒ / 4͔ we obtain the minimal value for pz = 2p / ͑1 + p͒, and in the case of the quantum optical channel
+
+with
+
+␮=0
+
+͓p0 = 1 − ͑2p + q͒,
+
+p
+
+=
+
+1
+
+=
+
+p2
+
+=
+
+p
+
+ഛ
+
+1 4
+
+and
+
+p3
+
+=
+
+q
+
+ഛ
+
+1 4
+
+͔
+
+one arrives at pz = 1 − q / ͑1 − 2p͒.
+
+APPENDIX B
+
+In this appendix we will give the proof to the statements
+͑i͒, ͑ii͒, and ͑iii͒ of Sec. V E.
+Proof of (i). Let U1, U2, and U3 denote the disjoint subsets on which a ␴x, ␴y, or ␴z error occurs. From the stabilizer equations KkG͉G͘ = ͉G͘ it follows that ␴xk͉G͘ = ␴zNk͉G͘ and similarly ␴ky͉G͘ = ␴zk␴xa͉G͘ = ␴zNk+k͉G͘. With this one obtains
+
+␳=
+
+͚
+
+p0͉V͉−͉U1͉−͉U2͉−͉U3͉p1͉U1͉p2͉U2͉p3͉U3͉␴zU͉G͗͘G͉␴zU ,
+
+U1,U2,U3ʕV
+
+UiപUj=0
+
+͑B1͒
+
+where U = ⌫͑U1 + U2͒ + U2 + U3. With qi = pi / p0 the eigenvalues ␭U therefore can be written as
+
+␭U = p0͉V͉
+
+͚
+
+q1͉U1͉q2͉U2͉q3͉U3͉ ,
+
+͑U1,U2,U3͒ʦM͑U͒
+
+where
+
+M͑U͒ = ͕͑U1,U2,U3͉͒Ui ʕ V, Ui പ Uj = 0,U = ⌫͑U1 + U2͒ + U2 + U3͖. This set may alternatively be written as M͑U͒ = ͕͑UЈ \ UЉ,UЈ പ UЉ,UЉ \ UЈ͉͒UЈ,UЉ ʕ V,U = ⌫UЈ + UЉ͖ = ͕͑UЈ \ ͑⌫UЈ + U͒,UЈ പ ͑⌫UЈ + U͒,͑⌫UЈ + U͒ \ UЈ͉͒UЈ ʕ V͖.
+
+This is exactly the index set in Eq. ͑80͒. Proof of (ii). We ﬁrst note that for partial transposition TA
+generally
+͑C1A  C2BDABC3A  C4B͒TA = ͑C3T͒A  C2B͑DAB͒TA͑C1T͒A  C4B ͑B2͒
+
+holds. With this rule we can compute
+KkG͉͑G͗͘G͉͒TAKkG = ͑KkG͉G͗͘G͉KkG͒TA = ͉͑G͗͘G͉͒TA,
+i.e., ͉͑G͗͘G͉͒TA commutes with KkG for all k ʦ V. Therefore ͉͑G͗͘G͉͒TA is again diagonal in the graph state basis ͕͉U͘G͉U ʕ V͖, i.e., ͉͑G͗͘G͉͒TA = ͚UʕV␭UЈ ͉U͘G͗U͉. In order to determine the spectrum let us decompose U into ͑UA , UAc͒ according to the partitioning and use the Schmidt decomposition ͓6͔
+
+͚ ͉G͘
+
+=
+
+1 2͉A͉/2 AЈʕA
+
+͑−
+
+1͒fA͑AЈ͉͒AЈ͘A͉⌫ЈAЈ͘Ac
+
+with fA͑AЈ͒ = ͗AЈ , ⌫AAЈ͘, the standard z basis ͉C͘A = ␴xC͉0͘A on partition A and the graph basis ͉C͘Ac = ͉C͘G\AAc on partition Ac with respect to the pure graph state corresponding to the
+
+graph G \ A, which is obtained from G by removing all vertices in A. Now we can compute
+
+͚ ␭UЈ ªG͗U͉͉͑G͗͘G͉͒TA͉U͘G
+
+=
+
+1 4͉A͉
+
+AiʕA
+
+͑− 1͚͒ifA͑Ai͒+͗UA,A1+A2͘
+
+i=1,2,3,4
+
+ϫ͗A1͉A3͗͘A2͉A4͗͘⌫ЈA1͉⌫ЈA2 + UAc͘
+
+ϫ͗⌫ЈA3 + UAc͉⌫ЈA4͘
+
+1 = 4͉A͉
+
+͚
+A1,A2ʕA:
+
+͑− 1͒͗UA,A1+A2͘
+
+⌫Ј͑A1+A2͒=UAc
+
+͚ 1
+= 2͉A͉
+
+AЈʕA:
+
+͑− 1͒͗UA,AЈ͘.
+
+⌫ЈAЈ=UAc
+
+͑B3͒
+
+Whereas ␭U vanishes for U ʕ V with UAc Im ⌫Ј, in the opposite case UAc ʦ Im ⌫Ј we can choose an arbitrary A0 with ⌫ЈA0 = UAc to simplify ͑B3͒:
+
+032350-24
+
+ENTANGLEMENT PROPERTIES OF MULTIPARTITE…
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+͚ ␭UЈ
+
+=
+
+1 2͉A͉ ͑−
+
+1͒͗UA,A0͘ AЈʦker
+
+⌫Ј
+
+͑−
+
+1͒͗UA,AЈ͘
+
+ͭ =
+
+1 8͉A͉ ͑−
+
+1͒͗UA,A0͘
+
+͉ker ⌫Ј͉ 0
+
+if UA ʦ ͑ker ⌫Ј͒Ќ, if UA ͑ker ⌫Ј͒Ќ.
+
+Note that this is independent of the choice A0, since a different choice ˜A0 will differ from A0 only by an element AЈ ʦ ker ⌫Ј, for which ͗UA , AЈ͘ = 0 if UA ʦ ͑ker ⌫Ј͒Ќ. There-
+fore one obtains the partial transpose for the pure graph state
+
+͉͑G͗͘G͉͒TA
+
+=
+
+͉ker ⌫Ј͉ 2͉A͉
+
+ϫ
+
+͚
+
+͑− 1͒͗X,AY͉͘X + Y͘G͗X + Y͉.
+
+͑X,Y͒ʦ
+
+͑ker ⌫Ј͒Ќϫ͑Im ⌫Ј͒
+
+͑B4͒
+
+The corresponding formula ͑83͒ for a general graph diagonal
+state can be deduced from Eq. ͑B4͒ by again using ͑B2͒.
+Proof of (iii). For ␭U+k the estimation can be derived from Eq. ͑80͒: By adding ͑deleting͒ an element k to ͑from͒ the set
+⌫UЈ + U the corresponding sizes of the sets U1 = UЈ \ ͑⌫UЈ + U͒, U2 = UЈ പ ͑⌫UЈ + U͒ and U3 = ͑⌫UЈ + U͒ \ UЈ in the exponents of ͑80͒ can at most increase or decrease by 1. More-
+over, since U1 , U2, and U3 are disjoint, the operation U ‫ ۋ‬U + k of adding or deleting k cannot simultaneously in-
+crease or decrease any two sets Ui. For example, if k ʦ U1 then
+
+͉UЈ \ ͑⌫UЈ + U + k͉͒ = ͉U1͉ − 1,
+
+͉UЈ പ ͑⌫UЈ + U + k͉͒ = ͉U2͉ + 1,
+
+͉͑⌫UЈ + U͒ \ UЈ͉ = ͉U3͉. In any case every addend
+
+q1͉UЈ−͑⌫UЈ+U+k͉͒q2͉UЈപ͑⌫UЈ+U+k͉͒q3͉͑⌫UЈ+U+k͒−UЈ͉
+
+in Eq. ͑80͒ and from
+
+can be above
+
+bounded from below by q ϫ by 1 / q ϫ q1͉U1͉q2͉U2͉q3͉U3͉ since
+
+q1͉U1͉q2͉U2͉q3͉U3͉ q ഛ 1. This
+
+gives q␭U ഛ ␭U+k ഛ ͑1 / q͒␭U. For ␭U+Nk and ␭U+Nk+k a similar
+
+argument holds, if one rewrites
+
+͚ ␭U+Nk = p0͉V͉
+
+q1͉͑UЈ+k͒\͑⌫UЈ+U͉͒
+
+UЈʕV
+
+ϫ q2͉͑UЈ+k͒പ͑⌫UЈ+U͉͒q3͉͑⌫UЈ+U͒\͑UЈ+k͉͒
+
+and
+
+͚ ␭U+Nk+k = p0͉V͉
+
+q1͉͑UЈ+k͒\͑⌫UЈ+U+k͉͒
+
+UЈʕV
+
+ϫ q2͉͑UЈ+k͒പ͑⌫UЈ+U+k͉͒q3͉͑⌫UЈ+U+k͒\͑UЈ+k͉͒.
+
+In this representation we “absorbed” Nk into the summation index UЈ in both cases using ⌫UЈ + U + Nk = ⌫Ј͑UЈ + k͒ + U.
+This concludes the proof of ͑iii͒.
+
+͓1͔ S. Braunstein and Hoi-Kwong Lo, Fortschr. Phys. 48͑9–11͒, 769–1138 ͑2000͒.
+͓2͔ E. Schrödinger, Naturwiss. 23, 807 ͑1935͒. ͓3͔ For a recent review, see, e.g., W. Zurek, e-print quant-ph/
+0306072. ͓4͔ W. Dür and H.-J. Briegel, Phys. Rev. Lett. 92, 180403 ͑2004͒. ͓5͔ H. J. Briegel and R. Raussendorf, Phys. Rev. Lett. 86, 910
+͑2001͒. ͓6͔ M. Hein, J. Eisert, and H.-J. Briegel, Phys. Rev. A 69, 062311
+͑2004͒. ͓7͔ P. W. Shor, J. Math. Phys. 43, 4334 ͑2002͒. ͓8͔ H. J. Briegel and B. G. Englert, Phys. Rev. A 47, 3311 ͑1993͒;
+H. J. Briegel, Ph. D. thesis, LMU, München, Germany, 1993. ͓9͔ W. Dür and J. I. Cirac, J. Phys. A 34, 6837 ͑2001͒. ͓10͔ A. V. Thapliyal and J. A. Smolin, e-print quant-ph/0212098. ͓11͔ W. Dür and J. I. Cirac, Phys. Rev. A 61, 042314 ͑2000͒; 62,
+022302 ͑2000͒. ͓12͔ M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev.
+Lett. 78, 574 ͑1997͒. ͓13͔ A. Peres, Phys. Rev. Lett. 77, 1413 ͑1996͒. ͓14͔ M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Lett. A
+223, 8 ͑1996͒. ͓15͔ N. Gisin and H. Bechmann-Pasquinucci, Phys. Lett. A 246, 1
+͑1998͒. ͓16͔ M. Hillery, V. Buzek, and A. Berthiaume, Phys. Rev. A 59,
+
+1829 ͑1999͒; D. Gottesmann, ibid. 61, 042311 ͑2000͒; C. Crepeau, D. Gottesmann, and A. Smith, in Proceedings of the 34th Annual ACM Symposium on Theory of Computing ͑ACM Press, New York, 2002͒, pp. 643–652. ͓17͔ S. F. Huelga, C. Macchiavello, T. Pellizzari, A. K. Ekert, M. B. Plenio, and J. I. Cirac, Phys. Rev. Lett. 79, 3865 ͑1997͒. ͓18͔ C. Simon and J. Kempe, Phys. Rev. A 65, 052327 ͑2002͒. ͓19͔ D. Schlingemann and R. F. Werner, Phys. Rev. A 65, 012308 ͑2001͒; D. Schlingemann, Quantum Inf. Comput. 2, 307 ͑2002͒. ͓20͔ K. Chen and H. Lo, e-print quant-ph/0404133; E. Rains ͑private communication͒. ͓21͔ H.-J. Briegel and R. Raussendorf, Phys. Rev. Lett. 86, 910 ͑2001͒; R. Raussendorf, D. Browne, and H. J. Briegel, Phys. Rev. A 68, 022312 ͑2003͒. ͓22͔ D. Jaksch, H. J. Briegel, J. I. Cirac, C. W. Gardiner, and P. Zoller, Phys. Rev. Lett. 82, 1975 ͑1999͒; M. Greiner, O. Mandel, T. W. Hänsch, and I. Bloch, Nature ͑London͒ 419, 51 ͑2002͒. ͓23͔ M. Van den Nest, J. Dehaene, and B. De Moor, Phys. Rev. A 69, 022316 ͑2004͒. ͓24͔ W. Dür, H. Aschauer, and H.-J. Briegel, Phys. Rev. Lett. 91, 107903 ͑2003͒; H. Aschauer, W. Dür and H.-J. Briegel, e-print
+quant-ph/0405045. ͓25͔ This condition is in fact too stringent, as full distillability of
+
+032350-25
+
+HEIN, DÜR, AND BRIEGEL
+
+PHYSICAL REVIEW A 71, 032350 ͑2005͒
+
+the N-particle state ␳ already follows from distillability of all such pairs of particles ͑k , l͒ which form a fully connected graph G. ͓26͔ A. Jamiolkowski, Rep. Math. Phys. 3, 275 ͑1972͒. ͓27͔ M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev. Lett. 80, 5239 ͑1998͒.
+
+͓28͔ J. I. Cirac, W. Dür, B. Kraus, and M. Lewenstein, Phys. Rev. Lett. 86, 544 ͑2001͒; W. Dür and J. I. Cirac, Phys. Rev. A 64, 012317 ͑2001͒.
+͓29͔ A. Steane, in Introduction to Quantum Computation and Information, edited by H-K. Lo, T. Spiller, and S. Popescu ͑World Scientiﬁc, Singapore, 1998͒.
+
+032350-26
+

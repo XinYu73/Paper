@@ -1,0 +1,501 @@
+VOLUME 84, NUMBER 9
+
+PHYSICAL REVIEW LETTERS
+
+28 FEBRUARY 2000
+
+Limits for Entanglement Measures
+Michał Horodecki,1 Paweł Horodecki,2 and Ryszard Horodecki1 1Institute of Theoretical Physics and Astrophysics, University of Gdan´sk, 80-952 Gdan´sk, Poland 2Faculty of Applied Physics and Mathematics, Technical University of Gdan´sk, 80-952 Gdan´sk, Poland
+(Received 19 August 1999)
+The basic principle of entanglement processing says that entanglement cannot increase under local operations and classical communication. Based on this principle, we show that any entanglement measure E suitable for the regime of a high number of identically prepared entangled pairs satisfies ED # E # EF, where ED and EF are the entanglement of distillation and formation, respectively. Moreover, we exhibit a theorem establishing a very general form of bounds for distillable entanglement.
+PACS numbers: 03.67. – a, 03.65.Ca
+
+Since the pioneering papers [1–3] on quantifying entanglement, much has been done in this field [4–12]. However, in the case of mixed states, we are still at the stage of gathering phenomenology. In the very fruitful axiomatic approach [4–6] there is not even an agreement as to what postulates should be satisfied by candidates for entanglement measures. Moreover, we do not know the quantum communication meaning of the known measures apart from entanglement of formation EF and entanglement of distillation ED [2], having the following dual meaning: (i) ED͑ ͒ is the maximal number of singlets that can be produced from the state by means of local operations and classical communication (LQCC). (ii) EF͑ ͒ is the minimal number of singlets needed to produce the state
+by LQCC operations. [More precisely, ED ͑EF͒ is the minimal number of singlets per copy in the state in the asymptotic sense of considering n ! ` copies altogether.] Unfortunately, they are very hard to deal with. One can ask a general question. Is there a rule that would somehow order the many possible measures satisfying some reasonable axioms? Moreover, is there any connection between the axiomatically defined measures and the entanglement of distillation and formation?
+Surprisingly, it appears that just the two, historically first, measures of entanglement [2] constitute the sought after rule, being extreme measures. In this paper we show that any measure satisfying certain natural axioms (two of them specific to the asymptotic regime of a high number of identically prepared entangled pairs) must be confined between ED and EF:
+
+ED # E # EF .
+
+(1)
+
+The result is compatible with some earlier results in this direction. In Ref. [13] Plenio and Vedral provided heuristic argumentation that an additive measure of entanglement should be no less than ED. Uhlmann showed that nonregularized entanglement of formation [2] (closely related to EF) is the upper bound for all convex functions which agree with it on pure states [14]. Finally, the presented result is compatible with the result by Popescu and Rohrlich [4], completed by Vidal [9],
+
+stating the uniqueness of the entanglement measure for
+
+pure states.
+
+The proof of the result (contained in Theorem 1) is very
+
+simple, but it is very powerful. Indeed, as a by-product,
+
+we obtain (Theorem 2) surprisingly weak conditions for a
+
+function to be the upper bound for ED. This is a remarkable result, as the evaluation of ED is one of the central
+
+tasks of the present stage of quantum entanglement theory.
+
+In particular, we obtain elementary proof that the relative
+
+entropy entanglement Er [5,6] and the function considered
+
+by Rains [11] are bounds for distillable entanglement.
+
+Note that the proof of Ref. [11] involves complicated
+
+mathematics, while the one of Ref. [6] is based on still
+
+unproven additivity assumption. In addition, our result
+
+is very general, and we expect it will result in an easy
+
+search for bounds on distillable entanglement. It is crucial
+
+that the basic tool we employ to obtain the results is
+
+the fundamental principle of entanglement theory stating
+
+that entanglement cannot increase under local operations
+
+and classical communication [1,2,4]. Thus the principle,
+
+putting bounds for the efficiency of distillation, plays a
+
+similar role to that of the second law of thermodynamics
+
+(cf. [4]), the basic restriction for the efficiency of heat
+
+engines.
+
+Let us first set the list of postulates we impose for en-
+
+tanglement measure. So far, the rule of choosing some
+
+postulates and discarding others was an intuitive under-
+
+standing of what entanglement is. Now, we would like
+
+to add a new rule: Entanglement of distillation is a good
+
+measure. Thus, we cannot accept a postulate that is not
+
+satisfied by ED. This is reasonable because ED has a di-
+
+rect sense of the quantum capacity of the teleportation [15]
+
+channel constituted by the source producing bipartite sys-
+
+tems. We will see that this rule will suppress some of the
+
+hitherto accepted postulates: This is the lesson given us by
+
+the existence of bound entangled states [16].
+
+We split the postulates into the following three groups.
+
+1. Obvious postulates.—(a) Non-negativity: E͑ ͒ $
+
+0; (b) vanishing on separable states: E͑ ͒ ෇ 0 if is
+
+separable; (c) normalization: E͑jc1͘ ͗c1j͒ ෇ 1, where
+
+c1
+
+෇
+
+p1 2
+
+͑j00͘
+
+1
+
+j11͒͘.
+
+2014
+
+0031-9007͞00͞84(9)͞2014(4)$15.00 © 2000 The American Physical Society
+
+VOLUME 84, NUMBER 9
+
+PHYSICAL REVIEW LETTERS
+
+28 FEBRUARY 2000
+
+2. Fundamental postulate: monotonicity under LQCC operations.—(a) Monotonicity under local operation: If either of the parties sharing the pair in the state performs the operation leading to state si with probability pi, then the expected entanglement cannot increase
+X E͑ ͒ $ piE͑si͒ ;
+i
+
+(b) convexity (monotonicity under discarding informa-
+
+tion):
+
+µX ∂ X
+
+E pi i # piE͑ i͒ .
+
+i
+
+i
+
+3. Asymptotic regime postulates.—(a) Partial additivity:
+
+E͑ ≠n͒ ෇ nE͑ ͒ ;
+
+(b) continuity: If ͗c≠nj njc≠n͘ ! 1 for n ! `, then
+
+1 jE͑c≠n͒ 2 E͑ n
+
+n͒j ! 0 ,
+
+where n is some joint state of n pairs. Let us now briefly discuss the considered postulates. In
+the first group, the postulate of normalization is to prevent us from the many trivial measures given by positive constant multiply of some measure E. The axiom 1(a) is indeed obvious (a separable state contains no entanglement). What, however, is not obvious is, Should we not require vanishing of E if and only if the state is separable? The latter seems reasonable, because if the state is not separable, it contains entanglement that should be indicated by the entanglement measure. However, according to our rule, we should look at distillable entanglement. We can then see that the bound entangled states [16] are entangled, but have ED equal to zero. Thus we should accept entanglement measures that indicate no entanglement for some entangled states. This curiosity is due to the existence of different types of entanglement.
+Let us now pass to the second group. The fundamental postulate, displaying the basic feature of entanglement (that creating entanglement requires global quantum interaction) was introduced in Refs. [1,2] and developed in Refs. [4–6]. It was put into the above, very convenient, form in Ref. [9]. Any function satisfying it must be invariant, under product unitary transformations and constant on separable states [9]. It also follows that, if a trace preserving map L can be realized as a LQCC operation, then E͑L͑ ͒͒ # E͑ ͒.
+The postulates of the first and second groups are commonly accepted. The functions that satisfied them (without normalization axiom) have been called entanglement monotones [9].
+Let us now discuss the last group of postulates, called “asymptotic regime ones” because they are necessary in the limit of large numbers of identically prepared entangled pairs, and can be discarded if a small number of
+
+pairs are considered. This asymptotic regime is extremely important as it is a natural regime both for the directly related theory of quantum channel capacity [2] and the recently developed “thermodynamics of entanglement” [4,13,17].
+Partial additivity says that if we have a stationary, memoryless source, producing pairs in the state , then the entanglement content grows linearly with the number of pairs. A plausible argument to accept this postulate was given in Ref. [4] in the context of thermodynamical analogies. Plenio and Vedral [13] considered full additivity E͑ ≠ s͒ ෇ E͑ ͒ 1 E͑s͒ as a desired property. However, the effect of activation of bound entanglement [18] suggests that ED is not fully additive, so, according to our rule, we will not impose this stronger additivity.
+Let us now pass to the last property. It states that, in the region close to the pure states, our measure is to behave regularly: If the joint state of large number pairs is close to the product of pure states, then the densities of entanglement (entanglement per pair) of both of the states should also be close to each other. This is a very weak form of the continuity exhibited, e.g., by von Neumann entropy that follows from Fannes inequality [19]. We do not require the latter, strong continuity, because we expect that entanglement of distillation can exhibit some peculiarities at the boundary of the set of bound entangled states. However, it can be seen that ED satisfies this weak continuity displayed as the last postulate of our list.
+The continuity property as a potential postulate for entanglement measures was considered by Vidal [9] in the context of the problem of uniqueness of the entanglement measure for pure states. Namely, Popescu and Rohrlich [4], starting from thermodynamical analogies, argued that entanglement of formation (equal to entanglement of distillation for pure states [1]) is a unique measure, if one imposes additivity and monotonicity (and, of course, normalization). Later, many monotones different from EF on pure states were designed [5,6,8]. There was still no contradiction because they were not additive. However, Vidal constructed a set of monotone additives for pure states that still differed from EF for pure states [9]. He removed the contradiction by pointing out that the missing assumption was just the considered continuity. The completed-in-this-way uniqueness theorem states that a function satisfying the listed axioms must be equal to entanglement of formation on the pure states.
+In the following we will show that the above theorem can be viewed as a special case of the general property of entanglement measures (in this paper, we will call the functions satisfying the list of postulates the entanglement measures). Before we state the theorem we need definitions of the entanglement of distillation and formation. We accept the following definitions.
+EF is a regularized version of the original entanglement of formation Ef [2] defined as follows. For pure states, Ef is equal to entropy of entanglement, i.e., von Neumann
+
+2015
+
+VOLUME 84, NUMBER 9
+
+PHYSICAL REVIEW LETTERS
+
+28 FEBRUARY 2000
+
+entropy of either of the subsystems. For mixed states, it is
+
+given by
+
+X
+
+X
+
+Ef ͑ ͒ ෇ min piEf ͑ci͒, with ෇ pijci͘ ͗cij ,
+
+i
+
+i
+
+(2)
+
+where the minimum is taken over all possible decom-
+positions of (we call the decomposition realizing the
+minimum the optimal decomposition of ). Now EF ϵ limnEf ͑ ≠n͒͞n.
+To define the distillable entanglement ED [2,7] (see
+Ref. [10] for justifying this definition) of the state , we consider distillation protocols P given by a sequence of
+trace-preserving, completely positive, superoperators Ln,
+that can be realized by using LQCC operations, and that map the state ≠n of n input pairs into a state sn acting on the Hilbert space Hnout ෇ Hn ≠ Hn with dimHn ෇ dn. Define the maximally entangled state on the space H ≠ H by
+
+P1͑H ͒ ෇ jc1͑H ͒͘ ͗c1͑H ͒j ,
+
+c1͑H ͒
+
+෇
+
+p1 d
+
+Xd jii͘ ,
+i෇1
+
+(3)
+
+where ji͘ are basis vectors in H , while d ෇ dimH . Now P is the distillation protocol if, for high n, the final state
+approaches the above state P1,
+
+F ϵ ͗c1͑Hn͒jsnjc1͑Hn͒͘ ! 1
+
+(4)
+
+(i.e., the fidelity F tends to 1). The asymptotic ratio DP of distillation via protocol P is given by
+
+DP ͑
+
+͒ ϵ lim log2 dimHn
+
+n!`
+
+n
+
+(5)
+
+The distillable entanglement is defined by the maximum
+
+of DP over all protocols,
+
+ED͑ ͒ ෇ sup DP .
+
+(6)
+
+P
+
+Now, the main result of this paper is the following.
+
+Theorem 1.—For any function E satisfying the intro-
+
+duced postulates, and for any state , one has
+
+ED͑ ͒ # E͑ ͒ # EF͑ ͒ .
+
+(7)
+
+Remark.—For pure states we have ED ෇ EF; hence from the above inequality it follows that all measures are equal to EF in this case. This is compatible with the uniqueness theorem.
+Proof. —Surprisingly enough, the proof is elementary. Both the left- and right-hand-side inequalities of the theorem are proved by the use of the same line of argumentation: (i) By definition, ED ͑EF͒ is asymptotically constant during optimal distillation (formation) protocol; (ii) distillation (formation) protocol is an LQCC operation and cannot increase any entanglement measure; (iii) the final (initial) state is the pure one; (iv) for pure states all measures coincide by virtue of the uniqueness theorem.
+
+It then easily follows that, if the given measure E were,
+
+e.g., less than ED, it would have to increase under optimal distillation protocol. We used here additivity, because for-
+
+mation and distillation protocols are collective operations (performed on ≠n). Continuity is needed, because we use
+
+the uniqueness theorem. By writing the above more for-
+
+mally in the E͑ ͒ ෇
+
+case E͑
+
+E
+≠n
+
+# EFP, we obtain
+
+͒ #
+
+i piE͑ci͒ ෇
+
+P
+i
+
+piEf ͑ci͒
+
+n
+
+n
+
+n
+
+෇
+
+Ef ͑ ≠n͒ n
+
+n!!`
+
+EF ͑
+
+͒,
+
+(8)
+
+Pwhere we chose optimal i piEf ͑ci͒ is minimal
+
+decomposition of and hence equal to
+
+≠n , Ef ͑
+
+so that the ≠n͒ [20].
+
+The first equality comes from additivity; the inequality is a
+
+consequence of monotonicity [more precisely—convexity,
+
+axiom 2(b)]. The next-to-last equality follows from the
+
+uniqueness theorem. We will skip the formal proof of
+
+the inequality ED # E, because in the following we prove formally a stronger result concerning bounds for entangle-
+
+ment of distillation.
+
+Below we will show that the above, very transparent line
+
+of argumentation is a powerful tool, as it allows one to
+
+prove a very general theorem on the upper bounds of ED. Theorem 2.—Any function B satisfying the conditions
+
+(a)–(c) below is an upper bound for entanglement of
+
+distillation: (a) Weak monotonicity: B͑ ͒ $ B͑L͑ ͒͒
+
+where L is the trace-preserving superoperator realizable
+
+by means of LQCC operations. (b) Partial subadditivity: B͑ ≠n͒ # nB͑ ͒. (c) Continuity for isotropic state
+
+͑F, d͒ [11,21]. The latter is of the form
+
+͑F, d͒
+
+෇
+
+pP1 ͑C d ͒
+
+1
+
+͑1
+
+2
+
+p͒
+
+1 d2
+
+I
+
+,
+
+0 # p # 1 (9)
+
+with Tr͓ ͑F, d͒P1͑Cd͔͒ ෇ F. Suppose now that we have a sequence of isotropic states ͑Fd, d͒, such that Fd ! 1 if d ! `. Then we require
+
+lim 1 B͑ d!` log2d
+
+͑Fd, d͒͒ ! 1 .
+
+(10)
+
+Remarks.—(1) The above conditions are implied by our postulates for entanglement measures. Specifically, the condition (a) is implied by monotonicity; (b), by additivity; while the condition (c), by continuity plus additivity. (2) If instead of LQCC operations we take other class C of operations, including one-way classical communication, the mutatis mutandis proof also applies [then the condition (a) would involve the class C].
+Proof. —We will perform analogous evaluation as in formula (8) (now, however, we will not even use the uniqueness theorem). By subadditivity we have
+
+B͑ ͒ $ 1 B͑ ≠n͒ .
+
+(11)
+
+n
+
+2016
+
+VOLUME 84, NUMBER 9
+
+PHYSICAL REVIEW LETTERS
+
+28 FEBRUARY 2000
+
+Since the only relevant parameters of the output of the process of distillation are the dimension of the output Hilbert space and fidelity F (see the definition of distillable entanglement), we can consider distillation protocol ended by twirling [21] that results in an isotropic final state. By condition (a), distillation does not increase B, and hence
+
+1 B͑ n
+
+≠n͒ $ 1 B͑ n
+
+͑Fdn , dn͒͒ .
+
+(12)
+
+Now, in the limit of large n, distillation protocol produces
+
+F ! 1 and ͑log2dn͒͞n ! ED͑ ͒; hence by condition (c) the right-hand side of the inequality tends to ED͑ ͒. Thus we obtain that B͑ ͒ $ ED͑ ͒.
+
+Using the above theorem, to find a bound for ED, three
+
+things must be done: one should show that a chosen
+
+function satisfies the weak monotonicity, then check sub-
+
+additivity, and calculate it for the isotropic state, to check
+
+the condition (c). Note that the weak monotonicity is
+
+indeed much easier to prove than full monotonicity, as
+
+given by postulate 2(a). Checking subadditivity, in con-
+
+trast to additivity, is in many cases immediate: It in
+
+fact holds for all so-far-known entanglement monotones.
+
+Finally, the isotropic state is probably the easiest pos-
+
+sible state to calculate the value of a given function. To
+
+illustrate the power of the result let us prove that relative
+
+entropy entanglement Er is bound for ED. Subadditiv-
+
+ity and weak monotonicity are immediate consequences of
+
+the properties of relative entropy used in the definition of
+
+Er (subadditivity proved in Ref. [5], weak monotonicity
+
+proved in Ref. [6]). The calculation of Er for the isotropic
+
+state is a little bit more involved, but by using high sym-
+
+metry of the state it was found to be [11] Er ͑ ͑F, d͒͒ ෇
+
+log2d
+
+1
+
+F
+
+log2F
+
+1
+
+͑1
+
+2
+
+F
+
+͒
+
+log2
+
+12F d21
+
+.
+
+By
+
+evaluating
+
+this
+
+expression now for large d, we easily obtain that the condi-
+
+tion (c) is satisfied. The proof applies without any change
+
+to the Rains bound [11].
+
+In summary, we have presented two results. The first
+
+one has conceptual meaning leading to deeper understand-
+
+ing of the phenomenon of entanglement. It provides some
+
+synthetic overview of the domain of quantifying entangle-
+
+ment in the asymptotic regime. One of the possible ap-
+
+plications of the result would be to reverse the direction
+
+of reasoning, and accept the condition ED # E # EF as
+
+a preliminary test for a good candidate for entanglement
+
+measure. The second result presented in this paper is of
+
+direct practical use. We believe that it will make the search
+
+for strong bounds on ED much easier, especially in higher
+
+dimensions. Finally, we would like to stress that the results
+
+display the power of the fundamental principle of entanglement processing: the latter allows one not only to replace a complicated proof by a straightforward one, but also makes the argumentation very transparent from the physical point of view.
+We are grateful to E. Rains for stimulating discussions. We would also like to thank the participants of the ESFNewton Workshop (Cambridge, 1999), especially C. H. Bennett, S. Lloyd, and G. Vidal, for helpful comments. The work is supported by the Polish Committee for Scientific Research, Contract No. 2 P03B 103 16.
+[1] C. H. Bennett, H. J. Bernstein, S. Popescu, and B. Schumacher, Phys. Rev. A 53, 2046 (1996).
+[2] C. H. Bennett, D. P. Di Vincenzo, J. Smolin, and W. K. Wootters, Phys. Rev. A 54, 3824 (1996).
+[3] C. H. Bennett, G. Brassard, S. Popescu, B. Schumacher, J. Smolin, and W. K. Wootters, Phys. Rev. Lett. 76, 722 (1996).
+[4] S. Popescu and D. Rohrlich, Phys. Rev. A 56, 3219 (1997). [5] V. Vedral, M. B. Plenio, M. A. Rippin, and P. L. Knight,
+Phys. Rev. Lett. 78, 2275 (1997). [6] V. Vedral and M. Plenio, Phys. Rev. A 57, 1619 (1998). [7] E. M. Rains, quant-ph / 9707002. [8] G. Vidal and R. Tarrach, Phys. Rev. A 59, 141 (1999). [9] G. Vidal, quant-ph / 9807077. [10] E. M. Rains, Phys. Rev. A 60, 173 (1999). [11] E. M. Rains, Phys. Rev. A 60, 179 (1999). [12] S. Hill and W. K. Wootters, Phys. Rev. Lett. 78, 5022
+(1997); W. K. Wootters, Phys. Rev. Lett. 80, 2245 (1998). [13] M. Plenio and V. Vedral, Contemp. Phys. 39, 431 (1998). [14] A. Uhlmann, Open Syst. Inf. Dyn. 5, 209 (1998); quant-
+ph / 9701014. [15] C. Bennett, G. Brassard, C. Crepeau, R. Jozsa, A. Peres,
+and W. K. Wootters, Phys. Rev. Lett. 70, 1895 (1993). [16] M. Horodecki, P. Horodecki, and R. Horodecki, Phys.
+Rev. Lett. 80, 5239 (1998); P. Horodecki, Phys. Lett. A 232, 333 (1997). [17] M. Horodecki and R. Horodecki, Phys. Lett. A 244, 473 (1998); P. Horodecki, M. Horodecki, and R. Horodecki, Acta Phys. Slovaca 48, 141 (1998). [18] P. Horodecki, M. Horodecki, and R. Horodecki, Phys. Rev. Lett. 82, 1056 (1999). [19] M. Fannes, Commun. Math. Phys. 31, 291 (1973); see also M. Ohya and D. Petz, Quantum Entropy and Its Use (Springer-Verlag, Berlin, 1993), p. 22. [20] Note that this is a slight extension of the Uhlmann argument concerning convex roofs [14]. [21] M. Horodecki and P. Horodecki, Phys. Rev. A 59, 4206 (1999).
+
+2017
+
