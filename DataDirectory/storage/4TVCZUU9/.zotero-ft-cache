@@ -1,0 +1,685 @@
+PRL 100, 080502 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+Thermal Bound Entanglement in Macroscopic Systems and Area Law
+
+Alessandro Ferraro,1 Daniel Cavalcanti,1 Artur Garc´ıa-Saez,1 and Antonio Ac´ın1,2 1ICFO-Institut de Ciencies Fotoniques, Mediterranean Technology Park, 08860 Castelldefels (Barcelona), Spain
+2ICREA-Institucio´ Catalana de Recerca i Estudis Avanc¸ats, Lluis Companys 23, 08010 Barcelona, Spain (Received 25 July 2007; published 28 February 2008)
+Does bound entanglement naturally appear in quantum many-body systems? We address this question by showing the existence of bound-entangled thermal states for harmonic oscillator systems consisting of an arbitrary number of particles. By explicit calculations of the negativity for different partitions, we ﬁnd a range of temperatures for which no entanglement can be distilled by means of local operations, despite the system being globally entangled. We offer an interpretation of this result in terms of entanglement-area laws, typical of these systems. Finally, we discuss generalizations of this result to other systems, including spin chains.
+
+DOI: 10.1103/PhysRevLett.100.080502
+Introduction.—Many quantum information tasks are based on several distant observers sharing entangled pure states. However, in practical situations, environmental noise is always present and then we unavoidably deal with partially entangled mixed states. The ﬁrst attempt to overcome this degradation led to the idea of entanglement distillation [1,2], a sequence of local operations assisted by classical communication (LOCC) capable of extracting entangled pure states from a large set of entangled mixed states. However, in some cases, the noise degradation happens to be irreparable: given a system composed by n parties there exist entangled states that need pure-state entanglement in order to be generated, while no pure-state entanglement can be recovered back by the n parties via LOCC. These states are known as bound-entangled states [3] and they represent arguably the most striking manifestation of irreversibility in the context of quantum information science.
+Although there exist several examples of boundentangled states [4], to our knowledge they have mainly been inspired by mathematical intuitions and simple recipes to construct these states are still lacking. This poses doubts about whether bound-entangled states, despite their remarkable properties, are mainly a mathematical construction. Therefore, up until now a question has remained open: do bound-entangled states appear inherently in nature? In particular, do these states emerge in standard quantum many-body systems? By standard systems we speciﬁcally mean local interacting systems in a macroscopic thermal state characterized by only a few parameters. A ﬁrst attempt to address this question has been given in Ref. [5], where bound entanglement was detected in the thermal state of spin systems of up to 9 qubits.
+In this work we show that bound-entangled states naturally appear as thermal states of many-body systems composed by a macroscopic number of particles. The fundamental intuition behind our results comes from the entanglement-area law, a property satisﬁed by many condensed matter systems according to which the entanglement between two regions scales as the surface separating
+
+PACS numbers: 03.67.Mn
+
+them [6]. By relating bound entanglement to area laws, we
+
+provide the ﬁrst construction of bound-entangled states
+
+with a clear physical inspiration. In this sense, the route
+
+we take goes in the reverse direction with respect to the one
+
+usually pursued by many recent works [7]: we borrow
+
+concepts from the condensed matter ﬁeld to get new insight
+
+on quantum information science.
+
+Bound entanglement and area law.—Consider a quan-
+
+tum system of n particles described by a local Hamiltonian.
+
+For the sake of simplicity, we will restrict our analysis to
+
+translational invariant one-dimensional systems of n parti-
+
+cles. If the system obeys an entanglement-area law, the
+
+ground-state entanglement for a bipartite splitting of the
+
+parties into two groups, say A and B, scales as the number
+
+of connections between them. This behavior has been
+
+observed in many noncritical quantum systems, while
+
+logarithmic corrections may appear in the critical case
+
+[6]. Consider now two different partitions of a system,
+
+one in which a contiguous half of the particles belongs to
+
+A and the other half to B (we will refer to such kind of
+
+partition as half-half ), and another partition in which the
+
+particles with even label belong to A and the others to B
+
+(even-odd partition). Because of the area law, the entan-
+
+glement will saturate for sufﬁciently large n for the half-
+
+half partition, while it will increase with n for the even-odd
+
+partition. In this conﬁguration, it is reasonable to expect
+
+that, by increasing the temperature, the entanglement in the
+
+even-odd partition is more robust to thermal noise than in
+
+the half-half partition, and that this behavior is preserved
+
+for large systems.
+
+A fundamental result in the understanding of bound
+
+entanglement has been to recognize that all distillable
+
+entangled states have a nonpositive partial transposition
+
+(NPPT) [8]. Thus if one ﬁnds a nonseparable state with
+
+positive partial transposition (PPT) it must be bound entangled [3]. Now, denote by Tdhi:sht (Tdei:sot) the threshold temperatures at which the partial transposition with respect
+
+to all half-half (even-odd) partitions becomes positive [9].
+
+Because of the area law, smaller than Tdei:sot. Thus,
+
+one can expect that Tdhi:sht is strictly it emerges a range of temperatures
+
+0031-9007= 08=100(8)=080502(4)
+
+080502-1
+
+© 2008 The American Physical Society
+
+PRL 100, 080502 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+for which the system is still entangled (as detected by the
+
+entanglement in the even-odd partition), nevertheless
+
+single particles cannot distill pure entanglement (as the
+
+half-half partitions become PPT). Indeed, for any pair of
+
+particles, there is always a half-half partition for which
+
+they are in opposite sides and the partial transposition is
+
+positive according to this splitting. In other words, bound-
+
+entangled states should appear in general under these con-
+
+ditions. The rest of the Letter is devoted to put this intuition
+
+on solid grounds. We ﬁrst consider systems of coupled
+
+harmonic oscillators and identify a temperature range for
+
+which bound entanglement is present. This behavior is then
+
+proven to persist in the macroscopic limit. We also per-
+
+formed
+
+the
+
+same
+
+calculations
+
+for
+
+spin-
+
+1 2
+
+models
+
+and
+
+found
+
+similar results.
+
+Harmonic oscillators.—Consider a system composed of
+
+n harmonic oscillators, each one associated with position and momentum operators xi and pi, respectively (i  1; . . . ; n), described by the Hamiltonian
+
+H
+
+
+
+1 2
+
+X
+
+p2i
+
+
+
+1 2
+
+X
+
+xiVi;jxj:
+
+(1)
+
+The diagonal elements of matrix V describe the potential
+
+energy in each oscillator, while the nondiagonal terms give
+
+the coupling between oscillators i and j. In this scenario
+
+both the ground and the thermal states are Gaussian. In
+
+what follows the entanglement is measured by the log-
+
+negativity EN, which quantiﬁes by how much the partial transpose with respect to a given partition fails to be
+
+positive [10]. Thus, when EN  0 the considered partition is PPT. In Ref. [11] the value of EN between two complementary groups of oscillators, A and B, of the thermal state
+
+%  expÿH=T=TrfexpÿH=Tg at temperature T was
+
+obtained:
+
+X
+
+EN  log2fmax1; kQg;
+
+(2)
+
+that the entanglement follows a strict area law for nonzero temperatures: it increases linearly with n for the even-odd case, while it saturates for the half-half partition. The temperature just deﬁnes the rate the entanglement increases with n for the even-odd partition and the entanglement saturation value for large n for the half-half partition. As shown in Fig. 1, Tdei:sot is strictly larger than Tdhi:sht, indicating, as discussed above, the presence of bound entanglement. We performed our calculations for systems composed by up to 800 oscillators and found that all the computed threshold temperatures, and so also the gap Tdei:sot ÿ Tdhi:sht, are independent of the size of the system, as can be seen in the inset of Fig. 1.
+Macroscopic systems.—The results displayed in Fig. 1 strongly suggest that bound entanglement persists in the macroscopic limit. Actually, we can prove this statement by establishing an analytical formula for EN in the evenodd partition and an upper bound for it in the half-half partition, when n ! 1. We present here the main steps of this proof. A more detailed analysis is given in [14].
+We start with the calculation of the even-odd lognegativity, following the one given in Ref. [11] for the ground state. Consider the Hamiltonian (1) with V describing nearest-neighbor interactions as shown before. Matrix V is circulant and the matrices ! can be diagonalized by a
+0.6
+
+0.5
+
+0.4
+
+0.5 0.3
+
+0.4
+
+0.2
+
+4 10
+
+100
+
+800
+
+where Q  P!ÿP!, !  WTÿ1V1=2, and WT  1n  2expV1=2=T ÿ 1nÿ1. We denote by fkQgnkÿ01 the spectrum of the matrix Q, whereas P is an n  n diagonal matrix with the ith entry given by 1 or ÿ1 depending on which group, A or B, oscillator i belongs to. An exact area law for the ground-state entanglement of this system was proven in Ref. [12]. As far as for thermal states, the entanglement for a given bipartition is upper bounded by the number of connecting points [13]. Here, we mainly consider harmonic chain systems with nearestneighbor interactions and periodic boundary conditions. The corresponding Hamiltonian (1) is given by a circulant potential matrix V  circ1; ÿc; 0; . . . ; 0; ÿc, with 0  c < 1=2. The system is equivalent to a chain of harmonic oscillators coupled with a springlike interaction and is critical when c ! 1=2.
+We used Eq. (2) to compute the log-negativity for the even-odd and the half-half partition [9] for different temperatures and number of particles. Our calculations show
+
+0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+0.5
+
+FIG. 1. Tdei:sot (solid line) and Tdhi:sht (dashed line) as a function of the coupling constant c for the Harmonic chain with nearest-
+neighbor interactions composed by 800 oscillators. Notice that the range of temperatures Tdhi:sht < T < Tdei:sot for which bound entanglement is guaranteed increases when the system approaches the critical point c  0:5. The intermediate dotted line represents the upper bound to Tdhi:sht as given by In Eq. (13) (e.g., we considered m  10 and s  3) and valid in the macro-
+scopic limit: above this line the log-negativity in the half-half partition is zero. The threshold Tdei:sot in the macroscopic limit [given by Eq. (4)] coincides with the one calculated numerically
+for 800 oscillators (see text for details). As a consequence, in the
+shaded region we can guarantee the presence of bound entanglement in the macroscopic limit. Inset: Tdei:sot (solid line) and Tdhi:sht (dashed line) as a function of the number n of oscillators composing the system (log-lin scale), for c  0:3 (the same behavior is found for other values of c). The gap Tdei:sot ÿ Tdhi:sht is seen to remain constant with the size of the system, apart from
+an initial transient.
+
+080502-2
+
+PRL 100, 080502 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+discrete Fourier transformation, implemented by a matrix
+
+
+. Namely, we kldk and dk 
+
+hakve1=2thtaant h
+p!k
+=2yT,
+
+D, with where k
+
+Dkl 1
+
+ ÿ
+
+2c cos2k=n are the eigenvalues of V. Concerning ma-
+
+trix P, one has that
+
+
+
+
+
+
+P
+y  P~ 
+
+0 1n=2
+
+1n=2 0
+
+:
+
+(3)
+
+The spectrum of Q coincides then with the one of P~DÿP~D, which in turn is straightforward to calculate
+
+due to its block diagonal structure. Deﬁning the function
+
+fk; n;
+
+c;
+
+T
+
+
+
+s kn=2
+
+p tanh k
+
+q kn=2
+tanh
+
+k
+
+2T
+
+2T
+
+one has that the eigenvalues of Q that can contribute to the
+
+log-negativity (2) are given by fk; n; c; T, with double
+
+multiplicity and k  0; . . . ; n=4 (for n multiple of 4, n 
+
+4). The log-negativity of the even-odd partition is different
+
+from zero when the temperature T is such that
+
+f0; n; c; T > 1. In particular, the curve f0; n; c; T  1
+
+gives the threshold temperature Tdei:sot, in formula
+
+s 1  2c 1 ÿ 2c
+
+p1ÿ2c tanh
+2T
+
+p12c tanh
+2T
+
+
+
+1:
+
+(4)
+
+The threshold above coincides with the one depicted in Fig. 1 (solid line) and it is independent of the total number of particles n (see also the solid line in the inset of Fig. 1); i.e., it holds in the macroscopic limit. For temperatures below Tdei:sot there exists a kn; c; T such that fk; n; c; T > 1 for k < kn; c; T, which in turn gives rise to the following expression for the log-negativity
+
+knX;c;T
+
+EN 
+
+log2fk; n; c; T
+
+k0
+
+’
+
+n 2
+
+Z xc;T
+0
+
+dxlog2fx;
+
+c;
+
+T;
+
+where, for large n, we have replaced the sum over k by an integral over x  2k=n. As a consequence, we see that the log-negativity grows linearly with the system size also for nonzero temperatures.
+Regarding the half-half partition it is possible to ﬁnd an exact upper bound for the threshold temperature Tdhi:sht. Remarkably, this allows us to identify a range of temperatures for which the presence of bound entanglement can be guaranteed also in the macroscopic limit. We proceed as follows. Let us deﬁne the matrix
+
+n=X2ÿ1 nXÿ1
+
+Xij  !ÿij
+
+ikjh  jkih;
+
+(5)
+
+k0 hn=2
+
+where ij denotes the Kronecker delta. Following Ref. [13], the log-negativity is zero when
+
+minWTÿ2  2miaxjiX!j < 1;
+
+(6)
+
+where
+
+p
+
+minWT
+
+
+
+ep12c=T e 12c=T
+
+ ÿ
+
+1 1
+
+:
+
+(7)
+
+Recognizing that the second term in the left-hand side of (6) is twice the spectral radius rX! of the matrix X!,
+
+we can use any matrix norm to bound it from above [15]. An upper bound for rX! is then given by rX!  jjX!jj  jjXjjjj!jj. We consider the maximum
+
+row Psum matrix maxi j jAijj. The
+
+as a goal,
+
+representative norm: jjAjj  now, is to bound jj!jj and
+
+jjXjj. Before proceeding, recall that ! are circulant ma-
+
+trices, hence completely speciﬁed by their ﬁrst row ! 
+
+circv0 ; . . . ; vnÿ1. One can show that
+
+vl
+
+
+
+1 2
+
+Z 2
+0
+
+dxdxeixl;
+
+(8)
+
+when n ! 1. As a consequence, for any integer s, by
+
+integrating by parts s times we have
+
+jvl j
+
+
+
+1 2ls
+
+Z 2
+0
+
+dxddxs
+
+dx
+
+Cs 2ls
+
+:
+
+(9)
+
+Let us bound ﬁrst jj!jj. Being ! a circulant matrix, it
+follows that there is no need to look for the maximum over the rows. Then one can write, for any integer m, jj!jj  Sm  Em, where we deﬁned the partial sum and the residual term, respectively, as follows:
+
+Xm
+
+Sm 
+
+jvl j;
+
+lÿm
+
+X1
+
+Em  2
+
+jvl j: (10)
+
+lm1
+
+In order to obtain a bound on jj!jj one can now ﬁx m,
+
+calculate
+
+explicitly
+
+Sm
+
+and
+
+bound
+
+E
+
+ m
+
+from
+
+above.
+
+This
+
+latter step can be achieved by using the bound in Eq. (9),
+
+leading to Em  Cs s; m  1= [where s; m  1 is
+
+the generalized Riemann zeta function]. Summarizing, for
+
+any integer s and m, we have proven that
+
+jj!jj
+
+
+
+Sm
+
+
+
+Cs 
+
+ s;
+
+m
+
+
+
+1
+
+
+
+Km;s;
+
+(11)
+
+the bound above being tighter for large m and s. Concerning the upper bound for jjXjj we have that jjXjj
+coincides with jjBjj, where B is the symmetric Toeplitz matrix with the ﬁrst row given by (vÿn=2; vÿn=2ÿ1; . . . ; vÿ2 ; vÿ1 ). We then need to determine which row of B has the maximum sum. Fortunately, when n ! 1 the periodic
+boundary conditions can be disregarded and the ﬁrst row of
+B determines its norm. This is because going from the ﬁrst to the second row we simply remove the term jvÿ1 j, and so on for the other rows. Similarly as we did for jj!jj, we
+obtain that for any integer s and m
+
+jjXjj
+
+
+
+Sÿm
+
+
+
+Cÿs 2
+
+ s;
+
+m
+
+
+
+1
+
+
+
+Kmÿ;s;
+
+(12)
+
+where
+
+Sÿm
+
+
+
+Pm
+l1
+
+jvÿl j.
+
+As
+
+done
+
+before,
+
+Sÿm
+
+can
+
+be
+
+calcu-
+
+lated explicitly and the bound is tighter for large m and s.
+
+080502-3
+
+PRL 100, 080502 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+T=2 even/odd 0.12
+T=2.6 even/odd
+T=2 half/half
+T=2.6 half/half 0.08
+
+Negativity
+
+0.04
+
+0
+
+4
+
+6
+
+8
+
+10
+
+12
+
+FIG. 2. Negativity in the even-odd (full symbols) and half-half
+
+(empty symbols) partitions for thermal states of n spin-one-half
+
+pÿarPticlexiswxii1thneayiresyit-1neighBbPor
+
+Hamiltonian zi , and B 
+
+given by HXX  1:9. The tempera-
+
+tures for each partition are set to be, from top to bottom, T  2,
+
+2.6. In the even-odd partition we can clearly see an increase of
+
+the negativity with respect to the system size, whereas it satu-
+
+rates in the half-half partition. Both behaviors are expected from
+
+the entanglement-area law. For T  2:6 we see that the state is
+
+bound entangled (the negativity in the half-half partition being
+
+zero).
+
+the generality of the area laws, the present results are expected to hold for a variety of other systems. These ﬁndings, besides showing novel aspects of entanglement in many-body systems, are of relevance from an application-oriented perspective. As shown here, quantum correlations emerge ‘‘gradually’’ in a many-body system: starting at high temperatures in a classically correlated scenario, the system passes through a regime where quantum correlations start to be present, but in a bound form. Then, for lower temperatures, the system enters a truly quantum correlated regime where free distillable entanglement is present and potentially available for quantum information applications.
+This work is supported by the EU QAP project, the Spanish MEC, under No. FIS2004-05639 and Consolider-Ingenio QOIT projects, and a ‘‘Juan de la Cierva’’ grant, the Generalitat de Catalunya, and the Universita´ di Milano under grant ‘‘Borse di perfezionamento all’estero.’’
+Note added.—By completing this work, bound entanglement was independently found in three-qubit reduced states of the XY model at nonzero temperature [18]. Here we have shown the existence of bound entanglement in the whole thermal state of the macroscopic system.
+
+Summarizing, considering Eqs. (6), (7), (11), and (12), we have shown that, in the macroscopic limit, the lognegativity in the half-half partition is zero when the follow-
+
+ing inequality is satisﬁed
+
+2Km;sKmÿ;s
+
+
+
+epp12c=T e 12c=T
+
+ÿ 
+
+ 12 1
+
+<
+
+1:
+
+(13)
+
+Based on the formula above and on the threshold (4), we depicted in Fig. 1 the region in the c-T plane for which bound entanglement is present in the macroscopic limit
+
+(shaded region). We see that for any coupling we can guarantee that there is a range of temperatures for which the log-negativity in the half-half partition is zero, nevertheless the state is entangled. Thus the temperature, a single macroscopic and measurable quantity, clearly deter-
+
+mines the distillability properties of the system. Concluding remarks.—First of all, note that our results,
+when combined with those of Ref. [16], prove that en-
+
+tangled states such that all bipartitions are PPT, cannot be obtained for the harmonic systems studied here [17]. This is because the thermal states become PPT and fully sepa-
+
+rable at the same temperature. Finally, we have considered other models of harmonic
+chains as well as spin systems. All the obtained results are
+
+consistent with the previous reasoning [14]: there is a temperature range for which the negativity in the halfhalf partitions is zero, nevertheless the system is still en-
+
+tangled as proven by the even-odd negativity. For spin systems we could not go beyond 12 particles due to computational hardness, but the observed numerical results
+
+again support the existence of thermal-state bound entanglement in the macroscopic limit (see Fig. 2). Because of
+
+[1] C. H. Bennett et al., Phys. Rev. Lett. 76, 722 (1996). [2] C. H. Bennett et al., Phys. Rev. A 54, 3824 (1996). [3] M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev.
+Lett. 80, 5239 (1998). [4] For a review, see R. Horodecki, P. Horodecki, M.
+Horodecki, and K. Horodecki, arXiv:quant-ph/0702225 [Rev. Mod. Phys. (to be published)]. [5] G. To´th et al., Phys. Rev. Lett. 99, 250405 (2007). [6] See L. Amico, R. Fazio, A. Osterloh, and V. Vedral, arXiv:quant-ph/0703044 [Rev. Mod. Phys. (to be published)], and references therein. [7] T. J. Osborne and M. A. Nielsen, Phys. Rev. A 66, 032110 (2002); A. Osterloh et al., Nature (London) 416, 608 (2002); G. Vidal et al., Phys. Rev. Lett. 90, 227902 (2003); F. Verstraete, M. A. Martin-Delgado, and J. I. Cirac, Phys. Rev. Lett. 92, 087201 (2004). [8] A. Peres, Phys. Rev. Lett. 77, 1413 (1996). [9] In fact, due to the translational invariance of the systems considered here, all the half-half partitions are equivalent. [10] G. Vidal and R. F. Werner, Phys. Rev. A 65, 032314 (2002). [11] K. Audenaert et al., Phys. Rev. A 66, 042327 (2002). [12] M. B. Plenio et al., Phys. Rev. Lett. 94, 060503 (2005). [13] M. Cramer et al., Phys. Rev. A 73, 012309 (2006). [14] D. Cavalcanti et al., arXiv:0705.3762v2. [15] R. A. Horn and C. R. Johnson, Matrix Analysis (Cambridge University Press, Cambridge, England, 1985). [16] J. Anders and A. Winter, arXiv:0705.3026. [17] Fully PPT entanglement has been found in spin systems up to 9 qubits in Ref. [5]. [18] D. Patane´, R. Fazio, and L. Amico, New J. Phys. 9, 322 (2007).
+
+080502-4
+

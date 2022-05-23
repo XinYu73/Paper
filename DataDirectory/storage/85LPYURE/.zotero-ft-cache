@@ -1,0 +1,684 @@
+OPEN ACCESS
+Bound entanglement in the XY model
+To cite this article: D Patanè et al 2007 New J. Phys. 9 322
+View the article online for updates and enhancements.
+
+You may also like
+- Detecting two-site spin-entanglement in many-body systems with local particlenumber fluctuations Leonardo Mazza, Davide Rossini, Rosario Fazio et al.
+- Open-system dynamics of entanglement:a key issues review Leandro Aolita, Fernando de Melo and Luiz Davidovich
+- Low-dimensional quite noisy bound entanglement with a cryptographic key ukasz Pankowski and Micha Horodecki
+
+This content was downloaded from IP address 49.140.189.201 on 23/05/2022 at 03:08
+
+New Journal of Physics The open–access journal for physics
+
+Bound entanglement in the XY model
+
+D Patanè1, Rosario Fazio2,3 and L Amico1 1 MATIS-INFM and Dipartimento di Metodologie Fisiche e Chimiche (DMFCI), Università di Catania, viale A Doria 6, 95125 Catania, Italy 2 International School for Advanced Studies (SISSA), via Beirut 2-4, 34014 Trieste Italy 3 NEST-INFN and Scuola Normale Superiore Piazza dei Cavalieri 7, I-56126 Pisa, Italy E-mail: dpatane@femto.dmfci.unict.it
+New Journal of Physics 9 (2007) 322
+Received 9 May 2007 Published 11 September 2007 Online at http://www.njp.org/
+doi:10.1088/1367-2630/9/9/322
+
+Contents
+
+Abstract. We study the multi-spin entanglement for the 1D anisotropic XY model concentrating on the simplest case of three-spin entanglement. As compared to the pairwise entanglement, three-party quantum correlations have a longer range and they are more robust on increasing the temperature. We ﬁnd regions of the phase diagram of the system where bound entanglement (BE) occurs, both at zero and ﬁnite temperature. BE in the ground state can be obtained by tuning the magnetic ﬁeld. Thermal BE emerges naturally due to the effect of temperature on the free ground state entanglement.
+
+1. Free and bound three-qubit entanglement
+
+3
+
+2. The XY model
+
+4
+
+3. Three-spin entanglement in the XY model
+
+4
+
+3.1. Ground state entanglement . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+
+3.2. Thermal bound entanglement . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+4. Conclusions
+
+8
+
+Acknowledgments
+
+9
+
+Appendix
+
+9
+
+References
+
+11
+
+New Journal of Physics 9 (2007) 322 1367-2630/07/010322+12$30.00
+
+PII: S1367-2630(07)50086-8 © IOP Publishing Ltd and Deutsche Physikalische Gesellschaft
+
+2
+Entanglement is a resource in quantum information science [1]. More recently, it has become clear that understanding the nature of quantum correlations may also help in a deeper description of complex many-body systems (see [2] for a recent review on this topic). The work developed in these years in between the two areas of quantum statistical mechanics and quantum information has lead to several interesting results in both disciplines. Among the different aspects investigated so far we mention the study of entanglement close to a quantum phase transition [3]–[5]. Most of the work so far was devoted to bipartite entanglement with some notable exceptions. On the other hand, the entanglement monogamy property [6, 7] constrains the entanglement sharing, and puts an upper bound to the pairwise entanglement.
+Several indications demonstrate that the multipartite entanglement is indeed particularly important for the collective behavior of the system. It was shown, for example, that multipartite entanglement is enhanced with respect to the two-particle entanglement near a quantum critical point [4, 8, 9]. Multipartite entanglement close to quantum phase transitions was quantiﬁed by the global-entanglement measure of Meyer and Wallach [10] or the geometric measure of entanglement [11]. The generalized entanglement measure introduced in [12] was used to study a number of critical [13] and disordered [14] spin models.
+A comprehensive classiﬁcation of the type of multipartite entanglement in spin systems has been recently given by [15, 16]. Different bounds obtained to the ground state energy were obtained for different types of n-particle quantum correlated states. A violation of these bounds implies the presence of multipartite entanglement in the system. As discussed in [17], the analysis of the average measures of multipartite entanglement might not be sufﬁcient and the analysis of the distribution of block entanglement for different partitions may give additional information.
+In the present paper, we focus on multiparticle entanglement (ME) with the aim to shed light on how entanglement is shared in a many-body system. Speciﬁcally, we analyze the type of entanglement of a subsystem made of few particles, tracing out the rest of the system and we study the ME shared between them (this approach was recently carried out also for a free electron gas [18, 19]). By this approach, although we cannot discuss the global ME properties of the whole system, we can gain insight into the details of such few-particle ME. In particular, we consider the 1D XY model in a transverse ﬁeld and we study the simplest multiparticle case of a subsystem made of three arbitrary spins of the chain. We analyze bipartite entanglement between one spin and the other two with respect to all possible bipartitions. We demonstrate that ME extends over a longer range than two-particle entanglement. An important feature, emerging from our analysis of ME, is the existence of bound entanglement (BE) [20, 21] shared among the spins of the chain. This peculiar form of entanglement is characterized by the impossibility of distilling it into a pure form. It is a weak form of entanglement having features of both quantum and classical correlations. BE has been a subject of intense research in the last few years since it was shown to be a useful resource in the context of quantum information [22]–[26].
+Here, we show that it emerges from the equilibrium properties of spin chains. Indeed the ground state of quantum XY model spins far apart enough may be in a bound entangled state, even in the thermodynamical limit. At T = 0, we ﬁnd that ME is more robust than two-particle entanglement and increasing the temperature, it always turns into a thermal multiparticle BE.
+The paper is organized as follows: in the following section, we review the scenario of three-qubit entanglement; we then brieﬂy describe the model studied and some known results concerning its entanglement properties. In the last section, we show our results at T = 0 and at ﬁnite temperature.
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+3
+1. Free and bound three-qubit entanglement
+
+For two-qubit systems, concurrence [27] is a measure of entanglement that can be easily calculated both for pure and mixed states and it can be related to the ‘entanglement of formation’ [28]. Besides, any two-qubit entangled state can be converted into Bell states with the process of distillation [28, 29].
+For the entanglement of a three-qubit system, a much more complex scenario emerges. The total entanglement shared between the three qubits cannot be described just by studying the qubit/qubit entanglement between all the pairs, as measured f.i. by the concurrence of the reduced two-qubit density matrices. In fact, in general, the three qubits share a ME whose complete information is unavoidably lost by tracing out a qubit. The well-known paradigmatic examples are the GHZ states for which each couple of spins shares no entanglement, nonetheless each spin is maximally entangled with the other two [7]. A further qualitative difference that emerges for the three qubit entanglement is the existence of bound entangled states. The classiﬁcation ‘free’ and ‘bound’ entanglement can be drawn with respect to distillation properties of the entanglement [20]. Entanglement is bound (not-distillable), if no maximally entangled states between the parties of the system can be obtained with local operations and classical communication (LOCC), not even with an asymptotically inﬁnite supply of copies of the state [21]. Despite the pragmatic deﬁnition of BE, the nature of its correlations is peculiar. In fact, BE is a very weak form of entanglement that has both quantum and classical features. For instance, some examples of multipartite bound entangled state violating Bell-type inequalities were found [30], but recently it was shown that if we allow collective manipulations, and postselection, no bound entangled state violates Bell-type inequalities [31].
+While for two-qubit systems no BE states exist [29], in the case of a three-qubit system the relative Hilbert space is large enough to allow such structures to appear. An interesting case in which such BE appears is related to the ‘incomplete separability’ of the state (see [21]). This condition happens, for example, when a state of a tripartite system A-B-C is separable with respect to the partition A|BC and B|AC and non-separable with respect to C|AB. The ‘incomplete separability’ is a sufﬁcient condition for a state to have BE since the three qubits are entangled and no maximally entangled state can be created between any of the parties by LOCC. For example, no entanglement can be distilled between C and A because no entanglement can be created with respect to the partition A|BC by LOCC. In the following sections, the feature of incomplete separability will be exploited to detect such a kind of BE in the system.
+In order to analyze the free and BE between the qubits, we focus on the entanglement between one qubit and the other two, with respect to all possible bipartitions. To measure such bipartite entanglement, we used the negativity [32]:
+
+NP = |µi |,
+
+(1)
+
+i
+
+where µi are the negative eigenvalues of the partial transpose of the density matrix with respect to the bipartition P. Negativity gives the degree of violation of the Peres condition and was
+
+proved to be a measure of entanglement [32, 33], though it cannot detect positive partial
+
+transpose (PPT) entangled states.
+
+We remark that the genuinely multipartite entanglement (e.g. GHZ type of entanglement) is distinct from generic ME (e.g. a mixture of Bell states shared between the parties)4. In [35],
+
+4 For a more reﬁned analysis see [34].
+
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+4
+a negativity-based multipartite entanglement measure was proposed, but it is not easy to handle for generic mixed states since it requires a convex roof minimization. For a multiparticle system, negativity is able to measure the ‘global’ ME with respect to a certain bipartition. For instance, negativity cannot distinguish between qubit–qubit entanglement and ME. For example, if qubit A is entangled separately with qubit B (as measured by a nonzero concurrence CAB) then A will surely be entangled with B and C as a whole and thus NA|BC = 0. On the other hand if no qubit/qubit entanglement is present in the system, then a nonzero negativity indicates ME. Besides, carrying out such an analysis with respect to all possible bipartitions can give information on how such ME is shared between the qubits. It is precisely this method that we will employ to study the ME entanglement in the system.
+
+2. The XY model
+
+Entanglement has been studied in a variety of spin models [2]. A lot of attention has been devoted to the 1D quantum XY model. The Hamiltonian is deﬁned as
+
+N
+
+H = J (1 + γ )Six Six+1 + (1 − γ )Siy Siy+1 − B Siz.
+
+(2)
+
+i =1
+
+The
+
+spins
+
+Sα
+
+=
+
+1 2
+
+σ
+
+α,
+
+α
+
+=
+
+x
+
+,
+
+y,
+
+z
+
+(σ α
+
+are
+
+Pauli
+
+matrices)
+
+experience
+
+an
+
+exchange
+
+interaction
+
+with coupling J > 0 and uniform magnetic ﬁeld of N → ∞, the model (2) has a quantum critical point
+
+asttrhen=.gtBh
+
+B. /2 J
+
+In =
+
+the thermodynamical hc = 1, and for 0 < γ
+
+limit 1,
+
+it belongs the quantum-Ising universality class [36].
+
+Entanglement properties of the model have been studied, particularly close to its phase
+
+transition [2]. Attention has been focused on the entanglement between two spins or the
+
+entanglement between a block of spins and the rest of the lattice. Spin–spin entanglement
+
+was studied by means of concurrence and it was shown that a spin is directly entangled to its
+
+neighbor spins and the range of spin–spin entanglement R (i.e. the maximal distance at which
+
+two spins are still entangled) depends on h and γ [3, 37]. In particular for the ground state
+
+R diverges at the factorizing ﬁeld [38] hf = 1 − γ 2 [37], while it is non-universal and short ranged at the critical point [3]. Block entropy was studied in terms of Von Neumann entropy and
+
+it was shown that it saturates as the size of the block increases for a non-critical system, while
+
+it diverges logarithmically at the critical point with a universal behavior ruled by its conformal
+
+symmetry [5, 39].
+
+We consider the system deﬁned in equation (2) in the thermodynamical limit and we
+
+focus our attention on a subsystem made of three spins in different positions in the lattice (not
+
+necessarily a block). We are interested in the entanglement shared between the three spins,
+
+and how such ME is distributed along the chain. Thus, as sketched in the previous section,
+
+we compute the negativity between one spin and the other two with respect to all possible
+
+bipartitions of the three spins. A similar analysis was done in [18] for three fermions out of a
+
+Fermi gas.
+
+3. Three-spin entanglement in the XY model
+Due to the complete integrability of the XY model, it is possible to calculate the reduced density matrix of any number of spins (see appendix for details). The density matrix is a function of the
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+5
+Figure 1. Conﬁgurations of spins described in the text and whose entanglement properties are presented in ﬁgure 2. We ﬁx the range of spin/spin entanglement R 3 such that spins at a distance d 4 are not directly entangled. (a) ‘Clustering’ two spins increases the range of entanglement (the scheme is symmetric also for spins on the left of the marked one). (b) Symmetric conﬁguration of spins such that no two-particle entanglement is present, but still the spins share ME.
+parameters, h and γ , the temperature T and of the distances between the spins considered: α = j − i and β = k − j. We ﬁrst study the case T = 0 focusing on the range of the three-spin entanglement and then we consider the case of a block of three spins at ﬁnite temperature.
+3.1. Ground state entanglement
+We ﬁrst focus on the range of three-particle entanglement in the ground state and check whether spins distant enough such that they do not share spin/spin entanglement are nonetheless globally entangled. With this aim, we consider a spin and a block of two spins more distant than the spin/spin entanglement range (see ﬁgure 1(a)) and we study the spin/block entanglement as measured by the negativity. We ﬁnd that the block of two spins may be entangled with the external spin, despite the fact that the latter is not entangled directly with any of the two spins separately (see ﬁgure 2, upper panel). Hence, the range of such spin/block entanglement may extend further than the spin/spin entanglement range.
+An interesting case is when there is no two-particle entanglement between any of the three spins, but still they share ME. Speciﬁcally, we consider the symmetric conﬁguration of spins drawn in ﬁgure 1(b). As shown in ﬁgure 2 (lower panel), the negativity between the central spin and the other two NCentr and between an external spin and the other two NExt may be nonzero, despite the fact that the three spins do not share spin–spin entanglement.
+We shall see that the spins in the conﬁguration of ﬁgure 1(b) can share bound entanglement. To prove this, the idea is to resort to the ‘incomplete separability’ condition described in the ﬁrst section. In fact from ﬁgure 2, we see that NExt may be zero even if NCentr is nonzero. Thus, in such a case, the density matrix of the spins is PPT for the two symmetric bipartitions of one external spin versus the other two (↑ | ↑↑ and ↑↑ | ↑) and negative partial transpose (NPT) for the partition of the central spin versus the other two. We remark that PPT does not ensure the separability of the two partitions, nevertheless the state is bound entangled. In fact, if we were able to distill a maximally entangled state between the two spins then one of the two previous PPT partitions would be NPT and this cannot occur since PPT is invariant under LOCC [20, 32].
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+6
+
+0.0004 0.0003
+
+R > 3
+
+R р 3
+
+NBlock (a)
+
+Negativity
+
+0.0002
+
+0.0001
+
+0
+0.0012 0.0010 0.0008 0.0006 0.0004 0.0002
+
+0.85
+
+0.90
+
+0.95
+
+1.0
+
+h
+
+R > 3
+
+R р 3
+
+NCentr (b) NExt (b)
+
+Negativity
+
+0.85
+
+0.90
+
+0.95
+
+1.0
+
+h
+
+Figure 2. T = 0 negativities between one spin and the other two versus magnetic ﬁeld h are shown for both conﬁgurations of ﬁgure 1. We consider γ = 0.5. In this case, outside the interval marked by the two solid vertical lines (0.83 h 0.91) the range of spin–spin entanglement is R 3 (for values of h inside this interval
+R grows due to its divergence at factorizing ﬁeld hf = 1 − γ 2 0.86 [37]). For conﬁguration (a) (upper panel), NBlock signals the spin/block entanglement for a distance d = 4. For values of h outside the vertical lines, the negativity signals genuine spin/block entanglement. For conﬁguration (b) (lower panel), both NExt (solid line) and NCentr (dashed line) are plotted. For values of h outside the vertical lines the three spins share no spin/spin entanglement, hence for nonzero NExt and NCentr free ME is present. The latter turns into BE for values of h such that only NCentr = 0 and NExt = 0 (both on the left and on the right of the solid lines).
+
+The scenario described above quantitatively varies if different values of γ are considered. Since the range of spin–spin entanglement depends on γ [37] the distance between the spins at which ME exists and its range are also γ -dependent. For both the conﬁgurations studied, we found that ME is short ranged. However, we notice that this range diverges at the factorizing
+
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+7
+1.0
+0.8
+0.6 T
+0.4
+
+N Centr N Ext
+C1
+
+0.2
+
+C2
+
+0
+
+0
+
+0.5
+
+1.0
+
+1.5
+
+h
+
+Figure 3. Entanglement shared in a block of the three adjacent spins. We consider γ = 1. In this case, only nearest neighbor and next nearest neighbor spins are entangled (hence, R = 2) at T = 0 [3, 4]. The lines in the T –h plane indicate the temperatures at which the corresponding type of entanglement disappears. In the marked region, TNExt < T < T , NCentr BE is present.
+
+ﬁeld hf (analogously to what occurs for spin/spin entanglement [37]). Remarkably, this holds also for BE. In fact, we observe that the range of NCentr is always greater than the range of NExt. Hence approaching hf, there are always conﬁgurations of spin far apart enough to share BE and for h → hf, its range diverges.
+In summary, if the spins are far enough apart to lose all spin–spin entanglement, some ME may be still present. The nature of the entanglement may change from free to BE by tuning the magnetic ﬁeld h.
+
+3.2. Thermal bound entanglement
+Quantum states must be ‘mixed enough’ to be bound entangled. In fact, in a geometrical picture, they may be located in a region separating free entangled states from the separable ones [40]. In our case, a source mixing is the trace over the other spins of the chain: as pointed out in the previous section, such loss of information may be enough to induce BE between the three spins. However, if the spins are near enough, the reduced entanglement is free. Thus, in this situation, it is intriguing to investigate whether the effect of the thermal mixing can drive the T = 0 free entanglement to BE. To answer this question, we consider a block of three adjacent spins and study the entanglement between them as a function of T . We see (ﬁgure 3) that the entanglement between the two external spins is the most fragile increasing T , dying ﬁrst at a certain TC2; then at a higher temperature TC1, the central spin loses its entanglement with each of the external ones. Thus, for T > TC1, there is no two-particle entanglement between the spins, but still some ME is present, as detected by the negativity NExt and NCentr. Eventually, the negativity vanishes at TNExt and T . NCentr In the region TNExt < T < T , NCentr the condition of ‘incomplete separability’ occurs: the density matrix is PPT with respect to the external bipartitions and NPT with respect to the central one and thus the spins share BE.
+
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+8
+We want to remark here that the failure of negativity to detect some entangled states does not invalidate the scheme described above. In fact, when all the negativities are eventually zero, the three-spin state may be still entangled, but such an entanglement would be surely bound (since the state has PPT). This means that the region where BE is present might be wider than the one marked in ﬁgure 3, but, in any case, such thermal BE will always separate the high temperature separable region from the low temperature free entangled one.
+This behavior shown for the Ising model is also found for the entire class of Hamiltonians (2). In fact, although the temperature at which the different types of entanglement are suppressed is γ -dependent, the qualitative behavior of the phenomenon is a general feature of the model (2).
+4. Conclusions
+We studied the entanglement shared between three spins in an inﬁnite chain described by the anisotropic XY model in a transverse ﬁeld. We analyzed the negativity between groups of spins as in ﬁgure 1, demonstrating that the corresponding block/block entanglement extends along the chain over a longer range (ﬁgure 2) compared to the spin/spin case. Such entanglement persists at higher temperature (see ﬁgure 3).
+In a recent paper, thermal BE was found for a system made of few spins [41]. Here, we proved the existence of BE shared between the particles, even in a macroscopic system. It occurs naturally in a certain region of the phase diagram for the ‘last’ entangled states before complete separability is reached. In this sense, the BE bridges between quantum and classical correlations. As BE is a form of demoted entanglement, we found that it appears when quantum correlations get weaker. At zero temperature BE appears (see ﬁgure 2) when the spins are sufﬁciently distant from each other and as in the case of the spin/spin entanglement, it can be arbitrarily long ranged near the factorizing ﬁeld. At T = 0, BE is present when the system is driven toward a completely mixed state as the temperature is raised (ﬁgure 3). It would be interesting to study BE further in this context (f.i. focusing on other kinds of BE [42]).
+A more reﬁned classiﬁcation of ME could be done following the scheme of Acin et al [34], discerning different regions in the phase diagram in terms of different entanglement classes (GHZ or W). In [34], certain witness operators able to distinguish some W- and GHZ-mixed states were discussed. We point out, however, that in our case such witnesses are not able to detect tripartite entanglement, not even if suitably generalized as [19]. Instead, the three tangle [7], that, in principle, could identify the GHZ class, is difﬁcult to handle for generic mixed states and requires substantial numerical effort (some progress is achieved for low rank density matrices [43]).
+It is plausible that increasing the size of the subsystem considered will increase the range of the ME. For instance, the range of spin/block entanglement (see conﬁguration of ﬁgure 1(a)) will increase if we consider a larger block. Hence, a single spin can be entangled with more distant partners, if one allows them to cluster into a large enough block. It would be intriguing to study how spin/block entanglement and, in general, block/block entanglement between subsystems, scale when increasing the size of blocks, especially exploring the connection with quantum criticality. We remark that such an analysis would be different with respect to the wellknown block entropy setting [5, 44], since in that case one is interested in the block/rest-of-thesystem entanglement. Along this line, some results for a chain of coupled harmonic oscillators were obtained [45].
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+9
+Finally, we speculate about the effect of temperature for the entanglement of a larger size block of spins. The behavior depicted in ﬁgure 3 suggests that entanglement between sub-blocks of few spins will be suppressed by increasing the temperature, before the entanglement between larger sub-blocks. Namely, temperature will suppress ﬁrst spin/spin entanglement, then spin/2-spinblock entanglement, . . . , n-spinblock/m-spinblock entanglement, and so on. Thus, at high enough temperature, particles of the system will eventually lose all entanglement passing through successive steps at which temperature suppresses entanglement with respect to a ‘microscopic’ to ‘macroscopic’ hierarchy.
+
+Acknowledgments
+We thank J Siewert for signiﬁcant help. We acknowledge fruitful discussions with A Osterloh and F Plastina. The work was supported by PRIN-MIUR and it was performed within the ‘Quantum Information’ research program of Centro di Ricerca Matematica ‘Ennio De Giorgi’ of Scuola Normale Superiore.
+
+Appendix
+
+It is convenient to express ρi jk in terms of three-point correlation functions that can be obtained explicitly following the method used for the two-point correlation functions in [36]
+
+ρi jk =
+
+σip
+
+σ
+
+q j
+
+σkr
+
+σ p ⊗σq ⊗σr.
+
+pqr
+
+(A.1)
+
+In the previous equation p, q, r = 0, x, y, z (σ 0 = 1). The three-spin reduced density matrix is obtained from equation (A.1). Due to the parity
+symmetry of the Hamiltonian [46], for the non-broken symmetry case some of the correlators are identically zero and the 8 × 8 matrix reads:
+
+1 ρi jk = 8
+
+ρI ρIII
+
+ρIII ρII
+
+,
+
+where
+
+1 + A + B++
+
+0
+
+ρI
+
+=
+
+ 
+
+0
+
+
+
+Dβ− + Eβ−α
+
+0
+1 + C + B−− Dβ+ + Eβ+α 0
+
+0 Dβ+ + Eβ+α 1 + C − B+−
+0
+
+Dβ− + Eβ−α 
+
+0
+
+0
+
+, 
+
+
+
+1 − C − B−+
+
+1 + C − B−+
+
+ρII
+
+=
+
+ 
+
+
+
+0 0
+
+Dβ− − Eβ−α
+
+0 1 − C − B+−
+Dβ− − Eβ+α 0
+
+0 Dβ− − Eβ+α 1 − C + B−−
+0
+
+Dβ− − Eβ−α 
+
+0 0
+
+ 
+
+,
+
+
+
+1 − A + B++
+
+0
+
+ρIII
+
+=
+
+ 
+
+
+
+Dγ− + Fα−β Dα− + Fα−β
+
+0
+
+Dγ+ + Fα+β 0
+0
+Dα− − Fα−β
+
+Dα+ + Fα+β 0
+0
+Dγ− − Fα−β
+
+0
+
+Dα+ − Fα+β Dγ+ + Fα+β
+
+ 
+
+.
+
+
+
+0
+
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+10 The entries of the matrices above are linear combinations of the correlation functions:
+
+A = 3Z + Z Z Z , B±± = Z Zα ± Z Zβ ± Z Zγ , C = Z − Z Z Z ,
+
+Dα± = X Xα ± Y Yα,
+
+Eα±β = X X Zαβ ± Y Y Zαβ ,
+
+Fα±β = X Z Xαβ ± Y Z Yαβ ,
+
+where f.i. Y Y Z αβ =
+
+σiy
+
+σ
+
+y j
+
+σkz
+
+with α = j − i and β = k − j (the correlators depend only on the
+
+relative distance between the spins because of the translational symmetry of the system).
+
+Such three-point correlation functions can be calculated following the method used in [36]
+
+for the two-point ones. In short, after the Jordan–Wigner transformation which maps spin into
+
+spinless fermions
+
+l −1
+σlx = Al As Bs,
+s=1
+
+l −1
+σ y = −Bl As Bs,
+s=1
+
+σ z = − Al Bl ,
+
+where A = c + c† and B = c − c†, the three-point correlation functions
+
+σip
+
+σ
+
+q j
+
+σkr
+
+can be written
+
+as a Pfafﬁan whose elements are the two-point correlators Al Bm . The structure of the Pfafﬁans
+
+further simpliﬁes into a determinant because only terms
+
+Al Bm
+
+= Gm−l =
+
+π 0
+
+1 π
+
+{cos(φ|m
+
+−
+
+l
+
+|)(cos(φ)
+
+−
+
+a)
+
+−
+
+γ
+
+sin(φ|m
+
+−
+
+l
+
+|)
+
+sin(φ)}
+
+tanh (1/2T ) γ 2 sin φ2 + (h − cos φ2)
+
+×
+
+dφ
+
+γ 2 sin φ2 + (h − cos φ2)
+
+are non-vanishing.
+
+G0
+
+Gα Gα+β
+
+Z Z Zαβ = − G−α G0 Gβ ,
+
+G−α−β G−β G0
+
+G −1 X X Zαβ = (−)α+1 G...−2
+
+G0
+
+. . . Gα−2 Gα+β−1
+
+G −1
+
+... ...
+
+G α...−3
+
+Gα+...β−2 ,
+
+G−α G−α−1 . . . G−1
+
+Gβ
+
+G−α−β G−α−β−1 . . . G−β−1 G0
+
+G...−1 . . . Gα...−2
+
+Gα ...
+
+...
+
+G
+
+α+β
+...
+
+−2
+
+X Z Xαβ = (−)α+β
+
+G −α+1 G −...α−1
+
+... ...
+
+G0 G...−2
+
+G2 G0 ...
+
+... ...
+
+Gβ G β...−2
+
+,
+
+G−α−β . . . G−β−1 G−β+1 . . . G−1
+
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+11
+
+G1
+
+G2 . . . Gα Gα+β
+
+G0
+
+Y Y Zαβ = (−)α+1
+
+...
+
+G1
+
+... ...
+
+G α...−1
+
+G
+
+α+β
+...
+
+−1
+
+,
+
+G−α+2 G−α+3 . . . G1 G−α−β+1 G−α−β+2 . . . G−β
+
+G β +1 G0
+
+G1 ...
+
+. . . Gα...−1
+
+G α+1 ...
+
+. . . Gα+β ...
+
+Y Z Yαβ = (−)α+β
+
+G −α+2 G...−α
+
+. . . G0 . . . G...−2
+
+G2 G0 ...
+
+... ...
+
+G β +1 G β...−1
+
+.
+
+G−α−β+2 . . . G−β G−β+2 . . . G1
+
+The main difference with respect the two-point correlators calculated in [35] is that in this case the Toeplitz structure of the matrix is no longer valid.
+
+References
+[1] Nielsen M A and Chuang I 2000 Quantum Computation and Quantum Communication (Cambridge: Cambridge University Press)
+[2] Amico L, Fazio R, Osterloh A and Vedral V 2007 Entanglement in many-body systems Preprint quantph/0703044
+[3] Osterloh A, Amico L, Falci G and Fazio R 2002 Nature 416 608 [4] Osborne T J and Nielsen M A 2002 Phys. Rev. A 66 032110 [5] Vidal G, Latorre J I, Rico E and Kitaev A 2003 Phys. Rev. Lett. 90 227902 [6] Osborne T J and Verstraete F 2006 Phys. Rev. Lett. 96 220503 [7] Coffmann V, Kundu J and Wootters W K 2000 Phys. Rev. A 61 052306 [8] Roscilde T, Verrucchi P, Fubini A, Haas S and Tognetti V 2004 Phys. Rev. Lett. 93 167203 [9] Anfossi A et al 2005 Phys. Rev. Lett. 95 056402 [10] de Oliveira T R, Rigolin G, de Oliveira M C and Miranda E 2006 Phys. Rev. Lett. 97 170401 [11] Wei T C, Das D, Mukhopadyay S, Vishveshwara S and Goldbart P M 2005 Phys. Rev. A 71 060305 [12] Barnum H, Knill E, Ortiz G, Somma R and Viola L 2004 Phys. Rev. Lett. 92 107902 [13] Somma R, Ortiz G, Barnum H, Knill E and Viola L 2004 Phys. Rev. A 70 042311 [14] Montangero S and Viola L 2006 Phys. Rev. A 73 040302 [15] Guehne O, Tóth G and Briegel H J 2005 New J. Phys. 7 229 [16] Guehne O and Tóth G 2006 Phys. Rev. A 73 052319 [17] Facchi P, Florio G and Pascazio S 2006 Phys. Rev. A 74 042331
+Costantini G, Facchi P, Florio G and Pascazio S 2006 Preprint quant-ph/0612098 [18] Lunkes C, Brukner C and Vedral V 2005 Phys. Rev. Lett. 95 030503 [19] Vértesi V 2007 Preprint quant-ph/0701246 [20] Horodecki M et al 1998 Phys. Rev. Lett. 80 5239–42 [21] Dür W and Cirac J I 2000 Phys. Rev. A 61 042314 [22] Horodecki R, Horodecki P, Horodecki M and Horodecki K 2007 Preprint quant-ph/0702225v2 [23] Horodecki M, Horodecki P and Horodecki R 1999 Phys. Rev. Lett. 82 1056 [24] Horodecki K, Horodecki M, Horodecki P and Oppenheim J 2005 Phys. Rev. Lett. 94 160502 [25] Masanes L 2006 Phys. Rev. Lett. 96 150501 [26] Hyllus P, Moura Alves C, Bruss D and Macchiavello C 2004 Phys. Rev. A 70 032316
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+
+12
+[27] Wootters W K 1998 Phys. Rev. Lett. 80 2245 [28] Bennett C H et al 1996 Phys. Rev. A 53 2046 [29] Dür W, Cirac J I, Lewenstein M and Bruss D 2000 Phys. Rev. A 61 062313 [30] Dür W 2001 Phys. Rev. Lett. 87 230402 [31] Masanes L 2006 Phys. Rev. Lett. 97 050503 [32] Vidal G and Werner R F 2002 Phys. Rev. A 65 032314 [33] Eisert J 2006 Preprint quant-ph/0610253 [34] Acín A, Bruss D, Lewenstein M and Sanpera A 2001 Phys. Rev. Lett. 87 040401 [35] Ou Y and Fan H 2007 Preprint quant-ph/0702127v4 [36] Lieb E, Schulz T and Mathis D 1961 Ann. Phys. 60 407
+Pfeuty P 1970 Ann. Phys. 57 79 Barouch E and McCoy B M 1971 Phys. Rev. A 3 786 [37] Amico L et al 2006 Phys. Rev. A 74 022322 [38] Kurmann J, Thomas H and Müller G 1982 Physica A 112 235 [39] Its A R, Jin B-Q and Korepin V E 2005 J. Phys. A: Math. Gen. 38 2975-90 [40] Leinaas J M et al 2006 Preprint quant-ph/0605079 [41] Tóth G et al 2007 Preprint quant-ph/0702219 [42] Bennett C H et al 1999 Phys. Rev. Lett. 82 5385 Bravyi S 2004 Quantum Inform. Process. 3 309 [43] Lohmayer R, Osterloh A, Siewert J and Uhlmann A 2006 Phys. Rev. Lett. 97 260502 [44] Korepin V 2004 Phys. Rev. Lett. 97 096402 Jin B-Q and Korepin V E 2004 J. Stat. Phys. 116 79 Plenio M B et al 2005 Phys. Rev. Lett. 94 060503 Wolf M M 2006 Phys. Rev. Lett. 96 010404 [45] Audenaert K et al 2002 Phys Rev. A 66 042327 [46] Latorre J I, Rico E and Vidal G 2004 Quantum Inform. Comput. 4 048
+New Journal of Physics 9 (2007) 322 (http://www.njp.org/)
+

@@ -1,0 +1,180 @@
+PRL 100, 135701 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 4 APRIL 2008
+
+Molybdenum at High Pressure and Temperature: Melting from Another Solid Phase
+
+A. B. Belonoshko,1,2 L. Burakovsky,3 S. P. Chen,3 B. Johansson,1,4 A. S. Mikhaylushkin,5 D. L. Preston,6 S. I. Simak,5 and D. C. Swift6
+1Applied Materials Physics, Department of Material Science and Engineering, The Royal Institute of Technology,
+10044 Stockholm, Sweden 2Institute of Theoretical Physics, AlbaNova University Center, The Royal Institute of Technology, 10691 Stockholm, Sweden
+3Theoretical Division, Los Alamos National Laboratory, Los Alamos, New Mexico 87545, USA 4Condensed Matter Theory Group, Department of Physics, Box 530, Uppsala University, 75121 Uppsala, Sweden
+5Department of Physics, Chemistry and Biology (IFM), Linko¨ping University, 58183 Linko¨ping, Sweden 6Physics Division, Los Alamos National Laboratory, Los Alamos, New Mexico 87545, USA (Received 15 October 2007; published 3 April 2008)
+The Gibbs free energies of bcc and fcc Mo are calculated from ﬁrst principles in the quasiharmonic approximation in the pressure range from 350 to 850 GPa at room temperatures up to 7500 K. It is found that Mo, stable in the bcc phase at low temperatures, has lower free energy in the fcc structure than in the bcc phase at elevated temperatures. Our density-functional-theory-based molecular dynamics simulations demonstrate that fcc melts at higher than bcc temperatures above 1.5 Mbar. Our calculated melting temperatures and bcc-fcc boundary are consistent with the Mo Hugoniot sound speed measurements. We ﬁnd that melting occurs at temperatures signiﬁcantly above the bcc-fcc boundary. This suggests an explanation of the recent diamond anvil cell experiments, which ﬁnd a phase boundary in the vicinity of our extrapolated bcc-fcc boundary.
+
+DOI: 10.1103/PhysRevLett.100.135701
+
+PACS numbers: 64.10.+h, 64.70.Dÿ, 64.70.Kÿ, 71.15.Pd
+
+Extensive experimental work [1–6] and many theoretical studies [7–17] of the phase diagram of Mo have been carried out. It has been established both theoretically [15] and experimentally [5] that at low temperatures (T) Mo is stable in the bcc phase up to a pressure (P) of about 7 Mbar (1 Mbar  100 GPa), where it transforms to the fcc phase. Sound speed measurements in Mo under shock compression show that the Hugoniot ﬁrst crosses a phase boundary at P  2:1 Mbar at an estimated T  4100 K, and that it crosses a second phase boundary at P  3:9 Mbar at an estimated T  10 000 K [2]. The lower point was interpreted as a bcc-solid transition, while the higher point was assumed to be melting. More recently, Errandonea et al. obtained diamond anvil cell (DAC) data on the melting temperature (Tm) of Mo to 1 Mbar [6]. Their DAC data are inconsistent with the shock-wave (SW) data [2]. The DAC melting curve has a very small slope—Tm varies from 2900 K at P  0 to 3100 K at 1 Mbar—which approaches zero at high P, whereas the SW data imply a mean slope of 18 K GPaÿ1 over the P interval 0 – 4 Mbar. Extrapolation of the DAC melt curve to 2.1 Mbar gives a melting T of approximately 3300 K, which is near but somewhat below the transition identiﬁed as solid-solid in the SW data. Consequently, Errandonea et al. conclude that melting at 2.1 Mbar had been misinterpreted by Hixson et al. as a solid-solid transition, and that the high-P transition reported in [2] does not appear to be melting.
+On the other hand, there are several reasons to question these conclusions of Errandonea et al. First, it is possible that the DAC Mo sample ﬂows, not because of melting, but because of internal nonhydrostatic stresses associated with
+
+a solid-solid phase transformation [18,19]. Also we note that observed or predicted T-induced solid-solid transitions in a number of materials other than Mo have been reinterpreted by the DAC technique [6] as melting; examples include MgO [20 –22], Fe [23–25], and Xe [26,27]. In every case where a DAC melting curve exhibits an unusually low Clapeyron slope, there is independent evidence for a T-induced solid-solid transition. Quite remarkably, when theory does not predict a solid-solid transition, the theoretical and DAC melting curves are in very good agreement, as is the case for NaCl [20], MgSiO3 perovskite [28], SiO2 [29], Al2O3 [30], Al [31], and Cu [32], to name a few. In view of these considerations, it is quite possible that some, if not all, low-slope DAC melting curves are in fact solid-solid phase boundaries. In particular, it is our contention that the DAC melting curve of Mo at high P is essentially a bcc-solid phase boundary [15], and that the original interpretation of the SW data on Mo [2,4] is correct.
+Even though the low-T fcc phase ﬁeld of Mo lies above 7 Mbar [15], we decided to compute the Gibbs free energies of the fcc and bcc phases over the P range 0 –8 Mbar. The free energies were calculated in quasiharmonic approximation within the framework of the frozen-core allelectron projector augmented wave method [33], as implemented in the Vienna ab initio simulation package (VASP) [34]. The energy cutoff was set to 400 eV. Exchange and correlation potentials were treated within the generalized gradient approximation [35]. The semicore 4p states of Mo were treated as valence. The integration over the Brillouin zone (BZ) was based on the Monkhorst-Pack scheme [36],
+
+0031-9007= 08=100(13)=135701(4)
+
+135701-1
+
+© 2008 The American Physical Society
+
+PRL 100, 135701 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 4 APRIL 2008
+
+which speciﬁes a ﬁne grid of k points in the irreducible part of the BZ. Relaxation procedures and force calculations at zero T were carried out according to the Methfessel-Paxton scheme [37], while accurate total energy calculations were performed by means of the linear tetrahedron method with Blo¨chl’s correction [38]. All necessary convergence tests were performed; the total and free energies were converged to within 0:5 meV=atom. The convergence of the vibrational free energies of the fcc and bcc structures with respect to the k point grid and the energy cut-off was attained. The phonon frequency calculations were carried out in the framework of the supercell approach using the small displacement method described in detail in Ref. [39]. To maintain the high accuracy indicated above we used 3  3  3 supercells. Forces induced by small atomic displacements were calculated using the VASP program. The free energy was calculated as the sum of the electronic and vibrational contributions. The equation of state was obtained by accurate numerical interpolation of the calculated Helmholtz free energies using the Birch-Murnaghan equation [40].
+Under ambient conditions the fcc structure is dynamically unstable, that is, imaginary frequencies are present in its phonon spectrum. Under compression at low T the imaginary frequencies decrease in magnitude and ﬁnally disappear at about 350 GPa (V  10:2 A 3), indicating that the fcc structure becomes dynamically, though not thermodynamically, stable. In addition, as P increases from zero, the low-T free energy difference between the bcc and fcc structures smoothly decreases to zero at roughly 7 Mbar. At higher P, fcc is the more stable structure. It should be stressed that both the bcc and fcc phases are dynamically stable from 350 GPa to the highest P considered in this Letter, namely, 850 GPa; hence, the free energies can be calculated in the quasiharmonic approximation over this P range. The difference of the calculated Gibbs free energies is shown in Fig. 1. The corresponding bcc-fcc phase boundary, which consists of two disjoint curves, is displayed in Fig. 2. The fcc structure occupies the lower right region of the ﬁgure at P > 700 GPa. The other piece of the bcc-fcc phase boundary running from approximately (400 GPa, 6000 K) to (650 GPa, 7500 K) shows that fcc is more stable than bcc at high T. This is consistent with our fcc and bcc Tm calculations described below.
+To check whether the relative stability of two solid phases is affected by anharmonism we performed MD simulations of melting of each of the two phases; the structure with the higher Tm is the more stable phase. We performed ab initio molecular dynamics (AIMD) simulations with the same ab initio method as described above for the phonon calculations.
+The Tms of fcc Mo were calculated using the Z method [41] (we have named it so because of the characteristic Z-letter shape of the isochore) in the NVE (N number of atoms, V volume, E energy) ensemble. In the Z method the
+
+Gibbs energy difference
+bcc − fcc
+100
+
+60
+
+20
+
+−20
+
+GBCC − GFCC (meV)
+
+−60 −100 −140 −180 −220
+
+25 K 1000 K 2000 K 3000 K 4000 K 5000 K 5500 K 6000 K 6500 K 7000 K
+
+−260
+
+−300 350 400 450 500 550 600 650 700 750 800 850 Pressure (GPa)
+FIG. 1 (color online). The difference of the Gibbs free energies of the bcc and fcc phases of Mo as a function of pressure for several temperatures. A positive difference indicates that the fcc phase is more stable.
+
+initial conﬁguration of the system is solid, and its ﬁnal state
+lies on the isochore corresponding to its ﬁxed volume.
+Such an isochore consists of three pieces: (i) crystalline,
+which in turn consists of two parts: a solid one, and a
+superheated solid one that extends into the liquid region
+of the phase diagram above the melting point, (ii) liquid,
+and (iii) an intermediate piece with a negative slope that
+corresponds to a transition from the highest superheated
+solid state down to the melting curve. The equilibrium
+melting point (Pm, Tm) is then bracketed by (Ps, Ts) and (Pl, Tl), where the former corresponds to the highest state on the solid part of the crystalline piece, while the latter to
+the lowest state on the liquid piece, as attained in the AIMD simulations. We take Pm  Ps  Pl=2 and Tm  Ts  Tl=2 with errors bars Pm  Pl ÿ Ps=2 and Tm  Tl ÿ Ts=2. The Z method is described in detail in Ref. [41], where it was developed and carefully tested. It
+is important to note that the Z method is different from the
+so called ‘‘heat-until-it-yields’’ ([42]) method in that the
+latter does not allow one to eliminate the effect of
+superheating. We performed AIMD simulations for a 108-atom (3 
+3  3 unit cells) fcc system at three volumes: 17.23, 12.66, and 9:826 A 3=atom. The corresponding Ps at high T (close
+to Tm) are equal to approximately 5, 130, and 400 GPa, respectively. At each volume we performed simulations for
+
+135701-2
+
+PRL 100, 135701 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 4 APRIL 2008
+
+15 000
+
+Temperature (K)
+
+10 000
+
+5000 0 0
+
+200
+
+− bcc−fcc boundary − bcc−liquid, fit − fcc−liquid, fit − bcc melting (54) − bcc melting (2 phase, 108) − bcc melting (128) − fcc melting ( 64)
+
+− fcc melting ( 108) − fcc melting (32) − bcc melting (64)
+
+400
+
+600
+
+Pressure (GPa)
+
+800
+
+FIG. 2 (color online). Data on the phase stability of Mo. The bcc-fcc phase boundary was constructed using the results shown in Fig. 1. Circles, diamonds, triangles and squares represent melting conditions obtained from AIMD for bcc and fcc Mo; the legend indicates the number of atoms in the AIMD simulation; except one point (bcc, 2-phase method) the Z method was used. Unless shown explicitly, the error bar is smaller than the size of the corresponding symbol. Our fcc and bcc melting curves obtained from AIMD simulations are shown as solid thick and thin curves, respectively. The two points with temperature error bars are the solid-solid and solid-liquid transitions as measured in shock-wave experiments [2,4]; the corresponding phases on the Hugoniot are shown as a solid curve (bcc phase), long dashed curve (another solid phase), and short-dashed curve (liquid).
+
+several initial Ts in order to closely bracket the Tms. The time step in our simulations was 1 fs, and the energy drift
+
+with such a small time step was negligible. In each of the
+
+simulations equilibrium was achieved in 2500–3000 time
+
+steps. Ps were calculated as time averages over additional
+
+MD runs of a few hundred time steps performed after the
+
+systems had already reached equilibrium. The results of
+
+these simulations are shown in Fig. 2. Fitting the well-
+
+known Simon form to our 108-atom, AIMD data yields our
+
+fcc Mo melting curve (P in GPa, Tm in K)
+
+
+
+
+
+TmP  2585
+
+1 P 44:0
+
+0:61
+:
+
+(1)
+
+The dependence of Tm on system size was checked by performing additional simulations for both 64-atom (constructed as a 4  4  4 60-degree simple rhombohedral cell) and 32-atom (2  2  2 unit cells) fcc systems, at 17:23 A 3=atom (P  5 GPa) and 8:984 A 3=atom (P  570 GPa), and 8:582 A 3=atom (P  660 GPa), respec-
+tively. Size effects turn out to be negligible: the low-P
+108-atom and 64-atom results overlap within uncertainties,
+and both the high-P 64-atom and 32-atom points lie very
+close to the 108-atom melting curve, Eq. (1); see Fig. 2.
+
+We also performed three AIMD simulations of a 54-atom (3  3  3 unit cells) bcc system, a single simulation of both 64-atom (constructed as a 4  4  4 109.5-degree simple rhombohedral cell) and 128-atom (4  4  4 unit cells) bcc systems to check for size effects, and a 2-phase simulation of a 108-atom (54-atom solid plus 54-atom liquid) bcc cell to check for consistency of the Z and 2-phase methods. Simulations were performed at volumes of 17.97, 13.50, and 9:842 A 3=atom for the 54-atom system, 8:992 A 3=atom for the 64-atom system, and 10:98 A 3=atom for the 128-atom system. The corresponding Ps are equal to about ÿ3, 90, 390, and 560, and 250 GPa, respectively. The 2-phase 108-atom system was simulated at 13:50 A 3=atom (P  90 GPa). The results of these simulations are also shown in Fig. 2. They demonstrate that (i) both Z and two-phase methods are indeed consistent with each other, and (ii) as for fcc, the bcc size effects are negligible. Our bcc melting curve TmP  28941  35P:00:47 is in good agreement with that recently calculated by Cazorla et al. [16], TmP  28941  P=37:20:43, which gives bcc Tms 10% lower than ours at high P. Comparison of our fcc and bcc melting curves shows that fcc melts at higher T than bcc at high P, which means that it is more stable than bcc, in agreement with our quasiharmonic phonon calculations discussed above.
+Using the results of recent shock-wave experiments and previous theoretical studies [43,44], we obtained the following analytic form for the Mo Hugoniot, THP  293  0:424  P1:688 (to 5 Mbar), which is shown in Fig. 2, along with the corresponding 16% error bars at the transition Ps of 2.1 and 3.9 Mbar [2].
+A linear extrapolation of the high-T bcc-fcc boundary to lower P passes very close to the bcc-fcc shock-wave point, though it remains somewhat below. We note, however, that the actual bcc-fcc boundary may be lower than that calculated in the quasiharmonic approximation because of anharmonicity. In view of the uncertainty in the estimated T of the solid-solid transition point on the shock Hugoniot and anharmonic corrections to our calculated bcc-fcc boundary, the agreement between our AIMD-based melting curves, our quasiharmonic bcc-fcc boundary, and the shock-wave data is very good. The solid-solid transition on the Hugoniot might in fact involve a phase more stable than fcc, in which case the transition T would be lower, as in Fig. 2.
+In summary, using well established methods we discovered that the Mo fcc melting curve lies above the bcc one at P * 1:5 Mbar, and therefore fcc is more stable than bcc at elevated T and P. This is quite consistent with our quasiharmonic calculations for the bcc-fcc boundary, which makes our ﬁndings very robust. Other crystal structures may have even higher Tm than fcc but our work, for the ﬁrst time, conclusively demonstrates that there is at least one other solid phase above the bcc stability ﬁeld at high P.
+
+135701-3
+
+PRL 100, 135701 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 4 APRIL 2008
+
+Computations were performed using the facilities at the Swedish National Infrastructure for Computing (SNIC) and the LANL Coyote cluster. We also wish to thank the Swedish Research Council (VR) and the Swedish Foundation for Strategic Research (SSF) for ﬁnancial support.
+[1] A. C. Mitchell and W. J. Nellis, J. Appl. Phys. 52, 3363 (1981).
+[2] R. S. Hixson et al., Phys. Rev. Lett. 62, 637 (1989). [3] Y. K. Vohra and A. L. Ruoff, Phys. Rev. B 42, 8651 (1990). [4] R. S. Hixson and J. N. Fritz, J. Appl. Phys. 71, 1721
+(1992). [5] A. L. Ruoff, H. Xia, and Q. Xia, Rev. Sci. Instrum. 63,
+4342 (1992). [6] D. Errandonea et al., Phys. Rev. B 63, 132104 (2001). [7] B. K. Godwal and R. Jeanloz, Phys. Rev. B 41, 7440
+(1990). [8] J. A. Moriarty, Phys. Rev. B 45, 2004 (1992). [9] N. Singh, Phys. Rev. B 46, 90 (1992). [10] S. M. Foiles, Phys. Rev. B 48, 4287 (1993). [11] J. A. Moriarty, Phys. Rev. B 49, 12 431 (1994). [12] P. So¨derlind et al., Phys. Rev. B 49, 9365 (1994). [13] N. E. Christensen, A. L. Ruoff, and C. O. Rodriguez, Phys.
+Rev. B 52, 9121 (1995). [14] Y. Wang, D. Chen, and X. Zhang, Phys. Rev. Lett. 84,
+3220 (2000). [15] A. B. Belonoshko, S. I. Simak, A. E. Kochetov, B.
+Johansson, L. Burakovsky, and D. L. Preston, Phys. Rev. Lett. 92, 195701 (2004). [16] C. Cazorla, M. J. Gillan, S. Taioli, and D. Alfe´, J. Chem. Phys. 126, 194502 (2007). [17] A. K. Verma, R. S. Rao, and B. K. Godwal, J. Phys. Condens. Matter 16, 4799 (2004). [18] A. B. Belonoshko and L. Dubrovinsky, Am. Mineral. 82, 441 (1997). [19] A. B. Belonoshko, R. Ahuja, and B. Johansson, Phys. Rev. B 61, 11 928 (2000). [20] A. B. Belonoshko and L. S. Dubrovinsky, Am. Mineral. 81, 303 (1996). [21] L. Zhang, Z. Gong, and Y. Fei, in Proceedings of the AGU Joint Assembly, Baltimore, MD, May 23–26, No. M34B01 (AGU, Washington, DC, 2006), unpublished. [22] A. Aguado and P. A. Madden, Phys. Rev. Lett. 94, 068501 (2005).
+
+[23] J. M. Brown and B. G. McQueen, J. Geophys. Res. 91, 7485 (1986).
+[24] A. B. Belonoshko, R. Ahuja, and B. Johansson, Phys. Rev. Lett. 84, 3638 (2000); A. B. Belonoshko, R. Ahuja, and B. Johansson, Nature (London) 424, 1032 (2003).
+[25] L. S. Dubrovinsky et al., Science 316, 1880 (2007). [26] A. B. Belonoshko, R. Ahuja, and B. Johansson, Phys. Rev.
+Lett. 87, 165505 (2001); A. B. Belonoshko et al., J. Chem. Phys. 117, 7233 (2002); A. B. Belonoshko et al., Phys. Rev. B 74, 054114 (2006). [27] F. Saija and S. Prestipino, Phys. Rev. B 72, 024113 (2005). [28] A. B. Belonoshko, Geochim. Cosmochim. Acta 58, 4039 (1994); A. B. Belonoshko et al., Phys. Rev. Lett. 94, 195701 (2005). [29] A. B. Belonoshko, Geoch. Cosmochim. Acta 58, 4039 (1994). [30] A. B. Belonoshko, Phys. Chem. Miner. 25, 138 (1998); R. Ahuja, A. B. Belonoshko, and B. Johansson, Phys. Rev. E 57, 1673 (1998). [31] L. Vocadlo and D. Alfe´, Phys. Rev. B 65, 214105 (2002). [32] A. B. Belonoshko et al., Phys. Rev. B 61, 3838 (2000); L. Vocadlo, D. Alfe´, G. D. Price, and M. J. Gillan, J. Chem. Phys. 120, 2872 (2004). [33] P. E. Blo¨chl, Phys. Rev. B 50, 17953 (1994); G. Kresse and D. Joubert, Phys. Rev. B 59, 1758 (1999). [34] G. Kresse and J. Hafner, Phys. Rev. B 48, 13 115 (1993); G. Kresse and J. Furthmu¨ller, Comput. Mater. Sci. 6, 15 (1996). [35] Y. Wang and J. P. Perdew, Phys. Rev. B 44, 13298 (1991); J. P. Perdew et al., Phys. Rev. B 46, 6671 (1992). [36] H. J. Monkhorst and J. D. Pack, Phys. Rev. B 13, 5188 (1976). [37] M. Methfessel and A. T. Paxton, Phys. Rev. B 40, 3616 (1989). [38] P. E. Blo¨chl, O. Jepsen, and O. K. Andersen, Phys. Rev. B 49, 16 223 (1994). [39] G. Kresse and J. Furthmu¨ller, Europhys. Lett. 32, 729 (1995); A. van de Walle and G. Ceder, Rev. Mod. Phys. 74, 11 (2002). [40] F. D. Murnaghan, Proc. Natl. Acad. Sci. U.S.A. 30, 244 (1944); F. Birch, J. Geophys. Res. 83, 1257 (1978). [41] A. B. Belonoshko, N. V. Skorodumova, A. Rosengren, and B. Johansson, Phys. Rev. B 73, 012201 (2006). [42] A. B. Belonoshko, Am. Mineral. 86, 193 (2001). [43] V. W. Yuan et al., Phys. Rev. Lett. 94, 125504 (2005), and references therein. [44] D. C. Swift, A. Seifter, D. B. Holtkamp, and D. A. Clark, Phys. Rev. B 76, 054122 (2007).
+
+135701-4
+

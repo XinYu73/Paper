@@ -1,0 +1,511 @@
+PRL 100, 080501 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+Scaling Laws for the Decay of Multiqubit Entanglement
+
+L. Aolita,1 R. Chaves,1 D. Cavalcanti,2 A. Ac´ın,2,3 and L. Davidovich1 1Instituto de F´ısica, Universidade Federal do Rio de Janeiro. Caixa Postal 68528, 21941-972 Rio de Janeiro, RJ, Brasil
+2ICFO-Institut de Ciencies Fotoniques, Mediterranean Technology Park, 08860 Castelldefels (Barcelona), Spain 3ICREA-Institucio´ Catalana de Recerca i Estudis Avanc¸ats, Lluis Companys 23, 08010 Barcelona, Spain (Received 23 October 2007; published 27 February 2008)
+We investigate the decay of entanglement of generalized N-particle Greenberger-Horne-Zeilinger (GHZ) states interacting with independent reservoirs. Scaling laws for the decay of entanglement and for its ﬁnite-time extinction (sudden death) are derived for different types of reservoirs. The latter is found to increase with N. However, entanglement becomes arbitrarily small, and therefore useless as a resource, much before it completely disappears, around a time which is inversely proportional to the number of particles. We also show that the decay of multiparticle GHZ states can generate bound entangled states.
+
+DOI: 10.1103/PhysRevLett.100.080501
+
+PACS numbers: 03.67.Mn, 03.65.Ud, 03.65.Yz
+
+Introduction.—Entanglement has been identiﬁed as a key resource for many potential practical applications in quantum information and communication [1]. It is thus of fundamental importance to study the entanglement properties of quantum states in realistic situations, where the system unavoidably loses its coherence due to interactions with the environment. In this context a peculiar dynamical feature of entangled states has been experimentally conﬁrmed for the case of two qubits (two-level systems) [2]: even when the constituent parts of an entangled state decay asymptotically in time, entanglement may disappear at a ﬁnite time [3–9]. The phenomenon of ﬁnite-time disentanglement, also known as entanglement sudden death (ESD) [2,7–9], illustrates the fact that the global behavior of an entangled system, under the effect of local environments, may be markedly different from the individual and local behavior of its constituents.
+Since the speedup gained when using quantummechanical systems, instead of classical ones, to process information is only considerable in the limit of large-scale information processing, it is fundamental to understand the scaling properties of disentanglement for multiparticle systems. Important steps in this direction were given in Refs. [3–5]. In particular, it was shown in Ref. [3] that Greenbergper-Horne-Zeilinger (GHZ) states, j i  j0i
+N  j1i
+N= 2, subject to the action of individual depolarization [1], undergo ESD, that the last bipartitions to loose entanglement are the most balanced ones, and that the time at which such entanglement disappears grows with the number N of particles in the system. Soon afterwards it was shown in Ref. [5] that the ﬁrst bipartitions to loose entanglement are the least balanced ones (one particle vs the others), the time at which this happens decreasing with N. A natural question arises from these considerations: is the ESD time a truly physically relevant quantity to assess the robustness of multiparticle entanglement?
+In this Letter we show that, for an important family of genuine-multipartite entangled states, the answer is no.
+
+For several kinds of decoherence, we derive analytical expressions for the time of disappearance of bipartite entanglement, which is found to increase with N. However, we show that the time at which bipartite entanglement becomes arbitrarily small decreases with N, independently of ESD. This implies that for multiparticle systems, the amount of entanglement can become too small for any practical application long before it vanishes. In addition, for some speciﬁc cases, we characterize not only the disappearance of bipartite entanglement but also attest full separability. As a by-product we show that in several cases the action of the environment can naturally lead to bound entangled states [10], in the sense that, for a period of time, it is not possible to extract pure-state entanglement from the system through local operations and classical communication, even though the state is still entangled.
+The exemplary states we take to analyze the robustness of multipartite entanglement are generalized GHZ states: j 0i  j0i
+N  j1i
+N, with  and  2 C such that jj2  jj2  1, thus extending the results of Refs. [3,5]. Although generalized GHZ states represent just a restricted class of states, the study of their entanglement properties is important in its own right: these can be seen as simple models of the Schro¨dinger-cat state [11], they are crucial for communication problems [12], and such states have been experimentally produced in atomic and photonic systems of up to N  6 [13].
+Decoherence models.—We consider three paradigmatic types of noisy channels: depolarization, dephasing, and a thermal bath at arbitrary temperature [generalized amplitude-damping (GAD) channel]. We consider N qubits of ground state j0i and excited state j1i without mutual interaction, each one individually coupled to its own noisy environment. The dynamics of the ith qubit, 1  i  N, is governed by a master equation that gives rise to a completely positive trace-preserving map (or channel) Ei describing the evolution as i  Ei0i , where 0i and i are, respectively, the initial and evolved reduced states of the ith subsystem.
+
+0031-9007= 08=100(8)=080501(4)
+
+080501-1
+
+© 2008 The American Physical Society
+
+PRL 100, 080501 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+Channel GAD is given, in the Born-Markov approximation, via its Kraus representation as [1,9]
+
+E Gi ADi  E0iEy0  E1iEy1  E2iEy2  E3iEy3 ; (1)
+
+wqith E0
+
+n1 2n1
+
+pqj0ih1j,
+
+Eq22nn11qj20nnih10 jp1pÿ1pÿj0pijh10ijh1jj,1ih1j,
+
+E1  and
+
+E3 
+
+n 2n1
+
+pj1ih0j
+
+being
+
+its
+
+Kraus
+
+operators.
+
+Here
+
+n
+
+is
+
+the mean number of excitations in the bath, p  pt 
+
+1 ÿ eÿ1=22n1t is the probability of the qubit exchang-
+
+ing a quantum with the bath at time t, and  is the zero-
+
+temperature dissipation rate. Channel (1) is a generaliza-
+
+tion to ﬁnite temperature of the purely dissipative
+
+amplitude-damping channel (AD), which is obtained
+
+from (1) in the zero- temperature limit n  0. On the other
+
+hand, the purely diffusive case is obtained from (1) in the
+
+composite limit n ! 1,  ! 0, and n  ÿ, where ÿ is
+
+the diffusion constant.
+
+The depolarizing (D) channel describes the situation in
+
+which the ith qubit remains untouched with probability
+
+1 ÿ p, or is depolarized (white noise)—meaning that its
+
+state is taken to the maximally mixed state —with proba-
+
+bility p. It can be expressed as
+
+E Di i  1 ÿ pi  p1=2;
+
+(2)
+
+where 1 is the identity operator. Finally, the phase damping (PD) (or dephasing) channel
+represents the situation in which there is loss of quantum coherence with probability p, but without any energy exchange. It is deﬁned as
+
+E Pi Di  1 ÿ pi  pj0ih0jij0ih0j  j1ih1jij1ih1j: (3)
+
+The parameter p in channels (1)–(3) is a convenient parametrization of time: p  0 refers to the initial time 0 and p  1 refers to the asymptotic t ! 1 limit.
+The density matrix corresponding to the initial state, 0  j 0ih 0j  jj2j0ih0j
+N  jj2j1ih1j
+N j0ih1j
+N  j1ih0j
+N, evolves in time into a mixed state  given simply by the composition of all N individual maps:   E1E2 . . . EN0, where, in what follows, Ei will either be given by Eqs. (1), (2), or (3).
+Entanglement sudden death.—Here we will use the negativity, deﬁned as the absolute value of the sum of the negative eigenvalues of the partially transposed density matrix, as a quantiﬁer of entanglement [14]. In general, the negativity fails to quantify the entanglement of some entangled states (those ones with positive partial transposed) in dimensions higher than six [15]. However, for the states considered here, the task of calculating the negativity reduces to a four-dimensional problem. So, in the considered cases, the negativity brings all the relevant information about the separability in bipartitions of the states; i.e., null negativity means separability in the corresponding partition.
+
+Application of channel (1) to every qubit multiplies the
+
+off-diagonal elements of 0 by the factor 1 ÿ pN=2,
+whereas application of channels (2) or (3), by the factor 1 ÿ pN. The diagonal terms j0ih0j
+N and j1ih1j
+N in
+
+turn give rise to new diagonal terms of the form j0i  h0j
+Nÿk 
+ j1ih1j
+k, for 1  k < N, and all permutations
+
+thereof, with coefﬁcients k given below. In what follows we present the main results concerning the entanglement
+
+behavior of these states.
+
+Generalized amplitude-damping channel: Consider a
+
+bipartition k: N ÿ k of the quantum state. For channel (1),
+
+the coefﬁcients Gk AD are given by Gk AD  jj2xNÿkyk 
+
+jj2wNÿkzk,
+
+with
+
+0
+
+
+
+x
+
+
+
+ÿpn 2n1
+
+
+
+1,
+
+y
+
+
+
+pn 2n1
+
+,
+
+w
+
+
+
+pn1 2n1
+
+,
+
+and
+
+z
+
+
+
+ÿpn1 2n1
+
+
+
+1
+
+
+
+1.
+
+From
+
+them,
+
+the
+
+minimal
+
+eigen-
+
+value of the states’ partial transposition, Gk ADp, is imme-
+
+diately obtained for the generaliqzedamplitude-damping
+
+channel [16]: Gk ADp  k ÿ 2k ÿ k. Here k 
+
+1=2Gk ADp  GNAÿDk p and k  Gk ADpGNAÿDk p ÿ jj21 ÿ pN. One can see that jG1 ADpj 
+
+jG2 ADpj  . . .  jGNA=2Dpj, for N even, and
+
+jG1 ADpj  jG2 ADpj  :::  jGNAÿD1=2pj, for N odd.
+
+The condition for disappearance of bipartite entangle-
+
+ment, Gk ADp  0, is a polynomial equation of degree 2N. In the purely dissipative case n  0, a simple analyti-
+
+cal solution yields the corresponding critical probability
+
+pAc D for the amplitude-decay channel (with  Þ 0):
+
+pAc Dk  minf1; j=j2=Ng:
+
+(4)
+
+For jj < jj probability (4) is always smaller than 1, meaning that bipartite entanglement disappears before the steady state is asymptotically reached. Thus, condition (4) is the direct generalization to the multiqubit case of the ESD condition of Refs. [2,7] for two qubits subject to amplitude damping. A remarkable feature about condition (4) is that it displays no dependence on the number of qubits k of the subpartition. That is, the negativities corresponding to bipartitions composed of different numbers of qubits all vanish at the same time, even though they follow different evolutions. In the Appendix we prove that at this point the state is fully separable.
+For arbitrary temperature, it is enough to consider the case k  N=2, as the entanglement corresponding to the most balanced bipartitions is the last one to disappear (we take N even from now on just for simplicity). The condition GNA=2Dp  0 reduces to a polynomial equation of degree N, which for the purely diffusive case yields
+q pDc iffN=2  1  2jj2=N ÿ 1  4jj4=N: (5)
+
+Depolarizing channel: For channel (2), the coefﬁcients
+
+Dk of  are given by p2kp2Nÿk. With this,
+
+Dk  jj2 it is easy
+
+1 to
+
+ÿ p2Nÿkp2k  show that also
+
+jj21 ÿ here the
+
+negativity associated to the most balanced bipartition is
+
+always higher than the others, while the one corresponding
+
+080501-2
+
+PRL 100, 080501 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+to the least balanced partition is the smallest one. The
+
+0.030
+
+critical probability for the disappearance of entanglement
+
+0.025
+
+in the N=2: N=2 partition is given by
+
+0.020
+
+pDc N=2  1 ÿ 1  4jj2=Nÿ1=2:
+
+(6)
+
+0.015
+
+Depolarization on 4 Qubits
+Balanced 2:2 qubit partitions
+
+Negativities
+
+Phase damping channel: Finally, for channel (3), whereas the off-diagonal terms of the density matrix evolve as mentioned before, all the diagonal ones remain the same, with PkD  0  PNDÿk for 1  k  N ÿ 1. In this case, PkDp  ÿjj1 ÿ pN. This expression is independent of k, and therefore of the bipartition, and for any  Þ 0 it vanishes only for p  1, i.e., only in the asymptotic time limit, when the state is completely separable: generalized GHZ states, subject to individual dephasing, never experience ESD.
+The environment as a creator of bound entanglement. — Some effort has been recently done in order to understand whether bound entangled (i.e., undistillable) states naturally arise from natural physical processes [17]. In this context, it has been found that different many-body models present thermal bound entangled states [17]. Here we show, in a conceptually different approach, that bound entanglement can also appear in dynamical processes, namely, decoherence.
+For all channels here considered, the property j1pj  j2pj  . . .  jN=2pj holds. Therefore, when j1pj  0, there may still be entanglement in the global state for some time afterwards, as detected by other partitions. When this happens, the state, even though entangled, is separable according to every 1:N ÿ 1 partition, and then no entanglement can be distilled by (single-particle) local operations.
+An example of this is shown in Fig. 1, where the negativity for partitions 1: N ÿ 1 anpdN=2: N=2 is plotted versus p, for N  4 and   1= 2  , for channel D. After the 1:3 negativity vanishes, the 2:2 negativity remains positive until p  pDc 2 given by Eq. (6). Between these two values of p, the state is bound entangled since it is not separable but no entanglement can be extracted from it locally. Therefore, the environment itself is a natural generator of bound entanglement. Of course, this is not the case for channels AD and PD, since for the former the state is fully separable at pAc Dk [see Eq. (4) and Appendix] while the latter never induces ESD.
+Does the time of ESD really matter for large N?— Inspection of critical probabilities (4)–(6) shows that in all three cases the ESD time grows with N. This might be interpreted as the state’s entanglement becoming more robust when the system’s size increases. However, what really matters is not that the initial entanglement does not disappear but that a signiﬁcant fraction of it remains, either to be directly used, or to be distilled without an excessively large overhead in resources. The idea is clearly illustrated in Fig. 2, where the negativity corresponding to the most balanced partitions is plotted versus p for different values of N. Even though the ESD time increases with N,
+
+0.010 0.005 Unbalanced 1:3 qubit partitions
+0.000 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49
+p
+FIG. 1. Negpativity as a function of p for a four-qubit GHZ state,   1= 2  , and independent D channels. A similar behavior is observed with channel GAD with n Þ 0, but the effect is not so marked (the smaller n, the weaker the effect).
+
+the time at which entanglement becomes arbitrarily small
+
+decreases with it. The channel used in Fig. 2 is the depola-
+
+rizing channel, nevertheless the behavior is absolutely
+
+general, as discussed in the following.
+
+For an arbitrarily small real  > 0, and all states for
+
+which jj Þ 0, the critical probability p at which N=2p  N=20, becomes inversely proportional
+
+to N in the limit of large N. For channel (1), this is
+
+shown by setting k  N=2 in Gk ADp, which simpliﬁes to GNA=2Dp  ÿjj1 ÿ pN=2  jj2xN=2yN=2  jj2wN=2zN=2. For any mean bath excitation n, xN=2 and
+
+zN=2 are at most of the same order of magnitude as
+
+1 ÿ pN=2, whereas yN=2 and wN=2 are much smaller
+
+than 1. Therefore, for all states such that jj Þ 0
+
+we can neglect the last two terms and approximate
+
+GNA=2Dp  ÿjj21 ÿ pN=2. We set now GNA=2Dp 
+
+GNA=2D0
+
+)
+
+
+
+
+
+1
+
+ÿ
+
+pN=2
+
+)
+
+log
+
+
+
+N 2
+
+log1
+
+ÿ
+
+p
+
+.
+
+FIG. 2. Negativity versus p for N  4, 40, and 400, for channel D and for pthe most balanced partitions. In this graphic   1=3 and   8=3, but the same behavior is displayed for all
+other parameters and maps. The inset shows a magniﬁcation of the region in which jD2 pj vanishes. Even though jD20pj and jD200pj cross the latter and vanish much later, they become orders of magnitude smaller than their initial value long before
+reaching the crossing point.
+
+080501-3
+
+PRL 100, 080501 (2008)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 29 FEBRUARY 2008
+
+Since p  pGc ADN=2  1, we can approximate the logarithm on the right-hand side of the last equality by
+
+its Taylor expansion up to ﬁrst order in p and write
+
+log
+
+
+
+ÿ
+
+N 2
+
+p,
+
+implying
+
+that
+
+pG AD  ÿ2=N log.
+
+Similar reasonings applied to channels (2) and (3) lead to
+
+pD ;PDt  ÿ1=N log. These expressions assess the
+
+robustness of the state’s entanglement better than the
+
+ESD time. Much before ESD, negativity becomes arbi-
+
+trarily small. The same behavior is observed for all studied
+
+channels, and all states such that  Þ 0, despite the fact
+
+that for some cases, like for instance for channel (3), no
+
+ESD is observed. Furthermore, the presence of log in the
+
+above expression shows that our result is quite insensitive
+
+to the actual value of   1.
+
+Conclusions.—We probed the robustness of the entan-
+
+glement of generalized GHZ states of arbitrary number of
+
+particles, N, subject to independent environments. The
+
+states possess in general longer ESD time, the bigger N,
+
+but the time at which such entanglement becomes arbi-
+
+trarily small is inversely proportional to N. The latter time
+
+characterizes better the robustness of the state’s entangle-
+
+ment than the time at which ESD itself occurs. In several
+
+cases the action of the environment can naturally lead to
+
+bound entangled states. An open question still remains on
+
+how other genuinely multipartite entangled states, such as
+
+graph states, behave. W states on the other hand are ex-
+
+pected to be more robust, since they have always only one
+
+excitation, regardless of N [18]. For example, it is possible
+
+to show that, for W states, channel AD induces no ESD;
+
+however, the npega tivity of the least balanced partitions decays with 1= N [19]. This is another instance in which
+
+the ESD time is irrelevant to assess the robustness of
+
+multiparticle entanglement. Our results suggest that main-
+
+taining a signiﬁcant amount of multiqubit entanglement in
+
+macroscopic systems might be an even harder task than
+
+believed so far.
+
+We thank F. Mintert and A. Salles for helpful comments
+
+and FAPERJ, CAPES, CNPQ, Brazilian Millenium
+
+Institute for Quantum Information, EU QAP project,
+
+Spanish MEC under No. FIS2004-05639, and
+
+Consolider-Ingenio QOIT projects for ﬁnancial support.
+
+Appendix. —Here we prove that the amplitude-damping
+
+channel leads the generalized GHZ states to fully separable
+
+states when all of their bipartite entanglements vanish.
+
+The evolved density matrix can be written as   jj2j0ih0j
+N  s, where s is an unnormalized state. The goal is to show that s is fully separable. This is done by showing that s is obtained, with a certain probability, from a fully separable state  through a local positive-
+
+operator-valued measurement (POVM) [1]. Because only
+
+local operations are applied, we conclude that s, and thus , must be fully separable.
+
+The (unnormalized) state  is deﬁned as  
+
+2ÿN jj2 f1
+
+
+
+j=j
+
+j0ih1j
+N
+
+
+
+ 
+
+j1ih0j
+N g,
+
+being
+
+1
+
+the 2N  2N identity matrix. State  is GHZ diagonal
+
+(see deﬁnition in Ref. [20]) and all of its negativities
+
+are null, then  is fully separable [20]. Consider, for each
+
+qupbiti,the local PpOVMfAmig2m 1 with elements A1i 
+
+ pAc Dkj0ih0j  1 ÿ pAc Dkj1ih1j, where  is such
+
+that A1iy A1i  1, and A2iy A2i  1 ÿ A1iy A1i. Applying
+
+this POVM to every qubit of state  yields s when the
+
+measurement outcome is m  1 (corresponding to A1) for
+
+every qubit.
+
+ᮀ
+
+[1] M. A. Nielsen and I. L. Chuang, Quantum Computation and Quantum Information (Cambridge University Press, Cambridge, 2000).
+[2] M. P. Almeida et al., Science 316, 579 (2007). [3] C. Simon and J. Kempe, Phys. Rev. A 65, 052327 (2002). [4] A. R. R. Carvalho, F. Mintert, and A. Buchleitner, Phys.
+Rev. Lett. 93, 230501 (2004). [5] W. Du¨r and H.-J. Briegel, Phys. Rev. Lett. 92, 180403
+(2004); M. Hein, W. Du¨r, and H.-J. Briegel, Phys. Rev. A 71, 032350 (2005). [6] L. Dio´si, Irreversible Quantum Dynamics, edited by F. Benatti and R. Floreanini (Springer, Berlin, 2003); P. J. Dodd and J. J. Halliwell, Phys. Rev. A 69, 052105 (2004); T. Yu and J. H. Eberly, Phys. Rev. Lett. 93, 140404 (2004); M. F. Santos, P. Milman, L. Davidovich, and N. Zagury, Phys. Rev. A 73, 040305(R) (2006); M. O. Terra Cunha, New J. Phys. 9, 237 (2007). [7] T. Yu and J. H. Eberly, Phys. Rev. Lett. 97, 140403 (2006). [8] A. Al-Qasimi and D. F. V. James, arXiv:0707.2611 [Phys. Rev. A (to be published)]. [9] T. Yu and J. H. Eberly, arXiv:0707.3215. [10] M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev. Lett. 80, 5239 (1998). [11] E. Schro¨dinger, Naturwissenschaften 23, 807 (1935). [12] S. Bose, V. Vedral, and P. L. Knight, Phys. Rev. A 57, 822 (1998); M. Hillery, V. Buzˇek, and A. Berthiaume, Phys. Rev. A 59, 1829 (1999); E. D’Hondt and P. Panangaden, J. Quantum Inf. Comput. 6, 173 (2005). [13] D. Leibfried et al., Nature (London) 438, 639 (2005); Chao-Yang Lu et al., Nature Phys. 3, 91 (2007). [14] G. Vidal and R. F. Werner, Phys. Rev. A 65, 032314 (2002). [15] A. Peres, Phys. Rev. Lett. 77, 1413 (1996); M. Horodecki, P. Horodecki, and R. Horodecki, Phys. Rev. Lett. 80, 5239 (1998). [16] Since the analyzed states are permutationally invariant, Gk AD will correspond to the minimum eigenvalue of the matrix’s partial transposition according to all possible k: N ÿ k partitions. This is also true for the other channels. [17] D. Cavalcanti, A. Ferraro, A. Garc´ıa-Saez, and A. Ac´ın, arXiv:0705.3762; G. To´th, C. Knapp, O. Gu¨hne, and H. J. Briegel, Phys. Rev. Lett. 99, 250405 (2007); D. Patane`, R. Fazio, and L. Amico, New J. Phys. 9, 322 (2007). [18] W. Du¨r, G. Vidal, and J. I. Cirac, Phys. Rev. A 62, 062314 (2000). [19] R. Chaves et al. (to be published). [20] W. Du¨r, J. I. Cirac, and R. Tarrach, Phys. Rev. Lett. 83, 3562 (1999).
+
+080501-4
+
