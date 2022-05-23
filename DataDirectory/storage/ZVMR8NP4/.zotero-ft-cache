@@ -1,0 +1,853 @@
+PHYSICAL REVIEW A 72, 042339 ͑2005͒
+Robustness of multiqubit entanglement in the independent decoherence model
+Somshubhro Bandyopadhyay1,* and Daniel A. Lidar1,2,†
+1Chemical Physics Theory Group, Chemistry Department, and Center for Quantum Information and Quantum Control, University of Toronto, Toronto, ON M5S 3H6, Canada
+2Department of Chemistry and Department of Electrical Engineering-Systems, University of Southern California, Los Angeles, CA 90089, USA
+͑Received 8 September 2004; published 31 October 2005͒
+
+We study the robustness of the Greenberger-Horne-Zeilinger ͑“cat”͒ class of multipartite states under decoherence. The noise model is described by a general completely positive map for qubits independently coupled to the environment. In particular, the robustness of N-party entanglement is studied in the large N limit when ͑a͒ the number of spatially separated subsystems is ﬁxed but the size of each subsystem becomes large and ͑b͒ the size of the subsystems is ﬁxed while their number becomes arbitrarily large. We obtain conditions for entanglement in these two cases. Among our other results, we show that the parity of an entangled state ͑i.e., whether it contains an even or odd number of qubits͒ can lead to qualitatively different robustness of entanglement under certain conditions.
+
+DOI: 10.1103/PhysRevA.72.042339
+
+PACS number͑s͒: 03.67.Mn, 03.65.Yz, 03.65.Ud
+
+I. INTRODUCTION
+Entanglement ͓1͔ is believed to be a crucial resource for quantum information processing, e.g., quantum computing and quantum communication ͓2͔. It is expected that practical realizations of quantum protocols will involve independent or collective manipulation of large-scale entanglement, i.e., entanglement distributed among N particles, where N can be arbitrarily large. Unfortunately, in the absence of active intervention, entanglement is notoriously susceptible to decoherence ͓2͔. Intervention in the form of distillation protocols ͓3,4͔ and error correcting codes ͓5͔ is capable of restoring robustness to entanglement in the presence of decoherence. However, the efﬁciency of such methods strongly depends on the a priori robustness of the entangled state in question. This raises the natural question of the inherent robustness of entanglement. Recent work has shown that for certain types of entangled states ͓6–8͔ or noisy preparation procedures ͓9͔ there is indeed an ͑unexpected͒ inherent robustness. Here we continue this line of investigation and consider the inherent robustness of multiqubit entangled states under a rather general model of uncorrelated decoherence.
+Let us here note that the notion of robustness of entangled states has been used in a different context before ͓10–12͔. However, in this paper by robustness we simply mean the ability of an entangled state to remain entangled in presence of decoherence.
+In addition to the obvious practical importance of studying the effect of decoherence on multiqubit entangled states, there is a fundamental interest as well. Entanglement being a microscopic property, one may ask how often macroscopic entanglement is realized in the physical world? In other
+*Institute for Quantum Information Science, University of Calgary, Calgary, AB T2G 5C1, Canada; Electronic address: som@qis.ucalgary.ca
+†Electronic address: lidar@usc.edu
+
+words, when the number of particles sharing an entangled state becomes very large, entanglement truly becomes a macroscopic property of the system itself. At the same time entanglement could become exponentially fragile, in the sense that an arbitrary small amount of noise can destroy the complete coherence between the superposed states. Yet, it is known that the set of separable states is much smaller than the set of inseparable states ͓13͔, which suggests that entanglement should be relatively common. These conﬂicting intuitions suggest that the question of the robustness of entanglement is a subtle one.
+The structure of N-party entanglement is considerably more complex than a simple bipartite scenario where entanglement is only distributed among two subsystems. For recent results on multipartite entanglement and its measures see Refs. ͓14–16͔. An important notion is the partitioning of the system into 2 ഛ M ഛ N parties ͑M partitioning͒, where each of the M parties of several particles is considered to be a single system with a higher dimensional Hilbert space. A related notion is M distillability: some M-party pure entanglement can be obtained by local operations and classical communications ͑LOCC͒. A necessary condition for M distillability is that the M-partitioned state is nonpositive under partial transposition ͑NPPT͒ across all bipartite cuts ͓17͔. Thus to obtain information about distillability of an N-party state it sufﬁces to study entanglement properties across all possible bipartite cuts. It is important to realize that if there is distillable entanglement between every pair then the whole state is M distillable as any multipartite entangled state can be prepared given sufﬁcient bipartite entanglement between every pair. Note, that the original N-party state not being distillable when all N parties are separated, does not rule out the state being distillable for some M partitioning.
+To address the issue whether entanglement can also be viewed as a macroscopic property it is necessary to study the limit of large N. If we assume a democratic partitioning for simplicity, i.e., that N parties are divided into M groups such that Mk = N, where k is the number of particles in each group, then a natural question is, out of all possible M partitionings,
+
+1050-2947/2005/72͑4͒/042339͑6͒/$23.00
+
+042339-1
+
+©2005 The American Physical Society
+
+S. BANDYOPADHYAY AND D. A. LIDAR
+
+PHYSICAL REVIEW A 72, 042339 ͑2005͒
+
+which partition exhibits maximal robustness? Does entanglement exist when N → ϱ? How does large scale entanglement behave, for instance, when the size of each partition becomes macroscopic while keeping the number of partitionings ﬁxed? Such questions have been studied where the noise model was described by a depolarizing channel ͓6,7͔. We address these questions in the context of a rather general decoherence model in this work.
+The structure of the paper is as follows. In Sec. II we introduce the decoherence model: a general completely positive map under the assumption that each qubit is independently coupled to the environment. In Sec. III we preview, for convenience, the main results of this work. Section IV ﬁnds the resulting density matrix under the action of decoherence. Section V deals with some of the useful properties of the noisy density matrix. In Sec. VI we obtain the entanglement conditions that quantify the robustness of the output state. Section VII concludes and lists some open problems.
+
+II. DECOHERENCE MODEL
+
+In Refs. ͓6,7͔ properties of large-scale entanglement in the presence of the depolarizing channel were studied. Reference ͓6͔ studied N-particle Greenberger-Horne-Zeilinger ͑GHZ͒ ͑“cat” states͒ and compared them to W states and spinsqueezed states. Reference ͓7͔ studied the rather general class of graph states, which includes GHZ and cluster states ͓18,19͔. In Ref. ͓8͔ the robustness of symmetric entangled states subject to particle loss was studied. Here we focus on
+N-particle cat states, but considerably generalize the decoher-
+ence model. Results corresponding to the widely used depo-
+larizing channel or dephasing channel can be reproduced as
+special cases of our model.
+An N-qubit cat state is of the form ͉⌿͘N = 1 / ͱ2͉͑0͘N
++ ͉1͘N͒, where ͉0͘, ͉1͘ are the +1 , −1 eigenstates of the Pauli ␴z matrix. We assume that qubits are individually coupled to the environment. The action of the noisy channel on the mth
+qubit is described by a completely positive map of the form
+
+3
+
+͚ ␳ → ␳Ј = Sm͑␳͒ = ␲0␳ + ␲i␴im␳␴im,
+
+͑1͒
+
+i=1
+
+where the ␲i are probabilities ͑␲i ജ 0 , ͚i3=0␲i = 1͒, and the ␴i are the Pauli matrices ͑␴1 = ␴x, etc.͒. The depolarizing channel and dephasing channel are the special cases ␲i = ͑1 − ␲0͒ / 3 ͑i = 1 , 2 , 3͒, and ␲1 = ␲2 = 0, respectively. By studying
+this rather general model we hope to provide more physical
+insight into the factors affecting the entanglement of a mul-
+tiqubit system in presence of decoherence.
+
+III. SUMMARY OF MAIN RESULTS
+Before launching into the analysis, let us give a brief preview of the results obtained. We quantify the entanglement robustness of N-particle cat states by establishing sufﬁcient conditions for the state to be entangled. Speciﬁcally, we obtain the conditions for M distillability, for all 2 ഛ M ഛ N. These conditions are obtained for both ﬁnite and inﬁnite N.
+
+The robustness of the entangled state depends on sums and differences of the probabilities ␲i and not on the actual probabilities.
+The parity of the entangled state, i.e., whether the state is composed of an even or odd number of qubits, can lead to different qualitative behavior under certain conditions.
+Macroscopic entanglement is found to be more robust when distributed among higher dimensional subsystems, while keeping the number of spatially separated parties unchanged.
+The most robust partition is found to be the bipartite one where we have equal ͑N is even͒ or approximately equal ͑N is odd͒ number of qubits on both sides.
+
+IV. EXPRESSION FOR FINAL STATE
+
+We begin by studying the action of the noisy channel ͑1͒ on the input state ͉⌿͘N:
+
+␳N ‫␳ ۋ‬NЈ = S1S2 ¯ SN͑␳N͒.
+
+͑2͒
+
+The input pure state ␳N = ͉⌿͘N͗⌿͉ can be written as
+
+␳N
+
+=
+
+1 ͓͉͑0͗͘0͉͒N 2
+
++
+
+͉͑1͗͘1͉͒N
+
++
+
+͉͑0͗͘1͉͒N
+
++
+
+͉͑1͗͘0͉͒N͔
+
+ϵ
+
+1 2
+
+͓␩00N
+
++
+
+␩11N
+
++
+
+␩01N
+
++
+
+␩10N͔ ,
+
+͑3͒
+
+where ͉i͗͘j͉ = ␩ij, i , j = 0 , 1. The action of the noise channel ͑1͒ on the operators mak-
+ing up the density matrix is
+
+S͑␩00͒ = a␩00 + b␩11 = ⌳00,
+
+S͑␩11͒ = b␩00 + a␩11 = ⌳11,
+
+S͑␩01͒ = c␩01 + d␩10 = ⌳01,
+
+S͑␩10͒ = c␩10 + d␩01 = ⌳10,
+
+͑4͒
+
+where
+
+a = ␲0 + ␲3,b = ␲1 + ␲2,c = ␲0 − ␲3,d = ␲1 − ␲2. ͑5͒
+The coefﬁcients a , b are positive whereas the coefﬁcients c , d can be either positive or negative. Note that the grouping of ␲0 with ␲3 and of ␲1 with ␲2 is a result of our choice to work in the ͉0͘, ͉1͘ basis. The ﬁnal density matrix can now be written as
+
+␳NЈ
+
+=
+
+1 2
+
+͓⌳00N
+
++
+
+⌳11N
+
++
+
+⌳01N
+
++
+
+⌳10N͔ .
+
+͑6͒
+
+Expanding the operator terms one obtains
+
+ͫ ͚N−1
+
+␳NЈ
+
+=
+
+1 2
+
+͑aN + bN͒͑␴00N + ␴11N͒ + ͑ajbN−j + bjaN−j͒
+j=1
+
+͚ͩ ͪ ϫ ͉m1j m2j ¯ mNj ͘pp͗m1j m2j ¯ mNj ͉
+
+p
+
+ͬ + ͑cN + dN͒͑␴01N + ␴10N͒ + permutations ,
+
+͑7͒
+
+042339-2
+
+ROBUSTNESS OF MULTIQUBIT ENTANGLEMENT IN…
+
+PHYSICAL REVIEW A 72, 042339 ͑2005͒
+
+where ͉m1j m2j ¯ mNj ͘p denotes a ket containing exactly j 0s
+
+and the subscript p denotes permutation. For a given j there
+
+are
+
+͑N͒ j
+
+permutations.
+
+Let us now deﬁne the N-qubit “cat basis,” consisting of 2N
+
+states. First,
+
+͉⌿0±͘
+
+=
+
+1
+ͱ2 ͉͑00
+
+¯
+
+0͘
+
+±
+
+͉11
+
+¯
+
+1͒͘.
+
+Other than these two states, we will call any other state a member of the k group if it is of the form
+
+͉⌿k±͘
+
+=
+
+1
+ͱ2 ͓͉k:0;͑N
+
+−
+
+k͒:1͘
+
+±
+
+͉k:¯0 ; ͑N
+
+−
+
+k͒:¯1͔͘ .
+
+͑8͒
+
+This notation means that the ﬁrst term of the superposition
+
+state consists of k zeroes and ͑N − k͒ ones, and the second
+
+term is obtained by replacing every zero and one of the ﬁrst
+
+term with one and zero, respectively. The index k
+
+෈ ͕1 , N / 2͖ ͑N = even͒ or k ෈ ͕1 , ͑N − 1͒ / 2͖ ͑N = odd͒. If N is
+
+even, each
+
+for which
+
+always
+
+2͑
+
+N k
+
+t͒khmegrreeomuabpreehrsa͑sNiNn/22 ͒͑eNkvm͒eremymekbmegbrrseo.rusI,pf.eNxceipst
+
+when k = N / 2, odd, there are
+
+The ﬁnal density matrix ␳NЈ is diagonal in the cat basis.
+
+This can be easily seen from the action of the noisy channel
+
+on the qubits. For example, a maximally entangled state of
+
+two qubits after the action of this channel becomes a mixed
+
+state which is diagonal in the Bell basis. The ﬁnal density
+
+matrix can be written in the following form:
+
+͚ ͚ ␳NЈ = ␣0␮͉⌿0␮͗͘⌿0␮͉ + ͑␣+kj͉⌿+kj͗͘⌿+kj͉ + ␣−kj͉⌿−kj͗͘⌿−kj͉͒,
+
+␮=±
+
+k,j
+
+͑9͒
+
+where ␣ = f͑a , b , c , d͒. The index k stands for the group and
+the index j corresponds to the different states due to permu-
+tation of indices that belong to the same group. Comparing the two representations Eq. ͑7͒ and Eq. ͑9͒ of the ﬁnal density matrix, and noting the fact that ͗⌿+kj͉␳͉⌿+kj͘ + ͗⌿−kj͉␳͉⌿−kj͘ = ␣+kj + ␣−kj remain unchanged under local depolarizing, one can show that ␣+kj + ␣−kj = ͑akbN−k + bkaN−k͒ / 2 which is independent of j.
+
+V. BASIS CONDITION FOR ENTANGLEMENT AND SOME USEFUL LEMMAS
+For any arbitrary N-qubit density matrix ␳ it has been shown that the state ␳ is entangled if at least for one pair ͑k , j͒, the following condition is satisﬁed ͓17͔:
+͉͗⌿0+͉␳͉⌿0+͘ − ͗⌿0−͉␳͉⌿0−͉͘ Ͼ ͗⌿+kj͉␳͉⌿+kj͘ + ͗⌿−kj͉␳͉⌿−kj͘. ͑10͒
+
+Accordingly we compute the above quantities for our state. First observe that
+
+␣0+ − ␣0− = ͗⌿0+͉␳͉⌿0+͘ − ͗⌿0−͉␳͉⌿0−͘
+
+=
+
+1 ͓͕͗00 2
+
+¯
+
+0͉␳NЈ ͉00
+
+¯
+
+0͘
+
++
+
+͗11
+
+¯
+
+1͉␳NЈ ͉11
+
+¯
+
+1͖͘
+
++ ͕͗00 ¯ 0͉␳NЈ ͉11 ¯ 1͘ + ͗11 ¯ 1͉␳NЈ ͉00 ¯ 0͖͘
+
+− ͕͗00 ¯ 0͉␳NЈ ͉00 ¯ 0͘ + ͗11 ¯ 1͉␳NЈ ͉11 ¯ 1͖͘
+
++ ͕͗00 ¯ 0͉␳NЈ ͉11 ¯ 1͘ + ͗11 ¯ 1͉␳NЈ ͉00 ¯ 0͖͔͘
+
+= 2 Re͗00 ¯ 0͉␳NЈ ͉11 ¯ 1͘.
+
+͑11͒
+
+One can readily evaluate from the expression of the ﬁnal density matrix the value of ␣0+ − ␣0−,
+
+⌬ ϵ ͉␣0+ − ␣0−͉ = ͉cN + dN͉
+
+͑12͒
+
+and
+
+2␭k,N−k ϵ ͗⌿k+͉␳NЈ ͉⌿k+͘ + ͗⌿k−͉␳NЈ ͉⌿k−͘ = ␣+kj + ␣−kj = akbN−k + bkaN−k,
+
+͑13͒
+
+where ͉⌿k±͘ are the members of the k group. We can now state our basic result, which follows directly from Eq. ͑10͒.
+Proposition 1. The state ␳NЈ is entangled if there is at least one k such that
+
+⌬ Ͼ 2␭k,N−k.
+
+͑14͒
+
+Suppose that there is a k = k0 such that the above inequality is satisﬁed. This means that the state ␳NЈ is NPPT across the bipartite partition where k0 parties are on one side and ͑N − k0͒ on the other ͓which we denote by k0 : ͑N − k0͔͒. Let us also note that choosing a speciﬁc j ͑i.e., a given permutation͒
+
+implies choosing a speciﬁc set of k parties. As ␭ is indepen-
+
+dent of j, the entanglement condition does not depend on
+
+which parties we have chosen for a given number of parties
+
+k on one side of the bipartite cut. We now prove a useful
+
+property of the ﬁnal state. Lemma 1. If the state ␳NЈ is entangled for some bipartite
+partition k : ͑N − k͒, then it is entangled for all bipartite parti-
+
+tions m : ͑N − m͒ when m Ͼ k and 1 ഛ k, m ഛ N / 2 ͑N even͒,
+
+͑N − 1͒ / 2 ͑N odd͒.
+
+Proof. Let us ﬁrst note that we are considering only bipar-
+
+tite partitions where k͑m͒ parties are on one side and N
+
+− k͑N − m͒ are on the other. This automatically puts the sec-
+
+ond constraint on the allowed values of k , m. We need to prove that ␭k,N−k Ͼ ␭m,N−m, i.e., akbN−k + bkaN−k Ͼ ambN−m + bmaN−m, when m Ͼ k and 1 ഛ k, m ഛ N / 2 ͑N even͒, ͑N
+
+− 1͒ / 2, ͑N odd͒. Without any loss of generality we can as-
+
+sume that a Ͼ b because the two sides are equal when a = b. Suppose, the inequality is not valid, i.e., akbN−k + bkaN−k
+ഛ ambN−m + bmaN−m. Then factoring a common akbk from both sides we have aN−2k + bN−2k ഛ ͑a / b͒lbN−2k + ͑b / a͒laN−2k,
+
+where m = k + l. Let a / b = x. Then xN−2k + 1 ഛ xl + xN−2k−l, which implies xN−2k − xN−2k−l ഛ xl − 1. This can be rewritten as xN−2k−l͑xl − 1͒ ഛ xl − 1 which is a contradiction because x Ͼ 1
+
+and N − 2k − l = N − ͑k + m͒ Ͼ 0 ͑since, k + m Ͻ N͒.
+
+᭿
+
+It follows immediately from this lemma that:
+
+Corollary 1. ͑i͒ If the ﬁnal state is entangled across the
+
+1 : N − 1 cut then it is entangled across all other bipartite cuts.
+
+͑ii͒ The most robust bipartite cut is N / 2 : N / 2͑N even͒ or
+
+͑N ± 1͒ / 2 : ͑N ϯ 1͒ / 2͑N odd͒.
+
+Let us now consider an M partition with the partitions
+
+labeled as G1 , G2 , . . . , GM, 2 ഛ M ഛ N. We call such a choice an M-partition conﬁguration. Let ͉Gk͉ be the number of par-
+ticles in the group Gk. Then an M-qubit cat state can be
+
+042339-3
+
+S. BANDYOPADHYAY AND D. A. LIDAR
+
+PHYSICAL REVIEW A 72, 042339 ͑2005͒
+
+distilled iff the state is NPPT for all possible bipartite cuts in
+
+the M-partition conﬁguration. That includes the bipartite par-
+
+titions ͉Gk͉ : ͑N − ͉Gk͉͒ ∀ Gk, as well as the bipartite partitions
+obtained by combining a subset of the partitions Gm. Let ͉Gi͉ = mink͕͉Gk͉͖. Then we have the following lemma, that
+states under which condition one can distill an M-qubit cat
+
+state.
+
+Lemma 2. An M-qubit cat state can be distilled if and only
+
+if ⌬ Ͼ 2␭͉Gi͉,N−͉Gi͉. Proof. Using the same calculation as in lemma 1, note that
+
+if ⌬ Ͼ 2␭͉Gi͉,N−͉Gi͉, then ⌬ Ͼ 2␭͉Gk͉,N−͉Gk͉ ∀ Gk. This guarantees that the ﬁnal state is NPPT across all other possible bipartite
+
+cuts in the M-party conﬁguration. Now note that our state
+
+can be brought to a depolarized form by local operations
+
+while satisfying the condition ⌬ Ͼ 2␭͉Gi͉,N−͉Gi͉ as well as preserving the NPPT property. For such a depolarized state dis-
+
+tillability is guaranteed since the satisfaction of the above
+
+condition is both necessary and sufﬁcient for M qubit distill-
+
+ability ͓17͔. Hence our state is also distillable.
+
+᭿
+
+Note that the symmetry properties of the state and the
+
+hierarchical property of the ␭’s guarantee that it is sufﬁcient
+
+to compute the partial transposition of only one bipartite cut.
+
+The next lemma shows the connection between a bipartite
+
+cut and the largest M one can have in M-qubit distillability.
+
+Let Q͑N , k͒ = quotient of ͑N − k͒ / k.
+
+Lemma 3. For any given k in a bipartite cut k : ͑N − k͒, if
+
+the distillability condition ⌬ Ͼ 2␭k,N−k is satisﬁed, then the density matrix ␳NЈ is M-qubit cat state distillable, where max M = N / k if N is divisible by k or max M = 1 + Q͑N , k͒ if
+
+N is not divisible by k.
+
+Proof. Let k be the smallest integer such that ⌬ Ͼ 2␭k,N−k. Clearly if N is divisible by k, the maximum number of
+
+groups one can have is N / k. However if N is not divisible by
+
+k, then the remainder of N / k is less than k and hence 1
+
++ N / k cannot be the number of optimal groups, as the parti-
+
+tion ͑remainder of N / k͒: ͑N-remainder of N / k͒ is not NPPT.
+
+Therefore the optimal number of partition must be 1
+
++ Q͑N , k͒.
+
+᭿
+
+It is clear that every bipartite cut contains distillability
+
+information about some M partition. In what follows we will
+
+analyze the entanglement threshold conditions for bipartite
+
+cuts. The previous lemmas guarantee that the bipartite
+
+threshold conditions are sufﬁcient to describe distillability of
+
+the ﬁnal state ␳NЈ .
+
+VI. ENTANGLEMENT PROPERTIES OF ␳NЈ
+In this section we study in detail entanglement properties of the state ␳NЈ . As noted before we will concentrate on the conditions for the state to remain entangled across the bipartite cuts. Let us ﬁrst point out the effect parity ͑in the sense of odd/even number of qubits͒ can have on the inequality. As mentioned before, the parameters c , d can be either positive or negative. Without loss of generality suppose ͉c͉ ജ ͉d͉. When c , d have the same sign we have ͓recall Eq. ͑12͔͒ ⌬ = ͉c͉N + ͉d͉N irrespective of N being even or odd. However, if c , d have opposite signs then ⌬ = ͉c͉N + ͉d͉N when N is even or ⌬ = ͉c͉N − ͉d͉N when N is odd. This suggests that parity can
+
+have a dramatic effect on the sufﬁcient condition for entanglement.
+
+A. Sufﬁcient condition for entanglement when c , d have the same sign
+
+1. Exact condition for ﬁnite N
+
+Let us rewrite our basic NPPT condition ͑14͒ explicitly as ͉͑c͉N + ͉d͉N͒ Ͼ akbN−k + bkaN−k. Let us note ﬁrst that, since from
+Eq. ͑5͒ it follows that a ജ c and b ജ d, the NPPT condition is
+
+violated when a = b. From hereon we assume a b. Note that if ͉c͉ = ͉d͉
+
+the entanglement condition can still be satisﬁed if a b. Let-
+
+ting k = N␣, where 1 / N ഛ ␣ ഛ Ͼ b␣Na͑1−␣͒N͓1 + ͑b / a͒͑1−2␣͒N͔,
+
+1 2
+
+,
+
+one
+
+where
+
+obtains ͉c͉N͑1 + ͉d / c͉N͒ one can assume with-
+
+out loss of generality that a Ͼ b and ͉c͉ Ͼ ͉d͉. Taking the loga-
+
+rithm of both sides and dividing by N, one obtains
+
+ͩ ͯ ͯ ͪ 1
+
+dN
+
+ln͉c͉ + ln 1 +
+
+N
+
+c
+
+ͫ ͩ ͪ ͬ Ͼ ln͑b␣a͑1−␣͒͒ + 1 ln 1 +
+
+b ͑1−2␣͒N .
+
+͑15͒
+
+N
+
+a
+
+This inequality is an exact sufﬁcient condition for entanglement corresponding to a bipartite cut k : ͑N − k͒.
+
+2. Asymptotic condition when the subsystems and system sizes become macroscopic
+
+Consider ﬁrst the case when the subsystem size k becomes macroscopic in the limit N → ϱ. This implies ␣ remaining a constant as N → ϱ. The asymptotic condition can easily be obtained from Eq. ͑15͒:
+
+͉c͉ Ͼ b␣a͑1−␣͒.
+
+͑16͒
+
+Note that d dropped out in the asymptotic limit. We can rewrite this as a lower bound on ␣ in the asymptotic limit, using the normalization condition a + b = 1:
+
+␣
+
+Ͼ
+
+ln͑a/͉c͉͒ ln͓a/͑1 − a͔͒
+
+ϵ
+
+f͑a,͉c͉͒.
+
+͑17͒
+
+Remarkably, the asymptotic condition depends only on two
+
+parameters a and c. Noting that ␣ = 1 / M, Eq. ͑17͒ puts an
+
+upper bound on M.
+
+Since
+
+1
+
+/
+
+N
+
+ഛ
+
+␣
+
+ഛ
+
+1 2
+
+we
+
+ﬁnd
+
+from
+
+Eq.
+
+͑16͒
+
+a
+
+particularly
+
+simple form of the entanglement condition in the case of the
+
+most
+
+robust
+
+partition,
+
+i.e.,
+
+the
+
+case
+
+␣=
+
+1 2
+
+:
+
+͉c͉2 Ͼ ab.
+
+͑18͒
+
+We note here that an identical inequality can also be obtained by putting the constraint f͑a , ͉c͉͒ ഛ 1 / 2.
+
+3. Robustness and size of the subsystems
+An interesting feature of Eq. ͑15͒ is that we can separate out the asymptotic part from the N-dependent term. Let us rewrite Eq. ͑15͒ as
+
+042339-4
+
+ROBUSTNESS OF MULTIQUBIT ENTANGLEMENT IN…
+
+ͭ ͫ ͩ ͪ ͬ ln͉c͉ Ͼ ln͑b␣a͑1−␣͒͒ + 1 ln 1 + b ͑1−2␣͒N
+
+N
+
+a
+
+ͩ ͯ ͯ ͪͮd N
+
+− ln 1 +
+
+.
+
+͑19͒
+
+c
+
+In this form it is easy to see that the asymptotic condition is achieved even for ﬁnite N if and only if ln͓1 + ͑b / a͒͑1−2␣͒N͔
+= ln͑1 + ͉d / c͉N͒, i.e., the following condition is satisﬁed:
+
+ͩ ͪ ␣ = 1 2
+
+ln͉c/d͉ 1 − ln͑a/b͒
+
+.
+
+͑20͒
+
+For instance, when N is even, for a choice of ͉c͉ = ͉d͉, one obtains ␣ = 1 / 2. This shows, rather surprisingly, that the asymptotic condition is the same as that of any ﬁnite N if
+certain conditions are met. Consistency demands that, in such a case, Eqs. ͑17͒ and ͑20͒ should be satisﬁed simultaneously. This leads to the condition ͉c͉͉d͉ Ͼ ab, which cannot be satisﬁed in general, except for the case when ͉c͉ = ͉d͉. We therefore conclude that latter surprising property holds only
+for equigrouped partition, and only when N is even, because ␣ 1 / 2 if N is odd. This therefore shows another effect of parity of the number of qubits.
+We now examine Eq. ͑19͒ more closely. Let us denote ␮ ϵ ln͓1 + ͑b / a͒͑1−2␣͒N͔ − ln͑1 + ͉d / c͉N͒ and rewrite Eq. ͑19͒ as
+
+ln͉c͉ Ͼ ln͑b␣a͑1−␣͒͒ + ␮ .
+
+͑21͒
+
+N
+
+Let
+
+us
+
+ﬁrst
+
+observe
+
+that
+
+␮ജ0
+
+if
+
+␣
+
+ജ
+
+1 2
+
+͓1
+
+−
+
+ln͉c
+
+/
+
+d͉
+
+/
+
+ln͑a
+
+/
+
+b͔͒.
+
+Therefore if Eq. ͑21͒ is satisﬁed for some ﬁnite N when ␮ is
+
+positive, then the asymptotic condition of entanglement ͑17͒
+
+is automatically satisﬁed as well. As before, demanding the
+
+consistency
+
+requirement
+
+one
+
+can
+
+show
+
+that
+
+1 2
+
+͓1
+
+− ln͉c / d͉ / ln͑a / b͔͒ Ͻ f͑a , ͉c͉͒ if ͉c͉͉d͉ Ͻ ab, which, in general,
+
+is always satisﬁed. We can therefore conclude that existence
+
+of M-group entanglement for some ﬁnite N automatically
+
+implies entanglement also in the asymptotic limit when the
+
+size of the partitions become macroscopic, keeping the num-
+
+ber of partitions M a constant. On the other hand, if the
+
+inequality ͑21͒ is not satisﬁed for some N, it might still be
+
+satisﬁed for some large N, as the condition itself gets relaxed
+
+as N → ϱ. We summarize these considerations as follows.
+
+Proposition 2. Multipartite entangled states with ﬁxed
+
+number of partitions M are more robust the larger is the
+
+dimension of the constituent subsystems.
+
+4. Fixed number of members in a group while number of groups and the size of the system become large
+We now discuss the second scenario where we allow the number of particles in a group to remain constant, i.e., k is ﬁxed while both M , N are allowed to become arbitrarily large. For simplicity we assume that each group contains the same number of qubits. We ﬁrst rewrite Eq. ͑19͒ as
+
+PHYSICAL REVIEW A 72, 042339 ͑2005͒
+
+ͩ ͪ ͭ ͫ ͩ ͪ ͬ k
+
+k
+
+1
+
+b ͑N−2k͒
+
+ln͉c͉ Ͼ ln b + 1 − ln a + ln 1 +
+
+N
+
+N
+
+N
+
+a
+
+ͩ ͯ ͯ ͪͮd N
+
+− ln 1 +
+
+.
+
+͑22͒
+
+c
+
+Suppose the above inequality is satisﬁed for some choice of k , N. However, in the limit N → ϱ the inequality reduces to the condition ln͉c͉ Ͼ ln a, which is false.
+
+B. Condition for entanglement when c , d have opposite signs
+
+Let us now consider the case of odd number of qubits and
+
+c , d having opposite signs, whence ⌬ = ͉c͉N − ͉d͉N. First, note
+
+that the condition ͑14͒ is considerably tighter than before.
+
+Second, there is no distillable entanglement in this case when
+
+c = d as opposed to the same-sign case, irrespective of
+
+whether a , b are equal or not.
+
+Let us write the condition ͑14͒ in this case as
+
+ͭ ͫ ͩ ͪ ͬ ln͉c͉ Ͼ ln͑b␣a͑1−␣͒͒ + 1 ln 1 + b ͑1−2␣͒N
+
+N
+
+a
+
+ͩ ͯ ͯ ͪͮd N
+
+− ln 1 −
+
+.
+
+͑23͒
+
+c
+
+In the asymptotic limit, we obtain the same condition as before. However, notice that the term in the parentheses on the right side of the inequality is always positive. This implies that as we increase the number of particles robustness always increases for any choice of ␣. This means that if the state is entangled for some choice of M , N, it always remains entangled in the large N limit, as robustness increases with N as long as the number of partitions M remain unchanged.
+
+VII. CONCLUSIONS AND OPEN PROBLEMS
+To summarize, in this work we have studied the robustness of N-qubit cat states under a rather general decoherence model. In this model every qubit is independently coupled to the environment. The noisy channel is described by a completely positive map with arbitrary probabilities assigned to the various errors described by the Pauli operators. Our ﬁndings show that macroscopic entanglement is more robust in higher-dimensional systems while keeping the number of spatially separated parties constant. We have also shown that states with even or odd numbers of qubits can have qualitatively different properties that are not observed in simpler noisy channels such as depolarizing channel. Furthermore, we have shown that in the asymptotic limit the entanglement condition depends only on two noise parameters even though the noise model itself is described by three independent parameters.
+The present work focuses on the GHZ class of states. It would be interesting to see if the above observations hold true for other classes of multiqubit pure states. Kempe and Simon ͓6͔ have studied the robustness of W states for three qubits, and other inequivalent classes of four-qubit entanglement, using a depolarizing channel. Their work has shown that GHZ states are more robust than the other classes of
+
+042339-5
+
+S. BANDYOPADHYAY AND D. A. LIDAR
+
+PHYSICAL REVIEW A 72, 042339 ͑2005͒
+
+states. It would be interesting to test whether this holds true under the more general noise model considered here. The same comment applies to the class of graph states studied by Dür and Briegel ͓7͔.
+Note added. Upon completion of this work we came to know about related work by Hein et al. ͓20͔, which uses a Markovian master equation approach to model decoherence,
+
+whereas in this work we have used the ͑formally exact͒ Kraus operator sum representation.
+ACKNOWLEDGMENTS Financial support from the Sloan Foundation, PREA, and NSERC ͑to D.A.L.͒ is gratefully acknowledged.
+
+͓1͔ E. Schrodinger, Naturwiss. 23, 807 ͑1935͒; A. Einstein, B. Podolsky, and N. Rosen, Phys. Rev. 47, 777 ͑1935͒; An excellent introduction to quantum correlations and entanglement can be found in A. Peres, Quantum Theory: Concepts and Methods ͑Kluwer Academic, Dordrecht, 1993͒.
+͓2͔ The Physics of Quantum Information, edited by D. Bouwmeester, A. Ekert, and A. Zeilinger ͑Springer, Berlin 2000͒; H. K. Lo, S. Popescu, and T. Spiller, Introduction to Quantum Computation and Information ͑World Scientiﬁc, Singapore, 1998͒.
+͓3͔ C. H. Bennett, G. Brassard, S. Popescu, B. Schumacher, J. A. Smolin, and W. K. Wootters, Phys. Rev. Lett. 76, 722 ͑1996͒;
+C. H. Bennett, H. J. Bernstein, S. Popescu, and B. Schumacher, Phys. Rev. A 53, 2046 ͑1996͒; D. Deutsch, A. Ekert, R.
+Jozsa, C. Macchiavello, S. Popescu, and A. Sanpera, Phys. Rev. Lett. 77, 2818 ͑1996͒; N. Gisin, Phys. Lett. A 210, 151 ͑1996͒. ͓4͔ C. H. Bennett, H. J. Bernstein, S. Popescu, and B. Schumacher, Phys. Rev. A 53, 2046 ͑1996͒. ͓5͔ P. W. Shor, Phys. Rev. A 52, R2493 ͑1995͒; A. M. Steane, Phys. Rev. Lett. 77, 793 ͑1996͒. ͓6͔ C. Simon and J. Kempe, Phys. Rev. A 65, 052327 ͑2002͒. ͓7͔ W. Dür and H. J. Briegel, Phys. Rev. Lett. 92, 180403 ͑2004͒.
+
+͓8͔ J. K. Stockton, J. M. Geremia, A. C. Doherty, and H. Mabuchi, Phys. Rev. A 67, 022112 ͑2003͒.
+͓9͔ S. Bandyopadhyay and D. A. Lidar, Phys. Rev. A 70, 010301͑R͒ ͑2004͒.
+͓10͔ G. Vidal and R. Tarrach, Phys. Rev. A 59, 141 ͑1999͒. ͓11͔ M. Steiner, Phys. Rev. A 67, 054305 ͑2003͒. ͓12͔ S. J. Akhtarshenas and M. A. Jafarizadeh, Eur. Phys. J. D 25,
+293 ͑2003͒. ͓13͔ K. Zyczkowski, P. Horodecki, A. Sanpera, and M. Lewenstein,
+Phys. Rev. A 58, 883 ͑1998͒. ͓14͔ C. H. Bennett et al., Phys. Rev. A 63, 012307 ͑2000͒. ͓15͔ D. A. Meyer and N. R. Wallach, J. Math. Phys. 43, 4273
+͑2002͒. ͓16͔ P. Blanchard, P. Jakobczyk, and R. Olkiewicz, J. Phys. A 34,
+8501 ͑2001͒. ͓17͔ W. Dur and J. I. Cirac, Phys. Rev. A 61, 042314 ͑2000͒; W.
+Dur and J. I. Cirac, J. Phys. A 34, 6837 ͑2001͒. ͓18͔ W. Dür, G. Vidal, and J. I. Cirac, Phys. Rev. A 62, 062314
+͑2000͒. ͓19͔ B. Julsgaard, A. Kozhekin, and E. S. Polzik, Nature ͑London͒
+413, 400 ͑2001͒. ͓20͔ M. Hein, W. Dür, and H. J. Briegel, quant-ph/0408165.
+
+042339-6
+
