@@ -9,7 +9,7 @@
 	"priority": 250,
 	"inRepository": true,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-04-04 18:45:00"
+	"lastUpdated": "2022-06-14 16:40:00"
 }
 
 /*
@@ -409,7 +409,7 @@ function detectWeb(doc, url) {
 			&& !url.includes('/suppl/')
 		) {
 			if (url.includes('medrxiv.org') || url.includes('biorxiv.org')) {
-				return "report";
+				return preprintType;
 			}
 			else {
 				return "journalArticle";

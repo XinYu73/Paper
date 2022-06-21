@@ -1,0 +1,191 @@
+PHYSICAL REVIEW LETTERS 124, 090601 (2020)
+
+Construction of a Pathway Map on a Complicated Energy Landscape
+Jianyuan Yin,1 Yiwei Wang,2 Jeff Z. Y. Chen ,3,* Pingwen Zhang,1,† and Lei Zhang 4,‡
+1School of Mathematical Sciences, Laboratory of Mathematics and Applied Mathematics, Peking University, Beijing 100871, China 2Department of Applied Mathematics, Illinois Institute of Technology, Chicago, Illinois 60616, USA
+3Department of Physics and Astronomy, University of Waterloo, Waterloo, Ontario, Canada N2L 3G1 4Beijing International Center for Mathematical Research, Center for Quantitative Biology, Peking University, Beijing 100871, China
+(Received 10 September 2019; accepted 7 February 2020; published 2 March 2020)
+How do we search for the entire family tree of possible intermediate states, without unwanted random guesses, starting from a stationary state on the energy landscape all the way down to energy minima? Here we introduce a general numerical method that constructs the pathway map, which guides our understanding of how a physical system moves on the energy landscape. The method identifies the transition state between energy minima and the energy barrier associated with such a state. As an example, we solve the Landau–de Gennes energy incorporating the Dirichlet boundary conditions to model a liquid crystal confined in a square box; we illustrate the basic concepts by examining the multiple stationary solutions and the connected pathway maps of the model.
+DOI: 10.1103/PhysRevLett.124.090601
+
+Introduction.—A general mathematical-physics problem is minimization of an energy function depending on multiple variables. Its broad range of applications includes, but not limited to, the areas of condensed matter, soft matter, biophysics, materials sciences, financial physics, and beyond. The common theme is that the energy (free energy, or target function) landscape as a function of the physical variables in the system displays a multitude of minima [1]. The physical variables here could be the amino-acid locations in the protein folding problem [2–6], the atomic positions of an atomic cluster (such as the Lennard-Jones clusters) [7,8], the continuum field variables in an AB-diblock copolymer self assembly [9–13], or even network parameters in a to-be-optimized artificial neural network [14]. One often makes a comparison of a twovariable (2D) problem with the geometric feature on a landscape: minima are basins, maxima are summits, and the two variables are the coordinates on a plane [see Fig. 1(a)]; of great interest is the locations of minima that lie somewhere on the landscape.
+In this Letter, we tackle two long-standing, critical problems in computational physics: finding the global minimum and finding the relationship between the minima. When a system has enough thermal excitations to overcome the energy barriers between energy minima, it undertakes a possible kinetic pathway on the energy landscape. The minimal energy barrier that partitions two minima is associated with at least one saddle point, which is a transition state that the system likely experiences when it moves from one minimum to another [15]. The Morse index m characterizes the nature of a saddle point in a Ddimensional problem: it is an energy maximum in m directions, and minimum in the rest [16]. The D-variable
+
+energy surface possesses a complicated landscape; the last two decades have witnessed progress in developing mathematical procedures to determinate and understand saddle points numerically [17–20].
+For example, in Fig. 1(a), the lowest energy barrier between two minima C1 and C2 is located at a saddle B1, not B2. Assessing the energy levels alone cannot determine the dynamic process. The purpose of this Letter is to introduce the more informative concept of a pathway map through an analysis of the Hessian matrix, by asking the question of which eigendirection is unstable and what next saddle that unstable direction leads to. For example, Fig. 1(b) depicts how lower-index saddle points are connected to the higher-index ones and such a pathway map is more useful than simply connecting minima through index1 saddles [21]. The pathway map is established in a multidimensional configurational space and rules out the energetically close but configurationally far states. In a high-D system, the pathway map can be constructed from a
+
+(a)
+
+(b)
+
+FIG. 1. Illustration of (a) an energy landscape of a 2D energy
+surface and (b) the pathway map starting from the maximum, A1 down to minima C1 and C2. Two saddle points B1 and B2 are connected to A1. The indices labeled in (b) are those according to the Morse definition.
+
+0031-9007=20=124(9)=090601(6)
+
+090601-1
+
+© 2020 American Physical Society
+
+PHYSICAL REVIEW LETTERS 124, 090601 (2020)
+
+parent state (a high-index saddle) all the way down to minima (index-0 solutions). It is hence desirable, and indeed the purpose of this Letter, to design a numerically tractable algorithm that constructs a complete pathway map, which guides us on how the system runs into metastable states and the energetic requirement to overcome energy barriers when the system moves between the states.
+Assume that the energy surface EðxÞ is a function of a D-dimensional variable x. All stationary points satisfy the nonlinear equations ∇EðxÞ ¼ 0, and the Morse index is determined by examining the Hessian ∇∇EðxÞ at these points [22]. While these mathematical definitions are elementary, capturing all stationary points is practically difficult in computation. Many algorithms, e.g., the minimax method [23,24], the deflation technique [25,26], the eigenvector-following method [27–29], and the numerical polynomial homotopy continuation method [30] are dedicated to solving the nonlinear equations, usually relying on an initial guess that deterministically leads to a stationary point. However, as more solutions are discovered, it becomes increasingly difficult to propose and fine-tune initial guesses, to search for remaining solutions. A large number of optimization methods are also developed to directly find local minima; it is often computationally expensive, as the total number of local minima usually grows exponentially in a high-D problem and a random search is not the best choice [1]. Therefore, from a computational perspective, it is essential to establish a numerical procedure to discover the pathway map systematically, rooted from a high-index saddle as a parent and descending to minima. The advantages of our method over other methods are discussed case by case in the Supplemental Material [31].
+Downward search.—Here we introduce a systematic computational method that enables the search for such a map starting from an index-m saddle. The assumption is that the location of the saddle point is at xÃ and that the m normalized vectors vÃi corresponding to the m negative eigenvalues of the Hessian matrix are known at this stage, where i ¼ 1; 2; 3; …; m.
+The essential idea is to choose xð0Þ ¼ xÃ Æ ϵu as the initial search position for a lower index-k (k < m) saddle with a small ϵ that “pushes” the system away from the index-m saddle. The direction of pushing, u, is along a linear combination of (m − k) vectors (whose negative eigenvalues have the smallest magnitudes) selected from the set of fvÃg. The other k orthonormal vectors from the set are used as the initial unstable directions for the next index-k saddle. This way, the system can gently roll off the original index-m saddle point in the unstable direction within a controlled procedure. Normally, a pair of index-k saddles can be found this way, corresponding to the Æ sign in the initial guess.
+The details of this numerical procedure, the so-called kHiOSD method [43], is documented in the Supplemental Material [31], step-by-step. It computationally determines an
+
+index-k saddle point based on xð0Þ and við0Þ (i ¼ 1; 2; 3; …; k) as an initial input. By relaxing a pseudoLangevin dynamics for time-dependent x and vi, the computation eventually arrives at all conditions that need to be satisfied by an index-k saddle, producing xÃ and vÃi for it.
+Hence, by repeating the above procedure starting from an existing index-m saddle as a parent, we establish a systematic scheme to search for all saddle points branched from this parent and to construct a family tree that eventually terminates at index-0 solutions (minima), the
+local energy minima. This avoids the pitfalls existing in previous numerical schemes to search for an arbitrary solution starting from random initial guesses with no control on both the search direction and Morse index of
+the final numerical outcome. The family tree provides the crucial information on the relationships between saddle points. In particular, the pathway between two lower-index
+saddle points is clearly mapped out through a higher-index saddle point.
+Liquid crystals in 2D confinement.—To demonstrate the success of the method, we present here the pathway map of
+2D nematic liquid crystals confined in a square box (see illustrations in Fig. 2). The mathematical model we use is the Landau–de Gennes (LdG) free energy in reduced units [44]
+
+Z E½QðrÞ ¼
+
+
+
+
+
+dr
+
+1 2
+
+j∇Qj2
+
+þ
+
+αfb½QðrÞ
+
+;
+
+ð1Þ
+
+where a 2 × 2 traceless and symmetric tensor field QðrÞ, characterizing the orientational ordering of the liquid crystals, is considered. Only two elements of the Q-tensor are independent. The variable r ¼ ðx; yÞ resides in the domains ½−1; 1 for x and ½−1; 1 for y. The specifics of the LdG model, including the Landau function fb and Dirichlet conditions that require the alignment of the liquid crystal
+directors at the four boundaries, are given in the Supplemental Material [31]. The system parameter α is directly linked to the area of the confining square.
+The energy functional in Eq. (1) must be minimized with respect to the tensor field QðrÞ for a given α. There are two equivalent approaches to finding a stationary solution. The
+first is to take and solve the Euler-Lagrange equation associated with the unknown field QðrÞ [45,46]; the second, closer to the spirit presented here, is to discretize the ðx; yÞ region by a grid system containing G grid points and to treat the two independent elements of Q at these points as individual variables; the stationary solution of the energy in
+Eq. (1) is then obtained simply by equating the gradient of E in the D-dimensional space to zero, where D ¼ 2G are the total number of individual variables [47,48].
+When α is sufficiently small, it was shown that the so-called well order-reconstruction solution (WORS) is the
+only stationary solution and corresponds to the global
+minimum of Eq. (1) [49]. Displayed in Fig. 2(a) is such a
+
+090601-2
+
+(a)
+
+(b)
+
+(c)
+
+PHYSICAL REVIEW LETTERS 124, 090601 (2020)
+
+(f)
+
+(g)
+
+(d)
+
+(e)
+
+FIG. 2. Pathway maps found from a confined 2D LdG model with parallel orientational alignment at the boundaries. From (a) to (f), the evolution of the pathway maps are illustrated as α, a system parameter proportional to the area of the confining square, increases from (a) α ¼ 5, (b) 7, (c) 15, (d) 25, (e) 30, to (f) 50. The color of the nodes specifies the Morse index of saddle points. The solid arrows indicate how lower-index saddles can be deduced from higher ones. An example of upward search is represented by the dashed arrows. The height of a node approximately corresponds to its energy. The seventeen defect states are illustrated on the right panel, where the color represents the relative magnitude of directional ordering and the white bars the nematic field directions [31]. The insets further explain the map details discussed in the text.
+
+state with index-0 (minimum). WORS was suggested as a possible stationary state based on the Onsager model in Ref. [50] and the LdG model in Ref. [51].
+One can show that WORS remains a stationary point for all α [49], but the Morse index of WORS changes [46]. Numerically, by using WORS at a smaller α as an initial guess, we can always obtain WORS at a larger α. Table I summarizes the Morse index of WORS as a saddle point at different α. Physically, as α increases, the larger confining area accommodates the development of other more complicated defect states. The parent WORS is no longer a stable state and the system begins to descend to other stable states.
+Using our k-HiOSD method, we can exhaustively enumerate all possible states starting from WORS. Figure 2 presents the pathway maps for a number of
+
+typical α, where the defect states specified in the nodes are illustrated on the right panel. Take Fig. 2(c), for example. At α ¼ 15, WORS is an index-2 saddle, which bifurcates to two boundary distortion (BD) states (related by π=2 coordinate rotation) that are index-1 saddles. Both BD
+states then further relax to two diagonal (D) states (again related by π=2 coordinate rotation) as the global minima. This can be compared to the pathway map in 2(b) when α ¼ 7, where the index-1 WORS is the direct pattern from
+
+TABLE I. Morse index of WORS at different α based on the LdG model.
+
+α
+
+5 7 15 25 35 50 75 90 100 130 160 200
+
+Morse index 0 1 2 4 5 6 8 9 10 12 13 14
+
+090601-3
+
+PHYSICAL REVIEW LETTERS 124, 090601 (2020)
+
+which the two D states bifurcates. Assume that we wish to design a physical device to take advantage of the different optical properties of the dual D states by switching between them [52]; the energy barrier that the device has to overcome and the intermediate states between the two D states are different for system size α ¼ 7 (b) and α ¼ 15 (c); the former goes through WORS and the latter through BD.
+As α increases further, the pathway map become more complicated. At α ¼ 30, WORS is now an index-4 saddle. Two types of unrelated defect states, D and rotated (R) (and their related counterparts by π=2 rotation), emerge as index-0 minima. A different lesson from the above is learned; the dual D states are connected by a metastable R state, following the dynamic pathway sequence D1 → Jne → Re → Jse → D2, or vice versa, where the subscripts indicate the rotated orientations of the pattern [53]. The system could be trapped in R as a metastable state because it is an energy minimum. In order to move to D where the global minimum resides, the R state needs to overcome an energy barrier EJ − ER, which is available from our calculation. From the Kramers theory [54], we can then estimate the trapping time to find out the relaxation kinetics of the bistable system [55].
+The relationships between the stationary states could become quite complicated at α ¼ 50, as Fig. 2(f) demonstrates. WORS is now index-6. Starting from WORS as the parent, we search for other states generation-by-generation to produce the entire family tree (see an illustration of the dynamic downward pathway sequence: WORS → BD → BDþ → I → J− → D in the Supplemental Material [31]). In total, 89 distinct solutions can be found and after classification to account for basic symmetry operations, they fit into 17 basic types. Surprisingly, the structure that contains more defect features JÆ undertakes the simpler J as the transition state that partitions a D state (global minimum) and an R state (local minimum). The two ground states D1 and D2 are connected by pathway sequences D⇄J Æ ⇄R⇄J Æ ⇄D as illustrated in the inset where the orientations of the involved states decide the exact pathway.
+One of the technical advantages of our method is to produce the entire family tree under a parent. A direct result is our finding of states NÆ, MÆ, SÆ, and TÆ, which were not reported in the previous numerical studies of the same LdG model [45] or the Onsager model [56]. Previously, the variety of defect states of these models were obtained by simply solving the necessary condition that the gradient of the energy must be zero, without the systematic inquiry of the sufficient condition of whether the found states are highindex saddle points. The conclusion we draw for the LdG model, that WORS is stable at small α and D is stable at large α with R as the possible metastable state, is consistent with the phase diagram concluded in Ref. [56] based on the Onsager model. All these can be further compared with recent experimental observations where no patterns having high Morse index were actually stabilized [52,57–60].
+
+Upward search.—The downward search strategy guarantees the systematic finding of energy minima as index-0 solutions starting from a given parent, which is already superior to most other optimization numerical methods. On the other hand, if multiple parent states exist, we need to conduct the search on each family tree starting from an individual parent state. For example, starting from A2 in Fig. 1(a), a family tree different from the one in Fig. 1(b) would be found. The A1 and A2 trees may share a common B1 node but the downward searches establish separated maps.
+The key to find complete, interwound pathway maps is to conduct a systematic upward search for the parent states. The k-HiOSD algorithm already embeds a mechanism that allows us to search upward starting from an index-m saddle point to find an index-k saddle where k > m. Again, we assume that all eigenvalues and eigenvectors of the Hessian matrix are known. To do so, the initial condition xð0Þ ¼ xÃ Æ ϵu perturbs xÃ along the direction u, which is selected along a linearly combination of (k − m) eigenvectors corresponding to small positive eigenvalues. The initial fvÃg set used in the search includes these (k − m) eigenvectors and the original m eigenvectors of the negative eigenvalues. By doing so, the search may branch into other family trees through, e.g., the shared B1 in Fig. 1(a) to end up at parent A2. Then a downward search from A2 covers the entire pathway map different from the one illustrated in Fig. 1(b).
+Take the scenario where D is a known, initial state without the knowledge of existence of other structures in Fig. 2(f). Along the upward pathway indicated by dashed arrows, in a single search we can produce the upward pathway sequence D → Jþ → H → Mþ → Nþ → WORS (see Supplemental Material [31]). Once WORS is arrived at, no other upward searches give rise to a solution with a higher index, hence WORS is found as a parent.
+Summary.—This Letter introduces the concept of pathway maps starting from parent states, illustrating the relationships between the stationary states. Our k-HiOSD numerical algorithm introduced here is designed for this purpose. As an example, we determine the solutions of the LdG model for confined liquid crystals and discuss the usefulness of such a pathway map in understanding the physical properties of a multisolution problem, which are otherwise unobtainable by other methods.
+There are at least three important aspects of this approach. The pathway map starts with a parent structure and then relates the entire family completely down to energy minima. The first is the tight control of the initial conditions, which overcomes the difficulty of tuning initial guesses to search stationary points needed in other existing methods. The second is our emphasis on the relationships between all stationary states, established by the pathway map. Most importantly, such connections reveal the hidden physical processes and the transition states are clearly
+
+090601-4
+
+PHYSICAL REVIEW LETTERS 124, 090601 (2020)
+
+shown on the map, which guide our understanding of a physical system. The concept of pathway maps has not been suggested in previous approaches on similar problems. The third is the capability of upward search with a selected direction so that the entire search navigates up and down on the energy landscape, as long as the saddle points are connected somewhere. The procedure offers a general mechanism for the complete determination of all energy minima (hence the global energy minimum) without limitations on energy types, if the number of stationary states is finite. This opens the door to find the dynamic pathways on a complicated energy landscape, which is a critical enabler for many mathematical problems in physics and engineering.
+We thank Professor Yucheng Hu for helpful discussions. This work was supported by the National Natural Science Foundation of China (Grants No. 11622102, No. 11861130351, No. 21790340, No. 11421101, and No. 21873009). J. Y. acknowledges the support from the Elite Program of Computational and Applied Mathematics for Ph.D. Candidates of Peking University.
+*jeffchen@uwaterloo.ca †pzhang@pku.edu.cn ‡zhangl@math.pku.edu.cn [1] D. J. Wales, Energy Landscapes (Cambridge University Press, Cambridge, England, 2003). [2] J. D. Bryngelson, J. N. Onuchic, N. D. Socci, and P. G. Wolynes, Funnels, pathways, and the energy landscape of protein folding: A synthesis, Proteins 21, 167 (1995). [3] J. N. Onuchic, Z. Luthey-Schulten, and P. G. Wolynes, Theory of protein folding: The energy landscape perspective, Annu. Rev. Phys. Chem. 48, 545 (1997). [4] D. T. Leeson, F. Gai, H. M. Rodriguez, L. M. Gregoret, and R. B. Dyer, Protein folding and unfolding on a complex energy landscape, Proc. Natl. Acad. Sci. U.S.A. 97, 2527 (2000). [5] R. B. Laughlin, D. Pines, J. Schmalian, B. P. Stojković, and P. Wolynes, The middle way, Proc. Natl. Acad. Sci. U.S.A. 97, 32 (2000). [6] F. Mallamace, C. Corsaro, D. Mallamace, S. Vasi, C. Vasi, P. Baglioni, S. V. Buldyrev, S.-H. Chen, and H. E. Stanley, Energy landscape in protein folding and unfolding, Proc. Natl. Acad. Sci. U.S.A. 113, 3159 (2016). [7] D. J. Wales and J. P. K. Doye, Global optimization by basinhopping and the lowest energy structures of Lennard-Jones clusters containing up to 110 atoms, J. Phys. Chem. A 101, 5111 (1997). [8] M. Cameron, Computing the asymptotic spectrum for networks representing energy landscapes using the minimum spanning tree, Netw. Heterog. Media 9, 383 (2014). [9] G. H. Fredrickson, V. Ganesan, and F. Drolet, Field-theoretic computer simulation methods for polymers and complex fluids, Macromolecules 35, 16 (2002). [10] I. W. Hamley, Developments in Block Copolymer Science and Technology (John Wiley, New York, 2004).
+
+[11] M. Müller and F. Schmid, Incorporating fluctuations and dynamics in self-consistent field theories for polymer blends, Adv. Polym. Sci. 185, 1 (2005).
+[12] G. H. Fredrickson, The Equilibrium Theory of Inhomogeneous Polymers (Oxford University Press, Oxford, 2006).
+[13] X. Cheng, L. Lin, W. E, P. Zhang, and A.-C. Shi, Nucleation of Ordered Phases in Block Copolymers, Phys. Rev. Lett. 104, 148301 (2010).
+[14] I. Goodfellow, Y. Bengio, and A. Courville, Deep learning (The MIT Press, Cambridge, 2016).
+[15] V. Ásgeirsson and H. Jónsson, Exploring potential energy surfaces with saddle point searches, in Handbook of Materials Modeling: Methods: Theory and Modeling (Springer, Cham, 2018), pp. 1–26, https://link.springer .com/referenceworkentry/10.1007%2F978-3-319-429137_28-1.
+[16] J. W. Milnor, Morse Theory (Princeton University Press, Princeton, 1963), Vol. 51.
+[17] G. Henkelman, G. Jóhannesson, and H. Jónsson, Methods for finding saddle points and minimum energy paths, in Theoretical Methods in Condensed Phase Chemistry, edited by S. D. Schwartz (Springer Netherlands, Dordrecht, 2002), pp. 269–302, https://link.springer.com/chapter/10.1007% 2F0-306-46949-9_10.
+[18] W. E and E. Vanden-Eijnden, Transition-path theory and path-finding algorithms for the study of rare events, Annu. Rev. Phys. Chem. 61, 391 (2010).
+[19] L. Zhang, W. Ren, A. Samanta, and Q. Du, Recent developments in computational modelling of nucleation in phase transformations, npj Comput. Mater. 2, 16003 (2016).
+[20] L. Zhang, Q. Du, and Z. Zheng, Optimization-based shrinking dimer method for finding transition states, SIAM J. Sci. Comput. 38, A528 (2016).
+[21] M. Chen, T.-Q. Yu, and M. E. Tuckerman, Locating landmarks on high-dimensional free energy surfaces, Proc. Natl. Acad. Sci. U.S.A. 112, 3235 (2015).
+[22] D. Mehta, C. Hughes, M. Kastner, and D. J. Wales, Potential energy landscape of the two-dimensional XY model: Higher-index stationary points, J. Chem. Phys. 140, 224503 (2014).
+[23] Y. Li and J. Zhou, A minimax method for finding multiple critical points and its applications to semilinear PDEs, SIAM J. Sci. Comput. 23, 840 (2001).
+[24] L. Zhang, L.-Q. Chen, and Q. Du, Morphology of Critical Nuclei in Solid-State Phase Transformations, Phys. Rev. Lett. 98, 265703 (2007).
+[25] K. M. Brow and W. B. Gearhart, Deflation techniques for the calculation of further solutions of a nonlinear system, Numer. Math. 16, 334 (1971).
+[26] P. E. Farrell, Á. Birkisson, and S. W. Funke, Deflation techniques for finding distinct solutions of nonlinear partial differential equations, SIAM J. Sci. Comput. 37, A2026 (2015).
+[27] D. J. Wales, Rearrangements of 55‐atom Lennard‐Jones and ðC60Þ55 clusters, J. Chem. Phys. 101, 3750 (1994).
+[28] J. P. K. Doye and D. J. Wales, Surveying a potential energy surface by eigenvector-following, Z. Phys. D 40, 194 (1997).
+[29] J. P. K. Doye and D. J. Wales, Saddle points and dynamics of Lennard-Jones clusters, solids, and supercooled liquids, J. Chem. Phys. 116, 3777 (2002).
+
+090601-5
+
+PHYSICAL REVIEW LETTERS 124, 090601 (2020)
+
+[30] D. Mehta, Finding all the stationary points of a potentialenergy landscape via numerical polynomial-homotopycontinuation method, Phys. Rev. E 84, 025702 (2011).
+[31] See Supplemental Material at http://link.aps.org/ supplemental/10.1103/PhysRevLett.124.090601 for a detailed description of the numerical methods used in this Letter and the LdG model where Refs. [32–42] are cited, and two movies showing the dynamic downward and upward pathway sequences of Fig. 2(f), respectively.
+[32] J. Barzilai and J. M. Borwein, Two-point step size gradient methods, IMA J. Numer. Anal. 8, 141 (1988).
+[33] N. J. Mottram and C. J. P. Newton, Introduction to Q-tensor theory, arXiv:1409.3542.
+[34] S. Kralj, R. Rosso, and E. G. Virga, Curvature control of valence on nematic shells, Soft Matter 7, 670 (2011).
+[35] C. J. Cerjan and W. H. Miller, On finding transition states, J. Chem. Phys. 75, 2800 (1981).
+[36] G. Henkelman and H. Jónsson, A dimer method for finding saddle points on high dimensional potential surfaces using only first derivatives, J. Chem. Phys. 111, 7010 (1999).
+[37] J. Zhang and Q. Du, Shrinking dimer dynamics and its applications to saddle point search, SIAM J. Numer. Anal. 50, 1899 (2012).
+[38] W. E and X. Zhou, The gentlest ascent dynamics, Nonlinearity 24, 1831 (2011).
+[39] W. Gao, J. Leng, and X. Zhou, An iterative minimization formulation for saddle point search, SIAM J. Numer. Anal. 53, 1786 (2015
+[40] E. Cance`s, F. Legoll, M.-C. Marinica, K. Minoukadeh, and F. Willaime, Some improvements of the activationrelaxation technique method for finding transition pathways on potential energy surfaces, J. Chem. Phys. 130, 114711 (2009).
+[41] E. Machado-Charry, L. K. Be´land, D. Caliste, L. Genovese, T. Deutsch, N. Mousseau, and P. Pochet, Optimized energy landscape exploration using the ab initio based activationrelaxation technique, J. Chem. Phys. 135, 034102 (2011).
+[42] W. Quapp and J. M. Bofill, Locating saddle points of any index on potential energy surfaces by the generalized gentlest ascent dynamics, Theor. Chem. Acc. 133, 1510 (2014).
+[43] J. Yin, L. Zhang, and P. Zhang, High-index optimizationbased shrinking dimer method for finding high-index saddle points, SIAM J. Sci. Comput. 41, A3576 (2019).
+[44] P. G. de Gennes and J. Prost, The Physics of Liquid Crystals (Oxford University Press, Oxford, 1995), Vol. 83.
+[45] M. Robinson, C. Luo, P. E. Farrell, R. Erban, and A. Majumdar, From molecular to continuum modelling of bistable liquid crystal devices, Liq. Cryst. 44, 2267 (2017).
+
+[46] Y. Wang, G. Canevari, and A. Majumdar, Order reconstruction for nematics on squares with isotropic inclusions: A Landau–De Gennes study, SIAM J. Appl. Math. 79, 1314 (2019).
+[47] T. A. Davis and E. C. Gartland, Jr., Finite element analysis of the Landau–de Gennes minimization problem for liquid crystals, SIAM J. Numer. Anal. 35, 336 (1998).
+[48] Y. Wang, P. Zhang, and J. Z. Y. Chen, Topological defects in an unconfined nematic fluid induced by single and double spherical colloidal particles, Phys. Rev. E 96, 042702 (2017).
+[49] G. Canevari, A. Majumdar, and A. Spicer, Order reconstruction for Nematics on squares and hexagons: A Landau–de Gennes study, SIAM J. Appl. Math. 77, 267 (2017).
+[50] J. Z. Y. Chen, Structure of two-dimensional rods confined by a line boundary, Soft Matter 9, 10921 (2013).
+[51] S. Kralj and A. Majumdar, Order reconstruction patterns in nematic liquid crystal wells, Proc. R. Soc. A 470, 20140276 (2014).
+[52] C. Tsakonas, A. J. Davidson, C. V. Brown, and N. J. Mottram, Multistable alignment states in nematic liquid crystal filled wells, Appl. Phys. Lett. 90, 111913 (2007).
+[53] H. Kusumaatmaja and A. Majumdar, Free energy pathways of a multistable liquid crystal device, Soft Matter 11, 4809 (2015).
+[54] H. A. Kramers, Brownian motion in a field of force and the diffusion model of chemical reactions, Physica 7, 284 (1940).
+[55] J. K. Bhattacharjee and K. Banerjee, Kramers time in bistable potentials, J. Phys. A 22, L1141 (1989).
+[56] X. Yao, H. Zhang, and J. Z. Y. Chen, Topological defects in two-dimensional liquid crystals confined by a box, Phys. Rev. E 97, 052707 (2018).
+[57] J. Galanis, D. Harries, D. L. Sackett, W. Losert, and R. Nossal, Spontaneous Patterning of Confined Granular Rods, Phys. Rev. Lett. 96, 028002 (2006).
+[58] J. Galanis, R. Nossal, W. Losert, and D. Harries, Nematic Order in Small Systems: Measuring the Elastic and WallAnchoring Constants in Vibrofluidized Granular Rods, Phys. Rev. Lett. 105, 168001 (2010).
+[59] M. Soares e Silva, J. Alvarado, J. Nguyen, N. Georgoulia, B. M. Mulder, and G. H. Koenderink, Self-organized patterns of actin filaments in cell-sized confinement, Soft Matter 7, 10631 (2011).
+[60] A. H. Lewis, I. Garlea, J. Alvarado, O. J. Dammone, P. D. Howell, A. Majumdar, B. M. Mulder, M. P. Lettinga, G. H. Koenderink, and D. G. A. L. Aarts, Colloidal liquid crystals in rectangular confinement: Theory and experiment, Soft Matter 10, 7865 (2014).
+
+090601-6
+

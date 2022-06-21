@@ -1,0 +1,335 @@
+PHYSICAL REVIEW B 91, 075109 (2015)
+
+Ab initio theory of spin entanglement in atoms and molecules
+
+S. Pittalis,1,* F. Troiani,1 C. A. Rozzi,1 and G. Vignale2 1S3 Istituto Nanoscienze, Consiglio Nazionale delle Ricerche, I-41100 Modena, Italy
+2Department of Physics, University of Missouri, Columbia, Missouri 65211, USA
+(Received 17 July 2014; published 11 February 2015)
+
+We investigate spin entanglement in many-electron systems within the framework of density functional theory. We show that the entanglement length, which is extracted from the spatial dependence of the local concurrence, is a sensitive indicator of atomic shells and reveals the character, covalent or metallic, of chemical bonds. These ﬁndings shed light on the remarkable success of modern density functionals, which tacitly employ the entanglement length as a variable. This opens the way to further research on entanglement-based functionals.
+
+DOI: 10.1103/PhysRevB.91.075109
+
+PACS number(s): 05.30.−d, 03.67.Mn, 31.15.es, 71.15.Mb
+
+I. INTRODUCTION
+Entanglement arguably represents the quintessential quantum mechanical effect [1] and has recently emerged as a crucial resource in quantum technology [2]. The concept of entanglement was originally referred to the case of nonidentical or spatially separated particles. On the other hand, indistinguishable quantum particles within a many-body system cannot be labeled. There one needs to reconsider the deﬁnition of entanglement, by introducing suitable criteria for identifying the subsystems [3]. In the case of a many-electron system, for example, the subsystems can be identiﬁed with the lattice sites [4–7] or with a set of relevant orbitals [8–11], and their states are deﬁned by the corresponding occupation numbers. Most of the potential applications can however be related to the so-called entanglement of particles [12,13], where each subsystem is associated with a deﬁnite number of particles (typically one). The entanglement between two electron spins, located at two given positions within an extended many-body system [14], belongs to this latter class.
+The main features of such spin entanglement in an ideal Fermi gas can be derived from very general physical principles [9,15,16]. In fact, the Pauli exclusion principle implies that the state of two electrons localized at the same position is necessarily a spin singlet. Besides, the spatial extension of such singletlike character—and of the resulting spin entanglement—is of order of 1/kF (kF being the Fermi wave vector). This seems to suggest that spin entanglement in real many-electron systems may be remarkably short-ranged, with a characteristic length scale that depends locally on the particle density.
+In this article, we show that the situation is actually far more rich and interesting in inhomogeneous systems. We ﬁnd that the behavior of spin entanglement in atomic shells and molecular covalent bonds differs substantially from the case of a metallic bond—the paradigm of which is an interacting uniform gas. Our analysis is carried out within the framework of density functional theory (DFT), in its Kohn-Sham (KS) formulation [17]. This enables a practical and effective, albeit approximate, ab initio estimation of spin entanglement for not too strongly correlated systems with up to thousands of electrons, including atoms and molecules far from their
+*stefano.pittalis@nano.cnr.it
+
+dissociation limit. Spin entanglement, in turn, provides modern insights for developments within DFT.
+The entanglement between two qubits can be quantiﬁed in terms of the so-called concurrence [18]. In our case, this is a function of the positions of the two electrons, whose spins represent the qubits in question. We ﬁnd that the concurrence decays locally over an entanglement length, lE(r), which depends explicitly not only on the particle density—as for the case of a uniform gas—but also on the kinetic energy density, the gradients of the electronic density, and the paramagneticcurrent density (all taken in a gauge-invariant combination).
+We ﬁnally recognize that lE is a fundamental ingredient of the electron-localization function [19,20]—often invoked in quantum chemistry as a useful tool for the visualization of atomic shells and bonds [21]—and of modern exchangecorrelation functionals, which improve over the performance of standard semilocal approximations for different kinds of bonds [22]. We conclude that leaps forward in DFT may greatly beneﬁt from entanglement-based methods.
+
+II. SPIN ENTANGLEMENT IN AN N-ELECTRON SYSTEM
+
+The degree of spin entanglement between electrons localized at two different positions, r1 and r2, can be evaluated from the spin-dependent two-particle reduced density matrix
+
+ρ2(x1,x2; x1,x2) = ψˆ †(x2)ψˆ †(x1)ψˆ (x1)ψˆ (x2) , (1)
+
+where x ≡ (r,σ ) is a composite position-spin variable. The diagonal elements of interest are obtained by taking r1 = r1 and r2 = r2. The resulting matrix ρ2(r1,r2)—with understood indices (σ1,σ2) and (σ1,σ2)—represents the state of a two-qubit system. For closed-shell systems therefore the reduced density
+matrix is diagonal in the singlet-triplet basis of the two-qubit
+system and has the form of a Werner state [23]. Normalization
+with respect to spin-trace yields the following expression:
+
+ρ2norm(r1,r2) = p(r1,r2) | − −| + [1 − p(r1,r2)] I/4,
+
+(2)
+
+where I is the identity matrix in the two-spin space and | − =
+
+√1 (|↑↓
+2
+
+− |↓↑ )
+
+is the singlet state. Here p(r1,r2), varying
+
+in the range 0 < p < 1, determines the difference between the
+
+occupation of the singlet state and that of any of the three
+
+equivalent triplet states. The concurrence of the above Werner
+
+state can be shown to be [15]
+
+C(r1,r2) = max{[3p(r1,r2) − 1]/2,0}.
+
+(3)
+
+1098-0121/2015/91(7)/075109(4)
+
+075109-1
+
+©2015 American Physical Society
+
+S. PITTALIS, F. TROIANI, C. A. ROZZI, AND G. VIGNALE
+
+PHYSICAL REVIEW B 91, 075109 (2015)
+
+The concurrence thus vanishes when the occupation of the singlet state is less than 1/2 (i.e., for p 1/3) and grows monotonically for p > 1/3, reaching the theoretical maximum C = 1 for the singlet state (p = 1).
+As the number of electrons increases a direct computation of the two-particle reduced density matrix becomes rapidly prohibitive. Within DFT, however, the wave function is represented by a single Slater determinant, which satisﬁes the antisymmetry condition and yields, in principle, the exact ground-state density of the interacting system. Such a wave function captures quantum correlations at the “exact exchange” level. Therefore, as long as correlations due to the electron-electron interaction are not too strong, the KS framework provides a very useful ﬁrst approximation to study the effects of system inhomogeneities on spin entanglement. For the KS wave function the two-particle density matrix [Eq. (1)] can be factored into a product of one-particle density matrices. It is then easily checked that, for a closed-shell system (equal numbers of up and down spins), the quantity in Eq. (1) acquires the form
+
+ρ2(r1,r2) = nσ (r1) nσ (r2) + hσX(r1,r2) I
+
+−2nσ (r1)hσX(r1,r2)| − −|,
+
+(4)
+
+where nσ (r) is a half of the total electron density, hσX(r1,r2) is the exchange-hole function
+
+hσX(r1,r2) = − ρ1σ (r1,r2) 2 nσ (r1),
+
+(5)
+
+and ρ1(r1,r2) is the KS one-body reduced density matrix. This is expressed in terms of the (occupied) KS spin orbitals ϕiσ as follows:
+
+Nσ
+
+ρ1σ (r1,r2) = ϕiσ (r1)ϕi∗σ (r2).
+
+(6)
+
+i=1
+
+Note that, for simple and direct bookkeeping, we shall keep track of the spin index explicitly and drop it in some key expressions reported below when no ambiguities are left over.
+The exchange-hole function quantiﬁes the correlation between two electrons with equally oriented spins dictated by their fermionic character. In particular, such correlation may result in an excess of the singlet-state occupation in the two-body density matrix (p > 0), and, possibly, in two-particle spin entanglement (p > 1/3). Comparison between Eq. (2) and Eq. (4) allows one to express the probability p in terms of the exchange-hole function:
+
+p(r1,r2)
+
+=
+
+−
+
+2nσ
+
+hσX(r1,r2) (r2) + hσX(r1,r2)
+
+.
+
+(7)
+
+The condition for the existence of spin entanglement [C > 0, see Eq. (3)] is correspondingly given by
+
+hσX(r1,r2) < −nσ (r2)/2.
+
+(8)
+
+In order to get further insight, let us consider the case in
+which only one occupied orbital is signiﬁcantly different from zero at both r1 and r2. In this case, hσX(r1,r2) −nσ (r2), and thus C(r1,r2) 1. This applies, approximately, in the asymptotic region of any atom or molecule and in the regions
+of the atomic shells and molecular bonds. As r2 moves away from a ﬁxed r1, the concurrence may thus have revivals even
+
+at distances comparable to the system size, if r2 is positioned within the same shell or bond as r1. This is completely different from the monotonic decrease of C that one expects in a uniform
+Fermi gas.
+
+III. SHORT-RANGE (SR) BEHAVIOR OF THE CONCURRENCE
+
+The example of the noninteracting Fermi gas suggests that, locally, the concurrence should decrease with some characteristic length. In order to investigate this important aspect in realistic many-electron systems, we introduce the spherical average of the two-body density matrix [Eq. (4)]:
+
+1 ρ2(r,u) = 4π d uρ2(r1 = r,r2 = r + u), (9)
+
+where u is the solid angle deﬁned by u around r. Analogous averages apply to the exchange hole and to the particle density: they are referred to hereafter as hX(r,u) and n(r,u), respectively. The SR behavior of these quantities can be derived from their Taylor expansion in the interparticle distance u [24,25]:
+
+nσ (r,u)
+
+nσ
+
+(r)
+
++
+
+1 6
+
+∇ 2 nσ
+
+(r)u2
+
++
+
+·
+
+·
+
+·
+
+(10)
+
+hσX(r,u)
+
+−nσ (r) +
+
+1 3
+
+Dσ (r) −
+
+1 2
+
+∇
+
+2nσ
+
+(r)
+
+u2 + · · ·,
+
+(11)
+
+where
+
+Dσ (r)
+
+=
+
+τσ (r) −
+
+1 [∇nσ (r)]2 4 nσ (r)
+
+−
+
+jp2σ (r) . nσ (r)
+
+(12)
+
+In the above equation,
+
+Nσ
+
+τσ (r) =
+
+∇ϕiσ (r) 2
+
+(13)
+
+i=1
+
+is (twice) the positive deﬁnite kinetic energy density, and
+
+jpσ (r)
+
+=
+
+1 2i
+
+Nσ
+
+ϕk∗σ (r)∇ϕkσ (r) − ϕkσ (r)∇ϕk∗σ (r)
+
+(14)
+
+k=1
+
+is the KS paramagnetic current density. Note that jpσ = 0 in the ground state of closed-shell systems, but can very well be different from zero in a time-dependent situation.
+The SR behavior of the concurrence is readily derived by replacing the Taylor expansions of hX and n given above in Eqs. (3) and (7). The resulting expression is given, to the lowest order in u, by
+
+CSR(r,u) = max{0,1 − u2Dσ (r)/nσ (r)}.
+
+(15)
+
+Equation (15) naturally leads to the introduction of a length scale, lE(r) ≡ [Dσ (r)/nσ (r)]−1/2, which expresses the “local range” of the spin entanglement around a given point in space.
+Combining such an expression with Eq. (12), the length scale
+reads
+
+lE(r) ≡
+
+τσ (r) − 1 [∇nσ (r)]2 − j2pσ (r)
+
+−1/2
+.
+
+nσ (r) 4 [nσ (r)]2 [nσ (r)]2
+
+(16)
+
+It is tempting to extrapolate the behavior of the concurrence to larger interparticle distances, through an (approximate)
+
+075109-2
+
+AB INITIO THEORY OF SPIN ENTANGLEMENT IN . . .
+
+PHYSICAL REVIEW B 91, 075109 (2015)
+can be expressed as α(r) = [lEunif(r)/ lE(r)]2. Note, for currentcarrying states, α(r) requires a correction [26] which is automatically included in lE(r).
+
+FIG. 1. (Color online) Solid lines represent the concurrence of the Fermi gas for different values (represented with different colors) of the Wigner-Seitz radius (rs = 0.5,1.0,0.4 a.u.). Dashed lines and bullets represent the approximate expressions of the concurrence given in Eqs. (15) and (17), respectively.
+
+exponential resummation, as follows:
+
+C(r,u) ≈ exp −u2/ lE2 (r) .
+
+(17)
+
+Figure 1 compares the concurrence of the noninteracting Fermi gas, as a function of u, with the one obtained from the uncontrolled extrapolation of the small-u expansion [Eq. (15)] and from the more educated extrapolation [Eq. (17)]. This is done for values of the Wigner-Seitz radius rs ranging from typical metallic densities to higher ones. Readily, one ﬁnds that
+
+lEunif =
+
+5 3
+
+1 kFσ
+
+[with kFσ
+
+=
+
+(6π 2nσ )1/3]. As expected, the higher
+
+the density, the more the entanglement is short-ranged, the
+
+more Eq. (15) gets accurate. Equation (17) tends to recover the
+
+exact concurrence also at intermediate interparticle distances,
+
+although it introduces a spurious tail for larger values of
+
+u. More importantly, Eqs. (15) and (17) also apply—within
+
+the speciﬁed limitations and approximations—to nonuniform
+
+gases.
+
+IV. ENTANGLEMENT LENGTH, ELF, AND META-GGA FORMS
+
+The SR behavior of the concurrence function explains in a uniﬁed fashion the success of modern DFT expressions. These include the electron-localization function (ELF) [19–21]—a useful quantity to visualize shells and covalent bonds. Our previous analysis allows us to express the ELF in terms of the entanglement length:
+
+ELF(r) = 1+
+
+1 lEunif (r)
+
+lE(r) 4 .
+
+(18)
+
+Therefore, the ELF quantiﬁes the “difference” between the actual lE(r) and the lEunif(r) of a uniform gas having the same particle density at the position of interest.
+Remarkably, lE(r) also turns out to be a fundamental quantity for exchange-correlation meta-GGAs’ functionals (ExmcGGA). These forms are capable of adapting to different types of bonds and, thus, of improving over the performance
+of standard semilocal approximations [22]. They employ the
+kinetic energy density as an additional variable. In Ref. [22], the dependence on τ enters in the ExmcGGA through α which
+
+V. ATOMIC SHELLS Let us visualize the remarkable behavior of spin entanglement in atoms and molecules. As a representative example of a closed-shell atom, we consider the case of Ar. Figure 2(a) shows the inverse of lE(r) rather than the length itself, for the sake of a simpler visualization. This quantity exhibits a strong dependence on the shell structure. In particular, the local maxima of lE−1(r) correspond to the local minima of the ELF [Fig. 2(b)], and vice versa. Therefore, the entanglement gets more short-ranged between atomic shells and more long-ranged within the atomic shells. Moving outwardly from the last shell, one enters the asymptotic region of the Ar atom. Here, the entanglement length tends to inﬁnity—but the probability of ﬁnding an electron vanishes exponentially for increasing radius. Note that lEunif(r) can only follow the structureless proﬁle of the particle density [Fig. 2(c)] and thus fails to capture features such as shells and bonds. It is worth asking to what extent the Coulomb interaction between electrons affects the distribution of entanglement. We may get some insight by comparing the previous results with those obtained by setting the Hartree and exchange-correlation potentials to zero in the KS equation (dashed curves in Fig. 2). Underlying this comparison is the idea that the single-particle orbitals and eigenvalues of the KS systems represent, in a ﬁrst approximation, quasiparticles obtained by screening the otherwise purely noninteracting quantities with correlations of both classical (Hartree) and quantum mechanical (exchangecorrelation) origin. The most prominent difference between the KS and the truly noninteracting solution is that, in the latter, both the shell structure and the particle density move towards the core of the atom. Besides, the local entanglement length is reduced both in correspondence of the atomic shells and in the spatial region between them.
+FIG. 2. (Color online) Argon atom. Radial dependencies of the inverse of the local entanglement length (a), of the ELF (b), and of the particle density n (c). All the input quantities have been obtained using the APE code [27]. The approximation to the exchange-correlation energy functional employs the Dirac exchange [28] and the Perdew and Zunger correlation [29].
+
+075109-3
+
+S. PITTALIS, F. TROIANI, C. A. ROZZI, AND G. VIGNALE
+
+PHYSICAL REVIEW B 91, 075109 (2015)
+correspondence with the central bond between the two carbon atoms. The plot of lE−1(r) also reveals that entanglement is long-ranged in the asymptotic region of the molecule and around each hydrogen atom, where the local two-spin state essentially coincides with a singlet. Overall our results show that the local concurrence contains detailed information about inhomogeneous electronic structures.
+
+FIG. 3. (Color online) C2H2 molecule in the xy plane. The ﬁgure shows the inverse of the local entanglement length, lE−1(r). All the input quantities have been obtained using the OCTOPUS code [30]. The approximation to the exchange-correlation energy functional employs the Dirac exchange [28] and the Perdew and Zunger correlation [29].
+VI. MOLECULAR BONDS
+The previous analyses suggest that the SR behavior of spin entanglement in molecules may be related to the presence of chemical bonds. As a representative case, we consider the case of C2H2. Being mainly interested in the bond region, we perform our calculation with pseudopotentials for the carbon atoms and explicitly include only the 2s and 2p electrons. The spatial dependence of lE−1(r) is reported in Fig. 3. Moving along the axes of the molecule, lE−1(r) has a local minimum in
+
+VII. CONCLUSIONS
+We have presented a practical and effective ab initio approach for the estimation of spin entanglement in realistic inhomogeneous many-electron systems composed of even up to hundreds of atoms. We have shown that the behavior of spin entanglement in atomic shells and molecular covalent bonds is clearly distinguishable from that in a uniform metallic system. Thus, we have revealed that modern DFT expressions useful to deal with these structures tacitly exploit local information on the spin entanglement. This calls for further DFT developments based on entanglement analyses. An extension to time-dependent states—within the framework of time-dependent DFT—is straightforward. This may usefully characterize the signatures of entanglement in excitations.
+ACKNOWLEDGMENTS
+This work was ﬁnancially supported by the European Community through the FP7’s CRONOS project Grant No. 280879-2 (S.P. and C.A.R.); the Italian FIRB Project No. RBFR12RPD1 of the Italian MIUR (F.T.); and DOE-BES Grant No. DE-FG02-05ER46203 (G.V.).
+
+[1] E. Schro¨dinger, Naturwissenshaften 23, 807 (1935). [2] M. Nielsen and I. L. Chuang, Quantum Computation and
+Quantum Information (Cambridge University Press, Cambridge, UK, 1989). [3] L. Amico, R. Fazio, A. Osterloh, and V. Vedral, Rev. Mod. Phys. 80, 517 (2008). [4] P. Zanardi, Phys. Rev. A 65, 042101 (2002). [5] V. V. Franca and K. Capelle, Phys. Rev. A 74, 042325 (2006). [6] V. V. Franca and K. Capelle, Phys. Rev. Lett. 100, 070403 (2008). [7] V. V. Franca and I. D’Amico, Phys. Rev. A 83, 042311 (2011). [8] J. Schliemann, J. I. Cirac, M. Kus´, M. Lewenstein, and D. Loss, Phys. Rev. A 64, 022303 (2001). [9] V. Vedral, Cent. Eur. J. Phys. 1, 289 (2003). [10] Y. Shi, J. Phys. A: Math. Gen. 37, 6807 (2004). [11] K. Boguslawski, P. Tecmer, O. Legeza, and M. Reiher, Phys. Chem. Lett. 3, 3129 (2012). [12] H. M. Wiseman and J. A. Vaccaro, Phys. Rev. Lett. 91, 097902 (2003). [13] M. R. Dowling, A. C. Doherty, and H. M. Wiseman, Phys. Rev. A 73, 052323 (2006). [14] L. Hofstetter, S. Csonka, J. Nygard, and C. Scho¨nenberger, Nature (London) 461, 960 (2009). [15] S. Oh and J. Kim, Phys. Rev. A 69, 054305 (2004).
+
+[16] C. Lunkes, C. Brukner, and V. Vedral, Phys. Rev. Lett. 95, 030503 (2005).
+[17] For a review, see, for example, A Primer in Density Functional Theory (Springer, Berlin, 2003).
+[18] W. K. Wootters, Phys. Rev. Lett. 80, 2245 (1998). [19] A. D. Becke and K. E. Edgecombe, J. Chem. Phys. 92, 1 (1990). [20] T. Burnus, M. A. L. Marques, and E. K. U. Gross, Phys. Rev. A
+71, 010501(R) (2005). [21] B. Silvi and A. Savin, Nature (London) 371, 683 (1994). [22] J. Sun, B. Xiao, Y. Fang, R. Haunschild, P. Hao, A. Ruzsinszky,
+G. I. Csonka, G. E. Scuseria, and J. P. Perdew, Phys. Rev. Lett. 111, 106401 (2013). [23] R. F. Werner, Phys. Rev. A 40, 4277 (1989). [24] A. D. Becke, Int. J. Quantum Chem. 23, 1915 (1983). [25] J. F. Dobson, J. Chem. Phys. 98, 8870 (1993). [26] J. Tao and J. P. Perdew, Phys. Rev. Lett. 95, 196403 (2005). [27] M. Oliveira and F. Nogueira, Comput. Phys. Commun. 178, 524 (2008). [28] P. Dirac, Proc. Cambridge Philos. Soc. 26, 376 (1930). [29] J. P. Perdew and A. Zunger, Phys. Rev. B 23, 5048 (1981). [30] A. Castro, H. Appel, M. Oliveira, C. A. Rozzi, X. Andrade, F. Lorenzen, M. A. L. Marques, E. K. U. Gross, and A. Rubio, Phys. Stat. Sol. B 243, 2465 (2006).
+
+075109-4
+

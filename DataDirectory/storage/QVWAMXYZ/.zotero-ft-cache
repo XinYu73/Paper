@@ -1,0 +1,667 @@
+Articles
+https://doi.org/10.1038/s41563-020-00821-3
+
+Dzyaloshinskii–Moriya-like interaction in
+ferroelectrics and antiferroelectrics
+Hong Jian Zhao   1, Peng Chen   1 ✉, Sergey Prosandeev1, Sergey Artyukhin2 and Laurent Bellaiche   1 ✉
+The Dzyaloshinskii–Moriya interaction (DMI) between two magnetic moments mi and mj is of the form Dij  ðmi ´ mjÞ. It originates from spin–orbit coupling, and is at the heart of fascinating phenomena involving non-collinear magnI etism, such as magnetic topological defects (for example, skyrmions) as well as spin–orbit torques and magnetically driven ferroelectricity, that are of significant fundamental and technological interest. In sharp contrast, its electric counterpart, which is an electric DMI characterized by its D0ij strength and describing an interaction between two polar displacements ui and uj, has rarely been considered, despite the sItriking possibility that it could also generate new features associated with non-collinear patterns of electric dipoles. Here we report first-principles simulations combined with group theoretical symmetry analysis which not only demonstrate that electric DMI does exist and has a one-to-one correspondence with its magnetic analogue, but also reveals a physical source for it. These findings can be used to explain and/or design phenomena of possible technological importance in ferroelectrics and multiferroics.
+
+The magnetic Dzyaloshinskii–Moriya interaction (DMI)— arising from spin–orbit coupling between mi and mj pairs of dipole moments via HDM = Dij ⋅ (mi × mj) (refs. 1,2)—is a key factor driving various fascinating phenomena, including non-collinear magnetism (for example, magnetic topological defects such as skyrmions3–5, vortices6,7, merons5,8,9, as well as spin–orbit torques10) and magnetically driven ferroelectricity11,12, that are of great fundamental and technological interest. However, the electric DMI (D0ij) coupling the polar displacements ui and uj, which is the counI terpart of magnetic DMI, has rarely been evoked, even though it can also generate new features associated with non-collinear electric dipolar patterns and thus may, for example, also lead to a revisitation or generalization of the laws of electricity and magnetism13–27. It is not even clear whether or not an electric DMI exists, although, based solely on symmetry arguments, its existence has been recently hinted28. In fact, the electric DMI is usually thought to have no physical grounds, unlike spin–orbit coupling for the magnetic DMI19. Here we use first-principles simulations and group theoretical symmetry analysis to investigate whether or not the electric DMI exists. In particular, we not only provide evidence that the electric DMI does exist but also reveal a physical source for it. By investigating the well-known class of materials formed by ABO3 perovskites, we obtained invariants giving rise to non-collinear (anti)ferroelectricity that suggest a one-to-one correspondence between Dij and D0ij. We also identified the underlying factors governing such non-coIllinear alignment of electric dipoles.
+Non-collinear magnetism in perovskites driven by magnetic DMI
+Let us focus on ABO3 perovskites and start by recalling that recent works have suggested that a specific magnetic DMI can occur there, involving the tilting of oxygen octahedra (Supplementary Discussion I)29,30. Technically, such a DMI can, for example, result in an energy given by ΔE ∝ ωR ⋅ (G × F), where ωR is the anti-phase tilting of the BO6 octahedra and F and G are the ferromagnetic (Γ point) and G-type antiferromagnetic (R point) vectors,
+
+respectively29,30. Note that the K vectors and the corresponding modulations are defined in Supplementary Table I. This proposed spin–orbit-driven energy explains in a simple and straightforward way the spin-canting-driven weak ferromagnetism superimposed on the dominating G-type antiferromagnetism in various types of materials including rare-earth orthoferrites31 and other transition-metal-based perovskites32, such as chromites, manganates, titanates and halides.
+
+Mechanisms for non-collinear dipole patterns
+
+Our basic starting idea is to search for electric DMIs in ABO3 perovskites that are also mediated by oxygen octahedral tiltings. We
+
+first employ group theory to obtain trilinear coupled invariants of
+
+the form ∑αβγϵαβγωαQ1,βQ2,γ, involving ωα (in-phase ωM or anti-phase ωR tiltings along the α-Cartesian direction) as well as Q1,β and Q2,γ, which are two kinds of ferroelectric or antiferroelectric motions for
+
+A or B ions along the β and γ directions, respectively. ϵαβγ is the Levi– Civita symbol. As summarized in Table 1 and sketched in Fig. 1, we
+
+have discovered eight such possible couplings with α, β and γ being
+
+different from each other, which we denote by Ei (i = 1–8). We also
+
+foundPfour form αβγ
+
+additional ϵαβγ ωαQ1;δ
+
+couplings (denoted Q2;δ0 but with ðδ; δ0
+
+by Ei with i = 9–12) of the Þ being (β,α), (α,β), (γ,α)
+
+or (α,γI)—that is, for which one subscIript of a Q mode is identical
+
+to that of the pseudo-vector characterizing the tilting of the oxygen
+
+octahedra. These 12 mechanisms can be linked with electric DMIs,
+
+and thus can generate non-collinear patterns of electric dipoles. Six
+
+other couplings (denoted as Ei with i = 13–18) were discovered as byproducts (Supplementary Table II) and have the analytical form
+
+∑αβγϵαβγωαQ1,βQ2,β—that is, the index of the two Q modes is identical. Note that in Table 1, as well throughout the manuscript and the Supplementary Information, the quantity dKα is defined and widely used to denote the symmetrized displacemI ents (along the α
+
+direction) within the d (d = A or B) sublattice and associated with a
+
+pspaerctiicfiuclaalrlyK, d-pKαoiisngtivoefnthbeyfN1ivPe-almtonmeðiKcuRblmincÞrfdlmirns;tα,Bwrihlleorueirndlmzno;αnde.eMnooteres the displacemIent along theIα direction of the ion initialIly located in
+
+1Physics Department and Institute for Nanoscience and Engineering, University of Arkansas, Fayetteville, AR, USA. 2Quantum Materials Theory, Italian Institute of Technology, Genoa, Italy. ✉e-mail: pc011@uark.edu; laurent@uark.edu
+Nature Materials | www.nature.com/naturematerials
+
+Articles
+
+NaTure MaTerIals
+
+Table 1 | The 12 possible trilinear mechanisms for the electric DMI in ABO3 perovskites
+
+E1 / ϵαβγ ωRαBRβ BΓγ I (ωRz BRx BΓy À ωRz BRy BΓx )
+I Fig. 2a
+
+E2 / ϵαβγ ωRαBMβ γ BXγ γ I (ωRz BMx y BXy y À ωRz BMy x BXx x )
+I Supplementary Fig. 2i
+
+E3 / ϵαβγ ωRαBMβ β BXγ β I (ωRz BMx x BXy x À ωRz BMy y BXx y )
+I Supplementary Fig. 2j
+
+E4 / ϵαβγ ωRαBMβ α BXγ α I (ωRz BMx z BXy z À ωRz BMy z BXx z )
+I Supplementary Fig. 2k
+
+E5 / ϵαβγ ωMα α BMβ α BΓγ I (ωMz z BMx z BΓy À ωMz z BMy z BΓx )
+I Fig. 2b and Supplementary Fig. 2b
+
+E6 / ϵαβγ ωMα α BXβ α BRγ I (ωMz z BXx z BRy À ωMz z BXy z BRx )
+I Supplementary Fig. 2g
+
+E7 / ϵαβγ ωRαBRβ AΓγ I (ωRz BRx AΓy À ωRz BRy AΓx )
+I Fig. 2a
+
+E8 / ϵαβγ ωMα α BMβ α AΓγ I (ωMz z BMx z AΓy À ωMz z BMy z AΓx )
+I Fig. 2b and Supplementary Fig. 2a
+
+E9 / ϵαβγ ωRαBXβ β AMα β I (ωRz BXx x AMz x À ωRz BXy y AMz y ) I Supplementary Fig. 2i
+
+E10 / ϵαβγ ωRαBXαβ AMβ β I (ωRz BXz x AMx x À ωRz BXz y AMy y ) I Supplementary Fig. 2h
+
+E11 / ϵαβγ ωMα α BMγ β AMα γ I (ωMz z BMy x AMz y À ωMz z BMx y AMz x ) I Supplementary Fig. 2d
+
+E12 / ϵαβγ ωMα α BMα β AMγ γ I (ωMz z BMz x AMy y À ωMz z BMz y AMx x ) I Supplementary Fig. 2c
+
+The formula of each of symbol ϵαβγ, which has
+
+these mechanisms is indicated by Ei, with a value of +1 when αβγ is xyz, yzx and zxy,
+
+i = 1–12. Although the summation symbols are omitted, summation for −1 when αβγ is xzy, yxz and zyx, and 0 for cases with repeated indices,
+
+the indices α, β and γ should be done is adopted in our formulas. Here, the
+
+sfyomr ebaoclhdEKαi.
+
+The Levi–Civita denotes that
+
+the displacements are along the α direction for A (d = A) or B (d = B) ions associated with the K point (for definition, see Supplementary Discussion I). Moreover, we show the expandeI d forms of these
+
+mechanisms (in parentheses) given that ωM or ωR is along the z orientation; the underlined terms are sketched and shown in Fig. 1. The DFT results verifying these couplings for tiltings about the z axis are
+
+shown in Fig. 2 and Supplementary Fig. 2. For example, the E1 and E7 couplings are corroborated by Fig. 2a.
+
+a
+
+b
+
+E1
+
+e
+
+f
+
+E5
+
+c
+E2
+g
+E6
+
+i
+
+j
+
+k
+
+E9
+
+E10
+
+d
+
+E3
+
+E4
+
+h
+
+E7
+
+E8
+
+l
+
+E11
+
+E12
+
+Fig. 1 | Sketches of the atomic motions associated with the 12 trilinear mechanisms. a–l, Atomic motions associated with the underlined Ei (i = 1−12) terms in Table 1, assuming that the tiltings (not shown in the sketches) are along the z direction. Red, blue and magenta arrows denote motions along the x, y and z directions, respectively; purple and yellow balls denote A and B ions, respectively. For clarity of display, we adopt a cell centred on an A ion.
+
+the unit cell at Rlmn = la + mb + nc within the considered d sublattice, and N is the total number of lattice sites (the primitive vectors
+
+wotrfihzteehrdiesfFoladlrmtctnei;csαeFiIsaKαrt;edhoeaf,αtbhceaondmdspucob)n.laeStntitmicoeiflabtryhlyeF,IKαfwo;drec¼ceaaNn1cPtdinelfgminnoeenðitKthhReelmsniyÞoFmndlmminn;eαi--,
+
+tBiaRx llcyolrorecIsapteodnadtsRtolmnd=isplala+cemmben+tsnocfitnhtehBe
+
+d sublattice. For instance, ions along the x axis and
+
+rIeverses sign when moving between any two nearest neighbours
+
+within the B sublattice; similarly, AMy z indicates displacements of
+
+A ions along the y direction, whichI reverse signs between nearest
+
+neighbours within the A sublattice inside any xy plane and remain
+
+unchanged when moving along the z direction. To further check the
+
+validity of these energies, we take BiAlO3 as our platform and perform density functional theory (DFT) calculations to extract ionic
+
+forces. For instance, let us start from the cubic phase, and impose a fixed anti-phase tilting of ∼8° about the z axis (ωRz ) for the AlO6 octahedra and create and then vary the strength Iand sign of the
+
+BRx antiferroelectric motions (associated with Al sublattice). These DIFT calculations give rise to symmetrized homogeneous (that is,
+
+associated with the Γ point) forces along the y axis, acting on Al
+
+(wdiethnoBteRx d(Fbiyg.F2IΓya;B).)
+
+and Such
+
+Bi (denoted by types of forces
+
+FΓy;A) sublattices, and linear arIe precisely those expected
+
+from tIhe first and seventh energies shown in Table 1, respectively.
+
+Incidentally, this first energy thus indicates that a non-zero and
+
+homogeneous y component of the displacement of the B ions can
+
+be superimposed on x displacements of the B ions within a G-type
+
+antiferroelectricity, and therefore resemble the spin-canted weak
+
+ferromagnetism known to coexist with a predominant G-type anti-
+
+ferromagnetism in, for example, rare-earth orthoferrites30–33; in this
+
+way we can thus begin to demonstrate that there is an electric DMI
+
+that is analogous to the magnetic one. Furthermore, we conducted
+
+various types of DFT simulations to confirm that all the interaction
+
+terms indicated in Table 1 are indeed valid. For instance, Fig. 2b
+
+shows that the fifth and eighth terms are applicable, while the rele-
+
+vance of the other energies is revealed in Supplementary Discussion
+
+II. We also check our energies based on DFT by fixing the in-phase
+
+or anti-phase tiltings to, for example, ∼11.3° or ∼4.6°. The corre-
+
+sponding DFT results further confirm these energies. Note that the
+
+tiltings of ∼4.6°, ∼8° or ∼11.3° are arbitrary choices and have no
+
+deeper meaning.
+
+We now check if some of these energies can explain the non-
+
+collinear dipole patterns that have been previously documented.
+
+The detailed analysis for some examples is shown in Supplementary
+
+Discussion III. We noticed that several perovskite oxides (for
+
+example, SrTiO3 (ref. 34), BaMnO3 (ref. 34), YMnO3 (ref. 34), BiFeO3 (refs. 34–36), PbTiO3 (ref. 36), BiFeO3–PbTiO3 superlattices36 and rare-earth ferrites37) were predicted, via DFT simulations, to exhibit
+
+an unusual Pmc21 phase under tensile strain. This Pmc21 phase is ferroelectric with a polarization pointing along the pseudo-cubic
+
+[110] direction, and also has Mz-point modulated antiferroelectric A and B site ionic motions along the pseudo-cubic [−110] direc-
+
+tion, thereby generating an overall zig-zag pattern of cation dis-
+
+placements35. It also possesses in-phase tiltings along the z direction
+
+(ωMz z)35, as detailed in Supplementary Discussion III. One can eas-
+
+ilyI demonstrate that our E5, E8 and E14 energies naturally reproduce
+
+and thus explain the dipolar patten of the Pmc21 phase, as shown in
+
+Fig. 3a,b. Another example is the experimentally synthesized BiInO3
+
+(ref. 38) which presents a Pna21 phase with in pseudo-cubic notation: polarization (for
+
+the following example, AΓz),
+
+distortions anti-phase
+
+tiltings (ωRx and ωRy ) and other distortions such as inI-phase tilting
+
+I
+
+I
+
+Nature Materials | www.nature.com/naturematerials
+
+NaTure MaTerIals
+
+Articles
+
+a 0.2
+0.1
+
+Fy┌,A Fy┌,B
+
+b 0.3
+0.2 0.1
+
+Fy┌,A Fy┌,B
+
+Force (eV Å–1) Force (eV Å–1)
+
+0
+
+0
+
+–0.1 –0.1
+–0.2
+
+–0.2 –0.02
+
+–0.01
+
+0
+
+B
+
+R x
+
+(2apc)
+
+0.01
+
+0.02
+
+–0.3 –0.02
+
+–0.01
+
+0
+
+B
+
+Mz x
+
+(2apc)
+
+0.01
+
+0.02
+
+Fig. 2 | Forces acting on Bi and Al ions when displacing, along the x direction, Al ions within R and Mz modulations. a,b, Forces arising from the
+
+displacement of Al ions with R (denoted by BRx; a) and z axis are fixed at ∼8°, and apc = 3.82 Å. The Isymbol F
+
+Mz Γy ;A,
+
+(adnednFoΓyt;eBdinbdyicBaIMxtez ;sbt)hmatotdhuelmateioanssu.rTehdeqaunatni-tpithieassaerωeI Rszy(ma)maentdrizine-dpfhoarcseesωIfMzorz
+
+(b) tilting about the Bi and Al sublattices,
+
+respectively, along y direction associated with the Γ pIoint. I
+
+a
+
+b
+
+y
+x z
+
+c
+
+d
+
+z
+
+x
+
+y
+
+and y directions automatically induce a non-collinear ferroelectricity, which naturally originates from E7 (see Fig. 3c,d).
+
+The existence of electric DMI
+In fact, one can easily show that E1, E5, E7 and E8 lead to non-collinear ferroelectrics, while the remaining energies in Table 1 result in non-collinear antiferroelectricity. In fact, it is straightforward to demonstrate that the ‘non-collinear ferroelectric or antiferroelectric’ Ei energies, with i = 1–8, essentially have the same form as those recently proposed for non-collinear magnetism (for example, refs. 29,30), that is:
+
+ΔEB;B / αðωR ´ RÞ  Γ þ βðωR ´ MÞ  X þκðωM ´ MÞ  Γ þ λðωM ´ RÞ  X
+
+ð1Þ
+
+and
+
+Fig. 3 | Sketches for the ferroelectric and antiferroelectric motions of
+
+the A and B ions in ABO3 perovskites. The motions are represented by
+arrows, and the A and B ions are denoted by purple and yellow balls, respectively. a, A sketch of the couplings of �ωMz z BMx z BΓy þ ωMz z BMy z BΓx and ωMz z AΓx AMx z À ωMz z AΓy AMy z ; the ð�BMx z ; BMy z Þ,I ðBΓx ; BΓy Þ, ðAMx z ; �AMy z Þ and ðAΓx ; AI Γy Þ motions are indicated byIred, yellow, cIyan and Ipurple arrows, reI spectively. c, A sketch of the motion associated with the couplings of ωRx BRy AΓz À ωRy BRx AΓz ; the AΓz and ðBRx ; �BRy Þ motions are indicated by purpI le and green arrows, reIspectivIely. The overall motions for A and B
+
+sites resulting from a and c are displayed in b and d, respectively, and are
+
+consistent with the atomic motions of Pmc21-phase BiFeO3 and Pna21-phase
+
+BAitIonmO3ic. Imn bot,itohnesmasasgoncitiautdeedowf iBtIhMzoacntadhBeΓdararel tailstisnugms,eωdMztoz
+
+be for
+
+identical. BiFeO3 and
+
+ðωRx ; ωRy Þ for BiInO3, are not shown in the sketches. I
+
+I
+
+(ωMz z) and anti-polar motions ( AXx z , AXy z , BXx z , BXy z ). By symmetry anIalysis on the experimental crysItal stIructuIres (sIee Supplementary Discussion III), we further identified other overlooked anti-polar motions for In ions, that is, BRx and BRy . The existence of polarization along the z direction (foIr exampIle, Bi ions) and the R-point modulated anti-polar motions (for example, In ions) along the x
+
+ΔEA;B / γðωR ´ RÞ  Γ0 þ δðωM ´ MÞ  Γ0
+
+ð2Þ
+
+where ωR, ωM, X, M, R, Γ and Γ0 represent the vectors having the following Cartesian componentIs ðωRx ; ωRy ; ωRz Þ, ðωMx x ; ωMy y ; ωMz z Þ, ðBXx ; BXy ; BXz Þ, ðBMx ; BMy ; BMz Þ, ðBRxI; BRy ; BRz Þ, ðBIΓx; BΓy ; BΓz Þ and ðIAΓx; AΓy ; AΓz Þ, respIectively. Note thatIthe ðBXx ; BXy ; BXz IÞ or ðBMx ; BMy ; BMz Þ aIre in fact ðBXx u ; BXy v ; BXz w Þ or ðBMx u ; BMy v ;IBMz w Þ (u, v andIw being x, y
+
+or z), respecItively, for the κ, δ and λ coupled with ωMj i
+
+with Xu terms,
+should
+
+andIMv both u
+
+interpreted in and v in BXp u
+
+the following ways: or BMq v component
+
+be equal to i; for thI e β terIm, the u and v
+
+should always bI e identical.
+
+Note that all the aforementioned terms in equa-
+
+tions (1) and (2) involve long-range-ordered vectors
+
+such ωMx x aInd
+
+¼ωaMzPsz l¼mtnhP ðe�l1miÞnnððm-�pþh1nÞaÞωðsleþlmmnÞ;txωi=lltmNinn,;gz=Nω(I)ωMy,IMy a¼¼ntiPð-ωplhMxmanxsð;e�ωMy1tÞiylð;tlþiωnnMzgÞωz Þl(mωn;wRy=itN=h
+
+∑lmn(−I1)(l+m+n)ωlmn/N), electric motions (X, M,
+
+ferroelectric motions (Γ, Γ0) and antiferroR); these terms give us the pI ossible origin of
+
+electric DMI in perovskites and can be used in investigations based
+
+on phenomenological theory. Also, the α, κ, λ, γ and δ terms corre-
+
+spond to E1, E5, E6, E7 and E8 in Table 1, respectively; the β term is the compact way of including E2, E3 and E4 simultaneously. The exten-
+sion of the magnetic DMI, coupling Si and Sj by Dij ⋅ (Si × Sj) and
+
+Nature Materials | www.nature.com/naturematerials
+
+Articles
+
+NaTure MaTerIals
+
+0.06 0.04 0.02
+
+Electric: LaFeO3 Electric: BiAlO3 Magnetic: LaFeO3
+
+R x
+
+y┌/B
+
+0.00
+
+B
+
+–0.02
+
+–0.04
+
+–0.06
+
+–4
+
+–2
+
+0
+
+2
+
+4
+
+ωRz (degree)
+
+Fig. 4 | The renormalized weak magnetic and/or ferroelectric components of LaFeO3 and BiAlO3 as a function of anti-phase tiltings ωRz . The weak magnetic components are renormalized to the predoIminant
+antiferromagnetic components of Fe (∼4.0 μB), while the weak ferroelectric components are renormalized with respect to the predominant
+antiferroelectric component imposed on Fe or Al (0.04apc, in Å). The results for LaFeO3 and BiAlO3 are based on LDA and PBEsol functionals, respectively. The slopes (linear fitting) for the cyan square, purple
+diamond and red circle symbols are 0.0067, 0.012 and 0.001 per degree,
+respectively, with coefficients of determination of 0.989, 0.994 and 0.999.
+
+responsible for some non-collinear magnetism via the dependency of Dij on oxygen octahedral tiltings proposed in refs. , 29,30 can thus naturally be extended to ferroelectrics and related systems. In
+other words, an electric DMI coupling the i- and j-site displacement pairs by D0ij  ðui ´ ujÞ, for which D0ij is dependent on oxygen octahedral tiltinIgs as well, indeed exists.IMoreover, and as detailed in Supplementary Discussion IV, it is straightforward to use the Ei energies, with i = 1–12, to determine the explicit dependence of the DMI coefficients, D0ij, on anti-phase and in-phase tiltings for B−B and A−B pairs in peIrovskites.
+
+One-to-one correspondence between magnetic and electric DMIs
+Let us now solely consider symmetry. A detailed analysis in Supplementary Discussion V shows that the Si × Sj and ui × uj transform identically under all symmetry elements of three-dimensional Euclidean space and of course the symmetry elements of space groups of crystals, because the latter is a subset of the former. Consequently, Dij ⋅ (Si × Sj) and D0ij  ðui ´ ujÞ are both allowed by symmetry; one-to-one correspIondence between magnetic and electric DMIs can be established (Supplementary Discussion V). As a result, any DMI-based phenomenological theory that is valid for magnetism should also be transferrable to electric systems and vice versa. Note that this conclusion is also technically valid even if Dij and D0ij do not explicitly depend on oxygen octahedral tiltings, which are hyIpothetical cases not considered above. Indeed, our DFT results and the symmetry analysis detailed above for perovskites show that electric DMI can originate from the existence of oxygen octahedral tiltings and their trilinear interactions with different possible cationic modes, but symmetry arguments do not prevent other quantities from also generating electric DMI. For example, we have examined one possible mechanism for electric DMI without involving tiltings but involving electric polarization (Supplementary Discussion VI), and discovered a polarization-driven electric DMI that is the counterpart of the magnetic DMI based on a spin–current model39. On the other hand, the microscopic origin for magnetic and electric DMIs are, of course, completely different. Indeed, the former stems from
+
+spin–orbit coupling whereas the latter does not. A definite proof is
+
+that we obtained non-collinear (anti)ferroelectricity by performing
+
+first-principles simulations without having to include spin–orbit
+
+coupling. It is noteworthy that both the electric and magnetic DMIs
+
+structurally stem from the distortions (for example, tiltings and
+
+polarization) in the same manner as seen from our above analysis.
+
+It is interesting to extract the strengths of the electric and magnetic
+
+DMIs from their effects (for example, dipole and spin cantings).
+
+We thus employ LaFeO3 and BiAlO3 to make such a comparison. Starting from the cubic phases (of LaFeO3 and BiAlO3), we impose a sequence of z-oriented anti-phase tiltings with various magnitudes,
+
+and create the R-point modulated predominant antiferroelectric or antiferromagnetic vectors along the x direction (denoted by BRx ); then we perform structural relaxations or non-collinear magnetiIsm
+
+calculations, and obtain the weak ferroelectric motion or weak mag-
+
+netism along the y direction (denoted by BΓy) for each configuration
+
+with specified anti-phase tilting. The electrIic and magnetic versions
+
+otafnBIθΓy =¼BRxB—Γy =wBhRxi,cwhhqeuraenθtiifsytthheecdainptoinlegaanndglsep)i—n caasnatfiunngsct(ifoonr
+
+example, of ωRz are
+
+sIhown in Fig. 4. Interestingly, the dipole cantings can be much lIarger
+
+than spin cantings in magnitude, reflecting that the electric D0=J0
+
+(D0 and J0 being the electric DMI and the exchange interaction)Ican
+
+beI much Istronger than its magnetic counterpart. See Supplementary
+
+Discussion VII for detailed discussion.
+
+Other mechanisms for non-collinear dipole patterns
+Finally, it is worth emphasizing that the electric DMI is not the only mechanism creating non-collinear dipole patterns. For instance, there are six additional couplings in the form of ∑αβγϵαβγωαQ1,βQ2,β
+(α, β = x, y, z, α ≠ β), shown in Supplementary Table II and Supplementary Discussion III and IV, with none of them implying a DMI because the Q1 and Q2 modes are along the same direction (Supplementary Table II)—while they can host non-collinear ferroelectricity or antiferroelectricity in some special cases. For epðAxleaMx,mz ð;pIB�leΓxA,; BtMyhΓyzeÞÞ))z,-icomorinpelsnyttiteutdhtieωnIgMzxIzyn-aoonnrdi-ecnxoytlel-idonreiaeAIrnMtfezedrmrBooeΓldmeecotr(difceoirt(yfoe(rxsaeemexaptmhlee-, EI15 term in Supplementary Table II). Moreover, in Pbnm ABO3 perovskites with both in-phase and anti-phase BO6 tiltings (for example, ωMz z, ωRxy), there are two kinds of A-site anti-polar motions (that is, AXxIyz andI ARxy) sourced from ωRxyωMz z AXxyz and ωRxyωMz z ωMz z ARxy, respectivIely40. ThiIs leads to anotherIkind of non-coIllinear antifer-
+roelectricity which does not depend on the electric DMI either.
+Similarly, if we create polarization by forming hybrid improper ferroelectricity in, for example, A′BO3/A″BO3 superlattices41–45, we then obtain non-collinear ferroelectricity that is not related to an
+electric DMI. In fact, non-collinear electric dipole patterns can also
+appear in nanostructures due to effects that are different from DMI. One example is the Bloch components in the 180° domain wall of PbTiO3, as predicted by second- and first-principles simulations46,47. In fact, these Bloch components, arising from a symmetry-breaking phase transition at the domain wall, do not rely on the electric DMI but are rather due to the spatial deviation of polarization (for example, (∇P)2, from the viewpoint of phenomenological theory)48 or Pb–O hybridization at the domain wall (from the viewpoint of chemical bonding)47. Similarly, the recently proposed electric skyrmion/bubbles in PbTiO3 are partly formed as a result of these Bloch components49. Meanwhile, the mixed Bloch/Néel-type electric bubble domains (seen as the precursor of electric skyrmions) found in ref. 24 mostly rely on the depolarizing field and not at all on electric DMI.
+
+Perspective Our findings clearly support the existence of an electric DMI and reveal the one-to-one correspondence between it and its magnetic
+
+Nature Materials | www.nature.com/naturematerials
+
+NaTure MaTerIals
+
+Articles
+
+counterpart. As a result, the present work enables the generalization between magnetic and electric theories as long as these theories are rooted in the DMI. Furthermore, we anticipate that various magnetic-DMI-related phenomena will probably find their equivalent parts for electric systems. We thus hope that this article opens or deepens the field of DMIs in systems possessing dipoles. In particular, by comparing with magnetic cases, ref. 28 proposed the existence of electric Bloch skyrmions due to u ⋅ (∇ × u) (where u is the displacement). Similarly, symmetry arguments also imply the occurrence of uz(∇ ⋅ u) − (u ⋅ ∇)uz, which can create, in principle, electric Néel skyrmions (Supplementary Discussion V). It will be interesting to determine if electric skyrmions based on these two mechanisms of the electric DMI can be discovered in real materials.
+Online content Any methods, additional references, Nature Research reporting summaries, source data, extended data, supplementary information, acknowledgements, peer review information; details of author contributions and competing interests; and statements of data and code availability are available at https://doi.org/10.1038/ s41563-020-00821-3.
+Received: 28 April 2020; Accepted: 3 September 2020; Published: xx xx xxxx
+References
+1. Dzyaloshinskii, I. E. Thermodynamic theory of ‘weak’ ferromagnetism in antiferromagnetic substances. Sov. Phys. JETP 5, 1259–1266 (1957).
+2. Moriya, T. Anisotropic superexchange interaction and weak ferromagnetism. Phys. Rev. 120, 91–98 (1960).
+3. Heinze, S. et al. Spontaneous atomic-scale magnetic skyrmion lattice in two dimensions. Nat. Phys. 7, 713–718 (2011).
+4. Wiesendanger, R. Nanoscale magnetic skyrmions in metallic films and multilayers: a new twist for spintronics. Nat. Rev. Mater. 1, 16044 (2016).
+5. Bera, S. & Mandal, S. S. Theory of the skyrmion, meron, antiskyrmion, and antimeron in chiral magnets. Phys. Rev. Res. 1, 033109 (2019).
+6. Im, M.-Y. et al. Symmetry breaking in the formation of magnetic vortex states in a permalloy nanodisk. Nat. Commun. 3, 983 (2012).
+7. Kwon, H. Y., Kang, S. P., Wu, Y. Z. & Won, C. Magnetic vortex generated by Dzyaloshinskii–Moriya interaction. J. Appl. Phys. 113, 133911 (2013).
+8. Pereiro, M. et al. Topological excitations in a kagome magnet. Nat. Commun. 5, 4815 (2014).
+9. Gao, N. et al. Creation and annihilation of topological meron pairs in in-plane magnetized films. Nat. Commun. 10, 5603 (2019).
+10. Ishikuro, Y., Kawaguchi, M., Kato, N., Lau, Y.-C. & Hayashi, M. Dzyaloshinskii–Moriya interaction and spin–orbit torque at the Ir/Co interface. Phys. Rev. B 99, 134421 (2019).
+11. Dong, S., Xiang, H. & Dagotto, E. Magnetoelectricity in multiferroics: a theoretical perspective. Natl. Sci. Rev. 6, 629–641 (2019).
+12. Dong, S., Liu, J.-M., Cheong, S.-W. & Ren, Z. Multiferroic materials and magnetoelectric physics: symmetry, entanglement, excitation, and topology. Adv. Phys. 64, 519–626 (2015).
+13. Dubovik, V. & Tugushev, V. Toroid moments in electrodynamics and solid-state physics. Phys. Rep. 187, 145–202 (1990).
+14. Lin, L.-F., Zhang, Y., Moreo, A., Dagotto, E. & Dong, S. Frustrated dipole order induces noncollinear proper ferrielectricity in two dimensions. Phys. Rev. Lett. 123, 067601 (2019).
+15. Prosandeev, S., Malashevich, A., Raevski, I. P. & Bellaiche, L. Dynamical magnetoelectric effects associated with ferroelectric domain walls. Phys. Rev. B 91, 100101 (2015).
+16. Prosandeev, S. et al. Natural optical activity and its control by electric field in electrotoroidic systems. Phys. Rev. B 87, 195111 (2013).
+17. Prosandeev, S., Ponomareva, I., Naumov, I., Kornev, I. & Bellaiche, L. Original properties of dipole vortices in zero-dimensional ferroelectrics. J. Phys. Condens. Matter 20, 193201 (2008).
+18. Prosandeev, S., Kornev, I. & Bellaiche, L. Tensors in ferroelectric nanoparticles: first-principles-based simulations. Phys. Rev. B 76, 012101 (2007).
+19. Nahas, Y. et al. Discovery of stable skyrmionic state in ferroelectric nanocomposites. Nat. Commun. 6, 8542 (2015).
+20. Lu, L. et al. Topological defects with distinct dipole configurations in PbTiO3/ SrTiO3 multilayer films. Phys. Rev. Lett. 120, 177601 (2018).
+
+21. Yadav, A. K. et al. Observation of polar vortices in oxide superlattices. Nature 530, 198–201 (2016).
+22. Jia, C.-L., Urban, K. W., Alexe, M., Hesse, D. & Vrejoiu, I. Direct observation of continuous electric dipole rotation in flux-closure domains in ferroelectric Pb(Zr,Ti)O3. Science 331, 1420–1423 (2011).
+23. Nelson, C. T. et al. Spontaneous vortex nanodomain arrays at ferroelectric heterointerfaces. Nano Lett. 11, 828–834 (2011).
+24. Zhang, Q. et al. Nanoscale bubble domains and topological transitions in ultrathin ferroelectric films. Adv. Mater. 29, 1702375 (2017).
+25. Das, S. et al. Observation of room-temperature polar skyrmions. Nature 568, 368–372 (2019).
+26. Prosandeev, S. et al. In Nanoscale Ferroelectrics and Multiferroics (eds Algueró, M. et al.) 700–728 (John Wiley, 2016).
+27. Naumov, I. I., Bellaiche, L. & Fu, H. Unusual phase transitions in ferroelectric nanodisks and nanorods. Nature 432, 737–740 (2004).
+28. Erb, K. C. & Hlinka, J. Vector, bidirector, and Bloch skyrmion phases induced by structural crystallographic symmetry breaking. Phys. Rev. B 102, 024110 (2020).
+29. Bellaiche, L., Gui, Z. & Kornev, I. A. A simple law governing coupled magnetic orders in perovskites. J. Phys. Condens. Matter 24, 312201 (2012).
+30. Zhao, H. J., Íñiguez, J., Chen, X. M. & Bellaiche, L. Origin of the magnetization and compensation temperature in rare-earth orthoferrites and orthochromates. Phys. Rev. B 93, 014417 (2016).
+31. White, R. L. Review of recent work on the magnetic and spectroscopic properties of the rare-earth orthoferrites. J. Appl. Phys. 40, 1061–1069 (1969).
+32. Bousquet, E. & Cano, A. Non-collinear magnetism in multiferroic perovskites. J. Phys. Condens. Matter 28, 123001 (2016).
+33. Zhao, H. J., Ren, W., Yang, Y., Chen, X. M. & Bellaiche, L. Effect of chemical and hydrostatic pressures on structural and magnetic properties of rare-earth orthoferrites: a first-principles study. J. Phys. Condens. Matter 25, 466002 (2013).
+34. Varignon, J., Bristowe, N. C. & Ghosez, P. Electric field control of Jahn–Teller distortions in bulk perovskites. Phys. Rev. Lett. 116, 057602 (2016).
+35. Yang, Y., Ren, W., Stengel, M., Yan, X. H. & Bellaiche, L. Revisiting properties of ferroelectric and multiferroic thin films under tensile strain from first principles. Phys. Rev. Lett. 109, 057602 (2012).
+36. Yang, Y., Stengel, M., Ren, W., Yan, X. H. & Bellaiche, L. Epitaxial short-period PbTiO3/BiFeO3 superlattices studied by first-principles calculations. Phys. Rev. B 86, 144114 (2012).
+37. Zhao, H. J. et al. Creating multiferroics with large tunable electrical polarization from paraelectric rare-earth orthoferrites. J. Phys.: Condens. Matter 26, 472201 (2014).
+38. Belik, A. A., Stefanovich, S. Y., Lazoryak, B. I. & Takayama-Muromachi, E. BiInO3: a polar oxide with GdFeO3-type perovskite structure. Chem. Mater. 18, 1964–1968 (2006).
+39. Katsura, H., Nagaosa, N. & Balatsky, A. V. Spin current and magnetoelectric effect in noncollinear magnets. Phys. Rev. Lett. 95, 057205 (2005).
+40. Bellaiche, L. & Íñiguez, J. Universal collaborative couplings between oxygen-octahedral rotations and antiferroelectric distortions in perovskites. Phys. Rev. B 88, 014104 (2013).
+41. Bousquet, E. et al. Improper ferroelectricity in perovskite oxide artificial superlattices. Nature 452, 732–736 (2008).
+42. Benedek, N. A. & Fennie, C. J. Hybrid improper ferroelectricity: a mechanism for controllable polarization–magnetization coupling. Phys. Rev. Lett. 106, 107204 (2011).
+43. Mulder, A. T., Benedek, N. A., Rondinelli, J. M. & Fennie, C. J. Turning ABO3 antiferroelectrics into ferroelectrics: design rules for practical rotation-driven ferroelectricity in double perovskites and A3B2O7 Ruddlesden–Popper compounds. Adv. Funct. Mater. 23, 4810–4820 (2013).
+44. Rondinelli, J. M. & Fennie, C. J. Octahedral rotation-induced ferroelectricity in cation ordered perovskites. Adv. Mater. 24, 1961–1968 (2012).
+45. Zhao, H. J., Íñiguez, J., Ren, W., Chen, X. M. & Bellaiche, L. Atomistic theory of hybrid improper ferroelectricity in perovskites. Phys. Rev. B 89, 174101 (2014).
+46. Wojdeł, J. C. & Íñiguez, J. Ferroelectric transitions at ferroelectric domain walls found from first principles. Phys. Rev. Lett. 112, 247603 (2014).
+47. Wang, Y. J., Chen, D., Tang, Y. L., Zhu, Y. L. & Ma, X. L. Origin of the Bloch-type polarization components at the 180∘ domain walls in ferroelectric PbTiO3. J. Appl. Phys. 116, 224105 (2014).
+48. Hlinka, J. & Márton, P. Phenomenological model of a 90∘ domain wall in BaTiO3-type ferroelectrics. Phys. Rev. B 74, 104104 (2006).
+49. Gonçalves, M. A. P., Escorihuela-Sayalero, C., Garca-Fernández, P., Junquera, J. & Íñiguez, J. Theoretical guidelines to create and tune electric skyrmion bubbles. Sci. Adv. 5, eaau7023 (2019).
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+published maps and institutional affiliations.
+© The Author(s), under exclusive licence to Springer Nature Limited 2020
+
+Nature Materials | www.nature.com/naturematerials
+
+Articles
+
+NaTure MaTerIals
+
+Methods
+
+We employ the VASP code50,51 to perform first-principles simulations with the
+
+PBEsol functional52 based on the projector augmented wave53, taking BiAlO3 as a model system. In particular, we work with a 40-atom supercell (2 × 2 × 2),
+
+solving (5d, 6s, 6p) electrons for Bi, (3s, 3p) for Al and (2s, 2p) for O, with
+
+Ecut = 500 eV BiAlO3 with
+
+and a k-point mesh of 6 × 6 × 6. We start from the cubic perovskite Pm3m symmetry (lattice parameter a = 2apc = 7.64 Å, where apc is the
+
+pseudo-cubicIlattice constant), impose anti-phase or in-phase tiltings for AlO6
+
+octahedra, displace the Bi or Al ions in some distortion modes, and then compute
+
+and analyse the forces on the Bi and Al ions. The energetic coupling terms are
+
+derived by group-theoretical-based symmetry analysis54 with the help of the Bilbao
+
+Crystallographic Server (https://www.cryst.ehu.es); such couplings are reproduced
+
+by the L-INVARIANT code (https://github.com/PaulChern/LINVARIANT/) based
+
+on Mathematica software (https://www.wolfram.com/mathematica) with the help
+
+of ISOTROPY Software Suite (https://stokes.byu.edu/iso/isotropy.php). Some
+
+of the figures are prepared by using VESTA55, Matplotlib56 and Mathematica as
+
+well. Regarding Supplementary Discussion VII, we solve the following electronic
+
+configurations by VASP: (5p, 5d, 6s) for La, (3p, 3d, 4s) for Fe and (2s, 2p) for O
+
+within the framework of the local density approximation functional57. In particular,
+
+we use the local density approximation functional to achieve a good convergence
+
+for the calculations of non-collinear magnetism. Also, a Hubbard U correction58
+
+with an effective U value of 4.0 eV is carried out for the 3d electrons of Fe. To
+
+further save computational time, in non-collinear magnetism calculations, a
+
+relatively coarse but still sufficiently dense k-point mesh of 4 × 4 × 4 was used.
+
+Data availability
+All the data (for example, raw data and Matplotlib-based scripts for analysing and visualizing the data) supporting the present work are available from the corresponding author upon request. Please note that our data figures were prepared with the use of some Matplotlib-based scripts (for example, with some mathematical processes such as post-processing of the data or fitting inside the scripts). Consequently, we prefer to share our raw data as well as the scripts to interested readers on request, so that we can help them in case of need. We do not upload our data and scripts because the latter may depend on the version of Python.
+
+Code availability
+The VASP code for the numerical simulations in this work can be found at https://www.vasp.at; the code L-INVARIANT can be found at https://github. com/PaulChern/LINVARIANT/; the Mathematica software is available at https://www.wolfram.com/mathematica; the Matplotlib is available at https:// matplotlib.org; other codes and scripts can be obtained on request from the corresponding author.
+
+References
+50. Kresse, G. & Furthmüller, J. Efficient iterative schemes for ab initio total-energy calculations using a plane-wave basis set. Phys. Rev. B 54, 11169–11186 (1996).
+51. Kresse, G. & Joubert, D. From ultrasoft pseudopotentials to the projector augmented-wave method. Phys. Rev. B 59, 1758–1775 (1999).
+52. Csonka, G. I. et al. Assessing the performance of recent density functionals for bulk solids. Phys. Rev. B 79, 155107 (2009).
+53. Blöchl, P. E. Projector augmented-wave method. Phys. Rev. B 50, 17953–17979 (1994).
+54. Koster, G. F., Dimmock, J. D., Wheeler, R. G. & Statz, H. Properties of the Thirty-Two Point Group (MIT Press, 1963).
+55. Momma, K. & Izumi, F. VESTA3 for three-dimensional visualization of crystal, volumetric and morphology data. J. Appl. Crystal. 44, 1272–1276 (2011).
+56. Hunter, J. D. Matplotlib: a 2D graphics environment. Comput. Sci. Eng. 9, 90–95 (2007).
+57. Ceperley, D. M. & Alder, B. J. Ground state of the electron gas by a stochastic method. Phys. Rev. Lett. 45, 566–569 (1980).
+58. Dudarev, S. L., Botton, G. A., Savrasov, S. Y., Humphreys, C. J. & Sutton, A. P. Electron-energy-loss spectra and the structural stability of nickel oxide: an LSDA+U study. Phys. Rev. B 57, 1505–1509 (1998).
+Acknowledgements
+H.J.Z and L.B. thank the Department of Energy, Office of Basic Energy Sciences, under award number DESC0002220 for the DFT simulations. P.C. and S.P. acknowledge the Office of Naval Research under grant number N00014-17-1-2818 for symmetry analysis. The simulations based on DFT were done using the Arkansas High Performance Computing Center.
+Author contributions
+L.B. and H.J.Z. conceived the work. H.J.Z. performed the DFT simulations. H.J.Z., P.C., S.P. and S.A. carried out symmetry analysis. All authors participated in the discussion and preparation of this work.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary information is available for this paper at https://doi.org/10.1038/ s41563-020-00821-3.
+Correspondence and requests for materials should be addressed to P.C. or L.B.
+Reprints and permissions information is available at www.nature.com/reprints.
+
+Nature Materials | www.nature.com/naturematerials
+

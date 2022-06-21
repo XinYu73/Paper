@@ -1,0 +1,647 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JavaScript is disabled on your browser. Please enable JavaScript to use all the features on this page. Skip to main content Skip to article
+Elsevier logo ScienceDirect
+
+    Journals & Books 
+
+Register Sign in
+You have institutional access
+
+    View  PDF
+    Download Full Issue 
+
+Outline
+
+    Highlights
+    Abstract
+    Keywords
+    1. Introduction
+    2. Calculations’ details
+    3. Results and discussion
+    4. Summary and conclusions
+    CRediT authorship contribution statement
+    Declaration of Competing Interest
+    Acknowledgments
+    References 
+
+Figures (6)
+
+    Fig. 1. Crystal structure of YCo2 – cubic MgCu2-type Laves phase
+    Fig. 2. Y1−xGdx(Fe1−yCoy)2 phase diagram deduced from experimental Curie temperatures…
+    Fig. 3. (Purple mesh) Curie temperature dependence of Gd and Co concentrations for…
+    Fig. 4. Exchange integrals as a function of normalized interatomic distance calculated…
+    Fig. 5. Magnetic moments in the ground state (T= 0K) for the Y1−xGdx(Fe1−yCoy)2 system…
+    Fig. 6. Densities of states (DOS) of YFe2, YCo2, GdFe2, and GdCo2 as calculated with…
+
+Tables (2)
+
+    Table 1
+    Table 2 
+
+Elsevier
+Journal of Magnetism and Magnetic Materials
+Volume 543 , 1 February 2022, 168614
+Journal of Magnetism and Magnetic Materials
+Research articles
+Monte Carlo calculations of Curie temperatures of Y 1 − x Gd x (Fe 1 − y Co y ) 2 pseudobinary system
+Author links open overlay panel Bartosz Wasilewski a b c Mirosław Werwiński a
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.jmmm.2021.168614 Get rights and content
+Under a Creative Commons license
+Open access
+Highlights
+
+•
+
+    Curie temperatures are calculated for systems with three different magnetic elements.
+•
+
+    Magnetic moments and exchange integrals are calculated from first principles.
+•
+
+    For Y 1 − x Gd x Fe 2 a linear dependence of T C on Gd concentration is reproduced.
+•
+
+    For Y(Fe 1 − y Co y ) 2 and Gd(Fe 1 − y Co y ) 2 the Slater–Pauling-like dependence is reproduced.
+•
+
+    The model used allows to predict non-trivial magnetization-temperature dependences.
+
+Abstract
+
+The close-packed AB 2 structures called Laves phases constitute the largest group of intermetallic compounds. In this paper we computationally investigated the pseudo-binary Laves phase system Y 1 − x Gd x (Fe 1 − y Co y ) 2 spanning between the YFe 2 , YCo 2 , GdFe 2 , and GdCo 2 vertices. While the vast majority of the Y 1 − x Gd x (Fe 1 − y Co y ) 2 phase diagram is the ferrimagnetic phase, YCo 2 along with a narrow range of concentrations around it is the paramagnetic phase. We presented results obtained by Monte Carlo simulations of the Heisenberg model with parameters derived from first-principles calculations. For calculations we used the Uppsala atomistic spin dynamics (UppASD) code together with the spin-polarized relativistic Korringa–Kohn–Rostoker (SPR-KKR) code. From first principles we calculated the magnetic moments and exchange integrals for the considered pseudo-binary system, together with spin-polarized densities of states for boundary compositions. Furthermore, we showed how the compensation point with the effective zero total moment depends on the concentration in the considered ferrimagnetic phases. However, the main result of our study was the determination of the Curie temperature dependence for the system Y 1 − x Gd x (Fe 1 − y Co y ) 2 . Except for the paramagnetic region around YCo 2 , the predicted temperatures were in good qualitative and quantitative agreement with experimental results, which confirmed the ability of the method to predict magnetic transition temperatures for systems containing up to three different magnetic elements (Fe, Co, and Gd) simultaneously. For the Y(Fe 1 − y Co y ) 2 and Gd(Fe 1 − y Co y ) 2 systems our calculations matched the experimentally-confirmed Slater–Pauling-like behavior of T C dependence on the Co concentration. For the Y 1 − x Gd x Fe 2 system we obtained, also in agreement with the experiment, a linear dependence of T C on the Gd concentration. In addition, on the example of Y 0.8 Gd 0.2 Co 2 ferrimagnet, we showed the possibility of predicting the non-trivial behavior of the temperature dependence of magnetization, confirmed by comparison with previous measurement results.
+
+    Previous article in issue
+    Next article in issue 
+
+Keywords
+Curie temperature
+First-principles calculations
+Uppsala atomistic spin dynamics (UppASD)
+SPR-KKR
+Laves phases
+Magnetic alloys
+1. Introduction
+
+The largest group of intermetallic compounds are the Laves phases [1] . They are binary close-packed structures with a formula AB 2 , which are found in three different types — hexagonal MgZn 2 -type (C14), cubic MgCu 2 -type (C15), and hexagonal MgNi 2 -type (C36), see Fig. 1 . In this work, we study theoretically the pseudo-binary cubic Laves phase Y 1 − x Gd x (Fe 1 − y Co y ) 2 . Its boundary cases are quite well known. GdFe 2 and GdCo 2 are ferrimagnets with Curie temperature (T C ) equal to 805 K  [2] and 390 K  [3] , respectively. YFe 2 is a ferromagnet with Curie temperature equal to 545 K  [2] and YCo 2 is an exchange-enhanced Pauli paramagnet  [4] that undergoes a metamagnetic transition in a field of 70 T at 10 K  [5] , [6] . In Fig. 2 we present a summary of the experimental Curie temperature–concentration relationships for all boundary concentrations  [2] , [3] , [7] , [8] , [9] . We expect the Y 1 − x Gd x (Fe 1 − y Co y ) 2 system to be paramagnetic (PM) in the vicinity of YCo 2 , and a little further away to have T C close to room temperature, see the dotted line. Alloying YCo 2 with either Fe or Gd induces a paramagnetic–ferromagnetic transition at relatively low critical concentrations.
+
+The general principles governing the magnetic behavior of binary alloys of rare-earth elements (RE) and 3 d transition metals (TM) are relatively well known  [10] , [11] . The main elements of their electronic structure are localized RE 4 f and itinerant TM 3 d states, coupled via RE 5 d conduction electrons . The localized RE 4 f spin density polarizes the RE 5 d states in parallel, which, in combination with the 5 d -3 d hybridization, leads to antiparallel coupling between the rare-earth element and the 3 d transition-metal. These general principles are also reflected in the detailed results of calculations of exchange interactions in GdFe 2 and GdCo 5 compounds  [12] , [13] . The calculated integrals are positive for Gd–Gd, Fe–Fe, and Co–Co interactions and negative for Gd–TM interactions.
+
+    Download : Download high-res image (242KB)
+    Download : Download full-size image 
+
+Fig. 1 . Crystal structure of YCo 2 – cubic MgCu 2 -type Laves phase . Y atoms are shown in red, Co atoms in blue.
+
+    Download : Download high-res image (327KB)
+    Download : Download full-size image 
+
+Fig. 2 . Y 1 − x Gd x (Fe 1 − y Co y ) 2 phase diagram deduced from experimental Curie temperatures of boundary concentrations  [2] , [3] , [7] , [8] , [9] , together with the results of our Monte Carlo simulations performed with parameters from the SPR-KKR code.
+
+    Download : Download high-res image (361KB)
+    Download : Download full-size image 
+
+Fig. 3 . (Purple mesh) Curie temperature dependence of Gd and Co concentrations for Y 1 − x Gd x (Fe 1 − y Co y ) 2 determined from Monte Carlo simulations with parameters from the SPR-KKR code. For comparison, the four curves (red, green, blue, and yellow) plotted using experimental results from Refs.  [2] , [3] , [7] , [8] , [9] .
+
+YFe 2 has been identified as a hydrogen storage material  [6] , [14] , [15] . YCo 2 and its alloys have been considered for permanent magnet applications  [16] . For the system Y 1 − x Gd x Co 2 , the magnetocaloric  [17] , thermopower  [18] , and electronic transport  [19] properties have been examined. For the system Y(Fe 1 − y Co y ) 2 , electrical resistivity and Mössbauer effect have been investigated  [7] . Moreover, rare-earth compounds with large localized magnetic moment, such as Gd, Tb or Er, are some of the most promising candidates for magnetic cooling among Laves phases  [20] .
+
+Our previous experimental and theoretical studies on the Y 1 − x Gd x (Fe 1 − y Co y ) 2 system have included such topics as: effect of YCo 2 doping  [21] , magnetocaloric effects in Y 1 − x Gd x Co 2   [17] , Curie temperature of Y(Fe 1 − y Co y ) 2   [22] , structural disorder in YCo 2   [23] , and electronic specific heat coefficient of Y(Fe 1 − y Co y ) 2   [24] . In this work we show the Curie temperatures determined from first principles for pseudo-binary Laves phases Y 1 − x Gd x (Fe 1 − y Co y ) 2 . The two-site chemical disorder is modeled using the coherent potential approximation (CPA). The T C ’s are obtained by Monte Carlo (MC) simulations of Heisenberg model Hamiltonian using parameters from first-principles calculations. We study the dependence of the exchange integrals on the interatomic distance and analyze the behavior of the total and partial magnetic moments calculated from first principles. We also investigate the band structure of the stoichiometric boundary compositions. Furthermore, the MC method also allows us to predict the temperature dependence of magnetization ( M ) and magnetic susceptibility ( χ ). T C calculations were performed for systems containing up to four different elements simultaneously, including three magnetic elements. Although we have previously presented T C dependence on concentration, e.g. for Y(Fe 1 − y Co y ) 2   [22] , in this work for the first time our calculations are based fully on MC simulations and not on the mean field approximation as before.
+2. Calculations’ details
+
+For Monte Carlo simulations of the Heisenberg Hamiltonian we used the Uppsala atomistic spin dynamics (UppASD) code  [25] , [26] . The simulated system consisted of ∼ 13000 atoms with periodic boundary conditions and the simulations were performed using the classical (Boltzmann) statistics. The radius of the exchange integrals cutoff sphere in the Heisenberg Hamiltonian was set to 1.5 lattice parameter . The exchange integrals were assumed to be temperature independent and calculated with respect to the ferrimagnetic ground state. The choice of magnetic ground state was dictated by the fact that MC simulations of GdCo 2 performed, by contrast, using exchange integrals obtained with respect to the paramagnetic ground state led to a paramagnetic solution. Since the magnetic moment on Y is induced in nature and is expected to vanish with increasing temperature, we assumed a zero value for it in the MC simulations, even though first-principles calculations (at 0 K) predict a value of about 0.5  μ B .
+
+    Download : Download high-res image (307KB)
+    Download : Download full-size image 
+
+Fig. 4 . Exchange integrals as a function of normalized interatomic distance calculated using SPR-KKR for (a) YFe 2 and YCo 2 , (b) GdFe 2 , and (c) GdCo 2 . For YFe 2 and YCo 2 the magnetic moments on Y are fixed at zero, so only the Fe–Fe and Co–Co exchange integrals are shown. (d) Normalized magnetization as a function of normalized temperature for Y 0.8 Gd 0.2 Co 2 . Monte Carlo versus experimental (zero-field cooled) results.
+Experimental results on panel d taken from Ref.  [17] .
+
+The first-principles calculations were performed utilizing the spin polarized relativistic Korringa–Kohn–Rostoker (SPR-KKR) code, version 7.7  [27] , [28] . Calculations were performed with atomic-sphere approximation (ASA) in the fully-relativistic approach with basis functions up to l = 4 , a 45 × 45 × 45 k -mesh, and 40 energy points. The atomic sphere radii were 1.99 Å for Y/Gd and 1.41 Å for Fe/Co. The spin-polarized calculations were started without assuming a priori a ferrimagnetic configuration of the spin magnetic moments. Chemical disorder was simulated using the coherent potential approximation (CPA)  [29] . Exchange integrals were obtained using the method of Liechtenstein et al.  [30] . The exchange–correlation energy functional was chosen in the form of the generalized gradient approximation (GGA) with Perdew, Burke, and Ernzerhof parametrization  [31] . Although in previous work we have used the intra-atomic Hubbard U repulsion term (GGA + U) to describe both d   [32] and f   [33] valence electrons, due to the exploratory nature of this work we decided not to extend the current model beyond the standard GGA. The effect of on-site Hubbard-type interactions on the values of the exchange integrals has recently been discussed elsewhere  [34] .
+
+For the stoichiometric compositions YFe 2 (7.36 Å), YCo 2 (7.22 Å), GdFe 2 (7.38 Å), and GdCo 2 (7.24 Å), the experimental lattice parameters were adopted  [7] , [35] . For intermediate Y 1 − x Gd x (Fe 1 − y Co y ) 2 concentrations, we assumed a linear behavior of the lattice parameters. The full range of Co and Gd concentrations were prepared with a step of 0.1, leading to a total of 121 cases considered (11 × 11). The space group and atomic positions of the C15 Laves phase are shown in Table 1 . The picture of the unit cell, generated using the VESTA code  [36] , is shown in Fig. 1 .
+
+Table 1 . Atomic coordinates of the considered YFe 2 , YCo 2 , GdFe 2 , and GdCo 2 Laves phases , space group F d - 3 m (no. 227), origin choice two.
+Atom	Site	x 	y 	z
+Y/Gd	8 a 	1/8	1/8	1/8
+Fe/Co	16 d 	1/2	1/2	1/2
+3. Results and discussion
+
+Fig. 3 shows the dependence of the Curie temperature on the concentration of Gd and Co for Y 1 − x Gd x (Fe 1 − y Co y ) 2 determined from Monte Carlo simulations with parameters derived from first-principles calculations. For comparison, the four curves (red, green, blue, and yellow) are plotted based on experimental results  [2] , [3] , [7] , [8] , [9] . In addition, the simulation and measurement results are also summarized in Fig. 2 . Along the Co concentrations ( y ), our MC simulations preserve the characteristic Slater–Pauling behavior for T C ( y ). For Y 1 − x Gd x Fe 2 , we reproduce the linear behavior of the dependence of T C on Gd concentration, see Fig. 2 . Our T C estimates agree relatively well with experimental results in all boundary regions except for the YCo 2 neighborhood. The reason for the observed discrepancy is a combination of two factors: (a) the paramagnetic nature of the YCo 2 remaining on the verge of satisfying the Stoner criterion ( N ( E F ) I ≃ 0 . 9 )   [24] , [37] , and (b) the previously raised problem of GGA’s failure to correctly describe the magnetic ground state of Co  [22] . This drawback of the adopted model, manifests itself in particular for the Y 1 − x Gd x Co 2 system, where instead of the experimentally observed decrease in T C with a decrease in Gd concentration, we observe an increase in T C . Leaving aside the overestimation of the results near YCo 2 , the map obtained for a system containing three magnetic elements shows that a realistic first-principles T C analysis for complex magnetic materials is possible allowing, for example, to determine the concentrations of the individual components leading to a specific T C value, e.g. 300 K, as sought for magnetocaloric materials for use in magnetic coolers.
+
+    Download : Download high-res image (525KB)
+    Download : Download full-size image 
+
+Fig. 5 . Magnetic moments in the ground state ( T = 0 K) for the Y 1 − x Gd x (Fe 1 − y Co y ) 2 system calculated using the SPR-KKR code.
+
+T C values were estimated from exchange integrals calculated from first principles . Fig. 4 shows the calculated exchange integrals as a function of normalized interatomic distance for considered ferrimagnetic boundary compositions. It is easy to see that in each case the dominant contribution to the Heisenberg Hamiltonian comes from first-neighbor interactions at the Fe/Co sites. We verified that restricting the MC simulation to this dominant exchange interaction would lead to an underestimation of the Curie temperature on the order of hundreds of kelvins compared to simulations that include other exchange integrals. The high values of first-neighbor Fe–Fe interactions observed in YFe 2 , further increase in GdFe 2 , as reflected by the linear increase in T C observed with increasing Gd concentration in Y 1 − x Gd x Fe 2 alloys, compare with Fig. 3 and the bottom panel of Fig. 2 . Similar conclusions can be drawn from the comparison of Fe–Fe and Co–Co first-neighbor interactions for Gd compounds.
+
+The previously mentioned impact of interactions with more distant neighbors can be simplified by summing up exchange integrals for various interactions up to assumed maximum radius. Such results were presented in Table 2 . For Gd compounds the dominance of the sum of exchange integrals for Fe–Fe and Co–Co interactions over Gd–Gd and Gd-(Fe/Co) interactions is clearly visible. Furthermore, the comparison for the binary compounds of the calculated T C ’s with the sums of the 3 d -3 d exchange integrals shows a nearly linear relationship between them. This confirms the non-trivial role played by interactions with more distant neighbors in determining T C values.
+
+Table 2 . Total sum of exchange integrals (in meV) for various interactions between 4 f (Gd) and 3 d (Fe, Co) sites calculated using SPR-KKR for YFe 2 , YCo 2 , GdFe 2 , and GdCo 2 . For comparison, the calculated Curie temperatures .
+Empty Cell 	YFe 2 	YCo 2 	GdFe 2 	GdCo 2
+3 d -3 d 	92.7	73.8	131.0	61.7
+4 f -3 d 	–	–	−10.5	−6.7
+4 f -4 f 	–	–	−2.5	0.4
+T C (K)	481	401	701	341
+
+Fig. 5 presents the calculated magnetic moments in the ground state ( T = 0 K) for the Y 1 − x Gd x (Fe 1 − y Co y ) 2 system. While the element-resolved values of magnetic moments do not differ by more than ∼ 0 . 2 μ B with concentrations, the total magnetic moment varies from about − 4 μ B to + 4 μ B . This range is due to the antiparallel alignment of moments at the Fe/Co and Gd sites. The calculated values of the magnetic moments are about 2.2 and 1.3  μ B for Fe and Co and about −6.6  μ B for Gd. These results are in good agreement with our previous theoretical results for the systems Y 1 − x Gd x Co 2   [17] and Y(Fe 1 − y Co y ) 2   [24] . The calculated total magnetic moments are also in good agreement with the experimental results for the systems Y 1 − x Gd x Co 2   [17] and Y(Fe 1 − y Co y ) 2   [38] . Interestingly, for certain concentrations we observe a zero total moment, implying a complete compensation of the opposite moments present on the different elements. We would like to recall that the results in the upper left corner of the magnetic moment map, describing the nearest neighborhood of YCo 2 , are incorrect because YCo 2 is in fact a magnetically disordered phase whose ground state is not correctly described in GGA . However, it has been shown that the nonmagnetic state of YCo 2 can be obtained with LDA with a reduced lattice constant [39] .
+
+For the positive (red) region of the total magnetic moment, due to the presence of uncompensated opposite magnetic moments, the relation M ( T ) shows a positive slope at low temperatures, see Fig. 4 (d). For the example Y 0.8 Gd 0.2 Co 2 composition, our MC predicted increase in magnetization at low temperatures is confirmed by experimental (zero-field cooled) results  [17] . For considered compounds with large positive total magnetic moment, we expect a large inverse magnetocaloric effect to occur in a region with positive M ( T ) slope. The physics responsible for the shape of M ( T ) curves can be understood by considering exchange integrals for different pairs of atoms. In Fig. 4 we see that the 4 f -4 f and 4 f -3 d interactions are much weaker than the 3 d -3 d interactions, therefore the thermal disorder first affects the 4 f sublattice, while the 3 d sublattice remains (at least relatively) ordered, which means that the magnetic moments of the 4 f sublattice no longer compensate, or compensate to a much lesser extent, the 3 d moments, hence the initial increase in magnetization. For temperatures higher than the temperature for which the magnetization maximum occurs in Fig. 4 (d), the simulated material begins to behave as a ferromagnet.
+
+    Download : Download high-res image (457KB)
+    Download : Download full-size image 
+
+Fig. 6 . Densities of states (DOS) of YFe 2 , YCo 2 , GdFe 2 , and GdCo 2 as calculated with the SPR-KKR code.
+
+Fig. 6 shows the valence band DOS for four stoichiometric compositions of the Y 1 − x Gd x (Fe 1 − y Co y ) 2 system. All panels of Fig. 6 show results with spin polarization that is proportional to the values of calculated magnetic moments. As we said, the magnetic moments are about 2.2, 1.3, and −6.6  μ B for Fe, Co, and Gd. In each case, the dominant contribution to the valence band comes from the 3 d orbitals of the 3 d elements (Fe and Co). For compounds with Gd, we observe an almost completely occupied one spin channel of the Gd 4 f orbital and an almost empty second spin channel. The 4 f bands are also much more localized than the 3 d bands. The location of the occupied 4 f bands is about −3.5 eV below the Fermi level. The difference in DOS between systems containing Co and Fe is mainly due to filling of the valence band with an extra electron for each Co atom relative to the Fe atoms. Similarly, as we mentioned earlier when discussing the results of Curie temperature calculations, the obtained ferromagnetic solution for YCo 2 should be treated with caution in view of the experimentally found paramagnetic ground state for this phase.
+4. Summary and conclusions
+
+In this paper, we theoretically described the Curie temperature dependence of the Y 1 − x Gd x (Fe 1 − y Co y ) 2 pseudo-binary system using the combined Monte Carlo and first-principles methods. The calculation results agree well with the previous measurements except for the vicinity of the YCo 2 system. For the latter, instead of paramagnetic ground state, we obtained a ferromagnetic one. For the Y 1 − x Gd x Fe 2 subsystem we reproduced the linear dependence of T C on Gd concentration, and for the Y(Fe 1 − y Co y ) 2 and Gd(Fe 1 − y Co y ) 2 subsystems we reproduced the characteristic Slater–Pauling-like dependence of T C on Co concentration. The results presented here confirm the ability to efficiently predict Curie temperatures for magnetic systems containing up to three different magnetic elements simultaneously. For the Y 1 − x Gd x (Fe 1 − y Co y ) 2 system, we have also shown how the occurrence of a compensation point with an effective zero magnetic moment depends on the concentration of Co and Gd. In addition, using the example of the Y 0.8 Gd 0.2 Co 2 ferrimagnetic phase, we have shown that the model used allows to predict non-trivial magnetization-temperature dependence.
+CRediT authorship contribution statement
+
+Bartosz Wasilewski: Conceptualization, Formal analysis, Investigation, Writing – original draft, Writing – review & editing, Visualization, Data curation. Mirosław Werwiński: Conceptualization, Validation, Resources, Writing – review & editing, Supervision, Project administration, Funding acquisition.
+Declaration of Competing Interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+Acknowledgments
+
+MW acknowledges the financial support of the National Science Centre Poland under the decision DEC-2018/30/E/ST3/00267 . We acknowledge the financial support from the Foundation of Polish Science grant HOMING. The HOMING programme is co-financed by the European Union under the European Regional Development Fund . The computations were performed on resources provided by the Poznan Supercomputing and Networking Center (PSNC). We thank Paweł Leśniak and Daniel Depcik for compiling the scientific software and administration of the computing cluster at the Institute of Molecular Physics, Polish Academy of Sciences. We also thank Zbigniew Śniadecki for his comments and fruitful discussion.
+References
+
+[1]
+    Stein F., Palm M., Sauthoff G.
+    Structure and stability of Laves phases. Part I. Critical assessment of factors controlling Laves phase stability
+    Intermetallics, 12 (7) (2004), pp. 713-720, 10.1016/j.intermet.2004.02.010
+    Article Download PDF View Record in Scopus Google Scholar
+[2]
+    Buschow K.H.J., van Stapele R.P.
+    Magnetic properties of some cubic rare-earth-iron compounds of the type RFe 2 and R x Y 1 − x Fe 2
+    J. Appl. Phys., 41 (10) (1970), pp. 4066-4069, 10.1063/1.1658412
+    View Record in Scopus Google Scholar
+[3]
+    Burkov A.T., Zyuzin A.Y., Nakama T., Yagasaki K., Schumann J., Vinzelberg H.
+    Magnetotransport in (Y x Gd 1-x )Co 2 alloys near to magnetic phase boundary
+    Phys. B Condens. Matt., 329–333 (2003), pp. 543-544, 10.1016/S0921-4526(02)02384-0
+    Article Download PDF View Record in Scopus Google Scholar
+[4]
+    Yamada Y., Ohmae H.
+    Nmr study of Y(Fe 1-x Co x ) 2 and Zr (Fe 1-x Co x ) 2
+    J. Phys. Soc. Japan, 48 (5) (1980), pp. 1513-1518, 10.1143/JPSJ.48.1513
+    View Record in Scopus Google Scholar
+[5]
+    Goto T., Sakakibara T., Murata K., Komatsu H., Fukamichi K.
+    Itinerant electron metamagnetism in YCo 2 and LuCo 2
+    J. Magn. Magn. Mater., 90 (1990), pp. 700-702, 10.1016/S0304-8853(10)80256-2
+    Article Download PDF View Record in Scopus Google Scholar
+[6]
+    V. Paul-Boncour O. Isnard T., Guillot M., Hoser A.
+    Metamagnetic transitions in Y 0.5 Er 0.5 Fe 2 D 4.2 deuteride studied by high magnetic field and neutron diffraction experiments
+    J. Magn. Magn. Mater., 477 (2019), pp. 356-365, 10.1016/j.jmmm.2019.01.056
+    Google Scholar
+[7]
+    Guzdek P., Pszczoła J., Chmist J., Stoch P., Stoch A., Suwalski J.
+    Electrical resistivity and Mössbauer effect studies of Y(Fe 1-x Co x ) 2 intermetallics
+    J. Alloys Compd., 520 (2012), pp. 72-76, 10.1016/j.jallcom.2011.12.081
+    Article Download PDF View Record in Scopus Google Scholar
+[8]
+    Burzo E., Lazǎr D.P., Palii L.
+    Paramagnetic behaviour of Gd(Fe x Co 1-x ) 2 compounds
+    Phys. Status Solidi A, 45 (2) (1978), pp. K145-K148, 10.1002/pssa.2210450256
+    View Record in Scopus Google Scholar
+[9]
+    Kilcoyne S.H.
+    The evolution of magnetic correlations and onset of magnetic order in Y(Co 1-x Fe x ) 2
+    Phys. B Condens. Matter, 276–278 (2000), pp. 660-661, 10.1016/S0921-4526(99)01731-7
+    Article Download PDF View Record in Scopus Google Scholar
+[10]
+    Severin L., Gasche T., Brooks M.S.S., Johansson B.
+    Calculated Curie temperatures for RCo 2 and RCo 2 H 4 compounds
+    Phys. Rev. B, 48 (18) (1993), pp. 13547-13549, 10.1103/PhysRevB.48.13547
+    View Record in Scopus Google Scholar
+[11]
+    Richter M.
+    Band structure theory of magnetism in 3d-4f compounds
+    J. Phys. D: Appl. Phys., 31 (9) (1998), p. 1017, 10.1088/0022-3727/31/9/002
+    View Record in Scopus Google Scholar
+[12]
+    Moreno R., Khmelevskyi S., Chubykalo-Fesenko O.
+    Role of exchange parameters for ultrafast thermally induced magnetization switching in ferrimagnets
+    Phys. Rev. B, 99 (18) (2019), Article 184401, 10.1103/PhysRevB.99.184401
+    View Record in Scopus Google Scholar
+[13]
+    Patrick C.E., Kumar S., Balakrishnan G., Edwards R.S., Lees M.R., Mendive-Tapia E., Petit L., Staunton J.B.
+    Rare-earth/transition-metal magnetic interactions in pristine and (Ni,Fe)-doped YCo 5 and GdCo 5
+    Phys. Rev. Mater., 1 (2) (2017), Article 024411, 10.1103/PhysRevMaterials.1.024411
+    View Record in Scopus Google Scholar
+[14]
+    Isnard O., Paul-Boncour V., Arnold Z.
+    On the origin of the giant isotopic effect of hydrogen on the magnetic properties of YFe 2 A 4.2 (A= H, D): A high pressure study
+    Appl. Phys. Lett., 102 (12) (2013), Article 122408, 10.1063/1.4798260
+    View Record in Scopus Google Scholar
+[15]
+    Paul-Boncour V., Guillot M., Isnard O., Hoser A.
+    High field induced magnetic transitions in the Y 0.7 Er 0.3 Fe 2 D 4.2 deuteride
+    Phys. Rev. B, 96 (10) (2017), Article 104440, 10.1103/PhysRevB.96.104440
+    View Record in Scopus Google Scholar
+[16]
+    Kumar P., Kashyap A., Balamurugan B., Shield J.E., Sellmyer D.J., Skomski R.
+    Permanent magnetism of intermetallic compounds between light and heavy transition-metal elements
+    J. Phys. Condens. Matt., 26 (6) (2014), Article 064209, 10.1088/0953-8984/26/6/064209
+    View Record in Scopus Google Scholar
+[17]
+    Pierunek N., Śniadecki Z., Werwiński M., Wasilewski B., Franco V., Idzikowski B.
+    Normal and inverse magnetocaloric effects in structurally disordered laves phase Y 1-x Gd x Co 2 (0 < x < 1) compounds
+    J. Alloys Compd., 702 (2017), pp. 258-265
+    Article Download PDF View Record in Scopus Google Scholar
+[18]
+    Burkov A.T., Zyuzin A.Y., Nakama T., Yagasaki K.
+    Thermopower of (Y 1-x Gd x )Co 2 alloys in a vicinity of zero-temperature magnetic phase boundary
+    J. Magn. Magn. Mater., 272–276 (2004), pp. E1083-E1084, 10.1016/j.jmmm.2003.12.1118
+    Article Download PDF Google Scholar
+[19]
+    Burkov A., Nakama T., Yagasaki K.
+    Electronic transport in itinerant metamagnets with strong static disorder
+    Solid State Phenom., 168–169 (2011), pp. 521-524, 10.4028/www.scientific.net/SSP.168-169.521
+    View Record in Scopus Google Scholar
+[20]
+    Gschneidne Jr. K.A., Pecharsky V.K., Tsokol A.O.
+    Recent developments in magnetocaloric materials
+    Rep. Progr. Phys., 68 (6) (2005), pp. 1479-1539, 10.1088/0034-4885/68/6/R04
+    Google Scholar
+[21]
+    Śniadecki Z., Werwiński M., Szajek A., Rößler U.K., Idzikowski B.
+    Induced magnetic ordering in alloyed compounds based on Pauli paramagnet YCo 2
+    J. Appl. Phys., 115 (17) (2014), Article 17E129, 10.1063/1.4866848
+    View Record in Scopus Google Scholar
+[22]
+    Wasilewski B., Marciniak W., Werwiński M.
+    Curie temperature study of Y(Fe 1-x Co x ) 2 and Zr(Fe 1-x Co x ) 2 systems using mean field theory and Monte Carlo method
+    J. Phys. Appl. Phys., 51 (17) (2018), Article 175001, 10.1088/1361-6463/aab75b
+    View Record in Scopus Google Scholar
+[23]
+    Z. Śniadecki N. Pierunek B., Idzikowski B., Wasilewski B., Werwiński M., Rößler U.K., Ivanisenko Y.
+    Influence of structural disorder on the magnetic properties and electronic structure of YCo 2
+    Phys. Rev. B, 98 (9) (2018), Article 094418, 10.1103/PhysRevB.98.094418
+    Google Scholar
+[24]
+    Wasilewski B., Śniadecki Z., Werwiński M., Pierunek N., Rusz J., Eriksson O.
+    Electronic specific heat coefficient and magnetic properties of Y(Fe 1-x Co x ) 2 laves phases: A combined experimental and first-principles study
+    Phys. Rev. B, 100 (13) (2019), Article 134436, 10.1103/PhysRevB.100.134436
+    View Record in Scopus Google Scholar
+[25]
+    Skubic B., Hellsvik J., Nordström L., Eriksson O.
+    A method for atomistic spin dynamics simulations: Implementation and examples
+    J. Phys. Condens. Matt., 20 (31) (2008), Article 315203, 10.1088/0953-8984/20/31/315203
+    View Record in Scopus Google Scholar
+[26]
+    Eriksson O., Bergman A., Bergqvist L., Hellsvik J.
+    Atomistic Spin Dynamics: Foundations and Applications
+    Oxford University Press (2017)
+    Google Scholar
+[27]
+    H. Ebert, et al. The Munich SPR-KKR Package, Version 7.7 http://ebert.cup.uni-muenchen.de/SPRKKR .
+    Google Scholar
+[28]
+    Ebert H., Ködderitzsch D., Minár J.
+    Calculating condensed matter properties using the KKR-Green’s function method—recent developments and applications
+    Rep. Progr. Phys., 74 (9) (2011), Article 096501, 10.1088/0034-4885/74/9/096501
+    View Record in Scopus Google Scholar
+[29]
+    Soven P.
+    Coherent-potential model of substitutional disordered alloys
+    Phys. Rev., 156 (3) (1967), pp. 809-813
+    View Record in Scopus Google Scholar
+[30]
+    Liechtenstein A.I., Katsnelson M.I., Gubanov V.A.
+    Exchange interactions and spin-wave stiffness in ferromagnetic metals
+    J. Phys. F Met. Phys., 14 (7) (1984), p. L125, 10.1088/0305-4608/14/7/007
+    View Record in Scopus Google Scholar
+[31]
+    Perdew J.P., Burke K., Ernzerhof M.
+    Generalized gradient approximation made simple
+    Phys. Rev. Lett., 77 (18) (1996), pp. 3865-3868, 10.1103/PhysRevLett.77.3865
+    Google Scholar
+[32]
+    Skoryna J., Pacanowski S., Marczyńska A., Werwiński M., Rogowska A., Wachowiak M., Majchrzycki Ł., Czajka R., Smardz L.
+    XPS Valence band studies of nanocrystalline ZrPd alloy thin films
+    Surf. Coat. Technol., 303 (2016), pp. 125-130, 10.1016/j.surfcoat.2016.03.030
+    Article Download PDF View Record in Scopus Google Scholar
+[33]
+    Morkowski J.A., Chełkowska G., Werwiński M., Szajek A., Troć R., Neise C.
+    X-ray photoemission spectrum, electronic structure, and magnetism of UCu 2 Si 2
+    J. Alloys Compd., 509 (25) (2011), pp. 6994-6998, 10.1016/j.jallcom.2011.04.026
+    Article Download PDF View Record in Scopus Google Scholar
+[34]
+    Keshavarz S., DiMarco I., Thonig D., Chioncel L., Eriksson O., Kvashnin Y.O.
+    Magnetic two-dimensional electron liquid at the surface of Heusler semiconductors
+    Phys. Rev. Mater., 4 (2) (2020), Article 021401, 10.1103/PhysRevMaterials.4.021401
+    View Record in Scopus Google Scholar
+[35]
+    Oesterreicher H., Wallace W.E.
+    Studies of pseudo-binary laves-phase systems containing lanthanides: I. Constitution and magnetic properties of the GdAl 2 -GdFe 2 , GdAl 2 -GdCo 2 and ErCo 2 -ErAl 2 systems
+    J. Common Met., 13 (1) (1967), pp. 91-102, 10.1016/0022-5088(67)90050-1
+    Article Download PDF View Record in Scopus Google Scholar
+[36]
+    Momma K., Izumi F.
+    VESTA : A three-dimensional visualization system for electronic and structural analysis
+    J. Appl. Crystallogr., 41 (3) (2008), pp. 653-658, 10.1107/S0021889808012016
+    Google Scholar
+[37]
+    Gratz E., Markosyan A.S.
+    Physical properties of RCo 2 Laves phases
+    J. Phys. Condens. Matter, 13 (23) (2001), p. R385, 10.1088/0953-8984/13/23/202
+    View Record in Scopus Google Scholar
+[38]
+    Piercy A.R., Taylor K.N.R.
+    Evidence for an itinerant electron moment in cubic laves-phase rare-earth - transition-metal compounds
+    J. Phys. C: Solid State Phys., 1 (4) (1968), p. 1112, 10.1088/0022-3719/1/4/330
+    View Record in Scopus Google Scholar
+[39]
+    Khmelevshyi, et al. https://doi.org/10.1103/PhysRevLett.94.146403 .
+    Google Scholar
+
+Cited by (0)
+© 2021 The Authors. Published by Elsevier B.V.
+Part of special issue:
+SI: Physics of Magnetism 2021 Edited by Irenusz Weymann, Zbigniew Śniadecki
+Download special issue
+Recommended articles
+
+    Transition from ferromagnetism to superparamagnetism in diluted magnetic Fe(II)-doped ZnSe microspheres
+    Journal of Magnetism and Magnetic Materials, Volume 543, 2022, Article 168625
+    Download PDF View details
+    Non-equilibrium dynamics of stripes in cuprate superconductors
+    Journal of Magnetism and Magnetic Materials, Volume 543, 2022, Article 168565
+    Download PDF View details
+    Formation of Fano resonance in double quantum dot system
+    Journal of Magnetism and Magnetic Materials, Volume 544, 2022, Article 168700
+    Download PDF View details
+
+1 2 Next
+Article Metrics
+View article metrics
+Elsevier logo with wordmark
+
+    About ScienceDirect
+    Remote access
+    Shopping cart
+    Advertise
+    Contact and support
+    Terms and conditions
+    Privacy policy 
+
+We use cookies to help provide and enhance our service and tailor content and ads. By continuing you agree to the use of cookies .
+
+Copyright © 2022 Elsevier B.V. or its licensors or contributors. ScienceDirect ® is a registered trademark of Elsevier B.V.
+
+ScienceDirect ® is a registered trademark of Elsevier B.V.
+RELX group home page

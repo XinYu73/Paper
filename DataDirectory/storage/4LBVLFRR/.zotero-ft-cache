@@ -1,0 +1,549 @@
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+
+Jahn-Teller transition in TiF3 investigated using density-functional theory
+
+Vasili Perebeinos* and Tom Vogt
+Department of Physics, Brookhaven National Laboratory, Upton, New York 1973-5000, USA ͑Received 28 April 2003; revised manuscript received 9 September 2003; published 8 March 2004͒
+
+We use ﬁrst-principles density-functional theory to calculate the electronic and magnetic properties of TiF3 using the full-potential-linearized augmented-plane-wave method. The local density approximation ͑LDA͒
+predicts a fully saturated ferromagnetic metal and ﬁnds degenerate energy minima for high- and low-symmetry
+structures. The experimentally observed Jahn-Teller phase transition at Tcϭ370 K cannot be driven by the electron-phonon interaction alone, which is usually described accurately by the LDA. Electron correlations
+beyond the LDA are essential to lift the degeneracy of the singly occupied Ti t2g orbital. Although the on-site Coulomb correlations are important, the direction of the t2g-level splitting is determined by dipole-dipole interactions. The LDAϩU functional predicts an aniferromagnetic insulator with an orbitally ordered ground state. The input parameters Uϭ8.1 eV and Jϭ0.9 eV for the Ti 3d orbital were found by varying the total charge on the TiF62Ϫ ion using the molecular NRLMOL code. We estimate the Heisenberg exchange constant for spin 1/2 on a cubic lattice to be approximately 24 K. The symmetry lowering energy in LDAϩU is about 900
+K per TiF3 formula unit.
+
+DOI: 10.1103/PhysRevB.69.115102
+
+PACS number͑s͒: 71.15.Mb, 62.20.Ϫx, 71.30.ϩh, 64.60.Ϫi
+
+I. INTRODUCTION
+There is an ongoing interest in phase transitions in perovskite-based materials. Above TcϷ370 K the triﬂuoride TiF3 has the cubic framework perovskite structure AM X3, with no A cations present. Each Ti is at the center of a corner
+sharing ﬂuorine octahedra M X6. At low temperatures the structure becomes rhombohedral. This symmetry lowering
+can to a ﬁrst approximation be characterized by a titling of
+the rigid M X6 octahedra about the threefold axis. The nominal valance of the titanium ion is 3ϩ, with one 3d electron
+occupying the triply degenerate t2g orbital in the hightemperature phase. One may expect a Jahn-Teller instability
+in TiF3. Indeed in the distorted structure titanium has a D3d local environment, in which the t2g orbitals are split into an a1g and a doublet eg orbital. The trigonal distortions have been intensively discussed in the context of other t2g compounds, like FeO ͑Ref. 1͒ and LaTiO3 ͑Ref. 2͒.
+We use density-functional theory ͑DFT͒ to investigate the cubic to rhombohedral structural phase transition which has been established by x-ray diffraction.3,4 Many triﬂuoride M F3 compounds (M ϭAl, Cr, Fe, Ga, In, Ti, V͒ exhibit this structural phase transition.3–6 It is believed that the observed transition in TiF3 is of a ferroelastic nature.3 In most of those materials except for TiF3 and MnF3 there are no partly ﬁlled d shells. The driving mechanism for the ferroelastic transitions can be pictured as the formation of dipole moments on ﬂuorine atoms due to the asymmetric distribution of the 2p electron density in the distorted structure. The long-range dipole-dipole interaction favors a distorted structure with antipolar arrangement of dipoles.7 The local density approximation ͑LDA͒ captures both the long- and short-range interactions on the same footing and predicts a distorted structure to have a minimum energy in AlF3.8
+In the present studies we choose the TiF3 system with a partly ﬁled t2g shell. The Jahn-Teller energy lowering due to the lifting of the t2g orbital degeneracy in the distorted struc-
+
+ture should add up to the long-range dipole formation energy.
+Unexpectedly, we ﬁnd the total energies of the high- and low-temperature phases to be identical within the errors of calculations. The failure of the LDA to explain this phase transition is due to the fact that transition-metal d electrons are not adequately described by the LDA. Although the dipole-dipole long-range interaction favors the distorted
+structure, however, the electron kinetic energy of the t2g onethird-ﬁlled band is increased due the diminishing of the hopping integral ͑t͒ between neighboring Ti atoms due to octahedra tilting. The two effects mutually cancel each other, resulting in degenerate minima of the potential energy surface.
+It was realized some time ago that the LDA tends to underestimate the Coulomb repulsion of electrons occupying different orbitals of the same d shell.9 In particular, this leads to equal occupations of different orbitals of the same manifold and prevents stabilization of the orbitally ordered solutions. The LDAϩU functional, however, generates an orbital-dependent potential which favors solutions with broken orbital degeneracy. LDAϩU calculations indicate that the low-temperature phase has a by about 900 K lower en-
+ergy per TiF3 than the high-temperature phase. One of the roles of the Coulomb interaction is to suppresses the electron
+kinetic energy of the partly ﬁlled t2g bands. The bandwidth narrowing in the distorted structure effectively reduces the restoring force to rotate the octahedra which facilitate stabilization of the distorted structure. The electronic ground state is orbitally ordered in the low-temperature phase with one
+electron occupying the ag orbital oriented along the rhombohedral direction forming a Heisenberg spin-1/2 lattice coupled antiferromagnetically to its neighbors via a superexchange mechanism.
+In this work we use the molecular NRLMOL code10 to calculate U by varying the occupation number of the Ti d orbital of the TiF62Ϫ ion. These calculations are signiﬁcantly less computationally demanding compared to the supercell approaches,9,11,12 and since only the ﬁrst neighboring ﬂuo-
+
+0163-1829/2004/69͑11͒/115102͑7͒/$22.50
+
+69 115102-1
+
+©2004 The American Physical Society
+
+VASILI PEREBEINOS AND TOM VOGT
+
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+
+rines mostly contribute to the screening, a good estimate for parameters U and J can be readily achieved in the calculations.
+The Hund interaction and electron kinetic energy are realistically described with the LDA. The TiF3 compound is predicted to be a ferromagnetic metal with a fully saturated magnetic moment of 1␮B per formula unit. The exchange Hund energy is large and the Stoner criterium is satisﬁed. The electron-phonon interaction lifts the on-site degeneracy of the t2g orbitals and for a sufﬁciently strong coupling a gap in the spectrum can open. We estimate the electron-phonon coupling (Ϸ2 meV/deg) to be insigniﬁcant to open the gap and to drive the phase transition in TiF3. Although the onsite Coulomb correlations are important, the direction of the t2g-level splitting is determined by the long-range dipoledipole interaction.7 Many successes and failures of the LDA in transition-metal oxide compounds have been summarized, for example, in the review article in Ref. 13.
+II. METHOD OF CALCULATION
+The purpose of this paper is to elucidate the electronic structure of TiF3 and explain the structural phase transition using the DFT method. This is done using the full-potentiallinearized augmented-plane-wave ͑FP-LAPW͒ method14 with local orbital extensions15 in the WIEN2k implementation.16 The LDA Perdew-Wang17 exchangecorrelation potential was used. Well-converged basis sets and Brillouin zone sampling were employed. The crystal structure was reported by Kennedy and Vogt.4 It is cubic at high temperature with a unit cell volume 58.8 (Å3). A rhombohedrally distorted structure of the space group R3c can be characterized by three parameters: ͑1͒ volume 56.5 (Å3), ͑2͒ the octahedra tilt ␾ϭ13°, and ͑3͒ a c/aϭ1.0315 ratio, which measures the distortion along the rhombohedral direction. There are two titanium and six ﬂuorine atoms in the rhombohedral unit cell. The ﬂuorine ions are sitting in the 6e sites ͓(x,Ϫxϩ1/2,1/4),etc.͔, and ␦ϭxϪ0.75 is the deviation from cubic positions. The octahedra tilting angle is related to
+␦ by tan(␾)ϭ2ͱ2␦. The calculations for both the high- and
+low-symmetry phases were performed using two formula units per unit cell and the same k-point mesh, with 292 special k points in the irreducible Brillouin zone. A tetrahedron method was used for integration over the Brillouin zone.
+
+FIG. 1. Calculated total energy of ferromagnetic high-T phase (␾ϭ0, c/aϭ1—dashed line͒ and low-T phase (␾ϭ10°, c/a ϭ1.0315—solid line͒ as a function of volume.
+
+in Fig. 1 and yields Vmϭ56.2 Å3. Further optimization with respect to the tilt angle for a
+ﬁxed minimum volume Vm and the same c/a ratio did not signiﬁcantly alter the ground-state energy. The optimal tilt angle is ␾0ϭ10.5°. The Ti-F bond is the most rigid bond in the structure, and therefore it is convenient to plot the energy
+versus the Ti-F bond length. A parabola ﬁt to the energy
+variation shown in Fig. 2 is excellent and yields a spring constant of the single bond Kϭ13.9 eV/Å. The Ti-F bond length d in the R3c crystal structure is
+
+d2ϭah2͓1/12ϩ␦2ϩ͑ c/a ͒2/24͔,
+
+͑1͒
+
+where ahϭaͱ2 is the hexagonal a lattice constant. Knowing
+the spring constant for the bond stretching and equilibrium volume V0 the bulk modules can be estimated as B ϭK/(6V1/3)Ϸ96 GPa.
+The total energy differences of the high- and low-T phases are beyond the accuracy of calculations. Despite the
+
+III. LDA RESULTS
+We ﬁrst calculate the cubic phase by ﬁxing ␾ϭ0 and c/aϭ1 in the rhombohedral structure of the space group R3c. The LDA ﬁnds a ferromagnetic ground-state solution with a fully saturated magnetic moment of 1␮B per Ti. The volume optimization is shown in Fig. 1. The equilibrium volume V0ϭ58.6 Å3 is in excellent agreement with the experiment.4 The bulk modulus of 111 GPa is extracted by ﬁtting a Murnaghan18 equation of state. The c/a ratio was ﬁxed to the experimental value 1.0315 at Tϭ10 K and the two parameters are relaxed to ﬁnd the minimum of the lowsymmetry structure. The energy minimization with respect to the volume for the ﬁxed c/aϭ1.0315 and ␾ϭ10° is shown
+
+FIG. 2. Calculated total energy of the ferromagnetic low-T
+phase as a function of tilt angle and ﬁxed volume (Vm) and c/a ϭ1.0315 ratio. The optimal Ti-F distance is 1.947 Å and the spring constant is 13.9 eV/Å2.
+
+115102-2
+
+JAHN-TELLER TRANSITION IN TiF3 INVESTIGATED . . .
+
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+
+the bandwidth. The on-site orbital degeneracy is lifted by the
+octahedron tilting. In the D3d local Ti site symmetry the t2g manifold splits into
+
+͉xy͘ϩ͉yz͘ϩ͉zx͘
+
+agϭ
+
+ͱ3
+
+,
+
+͉yz͘Ϫ͉zx͘
+eg1ϭ ͱ2 ,
+
+FIG. 3. Density of states of the ferromagnetic solution for the high-T phase. The t2g and eg bands are split by the crystal ﬁeld energy Ϸ2 eV. The t2g bandwidth is about 2 eV, which corresponds to hopping parameter tϭ0.25 eV. The Hund coupling J ϭ0.87 eV can be estimated from the relative position of the spin-up and spin-down peak positions.
+excellent agreement with the experimental structural parameters, the LDA total energy analysis does not explain the high temperature of the observed structural phase transition.
+The densities of states are shown in Fig. 3. The t2g band lies at the Fermi level and it is one-third ﬁlled. The Hund energy dominates the kinetic energy such that the Stoner criterion is satisﬁed and the material becomes magnetic. The band structure of the Ti t2g electrons can easily be understood with a nearest-neighbor two-center Slater-Koster20 model. The orbitals ͉␣␤͘ have hopping matrix elements with themselves along the ␣ and ␤ directions with amplitude t ϭ(dd␲). The tight-binding ﬁt in the high-temperature phase with tϭ0.25 eV is shown in Fig. 4.
+In the low-temperature phase the Ti-F-Ti bond angle is smaller than 180°, which reduces the hopping and narrows
+FIG. 4. Calculated band structure along the high-symmetry line in the high-symmetry structure: eg bands, open circles; t2g bands, solid circles. The solid line is a tight-binding ﬁt, which uses a single Slater-Koster parameter tϭ(dd␲)ϭ0.25 eV. The Fermi level is at zero energy.
+
+2͉xy͘Ϫ͉yz͘Ϫ͉zx͘
+
+eg2ϭ
+
+ͱ6
+
+.
+
+͑2͒
+
+The bandwidth in the tilted structure ␾ϭ␾0 corresponds to reduced tϭ0.225 eV and the electron-phonon Jahn-Teller energy gap at the ⌫ point is 6 meV. From the simple tightbinding model with these parameters the kinetic energy loss due to the band narrowing effect is 18 meV and it is not even compensated by the lifting of the orbital degeneracy. The total LDA energy includes the lattice and electronic degrees of freedom and predicts degenerate minima within the errors of calculations ͑Fig. 1͒. The LDA failure to predict the cubicto-rhombohedral phase transition can be rationalized by the lack of electron correlation effects in the LDA method.
+
+IV. PARAMETER U„J… CALCULATION FOR THE LDA¿U METHOD
+In extending the LDA method to account for correlations resulting from on-site interactions Anisimov, Zaanen, and Andersen9 ͑AZA͒ chose to reﬁne LDA by including an orbital-dependent one-electron potential to account explicitly for the important Coulomb repulsions not treated adequately in the LDA approach. This was accomplished in accordance with Hartree-Fock theory by correcting the mean-ﬁeld contribution of the d-d on-site interaction with an intra-atomic correction. This correction has been applied in slightly different ways. We use the SIC LDAϩU functional19 as implemented in the WIEN2k package.
+In this work we use a single TiF62Ϫ ion to calculate the parameters U and J. In these calculations the screening due to the nearest-neighboring ﬂuorines is taken into account and there are no other Ti atoms for the d electron to hop to. The TiF62Ϫ ion forms an octahedra with a Ti-F bond of 1.93 Å with the Ti atom placed in the center. The total energy and d orbital chemical potential of the TiF6 can be modeled by the single-site Hubbard model:
+
+E
+
+ϭ
+
+E
+
+0
+
+Ϫ
+
+␧
+
+͑
+
+n
+
+↑
+
+ϩ
+
+n
+
+↓
+
+͒
+
+ϩ
+
+U 2
+
+͑
+
+n
+
+↑ϩ
+
+n
+
+↓
+
+͒2
+
+Ϫ
+
+J 2
+
+͑
+
+n
+
+↑2 ϩ
+
+n
+
+2 ↓
+
+͒
+
+,
+
+‫ץ‬E
+
+␮↑ϭ‫ץ‬n↑ ϭϪ␧ϩU͑n↑ϩn↓͒ϪJn↑ ,
+
+͑3͒
+
+where n↑ and n↓ are occupation numbers of the triply degenerate t2g molecular orbital. We use two sets of self-consistent calculations to determine the parameters U and J. The qua-
+dratic total energy and linear chemical potential ﬁts to the
+
+115102-3
+
+VASILI PEREBEINOS AND TOM VOGT
+
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+
+FIG. 5. LDAϩU calculations of the antiferromagnetic high-T phase (␾ϭ0°, c/aϭ1—dashed line͒ and low-T phase (␾ϭ12°, c/aϭ1.0315—solid line͒ as a function of the volume of TiF3. Coulomb and exchange parameters were chosen as Uϭ8.1 eV and J ϭ0.9 eV. The optimal volumes of 61.8 Å3 and 58.1 Å3 agree well
+with experimental results indicated by arrows.
+
+nonmagnetic
+
+calculations
+
+give
+
+U
+
+e 1
+
+f
+
+f ϭUϪJ/2ϭ7.66
+
+eV.
+
+From the fully polarized magnetic calculation, the quadratic
+
+energy,
+
+and
+
+linear
+
+␮ 1/2
+
+ﬁt
+
+we
+
+ﬁnd
+
+U
+
+e 2
+
+f
+
+f
+
+ϭ
+
+U
+
+Ϫ
+
+J
+
+ϭ
+
+7.24
+
+eV,
+
+such that Uϭ8.08 eV and Jϭ0.84 eV. The Hund coupling
+
+parameter J should be compared with the spin-up and -down
+
+energy band splitting in ferromagnetic LDA calculations
+
+͑Fig. 3͒, which is Jϭ0.87 eV.
+
+FIG. 6. LDAϩU calculations for the antiferromagnetic low-T phase as a function of the tilt angle and ﬁxed volume Vm and c/a ϭ1.0315 ratio. The optimal angle is 14.1°, which corresponds to a Ti-F distance of 1.996 Å. The spring constant is 15.95 eV/Å2.
+narrow peaks originating from the ag and two eg orbitals. The imposed rhombohedral symmetry of the supercell makes the lowest-energy ag orbital pointing along the ͑111͒ direction to be fully occupied with a spin-up electron on one atom and a spin-down electron on the other atom coupled antiferromagnetically. The electronic properties of TiF3 can be de-
+
+V. LDA¿U RESULTS
+The volume optimization of the high-symmetry phase gives V0ϭ61.8 Å3 using two formula units per unit cell with R3c point group symmetry operations and ﬁxed ␾ϭ0° and c/aϭ1. The bulk modulus extracted from the Murnaghan ﬁt shown in Fig. 5 is 110 GPa. The electron correlations on the Ti d orbitals reduces the bandwidth (4t/U), such that the kinetic energy variation with respect to the lattice constant is smaller in the LDAϩU functional, resulting in a larger equilibrium lattice constant compared to the LDA result.
+The low-symmetry optimization was ﬁrst done with respect to volume for a ﬁxed experimental tilt angle ␾ϭ12° and the ratio c/aϭ1.0316. The optimal volume is 58.1 Å3. Further optimization with respect to the tilt angle for the ﬁxed equilibrium volume gives an additional energy gain of 130 K per Ti such that the distorted structure with the optimal tilt angle of 14° is lower in energy by 675 K per Ti. The parabola ﬁt to the Ti-F bond length variation shown in Fig. 6 gives a spring constant Kϭ15.95 eV/Å2. The corresponding bulk modulus BϭK/(6V1/3)Ϸ108 GPa is an in excellent agreement with the Murnaghan ﬁt of Fig. 5.
+The density of states for the distorted structure is shown in Fig. 7. The ﬂuorine 2p states are not much affected by the correlations, whereas dramatic differences are seen for the Ti d states. First, LDAϩU predicts a gap for both high-T and low-T phases in the t2g band, which is split into three distinct
+
+FIG. 7. Density of states per two formula units per eV. The two
+
+electrons
+
+in
+
+the
+
+unit
+
+cell
+
+ﬁll
+
+the
+
+a
+
+1 g
+
+spin-up
+
+orbital
+
+on
+
+atom
+
+one
+
+and
+
+the
+
+a
+
+2 g
+
+spin-down
+
+orbital
+
+on
+
+the
+
+second
+
+atom
+
+peaked
+
+at
+
+Ϫ1.64 eV. The two lowest unoccupied peaks ͑at 2.01 eV and 2.52
+
+eV͒ are due to the eg orbitals of the t2g manifold. The lower-energy
+
+orbital is due to the eg orbital of the same atom and spin as the occupied ag orbital. The broadbands 2 eV higher in energy shown by the dashed and dotted lines are due to the egϭ͕x2Ϫy2,3z2 Ϫr2͖ orbitals split by crystal ﬁeld. The empty ag orbital with op-
+
+posite spin at 4.53 eV forms a resonance in the crystal ﬁeld eg
+
+background.
+
+115102-4
+
+JAHN-TELLER TRANSITION IN TiF3 INVESTIGATED . . . scribed by the Hubbard Hamiltonian
+
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+
+͚ Helϭ i,␣␤,␴
+
+Ϫ
+
+t
+
+͑
+
+c
+
+† ␣␤,
+
+␴
+
+,ic
+
+␣
+
+␤
+
+,␴,
+
+i
+
+ϩ␣ϩ
+
+c
+
+† ␣
+
+␤
+
+,␴,
+
+i
+
+c
+
+␣
+
+␤
+
+,␴
+
+,
+
+i
+
+ϩ
+
+␤
+
+͒
+
+͚U
+
+ϩ
+i,␣␤,␴
+
+2 ͑n␣␤,␴,in␣␤,Ϫ␴,i͒
+
+͚ ϩ i,␣␤
+
+␣Ј␤Ј,␴,␴Ј
+
+U
+
+ЈϪ
+
+J␦ 2
+
+␴
+
+,␴Ј
+
+͑
+
+n
+
+␣
+
+␤
+
+,␴
+
+,
+
+i
+
+n
+
+␣␤
+
+,
+
+␴Ј
+
+,i
+
+͒
+
+.
+
+͑4͒
+
+The ﬁrst term is a kinetic energy term described in Sec. III.
+To place two electrons with opposite spins costs energy U, if they occupy the same orbital, or UЈ, if they are on different orbitals. If the spins of two electrons on different orbitals are
+aligned, the energy cost is reduced by J. In the atomic limit the relation UϭUЈϩ2J holds. Then the splitting between the ag and eg orbitals for a single-site Hubburd model would be UЈϪJϷ5.6 eV. The atomic limit value of splitting is larger from the complete LDAϩU solution Ϸ4 eV ͑see Fig. 7͒ where only a fraction of d electrons inside the mufﬁn-tin sphere experiences the LDAϩU potential. The second-order perturbation theory of the Hamiltonian ͓Eq. ͑4͔͒ with respect
+to t/U predicts an insulating antiferromagnetic ground-state solution for parameters Uϭ8.1 eV, Jϭ0.9 eV, and t ϭ0.22 eV.
+The superexchange energies per Ti of the antiferromagnetic Ne´el state and ferromagnetic solutions, with the ag orbital ͓Eq. ͑2͔͒ occupied in both cases, are
+
+4t2 1 8t2 1
+
+EAFMϭϪ 3
+
+Ϫ UЈ
+
+3
+
+U,
+
+4t2 1
+
+E FMϭ Ϫ
+
+3
+
+, UЈϪJ
+
+͑5͒
+
+where the ﬁrst term is due to virtual hopping of the localized
+electron on the six neighboring eg orbitals. The second term in EAFM is due to virtual hopping of the ag orbital to the six neighbors with hopping amplitude 2t/3, and it is missing in
+the ferromagnetic ground state due to the Pauli principle. The LDAϩU energy differences between the ferromagnetic and antiferromagnetic ground states and the ﬁxed optimal dis-
+torted geometry are shown in Fig. 8. Both the perturbation theory and LDAϩU results predict the antiferromagnetic to ferromagnetic transition at U/JϷ4. For the large U/J values LDAϩU underestimates the exchange energy by a factor of 2 and for the realistic parameter of Uϭ8.1 eV it predicts an energy difference of 72 K between the two phases. Neglect-
+ing the zero-point energy of the spin waves the energy dif-
+ference between the parallel and antiparallel classical spins on a cubic lattice is 6JS(Sϩ1) ͑Ref. 21͒. For spin Sϭ1/2 this yields Jϭ16 K and the corresponding Ne´el temperature in the mean-ﬁeld approximation is TNϭ1.5Jϭ24 K. The quantum ﬂuctuations reduce the Ne´el temperature to TN ϭ0.946Jϭ15 K ͑Ref. 22͒. However, a neutron diffraction experiment23 did not reveal any long-range magnetic order
+down to 10 K. Whether the absence of magnetic long-range
+
+FIG. 8. Energy difference of the total energy of ferromagnetic and antiferromagnetic solutions as a function of U/J ratio. The solid line is a second-order perturbation theory for the ﬁxed values Jϭ0.9 eV and tϭ0.225 eV. The dots are LDAϩU results with ﬁxed Jϭ0.9 eV and optimal low-temperature geometry.
+order in TiF3 is an intrinsic effect due to the coupling of the orbital and spin degrees of freedom or extrinsic due to the presence of the multidomain structure observed in the lowsymmetry phase by Mogus-Milankovic et al.3 requires further theoretical and experimental investigations.
+VI. PRESSURE ANOMALY X-ray diffraction measurements under pressure by Sowa and Ahsbahs24 allow us to determine the experimental bulk modulus of TiF3. Figure 9͑a͒ shows data points along with a Birch-Murnaghan equation-of-state ﬁt. The ﬁt to the full
+FIG. 9. ͑a͒ Experimental P-V diagram ﬁtted by the BirchMurnaghan equation of state to all data points ͑solid line͒ and the ﬁrst six high-pressure points ͑dashed line͒. ͑b͒ Bulk modulus calculations using the cell parameters given in Table I. Energies of LDA ͑LDAϩU͒ calculations are shown by open ͑solid͒ circles. The Birch-Murnaghan ﬁt to the high-pressure points is shown by the dashed ͑solid͒ line for LDA ͑LDAϩU͒ calculations. The zero energy is chosen at the ambient pressure value.
+
+115102-5
+
+VASILI PEREBEINOS AND TOM VOGT
+
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+
+TABLE I. The unit cell parameters for the bulk modulus calcu-
+lations. The normalized volume V/V0 and c/a ratios are taken from Sowa and Ahsbahs ͑Ref. 24͒. For LDAϩU calculations we used experimental volume V0ϭ58.3 Å3 at ambient pressure ͑Ref. 24͒ and we choose a smaller V0ϭ56.2 Å3 for LDA calculations to match the LDA optimal value. For given volume and c/a ratios the
+tilt angle was chosen such that Ti-F bond length, Eq. ͑1͒, is constant and equal to dTi-Fϭ1.947 Å and dTi-Fϭ1.996 Å for LDA and LDAϩU, respectively.
+
+p ͑GPa͒
+0.0001 0.46 1.05 1.62 2.37 3.18 4.03 4.97 6.05 6.40 7.23 7.67
+
+V/V0
+1.000 0.957 0.908 0.885 0.864 0.848 0.830 0.818 0.806 0.801 0.793 0.788
+
+c/a
+1.023 1.056 1.099 1.118 1.138 1.155 1.167 1.181 1.187 1.189 1.193 1.198
+
+␾° LDA
+10.4 14.3 17.9 19.4 20.8 21.7 22.8 23.5 24.2 24.4 24.9 25.2
+
+␾° LDAϩU
+13.9 17.0 20.2 21.5 22.8 23.6 24.6 25.3 25.9 26.2 26.6 26.9
+
+range of pressures predicts a physically an unreasonable
+
+small bulk modulus Bϭ7.5 GPa and an unphysically large coefﬁcient K2ϭ142 GPaϪ1. The ﬁrst derivative is ﬁxed to K1ϭ4 in the Birch-Murnaghan equation of state:
+
+ͫ ͩ ͪͬ 3f2
+
+35
+
+P͑ V ͒ϭ3B f ͑ 1ϩ2 f ͒5/2 1ϩ 2 BK2ϩ 9 , ͑6͒
+
+where f ϭ0.5͓(V0 /V)2/3Ϫ1͔ and V0 is the volume at ambient pressure. The high-pressure points ͑above 4 GPa͒ can be ﬁtted by Eq. ͑6͒ to give Bϭ51 GPa and a normal K2ϭ Ϫ0.005 GPaϪ1. However, the volume at normal pressure has to be ﬁxed to V0ϭ51.9 Å3, which is 11% smaller than the observed one.
+In the present work we calculate the bulk modulus of the
+lower-symmetry phase using the experimental c/a and V/V0 ratios.24 The tilt angle was chosen to keep the Ti-F bond length, Eq. ͑1͒, constant for all pressure values. We ﬁx dTi-Fϭ1.947 Å and dTi-Fϭ1.996 Å for LDA and LDAϩU calculations, respectively. For LDAϩU calculations V0 was ﬁxed to the experimental value24 V0ϭ58.3 Å3, while for the LDA it is reduced to match the optimal volume V0 ϭ56.2 Å3 to eliminate strain effects. The results of calcula-
+tions for the unit cell parameters given in Table I are shown in Fig. 9͑b͒. The high-pressure points can be ﬁtted by Eq. ͑6͒ to give a bulk modulus of Bϭ42 GPa for LDA and B ϭ29 GPa for LDAϩU functionals with corresponding coefﬁcients K2ϭϪ0.011 GPaϪ1 and K2ϭϪ0.008 GPaϪ1 and optimal volumes V/V0ϭ0.86 and V/V0ϭ0.88, which are in agreement with the ambient pressure volume deduced from
+the high-pressure experimental data. The energies in the global minimums in LDA and LDAϩU calculations are 270 K
+and 525 K per TiF3 lower than that of the experimentally observed structural parameters. A shallower minimum in the
+
+LDA can be explained by the kinetic energy loss due to the octahedron tilting. In LDAϩU the kinetic energy is suppressed due to correlations and does not change much with tilting.
+We speculate that this anomalous behavior of the compressibility of TiF3 may be due to the presence of domain walls in the low-symmetry phase observed in Ref. 3. Under applied pressure the crystal becomes a single domain. An alternative explanation is the phonon contribution to the free energy which in principle depends on pressure. Additional calculations of the phonon spectrum and Gruneisen parameter are needed to estimate the phonon contribution to the bulk modulus anomaly.
+VII. CONCLUSION
+We used density-functional theory to predict the electronic and magnetic properties of TiF3. The LDA predicts TiF3 to be a ferromagnetic metal with a fully saturated moment 1␮B per Ti. The energies of the high- and lowsymmetry structures are degenerate, such that the pure electron-phonon and electrostatic ͑Madelung͒ model does not explain the observed phase transition at Tcϭ370 K. The correlations are essential to suppress the kinetic energy loss of Ti t2g electrons to favor the distortions. To model electron correlations on Ti d orbitals we use the LDAϩU approach, which requires the input parameters U and J. We determine these parameters by calculating electron correlations on the TiF62Ϫ ion and ﬁnd Uϭ8.1 eV and Jϭ0.9 eV. LDAϩU predicts TiF3 to be an antiferromagnetic insulator with spin 1/2 per Ti. We ﬁnd a long-range order of Ti ag orbitals with a wave vector (000). The low-temperature phase is lower in energy by about 900 K per TiF3 in LDAϩU calculations, which suggests that electron-electron correlations are important.
+Using the experimentally determined c/a and V/V0 ratios we ﬁnd a global minimum at 14% ͑LDA͒ and 12% ͑LDAϩU͒ volumes smaller than the observed ambient pressure volume, which are consistent with the ambient pressure volume deduced from the experimental high-pressure data. The experimentally observed larger volume at the ambient pressure and the unusual behavior of the bulk modulus could be understood once the phonon contribution to the free energy is included. The zero phonon energy is in principle pressure dependent and can alter the position of the energy global minimum and the bulk modulus. The Gruneisen parameter calculations and experimental studies of the phonon spectrum under pressure will help to elucidate this problem.
+ACKNOWLEDGMENTS
+We are grateful to Fabian Essler for many valuable discussions, Warren Pickett for help in LDAϩU calculations, and Dick Watson for useful suggestions. The computations were performed on the BNL galaxy cluster. This work was supported in part by DOE Grant No. DE-AC-0298CH10886.
+
+115102-6
+
+JAHN-TELLER TRANSITION IN TiF3 INVESTIGATED . . .
+*Present address: IBM Research Division, T.J. Watson Research
+Center, Yorktown Heights, NY 10598. 1 D.G. Isaak, R.E. Cohen, M.J. Mehl, and D.J. Singh, Phys. Rev. B
+47, 7720 ͑1993͒. 2 M. Mochizuki and M. Imada, J. Phys. Soc. Jpn. 70, 2872 ͑2001͒. 3 A. Mogus-Milankovic, J. Ravez, J.P. Chaminade, and P. Hagen-
+muller, Mater. Res. Bull. 20, 9 ͑1985͒. 4 B.J. Kennedy and T. Vogt, Mater. Res. Bull. 37, 77 ͑2002͒. 5 J. Ravez, A. Mogus-Milankovic, and J.P. Chaminade, Mater. Res.
+Bull. 20, 9 ͑1985͒. 6 P. Daniel, A. Bulou, M. Rousseau, J.L. Fourquet, J. Nouet, M.
+Leblanc, and R. Burriel, J. Phys.: Condens. Matter 2, 5663 ͑1990͒; P. Daniel, A. Bulou, M. Rousseau, J. Nouet, and M. Leblanc, Phys. Rev. B 42, 10 545 ͑1990͒. 7 P.B. Allen, Y.R. Chen, S. Chaudhuri, and C.P. Grey, cond-mat/0311014 ͑unpublished͒. 8 Y.R. Chen, P.B. Allen, and V. Perebeinos, Phys. Rev. B 69, 054109 ͑2004͒. 9 V.I. Anisimov and O. Gunnarsson, Phys. Rev. B 43, 7570 ͑1991͒; V.I. Anisimov, J. Zaanen, and O.K. Andersen, ibid. 44, 943 ͑1991͒. 10 M.R. Pederson and K.A. Jackson, Phys. Rev. B 41, 7453 ͑1990͒; K.A. Jackson and M.R. Pederson, ibid. 42, 3276 ͑1990͒; M.R. Pederson and K.A. Jackson, ibid. 43, 7312 ͑1991͒; D.V. Porezag and M.R. Pederson, ibid. 54, 7830 ͑1996͒; A. Briley, M.R. Pederson, K.A. Jackson, D.C. Patton, and D.V. Porezag, ibid. 58, 1786 ͑1998͒.
+
+PHYSICAL REVIEW B 69, 115102 ͑2004͒
+11 I. Solovyev, N. Hamada, and K. Terakura, Phys. Rev. B 53, 7158 ͑1996͒.
+12 W.E. Pickett, S.C. Erwin, and E.C. Ethridge, Phys. Rev. B 58, 1201 ͑1998͒.
+13 I.V. Solovyev and K. Terakura, in Electronic Structure and Mag-
+netism of Complex Materials, edited by D. J. Singh and D. A. Papaconstantopoulos ͑Springer, Berlin, 2003͒. 14 D.J. Singh, Planewaves, Pseudopotentials and the LAPW Method ͑Kluwer Academic, Boston, 1994͒. 15 D.J. Singh, Phys. Rev. B 43, 6388 ͑1991͒. 16 P. Blaha, K. Schwarz, G.K.H. Madsen, D. Kvasnicka, and J.
+Luitz, WIEN2K, An Augmented Plane Wave Plus Local Orbitals Program For Calculating Crystal Properties ͑Vienna University of Technology, Austria, 2001͒. 17 J.P. Perdew and Y. Wang, Phys. Rev. B 45, 13 244 ͑1992͒. 18 F.D. Murnaghan, Am. J. Math. 49, 235 ͑1937͒. 19 V.I. Anisimov, I.V. Solovyev, M.A. Korotin, M.T. Czyzyk, and G.A. Sawatzky, Phys. Rev. B 48, 16 929 ͑1993͒; I.V. Solovyev, P.H. Dederichs, and V.I. Anisimov, ibid. 50, 16 861 ͑1994͒; A.I.
+Liechtenstein, V.I. Anisimov, and J. Zaanen, ibid. 52, 5467 ͑1995͒; A.B. Shick, A.I. Liechtenstein, and W.E. Pickett, ibid. 60, 10 763 ͑1999͒. 20 J.C. Slater and G.F. Koster, Phys. Rev. 94, 1498 ͑1954͒. 21 P.W. Anderson, Phys. Rev. 86, 694 ͑1952͒. 22 A.W. Sandvik, Phys. Rev. Lett. 80, 5196 ͑1998͒. 23 T. Vogt et al. ͑unpublished͒. 24 H. Sowa and H. Ahsbahs, Acta Crystallogr., Sect. B: Struct. Sci.
+54, 578 ͑1998͒.
+
+115102-7
+

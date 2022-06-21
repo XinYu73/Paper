@@ -1,0 +1,474 @@
+Journal of Physics D: Applied Physics
+
+PAPER
+
+You may also like
+
+Curie temperature study of
+
+and
+
+systems using mean field theory and Monte Carlo
+
+method
+
+To cite this article: Bartosz Wasilewski et al 2018 J. Phys. D: Appl. Phys. 51 175001
+
+View the article online for updates and enhancements.
+
+- Reactions of electronically excited molecular nitrogen with H2 and H2O molecules: theoretical study Alexey V Pelevkin and Alexander S Sharipov
+- Evolution of the interfacial perpendicular magnetic anisotropy constant of the Co2FeAl/MgO interface upon annealing A Conca, A Niesen, G Reiss et al.
+- Direct measurements of rate coefficients for thermal decomposition of CF3I using shock—tube ARAS technique N S Bystrov, A V Emelianov, A V Eremin et al.
+
+This content was downloaded from IP address 59.72.115.44 on 13/06/2022 at 13:30
+
+J. Phys. D: Appl. Phys. 51 (2018) 175001 (6pp)
+
+Journal of Physics D: Applied Physics https://doi.org/10.1088/1361-6463/aab75b
+
+Curie temperature study of Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 systems using mean field theory and Monte Carlo method
+
+Bartosz Wasilewski1, Wojciech Marciniak2,3 and Mirosław Werwiński1
+1  Institute of Molecular Physics, Polish Academy of Sciences, M. Smoluchowskiego 17, 60-179 Poznań, Poland 2  Institute of Physics, Faculty of Technical Physics, Poznan University of Technology, Piotrowo 3, 61-138 Poznań, Poland
+E-mail: wojciech.ro.marciniak@student.put.poznan.pl
+Received 14 December 2017, revised 9 March 2018 Accepted for publication 16 March 2018 Published 10 April 2018
+Abstract Cubic Laves phases including YFe2, YCo2, ZrFe2, and ZrCo2 are considered as promising candidates for application in hydrogen storage and magnetic refrigeration. While YFe2 and ZrFe2 are ferromagnets, alloying with Co decreases magnetic moments and Curie temperatures (TC) of pseudobinary Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 systems, leading to the paramagnetic states of YCo2 and ZrCo2. The following study focuses on the investigation of Curie temperature of the Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 system from first principles. To do it, Monte Carlo (MC) simulations and the mean field theory (MFT) based on the disordered local moments (DLM) calculations are used. The DLM-MFT results agree qualitatively with the experimental data from the literature and preserve the characteristic features of TC(x) dependencies for both Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2. However, we have encountered complications in the Co-rich regions due to failure of the local density approximation (LDA) in describing the Co magnetic moment in the DLM state. The analysis of Fe–Fe exchange couplings for YFe2 and ZrFe2 phases indicates that the nearest-neighbor interactions play the main role in the formation of TC.
+Keywords: Curie temperature, ab initio, Laves phases, Monte Carlo, mean field theory
+(Some figures may appear in colour only in the online journal)
+
+1. Introduction
+Laves phases are close packed structure intermetallics with a chemical composition AB2. They are classified into three types: hexagonal MgZn2 (C14), cubic MgCu2 (C15), and hexagonal MgNi2 (C36). In this work we investigate theor­etically the C15 cubic phases YFe2 and ZrFe2 together with their pseudobinary alloys with YCo2 and ZrCo2. The mentioned systems were recently intensively studied from both fundamental and application points of view. For hydrogen storage applications, the ZrFe2, YFe2 and its alloys [1–3] together with Zr–Fe–Co [4] and Zr(Cr0.5Ni0.5)2 [5] ternary alloys were considered. ZrFe2
+3 Author to whom any correspondence should be addressed.
+
+and its role in the hydrogen storage behaviour of selected hydride systems has also been discussed [6, 7]. Furthermore, YCo2 alloys with rare-earth elements R1−xYxCo2 (R  =  Er, Gd) were investigated as magnetocaloric materials for application in magnetic refrigerators [8, 9], similar like Er1−xZrxFe2 alloys [10]. The above efforts are supplemented by a number of theor­ etical studies of mechanical [11], electronic [12], and magn­etic properties [13, 14] concerning ZrFe2, YCo2, and ZrCo2 compounds. The binary XFe2 and XCo2 phases (including X  =  Y, Zr) have been also investigated theoretically from a permanent magnets perspective [15].
+One of the key physical quantities of a magnetic material is the Curie temperature (TC) indicating the magnetic phase trans­ition. It is known from experiment that the YFe2 and
+
+1361-6463/18/175001+6$33.00
+
+1
+
+© 2018 IOP Publishing Ltd  Printed in the UK
+
+J. Phys. D: Appl. Phys. 51 (2018) 175001
+
+B Wasilewski et al
+
+ZrFe2 are ferromagnets with Curie temperatures of 550 and 620 K, respectively [16, 17]. YCo2 is an exchange enhanced Pauli paramagnet and ZrCo2 is a regular Pauli paramagnet [18]. Furthermore, YCo2 undergoes a metamagnetic trans­ition at 70 T and 10 K [19], while ZrCo2 does not exhibit such a trans­ition [20]. In YCo2 magnetic ordering can be also induced by introducing either defects or chemical disorder [21, 22].
+Taking into account the recent interest in YFe2, ZrFe2, YCo2, and ZrCo2, we decided to investigate from first principles the TC of the above compounds and their pseudobinary alloys. We try to explain the dependence of TC on first neighbor interactions for YFe2 and ZrFe2 and to draw a relation between the TC and chemical composition. Out of several methods that allow to study the TC from first principles, we use in this work the mean field theory based on the disordered local moment
+method (DLM-MFT) and Monte Carlo (MC) method. The
+MC method allows us to make predictions by simulating the
+Heisenberg model of a given composition, such as magnetization (M) and susceptibility (χ) versus temper­ature dependencies [23], while using the DLM-MFT we can calculate only
+the Curie temperature of a given composition.
+
+Table 1.  Atomic coordinates for Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2, space group Fd-3m (no. 227), origin choice two.
+
+Atom
+
+Site
+
+x
+
+y
+
+z
+
+Y/Zr
+
+8a
+
+Fe/Co
+
+16d
+
+1/8
+
+1/8
+
+1/8
+
+1/2
+
+1/2
+
+1/2
+
+2. Calculations’ details
+The Curie temperature can be estimated with the use of the mean field theory (DLM-MFT) by considering the difference in energy between the DLM and ferromagnetic states [24, 25] according to the following equation:
+ TCDLM−MFT = 23 EDLkMB−· cEFM , (1)
+for EDLM − EFM > 0, and
+ TCDLM−MFT = 0, (2)
+otherwise. The EDLM and EFM are respectively the total energies for the DLM and ferromagnetic states, kB is the Boltzmann constant, and c is the concentration of magnetic atoms. In this work we use the coherent potential approx­imation (CPA) [26] in two ways. One way is to treat the chemical disorder (ferromagnetic states) and the other is to treat the magnetic and chemical disorders in the DLM calculations. Here, we simultaneously use both methods. Magnetically disordered state is done by forming a model with half of the magn­ etic moments pointing one direction and half pointing the opposite. For example, to model the paramagnetic state of Zr(Fe0.5Co0.5)2 we create a following configuration Zr(Fe0.25↑ Fe0.25↓Co0.25↑Co0.25↓)2. The arrows indicate the direction of the magnetic moment on each atom. The magnetic moment on Zr is of induced character and there was no need to treat it with the DLM.
+The second method used in this work to determine the Curie temperature is MC simulations. The classical (i.e. not quantum) MC simulations were done using the Uppsala atomistic spin dynamics (UppASD) code [27] with the magn­ etic moments and exchange integrals obtained from the spin polarized relativistic Korringa–Kohn–Rostoker (SPR-KKR) [28, 29] calculations. The exchange integrals were calculated
+
+Figure 1.  Crystal structure of the cubic MgCu2-type Laves phase. The large blue balls represent Mg atoms and the small red balls indicate Cu atoms.
+using the method of Liechtenstein et al [30] with respect to the ferromagnetic state. In the MC simulations we determine TC from the position of the peak in the temperature depend­ ence of susceptibility. The radius of the exchange integrals cutoff sphere in the Heisenberg model was set up to 1.5 lattice parameter (a) which means that only the atomic pairs separated by distance below 1.5 a were considered. The simulated system consisted of 8800 atoms with periodic boundary conditions. The simulations have been checked for convergence with the radius of the Heisenberg model cutoff sphere. In this work, the DLM calculations were performed for the whole range of Co concentrations, while the MC simulations were limited to YFe2 and ZrFe2.
+The occupied atomic position and the space group of the C15 cubic Laves phase can be found in table 1. The unit cell is presented in figure 1, which was created with the use of the VESTA code [31]. For the calculations of the binary compositions we used the experimental values of the lattice parameters which are equal to 7.36 [17], 7.22 [17], 7.07 [32], and 6.96 [32] Å for YFe2, YCo2, ZrFe2, and ZrCo2 respectively. Since in the experiment the lattice parameters of Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 change almost linearly with Co concentration [17, 32], for the intermediate composition we assumed linear behavior of the lattice parameters. The electronic band structure calculations for the whole concentration range of Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 systems were performed using the full-potential local-orbital minimum-basis scheme FPLO5.00 [33, 34]. The chemical and magnetic disorder on the Fe/Co site was modeled with the CPA. Due to limitations of FPLO5.00, we used the scalar-relativistic approach
+
+2
+
+J. Phys. D: Appl. Phys. 51 (2018) 175001
+
+B Wasilewski et al
+
+TC (K)
+
+1000
+
+Table 3.  Magnetic moments (in µB) for ZrFe2 and YFe2, as used in UppASD MC simulations compared with the experimental results
+
+from literature [18]. Magnetic moments per Fe include opposite
+
+800
+
+contributions from 4d elements and are equal to half of the total
+
+magnetic moment per formula unit, while the calculated magnetic
+
+600
+
+moments on Fe should be added together with the opposite 4d
+
+400 200
+
+Theory DLM-MFT Theory MC Expt. (Guzdek et al. 2012) Expt. (Kilcoyne 2000)
+
+shares to get the total magnetic moment.
+
+YFe2
+
+On Fe (theory)
+
+1.85
+
+ZrFe2 1.78
+
+0
+
+Per Fe (theory)
+
+1.66
+
+1.58
+
+Per Fe (expt.)
+
+1.49
+
+1.51
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Co concentration x
+
+Figure 2.  Curie temperatures of Y(Fe1−x Cox )2 as calculated with the DLM-MFT and MC methods compared with experimental data
+from works of Guzdek et al [17] and Kilcoyne [37].
+
+Table 2.  Curie temperatures (in K) of the YFe2, YCo2, ZrFe2, and ZrCo2 as calculated with the DLM-MFT and MC methods in comparison with the experimental results from literature [16, 17].
+
+YFe2
+
+YCo2
+
+ZrFe2
+
+ZrCo2
+
+DLM-MFT
+
+920
+
+171
+
+846
+
+0
+
+MC
+
+750
+
+—
+
+780
+
+—
+
+Expt.
+
+550
+
+0
+
+620
+
+0
+
+and local density approximation in the form of Perdew and Wang (PW92) [35]. The basis was optimized. The 3s3p Fe/ Co orbitals were treated as semicore and 4s4p3d as valence. The Y and Zr 4s4p orbitals were treated as semicore and 5s5p4d as valence. After convergence tests we have chosen a 12 × 12 × 12 k-mesh. We applied simultaneous energy and charge density convergence criteria of  ∼2.72  ×  10−7 eV (10−8 Ha) and 10−6, respectively.
+The MC simulations were performed using magnetic moments and exchange couplings obtained with the version 7.6 of the SPR-KKR code. The calculations were performed using 40 energy points on a semicircular energy path and 1000 irreducible k-points, corresponding to a 36 × 36 × 36 mesh. For the exchange-correlation potential we employed the Vosko–Wilk–Nusair (VWN) [36] form of the local density approximation (LDA). The SPR-KKR calculations were done in the full relativistic and full potential approaches.
+
+3.  Results and discussion
+3.1. Y(Fe1−xCox)2
+In figure 2, we present our computational results for the Curie temperatures of the Y(Fe1−x Cox )2 system compared with the experiment. Table 2 summarizes the results for the boundary binary compounds.
+For the Y(Fe1−x Cox )2 system, our calculations show qualitative agreement with the experiment for the concentration range x 0.8 and preserve the characteristic Slater–Paulinglike maximum. A similar maximum also appears in the total magn­etic moment versus Co concentration graph (not shown). The magnetic moments on Fe obtained with SPR-KKR, which
+
+are in good agreement with the experiment, are listed in table 3. The Curie temperatures on the Fe-rich side calculated with the DLM-MFT are however significantly overestimated relative to the experimental values. Similar disagreement between the critical temperatures measured and calculated with the mean field approximation has been found for other systems before and it was considered as a characteristic behavior of the mean field method [29, 38, 39]. The overestimation of TC originates from the fact that the mean field approximation neglects the spin fluctuations which makes the magnetic moments more rigid [40]. On the Co-rich side, the predicted ferromagnetic ground state of YCo2 is wrong. The comparison of non-magn­ etic and ferromagnetic states of YCo2 calculated in LDA at experimental lattice constants leads to an incorrect magnetic ground state [41]. Furthermore, we observe that the formation of DLM state of YCo2 fails as the initially opposite magnetic moments on Co collapse to zero (non-magnetic state) after the convergence. The problem with an accurate description of the magnetic state of Co alloys has been addressed previously by Edströem et al [42]. They have related the difficulties to an insufficient treatment of correlation effects in LDA/GGA, which can be overcome by application of the dynamical mean field theory (DMFT) [43]. For YCo2 we have made additional LDA  +  U calculations, with the corrections applied to Co 3d orbitals. However we have finished once again with a collapse of Co moments in the DLM state. A failure of the LDA  +  U approach suggests the need for dynamical correlations in this case. In a similar collapse of magnetic moments on Co, as observed for YCo2, we found for all DLM states of the considered Y(Fe1−x Cox )2 phases. The overestimation of TC in MFT on one hand and the insufficient treatment of correlation effects in LDA on the other are the reasons why the calculated TC versus Co concentration dependence does not exhibit a ferromagnet-paramagnet phase transition. The evolution of Curie temperature with Co concentration is correlated with evolution of an electronic structure of the material. To give a feeling of what is happening as more Co atoms replace Fe ones in figure 3, we present the total densities of states (DOS) for several Co concentrations. The YFe2 (x  =  0) valence band consists mainly of Fe 3d states. The DOS of YFe2 is strongly spin polarized and the most important contributions lay above  −4 eV. When alloying Co (Z  =  27) for Fe (Z  =  26) to the system. Additional electrons are delivered, filling the valence band. With the increase of Co concentration, the less occupied spin channel is filling leading to a decrease of spin polarization.
+
+3
+
+J. Phys. D: Appl. Phys. 51 (2018) 175001
+
+B Wasilewski et al
+
+DOS (states / eV f.u.) DOS (states / eV f.u.)
+M, χ , normalized
+
+Y(Fe1-xCox)2
+
+Zr(Fe1-xCox)2
+
+10 x = 0.0
+
+x = 0.0
+
+10
+
+5
+
+5
+
+0
+
+0
+
+10 x = 0.2
+
+x = 0.2
+
+10
+
+5
+
+5
+
+0
+
+0
+
+10 x = 0.4 5
+
+x = 0.4
+
+10
+
+5
+
+0
+
+0
+
+10 x = 0.6 5
+
+x = 0.6
+
+10
+
+5
+
+0
+
+0
+
+10 x = 0.8 5
+
+x = 0.8
+
+10
+
+5
+
+0
+
+0
+
+10 x = 1.0
+
+x = 1.0
+
+10
+
+5
+
+5
+
+0
+
+0
+
+-8 -6 -4 -2 0 2 -8 -6 -4 -2 0 2
+
+E - EF (eV)
+
+E - EF (eV)
+
+Figure 3.  The densities of states (DOS) of Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 as calculated with the FPLO5-LDA-CPA method. Red and blue colors represent two spin channels.
+
+1.0 0.8 0.6 0.4 0.2 0.0
+0
+
+M χ
+
+500
+
+1000
+
+T (K)
+
+1500
+
+Figure 5.  The normalized magnetization and susceptibility temperature dependencies for YFe2 as calculated by MC simulations with the UppASD code with parameters from the FP-SPR-KKR.
+
+1000
+
+800
+
+Theory DLM-MFT
+
+Theory MC
+
+600
+
+Expt.
+
+400
+
+Jij (meV) Jij (meV)
+TC (K)
+
+20 15 10
+5 0 0.0
+
+(a) YFe2
+0.5 1.0 1.5 Rij /a
+
+20
+
+15
+
+(b) ZrFe2
+
+10
+
+5
+
+0
+
+200 0 0.0 0.2 0.4 0.6 0.8 1.0 Co concentration x
+
+0.0 0.5 1.0 1.5 Figure 6.  Curie temperatures of Zr(Fe1−x Cox )2 as calculated with
+
+the DLM-MFT and MC methods in comparison with experimental
+
+Rij /a
+
+data from literature [16].
+
+Figure 4.  The Fe–Fe exchange couplings versus normalized distance for (a) YFe2 and (b) ZrFe2 as calculated with the FP-SPRKKR.
+The magnetic moments on the Y/Zr atoms are of induced character and are expected to vanish with temperature, therefore we left them out of the simulated Heisenberg model. By looking at the graph of exchange interactions for YFe2, see figure 4(a), we can see that the dominant exchange coupling is positive, as expected for a ferromagnet. Besides direct exchange there can be also observed interactions of oscillatory character. As for the MC simulations for the YFe2, see figure 5, the agreement with the experiment is reasonable where experimental TC  =  550 K and our simulations yield a value of TC = 750 K. We can also see that the M(T) curve has a Curie–Weiss character, as expected.
+3.2. Zr(Fe1−xCox)2
+For the Zr(Fe1−x Cox )2 system, there is qualitative agreement of the calculated Curie temperatures with the experimental dependence, see figure 6. The experiment has an almost linear course with x, ranging from TC = 620 K [16] at x  =  0 to 0 K
+
+at x ∼ 0.75, while our theoretical results also show that TC is decreasing with x and equal zero for x ∼ 0.95. The discrepancy with the experiment in the Co-rich region can be
+explained similarly as before for Y(Fe1−x Cox )2. Furthermore, figure 3 presents DOSs for several Co concentrations. As Zr
+has one more electron than Y, the presented valence bands
+of Zr(Fe1−x Cox )2 alloys are slightly more filled than of corresponding Y(Fe1−x Cox )2 alloys. The observed, for Zr(Fe1−x Cox )2 system, decrease of TC with x is correlated with a decrease of spin splitting in DOS induced by band
+filling. In agreement with experiment, we do not observe fer-
+romagnetic ground state for ZrCo2. For the ZrFe2 the nearest neighbor Fe–Fe exchange cou-
+pling is positive and dominant. Similarly to YFe2, ZrFe2 exchange couplings also have oscillatory character, see
+figure 4(b). The ZrFe2 magnetization and susceptibility MC simulations, see figure 7, predict a ferromagnetic state for ZrFe2 with the Curie temperature of ∼ 780 K which is in a reasonable agreement with the experimental value of
+620 K. Interestingly for the ZrFe2 the MC simulations with the dominant exchange coupling only yielded TC ∼ 550 K (230 K lower than for exchange couplings considered up
+
+4
+
+J. Phys. D: Appl. Phys. 51 (2018) 175001
+
+M, χ , normalized
+
+1.0 0.8 0.6 0.4 0.2 0.0
+0
+
+M χ
+
+500
+
+1000
+
+T (K)
+
+1500
+
+Figure 7.  The normalized magnetization and susceptibility temperature dependencies for ZrFe2 as calculated by MC simulations with the UppASD code with parameters from the FP-SPR-KKR.
+
+Acknowledgments
+
+B Wasilewski et al
+
+We acknowledge the financial support from the Foundation of Polish Science grant HOMING. The HOMING programme is co-financed by the European Union under the European Regional Development Fund. Part of the computations were performed on resources provided by the Poznan Supercomputing and Networking Center (PSNC). We also thank Dr Z Śniadecki for comments and discussion.
+
+ORCID iDs
+Wojciech Marciniak https://orcid.org/0000-0002-9173-5496 MirosławWerwiński https://orcid.org/0000-0003-1934-4818
+
+References
+
+to 1.5 a) which shows how the system is sensitive to small contrib­utions in relatively large numbers and the importance of checking for convergence with the radius of the exchange integrals cutoff sphere. Analogously to YFe2, the ZrFe2 M(T) curve also has a Curie–Weiss character. We have decided not to model YCo2 and ZrCo2 with MC simulations due to the fact that the exchange couplings and magnetic moments used in the mentioned calculations were obtained with respect to the ferromagnetic ground state and YCo2 and ZrCo2 are Pauli paramagnets.
+4.  Summary and conclusions
+The Curie temperatures of Y(Fe1−x Cox )2 and Zr(Fe1−x Cox )2 systems were calculated ab initio based on the disordered local moment method within the mean field theory (DLM-MFT). Furthermore, the Curie temperatures of YFe2 and ZrFe2 were calculated by Monte Carlo (MC) simulations. Comparing the results of our calculations with experimental data from literature, a good qualitative agreement is observed. The main features of experimental TC(x) plots are reproduced, however with some limitations. Both approaches, the DLM-MFT and MC tend to overestimate the TC with the most troublesome region on the Co-rich side, where the systems undergo a ferromagn­ etic-paramagnetic phase transition. For Y(Fe1−x Cox )2 the DLM-MFT approach correctly predicts the characteristic maximum in TC for intermediate compositions but fails by predicting the ferromagnetic ground state of the YCo2 paramagnet. For Zr(Fe1−x Cox )2 the DLM-MFT predicts both the monotonic decrease of TC with x and the critical Co concentration above which the system becomes paramagnetic. However, the exact value of the critical concentration is overestimated. The MC simulations for YFe2 and ZrFe2 indicate that the nearest neighbors Fe–Fe exchange interactions are the most responsible for the value of TC. From the point of view of computations, this paper shows that the accurate TC analysis for alloys is feasible with coherent potential approx­ imation used for simulation of the magnetically disordered DLM state.
+
+[1] Wiesinger G, Paul-Boncour V, Filipek S M, Reichl C, Marchuk I and Percheron-Guégan A 2005 J. Phys.: Condens. Matter 17 893
+[2] Isnard O, Paul-Boncour V, Arnold Z, Colin C V, Leblond T, Kamarad J and Sugiura H 2011 Phys. Rev. B 84 094429
+[3] Li Z, Wang H, Ouyang L, Liu J and Zhu M 2016 J. Alloys Compd. 689 843
+[4] Jat R A, Singh R, Parida S C, Das A, Agarwal R, Mukerjee S K and Ramakumar K L 2015 Int. J. Hydrog. Energy 40 5135
+[5] Merlino A R, Luna C R, Juan A and Pronsato M E 2016 Int. J. Hydrog. Energy 41 2700
+[6] Shahi R R, Bhatanagar A, Pandey S K, Shukla V, Yadav T P, Shaz M A and Srivastava O N 2015 Int. J. Hydrog. Energy 40 11506
+[7] Shukla V, Bhatnagar A, Soni P K, Vishwakarma A K, Shaz M A, Yadav T P and Srivastava O N 2017 Phys. Chem. Chem. Phys. 19 9444
+[8] Baranov N V, Proshkin A V, Czternasty C, Meißner M, Podlesnyak A and Podgornykh S M 2009 Phys. Rev. B 79 184420
+[9] Pierunek N, Śniadecki Z, Werwiński M, Wasilewski B, Franco V and Idzikowski B 2017 J. Alloys Compd. 702 258
+[10] Mican S, Benea D, Mankovsky S, Polesya S, Gînscă O and Tetean R 2013 J. Phys.: Condens. Matter 25 466003
+[11] Chen S, Sun Y, Duan Y H, Huang B and Peng M J 2015 J. Alloys Compd. 630 202
+[12] Bhatt S, Kumar K, Arora G, Bapna K and Ahuja B L 2016 Radiat. Phys. Chem. 125 109
+[13] Zhang W and Zhang W 2015 J. Appl. Phys. 117 163917 [14] Zhuravleva I P, Grechnev G E, Panfilov A S and
+Lyogenkaya A A 2017 Low Temp. Phys. 43 597 [15] Kumar P, Kashyap A, Balamurugan B, Shield J E,
+Sellmyer D J and Skomski R 2014 J. Phys.: Condens. Matter 26 064209 [16] Hilscher G and Gmelin E 1978 J. Phys. Colloques 39 C6 [17] Guzdek P, Pszczoła J, Chmist J, Stoch P, Stoch A and Suwalski J 2012 J. Alloys Compd. 520 72 [18] Yamada Y and Ohmae H 1980 J. Phys. Soc. Japan 48 1513 [19] Goto T, Sakakibara T, Murata K, Komatsu H and Fukamichi K 1990 J. Magn. Magn. Mater. 90 700 [20] Yamada H and Shimizu M 1990 J. Magn. Magn. Mater. 90 703 [21] Śniadecki Z, Werwiński M, Szajek A, Rößler U K and Idzikowski B 2014 J. Appl. Phys. 115 17E129 [22] Śniadecki Z, Kopcewicz M, Pierunek N and Idzikowski B 2015 Appl. Phys. A 118 1273
+
+5
+
+J. Phys. D: Appl. Phys. 51 (2018) 175001
+[23] Eriksson O, Bergman A, Bergqvist L and Hellsvik J 2017 Atomistic Spin Dynamics: Foundations and Applications (Oxford: Oxford University Press)
+[24] Gyorffy B L, Pindor A J, Staunton J, Stocks G M and Winter H 1985 J. Phys. F: Met. Phys. 15 1337
+[25] Bergqvist L and Dederichs P H 2007 J. Phys.: Condens. Matter 19 216220
+[26] Soven P 1967 Phys. Rev. 156 809 [27] Skubic B, Hellsvik J, Nordström L and Eriksson O 2008
+J. Phys.: Condens. Matter 20 315203 [28] Ebert H et al The Munich SPR-KKR Package, Version 7.6
+http://ebert.cup.uni-muenchen.de/SPRKKR [29] Ebert H, Ködderitzsch D and Minár J 2011 Rep. Prog. Phys.
+74 096501 [30] Liechtenstein A I, Katsnelson M I and Gubanov V A 1984
+J. Phys. F: Met. Phys. 14 L125 [31] Momma K and Izumi F 2011 J. Appl. Crystallogr.
+44 1272 [32] Muraoka Y, Shiga M and Nakamura Y 1979 J. Phys. F: Met.
+Phys. 9 1889
+
+B Wasilewski et al
+[33] Koepernik K, Velický B, Hayn R and Eschrig H 1997 Phys. Rev. B 55 5717
+[34] Koepernik K and Eschrig H 1999 Phys. Rev. B 59 1743 [35] Perdew J P and Wang Y 1992 Phys. Rev. B 45 13244 [36] Vosko S H, Wilk L and Nusair M 1980 Can. J. Phys.
+58 1200 [37] Kilcoyne S H 2000 Physica B 276–8 660 [38] Ke L, Belashchenko K D, van Schilfgaarde M, Kotani T and
+Antropov V P 2013 Phys. Rev. B 88 024404 [39] Hedlund D, Cedervall J, Edström A, Werwiński M, Kontos S,
+Eriksson O, Rusz J, Svedlindh P, Sahlberg M and Gunnarsson K 2017 Phys. Rev. B 96 094433 [40] Rusz J, Bergqvist L, Kudrnovský J and Turek I 2006 Phys. Rev. B 73 214412 [41] Khmelevskyi S, Mohn P, Redinger J and Weinert M 2005 Phys. Rev. Lett. 94 146403 [42] Edström A et al 2015 Phys. Rev. B 92 174413 [43] Kotliar G, Savrasov S Y, Haule K, Oudovenko V S, Parcollet O and Marianetti C A 2006 Rev. Mod. Phys. 78 865
+
+6
+

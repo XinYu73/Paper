@@ -1,0 +1,557 @@
+Highly Entangled Ground States in Tripartite Qubit Systems
+Beat Ro¨thlisberger, J¨org Lehmann, D. S. Saraga, Philipp Traber, and Daniel Loss Department of Physics, University of Basel, Klingelbergstrasse 82, CH-4056 Basel, Switzerland
+(Dated: May 30, 2018)
+We investigate the creation of highly entangled ground states in a system of three exchangecoupled qubits arranged in a ring geometry. Suitable magnetic ﬁeld conﬁgurations yielding approximate GHZ and exact W ground states are identiﬁed. The entanglement in the system is studied at ﬁnite temperature in terms of the mixed-state tangle τ . By generalizing a conjugate gradient optimization algorithm originally developed to evaluate the entanglement of formation, we demonstrate that τ can be calculated eﬃciently and with high precision. We identify the parameter regime for which the equilibrium entanglement of the tripartite system reaches its maximum.
+PACS numbers: 03.67.Mn, 03.65.Ud
+
+arXiv:0705.1710v2 [quant-ph] 7 Feb 2008
+
+Entangled quantum systems have been the focus of numerous theoretical and experimental investigations [1–3]. In particular, entanglement has been identiﬁed as the primary resource for quantum computation and communication [4]. Compared to the case of a bipartite system, multipartite entanglement exhibits various new features. Notably, there are two diﬀerent equivalence classes of genuine three-qubit entanglement [3], the representatives being any one of the two maximally entangled Greenberger-Ho√rne-Zeilinger (GHZ) states [2] |GHZ± = (|↑↑↑ ± |↓↓↓ )/ 2 on the one√hand, and the W state [3] |W = (|↑↑↓ + |↑↓↑ + |↓↑↑ )/ 3 on the other. The ability to realize both representatives in real physical systems is thus of high importance in the study of genuine tripartite entanglement. Particularly interesting is the GHZ state, as it represents the strongest quantum correlations possible in a system of three qubits. Furthermore, it is equivalent to the three-qubit cluster state used in oneway quantum computation [5]. It is favorable to obtain the GHZ and W states as the eigenstate of a suitable system, rather than by engineering them using quantum gates. In this Letter, we demonstrate the possibility of obtaining approximate GHZ and exact W states as the ground state (g.s.) of three spin-qubits in a ring geometry coupled via an anisotropic Heisenberg interaction. The use of quantum gates is therefore not required. Rather, the desired states are achieved merely by cooling down to suﬃciently low temperatures. We state all our results in terms of the exchange coupling strengths in order to keep our proposal open to a broad set of possible implementations of the qubits. We remark that, while Heisenberg models have been studied frequently in the context of entanglement [6] (also with respect to entangled eigenstates [7]), this is the ﬁrst time that highly entangled states are reported as the non-degenerate g.s. of three exchangecoupled qubits. Our study inevitably involves the issue of quantifying entanglement [8–12]: At ﬁnite temperatures, the mixing of the g.s. with excited states forces us to evaluate a mixed-state entanglement measure (EM) in order to study the entanglement in the system meaningfully. Computationally, this is a rather formidable
+
+task. We generalize a numerical scheme that has originally been developed to compute the entanglement of formation (EOF) [10, 13]. Our scheme can be used to evaluate any mixed-state EM deﬁned as a so-called convex roof [14].
+Model.— We assume that three spins Si, with S = 1/2, are located at the corners i = 1, 2, 3 of an equilateral triangle lying in the xy-plane. Their interaction is described by the anisotropic Heisenberg Hamiltonian
+
+3
+
+3
+
+H = −Jxy (SixSix+1 + SiySiy+1) − Jz
+
+SizSiz+1 + HZ ,
+
+i=1
+
+i=1
+
+(1)
+
+where S4 = S1. Here, Jxy and Jz are the in- and out-
+
+of-plane exchange coupling constants, respectively, and
+
+HZ =
+
+3 i=1
+
+bi
+
+·
+
+Si
+
+denotes
+
+the
+
+Zeeman
+
+coupling
+
+of
+
+the
+
+spins Si to the externally applied magnetic ﬁelds bi at the
+
+sites i [15]. We now seek a conﬁguration of bi’s yielding
+
+a highly entangled GHZ- or W-type ground state. Finite-
+
+temperature eﬀects will then be studied in a second step.
+
+Ground-state properties.— We ﬁrst consider isotropic
+
+exchange couplings, i.e., Jxy = Jz ≡ J. For bi = 0, we naturally ﬁnd two fourfold-degenerate eigenspaces due
+
+to the high symmetry of the system. For J > 0, i.e.,
+
+ferromagnetic coupling, the ground-state quadruplet is spanned by the two GHZ states |GHZ± , the W and
+
+the spin-ﬂipped W state. Appropriately chosen magnetic
+
+ﬁelds allow one, however, to split oﬀ an approximate GHZ
+
+state from this degenerate eigenspace. To identify the op-
+
+timal ﬁeld geometry, we ﬁrst observe that the two states |GHZ± have the form of a tunnel doublet. If we thus ﬁnd
+
+a set of bi’s, which, in the classical spin system, results in precisely two degenerate minima for the conﬁgurations
+
+↑↑↑ and ↓↓↓ with an energy barrier in between, quantum
+
+tunneling will yield the desired states. In order to sin-
+
+gle out exactly the two directions perpendicular to the
+
+xy-plane, the magnetic ﬁelds must be in-plane, be of the
+
+same strength, and sum to zero. This immediately im-
+
+plies that successive directions of the ﬁelds must diﬀer by
+
+an angle of 2π/3 from each other. We choose the ﬁelds
+
+to point radially outwards, although any other conﬁg-
+
+2
+
+uration possessing the required symmetry is equivalent. However, this setup is experimentally most feasible, e.g., by placing a bar magnet below the center of the sample (in the case of a solid state implementation). In order to favor parallel spin conﬁgurations we consider the regime where J ≫ b, b = |bi| being the Zeeman energy. We may thus assume that for given mean spherical angles ϑ¯ (zenith) and ϕ¯ (azimuth), the orientation of each spin will deviate from these values only by a small amount. Expanding the classical energy Ec(ϑ¯, ϕ¯) corresponding to Eq. (1) to second order in these deviations and minimizing with respect to them under the constraint that they separately sum to zero yields:
+
+Ec
+
+≈
+
+−
+
+(b/J 8
+
+)2
+
+(3
+
++
+
+cos 2ϑ¯)
+
++
+
+(b/J )3 24
+
+sin
+
+(3ϕ¯)
+
+sin3
+
+ϑ¯.
+
+(2)
+
+This expression is minimal for ϑ¯ = 0 and ϑ¯ = π, representing the desired conﬁgurations. The paths in ϑ¯
+
+with lowest barrier height connecting these two minima
+
+are found for values of ϕ¯ = −π/6 + 2πn/3 mod 2π,
+
+n = 0, 1, 2, reﬂecting the rotational symmetry of the sys-
+
+tem. The corresponding barrier height is approximately
+
+given by [(b/J)2 − (b/J)3/6]/4 [16].
+
+Next we return to the quantum system. The Hamil-
+
+tonian (1) with isotropic exchange coupling J and ra-
+
+dial magnetic ﬁeld can be diagonalized exactly. Expand-
+
+ing for b/J ≪ 1, the overlap probabilities of the exact
+
+ground state |0 with |GHZ+ l.u. and the exact ﬁrst ex-
+
+cited state |1 with |GHZ− l.u., respectively, are identi-
+
+cal to second order and are given by |l.u. GHZ+|0 |2 =
+
+|l.u. GHZ−|1 |2
+
+≈
+
+1
+
+−
+
+1 3
+
+(b/J
+
+)2
+
+(‘l.u.’
+
+indicates that
+
+the states are equivalent to GHZ states via local uni-
+
+tary transformations). The associated energy splitting is
+
+given by ∆E0,1 ≈ 2(b/J)3/3 (see inset of Fig. 1). This conﬁrms the above semiclassical considerations in terms
+
+of tunnel doublets. Moreover, we see that the g.s. can
+
+only approximate a GHZ state although this approxima-
+
+tion will turn out to be very good even at ﬁnite tem-
+
+peratures where mixing with excited states additionally
+
+decreases the entanglement. Before discussing this in
+
+greater detail, we study the ground-state of the general
+
+anisotropic case with Jxy = Jz in the Hamiltonian (1). When Jxy = Jz it is possible to generate highly en-
+
+tangled states by applying a spatially uniform magnetic
+
+ﬁeld either perpendicular to or in the xy-plane. Indeed, a
+
+ﬁeld along the z-axis, i.e., bi = bez, i = 1, 2, 3, with b > 0
+
+yields an exact W state as g.s. if Jxy > 0 and b < Jxy −Jz
+
+(note that this implies the condition Jxy > Jz). The
+
+optimal Zeeman energy bopt leading to the highest energy splitting ∆Eopt between the g.s. and the ﬁrst ex-
+
+cited state is given by bopt = (Jxy − Jz)/2. This yields ∆Eopt = 3Jxy/2 if Jz < −2Jxy and ∆Eopt = (Jxy −Jz)/2 otherwise. The W state is thus best realized by choosing
+
+b = bopt together with a temperature suﬃciently small
+
+compared to ∆Eopt. In order to obtain a GHZ state, one has to apply an in-plane magnetic ﬁeld bi = bex. In
+
+this case we ﬁnd for Jz > 0, −2Jz < Jxy < Jz a situation similar to the one in the case of isotropic coupling and radial magnetic ﬁeld: The g.s. converges to a GHZ state for vanishing ﬁeld but also the energy diﬀerence to the ﬁrst excited state goes to zero in this limit.
+Entanglement measure.— Below, we will quantitatively study the eﬀects of ﬁnite temperature T > 0 on the amount of entanglement present in the system. For this purpose, we evaluate a suitable mixed-state EM of the canonical density matrix ρ of the system. The threetangle, or simply tangle τp (originally called residual entanglement), is an EM for pure states |ψ ∈ H1 ⊗H2 ⊗H3 of three qubits. It reads [11]
+
+τp(|ψ ) = 4 det Tr2,3 ρp − C2(Tr3 ρp) − C2(Tr2 ρp), (3)
+where ρp = |ψ ψ|, Tri denotes the partial trace over subsystem i, and C is the two-qubit concurrence [18]. The tangle takes values between 0 and 1 and is maximal for GHZ states. It is also known that τp is an entanglement monotone [3]. The generalization of pure-state monotones to mixed states is given by the so-called convex roof [9, 14, 19]. Accordingly, the mixed-state tangle τ is deﬁned as
+
+τ (ρ) = inf
+
+piτp(|ψi ).
+
+(4)
+
+{pi,|ψi }∈D(ρ) i
+
+Here, D(ρ) denotes the set of all pure-state decomposi-
+
+tions {pi, |ψi }Ki=1 of ρ, with
+
+K i=1
+
+pi|ψi
+
+ψi| = ρ, pi ≥ 0,
+
+K i=1
+
+pi
+
+=
+
+1
+
+and
+
+K
+
+≥
+
+R
+
+=
+
+rank ρ.
+
+The
+
+above
+
+deﬁnition
+
+of τ ensures that τ (ρ) = τp(|ψ ) if ρ = |ψ ψ|, and that
+
+τ itself is an entanglement monotone [9].
+
+Numerical evaluation.— In order to tackle the opti-
+
+mization problem in Eq. (4) numerically, the set of all
+
+pure-state decompositions D(ρ) needs to be given in an
+
+explicitly parameterized form. It is known [20, 21] that
+
+every pure state decomposition {pi, |ψi }Ki=1 of ρ is related to a complex K ×R matrix U satisfying the unitary
+
+constraint U †U = 1R×R, i.e., a matrix having orthonor-
+
+mal column vectors [22]. In fact, the set of all such ma-
+
+trices, the so-called Stiefel manifold St(K, R), provides
+
+a complete parametrization of all pure-state decompo-
+
+sitions {pi, |ψi }Ki=1 ∈ D(ρ) of ρ with ﬁxed cardinality K. The minimization problem in Eq. (4) can thus be
+
+rewritten as
+
+f (ρ) = min inf h(U, ρ),
+
+(5)
+
+K≥R U∈St(K,R)
+
+where in our case h is the sum over the weighted purestate tangles with probabilities and state vectors obtained from ρ via the matrix U . Problems of this kind are considered to be extremely diﬃcult to solve in general [8]. We have performed the minimization over the Stiefel manifold numerically using the method described below. We have found that the thereby obtained values converge quickly as K is increased, and have thus ﬁxed
+
+3
+
+K = R + 4 throughout all of our calculations, yielding an accuracy which is by far suﬃcient for our purpose (note that decompositions with smaller cardinality are contained as well). The numerical method we used is a generalization of the conjugate gradient algorithm presented in Ref. [13]. It is however only suited for searching over the unitary manifold St(K, K). At the cost of overparameterizing the search space, we have to minimize over K × K matrices using only the ﬁrst R columns. The iterative algorithm builds conjugate search directions X (skew-hermitian K × K matrices) from the gradient G at the current iteration point U and the previous search direction using a modiﬁed Polak-Ribi`ere update formula. A line search along the geodesic g(t) = U exp(tX) going through U in direction X is performed in every step. In Ref. [13], an analytical expression for the gradient G is given in the case where f is the EOF. The algorithm is however also applicable to a generic convex-roof EM f of the form (5). We ﬁnd the matrix elements Gjk of the general gradient G to be
+
+Gjk = (Ajk − Akj )/2 + i(Sjk + Skj )/2,
+
+(6)
+
+where
+
+K
+Ajk =
+i=1
+
+∂
+
+∂h Re Uik
+
+Re
+
+Uij
+
++
+
+∂
+
+∂h Im Uik
+
+Im
+
+Uij
+
+,
+
+(7)
+
+K
+Sjk =
+i=1
+
+∂
+
+∂h Im Uik
+
+Re Uij
+
+−
+
+∂
+
+∂h Re Uik
+
+Im Uij
+
+.
+
+(8)
+
+The derivatives of h with respect to the real and imaginary parts of Uik, Re Uik and Im Uik, respectively, are taken at U and can be evaluated numerically using ﬁnite diﬀerences. We have tested our implementation by comparing our numerical results to known analytical results. The maximal encountered absolute error was smaller than 10−13 for the EOF of isotropic 2 × 2 states [23], 10−12 for 3 × 3 states and 10−10 for the tangle of a GHZ/W mixture [19]. This suggests that, although our method can only provide an upper bound, this bound is very tight. It was shown only recently that also a (typically tight) lower bound on any entanglement monotone can be estimated using entanglement witnesses [24, 25]. This is an interesting subject which is left for future research.
+Finite temperature.— We return to the study of the three qubits described by the Hamiltonian (1). Using the generalized conjugate gradient algorithm, we are able to investigate the entanglement as a function of the temperature T , the magnetic ﬁeld strength b and the exchange couplings Jxy and Jz by calculating the mixed-state tangle τ (ρ), where ρ = exp(−H/kBT )/ Tr exp(−H/kBT ) is the canonical density matrix of the system. To our knowledge, this is the ﬁrst time that τ (ρ) has been evaluated for states arising from a physical model. Our main goal now is to maximize the entanglement as a function of
+
+τ
+∆E0,1
+
+1 0.75
+0.5 0.25
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0
+
+0
+
+0.5
+
+1
+
+b/J
+
+0 0 0.5 1 1.5 2 2.5 3 b/J
+
+FIG. 1: (color online) The tangle τ of the system with isotropic positive (ferromagnetic) coupling J and radial magnetic ﬁeld as a function of b/J for diﬀerent temperatures T = 10−4J/kB (dashed line), 10−3J/kB (dash-dotted line), 10−2J/kB (dash-dot-dotted line) and 5 × 10−2J/kB (dotted line). Note the twofold inﬂuence of the temperature on τ : Although higher temperatures reduce the maximally achievable entanglement, a stabilizing eﬀect is observed as well. A maximum in the tangle is more robust against ﬂuctuations in b at higher temperatures due to the less rapid drop-oﬀ of τ as b/J is reduced. Conversely, τ of the approximate GHZ g.s. |GS (T = 0, red line) shows a discontinuity at b = 0, where τ (ρ) = 0. For b > 0, we ﬁnd the√simple algebraic expression τp(|GS ) = (3 − 8b/J)/C + 2/ C, where C = 9 + 4b(4b/J − 3)/J. Inset: Energy splitting ∆E0,1 of the ground-state doublet as a function of b/J.
+
+b ≡ |bi|, i.e., the Zeeman energy. For this purpose we consider only GHZ states in the following, since our W ground states are b-independent (see above). In the system with isotropic exchange coupling J > 0 and radial magnetic ﬁeld, the tangle τ tends to zero for b/J → 0 due to the vanishing energy splitting ∆E0,1 (see Fig. 1). We remark that this behavior is discontinuous at T = 0, where τ (ρ) → 1 for b/J → 0, but τ (ρ) = 0 at b = 0. With larger b/J, the g.s. contributes dominantly to ρ but simultaneously deviates increasingly from a GHZ state. The entanglement in the system is therefore reduced (cf. solid line in Fig. 1). For a given temperature, the maximal tangle τmax is therefore obtained at a ﬁnite optimal value (b/J)opt of the scaled magnetic ﬁeld strength as a trade-oﬀ between having a highly entangled g.s. and separating the latter from excited states in order to avoid the negative eﬀects of mixing. For low temperatures T 10−2J/kB, we numerically ﬁnd the power laws (b/J )opt ∝ (kBT /J )α and 1 − τmax ∝ (kBT /J )β with the exponents α ≈ 0.30 and β ≈ 0.63. Speciﬁcally, we obtain τ (ρ) = 0.98 (0.92) for T = 10−4J/kB (10−3J/kB) and b = 0.11J (0.21J). Apart from the eﬀect of reducing τmax, ﬁnite temperatures also possess the advantageous feature of broadening the discontinuity of τ at T = 0 and b = 0 which makes τmax more stable against ﬂuctuations of b around bopt (see Fig. 1).
+We ﬁnally come back to the general anisotropic
+
+4
+
+1
+
+We thank D. Bulaev, G. Burkard, L. Chirolli, W.A.
+
+Coish, and D. Stepanenko for useful discussions. Finan-
+
+0.75
+
+cial support by the EU RTN QuEMolNa, the EU NoE
+
+MAGMANet, the NCCR Nanoscience, and the Swiss
+
+0.5
+
+NSF is acknowledged.
+
+0.25
+
+τmax
+
+0 1
+
+0.1
+
+(b/Jz )opt
+
+0.01
+
+Jxy /Jz
+0 0.5 0.9
+
+0.95 0.975 0.99
+
+10−4
+
+10−3
+
+10−2
+
+kBT /Jz
+
+10−1
+
+FIG. 2: (color online) Top: Maximally achievable tangle τmax in the anisotropic system (GHZ g.s.) with homogeneous in-
+plane magnetic ﬁeld and Jz > 0 as a function of temperature for six anisotropy ratios Jxy/Jz (see legend). The curves end at τ (ρ) = 10−5. Bottom: The corresponding optimal values (b/Jz)opt of the scaled magnetic ﬁeld strength b/Jz.
+
+model (1) with Jxy = Jz subject to a homogeneous inplane magnetic ﬁeld. In Fig. 2 we show the maximally achievable tangle τmax (optimized with respect to b/Jz) as a function of temperature for various anisotropy ratios Jxy/Jz (where, as before, Jz > 0). Since we are interested in high values of τmax, an arbitrary but low cutoﬀ was introduced in the calculation at τ (ρ) = 10−5. The lower panel of Fig. 2 depicts the corresponding optimal ﬁeld values (b/Jz)opt. At low temperatures T , a powerlaw dependence of (b/Jz)opt on T is observed, similar to the above isotropic case. Note that a higher amount of entanglement can be realized in systems with stronger anisotropies. E.g., for Ising coupling (Jxy/Jz = 0) we ﬁnd τ (ρ) = 0.98 (0.89) for T = 10−4J/kB (10−3J/kB) and b = 0.080Jz (0.16Jz). At T = 10−4J/kB but with Jxy/Jz = 0.9, still a very good value τ (ρ) = 0.90 is achieved for b = 0.016Jz. We remark that still higher tangles are obtained for negative (antiferromagnetic) Jxy > −2Jz. In this case, the maximal tangle as a function of T decays even more slowly than the curves displayed in the top panel of Fig. 2.
+Possible implementations of the qubits include GaAs and InAs quantum dots, InAs nanowires or single-wall carbon nanotubes. Assuming a typical value of |J| ∼ 1 meV [26, 27] we obtain τ ≈ 0.9 at T ≈ 10 mK and B ≈ 2 T (assuming a g-factor of |g| = 2). Ferromagnetic coupling is achieved by operating the dots with more than one electron per dot.
+
+[1] A. Einstein, B. Podolsky, and N. Rosen, Phys. Rev. 47,
+
+777 (1935); J. Bell, Physics 1, 195 (1964); A. Aspect,
+
+P. Grangier, and G. Roger, Phys. Rev. Lett. 49, 91
+
+(1982); R. F. Werner, Phys. Rev. A 40, 4277 (1989).
+
+[2] D. M. Greenberger, M. Horne, and A. Zeilinger, Bell’s
+
+Theorem, Quantum Theory, and Conceptions of the Uni-
+
+verse (Kluwer Academic Publishers, Dortrecht, 1989).
+
+[3] W. Du¨r, G. Vidal, and J. I. Cirac, Phys. Rev. A 62,
+
+062314 (2000).
+
+[4] M. A. Nielsen and I. L. Chuang, Quantum Computation
+
+and Quantum Information (Cambridge University Press,
+
+New York, 2000).
+
+[5] R. Raussendorf, D. E. Browne, and H. J. Briegel, Phys.
+
+Rev. A 68, 022312 (2003).
+
+[6] S. Bose, Phys. Rev. Lett. 91, 207901 (2003).
+
+[7] A. K. Rajagopal and R. W. Rendell, Phys. Rev. A 65,
+
+032328 (2002).
+
+[8] M. B. Plenio and S. Virmani, Quant. Inf. Comp. 7, 1
+
+(2007).
+
+[9] F. Mintert et al., Phys. Rep. 415, 207 (2005).
+
+[10] C. H. Bennett et al., Phys. Rev. A 54, 3824 (1996).
+
+[11] V. Coﬀman, J. Kundu, and W. K. Wootters, Phys. Rev.
+
+A 61, 052306 (2000).
+
+[12] T.-C. Wei and P. M. Goldbart, Phys. Rev. A 68, 042307
+
+(2003).
+
+[13] K. Audenaert, F. Verstraete, and B. De Moor, Phys. Rev.
+
+A 64, 052304 (2001).
+
+[14] A. Uhlmann, Phys. Rev. A 62, 032307 (2000).
+
+[15] Depending on the actual implementation of the qubits,
+
+bi can denote an eﬀective magnetic ﬁeld.
+
+[16] Using semiclassical path integration techniques [17], we
+
+can calculate the tunnel splitting from Eq. (2). However,
+
+such a procedure gives accurate results only for large
+
+spins (S ≫ 1) and is thus not pursued here.
+
+[17] D. Loss, D. P. DiVincenzo, and G. Grinstein, Phys. Rev.
+
+Lett. 69, 3232 (1992).
+
+[18] W. K. Wootters, Phys. Rev. Lett. 80, 2245 (1998).
+
+[19] R. Lohmayer et al., Phys. Rev. Lett. 97, 260502 (2006).
+
+[20] L. P. Hughston, R. Jozsa, and W. K. Wootters, Phys.
+
+Lett. A 183, 14 (1993).
+
+[21] K. A. Kirkpatrick, Found. Phys. Lett. 19, 95 (2005).
+
+[22] Given ρ and U with U †U = obtained as pi = ψ˜i|ψ˜i , |ψi
+
+1=R×(R1/, √{ppii),|ψ|˜ψii
+
+}K i=1 is , where
+
+|ψ˜i
+
+=
+
+PR
+j=1
+
+Uij pλj |χj
+
+and |χi
+
+are the R eigenvectors
+
+of ρ with non-zero eigenvalues λi.
+
+[23] B. M. Terhal and K. G. H. Vollbrecht, Phys. Rev. Lett.
+
+85, 2625 (2000).
+
+[24] O. Gu¨hne, M. Reimpell, and R. F. Werner, Phys. Rev.
+
+Lett. 98, 110502 (2007).
+
+[25] J. Eisert, F. G. S. L. Brand˜ao, and K. M. R. Audenaert,
+
+New J. Phys. 9, 46 (2007).
+
+[26] V. Cerletti et al., Nanotechnology 16, R27 (2005).
+
+[27] R. Hanson et al., Rev. Mod. Phys. 79, 1217 (2007).
+

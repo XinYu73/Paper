@@ -1,0 +1,217 @@
+
+Mean squared displacement
+From Wikipedia, the free encyclopedia
+Jump to navigation Jump to search
+Measure of the deviation of position over time
+	
+This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed.
+Find sources:   "Mean squared displacement"  –  news   · newspapers   · books   · scholar   · JSTOR ( January 2017 ) ( Learn how and when to remove this template message )
+
+In statistical mechanics , the mean squared displacement ( MSD , also mean square displacement , average squared displacement , or mean square fluctuation ) is a measure of the deviation of the position of a particle with respect to a reference position over time. It is the most common measure of the spatial extent of random motion, and can be thought of as measuring the portion of the system "explored" by the random walker . In the realm of biophysics and environmental engineering , the Mean Squared Displacement is measured over time to determine if a particle is spreading solely due to diffusion , or if an advective force is also contributing. [1] Another relevant concept, the Variance-Related Diameter (VRD, which is twice the square root of MSD), is also used in studying the transportation and mixing phenomena in the realm of environmental engineering . [2] It prominently appears in the Debye–Waller factor (describing vibrations within the solid state) and in the Langevin equation (describing diffusion of a Brownian particle ).
+
+The MSD at time t {\displaystyle t} t is defined as an ensemble average :
+
+    M S D ≡ ⟨ | x ( t ) − x 0 | 2 ⟩ = 1 N ∑ i = 1 N | x ( i ) ( t ) − x ( i ) ( 0 ) | 2 {\displaystyle {\rm {MSD}}\equiv \langle |\mathbf {x} (t)-\mathbf {x_{0}} |^{2}\rangle ={\frac {1}{N}}\sum _{i=1}^{N}|\mathbf {x^{(i)}} (t)-\mathbf {x^{(i)}} (0)|^{2}} {\displaystyle {\rm {MSD}}\equiv \langle |\mathbf {x} (t)-\mathbf {x_{0}} |^{2}\rangle ={\frac {1}{N}}\sum _{i=1}^{N}|\mathbf {x^{(i)}} (t)-\mathbf {x^{(i)}} (0)|^{2}} 
+
+where N is the number of particles to be averaged, vector x ( i ) ( 0 ) = x 0 ( i ) {\displaystyle \mathbf {x^{(i)}} (0)=\mathbf {x_{0}^{(i)}} } {\displaystyle \mathbf {x^{(i)}} (0)=\mathbf {x_{0}^{(i)}} } is the reference position of the i {\displaystyle i} i -th particle, and vector x ( i ) ( t ) {\displaystyle \mathbf {x^{(i)}} (t)} {\displaystyle \mathbf {x^{(i)}} (t)} is the position of the i {\displaystyle i} i -th particle at time t . [3]
+Contents
+
+    1 Derivation of the MSD for a Brownian particle in 1D
+    2 Derivation for n-dimensions
+    3 Definition of MSD for time lags
+    4 MSD in experiments
+    5 See also
+    6 References
+
+Derivation of the MSD for a Brownian particle in 1D [ edit ]
+
+The probability density function (PDF) for a particle in one dimension is found by solving the one-dimensional diffusion equation . (This equation states that the position probability density diffuses out over time - this is the method used by Einstein to describe a Brownian particle. Another method to describe the motion of a Brownian particle was described by Langevin, now known for its namesake as the Langevin equation .)
+
+    ∂ p ( x , t ∣ x 0 ) ∂ t = D ∂ 2 p ( x , t ∣ x 0 ) ∂ x 2 , {\displaystyle {\frac {\partial p(x,t\mid x_{0})}{\partial t}}=D{\frac {\partial ^{2}p(x,t\mid x_{0})}{\partial x^{2}}},} {\displaystyle {\frac {\partial p(x,t\mid x_{0})}{\partial t}}=D{\frac {\partial ^{2}p(x,t\mid x_{0})}{\partial x^{2}}},} 
+
+given the initial condition p ( x 0 , t = 0 ∣ x 0 ) = δ ( x − x 0 ) {\displaystyle p(x_{0},t={0}\mid x_{0})=\delta (x-x_{0})} p(x_{{0}},t={0}\mid x_{{0}})=\delta (x-x_{{0}}) ; where x ( t ) {\displaystyle x(t)} x(t) is the position of the particle at some given time, x 0 {\displaystyle x_{0}} x_{0} is the tagged particle's initial position, and D {\displaystyle D} D is the diffusion constant with the S.I. units m 2 s − 1 {\displaystyle m^{2}s^{-1}} m^{2}s^{{-1}} (an indirect measure of the particle's speed). The bar in the argument of the instantaneous probability refers to the conditional probability. The diffusion equation states that the speed at which the probability for finding the particle at x ( t ) {\displaystyle x(t)} x(t) is position dependent.
+
+The differential equation above takes the form of 1D heat equation . The one-dimensional PDF above is the Green's function of heat equation (also known as Heat kernel in mathematics):
+
+    P ( x , t ) = 1 4 π D t exp ⁡ ( − ( x − x 0 ) 2 4 D t ) . {\displaystyle P(x,t)={\frac {1}{\sqrt {4\pi Dt}}}\exp \left(-{\frac {(x-x_{0})^{2}}{4Dt}}\right).} P(x,t)={\frac {1}{{\sqrt {4\pi Dt}}}}\exp \left(-{\frac {(x-x_{0})^{2}}{4Dt}}\right). 
+
+This states that the probability of finding the particle at x ( t ) {\displaystyle x(t)} x(t) is Gaussian, and the width of the Gaussian is time dependent. More specifically the full width at half maximum (FWHM)(technically/pedantically, this is actually the Full duration at half maximum as the independent variable is time) scales like
+
+    F W H M ∼ t . {\displaystyle {\rm {FWHM}}\sim {\sqrt {t}}.} {\displaystyle {\rm {FWHM}}\sim {\sqrt {t}}.} 
+
+Using the PDF one is able to derive the average of a given function, L {\displaystyle L} L , at time t {\displaystyle t} t :
+
+    ⟨ L ( t ) ⟩ ≡ ∫ − ∞ ∞ L ( x , t ) P ( x , t ) d x , {\displaystyle \langle L(t)\rangle \equiv \int _{-\infty }^{\infty }L(x,t)P(x,t)\,dx,} {\displaystyle \langle L(t)\rangle \equiv \int _{-\infty }^{\infty }L(x,t)P(x,t)\,dx,} 
+
+where the average is taken over all space (or any applicable variable).
+
+The Mean squared displacement is defined as
+
+    M S D ≡ ⟨ ( x ( t ) − x 0 ) 2 ⟩ , {\displaystyle {\rm {MSD}}\equiv \langle (x(t)-x_{0})^{2}\rangle ,} {\displaystyle {\rm {MSD}}\equiv \langle (x(t)-x_{0})^{2}\rangle ,} 
+
+expanding out the ensemble average
+
+    ⟨ ( x − x 0 ) 2 ⟩ = ⟨ x 2 ⟩ + x 0 2 − 2 x 0 ⟨ x ⟩ , {\displaystyle \langle (x-x_{0})^{2}\rangle =\langle x^{2}\rangle +x_{0}^{2}-2x_{0}\langle x\rangle ,} {\displaystyle \langle (x-x_{0})^{2}\rangle =\langle x^{2}\rangle +x_{0}^{2}-2x_{0}\langle x\rangle ,} 
+
+dropping the explicit time dependence notation for clarity. To find the MSD, one can take one of two paths: one can explicitly calculate ⟨ x 2 ⟩ {\displaystyle \langle x^{2}\rangle } \langle x^{2}\rangle and ⟨ x ⟩ {\displaystyle \langle x\rangle } \langle x\rangle , then plug the result back into the definition of the MSD; or one could find the moment-generating function , an extremely useful, and general function when dealing with probability densities. The moment-generating function describes the k th {\displaystyle k^{\textrm {th}}} k^{\textrm {th}} moment of the PDF. The first moment of the displacement PDF shown above is simply the mean: ⟨ x ⟩ {\displaystyle \langle x\rangle } \langle x\rangle . The second moment is given as ⟨ x 2 ⟩ {\displaystyle \langle x^{2}\rangle } \langle x^{2}\rangle .
+
+So then, to find the moment-generating function it is convenient to introduce the characteristic function:
+
+    G ( k ) = ⟨ e i k x ⟩ ≡ ∫ I e i k x P ( x , t ∣ x 0 ) d x , {\displaystyle G(k)=\langle e^{ikx}\rangle \equiv \int _{I}e^{ikx}P(x,t\mid x_{0})\,dx,} {\displaystyle G(k)=\langle e^{ikx}\rangle \equiv \int _{I}e^{ikx}P(x,t\mid x_{0})\,dx,} 
+
+one can expand out the exponential in the above equation to give
+
+    G ( k ) = ∑ m = 0 ∞ ( i k ) m m ! μ m . {\displaystyle G(k)=\sum _{m=0}^{\infty }{\frac {(ik)^{m}}{m!}}\mu _{m}.} {\displaystyle G(k)=\sum _{m=0}^{\infty }{\frac {(ik)^{m}}{m!}}\mu _{m}.} 
+
+By taking the natural log of the characteristic function, a new function is produced, the cumulant generating function ,
+
+    ln ⁡ ( G ( k ) ) = ∑ m = 1 ∞ ( i k ) m m ! κ m , {\displaystyle \ln(G(k))=\sum _{m=1}^{\infty }{\frac {(ik)^{m}}{m!}}\kappa _{m},} {\displaystyle \ln(G(k))=\sum _{m=1}^{\infty }{\frac {(ik)^{m}}{m!}}\kappa _{m},} 
+
+where κ m {\displaystyle \kappa _{m}} \kappa _{m} is the m th {\displaystyle m{\textrm {th}}} {\displaystyle m{\textrm {th}}} cumulant of x {\displaystyle x} x . The first two cumulants are related to the first two moments, μ {\displaystyle \mu } \mu , via κ 1 = μ 1 ; {\displaystyle \kappa _{1}=\mu _{1};} \kappa _{1}=\mu _{1}; and κ 2 = μ 2 − μ 1 2 , {\displaystyle \kappa _{2}=\mu _{2}-\mu _{1}^{2},} \kappa _{2}=\mu _{2}-\mu _{1}^{2}, where the second cumulant is the so-called variance, σ 2 {\displaystyle \sigma ^{2}} \sigma ^{2} . With these definitions accounted for one can investigate the moments of the Brownian particle PDF,
+
+    G ( k ) = 1 4 π D t ∫ I exp ⁡ ( i k x ) exp ⁡ ( − ( x − x 0 ) 2 4 D t ) d x ; {\displaystyle G(k)={\frac {1}{\sqrt {4\pi Dt}}}\int _{I}\exp(ikx)\exp \left(-{\frac {(x-x_{0})^{2}}{4Dt}}\right)\,dx;} {\displaystyle G(k)={\frac {1}{\sqrt {4\pi Dt}}}\int _{I}\exp(ikx)\exp \left(-{\frac {(x-x_{0})^{2}}{4Dt}}\right)\,dx;} 
+
+by completing the square and knowing the total area under a Gaussian one arrives at
+
+    G ( k ) = exp ⁡ ( i k x 0 − k 2 D t ) . {\displaystyle G(k)=\exp(ikx_{0}-k^{2}Dt).} G(k)=\exp(ikx_{0}-k^{2}Dt). 
+
+Taking the natural log, and comparing powers of i k {\displaystyle ik} ik to the cumulant generating function, the first cumulant is
+
+    κ 1 = x 0 , {\displaystyle \kappa _{1}=x_{0},} \kappa _{1}=x_{0}, 
+
+which is as expected, namely that the mean position is the Gaussian centre. The second cumulant is
+
+    κ 2 = 2 D t , {\displaystyle \kappa _{2}=2Dt,\,} {\displaystyle \kappa _{2}=2Dt,\,} 
+
+the factor 2 comes from the factorial factor in the denominator of the cumulant generating function. From this, the second moment is calculated,
+
+    μ 2 = κ 2 + μ 1 2 = 2 D t + x 0 2 . {\displaystyle \mu _{2}=\kappa _{2}+\mu _{1}^{2}=2Dt+x_{0}^{2}.} \mu _{2}=\kappa _{2}+\mu _{1}^{2}=2Dt+x_{0}^{2}. 
+
+Plugging the results for the first and second moments back, one finds the MSD,
+
+    ⟨ ( x ( t ) − x 0 ) 2 ⟩ = 2 D t . {\displaystyle \langle (x(t)-x_{0})^{2}\rangle =2Dt.} {\displaystyle \langle (x(t)-x_{0})^{2}\rangle =2Dt.} 
+
+Derivation for n-dimensions [ edit ]
+
+For a Brownian particle in higher-dimension Euclidean space , its position is represented by a vector x = ( x 1 , x 2 , … , x n ) {\displaystyle \mathbf {x} =(x_{1},x_{2},\ldots ,x_{n})} \mathbf {x} =(x_{1},x_{2},\ldots ,x_{n}) , where the Cartesian coordinates x 1 , x 2 , … , x n {\displaystyle x_{1},x_{2},\ldots ,x_{n}} x_{1},x_{2},\ldots ,x_{n} are statistically independent .
+
+The n -variable probability distribution function is the product of the fundamental solutions in each variable; i.e.,
+
+P ( x , t ) = P ( x 1 , t ) P ( x 2 , t ) … P ( x n , t ) = 1 ( 4 π D t ) n exp ⁡ ( − x ⋅ x 4 D t ) . {\displaystyle P(\mathbf {x} ,t)=P(x_{1},t)P(x_{2},t)\dots P(x_{n},t)={\frac {1}{\sqrt {(4\pi Dt)^{n}}}}\exp \left(-{\frac {\mathbf {x} \cdot \mathbf {x} }{4Dt}}\right).} {\displaystyle P(\mathbf {x} ,t)=P(x_{1},t)P(x_{2},t)\dots P(x_{n},t)={\frac {1}{\sqrt {(4\pi Dt)^{n}}}}\exp \left(-{\frac {\mathbf {x} \cdot \mathbf {x} }{4Dt}}\right).}
+
+The Mean squared displacement is defined as
+
+M S D ≡ ⟨ | x − x 0 | 2 ⟩ = ⟨ ( x 1 ( t ) − x 1 ( 0 ) ) 2 + ( x 2 ( t ) − x 2 ( 0 ) ) 2 + ⋯ + ( x n ( t ) − x n ( 0 ) ) 2 ⟩ {\displaystyle {\rm {MSD}}\equiv \langle |\mathbf {x} -\mathbf {x_{0}} |^{2}\rangle =\langle (x_{1}(t)-x_{1}(0))^{2}+(x_{2}(t)-x_{2}(0))^{2}+\dots +(x_{n}(t)-x_{n}(0))^{2}\rangle } {\displaystyle {\rm {MSD}}\equiv \langle |\mathbf {x} -\mathbf {x_{0}} |^{2}\rangle =\langle (x_{1}(t)-x_{1}(0))^{2}+(x_{2}(t)-x_{2}(0))^{2}+\dots +(x_{n}(t)-x_{n}(0))^{2}\rangle }
+
+Since all the coordinates are independent, their deviation from the reference position is also independent. Therefore,
+
+M S D = ⟨ ( x 1 ( t ) − x 1 ( 0 ) ) 2 ⟩ + ⟨ ( x 2 ( t ) − x 2 ( 0 ) ) 2 ⟩ + ⋯ + ⟨ ( x n ( t ) − x n ( 0 ) ) 2 ⟩ {\displaystyle {\rm {MSD}}=\langle (x_{1}(t)-x_{1}(0))^{2}\rangle +\langle (x_{2}(t)-x_{2}(0))^{2}\rangle +\dots +\langle (x_{n}(t)-x_{n}(0))^{2}\rangle } {\displaystyle {\rm {MSD}}=\langle (x_{1}(t)-x_{1}(0))^{2}\rangle +\langle (x_{2}(t)-x_{2}(0))^{2}\rangle +\dots +\langle (x_{n}(t)-x_{n}(0))^{2}\rangle }
+
+For each coordinate, following the same derivation as in 1D scenario above, one obtains the MSD in that dimension as 2 D t {\displaystyle 2Dt} {\displaystyle 2Dt} . Hence, the final result of Mean squared displacement in n-dimension Brownian motion is:
+
+MSD = 2 n D t {\displaystyle {\text{MSD}}=2nDt} {\displaystyle {\text{MSD}}=2nDt} .
+Definition of MSD for time lags [ edit ]
+
+In the measurements of single particle tracking (SPT), displacements can be defined for different time intervals between positions (also called time lags or lag times). SPT yields the trajectory r → ( t ) = [ x ( t ) , y ( t ) ] {\displaystyle {\vec {r}}(t)=[x(t),y(t)]} {\displaystyle {\vec {r}}(t)=[x(t),y(t)]} , representing a particle undergoing two-dimensional diffusion.
+
+Assuming that the trajectory of a single particle measured at time points 1 Δ t , 2 Δ t , . . . , N Δ t {\displaystyle 1\Delta t,2\Delta t,...,N\Delta t} {\displaystyle 1\Delta t,2\Delta t,...,N\Delta t} , where Δ t {\displaystyle \Delta t} \Delta t is any fixed number, then there are N ( N − 1 ) / 2 {\displaystyle N(N-1)/2} N(N-1)/2 non-trivial forward displacements d → i j = r → j − r → i {\displaystyle {{\vec {d}}_{ij}}={{\vec {r}}_{j}}-{{\vec {r}}_{i}}} {\displaystyle {{\vec {d}}_{ij}}={{\vec {r}}_{j}}-{{\vec {r}}_{i}}} ( 1 ⩽ i < j ⩽ N {\displaystyle 1\leqslant i<j\leqslant N} {\displaystyle 1\leqslant i<j\leqslant N} , the cases when i = j {\displaystyle i=j} i=j are not considered) which correspond to time intervals (or time lags) Δ t i j = ( j − i ) Δ t {\displaystyle \Delta {t_{ij}}=(j-i)\Delta t} {\displaystyle \Delta {t_{ij}}=(j-i)\Delta t} . Hence, there are many distinct displacements for small time lags, and very few for large time lags, M S D {\displaystyle {\rm {MSD}}} {\displaystyle {\rm {MSD}}} can be defined as an average quantity over time lags: [4] [5]
+
+M S D = 1 N − n ∑ i = 1 N − n ( r → i + n − r → i ) 2 n = 1 , . . . , N − 1. {\displaystyle {\rm {MSD}}={\frac {1}{N-n}}\sum \limits _{i=1}^{N-n}{({{\vec {r}}_{i+n}}-{{\vec {r}}_{i}}}{)^{2}}\qquad n=1,...,N-1.} {\displaystyle {\rm {MSD}}={\frac {1}{N-n}}\sum \limits _{i=1}^{N-n}{({{\vec {r}}_{i+n}}-{{\vec {r}}_{i}}}{)^{2}}\qquad n=1,...,N-1.}
+
+It's clear that large N {\displaystyle N} N or small n {\displaystyle n} n results in well averaged MSD values.
+MSD in experiments [ edit ]
+
+Experimental methods to determine MSDs include neutron scattering and photon correlation spectroscopy .
+
+The linear relationship between the MSD and time t allows for graphical methods to determine the diffusivity constant D . This is especially useful for rough calculations of the diffusivity in environmental systems. In some atmospheric dispersion models , the relationship between MSD and time t is not linear. Instead, a series of power laws empirically representing the variation of the square root of MSD versus downwind distance are commonly used in studying the dispersion phenomenon. [6]
+See also [ edit ]
+
+    Root-mean-square deviation of atomic positions : the average is taken over a group of particles at a single time, where the MSD is taken for a single particle over an interval of time
+    Mean squared error 
+
+References [ edit ]
+
+    ^ Tarantino, Nadine; Tinevez, Jean-Yves; Crowell, Elizabeth Faris; Boisson, Bertrand; Henriques, Ricardo; Mhlanga, Musa; Agou, Fabrice; Israël, Alain; Laplantine, Emmanuel (2014-01-20). "TNF and IL-1 exhibit distinct ubiquitin requirements for inducing NEMO–IKK supramolecular structures" . J Cell Biol . 204 (2): 231–245. doi : 10.1083/jcb.201307172 . ISSN   0021-9525 . PMC   3897181 . PMID   24446482 .
+    ^ B., Fischer, Hugo (1979-01-01). Mixing in inland and coastal waters . Academic Press. ISBN   9780080511771 . OCLC   983391285 .
+    ^ Frenkel, Daan & Smit, Berend. Understanding molecular simulation: From algorithms to applications . Academic Press, 196 (2nd Ed.), p. 97.
+    ^ Michalet, Xavier (20 October 2010). "Mean square displacement analysis of single-particle trajectories with localization error: Brownian motion in an isotropic medium" . Physical Review E . 82 (4): 041914. doi : 10.1103/PhysRevE.82.041914 .
+    ^ Qian, H.; Sheetz, M. P.; Elson, E. L. (1 October 1991). "Single particle tracking. Analysis of diffusion and flow in two-dimensional systems" . Biophysical Journal . 60 (4): 910–921. doi : 10.1016/S0006-3495(91)82125-7 . ISSN   0006-3495 .
+    ^ Davidson, G. A. (1990-08-01). "A Modified Power Law Representation of the Pasquill-Gifford Dispersion Coefficients". Journal of the Air & Waste Management Association . 40 (8): 1146–1147. doi : 10.1080/10473289.1990.10466761 . ISSN   1047-3289 .
+
+Retrieved from ""
+Categories :
+
+    Statistical mechanics
+    Statistical deviation and dispersion 
+
+Hidden categories:
+Navigation menu
+
+    Not logged in
+    Talk
+    Contributions
+    Create account
+    Log in 
+
+    Article
+    Talk 
+
+    Read
+    Edit
+    View history 
+
+Search
+
+    Main page
+    Contents
+    Current events
+    Random article
+    About Wikipedia
+    Contact us
+    Donate 
+
+Contribute
+
+    Help
+    Learn to edit
+    Community portal
+    Recent changes
+    Upload file 
+
+Tools
+
+    What links here
+    Related changes
+    Special pages
+    Permanent link
+    Page information
+    Cite this page
+    Wikidata item 
+
+Print/export
+
+    Download as PDF
+    Printable version 
+
+Languages
+
+    Deutsch
+    Español 
+
+Edit links
+
+    This page was last edited on 11 April 2022, at 09:53  (UTC) .
+    Text is available under the Creative Commons Attribution-ShareAlike License 3.0 ; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy . Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.
+
+    Privacy policy
+    About Wikipedia
+    Disclaimers
+    Contact Wikipedia
+    Mobile view
+    Developers
+    Statistics
+    Cookie statement
+
+    Wikimedia Foundation
+    Powered by MediaWiki
+

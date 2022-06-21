@@ -16,29 +16,25 @@
 	},
 	"priority": 100,
 	"configOptions": {
-		"hash": "66b478bf62a57ffff2e963e336977ced696b3ef252fe10a93257e30594e23f7e"
+		"hash": "c823865cffef626f98106561016e9d147fe9dba295167290dc568c7d76d741b2"
 	},
-	"lastUpdated": "2022-05-05"
+	"lastUpdated": "2022-06-14"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
-if (typeof ZOTERO_TRANSLATOR_INFO === 'undefined') var ZOTERO_TRANSLATOR_INFO = {"translatorID":"19afa3fd-1c7f-4eb8-a37e-8d07768493e8","label":"Citation graph","description":"exports a citation graph in graphml format. Use gephi or yEd to clean up and visualize","creator":"Emiliano heyns","target":"dot","minVersion":"4.0.27","maxVersion":"","translatorType":2,"browserSupport":"gcsv","inRepository":false,"displayOptions":{"Title":false,"Authors":false,"Year":false},"priority":100};
+
+        if (typeof ZOTERO_TRANSLATOR_INFO === 'undefined') var ZOTERO_TRANSLATOR_INFO = {}; // declare if not declared
+        Object.assign(ZOTERO_TRANSLATOR_INFO, {"translatorID":"19afa3fd-1c7f-4eb8-a37e-8d07768493e8","label":"Citation graph","description":"exports a citation graph in graphml format. Use gephi or yEd to clean up and visualize","creator":"Emiliano heyns","target":"dot","minVersion":"4.0.27","maxVersion":"","translatorType":2,"browserSupport":"gcsv","inRepository":false,"displayOptions":{"Title":false,"Authors":false,"Year":false},"priority":100}); // assign new data
+      
 var Citationgraph__Translator__doExport = (() => {
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropNames = Object.getOwnPropertyNames;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
-    get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
-  }) : x)(function(x) {
-    if (typeof require !== "undefined")
-      return require.apply(this, arguments);
-    throw new Error('Dynamic require of "' + x + '" is not supported');
-  });
   var __esm = (fn, res) => function __init() {
     return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
   };
-  var __commonJS = (cb, mod) => function __require2() {
+  var __commonJS = (cb, mod) => function __require() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
   var __export = (target, all) => {
@@ -324,7 +320,7 @@ var Citationgraph__Translator__doExport = (() => {
     "verbatimFields",
     "warnBulkModify",
     "warnTitleCased",
-    "workers"
+    "worker"
   ];
   var affects = {
     ascii: ["Better BibLaTeX", "Better BibTeX"],
@@ -442,15 +438,15 @@ var Citationgraph__Translator__doExport = (() => {
     strings: "",
     stringsOverride: "",
     testing: false,
-    verbatimFields: "url,doi,file,ids,eprint,verba,verbb,verbc,groups",
+    verbatimFields: "url,doi,file,ids,eprint,/^verb[a-z]$/,groups,/^citeulike-linkout-[0-9]+$/, /^bdsk-url-[0-9]+$/",
     warnBulkModify: 10,
     warnTitleCased: false,
-    workers: 1
+    worker: true
   };
   var schema = {
     autoExport: {
       preferences: ["asciiBibLaTeX", "asciiBibTeX", "biblatexExtendedNameFormat", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
-      displayOptions: ["exportNotes", "useJournalAbbreviation"]
+      displayOptions: ["useJournalAbbreviation", "exportNotes"]
     },
     translator: {
       "Better BibTeX": {
@@ -462,6 +458,19 @@ var Citationgraph__Translator__doExport = (() => {
           asciiBibTeX: { type: "boolean" },
           bibtexParticleNoOp: { type: "boolean" },
           bibtexURL: { enum: ["off", "note", "note-url-ish", "url", "url-ish"] },
+          DOIandURL: { enum: ["both", "doi", "url"] },
+          exportNotes: { type: "boolean" },
+          useJournalAbbreviation: { type: "boolean" }
+        }
+      },
+      "Better BibLaTeX": {
+        autoexport: true,
+        cached: true,
+        preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
+        displayOptions: ["exportNotes", "useJournalAbbreviation"],
+        types: {
+          asciiBibLaTeX: { type: "boolean" },
+          biblatexExtendedNameFormat: { type: "boolean" },
           DOIandURL: { enum: ["both", "doi", "url"] },
           exportNotes: { type: "boolean" },
           useJournalAbbreviation: { type: "boolean" }
@@ -483,19 +492,6 @@ var Citationgraph__Translator__doExport = (() => {
           exportNotes: { type: "boolean" }
         }
       },
-      "Better BibLaTeX": {
-        autoexport: true,
-        cached: true,
-        preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
-        displayOptions: ["exportNotes", "useJournalAbbreviation"],
-        types: {
-          asciiBibLaTeX: { type: "boolean" },
-          biblatexExtendedNameFormat: { type: "boolean" },
-          DOIandURL: { enum: ["both", "doi", "url"] },
-          exportNotes: { type: "boolean" },
-          useJournalAbbreviation: { type: "boolean" }
-        }
-      },
       "Better CSL YAML": {
         autoexport: true,
         cached: true,
@@ -511,16 +507,6 @@ var Citationgraph__Translator__doExport = (() => {
   if (typeof Components !== "undefined")
     Components.utils.import("resource://zotero/config.js");
   var client = typeof Zotero !== "undefined" ? ZOTERO_CONFIG.GUID.replace(/@.*/, "").replace("-", "") : "zotero";
-
-  // content/environment.ts
-  init_globals();
-  var environment = {
-    node: typeof process === "object" && typeof __require === "function" && typeof importScripts !== "function",
-    worker: typeof importScripts === "function",
-    zotero: typeof Components !== "undefined",
-    name: ""
-  };
-  environment.name = Object.entries(environment).map(([name, on]) => on ? name : "").filter((name) => name).join("/");
 
   // content/ping.ts
   init_globals();
@@ -587,7 +573,7 @@ var Citationgraph__Translator__doExport = (() => {
       });
       this.ping = new Pinger({
         total: this.list.length,
-        callback: (pct) => environment.worker ? Zotero.BetterBibTeX.setProgress(pct) : null
+        callback: (pct) => Zotero.worker ? Zotero.BetterBibTeX.setProgress(pct) : null
       });
     }
     *items() {
@@ -623,11 +609,6 @@ var Citationgraph__Translator__doExport = (() => {
       };
       this.cacheable = true;
       this.initialized = false;
-      this.header = ZOTERO_TRANSLATOR_INFO;
-      this[this.header.label.replace(/[^a-z]/ig, "")] = true;
-      this.BetterTeX = this.BetterBibTeX || this.BetterBibLaTeX;
-      this.BetterCSL = this.BetterCSLJSON || this.BetterCSLYAML;
-      this.options = this.header.displayOptions || {};
       const collator = new Intl.Collator("en");
       this.stringCompare = collator.compare.bind(collator);
     }
@@ -649,6 +630,10 @@ var Citationgraph__Translator__doExport = (() => {
     }
     init(mode) {
       var _a, _b, _c, _d, _e;
+      this[ZOTERO_TRANSLATOR_INFO.label.replace(/[^a-z]/ig, "")] = true;
+      this.BetterTeX = this.BetterBibTeX || this.BetterBibLaTeX;
+      this.BetterCSL = this.BetterCSLJSON || this.BetterCSLYAML;
+      this.options = ZOTERO_TRANSLATOR_INFO.displayOptions || {};
       this.platform = Zotero.getHiddenPref("better-bibtex.platform");
       this.isJurisM = client === "jurism";
       this.isZotero = !this.isJurisM;
@@ -691,13 +676,14 @@ var Citationgraph__Translator__doExport = (() => {
         acc[field] = true;
         return acc;
       }, {});
-      this.verbatimFields = this.preferences.verbatimFields.toLowerCase().split(",").map((field) => this.typefield(field)).filter((s) => s);
+      let m;
+      this.verbatimFields = this.preferences.verbatimFields.toLowerCase().split(",").map((field) => (m = field.trim().match(/^[/](.+)[/]$/)) ? new RegExp(m[1], "i") : this.typefield(field)).filter((s) => s);
       if (!this.verbatimFields.length)
         this.verbatimFields = null;
       this.csquotes = this.preferences.csquotes ? { open: this.preferences.csquotes[0], close: this.preferences.csquotes[1] } : null;
       this.preferences.testing = Zotero.getHiddenPref("better-bibtex.testing");
       if (mode === "export") {
-        this.unicode = !this.preferences[`ascii${this.header.label.replace(/Better /, "")}`];
+        this.unicode = !this.preferences[`ascii${ZOTERO_TRANSLATOR_INFO.label.replace(/Better /, "")}`];
         if (this.preferences.baseAttachmentPath && (this.export.dir === this.preferences.baseAttachmentPath || ((_b = this.export.dir) == null ? void 0 : _b.startsWith(this.preferences.baseAttachmentPath + this.paths.sep)))) {
           this.preferences.relativeFilePaths = true;
         }
@@ -720,13 +706,13 @@ var Citationgraph__Translator__doExport = (() => {
         }
       }
       this.collections = {};
-      if (mode === "export" && ((_d = this.header.configOptions) == null ? void 0 : _d.getCollections) && Zotero.nextCollection) {
+      if (mode === "export" && ((_d = ZOTERO_TRANSLATOR_INFO.configOptions) == null ? void 0 : _d.getCollections) && Zotero.nextCollection) {
         let collection;
         while (collection = Zotero.nextCollection()) {
           this.registerCollection(collection, "");
         }
       }
-      if (!this.initialized && mode === "export" && this.preferences.testing && typeof __estrace === "undefined" && ((_e = schema.translator[this.header.label]) == null ? void 0 : _e.cached)) {
+      if (!this.initialized && mode === "export" && this.preferences.testing && typeof __estrace === "undefined" && ((_e = schema.translator[ZOTERO_TRANSLATOR_INFO.label]) == null ? void 0 : _e.cached)) {
         const ignored = ["testing"];
         this.preferences = new Proxy(this.preferences, {
           set: (object, property, _value) => {
@@ -738,8 +724,8 @@ var Citationgraph__Translator__doExport = (() => {
               return object[property];
             if (!names.includes(property))
               throw new TypeError(`Unsupported preference ${property}`);
-            if (!ignored.includes(property) && !((_a2 = affects[property]) == null ? void 0 : _a2.includes(this.header.label)))
-              throw new TypeError(`Preference ${property} claims not to affect ${this.header.label}`);
+            if (!ignored.includes(property) && !((_a2 = affects[property]) == null ? void 0 : _a2.includes(ZOTERO_TRANSLATOR_INFO.label)))
+              throw new TypeError(`Preference ${property} claims not to affect ${ZOTERO_TRANSLATOR_INFO.label}`);
             return object[property];
           }
         });

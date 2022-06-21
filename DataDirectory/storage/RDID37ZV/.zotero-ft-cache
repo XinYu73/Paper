@@ -1,0 +1,674 @@
+
+JavaScript is disabled on your browser. Please enable JavaScript to use all the features on this page. Skip to main content Skip to article
+Elsevier logo ScienceDirect
+
+    Journals & Books 
+
+Register Sign in
+You have institutional access
+
+    View  PDF
+    Download full issue 
+
+Outline
+
+    Abstract
+    Keywords
+    1. Introduction
+    2. Entanglement measures included in the library
+    3. Theoretical background
+    4. Optimization algorithms
+    5. Examples
+    6. Conclusions
+    Acknowledgements
+    Appendix A. Derivatives of entanglement measures
+    Appendix B. Derivatives of the function h ( U )
+    Research Data
+    References 
+
+Show full outline
+Cited By (10)
+Figures (24)
+
+    Unlabelled figure
+    Unlabelled figure
+    Unlabelled figure
+    Unlabelled figure
+    Unlabelled figure
+    Unlabelled figure
+
+Show all figures
+Tables (1)
+
+    Table 1 
+
+Elsevier
+Computer Physics Communications
+Volume 183, Issue 1 , January 2012, Pages 155-165
+Computer Physics Communications
+libCreme : An optimization library for evaluating convex-roof entanglement measures ☆
+Author links open overlay panel Beat Röthlisberger Jörg Lehmann Daniel Loss
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.cpc.2011.08.012 Get rights and content
+Abstract
+
+We present the software library libCreme which we have previously used to successfully calculate convex-roof entanglement measures of mixed quantum states appearing in realistic physical systems. Evaluating the amount of entanglement in such states is in general a non-trivial task requiring to solve a highly non-linear complex optimization problem . The algorithms provided here are able to achieve to do this for a large and important class of entanglement measures. The library is mostly written in the Matlab programming language, but is fully compatible to the free and open-source Octave platform. Some inefficient subroutines are written in C/C++ for better performance. This manuscript discusses the most important theoretical concepts and workings of the algorithms, focusing on the actual implementation and usage within the library. Detailed examples in the end should make it easy for the user to apply libCreme to specific problems.
+Program summary
+
+Program title: libCreme
+
+Catalogue identifier: AEKD_v1_0
+
+Program summary URL: http://cpc.cs.qub.ac.uk/summaries/AEKD_v1_0.html
+
+Program obtainable from: CPC Program Library, Queenʼs University, Belfast, N. Ireland
+
+Licensing provisions: GNU GPL version 3
+
+No. of lines in distributed program, including test data, etc.: 4323
+
+No. of bytes in distributed program, including test data, etc.: 70 542
+
+Distribution format: tar.gz
+
+Programming language: Matlab/Octave and C/C++
+
+Computer: All systems running Matlab or Octave
+
+Operating system: All systems running Matlab or Octave
+
+Classification : 4.9, 4.15
+
+Nature of problem: Evaluate convex-roof entanglement measures. This involves solving a non-linear (unitary) optimization problem.
+
+Solution method: Two algorithms are provided: A conjugate-gradient method using a differential-geometric approach and a quasi-Newton method together with a mapping to Euclidean space .
+
+Running time: Typically seconds to minutes for a density matrix of a few low-dimensional systems and a decent implementation of the pure-state entanglement measure.
+Highlights
+
+► We present two independent algorithms to evaluate convex-roof entanglement measures. ► One algorithm is a conjugate-gradient method operating on the constraint manifold. ► The other one is a quasi-Newton method in combination with a mapping to Euclidean space. ► Both algorithms can be applied to convex-roof extensions of any pure-state measure.
+
+    Previous article in issue
+    Next article in issue 
+
+Keywords
+Entanglement measure
+Convex roof
+1. Introduction
+
+The role of non-local quantum correlations , more familiarly known as entanglement, in modern quantum theory cannot be overstated [1] . On the one hand, entanglement lies at the heart of quantum information theory [2] , where it is a crucial ingredient to computation and communication schemes. On the other hand, it is intricately related to phenomena such as decoherence [3] and quantum phase transitions in many-body systems [4] . One has come to realize that entanglement is also a resource that can for instance be purified, shared, and possibly irreversibly lost, and should therefore not only be detectable, but also quantifiable [5] . One way of doing so is by virtue of entanglement measures [6] . These are mathematical functions mapping quantum states to the set of real numbers. While there is no unique or strict definition for the notion of an entanglement measure, there are a set of properties which are commonly regarded useful, e.g., that the measure is zero only for separable states and is invariant under local unitary transformations . Another important property which we will assume throughout this work is monotonicity: An entanglement measure must not increase (on average) under any protocol involving only local unitary transformations and classical communication. In the following, we will use the terms ‘entanglement measure’ and ‘entanglement monotone’ interchangeably.
+
+Rather understandably, it is difficult to capture all properties of even a pure entangled state with just a single real number, especially in the setting of higher-dimensional and multi-partite systems. It is thus no surprise that there is quite a number of proposed entanglement monotones of various levels of complexity, generality, and the ability to capture different aspects of entangled states more or less successfully than others. As indicated previously, most of these entanglement monotones share the fact that they are conveniently defined only for pure states, namely as a function of the amplitudes of the state expressed in a certain standard basis.
+
+The situation becomes more involved in the case of mixed states, where classical and quantum correlations need to be distinguished from one another. Given a density matrix ρ , it is not sufficient to simply calculate the average entanglement of a given decomposition, because this decomposition is not unique. Since there are in general infinitely many ways to write a density matrix as a sum of projectors onto pure states, only the infimum of entanglement over all these possible decompositions can make a reliable statement about the quantum correlations in ρ , because there might be a decomposition of ρ in which all pure states are separable and the total entanglement hence would vanish. Taking this infimum of an averaged pure-state entanglement monotone over all decompositions of ρ is called ‘convex-roof construction’ or ‘convex-roof extension’ of that monotone [7] . Notably, the thereby obtained measure for mixed states is again an entanglement monotone. Calculating the convex-roof for a generic quantum state is considered extremely difficult [6] . In fact, even deciding whether or not a merely bipartite mixed state is separable is a hard problem itself which has no known general solution in Hilbert space dimensions larger than six [5] .
+
+In this work, we present the computer programs we have written and successfully applied previously to calculate such convex-roof entanglement measures of multi-partite mixed states [8] , [9] . While we have already described the theory behind our algorithms to some extent in an earlier publication [9] , we complete this work by publishing here the full source code in the form a user-friendly high-level library called libCreme . The package is to a large part written in the Matlab programming language [10] , but great care has been taken to make the library fully compatible with GNU Octave [11] , a free and open-source Matlab clone. For the sake of simplicity, we will refer to their common language as M-script. Additionally, functions which have been identified as crucial bottlenecks in terms of execution speed are provided in the form of fast C extensions and have been adapted to be easily callable from Matlab and Octave through their native C and C++ interfaces, respectively.
+
+While the library already comes with the ability to evaluate a choice of popular entanglement monotones, it is easily extend to calculate user-specified functions. All that needs to be implemented is the entanglement measure itself and its gradient with respect to the real and imaginary parts of the quantum state vector [12] . The library is written in a self-contained and consistent way, making it extremely easy to use in practice and to experiment with different settings, measures, and optimization algorithms. Furthermore, we provide convenience functions hiding most of the steps required to arrive at function handles ready to be optimized. This essentially simplifies the calculation of a convex-roof entanglement measure to a one-line task. Table 1 lists each function provided in the library together with a short description of its meaning.
+
+Table 1 . List of all functions within libCreme . Additional information about the usage of each function can be obtained by calling ‘ help function_name ’ from within Matlab or Octave .
+Entanglement measures 	
+convexSum 	Convex sum parameterized by a Stiefel matrix
+grad_convexSum 	Gradient of convex sum
+eof2x2 	Entanglement of formation for 2 qubits (analytically exact result)
+entropyOfEntanglement 	Entropy of entanglement
+grad_entropyOfEntanglement 	Gradient of entropy of entanglement
+meyer_wallach 	Meyer–Wallach measure
+grad_meyer_wallach 	Gradient of Meyer–Wallach measure
+tangle 	Tangle
+grad_tangle 	Gradient of Tangle
+
+Optimization routines 	
+cg_min 	Conjugate-gradient method
+bfgs_min 	BFGS quasi-Newton method
+minimize1d_exp 	Minimization along a geodesic on the Stiefel manifold
+minimize1d_lin 	Minimization along a line in Euclidean space
+get_termination_criteria 	Helper function to check and handle termination criteria for the optimization algorithms
+
+Utilities 	
+randDensityMatrix 	Random density matrix
+randState 	Random pure quantum state
+randUnitaryMatrix 	Random Stiefel matrix
+decomposeUnitary 	Get angles parameterizing a Stiefel matrix
+dimSt 	Dimension of Stiefel manifold
+densityEig 	Get eigendecomposition of a density matrix in the form required by many functions within the library
+psDecomposition 	Get pure-state decomposition parameterized by a Stiefel matrix
+createConvexFunctions 	Create convex-sum function handles for use with cg_min
+createEHFunctions 	Create convex-sum function handles for use with bfgs_min
+grad_eh_adapt 	Adapter function to calculate the gradient of a convex sum parameterized by Stiefel matrix angles
+buildUnitary 	Build a complex Stiefel matrix from a parameterization vector
+grad_buildUnitary 	Gradient of the above function
+pTrace 	Partial trace over any subsystems of arbitrary (finite) dimensions
+completeGramSchmidt 	Helper function for numerical stability used within cg_min
+
+Examples 	
+example_eofIsotropic 	Main script to run the example from Section 5.1
+eofIsotropic 	Entanglement of formation of an ‘isotropic’ density matrix (analytically exact result)
+example_tangleGHZW 	Main script to run the example from Section 5.2
+tangleGHZW 	Tangle of GHZ/W mixture (analytically exact result)
+
+We would briefly like to mention two other numerical libraries dealing with quantum computing and entanglement. One is the freely available ‘quantum information package’ by T. Cubitt [13] written in M-script as well. The other one is the CPC library Feynman (catalog identifier ADWE_v5_0) written by T. Radtke and S. Fritzsche [14] for Maple . Quantum states obtained from calculations and simulations within these libraries can conveniently be analyzed further using libCreme ʼs ability to calculate more complex entanglement measures.
+
+The paper is organized as follows: In Section 2 , we briefly list and discuss the default entanglement measures coming along with libCreme . Section 3 reviews the theory of convex-roof entanglement measures and how to address their calculation on a computer. Section 4 describes the two central algorithms in libCreme to solve the optimization problem related to the evaluation of such measures. In Section 5 , we discuss two complete examples demonstrating the usage of the library, and Section 6 concludes the work. Note that the focus of this manuscript lies mainly on the functionality of the library: We have tried to provide short code examples throughout the work for all important functions and concepts in a user-friendly bottom-up way. These snippets are all valid M-script (including the line breaks ‘…’ which we sometimes use due to spacial restrictions) and can be copied directly into Matlab or Octave . Finally, we would like to mention that all functions in libCreme are documented, and more information about them can be inquired by calling ‘ help function_name ’.
+2. Entanglement measures included in the library
+
+We start the description of our library by listing the entanglement measures currently implemented. Note that pure quantum states, such as the arguments of functions calculating entanglement monotones, are always expected to be represented as column vectors in the standard computational basis. In practice, this means that the n orthonormal basis states | ψ i 〉 of each n -dimensional subsystem (where n may be different for different subsystems) are always chosen as | ψ 1 〉 = ( 1 , 0 , … , 0 ) T , | ψ 2 〉 = ( 0 , 1 , 0 , … , 0 ) T , … , | ψ n 〉 = ( 0 , 0 , … , 1 ) T . Multi-partite states are then assumed to be represented consistently with the implementation of the M-script command kron , i.e., the Kronecker product of two arbitrary input matrices.
+
+Since the optimization algorithms used in libCreme are gradient-based, the gradients of these measures with respect to the real and imaginary parts of the input state vector are also provided. The convention is that gradients (i) are named identical to the original functions but with the prefix ‘ grad_ ’ added, (ii) require the same arguments as their function counterparts, and (iii) return derivatives with respect to real and imaginary parts of a variable in the form [ ∇ f ( x ) ] i = ∂ f / ∂ Re x i + i ∂ f / ∂ Im x i , where i is the imaginary unit. Analytical expressions for all gradients of the measures discussed in this section can be found in Appendix A .
+2.1. Entropy of entanglement
+
+The entropy of entanglement [15] is an entanglement monotone for bipartite quantum systems of arbitrary dimensions. It is defined as the von Neumann-entropy of the reduced density matrix , i.e., (1) E ( | ψ 〉 ) = − Tr [ ( Tr B ρ ) log 2 ( Tr B ρ ) ] , where Tr B ρ denotes the partial trace of ρ = | ψ 〉 〈 ψ | over the second subsystem (note that one could equally use the trace over the first subsystem). This measure is implemented in entropyOfEntanglement and requires as a first argument the state vector to be evaluated, and as the second a two-dimensional row vector specifying the dimensions of the two subsystems. Note that entropyOfEntanglement makes use of pTrace , a C/C++ implementation for the fast calculation of partial traces over an arbitrary set and number of subsystems of arbitrary dimensions. Usage:
+
+    Download : Download full-size image 
+
+Note that the entropy of entanglement is of particular importance, because its convex-roof extension is the well-known and widely used ‘entanglement of formation’ [16] . In the special case of a bipartite system composed of two-dimensional subsystems (qubits), there exists an operational solution for the entanglement of formation [17] , which we have implemented in eof2x2 .
+
+2.2. Three-tangle
+
+The three-tangle [18] is defined specifically for a system of three two-dimensional subsystems. It reads (2) τ ( | ψ 〉 ) = 4 | d 1 − 2 d 2 + 4 d 3 | , where (3) d 1 = ψ 1 2 ψ 8 2 + ψ 2 2 ψ 7 2 + ψ 3 2 ψ 6 2 + ψ 5 2 ψ 4 2 , (4) d 2 = ψ 1 ψ 8 ψ 4 ψ 5 + ψ 1 ψ 8 ψ 6 ψ 3 + ψ 1 ψ 8 ψ 7 ψ 2 + ψ 4 ψ 5 ψ 6 ψ 3 + ψ 4 ψ 5 ψ 7 ψ 2 + ψ 6 ψ 3 ψ 7 ψ 2 , (5) d 3 = ψ 1 ψ 7 ψ 6 ψ 4 + ψ 8 ψ 2 ψ 3 ψ 5 , and ψ i , i = 1 , … , 8 , are the complex amplitudes of the vector | ψ 〉 in the standard computational basis. The tangle is implemented in the function tangle , taking an 8-dimensional vector psi as its only argument. Here follows a short example:
+
+    Download : Download full-size image 
+
+In the above code, we have introduced the function randState , which returns a random pure quantum state of arbitrary specified dimension uniformly distributed according to the Haar measure of the unitary group [19] .
+
+2.3. Meyer–Wallach measure
+
+Finally, the measure of Meyer and Wallach [20] for an arbitrary number N of qubits is an entanglement monotone that can be written in the compact form [21] (6) γ ( | ψ 〉 ) = 2 [ 1 − 1 N ∑ k = 1 N Tr ( ρ k 2 ) ] , where ρ k is the density matrix obtained by tracing out all but the k th subsystem out of | ψ 〉 〈 ψ | . The implementation is given in meyer_wallach . This function also makes use of pTrace . The usage is analogous to the example given for the three-tangle above.
+3. Theoretical background
+
+In this section, we review how to arrive at an optimization problem (whose solution is the desired value of the convex-roof entanglement measure) in a form that can be dealt with on a computer. Let m be an entanglement monotone for pure states from a Hilbert space H of finite dimension d . Let ρ be a density matrix acting on that space. Our goal is to numerically evaluate the convex roof M ( ρ ) of m , given by (7) M ( ρ ) = inf { p i , | ψ i 〉 } ∈ D ( ρ ) ∑ i p i m ( | ψ i 〉 ) , where (8) D ( ρ ) = { { p i , | ψ i 〉 } i = 1 k , k ⩾ rank ρ | { | ψ i 〉 } i = 1 k ⊂ H , 〈 ψ i | ψ i 〉 = 1 , p i ⩾ 0 , ∑ i = 1 k p i = 1 , ρ = ∑ i = 1 k p i | ψ i 〉 〈 ψ i | } is the set of all pure-state decompositions of ρ . With respect to numerical optimization, a convenient parameterization of all subsets of D ( ρ ) with a constant number of terms k (sometimes referred to as the ‘cardinality’) is due to the Schrödinger–HJW theorem [22] , [23] . The latter states that (i), every decomposition of a density matrix ρ with rank ρ = r into a convex sum of k projectors onto pure states can be expressed in terms of a complex k × r matrix U obeying U † U = I r × r and that (ii), conversely, from every such matrix one can obtain a pure-state decomposition of ρ . The set St ( k , r ) = { U ∈ C k × r | U † U = I r × r } with k ⩾ r is also known as the Stiefel manifold. Part (i) and (ii) together ensure that optimizing over S t ( k , r ) is equivalent to optimizing over the full subset of D ( ρ ) with fixed cardinality k . Part (ii) also provides an explicit construction of the pure-state decomposition related to an arbitrary given matrix U ∈ S t ( k , r ) : Let λ i , | χ i 〉 , i = 1 , … , r = rank ρ be the non-zero eigenvalues and corresponding normalized eigenvectors of ρ , i.e., (9) ρ = ∑ i = 1 r λ i | χ i 〉 〈 χ i | , and 〈 χ i | χ j 〉 = δ i j . Note that we have λ i > 0 due to the positive semi-definiteness of ρ . Define the auxiliary states (10) | ψ ˜ i 〉 = ∑ j = 1 r U i j λ j | χ j 〉 , i = 1 , … , k , and set (11) p i = 〈 ψ ˜ i | ψ ˜ i 〉 , (12) | ψ i 〉 = ( 1 / p i ) | ψ ˜ i 〉 . One can easily verify that we have (13) ρ = ∑ i = 1 k p i | ψ i 〉 〈 ψ i | .
+
+In libCreme , the function densityEig calculates only the non-zero eigenvalues and corresponding eigenvectors. The eigenvalues are guaranteed to be sorted in decreasing order, which is particularly convenient if one wishes to discard some parts of the density matrix occurring with low probability, such as, e.g., high-energy sectors in density matrices ρ ∼ exp ( − β H ) originating from some Hamiltonian H . The function psDecomposition returns the pure-state decomposition from Eqs. (9) , (10) , (11) , (12) . As an example, let rho store a d × d density matrix of rank r , and let U be a matrix from St ( k , r ) , with arbitrary k ⩾ r . Then
+
+    Download : Download full-size image 
+
+first yields the eigenvectors of rho in the columns of the d × r matrix chi with the corresponding r eigenvalues in the vector lambda . On the second line then, the pure-state decomposition of rho (given in terms of the parameters chi and lambda ) corresponding to the parameterization U is calculated, with the k state vectors | ψ i 〉 stored in the columns of the d × k matrix psi and the k corresponding probabilities p i in the vector p .
+
+By virtue of the Schrödinger–HJW theorem, we can restate the optimization problem Eq. (7) as (14) M ( ρ ) = min k ⩾ r inf U ∈ St ( k , r ) h ( U ) , (15) h ( U ) = ∑ i = 1 k p i ( U ) m ( | ψ i ( U ) 〉 ) , where the dependence on ρ enters implicitly as the dependence of the p i and | ψ i 〉 on the eigenvalues and eigenvectors of ρ . In practice, it has turned out to be possible to drop the minimization over k completely and set k to a constant but large enough value instead. Note that this actually includes all cardinalities k ′ with r ⩽ k ′ ⩽ k in the search because up to k − r of the p i are allowed to go to zero without breaking the optimization constraint . In libCreme , the function convexSum calculates the value of the expression h ( U ) in Eq. (15) , which is, in fact, the objective function of the optimization. convexSum takes as its first argument a parameterization matrix from the Stiefel manifold, as its second a function handle [24] to the entanglement monotone to be extended, and as its third and fourth arguments the eigendecomposition of the density matrix obtained by densityEig . Here is a full example:
+
+    Download : Download full-size image 
+
+Note that we have introduced the functions randDensityMatrix and randUnitaryMatrix to create random density matrices and random matrices from the Stiefel manifold, respectively. It is important to understand that convexSum is the key function in the whole library in the sense that it is always this function (or more specifically, an anonymous function handle [24] to it, see Section 4 ), which is ultimately optimized.
+
+As mentioned earlier, the optimization algorithms in libCreme require the knowledge of the gradient of the objective function, or more precisely, the derivatives of h ( U ) with respect to the real and imaginary parts of the matrix elements of U . These expressions and their derivation can be found in Appendix B . Within the library, this gradient of h is implemented in grad_convexSum . It requires 5 arguments: The matrix U , the entanglement monotone to be extended, the gradient of the latter, and the eigendecomposition of ρ (eigenvectors and -values). The following code illustrates its application in practice, using the variables chi , lambda , and U from the previous example:
+
+    Download : Download full-size image 
+
+4. Optimization algorithms
+
+We describe in this section two conceptually different optimization algorithms which are both provided in libCreme . One is a conjugate gradient method based on the concepts introduced in Refs. [25] , [26] , [27] . It exploits the differential-geometric structure of the non-linear search space emerging from the optimization constraint U † U = I . The other algorithm is a standard Broyden–Fletcher–Goldfarb–Shanno (BFGS) quasi-Newton method employing a transformation of the constrained search space to an unconstrained one. Both algorithms have been discussed in greater detail in a previous work [9] , where the expressions for the gradients and parameterization of the Stiefel manifold given below have been derived. The interested reader is referred to that earlier work. Here, we just state the final results for the sake of completeness and focus particularly on the implementation and usage within libCreme .
+4.1. Conjugate-gradient method
+
+This algorithm exploits the geometric structure of the unitary group U ( k ) = S t ( k , k ) and therefore generally over-parameterizes the true search space St ( k , r ) , r ⩽ k . This is however not a problem in practice, since we can simply discard the last k − r columns of U when calculating the decomposition of the density matrix based on U [28] . The full algorithm for an input initial guess U 0 is given as follows:
+
+1.
+
+    Initialization: Set i ← 0 . Calculate the gradient G 0 = G ( U 0 ) according to the formula (16) G ( U ) = 1 2 ( A ( U ) − A ( U ) T ) + i 2 ( S ( U ) + S ( U ) T ) , where the matrices A ( U ) and S ( U ) are given by (17) A ( U ) = Re U T ⋅ ∇ Re U h ( U ) + Im U T ⋅ ∇ Im U h ( U ) , (18) S ( U ) = Re U T ⋅ ∇ Im U h ( U ) − Im U T ⋅ ∇ Re U h ( U ) , and the gradient of h ( U ) can be found in Appendix B .
+
+    Finally, set X 0 ← − G 0 .
+2.
+
+    Perform the one-dimensional minimization (19) t i + 1 ← arg min t h ( U i exp ( t X i ) ) , set (20) U i + 1 ← U i exp ( t i + 1 X i ) , and compute the new gradient G i + 1 ← G ( U i + 1 ) according to Eqs. (16) , (17) , (18) .
+3.
+
+    Define (21) T ← exp ( t i + 1 X i / 2 ) G i exp ( − t i + 1 X i / 2 ) . T is the gradient G i parallel-transported to the new point U i + 1 .
+4.
+
+    Calculate the modified Polak–Ribière parameter (22) γ ← 〈 G i + 1 − T , G i + 1 〉 〈 G i , G i 〉 , where 〈 X , Y 〉 = Tr X Y † .
+5.
+
+    Set the new search direction to (23) X i + 1 ← − G i + 1 + γ X i .
+6.
+
+    Set i ← i + 1 .
+7.
+
+    Repeat from step 2 until convergence.
+
+This algorithm is implemented in the function cg_min . The minimization in step 2 is performed by the derivative-based method minimize1d_exp . cg_min requires the function to be minimized, its gradient, an initial point, and optionally a struct with user-specified termination criteria discussed below. At this point, we would like to work through a full example demonstrating the use of cg_min to calculate the convex-roof extended three-tangle of a mixed state.
+
+    Download : Download full-size image 
+
+A few comments about the above code are in order. First, note that because cg_min requires the objective and its gradient in the form of one-parameter functions, we need to define the anonymous function handles f_opt and g_opt before continuing. In this way, f_opt is a new function that evaluates convexSum at a variable unitary input matrix while keeping the constant arguments @tangle , chi , and lambda fixed. A similar description holds for g_opt . Second, note that the initial search point U0 is a unitary and therefore square matrix, although matrices from S t ( 12 , 8 ) would be sufficient in the example above to parameterize pure-state decompositions. The reason is, as mentioned above, that cg_min is operating on the unitary group instead of the Stiefel manifold. However, this is hidden from the user by the fact that both convexSum and grad_convexSum can accept larger input than required, and automatically discard any dispensable columns. Third, we would like to draw the readerʼs attention to the output values of cg_min . In the above example, t stores the convex-roof of the entanglement monotone to be evaluated (in this case the three-tangle) and Ut (or more precisely, the first r columns of it) represent the pure-state decomposition of rho arriving at this value. The variable info is a struct that carries useful additional information, namely the criterion that terminated the iteration ( info.status ), the function values along the iteration, excluding intermediate values during line searches ( info.fvals ), and finally, the traversed points in the search space corresponding to fvals ( info.xvals ).
+
+An optional fourth argument containing settings for the termination of the algorithm can be passed to cg_min . The following code illustrates the possible struct variables (the values in this example are also the defaults for any variables not set).
+
+    Download : Download full-size image 
+
+The iteration is stopped if either the maximum number of iterations is reached, or one of the checked values is lower than its respective tolerance. Finally, we would like to mention that for the convenience of the user, there is a function called createConvexFunctions which performs all the necessary steps before the actual optimization in one line:
+
+    Download : Download full-size image 
+
+As with any other numerical optimization procedure, it is advisable to repeat the computations with different (random) initial conditions in order to reach a better approximation to the global minimum.
+
+4.2. BFGS quasi-Newton method
+
+The second algorithm is a classical BFGS quasi-Newton method [29] that makes use of a transformation which is able to unconstrain the optimization problem Eq. (14) from the Stiefel manifold to ordinary Euclidean space . This transformation is conceptually identical to the example where one has an optimization problem with the constraint x 2 + y 2 = 1 and then sets x = sin θ , y = cos θ and performs the optimization over the new variable θ . Again, we only state in the following the main results required to implement the algorithm and refer the reader interested in a thorough derivation to Ref. [9] .
+
+The number of independent real parameters required to parameterize S t ( k , r ) is equal to its dimension which is given by dim St ( k , r ) = 2 k r − r 2 . Given a tuple of ‘angles’ X i , i = 1 , … , dim St ( k , r ) , we relabel them in the following (arbitrary but fixed) way: ϑ = { X i } for i = 1 , … , r [ k − ( r + 1 ) / 2 ] , φ = { X i } for i = r [ k − ( r + 1 ) / 2 ] + 1 , … , r ( 2 k − r − 1 ) , and χ = { X i } for i = r ( 2 k − r − 1 ) + 1 , … , dim S t ( k , r ) . Then, we calculate U ∈ St ( k , r ) according to (24) U ( X ) ≡ U ( ϑ , φ , χ ) = [ ∏ i = 1 r ∏ j = 1 k − i G k − j − 1 ( ϑ c i j , φ c i j ) ] R where c i j = ( i − 1 ) ( k − i / 2 ) + j , R is a k × r matrix with the only non-zero elements being R i i = exp ( i χ i ) for i = 1 , … , r , and the ‘inverse Givens matrices’ G s − 1 are defined in terms of their matrix elements as (25) [ G s − 1 ( ϑ , φ ) ] i j = { e − i φ cos ϑ , if i = j = s , − e − i φ sin ϑ , if i = s , j = s + 1 , e i φ sin ϑ , if i = s + 1 , j = s , e i φ cos ϑ , if i = s + 1 , j = s + 1 , δ i j , otherwise .
+
+In libCreme , calculating a Stiefel matrix from a vector of angles X by Eq. (24) is implemented in buildUnitary as a fast C/C++ extension and is demonstrated in the following (see [30] ):
+
+    Download : Download full-size image 
+
+The derivatives of U ( X ) with respect to the angles X i are implemented in the function grad_buildUnitary . The inverse operation of buildUnitary , namely obtaining the parameterizing angles for a given matrix U can be performed by decomposeUnitary as in
+
+    X = decomposeUnitary(U);
+
+This function is implemented in regular in M-script, because it is called only infrequently and thus is not time critical.
+
+We have now all the tools to describe the full BFGS quasi-Newton algorithm starting from an initial vector of angles X 0 .
+
+1.
+
+    Set i ← 0 , H 0 ← I , G 0 = ∇ X h ( U ( X ) ) | X = X 0 , and S 0 = − G 0 . H 0 is the initial guess for the approximate Hessian, h is the convex sum Eq. (15) , and U ( X 0 ) is the transformation Eq. (24) .
+2.
+
+    Perform the line minimization (26) t i + 1 ← arg min t h ( U ( X i + t S i ) ) and set (27) X i + 1 ← X i + t i + 1 S i .
+3.
+
+    Compute the new gradient (28) G i + 1 ← ∇ X h ( U ( X ) ) | X = X i + 1 .
+4.
+
+    Update the approximate Hessian as [31] (29) H i + 1 ← H i + ( 1 + γ T ( H i γ ) δ T γ ) δ δ T δ T γ − δ T ( H i γ ) + ( H i γ ) T δ δ T γ , where the column vectors δ and γ are defined as δ = X i + 1 − X i and γ = G i + 1 − G i .
+5.
+
+    Set the new search direction to (30) S i + 1 ← − H i + 1 G i + 1 .
+6.
+
+    Set i ← i + 1 .
+7.
+
+    Repeat from step 2 until convergence.
+
+The line minimization in step 2 is performed by minimize1d_lin , a subroutine that is conceptually identical to the function minimize1d_exp used above in the conjugate-gradient method. The full algorithm is implemented in bfgs_min and its input and output parameters are identical to the ones in cg_min . Hence, the descriptions in the previous section can be adapted analogously to bfgs_min . However, the target function (and its gradient) look slightly different in the current case and are somewhat more cumbersome in terms of function handles, because the additional intermediate transformation Eq. (24) needs to be incorporated. The following is a fully working example that should help to clarify this issue.
+
+    Download : Download full-size image 
+
+Notice the use of the auxiliary function grad_eh_adapt which calculates the gradient ∇ X h ( U ( X ) ) given the derivatives of h ( U ) with respect to the real and imaginary matrix elements of U . For the convenience of the user, there is a function that hides all the above steps just like in the case of the conjugate-gradient algorithm. It is called createEHFunctions and is analogously called, as exemplified here:
+
+    Download : Download full-size image 
+
+Clearly, the same note as in the previous section regarding multiple restarts holds.
+
+Finally, we would like to make a remark about a detail in our implementation of bfgs_min . It has shown to be useful in practice to reset the angles modulo 2 π every few iterations. This improves numerical stability and convergence in the vicinity of a minimum. It is also advisable to vary the interval size after which this is done as this can improve performance depending on the problem. If bfgs_min is to be employed for non-periodic functions, these lines of code must be removed.
+4.3. General remarks
+
+Before we end this section and look at some more examples, we would like to make a few comments. At this point, the reader might wonder why we provide our own implementation of a line search and a BFGS quasi-Newton method, instead of resorting to the functions available in Matlab and Octave . There are several reasons for that. First of all, it makes the library independent of the platform, since the standard routines in Matlab and Octave work differently and hence generally produce unequal results. Furthermore, having a simple implementation at hand allows the user to quickly make modifications and customize the code to specific needs. In Octave this is can only be achieved with quite an effort, whereas in Matlab it is generally not possible at all. Additional issues are availability and backward-compatibility. While Matlab ʼs optimization framework is well established, it is only available through the purchase of the ‘ Matlab Optimization Toolbox’. On the other hand, there is a free octave package for non-linear optimization tasks [32] . But since this is still under active development, its usage within libCreme might potentially become incompatible with future releases of the package.
+
+Next we would like to address the performance of the algorithms as a function of r = rank ρ and k ⩾ r . The dimension of the Stiefel manifold (and hence the problem size) is given by dim St ( k , r ) = 2 k r − r 2 . Since we must have k ⩾ r , we can replace it by k = r + n , with n ⩾ 0 , yielding dim St ( k , r ) = r 2 + 2 n r . This shows that the computational cost grows quadratically with the rank of ρ , but only linearly with the (user-specified) cardinality. The algorithms in the library are thus most efficient for low-rank density matrices, whereas experimenting with different cardinalities is not that costly. Actually, already choices for n as low as n ≈ 4 have shown to produce very accurate results in practice (see also below). Since, on the other hand, the scaling with r is less favorable, it is advisable to examine whether the rank of r can be reduced. Particularly in density matrices originating from physical Hamiltonians it is often justified to neglect high-energy states. As mentioned earlier, reducing the rank of ρ can conveniently be achieved by truncating the output of the function densityEig .
+5. Examples
+
+In this section, we demonstrate the usage of libCreme by working through two complete examples. We calculate the entanglement of special states where analytical results are known in order to compare the numerical experiments with theory. Note that we provide initial points for the optimization in separate files instead of generating them randomly, because (i) the random number generators in Matlab and Octave produce different sequences of random numbers and (ii) not every initial point leads to the convergence to a global minimum in such high-dimensional spaces.
+5.1. Entanglement of formation of isotropic states using cg_min
+
+Isotropic states are defined as a convex mixture of a maximally entangled state and the maximally mixed state in a system of two d -dimensional subsystems. The isotropic state with an amount of mixing specified by f , where 0 ⩽ f ⩽ 1 , is given by [33] (31) ρ f = 1 − f d 2 − 1 ( I − | ψ + 〉 〈 ψ + | ) + f | ψ + 〉 〈 ψ + | , where | ψ + 〉 = 1 d ∑ i = 1 d | i i 〉 . An analytical solution for the entanglement of formation as a function of f and d has been found [33] and is implemented in eofIsotropic . Let us compare now the numerical results with theory. The full example can be found in the folder examples/eofIsotropic , along with all other related files.
+
+We first choose a dimension for the two subsystems,
+
+    d = 5;
+
+then create the maximally entangled state | ψ + 〉 in these systems and store it in psi :
+
+    Download : Download full-size image 
+
+After choosing a value for the mixing parameter f ,
+
+    f = 0.3;
+
+we can construct the isotropic state specified by d and f as
+
+    Download : Download full-size image 
+
+and calculate its eigendecomposition with
+
+    [chi, lambda] = densityEig(rho);
+
+In order to keep this example fully reproducible, we unfortunately have to load and overwrite the eigenvectors chi from a file at this point. The reason is that the density matrix is degenerate, yielding different eigendecompositions for the degenerate subspace depending on whether one uses Matlab or Octave due to the different diagonalization routines employed by these platforms. Clearly, one arrives at comparable results in both cases, but the paths in optimization space are different.
+
+    chi = load(ʼexample_eofIsotropic_chi.txtʼ);
+
+After setting an appropriate cardinality
+
+    Download : Download full-size image 
+
+and defining function handles for the entanglement measure and its gradient
+
+    Download : Download full-size image 
+
+we can create the function handles required in the optimization
+
+    Download : Download full-size image 
+
+Finally, we choose a random initial value U0 (here initialized from a file)
+
+    Download : Download full-size image 
+
+and perform the optimization:
+
+    Download : Download full-size image 
+
+This yields a value of e_res ≈0.129322085695260 after 80 iterations. We can check the convergence and the accuracy of the result by plotting the difference between the function value in each iteration and the theoretical value:
+
+    semilogy(abs(info.fvals - eofIsotropic(f, d)));
+
+This produces the solid line in Fig. 1 , showing that the result is exact up to an absolute error of ≈ 10 − 12 .
+
+    Download : Download full-size image 
+
+Fig. 1 . Comparison of numerical experiments with theory. The solid line demonstrates the convergence of the entanglement of formation of an isotropic state (example in Section 5.1 ), whereas the dashed line does the same for the tangle of a GHZ/W mixture (example in Section 5.2 ).
+5.2. Three-tangle of GHZ/W mixtures using bfgs_min
+
+In this example, we will calculate the three-tangle of a mixture of the two states (32) | GHZ 〉 = ( | 000 〉 + | 111 〉 ) / 2 , (33) | W 〉 = ( | 001 〉 + | 010 〉 + | 100 〉 ) / 3 , given by [34] (34) ρ p = p | GHZ 〉 〈 GHZ | + ( 1 − p ) | W 〉 〈 W | . The example files are in examples/tangleGHZW .
+
+In the code, we define the states
+
+    Download : Download full-size image 
+
+choose a particular value for p
+
+    p = 0.7;
+
+and create the mixed state
+
+    rho = p*GHZ*GHZʼ + (1 - p)*W*Wʼ;
+
+We then specify a value for the cardinality
+
+    Download : Download full-size image 
+
+and can create the objective function and gradient handles. Note that we use the auxiliary function createEHFunctions to do all the required work:
+
+    Download : Download full-size image 
+
+After choosing a random initial point (initialized from a file, as before)
+
+    X0 = load(ʼexample_tangleGHZW_X0.datʼ);
+
+we are ready to perform the optimization:
+
+    Download : Download full-size image 
+
+The value one obtains in this way after 29 iterations is t_res ≈0.190667409058084. A comparison with the analytical value [34] is exact within numerical precision. We can again plot the error between the function values and the exact result
+
+    Download : Download full-size image 
+
+which yields the dashed line in Fig. 1 .
+
+6. Conclusions
+
+We have presented our library libCreme which serves to evaluate generic convex-roof entanglement measures. The library contains all tools required to deal with this problem, including two optimization algorithms working on the space of density matrix decompositions. The first one is based on a conjugate gradient algorithm operating directly on the group of unitary parameterizations, while the second one is a standard BFGS quasi-Newton method employed with a transformation from the original search space to unconstrained Euclidean space . Both implementations accept generic function handles, making it easy to extend their application to user-defined entanglement measures. All that needs to be done for this is the implementation of the respective pure-state entanglement monotone and the corresponding derivatives with respect to the real and imaginary parts of the input state vector.
+Acknowledgements
+
+We would like to thank Stefano Chesi for fruitful discussions. This work was partially supported by the Swiss NSF , NCCR Nanoscience , NCCR QSIT , SOLID , and DARPA QuEST .
+Appendix A. Derivatives of entanglement measures
+
+In the following, we provide the calculations for the derivatives of all entanglement measures included in libCreme .
+A.1. Entropy of entanglement
+
+Let | Ψ 〉 be a state vector from a bipartite system with subsystem dimensions d 1 and d 2 . Let us rewrite Eq. (1) in the form (A.1) E ( | Ψ 〉 ) = S ( Tr B ρ ) , where (A.2) S ( X ) = − Tr X log X , and ρ = | Ψ 〉 〈 Ψ | . Let ψ be an arbitrary (complex) entry of the state vector | Ψ 〉 . Then, using the chain rule, we have (A.3) ∂ E ( | Ψ 〉 ) ∂ ψ = ∑ i , j , k , l ∂ S ( X ) X i j | X = Tr B ρ ∂ ( Tr B ρ ) i j ∂ ρ k l ∂ ρ k l ∂ ψ . Note that the indices k and l in the above sum run over the full Hilbert space dimension d 1 d 2 , whereas i and j only run over the first subsystem with dimension d 1 . We now evaluate each term in the sum separately.
+
+For the gradient of S ( X ) we get ∇ X S ( X ) = − ∇ X Tr [ ( X − I ) log X + log X ] = − ∇ X { ∑ n = 1 ∞ ( − 1 ) n + 1 n Tr [ ( X − I ) n + 1 ] + ∑ n = 1 ∞ ( − 1 ) n + 1 n Tr [ ( X − I ) n ] } = − { ∑ n = 1 ∞ ( − 1 ) n + 1 ( n + 1 ) n ( X − I ) n + ∑ n = 1 ∞ ( − 1 ) n + 1 ( X − I ) n − 1 } T = − { − ∑ n = 1 ∞ ( I − X ) n + ∑ n = 1 ∞ ( − 1 ) n + 1 n ( X − I ) n + ∑ n = 0 ∞ ( I − X ) n } T = − log X T − I , where we have made use of the formula ∇ X Tr ( X n ) = n ( X n − 1 ) T and the fact that the series expansion of the logarithm is valid because in our case X is always a density matrix, thus having real eigenvalues between 0 and 1.
+
+Next we evaluate the derivatives of the partial trace Tr B . We will write coordinate indices of vectors in the full Hilbert space as k = ( k 1 − 1 ) d 2 + k 2 ≡ [ k 1 , k 2 ] , where k 1 ∈ { 1 , … , d 1 } and k 2 ∈ { 1 , … , d 2 } . Then (A.4) ( Tr B ρ ) i j = ∑ k = 1 d 2 ρ [ i , k ] [ j , k ] and thus ∂ ( Tr B ρ ) i j ∂ ρ m n = ∑ k = 1 d 2 δ i , m 1 δ k , m 2 δ j , n 1 δ k , n 2 = δ i , m 1 δ j , n 1 δ m 2 , n 2 .
+
+Finally, we have to consider the derivatives of the density matrix itself with respect to the entries of the state vectors. This is the part where we have to treat Re  ψ and Im  ψ as independent variables because ρ is not analytic in the entries of | Ψ 〉 . One quickly finds (A.5) ⁎ ∂ ρ k l ∂ Re ψ n = δ k n ψ l ⁎ + δ l n ψ k , (A.6) ⁎ ∂ ρ k l ∂ Im ψ n = i δ k n ψ l ⁎ − i δ l n ψ k .
+
+Putting all this together we find, after eliminating all Kronecker δ -symbols, (A.7) ⁎ ∂ E ( | Ψ 〉 ) ∂ Re ψ n = ∑ i = 1 d 1 { [ ∇ S ( ρ ) ] n 1 i ⋅ ψ [ i , n 2 ] ⁎ + [ ∇ S ( ρ ) ] i n 1 ⋅ ψ [ i , n 2 ] } and analogously for the derivatives with respect to the imaginary parts. Exploiting the fact that ∇ S ( Tr B ρ ) = − log ( Tr B ρ ) T − I is Hermitian, we arrive at the final expressions (A.8) ∂ E ( | Ψ 〉 ) ∂ Re ψ n = 2 ∑ i = 1 d 1 Re { [ ∇ S ( Tr B ρ ) ] i n 1 ⋅ ψ [ i , n 2 ] } , (A.9) ∂ E ( | Ψ 〉 ) ∂ Im ψ n = 2 ∑ i = 1 d 1 Im { [ ∇ S ( Tr B ρ ) ] i n 1 ⋅ ψ [ i , n 2 ] } .
+A.2. Three-tangle
+
+Defining d = d 1 − 2 d 2 + 4 d 3 , where d 1 , d 2 , d 3 are given in Eqs. (3) , (4) , (5) , it is easy to see that (A.10) ⁎ ∂ τ ( | Ψ 〉 ) ∂ Re ψ n = 4 | d | Re ( ∂ d ∂ ψ n ⋅ d ⁎ ) , (A.11) ⁎ ∂ τ ( | Ψ 〉 ) ∂ Im ψ n = − 4 | d | Im ( ∂ d ∂ ψ n ⋅ d ⁎ ) . Note that the derivatives ∂ d / ∂ ψ n are well-defined because d is an analytic function of the elements ψ n of | Ψ 〉 .
+A.3. Meyer–Wallach measure
+
+We start by calculating the derivative of γ ( | Ψ 〉 ) with respect to an arbitrary complex element ψ of | Ψ 〉 until the point where non-analyticities appear: (A.12) ⁎ ⁎ ∂ γ ( | Ψ 〉 ) ∂ ψ = − 2 N ∑ k = 1 N ∑ j = 1 2 ∂ ∂ ψ ( ρ k 2 ) j j = − 2 N ∑ k = 1 N ∑ j , l = 1 2 ∂ ∂ ψ [ ( ρ k ) j l ( ρ k ) l j ] = − 4 N ∑ k = 1 N ∑ j , l = 1 2 Re [ ( ρ k ⁎ ) j l ⋅ ∂ ∂ ψ ( ρ k ) j l ] = − 4 N ∑ k = 1 N ∑ j , l = 1 2 Re { ( ρ k ⁎ ) j l ∑ α , β = 1 2 N [ ∂ ( ρ k ) j l ∂ ρ α β ⋅ ∂ ρ α β ∂ ψ ] } .
+
+The derivatives of the ρ α β (depending non-analytically on ψ ) with respect to the real and imaginary part of ψ have already been stated in Eqs. (A.5) , (A.6) . We are thus left to calculate the slightly cumbersome derivatives of multiple partial traces of ρ with respect to the matrix elements ρ α β .
+
+Similarly to the calculation in Appendix A.1 , we will now rewrite indices ν ∈ { 1 , … , 2 N } of the full Hilbert space in the binary representation ν = ( ν 1 − 1 ) 2 N − 1 + ( ν 2 − 1 ) 2 N − 2 + ⋯ + 2 ν N − 1 + ν N ≡ [ ν 1 , ν 2 , … , ν N ] , where ν i ∈ { 1 , 2 } for all i ∈ 1 , … , N (we will also employ this representation for the indices α , β , and n below). Then, the matrix elements of ρ k can be written as ( ρ k ) i , j = ∑ ν 1 ⋯ ∑ ν k − 1 ∑ ν k + 1 ⋯ ∑ ν N ρ [ ν 1 , … , ν k − 1 , i , ν k + 1 , … , ν N ] [ ν 1 , … , ν k − 1 , j , ν k + 1 , … , ν N ] , where i , j ∈ { 1 , 2 } . Hence we have (A.13) ∂ ( ρ k ) j l ∂ ρ α β = δ α 1 β 1 ⋅ δ α 2 β 2 ⋯ δ α k − 1 β k − 1 ⋅ δ α k , j ⋅ δ β k , l ⋅ δ α k + 1 β k + 1 ⋯ δ α N β N . Inserting this into Eq. (A.12) and working out all Kronecker δ symbols, we arrive at (A.14) ∂ γ ∂ Re ψ n | | ψ 〉 = − 8 N ∑ k = 1 N ∑ j = 1 2 Re ( ψ [ n 1 , n 2 , … , n k − 1 , j , n k + 1 , … , n N ] ⋅ ( ρ k ) n k , j ) , (A.15) ∂ γ ∂ Im ψ n | | ψ 〉 = − 8 N ∑ k = 1 N ∑ j = 1 2 Im ( ψ [ n 1 , n 2 , … , n k − 1 , j , n k + 1 , … , n N ] ⋅ ( ρ k ) n k , j ) .
+Appendix B. Derivatives of the function h ( U )
+
+We will carry out the calculation explicitly only for the derivatives with respect to the real part of U , but everything works analogously for the imaginary part. For the sake of readability, we will drop the usual ‘ket’ notation and write quantum state vectors as ψ i ≡ | ψ i 〉 . We write the k th element of ψ i as ψ i ( k ) .
+
+Differentiating Eq. (15) with respect to the real part of the k × r matrix U (with matrix elements U α β ) yields (B.1) ∂ h ( U ) ∂ Re U α β = ∑ i = 1 k { ∂ p i ( U ) ∂ Re U α β m ( ψ i ( U ) ) + p i ( U ) ∑ j = 1 d ∂ m ( ψ ) ∂ ψ ( j ) | ψ = ψ i ∂ ψ i ( j ) ∂ Re U α β } , where d is the dimension of the total Hilbert space. Note that we have specifically emphasized the U -dependence of the p i and ψ i via Eqs. (9) , (10) , (11) , (12) . The first derivative in this expression is given by (B.2) ⁎ ⁎ ⁎ ⁎ ⁎ ⁎ ∂ p i ∂ Re U α β = ∑ j ( ∂ ψ ˜ i ( j ) ⁎ ∂ Re U α β ⋅ ψ ˜ i ( j ) + ψ ˜ i ( j ) ⁎ ⋅ ∂ ψ ˜ i ( j ) ∂ Re U α β ) = 2 ∑ j Re ( ψ ˜ i ( j ) ⁎ ⋅ ∂ ψ ˜ i ( j ) ∂ Re U α β ) = 2 ∑ j Re ( ψ ˜ i ( j ) ⁎ δ i α λ β χ β ( j ) ) = 2 δ i α λ β Re ( ∑ l = 1 r U i l ⁎ ∑ j χ l ( j ) ⁎ χ β ( j ) ) = 2 δ i α λ β Re ( U i β ) , where we have used in the last step the orthonormality of the χ i and the fact that ⁎ Re c ⁎ = Re c for any complex number c .
+
+As for the derivatives of the state vector, we obtain (B.3) ∂ ψ i ( j ) ∂ U α β = 1 p i ∂ ψ ˜ i ( j ) ∂ U α β − 1 2 p i − 3 / 2 ∂ p i ∂ U α β = 1 p i δ i α λ β χ β ( j ) − p i − 3 / 2 δ i α λ β Re ( U i β ) ψ ˜ i ( j ) = δ i α [ λ β p i χ β ( j ) − λ β p i Re ( U i β ) ψ i ( j ) ] ≡ δ i α ξ i β ( j ) .
+
+We can now insert Eqs. (B.2) , (B.3) into (B.1) . The final result (including the derivatives with respect to the imaginary part of U from an analogous calculation) reads (B.4) ∂ h ( U ) ∂ Re U α β = 2 λ β Re ( U α β ) m ( ψ α ( U ) ) + p α ( U ) ∑ j = 1 d [ Re ξ α β ( j ) ∂ m ( ψ ) ∂ Re ψ ( j ) | ψ = ψ k + Im ξ α β ( j ) ∂ m ( ψ ) ∂ Im ψ ( j ) | ψ = ψ k ] , (B.5) ∂ h ( U ) ∂ Im U α β = 2 λ β Im ( U α β ) m ( ψ α ( U ) ) + p α ( U ) ∑ j = 1 d [ Re ζ α β ( j ) ∂ m ( ψ ) ∂ Re ψ ( j ) | ψ = ψ k + Im ζ α β ( j ) ∂ m ( ψ ) ∂ Im ψ ( j ) | ψ = ψ k ] , where (B.6) ξ α β ( U ) = [ λ β p α ( U ) χ β − λ β p α ( U ) Re ( U α β ) ψ α ( U ) ] , (B.7) ζ α β ( U ) = [ i λ β p α ( U ) χ β − λ β p α ( U ) Im ( U α β ) ψ α ( U ) ] .
+Research data for this article
+Mendeley logo
+for download under the  GPLv3 licence
+libCreme: An optimization library for evaluating convex-roof entanglement measures
+This program has been imported from the CPC Program Library held at Queen's University Belfast (1969-2018)
+Abstract
+We present the software library libCreme which we have previously used to successfully calculate convex-roof entanglement measures of mixed quantum states appearing in…
+Dataset
+Download file
+69KB
+aekd_v1_0.tar.gz
+View dataset on Mendeley Data
+Further information on research data
+References
+
+[1]
+    M.A. Nielsen, I.L. Chuang
+    Quantum Computation and Quantum Information
+    Cambridge University Press, New York (2000)
+    Google Scholar
+[2]
+    V. Vedral
+    Introduction to Quantum Information Science
+    Oxford University Press, New York (2007)
+    Google Scholar
+[3]
+    F. Mintert, A.R.R. Carvalho, M. Kuś, A. Buchleitner
+    Measures and dynamics of entangled states
+    Phys. Rep., 415 (2005), p. 207
+    Article Download PDF Google Scholar
+[4]
+    L. Amico, R. Fazio, A. Osterloh, V. Vedral
+    Entanglement in many-body systems
+    Rev. Mod. Phys., 80 (2008), p. 517
+    Google Scholar
+[5]
+    R. Horodecki, P. Horodecki, M. Horodecki, K. Horodecki
+    Quantum entanglement
+    Rev. Mod. Phys., 81 (2009), p. 865
+    View Record in Scopus Google Scholar
+[6]
+    M.B. Plenio, S. Virmani
+    An introduction to entanglement measures
+    Quant. Inf. Comp., 7 (2007), p. 1
+    CrossRef View Record in Scopus Google Scholar
+[7]
+    A. Uhlmann
+    Fidelity and concurrence of conjugated states
+    Phys. Rev. A, 62 (2000), p. 032307
+    View Record in Scopus Google Scholar
+[8]
+    B. Röthlisberger, J. Lehmann, D.S. Saraga, P. Traber, D. Loss
+    Highly entangled ground states in tripartite qubit systems
+    Phys. Rev. Lett., 100 (2008), p. 100502
+    CrossRef View Record in Scopus Google Scholar
+[9]
+    B. Röthlisberger, J. Lehmann, D. Loss
+    Numerical evaluation of convex-roof entanglement measures with applications to spin rings
+    Phys. Rev. A, 80 (2009), p. 042301
+    CrossRef View Record in Scopus Google Scholar
+[10]
+    See http://www.mathworks.com/products/matlab/ .
+    Google Scholar
+[11]
+    See http://www.gnu.org/software/octave/ .
+    Google Scholar
+[12]
+
+    It is easily seen from the Cauchy–Riemann equations that non-constant functions from C to R , such as the kind of entanglement measures we are addressing in this work, cannot be analytic. We therefore have to treat the real and imaginary part of complex numbers as independent variables.
+[13]
+    Package can be downloaded at http://www.dr-qubit.org/matlab.php .
+    Google Scholar
+[14]
+    T. Radtke, S. Fritzsche
+    Simulation of n -qubit quantum systems. V. Quantum measurements
+    Comput. Phys. Commun., 181 (2010), p. 440
+    Article Download PDF View Record in Scopus Google Scholar
+[15]
+    C.H. Bennett, H.J. Bernstein, S. Popescu, B. Schumacher
+    Concentrating partial entanglement by local operations
+    Phys. Rev. A, 53 (1996), p. 2046
+    View Record in Scopus Google Scholar
+[16]
+    C.H. Bennett, D.P. DiVincenzo, J.A. Smolin, W.K. Wootters
+    Mixed-state entanglement and quantum error correction
+    Phys. Rev. A, 54 (1996), p. 3824
+    Google Scholar
+[17]
+    W.K. Wootters
+    Entanglement of formation of an arbitrary state of two qubits
+    Phys. Rev. Lett., 80 (1998), p. 2245
+    View Record in Scopus Google Scholar
+[18]
+    V. Coffman, J. Kundu, W.K. Wootters
+    Distributed entanglement
+    Phys. Rev. A, 61 (2000), p. 052306
+    Google Scholar
+[19]
+    F. Mezzadri
+    How to generate random matrices from the classical compact groups
+    Notices of the AMS, 54 (2007), p. 592
+    View Record in Scopus Google Scholar
+[20]
+    D.A. Meyer, N.R. Wallach
+    Global entanglement in multiparticle systems
+    J. Math. Phys., 43 (9) (2002), p. 4273
+    View Record in Scopus Google Scholar
+[21]
+    G.K. Brennen
+    An observable measure of entanglement for pure states of multi-qubit systems
+    Quant. Inf. Comp., 3 (2003), p. 619
+    CrossRef View Record in Scopus Google Scholar
+[22]
+    L.P. Hughston, R. Jozsa, W.K. Wootters
+    A complete classification of quantum ensembles having a given density matrix
+    Phys. Lett. A, 183 (1993), p. 14
+    Article Download PDF View Record in Scopus Google Scholar
+[23]
+    K.A. Kirkpatrick
+    The Schrödinger–HJW theorem
+    Found. Phys. Lett., 19 (2005), p. 95
+    Google Scholar
+[24]
+
+    In M-script, functions can be passed as arguments using ‘function handles’ (conceptually similar to function pointers in C). For a function with name foo , the corresponding function handle is given by @foo . Subroutines are then able to call foo through its function handle, given the number and type of parameters are correct. A related feature of M-sript used frequently in libCreme are ad hoc, also called ‘anonymous’, function handles. These are handles to functions which are neither built-in, nor defined in a script file, but rather created on the spot. As an example, consider the following syntax to create a function of two parameters calculating the sine of the parameterʼs product:
+
+        sinxy = @(x, y) sin(x*y);
+
+    The variable names used to define the function are listed in the parentheses after the ‘ @ ’ sign. Directly following is the actual definition of the function. It can then be called in the usual way, yielding, e.g.,
+
+        >> sinxy(0.5, pi)
+
+        ans =
+
+            1
+
+[25]
+    A. Edelman, T.A. Arias, S.T. Smith
+    The geometry of algorithms with orthogonality constraints
+    SIAM J. Matrix Anal. Appl., 20 (1998), p. 303
+    View Record in Scopus Google Scholar
+[26]
+    K. Audenaert, F. Verstraete, B. De Moor
+    Variational characterizations of separability and entanglement of formation
+    Phys. Rev. A, 64 (2001), p. 052304
+    Google Scholar
+[27]
+    P.-A. Absil, R. Mahony, R. Sepulchre
+    Optimization Algorithms on Matrix Manifolds
+    Princeton University Press, Princeton, NJ (2008)
+    Google Scholar
+[28]
+
+    However, in the case where one chooses k ≫ r , it is advantageous to employ an algorithm that works directly on the Stiefel manifold instead of the unitary group. The concepts discussed in Ref. [25] for the real Stiefel manifold can be adapted to the complex case by replacing transpositions with Hermitian conjugates and the Frobenius inner product 〈 X , Y 〉 = Tr X T Y by 〈 X , Y 〉 = Re Tr X † Y .
+[29]
+    J. Nocedal, S.J. Wright
+    Numerical Optimization
+    Springer (1999)
+    Google Scholar
+[30]
+
+    We note that this way of generating random angles (which we have chosen here for simplicity) is not ideal, since it does not sample uniformly from the Haar measure. A better way would be to use decomposeUnitary(randUnitaryMatrix(k, r)) .
+[31]
+    R. Fletcher
+    Practical Methods of Optimization
+    Wiley (2000)
+    Google Scholar
+[32]
+    See http://octave.sourceforge.net/optim/ .
+    Google Scholar
+[33]
+    B.M. Terhal, K.G.H. Vollbrecht
+    Entanglement of formation for isotropic states
+    Phys. Rev. Lett., 85 (2000), p. 2625
+    Google Scholar
+[34]
+    R. Lohmayer, A. Osterloh, J. Siewert, A. Uhlmann
+    Entangled three-qubit states without concurrence and three-tangle
+    Phys. Rev. Lett., 97 (2006), p. 260502
+    Google Scholar
+
+Cited by (10)
+
+    Entanglement of Formation of Mixed Many-Body Quantum States via Tree Tensor Operators
+    2022, Physical Review Letters
+    Linear semi-infinite programming approach for entanglement quantification
+    2021, Physical Review A
+    Entanglement of formation of mixed many-body quantum states via Tree Tensor Operators
+    2020, arXiv
+    Linear semi-infinite programming approach for entanglement quantification
+    2020, arXiv
+    RepLAB: A computational/numerical approach to representation theory
+    2019, arXiv
+    Measurement-induced non-locality in arbitrary dimensions in terms of the inverse approximate joint diagonalization
+    2019, arXiv
+
+View all citing articles on Scopus
+
+☆
+
+    This paper and its associated computer program are available via the Computer Physics Communications homepage on ScienceDirect ( http://www.sciencedirect.com/science/journal/00104655 ).
+
+View Abstract
+Copyright © 2011 Elsevier B.V. All rights reserved.
+Recommended articles
+
+    Quantum superposition of localized and delocalized phases of photons
+    Physics Letters A, Volume 376, Issue 44, 2012, pp. 2765-2769
+    Download PDF View details
+    On finite-dimensional copointed Hopf algebras over dihedral groups
+    Journal of Pure and Applied Algebra, Volume 223, Issue 8, 2019, pp. 3611-3634
+    Download PDF View details
+    Switchable Interaction in Molecular Double Qubits
+    Chem, Volume 1, Issue 5, 2016, pp. 727-752
+    Download PDF View details
+
+1 2 Next
+Article Metrics
+View article metrics
+Elsevier logo with wordmark
+
+    About ScienceDirect
+    Remote access
+    Shopping cart
+    Advertise
+    Contact and support
+    Terms and conditions
+    Privacy policy 
+
+We use cookies to help provide and enhance our service and tailor content and ads. By continuing you agree to the use of cookies .
+
+Copyright © 2022 Elsevier B.V. or its licensors or contributors. ScienceDirect ® is a registered trademark of Elsevier B.V.
+
+ScienceDirect ® is a registered trademark of Elsevier B.V.
+RELX group home page

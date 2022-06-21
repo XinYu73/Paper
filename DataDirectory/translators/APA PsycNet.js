@@ -3,13 +3,13 @@
 	"translatorType": 4,
 	"label": "APA PsycNet",
 	"creator": "Philipp Zumstein",
-	"target": "^https?://psycnet\\.apa\\.org/",
+	"target": "^https?://(psycnet|doi)\\.apa\\.org/",
 	"minVersion": "3.0",
 	"maxVersion": null,
 	"priority": 100,
 	"inRepository": true,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-04-22 20:00:00"
+	"lastUpdated": "2022-06-16 23:30:00"
 }
 
 /*

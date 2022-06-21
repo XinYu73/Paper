@@ -1,0 +1,511 @@
+REVIEW
+
+Downloaded from https://www.science.org at Jilin University on June 03, 2022
+
+and either waking (W) or sleeping (S). Entangle-
+
+ment of idealized cats could be denoted with a
+
+Sudden Death of Entanglement
+
+bracket such as [(Ws) ⇔ (Sw)], where we have chosen large and small letters to distinguish a big
+
+cat from a little cat. The bracket would signal via
+
+Ting Yu1* and J. H. Eberly2*
+
+the term (Ws) that the big cat is awake and the
+
+little cat is sleeping, but the other term (Sw)
+
+A new development in the dynamical behavior of elementary quantum systems is the surprising signals that the opposite is also true, that the big
+
+discovery that correlation between two quantum units of information called qubits can be degraded cat is sleeping and the little cat is awake.
+
+by environmental noise in a way not seen previously in studies of dissipation. This new route for
+
+One can see the essence of entanglement here:
+
+dissipation attacks quantum entanglement, the essential resource for quantum information as well If we learn that the big cat is awake, the (Sw) term
+
+as the central feature in the Einstein-Podolsky-Rosen so-called paradox and in discussions of
+
+must be discarded as incompatible with what we
+
+the fate of Schrödinger’s cat. The effect has been labeled ESD, which stands for early-stage
+
+learned previously, and so the two-cat state re-
+
+disentanglement or, more frequently, entanglement sudden death. We review recent
+
+duces to (Ws). We immediately conclude that the
+
+progress in studies focused on this phenomenon.
+
+little cat is sleeping. Thus, knowledge of the state
+
+of one of the cats conveys information about the
+
+Quantum entanglement is a special type of correlation that can be shared only among quantum systems. It has been the focus
+
+in a finite time (Fig. 1), rather than by successive halves. We will use the term “decoherence” to refer to the loss of quantum correlation, i.e., loss
+
+other (21). The brackets are symbols of information about the cats’ states, and do not belong to one cat or the other. The brackets belong to the
+
+of foundational discussions of quantum of entanglement.
+
+reader, who can make predictions based on the
+
+mechanics since the time of Schrödinger (who
+
+This finite-time dissipation is a new form of information the brackets convey. The same is true
+
+gave it its name) and the famous EPR paper of decay (16), predicted to attack only quantum en- of all quantum mechanical wave functions.
+
+Einstein, Podolsky, and Rosen (1, 2). The degree tanglement, and not previously encountered in the
+
+Entanglement can be more complicated, even
+
+of correlation available with entanglement is pre- dissipation of other physical correlations. It has for idealized cats. In such cases, a two-party joint
+
+dicted to be stronger as well as qualitatively dif- been found in numerous theoretical examinations state must be represented not by a bracket as
+
+ferent compared with that of any other known to occur in a wide variety of entanglements in- above, but by a matrix, called a density matrix
+
+type of correlation. Entanglement may also be volving pairs of atomic, photonic, and spin qubits, and denoted r in quantum mechanics [see (22)
+
+highly nonlocal—e.g., shared among pairs of continuous Gaussian states, and subsets of mul- and Eq. S3]. When exposed to environmental
+
+atoms, photons, electrons, etc., even though they tiple qubits and spin chains (17). ESD has already noise, the density matrix r will change in time,
+
+may be remotely located and not interacting with been detected in the laboratory in two different becoming degraded, and the accompanying change
+
+each other. These features have recently promoted contexts (18, 19), confirming its experimental re- in entanglement can be tracked with a quantum
+
+the study of entanglement as a resource that we ality and supporting its universal relevance (20). mechanical variable called concurrence (23), which
+
+believe will eventually find use in new approaches However, there is still no deep understanding of is written for qubits such as the atoms A and B in
+
+to both computation and communication, for ex- sudden death dynamics, and so far there is no Fig. 1 as
+
+ample, by improving previous limits on speed generic preventive measure.
+
+and security, in some cases dramatically (3, 4). Quantum and classical correlations alike al- How Does Entanglement Decay?
+
+CðrÞ ¼ max½0,QðtÞ
+
+ð1Þ
+
+ways decay as a result of noisy backgrounds and An example of an ESD event is provided by where Q(t) is an auxilliary variable defined in
+
+decorrelating agents that reside in ambient envi- the weakly dissipative process of spontaneous terms of entanglement of formation, as given ex-
+
+ronments (5), so the degradation of entanglement emission, if the dissipation is “shared” by two plicitly in Eq. S4. C = 0 means no entanglement
+
+shared by two or more parties is unavoidable atoms (Fig. 1). To describe this we need a suit- and is achieved whenever Q(t) ≤ 0, while for
+
+(6–9). The background agents with which we are able notation.
+
+concerned have extremely short (effectively zero)
+
+The pair of states for each atom,
+
+internal correlation times themselves, and their sometimes labeled (+) and (−) or (1)
+
+action leads to the familiar law mandating that and (0), are quantum analogs of
+
+after each successive half-life of decay, there is “bits” of classical information, and
+
+still half of the prior quantity remaining, so that a hence such atoms (or any quantum
+
+diminishing fraction always remains.
+
+systems with just two states) are
+
+Atom A
+
+Atom B
+
+However, a theoretical treatment of two-atom called quantum bits or “qubits.” Unlike
+
+spontaneous emission (10) shows that quantum classical bits, the states of the atoms
+
+Cavity a
+
+Cavity b
+
+entanglement does not always obey the half-life have the quantum ability to exist in
+
+law. Earlier studies of two-party entanglement in both states at the same time. This is
+
+Degree of entanglement
+
+different model forms also pointed to this fact the kind of superposition used by
+
+(11–15). The term now used, entanglement sud- Schrödinger when he introduced his
+
+den death (ESD, also called early-stage disentanglement), refers to the fact that even a very weakly dissipative environment can degrade the specifically quantum portion of the correlation to zero
+1Department of Physics and Engineering Physics, Stevens Institute of Technology, Hoboken, NJ 07030–5991, USA. 2Rochester Theory Center and Department of Physics and Astronomy, University of Rochester, Rochester, NY 14627–0171, USA.
+
+famous cat, neither dead nor alive but both, in which case the state of his cat is conveniently coded by the bracket (+ ⇔ −), to indicate equal simultaneous presence of the opposite + and − conditions.
+This bracket notation can be extended to show entanglement. Sup-
+
+Asymptotic decay
+Sudden death
+Fig. 1. Curves show ESD as one of two routes for relaxation of
+
+*E-mail: ting.yu@stevens.edu (T.Y.), eberly@pas.rochester.edu pose we have two opposing conditions the entanglement, via concurrence C(r), of qubits A and B that
+
+(J.H.E.)
+
+for two cats, one large and one small, are located in separate overdamped cavities.
+
+598
+
+30 JANUARY 2009 VOL 323 SCIENCE www.sciencemag.org
+
+REVIEW
+
+Downloaded from https://www.science.org at Jilin University on June 03, 2022
+
+concurrence C(r). In the experiment, both amplitude and phase noises that can degrade entanglement were realized by combining beam splitters and mirrors.
+
+Can Sudden Death Be Avoided or Delayed?
+
+The issue of how to avoid ESD-
+
+type decorrelation in a realistic
+
+physical system is incompletely
+
+resolved at this time. A number
+
+of methods are known to pro-
+
+vide protection against previous-
+
+ly known types of decorrelation
+
+(3). Some methods have clas-
+
+Fig. 2. Atom-atom entanglement is plotted as a function of time for k values in the range 0 to 1. [Adapted from (20)] For all values of k less than 1/3, the half-life rule is obeyed, but for k between 1/3 and 1, it is not. For those values, the curves show ESD, i.e., becoming zero
+in a finite time and remaining zero thereafter. The two curves
+marked with arrows are similar to the curves in Fig. 1. Time is represented by p = 1 – exp (−Gt).
+
+sical analogs in information theory. One engages appropriately designed redundancy and is known as quantum error correction. Another relies on using a symmetry that can isolate entanglement from noise, effectively providing a decoherence-free subspace to
+
+maximally entangled states C = 1, and C is manage qubit evolution.
+
+limited to the range 1 ≥ C ≥ 0.
+
+Error correction is most useful when the dis-
+
+In the case of spontaneous emission there is turbing noise is below some threshold (25). In
+
+no environment at all, except for the vacuum. The practice error correction can be complicated, be-
+
+vacuum can still have a noisy degrading effect cause a noisy channel is a dynamical process and
+
+through its quantum fluctuations, which cannot its physical features are often not fully under-
+
+be avoided, so both atoms in Fig. 1 must eventually stood or predictable. An example is atmospheric
+
+lose their excitation and come to their ground states turbulence during open-air communication. An-
+
+with the rate G. Then their state is simply (– –), a other issue is the cost associated with providing
+
+completely disentangled situation because learning redundancy. Additionally, it has been reported that
+
+that the state of one atom is (−) does not change some quantum error correction algorithms could
+
+our information about the other, also (−). Thus, actually promote rather than mitigate ESD (26).
+
+disentanglement is the eventual fate of the pair. Symmetries that avoid decoherence by providing
+
+The question is, how quickly do they meet isolation from noise during evolution (27) have
+
+their fate? For the initial density matrix shown in also been examined as a way to postpone or avoid
+
+Eq. S5, the answer is supplied by the surface ESD, but knowledge of the noise to be combatted
+
+graphed in Fig. 2, which shows possible path- appears unlikely to be available because qubits
+
+ways for entanglement dissipation as a function remote from each other would rarely share either
+
+of time. The k axis shows that the time evolution symmetry properties or noise descriptions.
+
+of entanglement depends on the value of the pa-
+
+Other methods considered use dynamic ma-
+
+rameter that encodes the initial probability for the nipulation such as mode modulation (28) or the
+
+two atoms to be in the doubly excited state (++). quantum Zeno effect (29), which can be regarded
+
+The two extreme concurrence curves for k = 1 as extensions of the so-called bang-bang method
+
+and k = 0 are the ones already shown in Fig. 1. (30). Another proposal is to use feedback control
+
+The sudden death behavior shown in the right (31) to prevent ESD and other decoherence
+
+highlighted curve of Fig. 2 is a new feature for effects in the presence of hostile noise. None of
+
+physical dissipation (16, 20) and is induced by these methods is perfect, but they can be more
+
+classical as well as quantum noises (24). It is effective if designed for specific noise avoidance.
+
+counterintuitive, based on all previous single-atom experience, because spontaneous emission is a Does the Number of Noises Matter?
+
+process that obeys the half-life rule rigorously for Nonlocal entanglement raises the issue of ESD
+
+individual atoms. But it turns out that the two- triggered by different noise processes and can refer
+
+qubit correlation does not follow the one-qubit to more than one noise source acting together on
+
+pattern. That is, the sudden death does not come colocated entangled qubits, or to independent noise
+
+from a shorter half-life; the entangled joint cor- sources acting separately on remotely located mem-
+
+relation does not even have the half-life property. bers of a qubit pair. The rate of dissipation in the
+
+As reported in (18), the first experimental presence of several noise sources is normally the
+
+confirmation of ESD was made with an all-optical sum of the individual dissipation rates. More ex-
+
+approach focusing on photonic polarization. It was plicitly, if decay rates G1 and G2 come from the achieved by the tomographic reconstruction of action of two distinct weak noises, then when the
+
+r(t), and from it the Q(t) variable, and thus the two noises are applied together to a physical sys-
+
+tem, the resulting relaxation rate is simply given by the sum of the separate rates: G1 + G2.
+However, such a long-standing result does not hold for entanglement decay. This was discovered (16) by examining entanglement evolution of a set of X-form mixed-state matrices (Eq. S3) with d = 0, where d is the probability that both qubits are in their ground states. Straightforward calculations for the entire class are shown by the diagrams in Fig. 3, illustrating two qubits exposed together to amplitude noise as well as phase noise. The top two time-dependent curves show that the application of either noise separately allows long-running entanglement decay of the half-life type (no ESD). By contrast, the bottom curve reaches zero in a finite time. That is, the combined effect of the two noises causes ESD. The caption explains the colored squares. This illustrates the “supervulnerability” of paired-qubit entanglement when attacked by different independent noises. This result is universal in the sense that it continues to hold (16) even if the two noises attack one of the qubits but not the other, and also if each of the two qubits is remotely attacked by just one of the noises.
+
+Is There an “Anti-ESD” or Rebirth Effect?
+Special circumstances are needed to see “antiESD,” the creation or rebirth of entanglement
+
+Amplitude
+
+Phase
+
+Mixed
+
+a ESD
+
+EXP
+
+ESD
+
+EXP
+
+|z|
+
+0.6
+
+Concurrence
+
+0.5
+
+0.4
+
+Amplitude
+
+0.3
+
+Phase
+
+0.2
+
+Mixed
+
+0.1
+
+0.0
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1.0
+
+Time
+
+Fig. 3. The top two time-dependent curves show exponential (smooth half-life type) decay of concurrence for a qubit pair exposed to phase noise and to amplitude noise, respectively. The bottom curve shows nonsmooth decay, i.e., ESD occurs for the qubit pair when both noises are acting together. The color-coded squares apply to any two-party X matrix (Eq. S3) having d = 0. They present the predicted results for the entire accessible physical domain, which means throughout 1 ≥ a ≥ 0 and 1 ≥ |z| ≥ 0. The blue zones labeled EXP designate domains where smooth exponential (half-life type) evolution occurs, and the orange zones show where ESD occurs. The left and middle squares apply when amplitude and phase noises are applied separately, and have smooth decay regions, while the orange square at right shows that sudden death is universal in the entire region for any X matrix (Eq. S3).
+
+www.sciencemag.org SCIENCE VOL 323 30 JANUARY 2009
+
+599
+
+Downloaded from https://www.science.org at Jilin University on June 03, 2022
+
+REVIEW
+
+from disentangled states. By imposing the right interactions almost anything can be made to happen, but we are concerned with evolution of joint information in a pure sense and focus on two-party entanglement that evolves without mutual interaction or communication.
+The same two-atom situation shown in Fig. 1 can be made relevant to anti-ESD. In solving for the surface of solutions plotted in Fig. 2, the cavities were taken as fully overdamped, so that any photon emitted by either atom was irreversibly absorbed by the walls, but they could also be treated as undamped mirror-like cavities, such as used in the Jaynes-Cummings (JC) model for lightatom interactions (32). This situation produces a periodic sequence of perfect rebirths of atom AB entanglement (33, 34). An early mathematical model of two-qubit evolution (11) can be interpreted as treating an underdamped cavity and also shows rebirths.
+The panels in the top row of Fig. 4 show rebirth scenarios. They occur for states that are initially of the cat type, such that both atoms are excited and both are un-excited at the same time. The cat-type bracket for them is
+Fa ¼ ½ðþþÞcos a ⇔ ð−−Þsin a ð2Þ
+where different values of sine and cosine produce the different curves in the figure (35).
+Starting from the photon vacuum state in each cavity, the JC-type evolution will permit only zero or one photon to reside in each cavity at any later time, so each of the two modes is a two-state system (a qubit), and counting the two atoms there are now four qubits on hand. This provides six concurrences that can be computed: CAB, Cab, CAb, CaB, CAa, and CBb, where the capital letters identify atoms and the small letters identify the photons in cavity modes a or b. Concurrence is defined only for pairs of qubits, not quartets of them, so the label CAB implies that the a and b degrees of freedom are not available to observation and have been ignored (technically, have been traced out), and for photon concurrence Cab the atomic A and B properties are traced out, and so on.
+This idealized model provides a convenient framework to analyze entanglement in a simplified but still multi-qubit framework. As shown in the top half of Fig. 4, ESD takes place for atom concurrence (in the left panel, almost all CAB curves reach zero and remain zero for finite times). However, in the right panel, the photon concurrence Cab behaves in a manner opposite to that of CAB, showing anti-ESD. That is, initially Cab is zero, but it immediately begins to grow. The photons jointly experience entanglement “sudden birth,” but this is followed by ESD a half cycle later. All of this occurs via pure “informatics,” i.e., without energy exchange or other interaction between the sites.
+The reason for the rebirths is obvious—the photons emitted cannot really get lost among the few joint states available. If a larger number of cavity modes would be provided, a longer time would be needed for a rebirth to be complete, and
+
+as a limiting case, the cavities producing the curves in Fig. 2 have an infinite number of modes, so the lost quantum correlation cannot be reborn in any finite time. If there are enough states available in one mode, as is the case for coherent-state mode preparation, then ESD and true long-time revivals are also predicted (36).
+What Are the Future Prospects?
+Quantum memory banks. Clearly, ESD can be largely ignored, to a first approximation, when desirable quantum operations can be manipulated
+
+issues also include the use of external fields to manipulate qubit states (37) as in gate operations, to create transient decoherence-free subspaces, as mentioned already. A qualitatively different route to combat decoherence specifically of the ESD type is illustrated in Fig. 2. Two evolution tracks are highlighted to show that for qubits prepared with the same value of initial entanglement, their concurrences may evolve very differently. In that illustration, the right track is subject to ESD, while the left one is not. Decoherence per se is not avoided, because the non-ESD track shows steady
+
+C(ρAB)
+
+1 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1
+0 0
+
+α = π/4 α = π/6 α = π/12
+
+0.5
+
+1
+
+1.5
+
+2
+
+gt/π
+
+C(ρab)
+
+1
+
+0.9
+
+0.8
+
+0.7
+
+0.6
+
+0.5
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0
+
+0
+
+0.5
+
+1
+
+1.5
+
+2
+
+gt/π
+
+C(ρAB)
+
+1 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1
+0 0
+
+α = π/4 α = π/6 α = pi/12
+
+0.5
+
+1
+
+1.5
+
+2
+
+gt/π
+
+C(ρAB)
+
+1
+
+0.9
+
+0.8
+
+0.7
+
+0.6
+
+0.5
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0
+
+0
+
+0.5
+
+1
+
+1.5
+
+2
+
+gt/π
+
+Fig. 4. Entanglement birth, death, and rebirth. [Adapted from (35)] In the bottom pair of panels the rise and fall of AB entanglement is exactly compensated by the fall and rise of ab entanglement. This is not the case in the top pair of panels, but a more subtle form of compensation still occurs, as reported in (35). It involves not concurrence but the auxiliary variable Q(t) defined in Eqs. 1 and S4.
+
+at sufficiently high speed. The key goal of memory is opposite to that of speed, i.e., to preserve quantum state features semi-indefinitely. Quantum memory networks will be sensitive to the consequences if ESD occurs. ESD will probably have to be taken into account if practical versions of quantum memories are built to operate in mixed-state configurations.
+Disentanglement control. Over a given noisy channel, it appears that some entangled states may be more robust against the influence of noise than others. To control decoherence optimally, it will be useful to learn how to identify the robust states separately from the fragile ones. Control
+
+dissipation, but it always remains finite. Other examples of this are known, and in some cases a purely local operation (i.e., a manipulation of only one of the two entangled qubits) can be undertaken to change the state matrix r without changing its degree of entanglement, but in a way that switches the evolution trajectory from ESD to non-ESD (38), effectively putting it on a half-life track as in the figure. Similar studies (39) have examined the effect of local operations at intermediate stages of evolution. Use of this method requires detailed knowledge of the state matrix r, which may not be practical, particularly at times late in the evolution.
+
+600
+
+30 JANUARY 2009 VOL 323 SCIENCE www.sciencemag.org
+
+REVIEW
+
+Downloaded from https://www.science.org at Jilin University on June 03, 2022
+
+Entanglement invariants. Entanglement flow in small reservoirs has led to the recent discovery of entanglement “invariants” (35) by inspection of the curves in the bottom row of Fig. 4, which repeats the top row except that a slightly different cat state is used for the atoms initially:
+Ya ¼ ½ðþ−Þcos a ⇔ ð−þÞsin a ð3Þ
+In the bottom left panel of Fig. 4, it appears that each AB atomic concurrence curve is compensated at all times by the corresponding ab photonic concurrence curve in the right panel, one going up as the other falls.
+In fact, exact compensation can be confirmed analytically (35), but one notes that the same behavior does not appear in the top-row curves in Fig. 4, where there is no perfect compensation of ab for AB. For example, it is easy to see that the AB and ab red curves can be zero at the same time. A natural question is, where does the missing information go in that case? Because the two-site JC model is unitary, preservation of all four-qubit information is guaranteed, so it should be located “somewhere.” Careful examination shows that concurrence is not conserved, but rather Q(t) is conserved, spread among all six different types in that case (35).
+This identification of four-particle memory flow channels is unusual and clearly deserves future examination (40, 41). One can say about these invariants that they emerge only from a kind of analytic continuation of the bipartite concurrence function C(t) to un-physically negative values, which is permitted via Q(t). The entanglement flow issue (42) is also related to, and appears to expand considerably, the theory associated with entanglement swapping, which is under active exploration, and has been realized with particle pairs from independent sources (43).
+Non-Markovian noises. Dissipative entanglement evolution is critically dependent on the types of the noises acting on the system. Markov environments are those for which a noise signal has no self-correlation over any time interval, and under Markov conditions noise typically results in a quantum irreversible process. Non-Markovian noise arising from a structured environment or from strong coupling appears to be more fundamental (44, 45). Recent studies have suggested that correlated noises may cause new difficulties in using quantum error correction codes (46) and dynamic decoupling (47). Although some progress has been made, extending the current research on ESD into physically relevant non-Markovian situations remains a challenge. High-Q cavity QED and quantum dot systems are two possible experimental venues.
+Qutrits and beyond. Many-qubit entanglement and entanglement of quantum systems that are not qubits (i.e., those having more than two states) is largely an open question, and one that is embarrassing in a sense, because the question has been open since quantum mechanics was invented in the 1920s. There is still no known finite algo-
+
+rithm for answering the simple-seeming question of whether a given mixed state is entangled or not, if it refers to more than two systems, and it is answerable for two mixed-state systems only in the case of pairs of qubits (as we have been discussing) and the case of one qubit and one qutrit (a three-state system such as spin-1). Investigation into ESD of qubit-qutrit systems has begun (48, 49), but generalizations to many-qubit systems are daunting tasks due to both technical and conceptual difficulties (7–9).
+Topological approach. N-party entanglement dynamics will presumably become simpler to predict if a computable entanglement measure for a mixed state of more than two qubits can be discovered. However, an alternative approach is to avoid dynamics through topological analysis (50). One now knows (51, 52) that ESD is necessary (i.e., must occur) in arbitrary N-party systems of noninteracting qubits if they are exposed to thermal noise at any finite T > 0 temperature. The steady state of any noninteracting N-qubit system has a neighborhood in which every state is separable. In this case, any prearranged subsystem entanglement will inevitably be destroyed in a finite time. This is a universal result showing how entanglement evolves in the absence of external noise control.
+Clearly, the holy grail for research on entanglement dynamics is to find an efficient real-time technique for tracking and controlling the entanglement evolution of a generic many-qubit system. Another important open question is to determine a generic method for direct experimental registration of entanglement, for which there is no current answer. We believe that many surprising results are awaiting discovery.
+References and Notes 1. E. Schrödinger, Naturwissenschaften 23, 807 (1935). 2. A. Einstein, B. Podolsky, N. Rosen, Phys. Rev. 47, 777
+(1935). 3. M. A. Nielsen, I. L. Chuang, Quantum Computation
+and Quantum Information (Cambridge Univ. Press, Cambridge, 2000). 4. C. H. Bennett, D. P. DiVincenzo, Nature 404, 247 (2000). 5. W. H. Zurek, Rev. Mod. Phys. 75, 715 (2003). 6. T. Yu, J. H. Eberly, Phys. Rev. B 66, 193306 (2002). 7. C. Simon, J. Kempe, Phys. Rev. A 65, 052327 (2002). 8. W. Dür, H. J. Briegel, Phys. Rev. Lett. 92, 180403 (2004). 9. For an earlier review of entanglement dynamics, see (53). 10. T. Yu, J. H. Eberly, Phys. Rev. Lett. 93, 140404 (2004). 11. K. Zyczkowski, P. Horodecki, M. Horodecki, R. Horodecki, Phys. Rev. A 65, 012101 (2001). 12. A. K. Rajagopal, R. W. Rendell, Phys. Rev. A 63, 022116 (2001). 13. L. Diosi, in Irreversible Quantum Dynamics, F. Benatti, R. Floreanini, Eds. (Springer, New York, 2003), pp. 157–163. 14. S. Daffer, K. Wodkiewicz, J. K. McIver, Phys. Rev. A 67, 062312 (2003). 15. P. J. Dodd, J. J. Halliwell, Phys. Rev. A 69, 052105 (2004). 16. T. Yu, J. H. Eberly, Phys. Rev. Lett. 97, 140403 (2006). 17. For details, see section 1 of the Supporting Online Material. 18. M. P. Almeida et al., Science 316, 579 (2007). 19. J. Laurat, K. S. Choi, H. Deng, C. W. Chou, H. J. Kimble, Phys. Rev. Lett. 99, 180504 (2007). 20. J. H. Eberly, T. Yu, Science 316, 555 (2007). 21. Our example illustrates the distinction between entangled and nonentangled states, but quantum entanglement has
+
+the ability to encode oppositeness that goes further than the awake-asleep dichotomy of the cats or the heads-tails dichotomy of coins. One extension is the anti-alignment of the hands of a clock, not uniquely found at 6:00, but realized also at different angles of the hands, at approximately 7:05, 8:10, etc. Orthogonal photon polarizations, which may be oriented to any direction, extend the concept to continuous “opposites,” exploited by Clauser and Freedman in their famous experiment showing quantum violation of a Bell Inequality (54). 22. Matrix encoding of the entanglement is more complicated than the bracket notation used for the cats, but it is important because we want to allow for more possibilities, which can be visualized by thinking that any of the four joint state labels ++, +−, −+, or −− can be correlated with itself or any other, making 16 basic correlation labels, and these are conventionally arranged in a 4 × 4 matrix. This is the density matrix r referred to in the text. See the Supporting Online Material for an example, and a sketch of the theory of time evolution of the density matrix in a noisy environment. 23. W. K. Wootters, Phys. Rev. Lett. 80, 2245 (1998). 24. T. Yu, J. H. Eberly, Opt. Commun. 264, 393 (2006). 25. J. Preskill, Proc. R. Soc. Lond. A 454, 385 (1998). 26. I. Sainz, G. Björk, Phys. Rev. A 77, 052307 (2008). 27. D. A. Lidar, K. B. Whaley, in Irreversible Quantum Dynamics, F. Benatti, R. Floreanini, Eds. (Springer, Berlin, 2003), pp. 83–120. 28. G. Gordon, G. Kurizki, Phys. Rev. Lett. 97, 110503 (2006). 29. S. Maniscalco, F. Francica, R. L. Zaffino, N. Lo Gullo, F. Plastina, Phys. Rev. Lett. 100, 090503 (2008). 30. For example, see L. Viola, S. Lloyd, Phys. Rev. A 58, 2733 (1998). 31. A. R. R. Carvalho, A. J. S. Reid, J. J. Hope, Phys. Rev. A 78, 012334 (2008). 32. E. T. Jaynes, F. W. Cummings, Proc. IEEE 51, 89 (1963). 33. M. Yönac, T. Yu, J. H. Eberly, J. Phys. B 39, S621 (2006). 34. Z. Ficek, R. Tanas, Phys. Rev. A 74, 024304 (2006). 35. M. Yönac, T. Yu, J. H. Eberly, J. Phys. B 40, S45 (2007). 36. M. Yönac, J. H. Eberly, Opt. Lett. 33, 270 (2008). 37. H. Nha, H. J. Carmichael, Phys. Rev. Lett. 93, 120408 (2004). 38. T. Yu, J. H. Eberly, Quant. Inf. Comput. 7, 459 (2007). 39. A. R. P. Rau, M. Ali, G. Alber, Eur. J. Phys. 82, 40002 (2008). 40. I. Sainz, G. Björk, Phys. Rev. A 76, 042313 (2007). 41. D. Cavalcanti et al., Phys. Rev. A 74, 042328 (2006). 42. T. S. Cubitt, F. Verstraete, J. I. Cirac, Phys. Rev. A 71, 052308 (2005). 43. M. Halder et al., Nat. Phys. 3, 692 (2007). 44. M. Ban, J. Phys. A 39, 1927 (2006). 45. B. Bellomo, R. Lo Franco, G. Compagno, Phys. Rev. Lett. 99, 160502 (2007). 46. E. Novais, E. R. Mucciolo, H. U. Baranger, Phys. Rev. A 78, 012314 (2008). 47. K. Shiokawa, B. L. Hu, Quant. Inf. Proc. 6, 55 (2007). 48. K. Ann, G. Jaeger, Phys. Rev. B 75, 115307 (2007). 49. A. Checinska, K. Wodkiewicz, Phys. Rev. A 76, 052306 (2007). 50. B. V. Fine, F. Mintert, A. Buchleitner, Phys. Rev. B 71, 153105 (2005). 51. T. Yu, J. H. Eberly, http://arxiv.org/abs/0707.3215 (2007). 52. A. Al-Qasimi, D. F. V. James, Phys. Rev. A 77, 012117 (2008). 53. F. Mintert, A. R. R. Carvalho, M. Kus, A. Buchleitner, Phys. Rep. 415, 207 (2005). 54. S. J. Freedman, J. F. Clauser, Phys. Rev. Lett. 28, 938 (1972). 55. T.Y. and J.H.E. acknowledge grant support from the U.S. Army Research Office (48422-PH), the NSF (PHY06-01804 and PHY07-58016), and U.S. Department of Energy, Office of Basic Energy Sciences (DE-FG02-05ER15713).
+Supporting Online Material www.sciencemag.org/cgi/content/full/323/5914/598/DC1 SOM Text Fig. S1 References
+10.1126/science.1167343
+
+www.sciencemag.org SCIENCE VOL 323 30 JANUARY 2009
+
+601
+
+Downloaded from https://www.science.org at Jilin University on June 03, 2022
+
+Sudden Death of Entanglement
+Ting Yu, and J. H. Eberly Science, 323 (5914), • DOI: 10.1126/science.1167343 View the article online https://www.science.org/doi/10.1126/science.1167343 Permissions https://www.science.org/help/reprints-and-permissions
+Use of this article is subject to the Terms of service Science (ISSN 1095-9203) is published by the American Association for the Advancement of Science. 1200 New York Avenue NW, Washington, DC 20005. The title Science is a registered trademark of AAAS. American Association for the Advancement of Science
+

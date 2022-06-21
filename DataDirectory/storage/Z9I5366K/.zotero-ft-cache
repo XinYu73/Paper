@@ -1,0 +1,1356 @@
+Journal of Physics: Condensed Matter
+
+You may also like
+
+A method for atomistic spin dynamics simulations: implementation and examples
+To cite this article: B Skubic et al 2008 J. Phys.: Condens. Matter 20 315203
+
+- Straight quantum layer with impurities inducing resonances Sylwia Kondej
+- Classical r-matrix like approach to Frobenius manifolds, WDVV equations and flat metrics Baej M Szablikowski
+- The octonionic eigenvalue problem Stefano De Leo and Gisele Ducati
+
+View the article online for updates and enhancements.
+
+This content was downloaded from IP address 59.72.115.44 on 20/06/2022 at 09:25
+
+IOP PUBLISHING J. Phys.: Condens. Matter 20 (2008) 315203 (12pp)
+
+JOURNAL OF PHYSICS: CONDENSED MATTER doi:10.1088/0953-8984/20/31/315203
+
+A method for atomistic spin dynamics simulations: implementation and examples
+
+B Skubic, J Hellsvik, L Nordstro¨m and O Eriksson
+Department of Physics and Materials Science, Uppsala University, Box 530, SE-751 21 Uppsala, Sweden
+Received 30 January 2008, in ﬁnal form 9 May 2008 Published 17 July 2008 Online at stacks.iop.org/JPhysCM/20/315203
+Abstract We present a method for performing atomistic spin dynamic simulations. A comprehensive summary of all pertinent details for performing the simulations such as equations of motions, models for including temperature, methods of extracting data and numerical schemes for performing the simulations is given. The method can be applied in a ﬁrst-principles mode, where all interatomic exchange is calculated self-consistently, or it can be applied with frozen parameters estimated from experiments or calculated for a ﬁxed spin-conﬁguration. Areas of potential application to different magnetic questions are also discussed. The method is ﬁnally applied to one situation where the macrospin model breaks down; magnetic switching in ultra strong magnetic ﬁelds.
+(Some ﬁgures in this article are in colour only in the electronic version)
+
+1. Introduction
+With the increasing interest in advanced magnetic materials for data storage and processing there is an increasing need for a detailed atomistic description of magnetic materials. Methodological and computational schemes for performing atomistic magnetization dynamics have been presented by several groups in the past [1–3]. At this stage however, there has not been many simulations on realistic systems in the materials research domain. Part of the reason is the computational complexity of these simulations. This limitation is however gradually being overcome by the availability of increasing computational power. At this stage approximate simulations of realistic systems are already feasible and in the future the increasing importance of atomistic modeling of magnetization dynamics can be expected. With recent developments in experimental techniques for studying magnetization dynamics on short timescales and with recent ﬁndings on ultrafast magnetization dynamics [4, 5], there is also an increasing amount of experimental results on microscopic magnetization dynamics.
+The commonly used approach for studying magnetization dynamics, micromagnetism, provides a framework for understanding magnetization dynamics on length scales of micrometers and has with increasing computational power become a ﬁeld of great technological importance. The approach, however, suffers from a number of limitations. It
+
+is based on the phenomenological Landau–Lifshitz–Gilbert (LLG) equation where magnetism is treated as a continuum vector ﬁeld on a length scale of micrometers and where the energy dissipation of the system is described in terms of a single ad hoc damping parameter. This foundation limits the applicability and accuracy of the approach, making it inadequate for describing various modern experiments on magnetization dynamics. Instead it would be desirable to have an atomistic approach based on the quantum description of solids, an approach which properly displays the connection between the electronic structure of the material and the magnetization dynamics. Such an atomistic approach would be capable of giving a much more accurate description of magnetization dynamics and would provide a framework for including a detailed description of the different dissipation processes involved in magnetization dynamics. It would provide a way of calculating magnetization dynamics starting from ﬁrst-principles, enabling the study of dynamics of materials with complex chemical composition and materials with complex magnetic ordering such as anti-ferromagnets, spin-spirals and spin glasses.
+A formal platform with which to develop an ab initio spin dynamics simulation method is naturally based on density functional theory, since it is known to reproduce both magnetic moments, as well as exchange interactions, with good accuracy. In this paper we have indeed utilized the efﬁciency of density functional theory in calculating interatomic exchange
+
+0953-8984/08/315203+12$30.00
+
+1
+
+© 2008 IOP Publishing Ltd Printed in the UK
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+interactions. The method presented here is based on a Born– Oppenheimer like approximation for the spin system, where we consider the atomistic spins as being slow variables, and the electronic motion as being very fast. With this adiabatic approximation one can separate the spin system from the electronic one, as shown by Antropov et al [6], and hence solve the equations of motion for the two systems separately. This is the approach we will adopt here but it is worth mentioning that alternative computational schemes for spin dynamics on an electronic level are the time-dependent spin density functional theory (TD-SDFT) [7] or time-dependent current density functional theory (TD-CDFT) [8]. These approaches are promising but they are computationally much too time consuming for simulating larger systems.
+The scope of this paper is to give a detailed presentation of a methodological and computational scheme for performing spin dynamic simulations on an atomistic scale, where most of the conceptual details were derived in [6]. The approach is hence based on an atomic scale description of the magnetization of a solid. Magnetic properties extracted from such a description have long been limited to ground state properties, as in density functional theory (DFT), or to thermal equilibrium properties, as accessed by a combination of DFT and Monte Carlo (MC) simulations. In section 2 the adiabatic equations of motion for the atomic spins are derived and here we also discuss magnetic relaxation. In section 3 we present a scheme for simulating ﬁnite temperatures in spin dynamics. Section 4 presents methods of extracting and comprehending results from magnetization dynamics simulations, and section 5 discusses applications. Finally in section 6, as a demonstration, the method is applied to magnetic switching of bcc Fe in ultra strong switching ﬁelds.
+
+2. Equations of motion
+
+2.1. Slow variables
+
+A detailed derivation of how the dynamics of fast variables (electrons) and slow variables (atomic spins) are separated can, as mentioned, be found in [6]. Here we give a short description of the essential aspects of the dynamics of the atomic spins.
+The equation of motion for the slow variables, or the directions of the atomic spins, can be derived by evaluating the commutator between the spin operator, Sˆ , and the Kohn–Sham (KS) Hamiltonian (HKS) of density functional theory [9],
+
+∂ Sˆ ∂t
+
+=
+
+1 ih¯
+
+[Sˆ ,
+
+HKS
+
+],
+
+(1)
+
+which results in
+
+∂ Sˆ ∂t
+
+=
+
+−γ Sˆ
+
+×
+
+B
+
++
+
+1 ih¯
+
+[Sˆ ,
+
+Hnm
+
+],
+
+(2)
+
+where Hnm is the spin-independent part of HKS. In the absence
+
+of spin–orbit coupling, Sˆ commutes with all terms of Hnm
+
+except
+
+for
+
+the
+
+kinetic
+
+term
+
+−
+
+h¯ 2 2m
+
+N i
+
+∇r2i
+
+(see
+
+[10]).
+
+We
+
+deﬁne
+
+the current operator as
+
+ˆj ≡ h¯ i2m
+
+N i
+
+∇i δ(r − ri ) + δ(r − ri )∇i ,
+
+(3)
+
+and the spin-current operator as
+
+Jˆ ≡ σˆ ⊗ ˆj,
+
+(4)
+
+where the summation in equation (3) is performed over electrons. Evaluating the last term in equation (2) using the stated deﬁnitions results in,
+
+1 ih¯
+
+Sˆ , Hnm
+
+=1 ih¯
+
+Sˆ ,
+
+− N h¯ 2∇r2i i 2m
+
+= ∇ · Jˆ,
+
+(5)
+
+and the continuity equation for the spin magnetization within
+
+the KS framework is obtained by inserting this result in
+
+equation (2).
+
+By calculating the expectation value of
+
+dSˆ ∂t
+
+for
+
+the KS ground state we obtain,
+
+∂S ∂t
+
+(r,
+
+t)
+
++
+
+∇
+
+·
+
+JKS(r,
+
+t)
+
+=
+
+−γ
+
+S(r,
+
+t
+
+)
+
+×
+
+B(r,
+
+t ),
+
+(6)
+
+where S is the spin moment. The second term on the left-hand
+
+side is omitted for the applications considered in this paper. However, for experiments where current induced effects are
+
+important one must include this term. Among the effects that
+
+arise from this term are ﬂuctuations of the size of the atomic spins. By using the AMA, integrating equation (6) over atom i , we are left with a simple equation for the orientations of the
+
+atomic spins,
+
+∂ Si ∂t
+
+(t )
+
+=
+
+−γ
+
+Si
+
+(t
+
+)
+
+×
+
+Bi
+
+,
+
+(7)
+
+where i denotes atomic index and Bi the effective ﬁeld which the atomic spin, Si , experiences.
+
+2.2. Parametrization
+An accurate approach for performing spin dynamics and for calculating effective ﬁelds acting on the atomic spins, is to perform a constrained DFT calculation at each time step using local constraining ﬁelds. This has been done for systems consisting of a few atoms by U´ jfalussy et al [11] where the spin dynamics of a ﬁnite Co chain along a Pt(111) surface step edge was simulated. While accurate, the approach is computationally fairly cumbersome and much can be gained by working with a parametrization of the KS Hamiltonian. Such an approach was suggested by Fa¨hnle et al [3] where a gradual trade off between the accuracy and computational requirements is possible. By using a spin-cluster expansion method the effective ﬁeld including exchange, magnetocrystalline anisotropy, dipolar and external ﬁeld contributions were parametrized. By increasing the number of parameters in the parametrization, the accuracy was increased toward the ab initio accuracy at the same time as the computational requirements increase.
+We adopt a similar approach, in the sense that the energy of the system is parametrized and the dynamics is simulated for the parametrized Hamiltonian. Here, we present a general parametrization in terms of the atomic moments, mi , instead of the atomic spins, Si . For 3d systems, the atomic moment is dominated by the spin moment contribution and the effect of spin–orbit coupling is small.
+
+2
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+For systems such as actinides, orbital moments are larger and the total atomic moment must be considered in dynamical simulations of the magnetization. In the KS Hamiltonian, we neglected dipolar interactions and spin–orbit coupling. Dipolar interactions are small and included separately in the parametrized Hamiltonian. Spin–orbit coupling gives rise to a magnetocrystalline anisotropy which also is included separately in the generalized Hamiltonian. The effective ﬁeld, Bi , on each atom is calculated from
+
+Bi
+
+=
+
+−∂H ∂ mi
+
+.
+
+(8)
+
+The parametrized Hamiltonian is composed of the following
+
+terms,
+
+H = Hiex + Hma + Hdd + Hext,
+
+(9)
+
+where for the ﬁrst term, which represents interatomic exchange interactions, we use the classical Heisenberg Hamiltonian,
+
+In our approach we use the parametrized Hamiltonian, equation (9), combined with equation (7) which describes the time evolution of the magnetization for a system which is dominated by the spin moment. Parameters for the parametrized Hamiltonian are obtained by a mapping from a DFT ground state calculation. The most widely used approach is through the Liechtenstein–Katsnelson–Gubanov method (LKGM) [12] which is based on the magnetic force theorem where parameters are obtained from small angle perturbations from the ground state. At low temperatures, where the interatomic angles between the atomic spins are small, the parameters can be considered accurate. For the paramagnetic state one may instead extract Heisenberg exchange parameters by means of the generalized perturbation method (GPM) [13] for a disordered local moment (DLM) state treated within the coherent potential approximation (CPA). This method provides a more accurate description of the high temperature region.
+
+Hiex
+
+=
+
+−
+
+1 2
+
+Ji j mi · m j ,
+
+(10)
+
+i= j
+
+where i and j are atomic indices, mi the classical atomic moment and Ji j the strength of the exchange interaction. The second term in equation (9) represents the magnetocrystalline anisotropy and can take several forms. For a uniaxial anisotropy we have a dominant contribution of the form,
+
+Hma = K (mi · eK )2,
+
+(11)
+
+i
+
+where eK is the direction of the anisotropy axis and K the strength of the anisotropy ﬁeld. The third term,
+
+Hdd
+
+=
+
+−
+
+1 2
+
+Qμi jν
+
+m
+
+μ i
+
+m
+
+ν j
+
+,
+
+(12)
+
+i= j
+
+represents dipolar interactions. Here μ and ν are coordinate
+
+indices
+
+and
+
+Q
+
+μν ij
+
+is
+
+given
+
+by,
+
+Q
+
+μν ij
+
+=
+
+μ0 4π
+
+(3
+
+Riμj
+
+Riνj
+
+− δμν Ri2j ) Ri−j5,
+
+(13)
+
+where Ri j is the distance between atomic moments i and j . Dipolar interactions are long range and important for the long wavelength excitations. The interaction can be neglected in studies of short wavelength excitations. For ﬁnite systems dipolar interactions lead to a shape anisotropy. For a thin ﬁlm the shape anisotropy can be modeled by a term similar to equation (11),
+
+Hshape = Kshape(m¯ · eshape)2,
+
+(14)
+
+where eshape is the out-of-plane direction of the ﬁlm, m¯ is the average magnetic moment of the system and Kshape is the strength of the shape anisotropy. The last term of equation (9),
+
+Hext = −Bext · mi ,
+
+(15)
+
+i
+
+is the Zeeman term and describes the interaction of the magnetic system with an external magnetic ﬁeld.
+
+2.3. Damping
+
+When the atomic spins evolve from the dynamics of equation (7), energy and angular momentum dissipates via a range of mechanisms. The different mechanisms which lie behind this damping have e.g. been studied in [14–23]. The effect of the different damping mechanisms is normally included by adding a phenomenological term to equation (7), which yields the Landau–Lifshitz–Gilbert (LLG) equation,
+
+∂ Si ∂t
+
+= −γ Si
+
+× Bi
+
++
+
+α m
+
+Si
+
+×
+
+∂ Si ∂t
+
+,
+
+(16)
+
+where α is the damping coefﬁcient. In the rest of this paper we chose to work with atomic moments, m, rather than atomic spins, S. All formalisms are trivially preserved with this choice. For numerical reasons we use the Landau–Lifshitz form of damping term, and hence equation (16) is replaced by
+
+∂ mi ∂t
+
+= −γ mi × Bi
+
+α − γ m [mi × [mi × Bi ]].
+
+(17)
+
+3. Finite temperature modeling
+
+Most of the systems we are interested in simulating with the method presented here can conceptually be understood in terms of three thermodynamic subsystems; the spin system, the electronic system and the lattice (ﬁgure 1). The different reservoirs can be identiﬁed in measurements of speciﬁc heat. Each of these subsystems can be seen as reservoirs for energy and angular momentum.
+A division of the magnetic solid as such, into three thermodynamic reservoirs, is not free from complications, especially the division of the electronic system and the spin system which both are manifestations of the nature of electrons. It is important to note that the elementary excitations of the spin system carry an angular momentum of h¯ . Any transfer of energy to or from the spin system must be accompanied by a transfer of angular momentum. The necessity of angular momentum conservation is often a bottleneck of the transfer of energy between the subsystems.
+
+3
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+Figure 1. The dynamic behavior of a magnetic solid can be understood in terms of three thermodynamic reservoirs and interactions that exchange energy between the reservoirs. In the ﬁgure we included approximate relaxation times within the reservoirs and between the reservoirs.
+
+Figure 2. Comparison of equilibrium magnetization versus temperature for a periodic 20 × 20 × 20 bcc Fe system for SD and MC.
+
+The processes that carry energy and angular momentum between the subsystems are deﬁned by the way the division is made. The total Hamiltonian for the magnetic solid carries terms that mix the subsystems and these are the processes which are responsible for the energy and angular momentum exchange between the subsystems. Relaxation rates between the reservoirs are associated with the characteristic energies of the interactions that mediate the coupling between the reservoirs [24]. These timescales have been measured in experiments. The electron–lattice relaxation time, τel, is of the order of picoseconds (ps). The spin–lattice relaxation time, τsl, is of the order of 100 ps and the spin–electron relaxation time, τes, has been found in recent pump–probe experiments to be of the order of 100 fs [4, 5]. Relaxation within the spin system (τs) and within the lattice (τl) are expected to take place on timescales of the order of picoseconds whereas the electron–electron relaxation (τe) takes place on a subpicosecond timescale.
+In order to describe atomistic spin dynamics at ﬁnite temperatures in simulations, the spin system must be coupled to a thermal reservoir in such a way that energy may be transferred into and out of the system. We will start by showing how a single thermal reservoir can be coupled to the spin system and later generalize the discussion to several thermal reservoirs.
+3.1. One thermal reservoir
+For a discussion on stochastic and deterministic methods of including temperature, see [6]. One way of introducing a coupling to a thermal reservoir, which is adopted here, is through Langevin dynamics (LD), which is standard in ﬁnite temperature micromagnetic simulations [25–28]. In our approach, excitations are generated by performing classical rotations of single atomic spins in such a way that the energies of the atomic spins satisfy Boltzmann statistics. As a practical method, either Monte Carlo (MC) or LD methods may be used to obtain a ﬁnite temperature equilibrium conﬁguration.
+Thermal excitations are generated by adding a stochastic ﬁeld, bi , to the effective ﬁeld, Bi , on each atom, i . The random
+
+ﬁeld is assumed to be a Gaussian stochastic process with the following statistical properties,
+
+bi,μ(t) = 0,
+
+bi,μ(t)b j,ν (s) = 2Dδμν δi j δ(t − s),
+
+(18)
+
+where μ and ν are the Cartesian coordinates of the ﬁeld and
+
+where D is the strength of the thermal ﬂuctuations. The
+
+Kronecker deltas in equation (18) state that the different
+
+Cartesian components of bi are unrelated and that the random ﬁelds acting on different magnetic moments i are independent.
+
+The Dirac delta states that the autocorrelation time of bi is
+
+much smaller than the rotational response of the system.
+
+As a technical note we mention that we have chosen to add
+
+the stochastic ﬁeld to the effective ﬁeld in both the precessional
+
+term and the damping term, resulting in the following equation:
+
+∂ mi ∂t
+
+=
+
+−γ
+
+[mi
+
+×[Bi
+
++ bi
+
+(t
+
+)]]−γ
+
+α m
+
+[mi
+
+×[mi
+
+×[Bi
+
++ bi
+
+(t )]]].
+
+(19)
+
+Equation (19) is a stochastic differential equation (SDE) as
+
+opposed to regular ordinary differential equations (ODE) and
+
+requires an interpretation rule [29]. In the appendix we present
+
+a derivation of the amplitude of the stochastic ﬁeld, D, required
+
+to achieve thermodynamic consistency.
+
+At equilibrium, MC and spin dynamics (SD) give identical
+
+results for a number of properties. MC can actually be used as
+
+a way of benchmarking SD simulations. In ﬁgure 2 we plot
+
+the saturation magnetization for MC and SD for bcc Fe versus
+
+temperature. Simulations are performed on a 20 × 20 × 20
+
+bcc system using four coordination shells in the Heisenberg
+
+term. The Heisenberg exchange parameters were calculated
+
+from ﬁrst-principles theory and MC and SD are seen to give
+
+identical results. In ﬁgure 3 we plot the energy distribution of
+
+the moments for MC and SD simulations with two different
+
+damping parameters. These distributions coincide perfectly
+
+with the Boltzmann distribution.
+
+Differences between SD and MC are more subtle and
+
+appear ﬁrst in comparisons of spin-correlation. Figures 4–6
+
+illustrate the dynamic spin-correlation function S(q, ω), which
+
+is described below in section 4.3, calculated for equilibrium
+
+states generated by MC and SD simulations with different
+
+damping parameters. For Fe realistic damping parameters are
+
+4
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+Figure 3. Histogram of the energy distribution of the atomic spins of a 20 × 20 × 20 bcc Fe system within MC and SD simulations at 100 K. The SD simulation is done for two different damping parameters and data is obtained at equilibrium.
+
+Figure 5. Same as in ﬁgure 4 but in the high energy region. Comparison of MC and SD with α = 0.1.
+
+Figure 6. Same as in ﬁgure 4 but in the high energy region. Comparison of MC and SD with α = 1.0.
+
+Figure 4. The ﬁrst three excitation peaks in S(q, ω) for a periodic, 20 × 20 × 20 bcc, Fe system at 100 K. The sizes of the peaks in the SD simulation vary depending on the damping parameter.
+of the order 0.005–0.1 [30]. The comparisons shows that the MC generated equilibrium has a larger amount of high energy/large momentum excitations and a lower amount of low energy excitations than the SD system with damping α = 0.01. By increasing the damping parameter in SD the excitation content is modiﬁed and for large enough damping parameter the number of high energy excitations exceeds that found for the MC equilibrium.
+3.2. Several thermal reservoirs
+We have now described how the magnetic system can be connected to one thermal reservoir. In order to properly represent the spin dynamics of a system, where the system can be decoupled into three thermal reservoirs as described in section 3, we present a method of connecting the spin system to several thermodynamic reservoirs. The relaxation time between the electronic system and the lattice is of the order of picoseconds. Hence, a distinction between the electronic reservoir and the lattice is only necessary when studying dynamics with resolution higher than picoseconds. To describe the interaction between the electronic system, the lattice and the spin system, it is natural to propose a two-damping model.
+
+The intent is to capture the interaction between the spin system and the lattice with one damping parameter and to capture the interaction between the spin system and the electrons with a second damping parameter. A third parameter is also needed and describes the transfer of energy between the electrons and the lattice. Until there is more knowledge on how these parameters can be calculated, we use parameters obtained by ﬁtting to pump probe experiments which display all these processes.
+We thus proceed by introducing two Gilbert damping terms which are added to the equation of motion for the atomic moments,
+
+∂ Si ∂t
+
+= −γ Si
+
+× [Bi
+
++ bi (t)]
+
+−
+
+γ
+
+αe ms
+
+Si
+
+×
+
+[Si
+
+×
+
+[Bi
+
++
+
+bi (t)]]
+
+−
+
+γ
+
+αl ms
+
+Si
+
+×
+
+[Si
+
+×
+
+[Bi
+
++
+
+bi (t)]]
+
+(20)
+
+where αe and αl are the damping parameters which correspond to an energy transfer from the spin system to the electrons and to the lattice, respectively. Equation (20) describes how energy dissipates from the system through two channels. The temperatures of the reservoirs are given by Te and Tl. In equilibrium the temperature of all three thermodynamic reservoirs are the same, i.e. Te = Tl = Ts. In our treatment
+
+5
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+Figure 7. Simulation of a pump probe experiment. Simulations were done on a 10 × 10 × 10 bcc Fe system. The lower panel shows the assumed electron and lattice temperatures. The lattice temperature is constant at 300 K. The electronic temperature decays from an initial 500 K to 300 K with a decay time of 150 fs. The upper panel shows the normalized spin moment of the system.
+
+Figure 8. The trajectory of an atomic spin for a duration of 100 fs is shown. Simulations are performed on a 10 × 10 × 10 bcc Fe system. On the left-hand side the trajectory is shown for one atomic spin in a non-equilibrium system at 0 K where the atomic spin directions are completely randomly distributed. On the right-hand side we show the trajectory of an atomic spin at a 300 K equilibrium. Simulations are performed for different sizes of times steps in the numerical method: 10−18, 10−17 and 10−16.
+
+the amplitude of the thermal ﬂuctuations bi is given by,
+
+DLL(G) = DLL(G),e + DLL(G),l,
+
+(21)
+
+where
+
+DLLG,x
+
+=
+
+1
+
++
+
+1 (αe +
+
+αl)2
+
+kB Tx γ ms
+
+αx ,
+
+(22)
+
+or
+
+DLL,x
+
+=
+
+kBTx γ ms
+
+αx
+
+,
+
+(23)
+
+where x = e, l corresponds to electron or lattice effects. These
+
+amplitudes correspond to the equilibrium thermal ﬂuctuations.
+
+Assuming a constant ﬂux of energy from the reservoirs to
+
+the spin system, we use these amplitudes in our dynamic
+
+simulations. For practical simulations assumptions need to be
+
+made on the initial temperatures, Te and Tl, and the relaxation between the electrons and the lattice. Typical pump–probe
+
+experiments as reported in [31] can be simulated by assuming
+
+that the lattice is an inﬁnitely large thermal reservoir with
+
+constant temperature Tl. Further, we assume that the electron
+
+reservoir is a thermal reservoir, much smaller than the lattice
+
+but much larger than the spin system, with a temperature
+
+that evolves with time as Te(t) = Tl + Te,init exp(−t/τel) and where Te,init is the initial temperature. As an application
+
+of our two-damping model we address recent pump probe
+
+experiments [31], where the magnetization dynamics following
+
+optical excitation of a Ni ﬁlm have been interpreted in terms
+
+of the three thermal bath model. We consider a test system
+
+of bcc Fe with four coordination shells, as described above,
+
+and are able to reproduce the trends found in experiments.
+
+Our simulated magnetization is shown in ﬁgure 7. In the top
+
+graph it is seen that the magnetization initially decreases and
+
+after some time (∼0.5 ps) it stabilizes at a value ∼70% of the
+
+initial value. This behavior is in qualitative agreement with the
+
+measured data in [31].
+
+4. Extracting information
+A challenge in practical simulations of magnetization dynamics is extracting, visualizing and comprehending results.
+
+A simulation of the time development of the magnetic moment,
+
+mi , of N atoms over M time steps, generates data of the form
+
+m
+
+j i
+
+(tk
+
+),
+
+where
+
+j
+
+=
+
+x, y, z, i
+
+=
+
+[1, N]
+
+and tk
+
+=
+
+[1, tM ].
+
+For
+
+a
+
+typical simulation this amounts to an unmanageable amount
+
+of data which is difﬁcult to store. In order to analyze and
+
+comprehend the meaning of the data it must be compressed into
+
+variables that capture the state and evolution of the system. By
+
+doing this on the ﬂy during the simulation, computational time
+
+and storage requirements are greatly saved. Below we analyze,
+
+in this way, trajectories of the atomic spins, average moment,
+
+spin-correlations and the energy distributions in simulations of
+
+spin dynamics.
+
+4.1. Trajectories
+In ﬁgure 8 we show the trajectories of individual atomic moments. The simulations are performed on a 10 × 10 × 10 system of bcc Fe with periodic boundary conditions. The duration of all simulations is 100 fs and the damping is α = 0.1. On the left-hand side we present a simulation at 0 K where the initial spin distribution is random. Trajectories are presented for three different step sizes in the numerical scheme where Heun’s scheme was used. With this scheme and for this particular simulation, step sizes as small as 1–10 attoseconds are required to produce accurate trajectories on a timescale of 100 fs. On the right-hand side we present the trajectory of one atomic spin of a system in a 300 K equilibrium. We present simulations for three different step sizes. At ﬁnite temperatures individual trajectories do not carry much information because of thermal ﬂuctuations. By viewing snapshots or sequences of snapshots of the spin-conﬁguration over the entire system or parts of the system, valuable information on correlations and domain formation can be visualized [32].
+
+4.2. Average magnetic moment
+Averages are fundamental quantities of a magnetic system. With the data from a spin dynamic simulation averaging can be performed over space, time, different random number
+
+6
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+Figure 9. Relaxation in an easy-axis anisotropy. The upper panel shows the relaxation of a ferromagnet in an easy-axis uniaxial anisotropy and the second panel shows the relaxation of an anti-ferromagnet in an easy-axis uniaxial anisotropy. For the ferromagnet we plot the evolution of the average magnetization and for the anti-ferromagnet we plot the evolution of the average magnetization of one sublattice.
+sequences in the Langevin equations or over different initial states. Thermal (ensemble) averages are often desired and can be calculated in different ways depending on the system and process.
+Space averaging over all atoms in the system gives the average magnetization. If all atoms are equivalent, such an average may be taken as a thermal average. Space averaging may also be performed separately over different sublattices or separately over sets of equivalent atoms in order to understand the dynamical behavior of certain parts of a system. This is useful when studying anti-ferromagnets (AFM) or alloys. In ﬁgure 9 we show the relaxation of a ferromagnet and an antiferromagnet in an uniaxial easy-axis anisotropy, following a sudden 45◦ change with respect to the anisotropy axis. For the ferromagnet (upper panel) we show the evolution of the average magnetization whereas for the anti-ferromagnet (lower panel) we show the evolution of the average magnetization of a sublattice. In order to understand the switching behavior of an anti-ferromagnet the behavior of each sublattice and their mutual interaction plays an important role. For future large scale simulations where the spatial variation of the magnetization over larger length scales is of interest, space averaging may be performed over several limited spatial regions of the system, producing a more coarse grained picture of the spin dynamics of the system. Figure 9 also shows that the switching of the AFM is faster than for the FM.
+Time averaging is useful for smearing out random ﬂuctuations. In equilibrium, time averaging may be performed over unlimited time. When studying dynamic processes, time averaging must be performed over sufﬁciently short time intervals in comparison to the timescale of the dynamic process. For systems such as spin glasses, where each atomic moment is unique, thermal averaging may be done by performing an averaging over time. In particular for spin glasses, which are often out of equilibrium, such a time averaging must be performed over sufﬁciently short time
+
+B Skubic et al
+intervals. For systems with bond- or site-disorder, averaging can be done over different conﬁgurations of exchange parameters, respectively magnetic atoms, in the lattice. Dilute magnetic semiconductors are a manifestation of site-disordered systems. Among different classes of spin glasses there are systems possessing either bond- or site-disorder. Often a combination of space and time averaging is useful. In space averaging the number of averaging terms is limited by the ﬁnite size of the system. Finite size effects themselves have effects on the system which are interesting to study. For small systems, space averaging may become insufﬁcient and can be compensated by time averaging.
+Another type of averaging is averaging over identical simulations but with different random number sequences in the Langevin equations. For equilibrium simulations this is similar to time averaging. This type of averaging is however very time consuming since the same simulation must be repeated several times. The technique is best used in combination with space and time averaging.
+For some speciﬁc simulations one might also consider sampling over different initial conﬁgurations. The different but equivalent initial conﬁgurations could be generated with Monte Carlo or with spin dynamics using different initial conﬁgurations.
+
+4.3. Correlations between magnetic moments
+
+In addition to the trajectories or the absolute directions of atomic moments, correlations or relative directions between atomic moments provide fundamental information on the system (see [33–35]). The correlation function can be deﬁned as
+
+Ck (r − r , t) =
+
+m
+
+k r
+
+(t
+
+)m
+
+k r
+
+(0)
+
+−
+
+m
+
+k r
+
+(t
+
+)
+
+m
+
+k r
+
+(0)
+
+,
+
+(24)
+
+where · · · denotes an ensemble average and may be performed according to the previous section. The ﬁrst term on the right-hand side is the overlap and contains information on the magnetic order of the system.
+In order to evaluate the spin wave excitation content of a system one may calculate S(q, ω) by performing a space and time Fourier transform of the spin–spin-correlation,
+
+Sk (q, ω) = √1
+
++∞
+
+eiq·(r−r )
+
+eiωt Ck (r − r , t) dt,
+
+N 2π r,r
+
+−∞
+
+(25)
+
+where N is the number of terms in the summation. Figures 4–
+
+6 show S(q, ω) for an equilibrium system. For dynamical
+
+processes it is interesting to study how the spin wave content
+
+changes with time. Such a calculation is performed in section 6
+
+on bcc Fe in an ultra strong switching ﬁeld. For this process the
+
+timescale of the switching process was too fast to allow for an
+
+accurate S(q, ω) calculation at different points in time of the
+
+dynamic process. The calculation was instead performed by
+
+taking snapshots of the conﬁguration of the system at different
+
+points in time during the dynamic process. Each snap-shot then
+
+serves as an initial state in a zero damping simulation where the
+
+dynamic spin-correlation is calculated. This procedure works
+
+as long as the system does not exhibit any strong spin wave
+
+instabilities, which may change the spin wave content at zero
+
+damping.
+
+7
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+systems [36, 37], anti-ferromagnets and spin-spirals. A third class of problems concern systems with complex chemical ordering or nano-structured materials [38, 39]. In the following sections we present simulations of bcc Fe in large magnetic switching ﬁelds. We also illustrate different techniques for visualizing a dynamic magnetization process.
+
+6. Magnetic switching
+
+Figure 10. Snapshot of a simulation of Mn doped GaAs (5% concentration). Only Mn atoms are shown. The arrows indicate the size and direction of the Mn atomic spins.
+
+4.4. Energy distributions
+In equilibrium the energy distribution of the spin moments follows a Boltzmann distribution, as shown above. The energy of spin i is given by
+
+Ei = −mi · Bi + |mi ||Bi |.
+
+(26)
+
+In this expression parallel coupling between the moment and local effective ﬁeld is set to zero energy. Figure 3 shows a comparison between MC and SD for different values of the damping parameter. During dynamical processes the distribution changes. In analogy with the spin wave content one may calculate the change in the energy distribution at different points in time during a dynamic process.
+
+4.5. Direct visualization
+Perhaps the most natural illustration of a spin dynamics simulation is to present a real time visualization of how the spins relax during the simulation. In ﬁgure 10 we present an example of this where a snapshot of the spin-conﬁguration of Mn doped GaAs, a diluted magnetic semiconductor, is shown. Only the magnetic Mn atoms are shown, the nonmagnetic Ga and As atoms are not shown. The data is from a simulation where the Mn concentration was 5%. The temperature of the simulation is T = 100 K, which is below the ferromagnetic ordering temperature. The snapshot illustrates the extent of correlation on short distances, whereas the value of the global magnetization is better obtained as a thermal average.
+
+5. Applications
+An atomistic approach to spin dynamics is necessary for various classes of problems. One class of problems are systems at extreme conditions, such as extreme external magnetic ﬁelds, where high energy short wavelength magnons are excited. This case will be treated in the following section. Another class of problems are systems with complex magnetic ordering on an atomic scale which cannot be treated properly within micromagnetism, such as dilute magnetic
+
+LLG theory relies on a macrospin approximation where the magnitude of the macrospin is assumed constant. It has previously been shown that for large anisotropies, the macrospin picture breaks down due to the appearance of spin wave instabilities which alter the size of the macrospin. Cases where the macrospin approach breaks down may present interesting areas for the application of atomistic spin dynamics. In this section we address magnetic switching in an external ﬁeld. We show that the macrospin approximation remains valid up to very high switching ﬁeld strengths. However, at extremely high switching ﬁelds, over 100 T, the approximation ﬁnally breaks down. Here, we use this limit to illustrate the use of the atomistic spin dynamics method. By using bulk Fe as a model system we describe the switching process from atomistic considerations. Furthermore we determine the size of the external ﬁeld when LLG theory breaks down.
+Magnetic switching is the process of moving a system from one stable magnetic conﬁguration to another and is fundamental for any system where a magnetic state is used for storing and retrieving information. The switching process involves an excitation of the system followed by a relaxation into a new stable conﬁguration. In this section we address magnetic switching induced by an external ﬁeld, in presence of which energy is transferred into the magnetic system through the Zeeman term. After this excitation, the system relaxes into a new stable conﬁguration.
+Recent ﬁeld pulse magnetic switching experiments explore magnetic switching in ﬁeld pulses of the order of 35 T [24], a factor of 1000 higher than ﬁeld pulses in conventional switching experiments. As an external ﬁeld is applied to the system, the spin wave spectrum of the system is shifted by a Zeeman term which is either positive or negative depending on if the external ﬁeld is applied parallel or anti-parallel with the magnetization. Hence, the external ﬁeld yields an excitation directly into the spin system. The system is then driven to equilibrium with the other thermal reservoirs by different damping processes. In this process both the orientation and magnitude of the macrospin change in a process which will be the focus of this section. For weak switching ﬁelds, the change in magnitude of the macrospin is negligible and the results approach the LLG theory. For large ﬁelds (100 T) comparable to the exchange ﬁeld (1000 T), the change in magnitude is signiﬁcant and an atomistic approach is necessary to describe the process.
+At zero temperature our atomistic model coincides with the LLG picture since the system lacks high energy thermal excitations. At ﬁnite temperatures the system contains these high energy thermal excitations which alter the details of the switching model. Let us now venture to an atomistic picture
+
+8
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+Figure 11. Excitation content of bcc Fe in a 300 K equilibrium.
+of the ﬁeld induced switching process at ﬁnite temperatures. Since the main purpose is a qualitative description of the switching process, the atomistic simulations are again performed on bcc Fe using four coordination shells in the Heisenberg Hamiltonian. Simulations are performed on a system of 20 × 20 × 20 bcc cells.
+Consider the system in equilibrium at 300 K. Figure 11 shows the calculated S(q, ω) of the equilibrium state, which gives an image of the excitations in the system. Now consider what happens when a constant magnetic ﬁeld of 1000 T is applied. We use an exaggerated large switching ﬁeld in order to demonstrate the effect. As a ﬁrst case consider the external ﬁeld being applied parallel to the magnetization. The external ﬁeld shifts the positions of the excitations to higher energies. The process is illustrated in ﬁgure 12 for the q = 0.2ez(2π/a) excitation peak. The ﬁgure presents the original equilibrium peak position for t < 0. At t = 0 the 1000 T ﬁeld is applied to the system resulting in a sudden shift of the peak. The external ﬁeld adds to the exchange ﬁeld which in turns increases the precessional torque on the atomic moments. This increases the frequency of precession and thereby the energy of the excitation. The system is now in a non-equilibrium state and relaxes with time through various dissipation processes to a new equilibrium. The damping torque brings the system to a new equilibrium with a larger saturation magnetization than the original equilibrium. One way to see this is that the external ﬁeld increases the damping torque which in turn reduces the spread of the atomic moments and thereby increases the saturation magnetization. One can also regard the external ﬁeld as a Zeeman contribution to the energy of the excitations. The damping term provides a path for energy and angular momentum to leave the system. Since the energy of the excitations was increased by the Zeeman contribution, excitations need to be removed from the system to restore the 300 K equilibrium. Figure 12 shows how the excitation peak shrinks signiﬁcantly with time, leaving a barely visible peak, also shown in the inset. We see that in an atomistic picture, the magnitude of the macrospin changes in the applied magnetic ﬁeld. This change is neglected in LLG theory where the system remains unchanged as a magnetic ﬁeld is applied parallel to the magnetization.
+As a second case, let us now turn to a slightly more complex scenario—application of a 1000 T external ﬁeld at an angle of 135◦ with respect to the magnetization. This
+
+Figure 12. The position and magnitude of the q = 0.2ez(2π/a) peak as a 1000 T magnetic ﬁeld is applied along the magnetization axis, i.e. z-axis, at t = 0. The ﬁgure shows the original peak at t < 0, the peak at t = 0 when the external ﬁeld is applied and the ﬁnal peak
+(100 fs). The inset shows the ﬁnal peak at a larger scale.
+
+Figure 13. Magnetic switching process in a 1000 T constant external ﬁeld applied 135◦ with respect to the magnetization at 300 K. The
+Cartesian components and the magnitude of the normalized (0 K)
+magnetic moment are shown.
+
+scenario eventually leads to a switching of the direction of the
+
+macrospin. It is interesting, however, to consider the path that
+
+the system takes to reach equilibrium in an atomistic picture.
+
+The z-axis is placed parallel with the external ﬁeld and the
+
+initial
+
+magnetization
+
+lies
+
+along
+
+the
+
+√1 2
+
+(ey
+
+−
+
+ez )
+
+direction.
+
+The
+
+switching processes for 300 and 0 K are illustrated in ﬁgures 13
+
+and 14, respectively. For the 300 K case, there is a small
+
+reduction in the magnitude of the average magnetization during
+
+the switching process. We also see an oscillation of the x- and
+
+y-components of the macrospin, signaling the precession of
+
+the magnetization. Let us now analyze the switching process
+
+in more detail. As the ﬁeld is applied to the system there
+
+is a splitting in the excitation spectrum. When the external
+
+ﬁeld was applied parallel to the magnetization there was only
+
+a positive Zeeman contribution to the excitations. For an anti-
+
+parallel ﬁeld we would ﬁnd a negative Zeeman contribution
+
+whereas for a ﬁeld applied in any other direction there is a
+
+negatively shifted peak, a positively shifted peak and a peak
+
+at the original position. This splitting is illustrated in ﬁgure 15
+
+for the q = 0.5ez(2π/a) peak. In this plot the original peak is at ∼150 meV. The magnitude of the peaks with respect to
+
+each other depends only on the angle of the magnetization with respect to the external ﬁeld. Since the angle is 135◦
+
+9
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+Figure 14. Magnetic switching process in a 1000 T constant external ﬁeld applied 135◦ with respect to the magnetization at 0 K. The
+Cartesian components and the magnitude of the normalized (0 K)
+magnetic moment are shown.
+
+Figure 16. Splitting of the excitation spectrum during the relaxation of the magnetic system in a 1000 T external ﬁeld.
+
+Figure 15. The splitting of the q = 0.5ez(2π/a) excitation peak as a 1000 T external ﬁeld is applied at an angle of 135◦ with respect to the magnetization.
+in ﬁgure 15, it is the peak with the negative shift which dominates. The momentum dependence of the splitting of the excitation spectrum is illustrated in ﬁgure 16. Note that this splitting is a feature of the non-equilibrium system. The central spectrum corresponds to the equilibrium excitation spectrum. Application of the 1000 T ﬁeld has two main consequences. First, it excites the uniform motion of the magnetization or the average magnetization of the system. Secondly, within an atomistic model, it also splits the excitation peaks of the non-uniform magnons. Since the initial angle between magnetization and external ﬁeld is 135◦, the lower branch dominates. This branch is lower in energy and in this instance energy starts being transferred from the thermal reservoir to the spin system. The process is illustrated in ﬁgure 17 for the excitation peak q = 0.5ez(2π/a). The transfer of energy from the thermodynamic reservoir to the magnetic system leads to an increasing peak size. This initial energy transfer to the magnetic system leads to a reduction of the size of the average magnetization. However as the switching process continues the orientation of the average moment changes, reducing the angle between magnetization and the external ﬁeld. This changes the relative strengths of the three peaks in the split. As the angle is reduced below 90◦ the positive Zeeman peak becomes
+
+Figure 17. Evolution of the q = 0.5ez(2π/a) excitation peak during the switching process. At t < 0, the peak is in its equilibrium position with its equilibrium magnitude. At t = 0, a 1000 T ﬁeld is applied at an angle of 135◦ with respect to the magnetization. The peak is split in three. The negative shift is dominant in magnitude and the remaining two peaks are too small to be visible. Transfer of energy to the magnetic system leads to an increase in the peak size. As the switching proceeds the relative weight of the peaks change leading to a larger weight on the positively shifted peak. At this point, the energy transfer is reversed and energy is transferred out of the system, leading to a shrinking of all peaks. At the new equilibrium, the only peak remaining is the positively shifted peak. The magnitude of the peak is reduced compared to the original equilibrium peak.
+largest implying an average positive shift of the excitation. This reverses the energy transfer between the magnetic system and the thermal reservoir. Energy is now being transported out of the magnetic system leading to reduced peak sizes and an increased saturation magnetization. Within the atomistic model there are changes in the magnitude of the macrospin during the switching process. This, however, does not affect the precessional frequency of the macromoment which is only dependent on the size of the external ﬁeld.
+If the initial angle between the external ﬁeld and the magnetization is increased toward anti-parallel alignment, the effect of shrinking of the magnetization during the switching process is enhanced. This is illustrated in ﬁgure 18 where a 1000 T anti-parallel ﬁeld is applied to the magnetization where the shrinking is total and accounts for the whole switching process. Note that at a certain point in the process the size of the macrospin (sum of all atomic spins) is zero, after which it
+
+10
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+B Skubic et al
+
+Figure 18. Magnetic switching process in a 1000 T constant external ﬁeld applied anti-parallel with respect to the magnetization at 300 K.
+
+Figure 19. Magnetic switching process in a 100 T constant external ﬁeld applied anti-parallel with respect to the magnetization at 300 K.
+
+increases back to a saturation value again. For weaker external ﬁelds the effect is reduced. This is illustrated in ﬁgure 19 where a 100 T external ﬁeld is applied anti-parallel to the magnetization and although the size of the applied ﬁeld is much smaller, the magnitude of the magnetization is still heavily effected by the external ﬁeld.
+To summarize this section, by simulations of magnetization dynamics of atomic resolution, we have explored magnetic switching in the limit of large external ﬁelds. A signiﬁcant difference from LLG theory is seen for large ﬁelds. The results may aid in understanding ultrafast switching experiments with ultra large ﬁeld pulses.
+
+typically of the same size as magnetic ﬁelds available in the laboratory.
+Acknowledgments
+Financial support from the Swedish Foundation for Strategic Research (SSF), Swedish Research Council (VR), the Royal Swedish Academy of Sciences (KVA), Liljewalchs resestipendium and Wallenbergstiftelsen is acknowledged. Calculations have been performed at the Swedish national computer centers UPPMAX, HPC2N and NSC.
+
+7. Conclusions
+A full account of the details of an atomic spin dynamics method has been given. A comprehensive description of all pertinent details for performing spin dynamics simulations, such as equations of motions, models for including temperature, damping mechanisms, methods of extracting data and numerical schemes for performing the simulations, has been presented. Various ways to analyze spin dynamics simulations have been presented including spincorrelations. The method developed can be applied in a ﬁrstprinciples mode, where all interatomic exchange is calculated self-consistently, or it can be applied with frozen parameters estimated from experiments or calculated for a ﬁxed spinconﬁguration.
+The method has been applied to several systems, with interatomic exchange calculated from ﬁrst-principles, primarily for bcc Fe from a frozen spin-conﬁguration. Various switching phenomena have been studied, such as the dynamics of a spin system when the easy-axis rapidly changes direction. Furthermore, we have simulated the spin dynamics of a system with a large applied ﬁeld parallel, anti-parallel and at an angle to the macrospin (the sum of all atomic spins). In this particular system we show that the macrospin model breaks down. This happens when the applied ﬁeld is of a similar size to the interatomic exchange. An experimental realization of this is possibly best obtained for nano-structured magnetic multilayers, since the interatomic exchange interaction (which in many systems inﬂuences the magnetic properties heavily) is
+
+Appendix. Langevin spin dynamics
+
+The Fokker–Planck equation describes the time evolution of a
+
+non-equilibrium probability distribution. The Fokker–Planck
+
+equation corresponding to the SLL and the SLLG has been
+
+derived [40].
+
+The general form of the Langevin equations can be written
+
+as
+
+dy dt
+
+=
+
+Ai(y, t)
+
++
+
+k
+
+Bik(y, t)Lk (t),
+
+(A.1)
+
+where
+
+Lk (t) = 0,
+
+Lk (t)Ll (s) = 2Dδkl δ(t − s). (A.2)
+
+The SLLG equation can be written in the general form of a Langevin-equation by identifying the coefﬁcients
+
+Ai = γ
+
+m
+
+×
+
+Beff
+
+−
+
+α m
+
+m
+
+×
+
+(m
+
+×
+
+Beff)
+
+,
+i
+
+(A.3)
+
+Bik = γ
+
+j
+
+ijkm
+
+j
+
++
+
+α m
+
+(m 2 δi k
+
+−
+
+mimk)
+
+.
+
+(A.4)
+
+The time evolution of the general form, using Stratanovich calculus is given by
+
+∂P ∂t
+
+=−
+
+i
+
+∂ ∂ yi
+
+Ai + D
+
+jk
+
+B
+
+j
+
+k
+
+∂ Bik ∂yj
+
+P
+
+∂2 +
+i j ∂ yi ∂ y j
+
+D Bik B jk P
+k
+
+(A.5)
+
+11
+
+J. Phys.: Condens. Matter 20 (2008) 315203
+
+For the SLLG, we then arrive at the following Fokker–Plank
+
+equation for the time evolution of the probability distribution, P(m), of the atomic moments,
+
+∂P ∂t
+
+=
+
+−
+
+∂ ∂m
+
+γ
+
+m
+
+×
+
+Beff
+
+−
+
+γ
+
+α m
+
+m
+
+×
+
+(m
+
+×
+
+Beff)
+
++
+
+1 2τ
+
+m
+
+×
+
+m
+
+×
+
+∂ ∂m
+
+P,
+
+(A.6)
+
+where we have deﬁned τ as,
+
+1 τ
+
+=
+
+2Dγ 2(1 + α2).
+
+(A.7)
+
+The SLL equation yields the identical equation as equa-
+
+tion (A.6), but with
+
+1 = 2Dγ 2. τ
+
+(A.8)
+
+The Fokker–Planck equation associated with the SLLG or
+
+SLL equations must satisfy the correct thermal equilibrium properties. In thermal equilibrium P(m) must have the form
+
+of the Boltzmann distribution,
+
+P0(m) ∝ exp[−βH (m)].
+
+(A.9)
+
+This condition on the Fokker–Planck equation is not consistent with ˆIto calculus. For Stratanovich calculus, we can ﬁnd a
+condition on τ that makes the equations fulﬁll the equilibrium
+requirement. First note that
+
+∂H Beff = − ∂m .
+
+(A.10)
+
+Using equation (A.9) we can write
+
+∂ P0 ∂m
+
+=
+
+βBeff P0.
+
+(A.11)
+
+Hence, the ﬁrst term of equation (A.6),
+
+∂ ∂m
+
+(γ
+
+m
+
+×
+
+Beff)
+
+P0
+
+(A.12)
+
+vanishes and the remainder can be written as
+
+∂P ∂t
+
+=
+
+−
+
+∂ ∂m
+
+−
+
+γ
+
+α m
+
+m
+
+×
+
+(m
+
+×
+
+Beff)
+
++
+
+β 2τN
+
+m
+
+×
+
+(m
+
+×
+
+Beff)
+
+P
+
+.
+
+(A.13)
+
+From this we see that a requirement for a stationary solution,
+
+or ∂ P/∂t = 0, is that γ α/m = β/2τN . Hence, resulting in
+
+τN
+
+=
+
+1 α
+
+m 2γ kBT
+
+.
+
+(A.14)
+
+In equations (A.8) and (A.7) we see that the temperature determines the amplitude of the random ﬁeld, bi , and this is how temperature enters our simulations. The amplitudes are ﬁnally given by
+
+DL L G
+
+=
+
+1
+
+α + α2
+
+kBT γm
+
+,
+
+(A.15)
+
+and
+
+DLL
+
+=
+
+α kBT γm
+
+.
+
+(A.16)
+
+References
+
+B Skubic et al
+
+[1] U´ jfalussy B, Wang X-D, Nicholson D M C, Shelton W, Stocks G, Wang Y and Gyorffy B 1999 J. Appl. Phys. 85 4824
+[2] Nowak U, Mryasov O N, Wieser R, Guslienko K and Chantrell R W 2005 Phys. Rev. B 72 172410
+[3] Fa¨hnle M, Drautz R, Singer R, Seiauf D and Berkov D 2005 Comput. Mater. Sci. 32 118
+[4] Gerrits Th, van den Berg H A M, Hohlfeld J, Ba¨r L and Rasing Th 2002 Nature 418 509
+[5] Tudosa I, Stamm C, Kashuba A B, King F, Siegmann H C, Sto¨hr J, Ju G, Lu B and Weller D 2004 Nature 428 831
+[6] Antropov V P, Katsnelson M I, Harmon B N, van Schilfgaarde M and Kusnezov D 1996 Phys. Rev. B 54 1019
+[7] Qian Z and Vignale G 2002 Phys. Rev. Lett. 88 056404 [8] Vignale G and Kohn W 1996 Phys. Rev. Lett. 77 2037 [9] Kohn W and Sham L 1965 Phys. Rev. 140 A1133 [10] Capelle K, Vignale G and Gyo¨rffy B L 2001 Phys. Rev. Lett.
+87 206403 [11] U´ jfalussy B, Lazarovits B, Szunyogh L, Stocks G M and
+Weinberger P 2004 Phys. Rev. B 70 100404(R) [12] Liechtenstein A I, Katsnelson M I, Antropov V P and
+Gubanov V A 1987 J. Magn. Magn. Mater. 67 65 [13] Ruban A V, Shallcross S, Simak S I and Skriver H L 2004
+Phys. Rev. B 70 125115 [14] Elliot R 1954 Phys. Rev. 96 266 [15] Yafet Y 1963 Solid State Physics vol 14
+(New York: Academic) [16] Kambersky´ V 1970 Can. J. Phys. 48 2906 [17] Kunesˇ J and Kambersky´ V 2002 Phys. Rev. B 65 212411 [18] Steiauf D and Fa¨hnle M 2005 Phys. Rev. B 72 064450 [19] Fa¨hnle M and Steiauf D 2006 Phys. Rev. B 73 184427 [20] Kambersky´ V 1976 Czech. J. Phys. B 26 1366 [21] Gilmore K, Idzerda Y U and Stiles M D 2007 Phys. Rev. Lett.
+99 027204 [22] Ho J, Khanna F C and Choi B C 2004 Phys. Rev. Lett.
+92 097601 [23] Beaurepaire E, Harrel S, Beard M, Bigot J-Y and
+Schmuttenmaer C 2004 Appl. Phys. Lett. 84 3465 [24] Sto¨hr J and Siegmann H C 2006 Magnetism: From
+Fundamentals to Nanoscale Dynamics (Berlin: Springer) [25] Garcia-Palacios J L and Lazaro F J 1998 Phys. Rev. B 58 14937 [26] Brown G, Novotny M A and Rikvold P A 2001 Phys. Rev. B
+64 134422 [27] Novotny M A, Brown G and Rikvold P A 2002 J. Appl. Phys.
+91 6908 [28] Novotny M A, Robb D T, Tagirov L and Mikailov F 2007
+Springer Series in Materials Science vol 94 (Berlin: Springer) [29] Kloeden P and Platen E (ed) 1992 Numerical Solution of Stochastic Differential Equations (Berlin: Springer) [30] Stamm C, Tudosa I, Siegmann H C, Sto¨hr J, Dobin A Y, Woltersdorf G, Heinrich B and Vaterlaus A 2005 Phys. Rev. Lett. 94 197603 [31] Koopmans B, Ruigrok J J M, Dalla Longa F and de Jonge W J M 2005 Phys. Rev. Lett. 95 267207 [32] Http://www.fysik.uu.se/theomag/asd/ [33] Chen K and Landau D P 1994 Phys. Rev. B 49 3266 [34] Tsai S-H, Bunker A and Landau D P 2000 Phys. Rev. B 61 333 [35] Tao X, Landau D P, Schulthess T C and Stocks G M 2005 Phys. Rev. Lett. 95 087207 [36] Hellsvik J et al 2008 in manuscript [37] Skubic B et al 2008 in manuscript [38] Skubic B et al 2008 in manuscript [39] Skubic B et al 2008 in manuscript [40] Brown J W F 1963 Phys. Rev. 130 1677
+
+12
+

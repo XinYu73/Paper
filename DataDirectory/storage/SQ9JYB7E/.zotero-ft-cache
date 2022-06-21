@@ -1,0 +1,829 @@
+    ACS
+    ACS Publications
+    C&EN
+    CAS
+
+Access provided by JILIN UNIV
+Blank image Log In
+ACS Publications. Most Trusted. Most Cited. Most Read
+
+OR SEARCH CITATIONS
+My Activity
+Publications
+ADVERTISEMENT
+RETURN TO ISSUE PREV Feature Article NEXT
+Potential Energy and Free Energy Landscapes
+
+    David J. Wales
+     and 
+    Tetyana V. Bogdan
+
+View Author Information
+Cite this: J. Phys. Chem. B 2006 , 110 , 42 , 20765–20776
+Publication Date (Web) : October 7, 2006
+https://doi.org/10.1021/jp0680544
+Copyright © 2006 American Chemical Society
+RIGHTS & PERMISSIONS
+Subscribed Access
+Article Views
+6434
+Altmetric
+1
+Citations
+148
+LEARN ABOUT THESE METRICS
+Share
+Add to View In
+Export RIS
+PDF (957 KB)
+SUBJECTS:
+
+    Chemical structure ,
+    Cluster chemistry ,
+    Free energy ,
+    Potential energy ,
+    Transition states 
+
+Get e-Alerts
+Go to The Journal of Physical Chemistry B
+The Journal of Physical Chemistry B
+Abstract
+
+Familiar concepts for small molecules may require reinterpretation for larger systems. For example, rearrangements between geometrical isomers are usually considered in terms of transitions between the corresponding local minima on the underlying potential energy surface, V . However, transitions between bulk phases such as solid and liquid, or between the denatured and native states of a protein, are normally addressed in terms of free energy minima. To reestablish a connection with the potential energy surface we must think in terms of representative samples of local minima of V , from which a free energy surface is projected by averaging over most of the coordinates. The present contribution outlines how this connection can be developed into a tool for quantitative calculations. In particular, stepping between the local minima of V provides powerful methods for locating the global potential energy minimum, and for calculating global thermodynamic properties. When the transition states that link local minima are also sampled we can exploit statistical rate theory to obtain insight into global dynamics and rare events. Visualizing the potential energy landscape helps to explain how the network of local minima and transition states determines properties such as heat capacity features, which signify transitions between free energy minima. The organization of the landscape also reveals how certain systems can reliably locate particular structures on the experimental time scale from among an exponentially large number of local minima. Such directed searches not only enable proteins to overcome Levinthal's paradox but may also underlie the formation of “magic numbers” in molecular beams, the self-assembly of macromolecular structures, and crystallization.
+
+*
+
+ Corresponding author. E-mail:  dw34@cam.ac.uk
+1. Introduction
+ARTICLE SECTIONS
+Jump To
+At a fundamental level the potential energy surface, V , determines the observed structure, dynamics, and thermodynamics within a particular electronic state for both molecules and condensed phases. 103,158 The behavior of small molecules is often addressed directly in terms of stationary points of V , where the force on each atom vanishes. For example, distinct isomers usually correspond to local minima, where any infinitesimal displacement of the internal coordinates raises the energy. The rearrangement mechanisms corresponding to isomerization between local minima can often be visualized in terms of steepest-descent pathways mediated by transition states. Here we define a transition state of V according to a purely geometrical criterion, 115 namely as a stationary point of V with a single imaginary normal mode frequency. Positive and negative displacements along this particular normal mode lower the energy and enable us to define the steepest-descent paths leading to the two “adjacent” minima that are connected by the transition state in question. An infinitesimal displacement corresponding to any other vibrational mode raises the energy, as for a local minimum. Of course, finite temperature trajectories will not follow the steepest-descent paths exactly, but it may still be possible to estimate the corresponding rate constants using statistical rate theory. Characterizing pathways on the potential energy surface (PES) may also be sufficient to predict tunneling splitting patterns in nonrigid molecules such as the water trimer. 168
+For larger systems the states of interest are often defined by order parameters, and may subsume an exponentially large number of local minima of V . To exploit a coarse-grained approach using stationary points of V now requires appropriate sampling. Some processes, such as defect migration in a solid, are still describable in terms of single transition states connecting local minima. 86,113,114,167 However, if the product and reactant states span many local minima, then a description of the corresponding pathways will generally involve numerous alternative sequences of stationary points from V .
+The term “energy landscape” was probably first introduced in discussions of free energy surfaces for proteins. 15-18,38,39,94,118-120 In this field a key issue is Levinthal's paradox, 95 namely the observation that the folding times for proteins are inconsistent with a random search, even if different configurations could be sampled on the time scale of a typical vibration. In fact, the search for the native state is not random, because the PES, and derived free energy surfaces, are not flat; in model systems a systematic potential energy bias can change the relaxation time dramatically. 44,175,176 Reliable “structure seekers” must possess a well-defined free energy minimum, which is also kinetically accessible over the relevant temperature range. In particular, alternative favorable structures separated by barriers from the native state may act as kinetic traps, and we therefore expect such features to be minimized in systems that relax to their global minimum efficiently. The principle of “minimal frustration” 15 and the “harmony principle” 65,66 both embrace this idea, since a frustrated system would possess alternative low-lying structures. Here, frustration corresponds to the existence of favorable packing schemes (energetic interactions) that are different from the global minimum. A complementary view is that the ratio T f / T g should be large for a robust structure seeker, 131,132 where T f is the “folding” temperature, below which the native state becomes the global free energy minimum, and T g is the “glass transition” temperature, below which the system cannot escape from kinetic traps on the experimental time scale. Optimization of T f / T g has been used to parametrize empirical energy functions for protein structure prediction. 67
+
+Figure 1 One-dimensional potential energy functions (left) and the corresponding disconnectivity graphs (right). The dotted lines indicate the energies at which a superbasin analysis was performed.
+The above ideas have been presented without reference to a specific system, because our aim here is to show how they can provide a unified view of more general nonrandom searches. In particular, the resolution of Levinthal's paradox, the observation of “magic number” clusters in molecular beams, self-assembly of macromolecular structures, and crystallization may all have their roots in the organization of the underlying PES. 160 This theme will be developed in the following sections. An essential part of this discussion is the connection between the network of stationary points of the PES and the resulting free energy surfaces. Some explicit examples of this connection will be considered in detail to explain how concepts such as the reaction mechanism can be extended to large systems. We note that this article is primarily intended to provide an overview of recent work in the authors' group, and therefore focuses on our own work. A more detailed review of the energy landscapes field is available elsewhere. 158
+2. Visualizing the PES:  Disconnectivity Graphs
+ARTICLE SECTIONS
+Jump To
+The ability to visualize potential and free energy surfaces is not essential for calculating any dynamic or thermodynamic properties, but it can certainly help in providing some intuition for what those properties might be. For a PES, the visualization problem is more acute, since V is generally a function of 3 N coordinates for a system of N atoms. The dimensionality can be reduced by coordinate transformations that exclude overall translations and rotations, but 3 N − 6 internal coordinates still remain for an isolated molecule. Nevertheless, it is possible to provide insight into the organization of the PES in a two-dimensional figure using disconnectivity graphs. 8,32,109,158,160,165 To construct such a figure we need a database of local minima of V and the transition states that connect them. For larger systems this database should be a representative subset of the possible stationary points, since the number of local minima generally grows exponentially with N . 136,163 The construction of such databases is discussed in the following sections.
+For a given potential energy, V α , the local minima that lie below V α can be divided into disjoint sets, or “superbasins”, 8 such that any two minima within the same set can be interconverted without exceeding the threshold V α . This analysis immediately introduces a separation of energy scales, since any pathway between minima in different sets must pass through at least one transition state whose potential energy lies above V α . Performing the superbasin analysis at a regularly spaced set of energies, V 1 < V 2 < V 3 < ···, provides the information required to construct a disconnectivity graph. The vertical axis corresponds to potential energy increasing upward, and each superbasin is represented by a point, or node, for every value of V α at which the analysis is performed. The nodes corresponding to different V α are joined if they share common minima, and a connection is drawn from any minima with energies in the range V α-1 to V α up to the appropriate node at V α .
+The horizontal axis for a disconnectivity graph is usually arbitrary, and the branches are then spaced to give the clearest impression of how the PES is organized. However, it is also possible to use a horizontal coordinate that reflects properties of the minima, 83 and a new representation that uses the configurational entropy for this purpose will be discussed in section 4. It is also possible to base the vertical axis on enthalpy 106 or free energy. 49,84 In each case, the line that terminates at the bottom of the graph corresponds to the global minimum. The branches from different local minima, and different superbasins, join together at the lowest V α where a path exists between them for which all the transition states lie below V α .
+Figure 1 illustrates three distinct motifs, which correspond to particular patterns of organisation in the PES. 165 Every disconnectivity graph is technically a tree graph, 27 because cutting any edge separates the structure into two parts. Hence the graph corresponding to a well-defined global minimum with relatively small downhill barriers in Figure 1 may be referred to as a “palm tree”. This is the structure that we will associate with efficient relaxation to the global minimum over a wide temperature range, and examples are illustrated in Figure 2 a−d. For the “willow tree” pattern there is still a well-defined global minimum, but the downhill barriers are large compared to the potential energy differences between successive minima. Efficient relaxation now requires a relatively high temperature, as for buckminsterfullerene 87,165,169 (Figure 2e). Finally, the “banyan tree” pattern, with many low-lying minima of comparable energy, and two or more distinct energy scales for the barriers between them, has a qualitatively different hierarchical structure. 169 An example is illustrated in Figure 2f for an (H 2 O) 20 cluster.
+
+Figure 2 Panels a−d illustrate “palm tree” disconnectivity graphs that arise in four different systems. Panels e and f illustrate the “willow tree” and “banyan tree” patterns. (a) Disconnectivity graph for a cluster of 13 atoms bound by the Lennard-Jones potential, 80 LJ 13 , including all the 1,467 local minima identified for this system in previous work. 42 The global minimum is a Mackay icosahedron 100 and the next-lowest minima correspond to the three distinct capping sites when one atom is removed from the icosahedral shell and placed on the surface. The energy is in units of the pair well depth. (b) Disconnectivity graph for an icosahedral shell composed of twelve pentagonal pyramids. 160 Low-lying minima are illustrated near to their corresponding branches in the graph. The energy is in reduced units. 160 (c) Disconnectivity graph for a bulk representation of silicon using the Stillinger−Weber potential 137 and a supercell containing 216 atoms; 105 ε is the pair well depth. (d) Disconnectivity graph for the polyalanine peptide ala 16 calculated with the AMBER95 potential 30 and a distance-dependent dielectric. 111 The energy is in kcal/mol relative to the global minimum. (e) Disconnectivity graph for C 60 where the stationary points were calculated using density functional theory with the BLYP functional. 87 (f) Disconnectivity graph for a (H 2 O) 20 cluster described by the rigid molecule TIP4P 81 potential. 165 This system exhibits a hierarchical structure:  sets of minima are disconnected together when certain edges of the graph are removed.
+Potential energy landscapes associated with a single palm tree, or willow tree, feature are the ones that we expect to correspond to efficient “structure seekers” for an appropriate temperature range. The palm tree structure provides a direct realization of the original “folding funnel” picture for proteins, envisaged as a set of kinetically convergent pathways. 94 A landscape with a single palm tree feature can be considered unfrustrated, since there are no competitive low-lying minima separated by high barriers. We also expect such landscapes to have a large value for T f / T g , and this property has been confirmed in detailed studies of thermodynamics and kinetics. 107,158 Free energy surfaces can be produced by choosing appropriate order parameters, and some explicit constructions will be discussed in detail in section 4 to show how “funneling” properties of the free energy surface arise. One caveat we should note is that our visualizations of the PES are all for systems composed of a fixed number of particles. A more general treatment of how “magic number” clusters and self-assembly processes occur might also need to consider how the landscape changes as a function of system size.
+As a final remark in this section, it is interesting to consider the self-assembly of pentagonal pyramids into a hollow icosahedral shell (Figure 2b). Watson and Crick first suggested that virus capsids might be composed of a shell constructed from repeated subunits, since the genetic information that can be stored within the confines of the shell is so limited. 31 The PES in Figure 2b suggests that self-assembly might also exploit the properties of the “palm tree” potential energy landscape.
+3. Coarse-Grained Approaches Using Stationary Points of the PES
+ARTICLE SECTIONS
+Jump To
+To construct disconnectivity graphs and analyze global thermodynamics and kinetics using stationary points of the PES, we need geometry optimization tools to locate these features efficiently. Details of the methods employed in the present work can be found elsewhere; 158,161 only a brief overview will be given here. All geometry optimizations were performed with our OPTIM program, which is available for public download. 154 As for our global optimization program GMIN, 153 all energy minimizations employ a modified version of Nocedal's L-BFGS algorithm. 98,117 Transition state searches involve hybrid eigenvector following 86,114 for single-ended searches, and the doubly nudged 142 elastic band 73-76 (DNEB) approach for double-ended searches. To obtain initial paths between distant minima, which may involve hundreds of minimum-transition state-minimum triples in terms of the PES, we employ Dijkstra's shortest path algorithm 37 for a network where missing connections are weighted according to the separation of the corresponding minima. 22
+In the remainder of this section we discuss three methods that are based on a coarse-grained approach using stationary points of the PES. The first two, basin-hopping global optimization (section 3.1) and basin-sampling thermodynamics (section 3.2), require only local minima, while discrete path sampling (section 3.3) also considers transition states in order to treat kinetics.
+3.1 Basin-Hopping Global Optimiz ation. The basin-hopping approach to global optimization 46,158,162,166 can be viewed as a generalization of the “Monte Carlo plus energy minimization” procedure of Li and Scheraga. 96 Moves are proposed by perturbing the current geometry and are accepted or rejected based upon the energy difference between the local minima obtained following minimization from the two instantaneous configurations. In effect, the PES is transformed into the basins of attraction 103,155,158 of all the local minima, so that the energy for configuration X is where min denotes minimization. Large steps can be taken to sample this transformed landscape, since the objective is to step between local minima. In contrast to basin-sampling (below), the objective is to locate the global potential energy minimum, not to sample thermodynamic properties, and hence there is no need to maintain detailed balance when taking steps. In fact, resetting the geometry to that of the current minimum before the next perturbation appears to increase efficiency. 162,172
+The most attractive features of the basin-hopping approach are the relatively small number of parameters that need to be chosen (usually only the effective temperature), and hence the straightforward transferability to a wide range of different systems. 158 In particular, basin-hopping has been employed in studies of atomic and molecular clusters (see references 166 and 158 for reviews), bulk glass-formers, 104 and peptides and proteins (Figure 3 ). 23,35,36,109,111,112,152 One of the most recent applications, to clusters of dipolar spheres, has revealed that remarkable closed-loop structures containing knots and links are global minima over an increasing range of dipole strength for larger clusters (Figure 4 ). 110 It will be interesting to see whether such structures are realized in suspensions of dipolar colloids or aggregates of proteins in molecular beam experiments. 124
+
+Figure 3 Global optimization results for 1UZC (an FF domain containing 71 amino acids from HYPA/FBP11). 23 From left to right:  minimized protein data bank (PDB) structure; lowest energy structure from an unbiased run [9.7 Å root-mean-square deviation (RMSD)]; low-energy minimum from an unbiased basin-hopping run with the smallest RMSD from the minimized PDB structure (9.3 Å); low-energy minimum from the biased run with the smallest RMSD from the minimized PDB structure (5.0 Å).
+
+Figure 4 Global minima for selected Stockmeyer clusters containing N dipolar particles, denoted St N . 110 (a) St 38 at μ = 3.6:  the trefoil knot 3 1 , (b) St 35 at μ = 2.8:  knot 5 1 , (c) St 38 at μ = 1.6:  knot 8 19 , (d) St 55 at μ = 3.2:  knot 10 124 , (e) St 45 at μ = 2.6:  knot 10 139 , (f) St 54 at μ = 4.6:  a coil with the topology of the trivial knot. Spherical particles are shown at the top in each case, with the underlying chain of dipoles below. The color changes smoothly along the chain.
+3.2 Basin-Sampling and Global Thermodynamics. The basin-sampling approach to thermodynamics is closely related to basin-hopping global optimization (section 3.1). 10 It provides an approximate total energy density of states using a summation over the partition functions of local potential energy minima (or “inherent structures”), i.e., a superposition approach. 19,60,77,102,136,156,158,164 The microcanonical and canonical formulations of the superposition method are where Ω α ( E ) and Z α ( T ) are the microcanonical density of states and canonical partition function for local minimum α, respectively. These expressions are rigorous if we decompose the configuration space into contributions associated with all the local minima. Furthermore, the derived thermodynamic properties are naturally ergodic.
+To employ a superposition approach for larger systems we must sample the local minima appropriately, and the first step in a basin-sampling calculation is to obtain the potential energy density of minima using a Wang−Landau-type 91,170,171 flat histogram procedure. 10 As for basin-hopping, large steps are taken in configuration space, followed by energy minimization. However, configurations are not reset to the corresponding local minima, so that detailed balance is satisfied. A few local minima are saved from each potential energy bin, and a further Wang−Landau sampling is employed for each one to obtain an anharmonic vibrational density of states.
+Two approximations are required to obtain the final Ω( E ). The initial sampling of local minima yields a probability distribution convoluted with the relative volumes of the basins of attraction. To estimate these relative volumes we accumulate the average distance moved during minimizations within each energy bin and use ratios of these distances raised to a power corresponding to the number of degrees of freedom. 10 To obtain the vibrational partition functions we must confine the sampling to one particular local minimum, which is achieved using a distance constraint (or “tether”). 10
+Results for 38- and 55-atom clusters bound by the Lennard-Jones potential, 80 i.e., LJ 38 and LJ 55 , are discussed in section 4. The disconnectivity graph and heat capacity are illustrated for a smaller Lennard-Jones cluster, LJ 31 , in Figure 5 . For this size there are two competing low-energy minima, both based on icosahedral packing, but with alternative Mackay and anti-Mackay overlayers. 42 There is also a relatively low-lying minimum based on decahedral packing. In the anti-Mackay overlayer atoms are added to the faces and vertices of the underlying LJ 13 icosahedron, and this growth scheme is usually most favorable for low surface coverage. However, it is the Mackay overlayer, where atoms are added above the edges and vertices of the 13-atom icosahedron, which leads to the next complete icosahedron at 55 atoms. The low-temperature heat capacity peak (Figure 5) corresponds to a solid−solid transition between low-lying minima with alternative overlayers. At the transition temperature, k B T is small compared to the effective potential energy barrier, and so conventional sampling methods suffer from broken ergodicity. Basin-sampling is particularly efficient for such systems 10 and provides results that are in good agreement with lengthier parallel tempering runs. 10
+
+Figure 5 (top) Disconnectivity graph for LJ 31 illustrating the low-lying structures based on icosahedral packing with different overlayers, as well as a decahedral minimum. 42 The energy is in units of the pair well depth. (bottom) Heat capacity for LJ 31 calculated using basin-sampling (BS) 10 and parallel tempering (PT). 62,71,78,139,140 The low-temperature peak corresponds to a solid−solid transition between structures with alternative overlayers.
+
+Figure 6 Time evolution of the occupation probabilities for three groups of local minima in met-enkephalin at 298 K. The initial state at t = 0 corresponds to a high-temperature distribution (800 K). 50
+3.3 Discrete Path Sampling and Global Kinetics. The simulation of “rare events” continues to attract much attention. 2,11,34,52,85,90,122,130,134,143,148,157,159 Methods that employ samples of local minima and transition states from the PES have been applied to study a variety of systems. 4-7,49,88,107,108,111,112 The discrete path sampling (DPS) approach was introduced to provide a more systematic way to produce stationary point databases that are appropriate for analyzing kinetics. 157-159 A number of applications have now been presented, 21,23,50,51,157,159 and full details can be found in a recent review. 161
+A discrete path is here defined as a sequence of local minima together with the transition states that connect them. If our objective is to calculate phenomenological rate constants between states A and B, then we first require order parameters that enable us to classify every minimum as A, B, or I in character, where the I (intervening) set contains all the minima outside the A and B regions. Discrete paths between A and B may contain a single transition state, but for structures that are distant in configuration space the paths may involve hundreds of steps. The stationary point database begins with a single discrete path between A and B. It grows by addition of minima and transition states from successive double- or single-ended searches (section 3), 161 building upon earlier approaches. 33,45
+Once a database has been constructed we can extract overall rate constants using either master equation, 149 matrix multiplication, 157,159 kinetic Monte Carlo (KMC), 12,57,63,64 or graph transformation 143,144,161 techniques. The dimension of the problem can also be reduced by regrouping and pruning the database. 23,49,50,51 For a fixed database of stationary points the graph transformation approach is now our preferred method, since it does not suffer from exponential slowdown at low temperature; in fact the computational cost is temperature independent.
+It is instructive to consider three different formulations of the A ↔ B rate constants, and we will use the A ← B rate constant, k AB , for specificity. The simplest result, , corresponds to local equilibrium within both the A and B regions, along with a steady-state approximation for minima in the I region. If the steady-state approximation is relaxed we obtain , and if the local equilibrium condition is relaxed as well the rate constant will be written as , since it corresponds to the KMC result. These rate constants can be formulated as Here and are the equilibrium occupation probabilities of minimum b ∈B and of the B region itself, is the (committor) probability that a path starting from minimum b will reach the A region before the B region, and τ b , t b and 𝒯 Ab are characteristic times. τ b = 1/Σ α k α b , which is the expected waiting time for escape from minimum b into any of the adjacent minima that are connected to it via a single transition state. This formula results from treating the different escape routes as competing Poisson processes with rate constants k α b . t b is the waiting time for a trajectory initiated in minimum b to reach any A or B minimum, and 𝒯 Ab is the mean first-passage time from b to any minimum a ∈A. The local equilibrium condition enables us to eliminate revisits to B minima in the SS and NSS formulations, 161 while the steady-state condition requires all the waiting times in intermediate minima to be small, in which case t b tends to τ b . The graph transformation approach can be used to calculate all three of these rate constants. 144
+The first application of the DPS approach to a biological system was for the neurotransmitter pentapeptide met-enkephalin 50 (NH 3 + -Tyr-Gly-Gly-Phe-Met-COO - ) using the CHARMM19 force field 13 and the EEF1 implicit solvation potential. 93 A number of previous studies have considered the thermodynamics of this system, 71,72,96,138 while experiments suggest that the folded state in solution extends over a number of conformations. 68 The simulations usually suggest that two beta structures predominate at 298 K, with type II and type II‘ turns (Figure 6). Basin-hopping global optimization indicates that the type II‘ turn is the global potential energy minimum for the CHARMM19/EEF1 representation, 50 and structures of this form are also the most populated in equilibrium at 298 K. For this system the stationary point database was grouped into structurally related configurations, which permitted the relaxation dynamics to be studied using the master equation approach. The occupation probabilities as a function of time for groups classified as extended, type II β turn, and type II‘ β turn are illustrated in Figure 6. Both the extended and type II β turn structures exhibit maxima before equilibrium is established, and could be considered as intermediates. However, it is the last step from type II to type II‘ configurations that is rate-determining, and the calculated rate constant is 3.1 × 10 7 s -1 at 298 K, 50 which agrees reasonably well with previous work. 48,128,174
+4. From Potential Energy to Free Energy Surfaces
+ARTICLE SECTIONS
+Jump To
+The results of early theoretical treatments and lattice model simulations that addressed protein folding 38,61,94,120,127,131,145,146 are often summarized in a sketch similar to Figure 7 . In this figure the width in the panel on the right indicates the entropy of the protein, and the vertical scale represents the potential energy (or enthalpy), not the free energy . Including changes in the entropy and potential energy of the solvent affects the magnitude, but not the sign, of the entropy and potential energy decreases on folding. 119,121 For proteins that exhibit two-state folding there is an equilibrium between two free energy minima, one for the high entropy denatured state, and one for the low potential energy native state. These characteristics are analogous to a first-order phase change, and considered in this light the folding process appears no more mysterious than a liquid to solid freezing transition.
+
+Figure 7 Schematic representation of changes in potential energy and entropy during protein folding (right), and some corresponding configurations (left). 14
+The “new” view of protein folding in terms of multiple pathways predicted from theory and lattice model simulations was contrasted with the “old” view, defined as “an analogy between protein folding and an ordinary chemical reaction that has a defined series of intermediates and a single rate-limiting step”. 3 The analogy with chemical reactions in small molecules can often be retained if we simply broaden our definition of the states and pathways to include sets of configurations with common structural features. 92,158 Implicit in this analysis is that some degrees of freedom are more important in describing the mechanism than others, which are therefore averaged over. This is, of course, precisely the procedure that is used to construct a free energy surface by projection onto one or more coordinates. The analogy with first-order phase transitions and nucleation also appears in various models of protein folding. 54,56,59,79,82,126,133,150,173 In favorable cases the critical contacts involved in nucleation may be identifiable from Φ-value analysis, 53,55,101 or from theory and simulation. 1,29,40,58,69,70,123,125,129,141,151
+In the remainder of this article the connection between potential and free energy surfaces will be developed in detail for two well-characterized atomic clusters, LJ 38 and LJ 55 , where order parameters have previously been employed to analyze equilibria between solid-like and liquid-like states. 28,41,43,89,99 For these finite systems the assignment of solid- or liquid-like characteristics is performed by considering properties such as the Lindemann criterion 97 on a suitable time scale. 9 The free energies correspond to constant volume conditions, since the clusters are placed in a spherical container to restrict the calculation to the bound configuration space. 99 The basin-sampling calculations described in section 3.2 provide a quantitative account of the configurational entropy over a set of potential energy bins. This configurational entropy includes both contributions from the potential energy density of local minima (the “inherent structure density” 158 ), and from the average vibrational configurational density of states for local minima within each bin. This information can be used to produce disconnectivity graphs that provide a direct representation of the configurational entropy as a function of the potential energy, as well as the connectivity between different regions of space. It is clearly not possible or desirable to locate all the local minima that contribute to the liquid-like state in these clusters. Instead, the graphs in Figures 8 and 9 are based on finite stationary point databases that are close to complete only in the low potential energy region. Instead the horizontal scale is used to indicate the cumulative configurational entropy contribution from the potential energy density of local minima, as calculated by basin-sampling. Specifically, the width of the envelope drawn around the graph at potential energy V α is made proportional to the total number of local minima with energies less than V α . More formally, if Ω IS ( V ) is the inherent structure density of minima, so that Ω IS ( V ) d V is the number of minima in the range V to V + d V , then the width is proportional to
+
+Figure 8 Disconnectivity graph, heat capacity and free energy surfaces for LJ 55 with a container radius of 3.1 σ. The width of the disconnectivity graph is scaled according to the natural logarithm of the total number of minima with potential energy less than V , i.e., ln G IS ( V ). The envelope of ln G IS ( V ) as a function of V is sketched in blue around the graph. Free energy surfaces as a function of V and Q 4 are shown for three temperatures, and the average potential energy for local minima of V contributing to the free energy minima is indicated by blue arrows from the disconnectivity graph for k B T /ε = 0.26 and 0.28. A representative structure is also shown above each free energy minimum. At k B T /ε = 0.26 there is a single free energy minimum corresponding to the global potential energy minimum, which is a Mackay icosahedron. 100 At the melting temperature, around k B T /ε = 0.285, solid-like and liquid-like structures are separated by a barrier along the V axis, and at high temperature only one free energy minimum remains, corresponding to the liquid-like state.
+
+Figure 9 Disconnectivity graph, heat capacity, and free energy surfaces for LJ 38 with a container radius of 2.25 σ. The width of the disconnectivity graph is scaled according to the natural logarithm of the total number of minima with potential energy less than V , i.e., ln G IS ( V ). The envelope of ln G IS ( V ) as a function of V is sketched in blue around the graph. Contributions from icosahedral and fcc regions can be separated at the bottom of this diagram. Free energy surfaces as a function of V and Q 4 are shown for four temperatures, and the average potential energy for minima of V contributing to the free energy minima is indicated by blue arrows from the disconnectivity graph. A representative structure is also shown above each free energy minimum. At k B T /ε = 0.10 there is a single minimum corresponding to the global potential energy minimum with a large value of Q 4 . At k B T /ε = 0.12 there is a small heat capacity feature corresponding to the solid−solid transition between structures based on fcc packing (large Q 4 ) and icosahedral packing (small Q 4 ); there is a barrier between these regions along the Q 4 axis. At the melting temperature, k B T /ε = 0.15, solid-like and liquid-like structures are separated by a barrier along the V axis, and at the highest temperature only one minimum remains, corresponding to the liquid-like state.
+LJ 55 represents a good “structure seeker”, where rapid relaxation to the Mackay icosahedral global minimum occurs over a wide range of temperature. The envelope of ln G IS ( V ) (Figure 8), which is related to the entropy contribution from the distribution of local minima, corresponds closely to the structure sketched in Figure 7. This “unfrustrated” potential energy surface, where all the low-lying minima correspond to the same morphology, results in a single heat capacity maximum corresponding to the finite system melting transition (Figure 8). 158 The corresponding free energy surfaces were calculated at low temperature, where the cluster behaves like a solid, at high temperature, where it behaves like a liquid, and at the melting temperature, defined by the position of the heat capacity peak. The two order parameters employed in this projection are the potential energy, V , and the bond-orientational order parameter Q 4 . 135,147 The free energy was obtained by accumulating a histogram of Q 4 values for each potential energy bin during the initial basin-sampling phase, along with some typical structures for later vibrational analysis. Surfaces were calculated using the appropriate weights for every ( V , Q 4 ) pair, multiplied by a Gaussian with variances σ Q 2 = 0.0004 and σ V 2 = 1.04 to produce a continuous representation.
+The free energy surfaces can also be considered in terms of “funneling” properties, with a double funnel for temperatures around the melting point, corresponding to the solid-like and liquid-like free energy minima. For a protein that exhibits two-state folding we would identify the corresponding minima with the unfolded and native states. At low temperature for LJ 55 the global potential energy minimum, a Mackay icosahedron, 100 dominates the thermodynamics. At the melting point the solid-like form includes structures identified as defective icosahedra, while the minima corresponding to the higher potential energy liquid-like phase are unsymmetrical. At high temperature the relevant configurations consist of irregular structures with high potential energy, and there is a single free energy minimum, as for low temperature.
+LJ 38 , on the other hand, could be considered a “frustrated” system. The global potential energy minimum is a truncated octahedron based on face-centered-cubic (fcc) packing, which is separated by a high potential energy barrier from minima identified as incomplete Mackay icosahedra. 41 The icosahedral region of configuration space is favored by entropy, while the octahedral region is favored by potential energy. This system therefore has two “palm tree” features in the PES, which can be thought of as potential energy “funnels” corresponding to different morphologies (Figure 9). This cluster has served as a useful benchmark for global optimization algorithms, 46,158,162,166 thermodynamic sampling, 20,41,108,116 and most recently for methods designed to treat rare event dynamics. 157-159
+In addition to the broad heat capacity peak corresponding to melting LJ 38 also exhibits a low-temperature feature at around k B T /ε = 0.12 (Figure 9), where ε is the pair well depth for the Lennard-Jones potential. This feature corresponds to a solid−solid transition between the global potential energy minimum and the low-lying icosahedral region of configuration space. At the transition temperature the corresponding barrier is large compared to k B T , and basin-sampling is much more efficient than parallel tempering. 10 The double potential energy funnel structure also results in a separation of relaxation time scales, 47,158 as for lattice models of polymers. 24-26 Direct relaxation to the fcc region is fast, but most trajectories initiated from states of high potential energy lead first to structures based on icosahedral packing, and only reach the fcc region on a much longer time scale that includes passage over the high potential energy barrier separating the two regions.
+The free energy surfaces in Figure 9 are again plotted as a function of V and Q 4 , as for LJ 55 , but with Gaussian variances of σ Q 2 = 0.0004 and σ V 2 = 1.04. At low temperature there is a single free energy minimum corresponding to the global potential energy minimum based on fcc packing. However at k B T /ε = 0.12 we see a double minimum, separated by a barrier along the Q 4 axis, corresponding to the low temperature heat capacity feature in Figure 9, where structures based on icosahedral and fcc packing are almost equally populated. At the melting temperature these two minima are no longer distinguishable, and we now see a double minimum corresponding to the solid-like and liquid-like states with a barrier along the V axis. Finally, at the highest temperature considered, only one minimum remains corresponding to the liquid-like state.
+5. Summary
+ARTICLE SECTIONS
+Jump To
+In this article we have focused upon stationary points of the potential energy surface, and how they can be used to gain insight into structure, dynamics, and thermodynamics at both a qualitative and a quantitative level. This coarse-grained approach provides the basis for calculations of global minima, global thermodynamics, and global kinetics, via basin-hopping, basin-sampling, and discrete path sampling. The strengths and weaknesses of these methods are generally different from those of conventional approaches such as molecular dynamics. For example, basin-sampling has proved to be faster than parallel tempering for calculating total energy densities of states in systems with broken ergodicity, but requires two additional approximations. Similarly, discrete path sampling enables us to treat rare events from the viewpoint of geometry optimization. However, we must then rely on statistical rate theory to supply the necessary rate constants between adjacent minima, and we must sample sufficient stationary points of V to converge the phenomenological two-state rates.
+Taking a step back from free energy surfaces to consider the structure of the underlying potential energy surface can also help to connect the behavior of some apparently diverse systems. For example, the “palm tree” pattern visualised using disconnectivity graphs is identified with a potential energy “funnel”, and with landscapes that support efficient relaxation to the global minimum. If more than one such feature is present we may see additional heat capacity features corresponding to changes in morphology. Such landscapes are associated with multiple relaxation time scales and can be considered “frustrated”.
+A potential energy surface that is organized approximately according to the “palm tree” pattern will generally give rise to single free energy minima at high and low temperature. However, we also expect to see a double free energy minimum over an intermediate temperature range, corresponding to equilibrium between the high entropy and low potential energy regions of configuration space. For proteins that fold according to two-state behavior we would identify these two minima with the unfolded and native states. Of course, this situation represents an ideal case, and more complex landscapes certainly exist, both for molecules and condensed phases. We expect to address such systems in future work.
+Author Information
+ARTICLE SECTIONS
+Jump To
+
+    Authors
+        David J. Wales - University Chemical Laboratories, Lensfield Road, Cambridge CB2 1EW, UK
+        Tetyana V. Bogdan - University Chemical Laboratories, Lensfield Road, Cambridge CB2 1EW, UK
+
+Biographies
+ARTICLE SECTIONS
+Jump To
+
+David J. Wales is a Reader in Chemical Physics in the Chemistry Department at Cambridge University. He received his B.A. from Cambridge in 1985 and his Ph.D. in 1988. He was awarded the Sc.D. degree in 2004. Dr. Wales spent 1989 as a Lindemann Trust Fellow at the University of Chicago, working with Professor Steve Berry. He returned to a Research Fellowship in Cambridge in 1990, was a Lloyd's of London Tercenterary Fellow in 1991, and a Royal Society University Research Fellow from 1991 to 1998. In 1998, he was appointed to a Lectureship in Cambridge, and became a Reader in 2004. His research primarily involves the exploration of energy landscapes, with applications to clusters, biomolecules, and supercooled liquids and glasses.
+
+Tetyana V. Bogdan received her B.A. and S.D. degrees in the Ukraine at the National University of Kyiv-Mohyla Academy in the Department of Physical and Mathematical Sciences. In 2006, she obtained her Ph.D. from the University of Cambridge under the supervision of Dr. David J. Wales. Currently she is a post-doctoral research associate in the Chemistry Department at Cambridge. Her research interests include topological thermodynamic properties of potential energy and free energy surfaces, finite size phase changes, and catastrophe theory.
+Acknowledgment
+ARTICLE SECTIONS
+Jump To
+
+We gratefully acknowledge the assistance of Dr. Mark Miller and Dr. Joanne Carr with some of the graphics, and Dr. Michael Prentiss for his comments on the original manuscript.
+
+This article references 176 other publications.
+
+    1
+    Abkevich, V. I.; Gutin, A. M.; Shakhnovich, E. I. Biochemistry 1994 , 33 , 10026.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    2
+    Allen, R. J.; Frenkel, D.; Wolde, P. R. t. J. Chem. Phys. 2006 , 124 , 024102.
+    Google Scholar
+    3
+    Baldwin, R. L. Nature 1994 , 369 , 183.
+    Google Scholar
+    4
+    Ball, K. D.; Berry, R. S. J. Chem. Phys. 1998 , 109 , 8557.
+    Google Scholar
+    5
+    Ball, K. D.; Berry, R. S. J. Chem. Phys. 1998 , 109 , 8541.
+    Google Scholar
+    6
+    Ball, K. D.; Berry, R. S. J. Chem. Phys. 1999 , 111 , 2060.
+    Google Scholar
+    7
+    Ball, K. D.; Berry, R. S.; Kunz, R. E.; Li, F.-Y.; Proykova, A.; Wales, D. J. Science 1996 , 271 , 963.
+    [ Crossref ], [ CAS ],  Google Scholar
+    8
+    Becker, O. M.; Karplus, M. J. Chem. Phys. 1997 , 106 , 1495.
+    Google Scholar
+    9
+    Berry, R. S.; Beck, T. L.; Davis, H. L.; Jellinek, J. Adv. Chem. Phys. 1988 , 70B , 75.
+    [ Crossref ],  Google Scholar
+    Bogdan, T. V.; Wales, D. J.; Calvo, F. J. Chem. Phys. 2006 , 124 , 044102.
+    Google Scholar
+    11
+    Bolhuis, P. G.; Chandler, D.; Dellago, C.; Geissler, P. L. Annu. Rev. Phys. Chem. 2002 , 53 , 291.
+    Google Scholar
+    12
+    Bortz, A. B.; Kalos, M. H.; Lebowitz, J. L. J. Comput. Phys. 1975 , 17 , 10.
+    Google Scholar
+    13
+    Brooks, B. R.; Bruccoleri, R. E.; Olafson, B. D.; States, D. J.; Swaminathan, S.; Karplus, M. J. Comput. Chem. 1983 , 4 , 187.
+    [ Crossref ], [ CAS ],  Google Scholar
+    14
+    Brooks, C. L.; Onuchic, J. N.; Wales, D. J. Science 2001 , 293 , 612.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    15
+    Bryngelson, J. D.; Onuchic, J. N.; Socci, N. D.; Wolynes, P. G. Proteins:  Struct., Funct. Genet. 1995 , 21 , 167.
+    Google Scholar
+    16
+    Bryngelson, J. D.; Wolynes, P. G. Proc. Natl. Acad. Sci. U.S.A. 1987 , 84 , 7524.
+    Google Scholar
+    17
+    Bryngelson, J. D.; Wolynes, P. G. J. Phys. Chem. 1989 , 93 , 6902.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    18
+    Bryngelson, J. D.; Wolynes, P. G. Biopolymers 1990 , 30 , 177.
+    Google Scholar
+    19
+    Burton, J. J. J. Chem. Phys. 1972 , 56 , 3133.
+    Google Scholar
+    Calvo, F.; Neirotti, J. P.; Freeman, D. L.; Doll, J. D. J. Chem. Phys. 2000 , 112 , 10350.
+    Google Scholar
+    21
+    Calvo, F.; Spiegelman, F.; Wales, D. J. J. Chem. Phys. 2003 , 118 , 8754.
+    Google Scholar
+    22
+    Carr, J. M.; Trygubenko, S. A.; Wales, D. J. J. Chem. Phys. 2005 , 122 , 234903.
+    Google Scholar
+    23
+    Carr, J. M.; Wales, D. J. J. Chem. Phys. 2005 , 123 , 234901.
+    Google Scholar
+    24
+    Chan, H. S.; Dill, K. J. Chem. Phys. 1993 , 99 , 2116.
+    Google Scholar
+    25
+    Chan, H. S.; Dill, K., J. Chem. Phys. 1994 , 100 , 9238.
+    Google Scholar
+    26
+    Chan, H. S.; Dill, K. Proteins:  Struct., Funct., Genet. 1998 , 30 , 2.
+    Google Scholar
+    27
+    Chartrand, G. Introductory Graph Theory ; Dover:  New York, 1985.
+    Google Scholar
+    28
+    Cheng, H.-P.; Li, X.; Whetten, R. L.; Berry, R. S. Phys. Rev. A 1992 , 46 , 791.
+    Google Scholar
+    29
+    Clementi, C.; Nymeyer, H.; Onuchic, J. N. J. Mol. Biol. 2000 , 298 , 937.
+    Google Scholar
+    Cornell, W. D.; Cieplak, P.; Bayly, C. I.; Gould, I. R.; Merz, K. M.; Ferguson, D. M.; Spellmeyer, D. C.; Fox, T.; Caldwell, J. W.; Kollman, P. A. J. Am. Chem. Soc. 1995 , 117 , 5179.
+    [ ACS Full Text ACS Full Text ], [ CAS ],  Google Scholar
+    31
+    Crick, F.; Watson, J. D. Nature 1956 , 177 , 473.
+    Google Scholar
+    32
+    Czerminski, R.; Elber, R. J. Chem. Phys. 1990 , 92 , 5580.
+    Google Scholar
+    33
+    Davis, H. L.; Wales, D. J.; Berry, R. S. J. Chem. Phys. 1990 , 92 , 4308.
+    Google Scholar
+    34
+    Dellago, C.; Bolhuis, P.; Geissler, P. L. Adv. Chem. Phys. 2002 , 123 , 1.
+    [ Crossref ], [ CAS ],  Google Scholar
+    35
+    Derreumaux, P. J. Chem. Phys. 1997 , 106 , 5260.
+    Google Scholar
+    36
+    Derreumaux, P. J. Chem. Phys. 1997 , 107 , 1941.
+    Google Scholar
+    37
+    Dijkstra, E. W. Numerische Math. 1959 , 1 , 269.
+    [ Crossref ],  Google Scholar
+    38
+    Dill, K. A.; Chan, H. S. Nature Struct. Biol. 1997 , 4 , 10.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    39
+    Dobson, C. M.; Sali, A.; Karplus, M. Angew. Chem., Int. Ed. Engl. 1998 , 37 , 868.
+    Google Scholar
+    Dokholyan, N. V.; Li, L.; Ding, F.; Shakhnovich, E. I. Proc. Natl. Acad. Sci. U.S.A. 2002 , 99 , 8637.
+    Google Scholar
+    41
+    Doye, J. P. K.; Miller, M. A.; Wales, D. J. J. Chem. Phys. 1999 , 110 , 6896.
+    Google Scholar
+    42
+    Doye, J. P. K.; Miller, M. A.; Wales, D. J. J. Chem. Phys. 1999 , 111 , 8417.
+    Google Scholar
+    43
+    Doye, J. P. K.; Wales, D. J. J. Chem. Phys. 1995 , 102 , 9673.
+    Google Scholar
+    44
+    Doye, J. P. K.; Wales, D. J. J. Chem. Phys. 1996 , 105 , 8428.
+    Google Scholar
+    45
+    Doye, J. P. K.; Wales, D. J. Z. Phys. D 1997 , 40 , 194.
+    [ Crossref ], [ CAS ],  Google Scholar
+    46
+    Doye, J. P. K.; Wales, D. J. Phys. Rev. Lett. 1998 , 80 , 1357.
+    Google Scholar
+    47
+    Doye, J. P. K.; Wales, D. J. J. Chem. Phys. 1999 , 111 , 11070.
+    Google Scholar
+    48
+    Dudowicz, J.; Freed, K. F.; Shen, M. J. Chem. Phys. 2003 , 118 , 1989.
+    Google Scholar
+    49
+    Evans, D. A.; Wales, D. J. J. Chem. Phys. 2003 , 118 , 3891.
+    Google Scholar
+    Evans, D. A.; Wales, D. J. J. Chem. Phys. 2003 , 119 , 9947.
+    Google Scholar
+    51
+    Evans, D. A.; Wales, D. J. J. Chem. Phys. 2004 , 121 , 1080.
+    Google Scholar
+    52
+    Faradjian, A. K.; Elber, R. J. Chem. Phys. 2004 , 120 , 10880.
+    Google Scholar
+    53
+    Fersht, A. Structure and Mechanism in Protein Science ; Freeman:  New York, 1999.
+    Google Scholar
+    54
+    Fersht, A. R. Proc. Natl. Acad. Sci. U.S.A. 1995 , 92 , 10869.
+    Google Scholar
+    55
+    Fersht, A. R. Curr. Opin. Struct. Biol. 1995 , 5 , 79.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    56
+    Fersht, A. R. Curr. Opin. Struct. Biol. 1997 , 7 , 3.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    57
+    Fichthorn, K. A.; Weinberg, W. H. J. Chem. Phys . 1991 , 95 , 1090.
+    Google Scholar
+    58
+    Finkelstein, A. V.; Badretdinov, A. Y. Fold. Des. 1997 , 2 , 115.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    59
+    Finkelstein, A. V.; Shakhnovich, E. I. Biopolymers 1989 , 28 , 1681.
+    Google Scholar
+    Franke, G.; Hilf, E. R.; Borrmann, P. J. Chem. Phys. 1993 , 98 , 3496.
+    Google Scholar
+    61
+    Frauenfelder, H.; Sligar, S. G.; Wolynes, P. G. Science 1991 , 254 , 1598.
+    Google Scholar
+    62
+    Geyer, G., In Computing Science and Statistics:  Proceedings of the 23rd Symposium on the Interface ; Keramidas, E. K., Ed.; 156. Inferface Foundation, Fairfax Station, 1991.
+    Google Scholar
+    63
+    Gillespie, D. T. J. Comput. Phys. 1976 , 22 , 403.
+    Google Scholar
+    64
+    Gilmer, G. H. Science 1980 , 208 , 335.
+    Google Scholar
+    65
+    Gō, N. Annu. Rev. Biophys. Bioeng. 1983 , 12 , 183.
+    Google Scholar
+    66
+    Gō, N.; Abe, H. Biopolymers 1981 , 20 , 991.
+    Google Scholar
+    67
+    Goldstein, R. A.; Luthey-Schulten, Z.; Wolynes, P. G. Proc. Natl. Acad. Sci. U.S.A. 1992 , 89 , 4918.
+    Google Scholar
+    68
+    Graham, W. H.; Carter, E. S., II; Hicks, R. P. Biopolymers 1992 , 32 , 1755.
+    Google Scholar
+    69
+    Gutin, A. M.; Abkevich, V. I.; Shakhnovich, E. I. Proc. Natl. Acad. Sci. U.S.A. 1995 , 92 , 1282.
+    Google Scholar
+    Gutin, A. M.; Abkevich, V. I.; Shakhnovich, E. I. Biochem. 1995 , 34 , 3066.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    71
+    Hansmann, U. H. E. Chem. Phys. Lett. 1997 , 281 , 140.
+    Google Scholar
+    72
+    Hansmann, U. H. E.; Okamoto, Y. J. Comput. Chem. 1993 , 14 , 1333.
+    Google Scholar
+    73
+    Henkelman, G.; Jónsson, H. J. Chem. Phys. 1999 , 111 , 7010.
+    [ Crossref ], [ CAS ],  Google Scholar
+    74
+    Henkelman, G.; Jónsson, H. J. Chem. Phys. 2000 , 113 , 9978.
+    [ Crossref ], [ CAS ],  Google Scholar
+    75
+    Henkelman, G.; Jónsson, H. J. Chem. Phys. 2001 , 115 , 9657.
+    Google Scholar
+    76
+    Henkelman, G.; Uberuaga, B. P.; Jónsson, H. J. Chem. Phys. 2000 , 113 , 9901.
+    [ Crossref ], [ CAS ],  Google Scholar
+    77
+    Hoare, M. R. Adv. Chem. Phys. 1979 , 40 , 49.
+    [ Crossref ], [ CAS ],  Google Scholar
+    78
+    Hukushima, K.; Nemoto, K. J. Phys. Soc. Jpn. 1996 , 65 , 1604.
+    [ Crossref ], [ CAS ],  Google Scholar
+    79
+    Itzhaki, L. S.; Otzen, D. E.; Fersht, A. R. J. Mol. Biol. 1995 , 254 , 260.
+    Google Scholar
+    Jones, J. E.; Ingham, A. E. Proc. R. Soc. A 1925 , 107 , 636.
+    [ Crossref ], [ CAS ],  Google Scholar
+    81
+    Jorgensen, W. L.; Chandrasekhar, J.; Madura, J. D.; Impey, R. W.; Klein, M. L. J. Chem. Phys. 1983 , 79 , 926.
+    [ Crossref ], [ CAS ],  Google Scholar
+    82
+    Karplus, M.; Weaver, D. L. Protein Sci. 1994 , 3 , 650.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    83
+    Komatsuzaki, T.; Hoshino, K.; Matsunaga, Y.; Rylance, G. J.; Johnston, R. L.; Wales, D. J. J. Chem. Phys. 2005 , 122 , 084714.
+    Google Scholar
+    84
+    Krivov, S. V.; Karplus, M. J. Chem. Phys. 2002 , 117 , 10894.
+    Google Scholar
+    85
+    Kudin, K. N.; Car, R. J. Chem. Phys. 2005 , 122 , 114108.
+    Google Scholar
+    86
+    Kumeda, Y.; Munro, L. J.; Wales, D. J. Chem. Phys. Lett. 2001 , 341 , 185.
+    Google Scholar
+    87
+    Kumeda, Y.; Wales, D. J. Chem. Phys. Lett. 2003 , 374 , 125.
+    Google Scholar
+    88
+    Kunz, R. E.; Berry, R. S. J. Chem. Phys. 1995 , 103 , 1904.
+    Google Scholar
+    89
+    Labastie, P.; Whetten, R. L. Phys. Rev. Lett. 1990 , 65 , 1567.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    Laio, A.; Parrinello, M. Proc. Natl. Acad. Sci. U.S.A. 2002 , 99 , 12562.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    91
+    Landau, D. P.; Tsai, S.-H.; Exler, M. Am. J. Phys. 2004 , 72 , 1294.
+    [ Crossref ],  Google Scholar
+    92
+    Lazaridis, T.; Karplus, M. Science 1997 , 278 , 1928.
+    Google Scholar
+    93
+    Lazaridis, T.; Karplus, M. Proteins:  Struct., Funct. Genet. 1999 , 35 , 133.
+    Google Scholar
+    94
+    Leopold, P. E.; Montal, M.; Onuchic, J. N. Proc. Natl. Acad. Sci. U.S.A. 1992 , 89 , 8721.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    95
+    Levinthal, C., In Mössbauer Spectroscopy in Biological Systems, proceedings of a meeting held at Allerton House, Monticello, Illinois , 22; DeBrunner, P.; Tsibris, J.; Munck, E., Eds.; University of Illinois Press:  Urbana, 1969.
+    Google Scholar
+    96
+    Li, Z.; Scheraga, H. A. Proc. Natl. Acad. Sci. U.S.A. 1987 , 84 , 6611.
+    Google Scholar
+    97
+    Lindemann, F. A. Phys. Z. 1910 , 11 , 609.
+    [ CAS ],  Google Scholar
+    98
+    Liu, D.; Nocedal, J. Math. Prog. 1989 , 45 , 503.
+    [ Crossref ],  Google Scholar
+    99
+    Lynden-Bell, R. M.; Wales, D. J. J. Chem. Phys. 1994 , 101 , 1460.
+    Google Scholar
+    Mackay, A. L. Acta Crystallogr. 1962 , 15 , 916.
+    Google Scholar
+    Matouschek, A.; Kellis, J. T.; Serrano, L.; Fersht, A. R. Nature 1989 , 340 , 122.
+    Google Scholar
+    McGinty, D. J. J. Chem. Phys. 1971 , 55 , 580.
+    Google Scholar
+    Mezey, P. G. Potential Energy Hypersurfaces ; Elsevier:  Amsterdam, 1987.
+    Google Scholar
+    Middleton, T. F.; Hernández-Rojas, J.; Mortenson, P. N.; Wales, D. J. Phys. Rev. B 2001 , 64 , 184201.
+    [ Crossref ], [ CAS ],  Google Scholar
+    Middleton, T. F.; Wales, D. J. Phys. Rev. B 2001 , 64 , 024205.
+    Google Scholar
+    Middleton, T. F.; Wales, D. J. J. Chem. Phys. 2003 , 118 , 4583.
+    Google Scholar
+    Miller, M. A.; Doye, J. P. K.; Wales, D. J. Phys. Rev. E 1999 , 60 , 3701.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    Miller, M. A.; Doye, J. P. K.; Wales, D. J. J. Chem. Phys. 1999 , 110 , 328.
+    Google Scholar
+    Miller, M. A.; Wales, D. J. J. Chem. Phys. 1999 , 111 , 6610.
+    Google Scholar
+    Miller, M. A.; Wales, D. J. J. Phys. Chem. B 2005 , 109 , 23109.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    111
+    Mortenson, P. N.; Evans, D. A.; Wales, D. J. J. Chem. Phys. 2002 , 117 , 1363.
+    Google Scholar
+    112
+    Mortenson, P. N.; Wales, D. J. J. Chem. Phys. 2001 , 114 , 6443.
+    Google Scholar
+    113
+    Munro, L. J.; Wales, D. J. Faraday Discuss. 1997 , 106 , 409.
+    [ Crossref ], [ CAS ],  Google Scholar
+    114
+    Munro, L. J.; Wales, D. J. Phys. Rev. B 1999 , 59 , 3969.
+    [ Crossref ], [ CAS ],  Google Scholar
+    115
+    Murrell, J. N.; Laidler, K. J. Trans. Faraday. Soc. 1968 , 64 , 371.
+    Google Scholar
+    116
+    Neirotti, J. P.; Calvo, F.; Freeman, D. L.; Doll, J. D. J. Chem. Phys. 2000 , 112 , 10340.
+    Google Scholar
+    117
+    Nocedal, J. Math. Comput. 1980 , 35 , 773.
+    [ Crossref ],  Google Scholar
+    118
+    Nymeyer, H.; García, A. E.; Onuchic, J. N. Proc. Natl. Acad. Sci. U.S.A. 1998 , 95 , 5921.
+    Google Scholar
+    119
+    Onuchic, J. N.; Luthey-Schulten, Z.; Wolynes, P. G. Annu. Rev. Phys. Chem. 1997 , 48 , 545.
+    Google Scholar
+    Onuchic, J. N.; Wolynes, P. G.; Luthey-Schulten, Z.; Socci, N. D. Proc. Natl. Acad. Sci. U.S.A. 1995 , 92 , 3626.
+    Google Scholar
+    121
+    Pande, V. S.; Grosberg, A. Y.; Tanaka, T.; Rokhsar, D. S. Curr. Opin. Struct. Biol. 1998 , 8 , 68.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    122
+    Passerone, D.; Parrinello, M. Phys. Rev. Lett. 2001 , 87 , 108302.
+    Google Scholar
+    123
+    Portman, J. J.; Takada, S.; Wolynes, P. G. Phys. Rev. Lett. 1998 , 81 , 5237.
+    Google Scholar
+    124
+    Ruotolo, B. T.; Giles, K.; Campuzano, I.; Sandercock, A. M.; Bateman, R. H.; Robinson, C. V. Sci. 2005 , 310 , 1658.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    125
+    Shakhnovich, E. I.; Abkevich, V. I.; Ptitsyn, O. B. Nature 1996 , 379 , 96.
+    Google Scholar
+    126
+    Shakhnovich, E. I.; Finkelstein, A. V. Biopolymers 1989 , 28 , 1667.
+    Google Scholar
+    127
+    Shakhnovich, E. I.; Gutin, A. M. Biophys. Chem. 1989 , 34 , 187.
+    Google Scholar
+    128
+    Shen, M.; Freed, K. F. Biophys. J. 2002 , 82 , 1791.
+    Google Scholar
+    129
+    Shimada, J.; Shakhnovich, E. I. Proc. Natl. Acad. Sci. U.S.A. 2002 , 99 , 11175.
+    Google Scholar
+    Singhal, N.; Snow, C. D.; Pande, V. S. J. Chem. Phys. 2004 , 121 , 415.
+    Google Scholar
+    131
+    Socci, N. D.; Onuchic, J. N. J. Chem. Phys. 1994 , 101 , 1519.
+    Google Scholar
+    132
+    Socci, N. D.; Onuchic, J. N.; Wolynes, P. G. J. Chem. Phys. 1996 , 104 , 5860.
+    Google Scholar
+    133
+    Sosnick, T. R.; Shtilerman, M. D.; Mayne, L.; Englander, S. W. Proc. Natl. Acad. Sci. U.S.A. 1997 , 94 , 8545.
+    Google Scholar
+    134
+    Sriraman, S.; Kevrekidis, I. G.; Hummer, G. J. Phys. Chem. B 2005 , 109 , 6479.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    135
+    Steinhardt, P. J.; Nelson, D. R.; Ronchetti, M. Phys. Rev. B 1983 , 28 , 784.
+    Google Scholar
+    136
+    Stillinger, F. H.; Weber, T. A. Science 1984 , 225 , 983.
+    Google Scholar
+    137
+    Stillinger, F. H.; Weber, T. A. Phys. Rev. B 1985 , 31 , 5262.
+    Google Scholar
+    138
+    Sugita, Y.; Okamoto, Y. Chem. Phys. Lett. 1999 , 314 , 141.
+    Google Scholar
+    139
+    Swendsen, R. H.; Wang, J.-S. Phys. Rev. Lett. 1986 , 57 , 2607.
+    Google Scholar
+    Tesi, M. C.; van Rensburg, E. J. J.; Orlandini, E.; Whittington, S. G. J. Stat. Phys. 1996 , 82 , 155.
+    [ Crossref ],  Google Scholar
+    141
+    Thirumalai, D.; Guo, Z. Y. Biopolymers 1995 , 35 , 137.
+    Google Scholar
+    142
+    Trygubenko, S. A.; Wales, D. J. J. Chem. Phys. 2004 , 120 , 2082.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    143
+    Trygubenko, S. A.; Wales, D. J. Mol. Phys. 2006 , 104 , 1497.
+    [ Crossref ], [ CAS ],  Google Scholar
+    144
+    Trygubenko, S. A.; Wales, D. J. J. Chem. Phys. 2006 , 124 , 234110.
+    Google Scholar
+    145
+    Sali, A.; Shakhnovich, E.; Karplus, M. Nature 1994 , 369 , 248.
+    Google Scholar
+    146
+    Sali, A.; Shakhnovich, E.; Karplus, M. J. Mol. Biol. 1994 , 235 , 1614.
+    Google Scholar
+    147
+    van Duijneveldt, J. S.; Frenkel, D. J. Chem. Phys. 1992 , 96 , 4655.
+    Google Scholar
+    148
+    van Erp, T. S.; Moroni, D.; Bolhuis, P. G. J. Chem. Phys. 2003 , 118 , 7762.
+    Google Scholar
+    149
+    van Kampen, N. G. Stochastic Processes in Physics and Chemistry ; North-Holland:  Amsterdam, 1981.
+    Google Scholar
+    Veitshans, T.; Klimov, D.; Thirumalai, D. Fold. Des. 1997 , 2 , 1.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    151
+    Vendruscolo, M.; Dokholyan, N. V.; Paci, E.; Karplus, M. Phys. Rev. E 2002 , 65 , 061910.
+    Google Scholar
+    152
+    Verma, A.; Schug, A.; Lee, K. H.; Wenzel, W. J. Chem. Phys. 2006 , 124 , 044515.
+    Google Scholar
+    153
+    Wales, D. J. GMIN:  A program for basin-hopping global optimisation and basin-sampling thermodynamics . http://www-wales.ch.cam.ac.uk/software.html .
+    Google Scholar
+    154
+    Wales, D. J. OPTIM:  A program for optimising geometries and calculating pathways . http://www-wales.ch.cam.ac.uk/software.html .
+    Google Scholar
+    155
+    Wales, D. J. J. Chem. Soc., Faraday Trans. 1992 , 88 , 653.
+    Google Scholar
+    156
+    Wales, D. J. Mol. Phys. 1993 , 78 , 151.
+    [ Crossref ], [ CAS ],  Google Scholar
+    157
+    Wales, D. J. Mol. Phys. 2002 , 100 , 3285.
+    [ Crossref ], [ CAS ],  Google Scholar
+    158
+    Wales, D. J. Energy Landscapes ; Cambridge University Press:  Cambridge, 2003.
+    Google Scholar
+    159
+    Wales, D. J. Mol. Phys. 2004 , 102 , 891.
+    [ Crossref ], [ CAS ],  Google Scholar
+    Wales, D. J. Philos. Trans. R. Soc. A 2005 , 363 , 357.
+    [ Crossref ], [ CAS ],  Google Scholar
+    161
+    Wales, D. J. Int. Rev. Phys. Chem. 2006 , 25 , 237−282.
+    Google Scholar
+    162
+    Wales, D. J.; Doye, J. P. K. J. Phys. Chem. A 1997 , 101 , 5111.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    163
+    Wales, D. J.; Doye, J. P. K. J. Chem. Phys. 2003 , 119 , 12409.
+    Google Scholar
+    164
+    Wales, D. J.; Doye, J. P. K.; Miller, M. A.; Mortenson, P. N.; Walsh, T. R. Adv. Chem. Phys. 2000 , 115 , 1.
+    [ Crossref ],  Google Scholar
+    165
+    Wales, D. J.; Miller, M. A.; Walsh, T. R. Nature 1998 , 394 , 758.
+    Google Scholar
+    166
+    Wales, D. J.; Scheraga, H. A. Science 1999 , 285 , 1368.
+    [ Crossref ], [ PubMed ], [ CAS ],  Google Scholar
+    167
+    Wales, D. J.; Uppenbrink, J. Phys. Rev. B 1994 , 50 , 12342.
+    Google Scholar
+    168
+    Walsh, T. R.; Wales, D. J. J. Chem. Soc., Faraday Trans. 1996 , 92 , 2505.
+    Google Scholar
+    169
+    Walsh, T. R.; Wales, D. J. J. Chem. Phys. 1998 , 109 , 6691.
+    Google Scholar
+    Wang, F.; Landau, D. P. Phys. Rev. Lett. 2001 , 86 , 2050.
+    Google Scholar
+    171
+    Wang, F.; Landau, D. P. Phys. Rev. E 2001 , 64 , 056101.
+    Google Scholar
+    172
+    White, R. P.; Mayne, H. R. Chem. Phys. Lett. 1998 , 289 , 463.
+    Google Scholar
+    173
+    Wolynes, P. G. Proc. Natl. Acad. Sci. U.S.A. 1997 , 94 , 6170.
+    Google Scholar
+    174
+    Zaman, M. H.; Shen, M.; Berry, R. S.; Freed, K. F. J. Phys. Chem. B 2003 , 107 , 1685.
+    [ ACS Full Text ACS Full Text ],  Google Scholar
+    175
+    Zwanzig, R. Proc. Natl. Acad. Sci. U.S.A. 1995 , 92 , 9801.
+    Google Scholar
+    176
+    Zwanzig, R.; Szabo, A.; Bagchi, B. Proc. Natl. Acad. Sci. U.S.A. 1992 , 89 , 20.
+    Google Scholar
+
+Cited By
+
+This article is cited by 148 publications.
+
+    Amirhossein Taghavi, Ivan Riveros, David J. Wales, Ilyas Yildirim . Evaluating Geometric Definitions of Stacking for RNA Dinucleoside Monophosphates Using Molecular Mechanics Calculations. Journal of Chemical Theory and Computation 2022, 18 (6) , 3637-3653. https://doi.org/10.1021/acs.jctc.2c00178
+    Xiaomi Guo, Lincan Fang, Yong Xu, Wenhui Duan, Patrick Rinke, Milica Todorović, Xi Chen . Molecular Conformer Search with Low-Energy Latent Space. Journal of Chemical Theory and Computation 2022 , Article ASAP.
+    Aoon Rizvi, Justin T. Mulvey, Brooke P. Carpenter, Rain Talosig, Joseph P. Patterson . A Close Look at Molecular Self-Assembly with the Transmission Electron Microscope. Chemical Reviews 2021, 121 (22) , 14232-14280. https://doi.org/10.1021/acs.chemrev.1c00189
+    Narendar Kolimi, Ashok Pabbathi, Nabanita Saikia, Feng Ding, Hugo Sanabria, Joshua Alper . Out-of-Equilibrium Biophysical Chemistry: The Case for Multidimensional, Integrated Single-Molecule Approaches. The Journal of Physical Chemistry B 2021, 125 (37) , 10404-10418. https://doi.org/10.1021/acs.jpcb.1c02424
+    Lincan Fang, Esko Makkonen, Milica Todorović, Patrick Rinke, Xi Chen . Efficient Amino Acid Conformer Search with Bayesian Optimization. Journal of Chemical Theory and Computation 2021, 17 (3) , 1955-1966. https://doi.org/10.1021/acs.jctc.0c00648
+    Thomas D. Swinburne, David J. Wales . Defining, Calculating, and Converging Observables of a Kinetic Transition Network. Journal of Chemical Theory and Computation 2020, 16 (4) , 2661-2679. https://doi.org/10.1021/acs.jctc.9b01211
+    James A. Ross-Naylor, Milan Mijajlovic, Mark J. Biggs . Energy Landscape Mapping and Replica Exchange Molecular Dynamics of an Adsorbed Peptide. The Journal of Physical Chemistry B 2020, 124 (13) , 2527-2538. https://doi.org/10.1021/acs.jpcb.9b10568
+    James A. Ross-Naylor, Milan Mijajlovic, Mark J. Biggs . Energy Landscapes of a Pair of Adsorbed Peptides. The Journal of Physical Chemistry B 2020, 124 (12) , 2401-2409. https://doi.org/10.1021/acs.jpcb.0c00859
+    Jacob M. Remington, Martin McCullagh, Bern Kohler . Molecular Dynamics Simulations of 2-Aminopurine-Labeled Dinucleoside Monophosphates Reveal Multiscale Stacking Kinetics. The Journal of Physical Chemistry B 2019, 123 (10) , 2291-2304. https://doi.org/10.1021/acs.jpcb.8b12172
+    Majid Jafari, Farahnoosh Doustdar, Faramarz Mehrnejad . Molecular Self-Assembly Strategy for Encapsulation of an Amphipathic α-Helical Antimicrobial Peptide into the Different Polymeric and Copolymeric Nanoparticles. Journal of Chemical Information and Modeling 2019, 59 (1) , 550-563. https://doi.org/10.1021/acs.jcim.8b00641
+    Corinne A. Lutomski, Nicholas A. Lyktey, Elizabeth E. Pierson, Zhongchao Zhao, Adam Zlotnick, Martin F. Jarrold . Multiple Pathways in Capsid Assembly. Journal of the American Chemical Society 2018, 140 (17) , 5784-5790. https://doi.org/10.1021/jacs.8b01804
+    Larissa Zibordi-Besse , Polina Tereshchuk , Anderson S. Chaves , and Juarez L. F. Da Silva . Ethanol and Water Adsorption on Transition-Metal 13-Atom Clusters: A Density Functional Theory Investigation within van der Waals Corrections. The Journal of Physical Chemistry A 2016, 120 (24) , 4231-4240. https://doi.org/10.1021/acs.jpca.6b03467
+    J. Alexander Liddle and Gregg M. Gallatin . Nanomanufacturing: A Perspective. ACS Nano 2016, 10 (3) , 2995-3014. https://doi.org/10.1021/acsnano.5b03299
+    Joshua Fern , Jennifer Lu , and Rebecca Schulman . The Energy Landscape for the Self-Assembly of a Two-Dimensional DNA Origami Complex. ACS Nano 2016, 10 (2) , 1836-1844. https://doi.org/10.1021/acsnano.5b05309
+    S. Alexis Paz and Ezequiel P. M. Leiva . Time Recovery for a Complex Process Using Accelerated Dynamics. Journal of Chemical Theory and Computation 2015, 11 (4) , 1725-1734. https://doi.org/10.1021/ct5009729
+    Ulrich J. Lorenz and Thomas R. Rizzo . Structural Melting of an Amino Acid Dimer upon Intersystem Crossing. Journal of the American Chemical Society 2014, 136 (42) , 14974-14980. https://doi.org/10.1021/ja507981p
+    Mai-Anh Ha , Jonny Dadras , and Anastassia Alexandrova . Rutile-Deposited Pt–Pd clusters: A Hypothesis Regarding the Stability at 50/50 Ratio. ACS Catalysis 2014, 4 (10) , 3570-3580. https://doi.org/10.1021/cs5011426
+    Yeonjoon Kim , Sunghwan Choi , and Woo Youn Kim . Efficient Basin-Hopping Sampling of Reaction Intermediates through Molecular Fragmentation and Graph Theory. Journal of Chemical Theory and Computation 2014, 10 (6) , 2419-2426. https://doi.org/10.1021/ct500136x
+    Susmita Roy and Biman Bagchi . Comparative Study of Protein Unfolding in Aqueous Urea and Dimethyl Sulfoxide Solutions: Surface Polarity, Solvent Specificity, and Sequence of Secondary Structure Melting. The Journal of Physical Chemistry B 2014, 118 (21) , 5691-5697. https://doi.org/10.1021/jp5037348
+    Marco A. Blanco , Erinc Sahin , Anne S. Robinson , and Christopher J. Roberts . Coarse-Grained Model for Colloidal Protein Interactions, B22, and Protein Cluster Formation. The Journal of Physical Chemistry B 2013, 117 (50) , 16013-16028. https://doi.org/10.1021/jp409300j
+    Daniel Asenjo , Jacob D. Stevenson , David J. Wales , and Daan Frenkel . Visualizing Basins of Attraction for Different Minimization Algorithms. The Journal of Physical Chemistry B 2013, 117 (42) , 12717-12723. https://doi.org/10.1021/jp312457a
+    Gustavo G. Rondina and Juarez L. F. Da Silva . Revised Basin-Hopping Monte Carlo Algorithm for Structure Optimization of Clusters and Nanoparticles. Journal of Chemical Information and Modeling 2013, 53 (9) , 2282-2298. https://doi.org/10.1021/ci400224z
+    Victor Rühle , Halim Kusumaatmaja , Dwaipayan Chakrabarti , and David J. Wales . Exploring Energy Landscapes: Metrics, Pathways, and Normal-Mode Analysis for Rigid-Body Molecules. Journal of Chemical Theory and Computation 2013, 9 (9) , 4026-4034. https://doi.org/10.1021/ct400403y
+    Susmita Roy and Biman Bagchi . Chemical Unfolding of Chicken Villin Headpiece in Aqueous Dimethyl Sulfoxide Solution: Cosolvent Concentration Dependence, Pathway, and Microscopic Mechanism. The Journal of Physical Chemistry B 2013, 117 (16) , 4488-4502. https://doi.org/10.1021/jp308589b
+    Pedro Sfriso , Agusti Emperador , Laura Orellana , Adam Hospital , Josep Lluis Gelpí , and Modesto Orozco . Finding Conformational Transition Pathways from Discrete Molecular Dynamics Simulations. Journal of Chemical Theory and Computation 2012, 8 (11) , 4707-4718. https://doi.org/10.1021/ct300494q
+    Johann Lacava , Philip Born , and Tobias Kraus . Nanoparticle Clusters with Lennard-Jones Geometries. Nano Letters 2012, 12 (6) , 3279-3282. https://doi.org/10.1021/nl3013659
+    Eric Jankowski and Sharon C. Glotzer . Calculation of Partition Functions for the Self-Assembly of Patchy Particles. The Journal of Physical Chemistry B 2011, 115 (48) , 14321-14326. https://doi.org/10.1021/jp206430z
+    Mark T. Oakley , David J. Wales , and Roy L. Johnston . Energy Landscape and Global Optimization for a Frustrated Model Protein. The Journal of Physical Chemistry B 2011, 115 (39) , 11525-11529. https://doi.org/10.1021/jp207246m
+    Lívia B. Pártay , Albert P. Bartók and Gábor Csányi . Efficient Sampling of Atomic Configurational Spaces. The Journal of Physical Chemistry B 2010, 114 (32) , 10502-10512. https://doi.org/10.1021/jp1012973
+    Sara Fortuna and Alessandro Troisi . Agent-Based Modeling for the 2D Molecular Self-Organization of Realistic Molecules. The Journal of Physical Chemistry B 2010, 114 (31) , 10151-10159. https://doi.org/10.1021/jp103950m
+    Sara Fortuna and Alessandro Troisi . An Artificial Intelligence Approach for Modeling Molecular Self-assembly: Agent-based Simulations of Rigid Molecules. The Journal of Physical Chemistry B 2009, 113 (29) , 9877-9885. https://doi.org/10.1021/jp9030442
+    Pavel I. Zhuravlev , Christopher Kroboth Materese and Garegin A. Papoian . Deconstructing the Native State: Energy Landscapes, Function, and Dynamics of Globular Proteins. The Journal of Physical Chemistry B 2009, 113 (26) , 8800-8812. https://doi.org/10.1021/jp810659u
+    Milo M. Lin , Dmitry Shorokhov and Ahmed H. Zewail . Conformations and Coherences in Structure Determination by Ultrafast Electron Diffraction. The Journal of Physical Chemistry A 2009, 113 (16) , 4075-4093. https://doi.org/10.1021/jp8104425
+    Juan Torras , Gustavo de M. Seabra and Adrian E. Roitberg . A Multiscale Treatment of Angeli’s Salt Decomposition. Journal of Chemical Theory and Computation 2009, 5 (1) , 37-46. https://doi.org/10.1021/ct800236d
+    Joanne M. Carr and David J. Wales . Folding Pathways and Rates for the Three-Stranded β-Sheet Peptide Beta3s using Discrete Path Sampling. The Journal of Physical Chemistry B 2008, 112 (29) , 8760-8769. https://doi.org/10.1021/jp801777p
+    David J. Newman . Natural Products as Leads to Potential Drugs: An Old Process or the New Hope for Drug Discovery?. Journal of Medicinal Chemistry 2008, 51 (9) , 2589-2599. https://doi.org/10.1021/jm0704090
+    Mey Khalili and, David J. Wales . Pathways for Conformational Change in Nitrogen Regulatory Protein C from Discrete Path Sampling. The Journal of Physical Chemistry B 2008, 112 (8) , 2456-2465. https://doi.org/10.1021/jp076628e
+    Greg Ashton , Noam Bernstein , Johannes Buchner , Xi Chen , Gábor Csányi , Andrew Fowlie , Farhan Feroz , Matthew Griffiths , Will Handley , Michael Habeck , Edward Higson , Michael Hobson , Anthony Lasenby , David Parkinson , Livia B. Pártay , Matthew Pitkin , Doris Schneider , Joshua S. Speagle , Leah South , John Veitch , Philipp Wacker , David J. Wales , David Yallup . Nested sampling for physical scientists. Nature Reviews Methods Primers 2022, 2 (1) https://doi.org/10.1038/s43586-022-00121-x
+    Mark A. Wilson . Mapping Enzyme Landscapes by Time-Resolved Crystallography with Synchrotron and X-Ray Free Electron Laser Light. Annual Review of Biophysics 2022, 51 (1) , 79-98. https://doi.org/10.1146/annurev-biophys-100421-110959
+    Livia B. Pártay , Gábor Csányi , Noam Bernstein . Nested sampling for materials. The European Physical Journal B 2021, 94 (8) https://doi.org/10.1140/epjb/s10051-021-00172-1
+    Corey E. Hayford , Darren R. Tyson , C. Jack Robbins , Peter L. Frick , Vito Quaranta , Leonard A. Harris , . An in vitro model of tumor heterogeneity resolves genetic, epigenetic, and stochastic sources of cell state variability. PLOS Biology 2021, 19 (6) , e3000797. https://doi.org/10.1371/journal.pbio.3000797
+    Venkataramana Imandi , Prafulla Puri , Vivek Korde . The nature of catalytic species in the Wacker oxidation process-A review. Journal of Physics: Conference Series 2021, 1913 (1) , 012083. https://doi.org/10.1088/1742-6596/1913/1/012083
+    Eric R. Weeks , Keely Criddle . Visualizing free-energy landscapes for four hard disks. Physical Review E 2020, 102 (6) https://doi.org/10.1103/PhysRevE.102.062153
+    Thomas D. Swinburne , Deepti Kannan , Daniel J. Sharpe , David J. Wales . Rare events and first passage time statistics from the energy landscape. The Journal of Chemical Physics 2020, 153 (13) , 134115. https://doi.org/10.1063/5.0016244
+    Sankar Ghorai , Pulak Naskar , Pinaki Chaudhury . An investigation on the structure, spectroscopy, and thermodynamic aspects of clusters: A combined Parallel tempering and DFT based study. International Journal of Quantum Chemistry 2020, 120 (17) https://doi.org/10.1002/qua.26270
+    Rebecca N. D'Amico , Alec M. Murray , David D. Boehr . Driving Protein Conformational Cycles in Physiology and Disease: “Frustrated” Amino Acid Interaction Networks Define Dynamic Energy Landscapes. BioEssays 2020, 42 (9) , 2000092. https://doi.org/10.1002/bies.202000092
+    Sankar Ghorai , Pulak Naskar , Pinaki Chaudhury . Construction of elementary reaction paths of pure and mixed Argon-Xenon clusters : a parallel tempering based study. Structural Chemistry 2020, 31 (4) , 1429-1439. https://doi.org/10.1007/s11224-019-01486-8
+    Dmitri Leo M. Cordova , David C. Johnson . Synthesis of Metastable Inorganic Solids with Extended Structures. ChemPhysChem 2020, 21 (13) , 1345-1368. https://doi.org/10.1002/cphc.202000199
+    Andreas Erlebach , Irina Muljajew , Mingzhe Chi , Christoph Bückmann , Christine Weber , Ulrich S. Schubert , Marek Sierka . Predicting Solubility of Small Molecules in Macromolecular Compounds for Nanomedicine Application from Atomistic Simulations. Advanced Theory and Simulations 2020, 3 (5) , 2000001. https://doi.org/10.1002/adts.202000001
+    Felix Gabler , Dmitriy D. Karnaushenko , Daniil Karnaushenko , Oliver G. Schmidt . Magnetic origami creates high performance micro devices. Nature Communications 2019, 10 (1) https://doi.org/10.1038/s41467-019-10947-x
+    Justin E. Elenewski , Kirill A. Velizhanin , Michael Zwolak . Topology, landscapes, and biomolecular energy transport. Nature Communications 2019, 10 (1) https://doi.org/10.1038/s41467-019-12700-w
+    Henrique M. Cezar , Gustavo G. Rondina , Juarez L. F. Da Silva . Thermodynamic properties of 55-atom Pt-based nanoalloys: Phase changes and structural effects on the electronic properties. The Journal of Chemical Physics 2019, 151 (20) , 204301. https://doi.org/10.1063/1.5125689
+    Pulak Naskar , Srijeeta Talukder , Subhasree Ghosh , Pinaki Chaudhury . Controlling the isomerization dynamics of iodide acetonitrile dimer complex by optimally designed electromagnetic field: A wave packet based approach. International Journal of Quantum Chemistry 2019, 119 (14) , e25927. https://doi.org/10.1002/qua.25927
+    Konstantin Röder , Jerelle A. Joseph , Brooke E. Husic , David J. Wales . Energy Landscapes for Proteins: From Single Funnels to Multifunctional Systems. Advanced Theory and Simulations 2019, 2 (4) , 1800175. https://doi.org/10.1002/adts.201800175
+    C. O. S. Sorzano , A. Jiménez , J. Mota , J. L. Vilas , D. Maluenda , M. Martínez , E. Ramírez-Aportela , T. Majtner , J. Segura , R. Sánchez-García , Y. Rancel , L. del Caño , P. Conesa , R. Melero , S. Jonic , J. Vargas , F. Cazals , Z. Freyberg , J. Krieger , I. Bahar , R. Marabini , J. M. Carazo . Survey of the analysis of continuous conformational variability of biological macromolecules by electron microscopy. Acta Crystallographica Section F Structural Biology Communications 2019, 75 (1) , 19-32. https://doi.org/10.1107/S2053230X18015108
+    Alexandre Nicolas , Ezequiel E. Ferrero , Kirsten Martens , Jean-Louis Barrat . Deformation and flow of amorphous solids: Insights from elastoplastic models. Reviews of Modern Physics 2018, 90 (4) https://doi.org/10.1103/RevModPhys.90.045006
+    Xiaojun Li , Shuna Li , Ziyi Wang , Xiaohui Yang , Zhijun Yan . A Frank-Kasper polyhedral structure of 17-atom vanadium clusters. Chemical Physics Letters 2018, 708 , 153-158. https://doi.org/10.1016/j.cplett.2018.08.024
+    A. Vigliotti , G. Csányi , V.S. Deshpande . Bayesian inference of the spatial distributions of material properties. Journal of the Mechanics and Physics of Solids 2018, 118 , 74-97. https://doi.org/10.1016/j.jmps.2018.05.007
+    Minh Khoa Nguyen , Léonard Jaillet , Stéphane Redon . Generating conformational transition paths with low potential-energy barriers for proteins. Journal of Computer-Aided Molecular Design 2018, 32 (8) , 853-867. https://doi.org/10.1007/s10822-018-0137-7
+    Justin E. Elenewski , Kirill A. Velizhanin , Michael Zwolak . A spin-1 representation for dual-funnel energy landscapes. The Journal of Chemical Physics 2018, 149 (3) , 035101. https://doi.org/10.1063/1.5036677
+    Sankar Ghorai , Pinaki Chaudhury . Predicting stability limits for pure and doped dicationic noble gas clusters undergoing coulomb explosion: A parallel tempering based study. Journal of Computational Chemistry 2018, 39 (14) , 827-838. https://doi.org/10.1002/jcc.25156
+    Xiangping Chen , Haiming Duan , Biaobing Cao , Mengqiu Long . The Global Optimization of Pt13 Cluster Using the First-Principle Molecular Dynamics with the Quenching Technique. Journal of Statistical Physics 2018, 171 (3) , 427-433. https://doi.org/10.1007/s10955-018-2003-3
+    Dhagash Mehta , Xiaojun Zhao , Edgar A. Bernal , David J. Wales . Loss surface of XOR artificial neural networks. Physical Review E 2018, 97 (5) https://doi.org/10.1103/PhysRevE.97.052307
+    Rijaul Haque Mirdha , Pulak Naskar , Pinaki Chaudhury . Mapping out reaction paths for conformational changes in (M g O) n clusters: a study based on a stochastic procedure. Structural Chemistry 2018, 29 (2) , 523-532. https://doi.org/10.1007/s11224-017-1049-1
+    B. Bishal Paudel , Leonard A. Harris , Keisha N. Hardeman , Arwa A. Abugable , Corey E. Hayford , Darren R. Tyson , Vito Quaranta . A Nonquiescent “Idling” Population State in Drug-Treated, BRAF-Mutated Melanoma. Biophysical Journal 2018, 114 (6) , 1499-1511. https://doi.org/10.1016/j.bpj.2018.01.016
+    Amanda L. Dewyer , Alonso J. Argüelles , Paul M. Zimmerman . Methods for exploring reaction space in molecular systems. WIREs Computational Molecular Science 2018, 8 (2) https://doi.org/10.1002/wcms.1354
+    Sergio Mejía-Rosales . Simulation of Metal Clusters and Nanostructures. 2018, ,, 289-326. https://doi.org/10.1007/978-3-319-68053-8_8
+    Yeonjoon Kim , Jaewook Kim , Kyung Yup Baek , Woo Youn Kim . Efficient structural elucidation of microhydrated biomolecules through the interrogation of hydrogen bond networks. Physical Chemistry Chemical Physics 2018, 20 (12) , 8185-8191. https://doi.org/10.1039/C7CP08372F
+    Yeonjoon Kim , Jin Woo Kim , Zeehyo Kim , Woo Youn Kim . Efficient prediction of reaction paths through molecular graph and reaction network analysis. Chemical Science 2018, 9 (4) , 825-835. https://doi.org/10.1039/C7SC03628K
+    Tuo Wang , Lu Wang , Qinjia Wang , Yanhui Liu , Xidong Hui . Pronounced Plasticity Caused by Phase Separation and β-relaxation Synergistically in Zr–Cu–Al–Mo Bulk Metallic Glasses. Scientific Reports 2017, 7 (1) https://doi.org/10.1038/s41598-017-01283-5
+    Rijaul Haque Mirdha , Pinaki Chaudhury . Constructing a bunch of paths for conformational changes in size specific noble gas cluster: a study using a stochastic procedure. Journal of Mathematical Chemistry 2017, 55 (10) , 1916-1933. https://doi.org/10.1007/s10910-017-0771-7
+    Ritankar Das , David J. Wales . Machine learning landscapes and predictions for patient outcomes. Royal Society Open Science 2017, 4 (7) , 170175. https://doi.org/10.1098/rsos.170175
+    C. Angelié , J.-M. Soudan . Nanothermodynamics of iron clusters: Small clusters, icosahedral and fcc-cuboctahedral structures. The Journal of Chemical Physics 2017, 146 (17) , 174303. https://doi.org/10.1063/1.4982252
+    David J. Wales . Atomic clusters with addressable complexity. The Journal of Chemical Physics 2017, 146 (5) , 054306. https://doi.org/10.1063/1.4974838
+    Baron Peters . Potential energy surfaces and dynamics. 2017, ,, 157-182. https://doi.org/10.1016/B978-0-44-456349-1.00007-6
+    Suhas Nahas , Akash Bajaj , Somnath Bhowmick . Polymorphs of two dimensional phosphorus and arsenic: insight from an evolutionary search. Physical Chemistry Chemical Physics 2017, 19 (18) , 11282-11288. https://doi.org/10.1039/C6CP08807D
+    John W. R. Morgan , Dhagash Mehta , David J. Wales . Properties of kinetic transition networks for atomic clusters and glassy solids. Physical Chemistry Chemical Physics 2017, 19 (37) , 25498-25508. https://doi.org/10.1039/C7CP03346J
+    Kyle Wm. Hall , Sheelagh Carpendale , Peter G. Kusalik . Evidence from mixed hydrate nucleation for a funnel model of crystallization. Proceedings of the National Academy of Sciences 2016, 113 (43) , 12041-12046. https://doi.org/10.1073/pnas.1610437113
+    Suhas Nahas , Anshu Gaur , Somnath Bhowmick . First principles prediction of amorphous phases using evolutionary algorithms. The Journal of Chemical Physics 2016, 145 (1) , 014106. https://doi.org/10.1063/1.4955105
+    Alberto M. Pintus , Federico G. Pazzona , Pierfranco Demontis , Giuseppe B. Suffritti . A network of discrete events for the representation and analysis of diffusion dynamics. The Journal of Chemical Physics 2015, 143 (18) , 184115. https://doi.org/10.1063/1.4935574
+    Zoe Cournia , Toby W. Allen , Ioan Andricioaei , Bruno Antonny , Daniel Baum , Grace Brannigan , Nicolae-Viorel Buchete , Jason T. Deckman , Lucie Delemotte , Coral del Val , Ran Friedman , Paraskevi Gkeka , Hans-Christian Hege , Jérôme Hénin , Marina A. Kasimova , Antonios Kolocouris , Michael L. Klein , Syma Khalid , M. Joanne Lemieux , Norbert Lindow , Mahua Roy , Jana Selent , Mounir Tarek , Florentina Tofoleanu , Stefano Vanni , Sinisa Urban , David J. Wales , Jeremy C. Smith , Ana-Nicoleta Bondar . Membrane Protein Structure, Function, and Dynamics: a Perspective from Experiments and Theory. The Journal of Membrane Biology 2015, 248 (4) , 611-640. https://doi.org/10.1007/s00232-015-9802-0
+    Zamaan Raza , Björn Alling , Igor A Abrikosov . Computer simulations of glasses: the potential energy landscape. Journal of Physics: Condensed Matter 2015, 27 (29) , 293201. https://doi.org/10.1088/0953-8984/27/29/293201
+    Frédéric Cazals , Tom Dreyfus , Dorian Mazauric , Christine-Andrea Roth , Charles H. Robert . Conformational ensembles and sampled energy landscapes: Analysis and comparison. Journal of Computational Chemistry 2015, 36 (16) , 1213-1231. https://doi.org/10.1002/jcc.23913
+    Satoshi Maeda , Yu Harabuchi , Yuriko Ono , Tetsuya Taketsugu , Keiji Morokuma . Intrinsic reaction coordinate: Calculation, bifurcation, and automated search. International Journal of Quantum Chemistry 2015, 115 (5) , 258-269. https://doi.org/10.1002/qua.24757
+    Emilio Martínez-Núñez . An automated method to find transition states using chemical dynamics simulations. Journal of Computational Chemistry 2015, 36 (4) , 222-234. https://doi.org/10.1002/jcc.23790
+    Cesare Nardini , Rachele Nerattini , Lapo Casetti . Density of states of the XY model: An energy landscape approach. Physica A: Statistical Mechanics and its Applications 2015, 420 , 229-245. https://doi.org/10.1016/j.physa.2014.11.002
+    Amy Kaczmarowski , Shujiang Yang , Izabela Szlufarska , Dane Morgan . Genetic algorithm optimization of defect clusters in crystalline materials. Computational Materials Science 2015, 98 , 234-244. https://doi.org/10.1016/j.commatsci.2014.10.062
+    H. Tetlow , J. Posthuma de Boer , I.J. Ford , D.D. Vvedensky , J. Coraux , L. Kantorovich . Growth of epitaxial graphene: Theory and experiment. Physics Reports 2014, 542 (3) , 195-295. https://doi.org/10.1016/j.physrep.2014.03.003
+    Alberto M. Pintus , Andrea Gabrieli , Federico G. Pazzona , Pierfranco Demontis , Giuseppe B. Suffritti . A coarse-grained method based on the analysis of short molecular dynamics trajectories for the simulation of non-Markovian dynamics of molecules adsorbed in microporous materials. The Journal of Chemical Physics 2014, 141 (7) , 074109. https://doi.org/10.1063/1.4890743
+    Lewis C. Smeeton , Mark T. Oakley , Roy L. Johnston . Visualizing energy landscapes with metric disconnectivity graphs. Journal of Computational Chemistry 2014, 35 (20) , 1481-1490. https://doi.org/10.1002/jcc.23643
+    Antonio B. Oliveira , Francisco M. Fatore , Fernando V. Paulovich , Osvaldo N. Oliveira , Vitor B. P. Leite , . Visualization of Protein Folding Funnels in Lattice Models. PLoS ONE 2014, 9 (7) , e100861. https://doi.org/10.1371/journal.pone.0100861
+    Srijeeta Talukder , Shrabani Sen , Rahul Sharma , Suman K. Banik , Pinaki Chaudhury . A generalized recipe to construct elementary or multi-step reaction paths via a stochastic formulation: Application to the conformational change in noble gas clusters. Chemical Physics 2014, 431-432 , 5-14. https://doi.org/10.1016/j.chemphys.2013.12.010
+    S. Alexis Paz , Ezequiel P.M. Leiva . Unveiling the mechanism of core–shell formation by counting the relative occurrence of microstates. Chemical Physics Letters 2014, 595-596 , 87-90. https://doi.org/10.1016/j.cplett.2014.01.048
+    Kenji Mochizuki , Chris S. Whittleston , Sandeep Somani , Halim Kusumaatmaja , David J. Wales . A conformational factorisation approach for estimating the binding free energies of macromolecules. Phys. Chem. Chem. Phys. 2014, 16 (7) , 2842-2853. https://doi.org/10.1039/C3CP53537A
+    Dhagash Mehta , Ciaran Hughes , Mario Schröck , David J. Wales . Potential energy landscapes for the 2D XY model: Minima, transition states, and pathways. The Journal of Chemical Physics 2013, 139 (19) , 194503. https://doi.org/10.1063/1.4830400
+    Srijeeta Talukder , Shrabani Sen , Soumya Ganguly Neogi , Pinaki Chaudhury . A parallel tempering based study of Coulombic explosion and identification of dissociating fragments in charged noble gas clusters. The Journal of Chemical Physics 2013, 139 (16) , 164312. https://doi.org/10.1063/1.4825404
+    David J. Wales . Surveying a complex potential energy landscape: Overcoming broken ergodicity using basin-sampling. Chemical Physics Letters 2013, 584 , 1-9. https://doi.org/10.1016/j.cplett.2013.07.066
+    Sandeep Somani , David J. Wales . Energy landscapes and global thermodynamics for alanine peptides. The Journal of Chemical Physics 2013, 139 (12) , 121909. https://doi.org/10.1063/1.4813627
+    Peter Käshammer , Talid Sinno . Interactions of twin boundaries with intrinsic point defects and carbon in silicon. Journal of Applied Physics 2013, 114 (8) , 083505. https://doi.org/10.1063/1.4819172
+    Debashish Chowdhury . Stochastic mechano-chemical kinetics of molecular motors: A multidisciplinary enterprise from a physicist’s perspective. Physics Reports 2013, 529 (1) , 1-197. https://doi.org/10.1016/j.physrep.2013.03.005 
+
+Load all citations
+
+    Figures
+    References 
+
+    Figure 1 One-dimensional potential energy functions (left) and the corresponding disconnectivity graphs (right). The dotted lines indicate the energies at which a superbasin analysis was performed.
+
+    Figure 2 Panels a−d illustrate “palm tree” disconnectivity graphs that arise in four different systems. Panels e and f illustrate the “willow tree” and “banyan tree” patterns. (a) Disconnectivity graph for a cluster of 13 atoms bound by the Lennard-Jones potential, 80 LJ 13 , including all the 1,467 local minima identified for this system in previous work. 42 The global minimum is a Mackay icosahedron 100 and the next-lowest minima correspond to the three distinct capping sites when one atom is removed from the icosahedral shell and placed on the surface. The energy is in units of the pair well depth. (b) Disconnectivity graph for an icosahedral shell composed of twelve pentagonal pyramids. 160 Low-lying minima are illustrated near to their corresponding branches in the graph. The energy is in reduced units. 160 (c) Disconnectivity graph for a bulk representation of silicon using the Stillinger−Weber potential 137 and a supercell containing 216 atoms; 105 ε is the pair well depth. (d) Disconnectivity graph for the polyalanine peptide ala 16 calculated with the AMBER95 potential 30 and a distance-dependent dielectric. 111 The energy is in kcal/mol relative to the global minimum. (e) Disconnectivity graph for C 60 where the stationary points were calculated using density functional theory with the BLYP functional. 87 (f) Disconnectivity graph for a (H 2 O) 20 cluster described by the rigid molecule TIP4P 81 potential. 165 This system exhibits a hierarchical structure:  sets of minima are disconnected together when certain edges of the graph are removed.
+
+    Figure 3 Global optimization results for 1UZC (an FF domain containing 71 amino acids from HYPA/FBP11). 23 From left to right:  minimized protein data bank (PDB) structure; lowest energy structure from an unbiased run [9.7 Å root-mean-square deviation (RMSD)]; low-energy minimum from an unbiased basin-hopping run with the smallest RMSD from the minimized PDB structure (9.3 Å); low-energy minimum from the biased run with the smallest RMSD from the minimized PDB structure (5.0 Å).
+
+    Figure 4 Global minima for selected Stockmeyer clusters containing N dipolar particles, denoted St N . 110 (a) St 38 at μ = 3.6:  the trefoil knot 3 1 , (b) St 35 at μ = 2.8:  knot 5 1 , (c) St 38 at μ = 1.6:  knot 8 19 , (d) St 55 at μ = 3.2:  knot 10 124 , (e) St 45 at μ = 2.6:  knot 10 139 , (f) St 54 at μ = 4.6:  a coil with the topology of the trivial knot. Spherical particles are shown at the top in each case, with the underlying chain of dipoles below. The color changes smoothly along the chain.
+
+    Figure 5 (top) Disconnectivity graph for LJ 31 illustrating the low-lying structures based on icosahedral packing with different overlayers, as well as a decahedral minimum. 42 The energy is in units of the pair well depth. (bottom) Heat capacity for LJ 31 calculated using basin-sampling (BS) 10 and parallel tempering (PT). 62,71,78,139,140 The low-temperature peak corresponds to a solid−solid transition between structures with alternative overlayers.
+
+    Figure 6 Time evolution of the occupation probabilities for three groups of local minima in met-enkephalin at 298 K. The initial state at t = 0 corresponds to a high-temperature distribution (800 K). 50
+
+    Figure 7 Schematic representation of changes in potential energy and entropy during protein folding (right), and some corresponding configurations (left). 14
+
+    Figure 8 Disconnectivity graph, heat capacity and free energy surfaces for LJ 55 with a container radius of 3.1 σ. The width of the disconnectivity graph is scaled according to the natural logarithm of the total number of minima with potential energy less than V , i.e., ln G IS ( V ). The envelope of ln G IS ( V ) as a function of V is sketched in blue around the graph. Free energy surfaces as a function of V and Q 4 are shown for three temperatures, and the average potential energy for local minima of V contributing to the free energy minima is indicated by blue arrows from the disconnectivity graph for k B T /ε = 0.26 and 0.28. A representative structure is also shown above each free energy minimum. At k B T /ε = 0.26 there is a single free energy minimum corresponding to the global potential energy minimum, which is a Mackay icosahedron. 100 At the melting temperature, around k B T /ε = 0.285, solid-like and liquid-like structures are separated by a barrier along the V axis, and at high temperature only one free energy minimum remains, corresponding to the liquid-like state.
+
+    Figure 9 Disconnectivity graph, heat capacity, and free energy surfaces for LJ 38 with a container radius of 2.25 σ. The width of the disconnectivity graph is scaled according to the natural logarithm of the total number of minima with potential energy less than V , i.e., ln G IS ( V ). The envelope of ln G IS ( V ) as a function of V is sketched in blue around the graph. Contributions from icosahedral and fcc regions can be separated at the bottom of this diagram. Free energy surfaces as a function of V and Q 4 are shown for four temperatures, and the average potential energy for minima of V contributing to the free energy minima is indicated by blue arrows from the disconnectivity graph. A representative structure is also shown above each free energy minimum. At k B T /ε = 0.10 there is a single minimum corresponding to the global potential energy minimum with a large value of Q 4 . At k B T /ε = 0.12 there is a small heat capacity feature corresponding to the solid−solid transition between structures based on fcc packing (large Q 4 ) and icosahedral packing (small Q 4 ); there is a barrier between these regions along the Q 4 axis. At the melting temperature, k B T /ε = 0.15, solid-like and liquid-like structures are separated by a barrier along the V axis, and at the highest temperature only one minimum remains, corresponding to the liquid-like state.
+
+Recommended Articles
+
+    Explicit Characterization of the Free Energy Landscape of pKID–KIX Coupled Folding and Binding ACS Central Science
+    Markov State Models: From an Art to a Science Journal of the American Chemical Society
+    gmx_MMPBSA: A New Tool to Perform End-State Free Energy Calculations with GROMACS Journal of Chemical Theory and Computation
+    Machine Learning Force Fields Chemical Reviews
+    g_mmpbsa —A GROMACS Tool for High-Throughput MM-PBSA Calculations Journal of Chemical Information and Modeling
+    ADVERTISEMENT
+
+back
+Partners
+Atypon
+Chorus
+Cope publication ethics
+Project Counter
+Crossref
+Crossref similarity check
+Orcid Connecting Research and Researchers
+Portico digital preservation service
+ACS Publications
+
+    1155 Sixteenth Street N.W.
+    Washington, DC 20036
+    Copyright © 2022
+    American Chemical Society
+
+About
+
+    About ACS Publications
+    ACS & Open Access
+    ACS Membership
+
+Resources and Information
+
+    Journals A-Z
+    Books and Reference
+    Advertising Media Kit
+    Institutional Sales
+    ACS Publishing Center
+    Privacy Policy
+    Terms of Use
+
+Support & Contact
+
+    Help
+    Live Chat
+    FAQ
+
+Connect with ACS Publications
+
+This website uses cookies to improve your user experience. By continuing to use the site, you are accepting our use of cookies. Read the ACS privacy policy .
+CONTINUE

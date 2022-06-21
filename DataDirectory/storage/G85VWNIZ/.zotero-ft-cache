@@ -1,0 +1,874 @@
+Advances in High Dimensional Quantum Entanglement
+Manuel Erhard,1, 2, ∗ Mario Krenn,1, 2, 3, 4, † and Anton Zeilinger1, 2, ‡
+1Vienna Center for Quantum Science & Technology (VCQ), Faculty of Physics, University of Vienna, Austria.
+2Institute for Quantum Optics and Quantum Information (IQOQI) Vienna, Austrian Academy of Sciences, Austria. 3Department of Chemistry & Computer Science, University of Toronto, Canada. 4Vector Institute for Artiﬁcial Intelligence, Toronto, Canada. (Dated: December 2, 2019)
+Since its discovery in the last century, quantum entanglement has challenged some of our most cherished classical views, such as locality and reality. Today, the second quantum revolution is in full swing and promises to revolutionize areas such as computation, communication, metrology, and imaging. Here, we review conceptual and experimental advances in complex entangled systems involving many multilevel quantum particles. We provide an overview of the latest technological developments in the generation and manipulation of high-dimensionally entangled photonic systems encoded in various discrete degrees of freedom such as path, transverse spatial modes or time/frequency bins. This overview should help to transfer various physical principles for the generation and manipulation from one to another degree of freedom and thus inspire new technical developments. We also show how purely academic questions and curiosity led to new technological applications. Here fundamental research provides the necessary knowledge for coming technologies such as a prospective quantum internet or the quantum teleportation of all information stored in a quantum system. Finally, we discuss some important problems in the area of high-dimensional entanglement and give a brief outlook on possible future developments.
+
+arXiv:1911.10006v2 [quant-ph] 28 Nov 2019
+
+CONTENTS
+
+Acknowledgements
+
+15
+
+I. Introduction
+
+1
+
+References
+
+15
+
+II. New possibilities by increasing the number of
+
+particles and dimensions
+
+2
+
+I. INTRODUCTION
+
+III. Photonic carriers of high-dimensional
+
+entanglement
+
+4
+
+A. Path
+
+5
+
+B. Transverse Spatial modes of photons
+
+6
+
+C. Discretized Time and Frequency modes
+
+8
+
+D. Combining and converting diﬀerent DoFs 10
+
+IV. Experimental multi-photon entanglement in
+
+high-dimensions
+
+11
+
+A. Multi-Photon Entanglement in high
+
+Dimensions
+
+11
+
+1. Path
+
+12
+
+2. Spatial modes of photons
+
+12
+
+3. Discretized Time and Frequency modes 12
+
+4. Multiple degrees-of-freedom
+
+13
+
+B. Quantum Teleportation in high Dimensions 13
+
+1. Applications in Entanglement Swapping 14
+
+V. Future Directions for photonic high-dimensional
+
+Entanglement
+
+15
+
+∗ manuel.erhard@univie.ac.at † mario.krenn@univie.ac.at ‡ anton.zeilinger@univie.ac.at
+
+The basic unit of quantum information theory and technology is the qubit, which is based on a two-state system. Nature, however, uses a four-letter alphabet for the arguably most important storage system, the DNA. Although it is still unclear why evolution developed a four-letter system[1], it may give us an indication that we should also look at more complex systems than the one based on bits.
+In fact, it is known in quantum communication that protocols based on larger alphabets oﬀer certain advantages. In addition to a higher information capacity especially the increased resistance to noise is interesting for applications[2, 3]. Also relaxed constraints in fundamental tests of nature, such as the violations of local-realistic theories, are known in higher-dimensional systems[4].
+Several physical systems allow encoding of higher dimensional quantum information. These systems are as diverse as Rydberg atoms, trapped ions[5], polarmolecules[6], cold atomic ensembles[7, 8], artiﬁcial atoms formed by superconducting phase qudits[9], defects in solid states[10] or photonic systems. Here we want to focus speciﬁcally on discretized degrees of freedom (DoF) of photons, such as path, transverse-spatial modes or time/frequency bins. Information on photonic
+
+2
+
+Figure 1. Quantum paradoxes arising from system size. The left of the two columns shows the curiosity-driven fundamental questions and theorems with an increasing number of involved particles (N) and their respective local dimensionality (d). Surprisingly, these ﬁndings inspired actual technological applications that will power the second quantum revolution, displayed in the right column. QKD, Quantum-Key-Distribution, GHZ, Greenberger-Horne-Zeilinger
+
+continuous variable systems can be found in[11, 12]. The focus is on experimental techniques for the gen-
+eration and manipulation of high-dimensional entanglement. We explain the physical principles of various methods to create high-dimensional entanglement and present the state of current experimental eﬀorts that realize diﬀerent approaches. In general, this review aims to shed light on various DoFs, highlighting analogies and possible synergies between the techniques used in laboratories around the world. We hope that ideas from various DoFs will inspire other physicists to come up with new ideas on how to create and manipulate highdimensional entanglement.
+Theoretical basics and current state-of-the-art methods in characterizing and detecting complex quantum entanglement can be found in these excellent reviews[13–17].
+II. NEW POSSIBILITIES BY INCREASING THE NUMBER OF PARTICLES AND DIMENSIONS
+It is interesting from a historical perspective that high-dimensional entangled quantum systems have been considered theoretically from the very beginning in 1935 started by Einstein, Podolsky, Rosen (EPR) and later Schrödinger[18, 19]. They considered the external and continuous parameters of quantum systems, namely the
+
+position and momentum of two strongly correlated (en-
+
+tangled) particles. Only in 1951, David Bohm [20] came
+
+up
+
+with
+
+the
+
+idea
+
+to
+
+investigate
+
+two
+
+entangled
+
+spin-
+
+1 2
+
+particles, i.e. two-state systems called qubits. The sem-
+
+inal work by J.S. Bell in 1964[21] moved this formally
+
+purely philosophical questions about entanglement, re-
+
+ality and locality to an experimentally testable theo-
+
+rem. These developments aroused the interest of many
+
+experimental physicists who in the following years at-
+
+tempted to generate entangled quantum systems in the
+
+laboratory[22–27].
+
+From this brief historical point of view, it seems that
+
+going from complex systems to more simple ones al-
+
+lowed for several important observations in quantum
+
+mechanics. We believe that this is true, especially if we
+
+keep in mind that discovering and appreciating these
+
+mind-boggling ideas is much easier in the most simpli-
+
+ﬁed setting. However, we would like to change the per-
+
+spective from a chronological viewpoint to one where
+
+the system size in terms of numbers of particles and
+
+their local dimensionality (complexity) are the driving
+
+factors. As shown in Fig.1, we also introduce two cat-
+
+egories: Fundamental and Technological. We mention
+
+these two categories to emphasize that many applica-
+
+tions of quantum technology have their origins in fun-
+
+damental and initially purely academic questions.
+
+The principle of superposition already contains the
+
+essential features of quantum mechanics[28]. The fa-
+
+mous double-slit experiment gives the prime example
+
+3
+
+of the superposition principle. If we consider a single electron incident on a double-slit, then after transmitting through the double-slite, the quantum state is in a superposition of the two possible ways the electron could have taken. If we now ask whether we can simply copy this unknown quantum state, the surprising answer is no[29]. At ﬁrst glance, the no-cloning theorem seems like a very strong limitation. This is true especially if we compare to classical information science, where the ability to copy information is essential for long-distance communication or error-correcting schemes. Surprisingly, the superposition principle and the no-cloning theorem leads to a useful application, namely quantum key distribution (QKD)[30]. In QKD schemes, a key is distributed between two parties in a secure way such that if an eavesdropper reveals too much information about the key it can be detected. Single quantum particles in higher dimensions result in questions about possible representations using hidden variables models[31]. Here the contextuality of quantum measurements and its corresponding hidden value can be investigated. Interestingly, there is already a strong contradiction between quantum and classical physics, without even considering entanglement. It was found in quantum mechanics, that the measurement outcome depends on the measurement performed, meaning the context of the measurement itself[32]. On the technological side, increasing the dimensionality of a single particle not only leads to higher information capacities, but more importantly to unprecedented levels of noiseresistance in QKD schemes[2, 3].
+Going from single to two locally separated quantum systems, questions regarding locality had enormous inﬂuence on our worldview. Schrödinger coined the term entanglement to describe non-classically correlated quantum systems and described it as “... not one but rather the characteristic trait of quantum mechanics”[33]. Philosophically and from fundamental importance is whether quantum mechanics is compatible with local-realistic hidden variable theories as considered by Einstein-Podolsky-Rosen (EPR) [18] and Bell[21]. A series of recent experiments closing all essential experimental loopholes denied this[34– 36]. A surprising twist in history yielded the investigations into generalized Bell-like violations in higherdimensional bipartite systems. The ﬁrst theoretical investigation showed classical behavior for high spin values[37]. Later, larger violations of local-realistic theories have been found than in the qubit case which also unveiled a higher noise resistance as dimensionality increased[38–40].
+Although entanglement itself does not allow the transmission of information, it can serve as the ultimate cryptography channel. Bell-type violations in combination with classical communication enable deviceindependent concepts of key distribution for cryptogra-
+
+phy [41, 42].
+Multi-particle systems with particle numbers N greater than two do not only increase the Hilbert space exponentially but also lead to qualitatively new insights into the relationship between classical and quantum physics. One such example is the Greenberger-HorneZeilinger (GHZ) theorem[43]. The essential diﬀerence between Bell’s and GHZ theorem is that in case of GHZ the predicted outcomes by the quantum theory are deterministic. Thus the assignment of a local hidden variable is more direct from a conceptual point of view. On the application side, many qubits result in the possibility of universal quantum computation. Also since physical calculators are never perfect and classical error-correcting schemes cannot be applied to quantum computing due to the no-cloning theorem, multiparticle entanglement in the form of GHZ states can be used for quantum error correction schemes[44].
+While the original GHZ argument for three and more particles in two dimensions was formulated more than two decades ago [43, 45], its generalization to arbitrary local dimensions was only found recently [46–49]. A key diﬀerence to the two-dimensional qubit case is that the N-partite observables do not form a commuting set of observables and are not hermitian. However, all observables have the multi-partite and high-dimensional GHZ state as a common eigenstate1, thus still predict an outcome with certainty. Most interestingly, so far no localrealistic violation of the GHZ type could be constructed using local hermitian operators. All attempts to generalize the GHZ argument till date use local unitary observables and thus have complex eigenvalues. This is in sharp contrast to the prevailing view in physics that physical observables must have real eigenvalues, as famously stated by Dirac[50]. This fact calls for a more general deﬁnition of what properties a physical observable should obey. A more general class of operators that fulﬁl the requirement of orthogonal eigenstates are normal operators[51].
+If the system size in terms of number and dimensionality grows to extensive numbers, exotic phenomena arise. Examples are superconductivity, super-ﬂuids or Bose-Einstein condensates. These systems still pose signiﬁcant theoretical as well as experimental challenges. A deeper understanding of these extremely large and highly correlated quantum systems might very well reveal new physics.
+1 A set of such observables is called a concurrent set.
+
+4
+
+Figure 2. Entanglement creation and manipulation concepts for path DoF. Due to the conservation of linear momentum in a spontaneous parametric down-conversion process in a non-linear crystal (NLC) a high-dimensionally entangled two-photon state |ψ ab is created. A conceptually diﬀerent method to create path-entangled quantum states is to utilize a N × N multi-port that coherently splits a pump beam into N beams. These N coherent pump beams can now each create a photon pair in their respective paths ai and bi with i ∈ {1, · · · , N }. Keeping the probability of creating a photon pair much smaller than one results in the creation of an N-dimensional quantum state |ψ ab. The path DoF oﬀers a unique feature regarding the coherent manipulation of quantum information. Using the scheme introduced by Reck and Zeilinger[52], which only consists of beam splitters and phase shifters, any arbitrary unitary transformation can be implemented. Both, the entanglement creation and manipulation techniques are perfectly suited for on-chip implementations as indicated by the small inset, image taken from University of Bristol. Even arbitrary 2-qubit transformations necessary for quantum computation have been implemented on chip as depicted above, ﬁgure taken from[53].
+
+III. PHOTONIC CARRIERS OF HIGH-DIMENSIONAL ENTANGLEMENT
+In this section, we discuss diﬀerent physical and technical methods of how to generate and manipulate higher-dimensional entangled pairs of photons. Besides, we also investigate the experimental ability to detect high-dimensional entanglement. We focus on local measurements as they are interesting from a fundamental as well as an application point of view. Since photons are the ideal carriers of quantum information over long distances, we also present current approaches to distribute the quantum information stored in diﬀerent DoFs. Despite the very important theoretical and experimental eﬀort to deterministically generate single and multiple photons, a discussion of these methods would go beyond the scope of this review. Moreover, many of the schemes to create entangled photon pairs in two or higher-dimensions, actually rely on this inherent probabilistic nature of the photon source. Hence, in the following, we will focus on probabilistic photonpair sources such as spontaneous parametric downconversion (SPDC) and spontaneous four-wave mixing (SFWM).
+
+SPDC is based on a χ(2) non-linear coeﬃcient of some material. The phase-matching conditions are given by
+
+ωp = ωi + ωs
+
+(1)
+
+kp = ks + ki,
+
+with ω describing the photons frequency, k the linear momentum and p, i, s refer to pump, idler and signal, respectively. The ﬁrst equation in eq. 1 stems from energy conservation2 and the second equation from conservation of linear momentum. Satisfying the phase-matching condition results in the spontaneous (i.e. completely probabilistic) down-conversion of a pump photon into two photons according to eq. 1. In the low pump power regime, the quantum state of the down-converted photon pair can be written as a Taylor expansion[54, 55]
+
+|ψ ≈ |0, 0 + α |1, 1 + α2/2 |2, 2 + · · · , (2)
+
+where we used the photon number basis (Fock-basis). Due to the inherently probabilistic emission of photon
+
+2 since the energy E of a photon is given by E = ω
+
+5
+
+pairs with probability amplitude α, there is also the probability that two or more photon pairs are emitted simultaneously. Thus α is usually set much smaller than one α 1. In contrast, SFWM is based on the χ(3) non-linearity and the corresponding phase-matching conditions are
+
+2ωp = ωi + ωs
+
+(3)
+
+2kp = ks + ki,
+
+using the same notation as for SPDC but now with two pump ﬁelds p. Thus in SFWM two pump photons are converted to two output photons which can also be described by equation 2.
+Several speciﬁc advantages arise using either SPDC or SFWM for diﬀerent implementations and applications, as we will discuss in the following sections. A thorough review of single-photon sources, as well as single-photon detectors, can be found here[56].
+
+A. Path
+Quantum information encoded in the path DoF is appealing because there exist arbitrary single-photon transformations in any dimension[52]. This scheme only utilizes beam splitters and phase-shifters and allows to implement any single qudit transformation, see Fig.2a). In addition, the experimental realisation is possible using bulk optical elements or integrated optics, e.g. silicon chips with extreme interferometric stability and high indistinguishability[57, 58], see Fig.2c). Conceptually, one method of creating high-dimensionally entangled photon pairs relies on the intrinsic momentum conservation within the SPDC process[59]. In this scheme, the intrinsic linear momentum conservation leads to the coherent emission of a single photon pair on a cone. The momentum conservation is responsible for the diametrically opposite positions on the emission cone of the two photons. Collecting these photon pairs with d singlemode ﬁbre pairs arranged evenly spaced on the emission cone leads to a d-dimensionally entangled quantum state of two photons in their respective ﬁbres or paths[60].
+A direct way to harness the high-dimensionally entangled photon pairs in their linear momentum (as depicted in Fig.2) is to use a deformable mirror device in combination with a single-photon detector. This leads to pixel entanglement[61]. In this scheme, the basis transformation for certifying entanglement can be performed using a single lens only, since a lens eﬀectively performs a Fourier-transformation and thus transforms between the position and momentum bases. Eﬃcient detection methods using sparse-matrix techniques allowed to certify a channel capacity of 8.4 bits per photon[62].
+
+A conceptually diﬀerent method to create highdimensionally entangled photon pairs is to utilize dindistinguishable photon-pair sources[63, 64], see Fig.2. The physical principle here is based on coherently pumping d NLCs which results in a coherent superposition of a single-photon pair emitted in one of the paths. The crucial ingredient here is to have d indistinguishable photon-pair sources in all DoFs except the path, where the quantum information is stored. Experimentally, this scheme can either be realized using bulk optical elements3, integrated ﬁbre optical elements or on-chip techniques, see inset in Fig.2.
+Particularly interesting are the technical advances in recent years in on-chip photonics. This technology is a promising platform for quantum optics experiments that encode the quantum information in the path DoF. High-quality interferometers[65]4 and scalability in the number of optical components allow a variety of applications. Probabilistic processes based on either spontaneous four-wave mixing (SFWM)[66] or spontaneous parametric down-conversion (SPDC)[67]5 are used as photon-pair sources. SFWM has the advantage that all materials used (e.g. Silicon or Hydex) are complementary metal–oxide semiconductor (CMOS) compatible. A common source of photon pairs is the SFWM based spiral waveguide source, where the phase-matching conditions can be achieved by appropriate design of the spiral waveguides through anomalous dispersion.
+Sources of this type have recently been used to certify three[68] and 14-dimensional entanglement on-chip in the path DoF[57]. In the latter, a total of 16 identical spiral waveguide sources based on SFWM with a total of more than 550 optical components were implemented on-chip. The observed ﬁdelities range from 96% for d = 4 to 81% for d = 12. Typically, each of the 16 sources produces photon pairs at a rate of 2kHz.
+Another experiment recently demonstrated an optical general 2-qubit quantum processor implemented onchip[53]. There, two pre-entangled ququarts are used to probabilistically perform any 2-qubit unitary operation, such as CNOT gates for example, between two qubits encoded in the path DoF. Also quantum Hamiltonian learning algorithms[69] have been performed using higher-dimensionally encoded path qudits on chip[70]. In their work, a negatively charged nitrogen-vacancy (NV) center has been coupled to a trusted quantum simulator, in this case the photonic silicon chip. This chip was then used to learn the Hamiltonian of the NV center.
+3 This approach guarantees higher eﬃciencies >99.9% due to special anti-reﬂection coatings, but is diﬃcult to stabilize and scale to very high-dimensions.
+4 Extinction ratios up to 66dB are reported in the literature. 5 Here Lithium-Niobate waveguides are used, for example.
+
+6
+
+Figure 3. Entanglement creation and manipulation concepts for orbital-angular-momentum (OAM) DoF. Approximate conservation of OAM within the collinear spontaneous-parametric down-conversion process in a non-linear crystal (NLC) leads up to 100-dimensionally entangled two-photon quantum states[71] |ψ ab. The unequal coeﬃcients c usually lead to non-maximally entangled states, as shown in the inset taken from[72]. The concept of entanglement by path-identity relies on N indistinguishable photon-pair sources (NLCs) [73, 74]. Each dimensionality unit (1-dim) contains a NLC, a phase-shifter (which is set to zero here for simplicity ∆ϕ = 0) and a mode-shifter in the form of a spiral-phase-plate (SPP) that is capable of adding one quantum of OAM to incoming photons. Stacking N such 1-dim modules coherently yields a maximally entangled two-photon quantum state as described in the ﬁgure. Some basic high-dimensional quantum gates, such as cyclic-gates, can eﬃciently be performed for OAM. These methods rely on the parity sorter (PS), which is capable of sorting incoming photons with even/odd amount of OAM into diﬀerent paths[75]. A recently introduced and conceptually very diﬀerent approach, called multi-plane-light-conversion (MPLC)[76] promises arbitrary unitary transformations for OAM. The principle is to utilize several phase-holograms with propagation in between to achieve mode-matching between input and output modes, which can be deﬁned arbitrarily.
+
+Distributing the classical information using the path DoF is conveniently possible using multi-core-ﬁbres (MCF). These MCFs ﬁnd applications in classical communication networks, speciﬁcally where multiplexing schemes for higher information capacities are necessary. However, transferring quantum information using MCFs is more involved, since the phase between different cores must be interferometrically stable to avoid dephasing. Random dephasing results in incoherent and thus classical mixtures which yield non-entangled quantum states. However, recent results achieved fourdimensional quantum-key-distribution using MCFs of up to 0.3km[77, 78]. Also, high-dimensional entanglement has been transmitted through two MCFs recently [79]. An interesting approach is to send pixel entanglement via a conventional graded-index multimode ﬁber[80]. Using entanglement itself to measure the complex transmission matrix, scrambling of the optical modes within the optical ﬁber can be compensated by adjusting the measurement bases accordingly. So far, 6-dimensional entanglement over a length of 2m can be sent. These proof-of-principle demonstrations show the possibilities to use MCFs for high-dimensional quantum information to connect optical chips[81], in future even in high-dimensions.
+
+B. Transverse Spatial modes of photons
+The transverse spatial modes of single photons can perfectly encode high-dimensional quantum information. Diﬀerent mode-families have been studied in the context of entanglement including Laguerre-Gauss[82], Bessel-Gaus[83] and Ince-Gauss[84] modes. Here, we choose to solely discuss the Laguerre-Gaussian (LG) modes[85], since the majority of the experimental work regarding high-dimensional entanglement has been performed with the orbital-angular-momentum (OAM) of photons[86]. The OAM describes the transverse wavefront of photons. The main feature of these modes is the singularities within the phase[87, 88]. The amount of OAM in corresponds to the direction and number of windings of the phase around these singularities. At the singularity, the phase is not deﬁned, which results in the typical doughnut-shaped intensity distributions. The reason why OAM is interesting for quantum experiments is two-fold: First, OAM entanglement can easily be created in a single NLC, because the OAM is conserved within the SPDC process[82] and thus directly yields high-dimensionally entangled photon pairs[89]. Secondly, there are several experimentally feasible techniques known how to manipulate and measure OAM
+
+7
+
+states of single photons[75, 82, 90]. A quantum state of two photons generated in a NLC
+can be described according to c | , − ab, where describes the amount of OAM in and the dimensionality is given by d = 2| max| + 1. The exact distribution of the complex coeﬃcients c is called spiralspectrum and mainly depends on the length of the crystal, the beam waist of the pump laser and the collection beam waist[91]. It is even possible to optimize the entanglement dimensionality using the phase matching conditions[92]. Using OAM entangled photon pairs created in a single NLC, high-dimensional generalized Bell inequalities have been violated up to 12-dimensions[93]. Including the complete LG-modes, namely , p-modes6, of the two-dimensional transverse spatial ﬁeld of the photons into the entangled two-photon quantum states can lead to more than 100-dimensional entanglement in the laboratory[71]. Creating maximally entangled7 states can be either achieved using procrustean ﬁltering techniques[97] or taking the natural spiral-spectrum of the SPDC into account and counteract with a corresponding superposition of diﬀerent OAM quanta in the pump beam [98, 99].
+Recently, a conceptually new method for creating OAM entangled quantum states relying on indistinguishability and path-identity has been introduced[73, 100]. In this approach, see Fig.3, d NLCs are pumped coherently, and their respective paths are identically aligned, such that the resulting quantum state is in a coherent superposition of one photon-pair being emitted in one of the d-NLCs. To create an OAM entangled quantum state, a spiral-phase-plate (SPP)8 is inserted after each NLC. Depending on the relative pump powers and phases9 between the NLCs an arbitrary ddimensionally entangled two-photon quantum state is created. Currently, ﬁdelities for three-dimensional entanglement of approximately F ≈ 90% is achieved. Future eﬀorts in integrating the NLCs directly with qplates could pave the way to create tens of dimensions with even higher ﬁdelities.
+Manipulation of OAM in higher-dimensions has been proven diﬃcult. Although projective measurements using phase-plates or fork holograms in combination with single-mode ﬁbres are well established[82, 102] and pro-
+6 The LG-modes are represented by two indices: denotes the azimuthal phase of the topological charge in terms of OAM and p represents the radial quantum number[94–96].
+7 i.e. |c |2 = 1/d ∀ 8 A SPP is a device that adds m quanta of OAM to the incoming
+photons, thus realizing the operation | → | + m . Q-plates are perfectly suited for this task, especially in the collinear regime[101]. 9 The pump power (relative phase) given by |c | (exp(iϕ )) controls the magnitude and phase of every coeﬃcient within the entangled quantum state c = |c |exp(iϕ )
+
+vide a powerful tool to detect high-dimensional entanglement in only two non-orthonormal bases[103], even seemingly simple transformations such as cyclic transformations were not known until recently[104, 105] and have only been discovered using the computer algorithm MELVIN [106]. At the heart of these eﬀorts lies a simple but very elegant device that is capable of sorting OAM quanta according to their parity (even/odd)[75]. Based on a Mach-Zehnder interferometer with a Dove-Prism inserted that introduces an OAM dependent phase, different parity OAM values can be sorted. Cascading the parity sorter leads to the capability of sorting arbitrarily many diﬀerent OAM modes and thus enables multioutcome measurements. Interestingly, to construct dlevel cyclic transformations only log(d) parity sorters are necessary[107]. Analogously, this concept has been used to sort diﬀerent p-modes and thus yield access to the complete two-dimensional transverse spatial wavefront of single photons[108–110]. Parity sorters for OAM also allow to route high-dimensionally entangled states[72] and plays a crucial role in creating genuinely high-dimensional and multi-photon entangled quantum states[111, 112], see Chapter 4 for more details.
+An alternative method to sort diﬀerent OAM states is based on log-polar transformations, which essentially converts the circularly varying phase pattern to a linear grating[113]. This results in the conversion of OAM to linear momentum, and thus diﬀerent OAM modes appear in diﬀerent positions (paths) after propagation. Mode sorters for mode numbers up to 50 have been demonstrated [114] with next mode overlap of approximately 2%[115].
+A recently developed and demonstrated technique is based on multi-plane light conversion (MPLC)[76, 116]. Using several consecutive phase planes with propagation in between allows transforming arbitrary twodimensional transverse light ﬁelds unitarily. With this approach, 210 modes deﬁned in the LG-modes can be sorted into a spatial pattern of Gaussian spots[117]. In terms of eﬃciency, the device has a theoretical insertion loss of 2.5dB and a measured insertion loss of 6dB. The diﬀerence arises mainly due to reﬂection ineﬃciencies of the SLM10. The average crosstalk per mode is measured to yield -30dB, which results in a measured channel capacity of 6.25 bits/photon (theoretically expected is log2(210) = 7.71). MPLC is not only limited to sorting LG-modes but can also be applied to arbitrary unitary transformations, such as cycling operations or controlled operations on a single-photon level[118]. This promising route towards complete control of qudits encoded in the LG-modes showed a high process purity
+10 Here, in total seven reﬂections on an SLM with 0.5dB per reﬂection is utilized.
+
+8
+
+of 99% for three-dimensional cyclic gates using threephase planes at the SLM.
+There are several demonstrations of distributing classical and quantum information using the OAM DoF. Free-space links[119] allowed the transmission of classical information in high-speed terabit conﬁgurations[120, 121], turbulent intra-city links[122], underwater channels[123] or over large distances up to 143km between two islands[124]. Also, speciﬁcally designed optical ﬁbres have been employed to transmit classical[125–130] and quantum information[131] with OAM. High-dimensional quantum key distribution using OAM has been demonstrated in turbulent environments such as intra-city free-space links[132], ﬁbre based systems[133] and even entanglement distribution[134].
+In addition to all the properties mentioned above, OAM is also perfectly suited for fundamental tests in quantum mechanics regarding two-dimensional entanglement incorporating very high angular momenta quanta of up to 10.010 [135, 136]. In these experiments, the question of whether a macroscopic bound in terms of the amount of electromagnetic action exists. Experiments up to 10.010 show that there only seems to exist a technical, not a fundamental limitation. Also, the appealing patterns formed by diﬀerent OAM superpositions of entangled photons[137]11 or remotely prepared quantum states[138] has been imaged live.
+C. Discretized Time and Frequency modes
+Quantum information stored in time-bins or in the frequency degree of freedom of single photons is perfectly suited for transmission over large distances using free-space links or optical ﬁbres[139–142]. The idea of using time-bins as the physical carrier of quantum information goes back to Franson in 1989 who discussed it theoretically in terms of violating Bell inequalities [143]. A series of experiments demonstrated two-dimensional time-bin entanglement[139, 144, 145].
+One possibility to create entanglement between two photons encoding quantum information in the time-bin domain is to utilize two indistinguishable laser pulses separated by a ﬁxed time diﬀerence ∆[144]. Each laser pulse can create a photon pair within the non-linear crystal (NLC), see Fig.4. If there is in principle no information available in which of the two pulses the photon pair a-b has been created, the resulting state can be written as a superposi√tion of the two creation times (|τ1, τ1 ab + |τ2, τ2 ab)/ 2. Note, both pulses emit a photon pair with emission amplitude α, such
+
+that the quantum state in the Fock basis can be written as |0, 0 ab + α |1, 1 ab + α2/2 |2, 2 ab + · · · and numbers within the ket vectors refer to the photon occupation number of the respective path mode a or b. It is made sure that the total probability of emitting two pairs simultaneously12 over the time period Tcoh is well below 0.1 by keeping α small enough. In principle, this scheme can be scaled up to d-dimensions by employing a sequence of d indistinguishable and coherent mode-locked pump pulses (see Fig.4) as has been demonstrated in [148] for 11 dimensions.
+An alternative method to create HD entangled timebin photon pairs relies on the intrinsic energy conservation in the SPDC process. By choosing the non-linear optical material, length of the NLC, pump-pulse duration, wavelength, and bandwidth of the pump, signal, and idler beams the joint-spectral-amplitude (JSA see Fig. 4), can be designed to show a high degree of frequency correlations[149, 150]. The conjugate variable of frequency is time, and by Fourier transformation of the JSA, we obtain the joint-temporal-amplitude (JTA). Thus by appropriately choosing the parameters mentioned above, a high-dimensional entangled photon pair can be generated. In principle, a very large number of modes within a given time frame is possible. However, as we will see in the following, the restrictions are now imposed by the detection system rather than in the creation part.
+In general, the detection of entangled quantum states requires the ability to measure at least in two diﬀerent bases locally. The main idea to perform such a basis transformation for time-bins is to use an unbalanced interferometer[143]. The original proposal was inherently vulnerable to loss (50%) but can be overcome by using active-switching techniques, as recently demonstrated[151]. An unbalanced interferometer creates a superposition between two time-bins i and i + ∆ with an arbitrary phase ϕ as |τi + eiϕ |τi+∆ , as described in Fig.4. To get a feeling for how large ∆ is in this unbalanced Franson interferometer, we assume that our mode-locker laser has a repetition rate of 1 GHz. This corresponds to roughly 30 cm of propagation distance13. Hence, for two-dimensional superpositions of two time-bins created with a 1 GHz repetition laser, a physical propagation diﬀerence of 30cm is necessary. If we now imagine a high-dimensional quantum state, e.g. 10-dimensional, it is not only necessary to connect ten such interferometers, but also the distances increases to several meters. To overcome this limitation, a theoretical dimensionality bound allows to measure only
+
+12 Since these two (or n) events are independent the probability is given by the product, in this case, α × α or αn.
+11 see video https://www.youtube.com/watch?v=wGkx1MUw2TU 13 assuming the speed of light in vacuum
+
+9
+
+Figure 4. Entanglement creation and manipulation concepts for time and frequency bin encoding. Conservation of energy within the spontaneous-parametric down-conversion process in the non-linear crystal (NLC) can yield very highdimensionally entangled two-photon quantum states[71] |ψ ab in principle. The joint-spectral-amplitude (JSA) f (ωa, ωb) determines the dimensionality. An alternative concept relies on N indistinguishable mode-locked laser pulses. Each laser pulse creates probabilistically one photon pair at time τi. Considering N such creation events yields a high-dimensionally entangled two-photon state |ψ ab. A micro-ring cavity can be exploited to create high-dimensionally entangled photon pairs from spontaneous four-wave mixing (SFWM). First, the micro-ring cavity allows for an eﬃcient (SFWM) process due to the high Q-value cavity environment. Secondly, the free-spectral-range (FSR) of this cavity only allows for certain frequency modes to be hosted in this frequency comb, see inset ﬁgure taken from[146]. The concept introduced by Franson[143] to coherently manipulate time-bin quantum information is depicted above. It relies on several unbalanced Mach-Zehnder type interferometers. In this conﬁguration, it allows producing an equal superposition of all time-bins at the center outgoing bin, as depicted in the graphic. A recently developed new method for arbitrary unitary transformations of frequency bins is shown below, image taken from[147]. An electro-optic-modulator (EOM) populates coherently many neighbouring frequency bins. A consecutive pulse-shaper operating in the complete output space of the EOM introduces arbitrary phase shifts to the separate frequency bins. A ﬁnal EOM coherently combines all frequency modes and interference among them yields the desired transformation.
+
+next and over-next neighbouring time-bins14 to put a lower bound to the entanglement dimensionality being created[152]. In this work the authors observed an 18dimensionally entangled quantum state.
+Another possibility to perform transformations of the quantum information stored in the time-bin domain is inspired by techniques developed in the ultrafast optical pulse shaping community[153–155]. The basic idea is to utilize a 4f-nondispersive pulse shaper with a programmable spatial-light-modulator (SLM) inserted, see Fig.4. This technique is used to shape the temporal distribution of entangled photon pairs[156].
+14 meaning superpositions of j ∈ {1, 2} |i + |i + j
+
+To overcome timing constraints from detectors plus counting electronics and thus enabling ultra-fast timing detection in the picosecond regime, non-linear optical approaches based on coherent sum-frequency generation (SFG) can be employed[156, 157]. In a recently published experiment, this technique was perfected and allowed the direct characterization of the spectral and temporal properties of energy-time entangled photon pairs on the sub-picosecond timescale[158].
+Recent developments in upcoming on-chip schemes enable the creation of high-dimensionally entangled photon pairs in the form of discrete frequency bins[159– 161]. This new approach allows for versatile and highquality sources of two and multi-photon quantum states in higher-dimensions[142, 146, 162]. The most commonly used techniques are based on integrated Kerr
+
+10
+
+frequency combs[147]. Due to energy conservation in the spontaneous four-wave mixing (SFWM) process inside the micro-ring cavity, perfectly anti-correlated frequency-bin entangled qudits are created. The number of dimensions achievable is determined by two factors. First, the phase-matching range of the SFWM process sets the overall bound for the correlated frequency range. For currently used materials15, a bandwidth of roughly 100nm at 1550nm telecom wavelength can be achieved. The discrete frequency bins are now directly created within the micro-ring cavity. Their spacing is given by the free-spectral-range (FSR) of the micro-ring resonator. Typical values of the FSR are 200GHz with a line-width of roughly 800MHz[146]. These values allow for entanglement up to several tens of frequency bins, see Fig.4. Most importantly, the large FSR also enables the use of oﬀ-the-shelf telecom equipment for accessing and manipulating (individually or collectively) the quantum information encoded in frequency bins.
+This promising source technology (in combination with recent advances in creating quantum gates for discrete frequency bins such as generalized splitters in higher-dimensions[164]) makes frequency encoded qudits a promising platform. As displayed in Fig.4, a pulse-shaper sandwiched between two electro-optical modulators (EOM) is used to perform a frequency tritter. The ﬁrst EOM scatters any input mode coherently over its neighbouring modes. This, however, introduces unwanted loss as it scatters some of the modes outside of the desired state space. To overcome this limitation, a pulse shaper operating in all possible output modes of the EOM can apply arbitrary phases to each frequency bin. A ﬁnal EOM then coherently recombines all modes. This procedure allows for any arbitrary unitary transformation. An important example is shown in Fig.4. There, a frequency-tritter16 or Quantum-Fourier transform (QFT) is demonstrated. It takes any of the three frequency bins as input and creates an equal and coherent output distribution of all three frequency bins17. The high-ﬁdelity operation of up to 99.9% with standard telecom equipment is very promising. A remaining problem is the relatively large coupling loss of 3-4dB per element. This loss could be overcome in the future using on-chip techniques[164].
+An equivalent device to the even/odd sorter for OAM also exists for frequency bins[165]. It is called op-
+
+15 E.g. Hydex, a special CMOS compatible material with a
+
+low χ3 non-linear coeﬃcient but capable of hosting non-
+
+linear optical eﬀects such as SFWM in a high Q-value cav-
+
+ity environment[163]. Alternatively, also silicon nitride (SiN)
+
+based micro-ring cavities[162] are used.
+
+16 A tritter is a generalized splitter for three dimensions.
+
+17
+
+including
+
+phases
+
+of
+
+exp(
+
+n 3
+
+2˙ πi)
+
+for
+
+unitarity
+
+tical frequency interleaver with two input and two output channels. Thus it allows to sort frequency bins with a spacing ∆ into even |f0 + 2m∆ and odd |f0 + (2m + 1)∆ frequency modes with respect to some central frequency f0 and m ∈ N+. Since the frequency interleaver is a multi-input/multi-output device, this readily allows to create special types of quantum gates using concepts originally found for OAM ranging from high-dimensional quantum gates [105, 107] to genuine high-dimensional and multi-photon entanglement[111, 112] and even to high-dimensional controlled quantum gates[166].
+The time-bin degree of freedom is ideally suited for HD-QKD. One possibility to implement an HD-QKD protocol is to use visibility measurements in Franson type interferometers[168]. Another experiment recently achieved 2.7 Mbit/second secure key rate over a transmission distance of 20km in an optical ﬁber[169]. In this experiment, the security of the HD-QKD protocol is ensured by measurements of the Franson visibility. Their security analysis includes all Gaussian attacks (such as beam-splitter attacks). However, intercept-and-resend attacks are not considered. Unconditional secure HD-QKD schemes have been proposed using Franson in combination with conjugate Franson interferometry[170], for example. Dispersion cancellation systems are commercially available. Hence the long-distance distribution of discrete frequency-bins via standard optical ﬁbers up to 40km is possible and has been demonstrated.
+A recent study investigated the noise resistance of higher-dimensional entangled photon pairs. Using timebins, the authors experimentally certify entanglement with a noise-fraction of 92% for time-bin entanglement in 80-dimensions [171]. In the same study, a parallel experiment using OAM encoding achieved a noise robustness of 63% in a 7-dimensional space.
+
+D. Combining and converting diﬀerent DoFs
+
+A powerful technique to achieve high-dimensional quantum states is to utilize several DoFs of single photons simultaneously. One possibility is to use the polarisation (p), OAM (o) and time-frequency (t-f) DoFs being entangled in two and three dimensions yielding[172]
+
+|Φ p ⊗ |Φ o ⊗ |Φ t-f = (|H, H + |V, V ) ⊗ (4)
+polarisation
+(|0, 0 + |1, −1 + | − 1, 1 ) ⊗ (|s, s + |l, l ),
+
+OAM
+
+time
+
+with H, V denoting horizontal and vertical polarisation, s, l describing short and long of creation-times of the photon pair and numbers within the ket-vectors refer to quanta of OAM in units of . This state can
+
+11
+
+Figure 5. Examples of the three classes of multi-particle entanglement in terms of dimension. Class (I) contains multi-photonic, separable quantum states, such as ref. [146], which created two pairs of time-entangled photon pairs. Class (II) contains genuinely multi-photonic entangled states, such as ref.[167], which produced a 4-photonic graph state in the path degree-of-freedom on a chip. Finally, Class (III) contains genuinely high-dimensional multi-photonic states, such as ref.[112] which produced a 3-photonic 3-dimensional GHZ state.
+
+be rewritten in terms of these 12 orthogonal states |H, 0, s , |H, 0, l , · · · , |V, 1, l and results in a (2 × 3 × 2 = 12)-dimensionally entangled quantum state in three DoFs simultaneously. Such states can be created by employing techniques described above. The advantage is that for hybrid DoFs there exist deterministic CNOTgates, for example, which is important for applications such as superdense coding[173] or superdense quantum teleportation[174].
+A very interesting idea is to convert one DoF to another. In such an approach, entanglement created in path DoF, for example, can directly be converted to OAM entanglement[175]. This is achieved by using the mode sorter between OAM and path[113, 115] in reverse. To generate a three path entangled two-photon state, an NLC produces pairs of photons that illuminate a three slit mask. The consecutive mode sorter transforms the path information to OAM states while maintaining the entanglement encoded in the path DoF. Such interfaces allow to create and manipulate quantum states on-chip using the path DoF and then connect to distant chips via a quantum link encoded in OAM DoF.
+IV. EXPERIMENTAL MULTI-PHOTON ENTANGLEMENT IN HIGH-DIMENSIONS
+A. Multi-Photon Entanglement in high Dimensions
+Entanglement with multiple (n>2) photons in higher (d>2) dimensions can have complex structures even in the case of pure states [176, 177]. The Schmidt-RankVector (SRV) allows to classify these structures and is
+
+deﬁned as the collection of Schmidt-Ranks of all bipartitions such that
+
+SRV = {r1, r2, · · · , rk},
+
+(5)
+
+holds, with ri denoting the rank of the reduced density matrix ri = Rk[Tr¯i(|ψ ψ|)] and k represents the number of possible bi-partitions of a N -partite quantum system given by k = 2N−1 − 1. Most of the exper-
+iments involving multiple photons in a high-dimensional
+degree-of-freedom can be distinguished into the follow-
+ing three cases:
+
+(I) Entanglement involving many photons and in a high-dimensional degree of freedom: Such states involve more than two photons, but can be biseparable. An example is |ψ = |φA,B ⊗ |φC,D . Their Schmidt-Rank-Vector has some entries being 1.
+(II) Genuine multi-photonic entanglement in a highdimensional degree of freedom: These states are not separable, but their entanglement is not highdimensional (even though encoded in a highdimensional space). The state is not separable, and some or all parts are two-dimensionally entangled. An example would be a 4-photon 2dimensional GHZ state in the path degree of freedom.
+(III) Genuine multi-photonic high-dimensional entanglement: All photons are entangled in more than two dimensions.
+
+See the examples in Fig.5 and Details in Table I.
+
+12
+
+1. Path
+Many multi-photon experiments in the path degreeof-freedom [178–186], have recently been motivated by Aaronson&Arkhipov’s BosonSampling proposal [187], which shows that linear optics can perform transformations that are diﬃcult for classical computers. The purpose of these experiments has not been to produce welldeﬁned entangled states, and the measurements did not measure the full state but investigated the probability distribution between diﬀerent modes.
+In 2019, the ﬁrst genuine multiphoton entangled state has been generated and measured on a programmable chip [167]. The authors demonstrated diﬀerent types of graph states, among them the 4-photon Star graph |S4 , which is locally equivalent to a 2-dimensional GHZ state. Thereby the authors have demonstrated the ﬁrst class (II) entangled state in the path degree of freedom. The photon pairs (with signal and idler wavelength at 1539nm and 1549nm, respectively) have been created directly on the chip, which signiﬁcantly improves the stability, necessary for such complex experiments. The key component for producing genuine multiphoton entanglement is a reconﬁgurable, postselected entangling gate which exploits Hong-Ou-Mandel interference[188] to remove the which-crystal information between the pairs from diﬀerent origins. The chip contains four arbitrarily tuneable single-qubit projections, which allows for the measurement of arbitrary multi-photon correlations in coincidences. The ﬁdelity was 78%, and count rates were in the order of 5.7 mHz (20 per hour). The count rates are similar to those in the ﬁrst photonic multiphoton experiments, and the authors explain technical improvements which could lead to pushing four-photon rates from the mHz to the kHz regime. A main future objective is the reduction of photon loss, currently in the range of 19.3 dB for the presented device. Using published values of record component eﬃciencies, the authors estimate a potential four-photon count-rate improvement of a factor 5 million.
+
+2. Spatial modes of photons
+
+The ﬁrst multi-photon entangled state with spatial modes of light was created in 2016[189], which was a state of class (II). The authors used double-pair emissions of an SPDC crystal, which has then been probabilistically split using three beam splitters – in a similar way as the state in eq.(9). The resulting state is a Dicke state in the form
+
+1 |Ψ = √ (|0, 0, 1, 1 + |0, 1, 0, 1 + |1, 0, 0, 1 +
+6
+
++ |0, 1, 1, 0 + |1, 0, 1, 0 + |1, 1, 0, 0 ),
+
+(6)
+
+where |0 and |1 stand for two diﬀerent OAM modes. This state falls into class (II). The authors demonstrate a ﬁdelity of 62% with a count rate of roughly 0.2 Hz.
+Later in the same year, a diﬀerent group of authors demonstrated a three-photon entangled state, where part of the state was entangled in three dimensions[111], |ψ = √1 (|0, 0, 0 + |1, 1, 1 + |2, 2, 1 ). While still not
+3
+fully high-dimensionally entangled (thus still a class (II) entangled state), it is the ﬁrst time that part of a multiphoton entanglement is higher dimensional. The ﬁdelity of the state was 80.1% with a count rate of approximately 15mHz.
+In 2018, the ﬁrst genuine high-dimensional multiparticle entanglement has been created[112], in form of a three-dimensional GHZ state
+|Ψ = √1 (|0, 0, 0 + |1, 1, 1 + |2, 2, 2 ) . (7) 3
+The experimental setup, which has been discovered by MELVIN [106], consists of two sources of SPDC crystals which produce three-dimensional photon pairs. The exploitation of a multi-port (MP) that coherently manipulates several photons simultaneously in higher dimensions allows to removes all cross-correlation terms. This experiment demonstrated for the ﬁrst time class (III) entanglement. The state ﬁdelity was 75.2% with a count rate of 1.2 mHz (roughly 4 counts per hour).
+It is important to note that all concepts are translatable between the diﬀerent degrees of freedom. It means, for example, that the multiport (MP) could directly be employed for path- or time-bin encoding of high-dimensional quantum information.
+
+3. Discretized Time and Frequency modes
+
+In addition to eﬀorts into BosonSampling with time-
+
+encoding [190], only two experiments have demon-
+
+strated entanglement with more than two photons with
+
+discretized time-bins [146]. In the ﬁrst one, a quan-
+
+tum frequency comb is generated, which contains a
+
+large number of discrete, equally spaced frequency lines
+
+(roughly 100 bins within 100 nm) distributed symmet-
+
+rically around the pump wavelength of 1550nm. Each
+
+symmetric pair of frequency lines can be occupied by
+
+photon pairs. The authors now use these pairs of
+
+bins for creating time-bin entanglement in the form
+
+|φn
+
+= √1
+2
+
+|Si, Ss + eiφn |Li, Ls
+
+n, for the n-th fre-
+
+quency pair symmetrically arranged around the pump
+
+wavelength.
+
+Next, they show that their quantum frequency comb allows for the occupation of two pairs at the same time
+
+13
+
+State
+
+Class Fidelity Counts/h Year
+
+Path
+
+BosonSampling[178–182, 184, 185] class (I)
+
+-
+
+4n Star Graph[167]
+
+class (II) 78%
+
+Spatial Modes
+
+4n Dicke State[189] SRV=(3,3,2)[111]
+3d GHZ[112]
+
+class (II) 62% class (II) 80,1% class (III) 75,2%
+
+Time/Frequency
+
+2 Bell Pairs[146] BosonSampling[190]
+3n W state[191]
+
+class (I) 64%
+
+class (I)
+
+-
+
+class (II) 90%
+
+Hybrid Entanglement
+
+18 qubit GHZ[192]
+
+class (II) 70.8%
+
+-
+
+2012-2019
+
+20
+
+2019
+
+720
+
+2016
+
+55
+
+2016
+
+4
+
+2018
+
+600
+
+2016
+
+-
+
+2017
+
+75
+
+2019
+
+200
+
+2018
+
+Table I. Summary of multi-photon experiments in high-dimensional degrees of freedom.
+
+in a coherent way. Speciﬁcally, they generate the state
+
+4. Multiple degrees-of-freedom
+
+|Ψ = |ψ1 ⊗ |ψ2
+
+1 = 2 (|Ss1 , Si1 , Ss2 , Si2
+
++ eiφ |Ss1 , Si1 , Ls2 , Li2
+
++
+
++ eiφ |Ls1 , Li1 , Ss2 , Si2 + ei2φ |Ls1 , Li1 , Ls2 , Li2 ) (8)
+
+By changing the phase φ, the authors show that they created indeed a coherent 4-photon state. This state falls into the class (I), because it is separable. It reached ﬁdelities of 64% with a count rate of roughly 0.17 Hz (600 per hour). The authors argue that loss reductions could lead to kHz four-photon rates. To create genuine multiphotonic entanglement, one needs to delete the which-frequency-bin information.
+Very recently, a three-photon W state has been created and veriﬁed using discretized frequency[191], which is class (II) entangled. The state was generated by two pairs from spontaneous four-wave mixing in a polarisation-maintaining ﬁber, where each pair consists of a blue (694nm) and a red (975nm) photon. The four photons are then probabilistically split to four detectors. One trigger photon then indicates the existence of a W state in the other three detectors (in postselection). The speciﬁc state is
+
+|Ψ = α |ψ0 + γ (|B, W1 + |R, W2 )
+
+(9)
+
+with |W1/2 being W state
+
+1
+
+|W1
+
+= √ (|R, R, B 3
+
++ |R, B, R
+
++ |B, R, R )
+
+(10)
+
+1 |W2 = √ (|B, B, R + |B, R, B + |R, B, B ) , (11)
+3
+
+where |R (|B ) stands for a red (blue) photon. Using imbalanced interferometers, the authors are able to verify the coherence between the individual terms, and estimate a ﬁdelity of roughly 90%, with a count rate of 20 mHz (roughly 75 counts per hour).
+
+The technologies can not only be translated between diﬀerent degrees of freedom, but quantum entanglement can be exploited within diﬀerent degrees in many photons as well. This allows, for example, to encode more than one qubit per photon. In 2018, an 18 qubit entangled state has been created, encoded in six photons with three degrees of freedom (polarisation, path and spatial modes) [192].
+For the generation, the authors start with highﬁdelity six-photon states in the form |ψ = √1 (|H, H, H, H, H, H + |V, V, V, V, V, V ), where H
+2
+and V stand for horizontally and vertically polarized photons. Afterwards, each of the six photons undergoes a transformation |H → |H |U |R and |V → |V |D |L , where U and D stand for path labels (up and down), while R and L stand for right- and leftcircular parity of the photon’s OAM. This leads to an 18 qubit entangled GHZ state. The ﬁdelity is measured to be 70.8% and the six-fold count rate is 55 mHz (roughly 200 counts per hour).
+With the techniques described in the previous chapter, it is conceivable that this technique could be extended to time-bins, which would allow for 24 qubits. Using the recently demonstrated 12-photon entanglement source[184], 48-qubit entangled GHZ states seem feasible with current technology.
+B. Quantum Teleportation in high Dimensions
+Quantum teleportation, the disembodied transmission of unknown quantum states, is one of the most fascinating processes allowed by quantum mechanics. Discovered in 1993 as a conceptual curiosity[193], it has become a cornerstone in various quantum applications, such as quantum computation and long-distance quantum key distribution networks. To teleport a system from A to B, one has to share an entangled photon pair
+
+14
+
+Figure 6. Concept for performing 3-dimensional teleportation. One photon from the entangled pair is transformed in an extended, 4-dimensional space, U3˜+1. Afterwards, a multiport is used to mix the entangled photon, the teleportee and an ancillary photon to perform a 3-dimensional Bell state measurement. Importantly, the concept is entirely general and can be implemented in any degree-of-freedom to perform high-dimensional teleportation. This concept has been implemented in the path degree-of-freedom, to teleport the ﬁrst three-dimensional quantum state[64].
+between these two locations. A Bell-state measurement then projects the two particles at A into a joint state – thus removing their identities. The classical information of the joint measurement outcome is then sent to B, where an outcome-dependent local transformation recreates the initial quantum state.
+The ﬁrst experimental demonstration of quantum teleportation has transmitted the polarisation information of a single photon, which resembles a two-state quantum system[194]. Stretching the idea to larger systems, researchers found ways to teleport the quantum information of multiple particles at the same time [195] and multiple properties of a single particle[196].
+The ﬁnal obstacle, quantum teleportation of highdimensional systems has turned out to be conceptually more diﬃcult: The major challenge in teleporting highdimensional photonic quantum states has been identiﬁed by Calsamiglia already in 2002[197]. He showed that high-dimensional Bell-state measurements, with linear optical components, requires additional ancillary particles. The key insight is that with linear optics only, it is impossible to distinguish a single Bell state unambiguously from the other d2 – except for d = 2. Several theoretical approaches have been developed to overcome Calsamiglia’s no-go theorem[198–201]. Additional chal-
+
+lenges come from the fact that the teleportation ﬁdelity needs to be beyond F = 2/3 in order to demonstrate genuine three-dimensional teleportation. Fidelities below 50% can be achieved with classical techniques, and ﬁdelities between 50% and 66.6% can be achieved using qubit systems.
+In 2019, two experiments have been reported which demonstrate teleportation using three-dimensional path-encoding of a photon[64, 202]. In ref.[64], a three-dimensional Bell state measurement has been experimentally demonstrated that exploits quantumFourier transformation and can be generalized to arbitrary dimensions. Their approach is optimal in terms of required additional photons. The experiment required four photons (the teleportee, a threedimensionally entangled photon pair, and an ancillary photon to overcome Calsamiglia’s no-go theorem). The authors demonstrate count rates of 110 mHz (roughly 400 counts per hour), and a teleportation ﬁdelity of 75%, well beyond both the classical and qubit bound.
+The experiment in ref. [202] demonstrated teleportation using a Bell state measurement which requires an entangled ancillary pair of photons – making the demonstration a six photon experiment. The authors report a count rate of 2 mHz (roughly ten counts per hour) and a teleportation ﬁdelity of 63.8%. This value is well beyond the classical bound for teleportation.
+Both experiments demonstrate high-quality longtime stability of their (not integrated) experiments. The authors of ref.[202] demonstrate that their interferometers retain remarkable interference visibilities beyond 98% for 48 hours. The conceptual ideas and technologies can be transferred to and combined with technology in other high-dimensional degrees of freedom, which would enable the employment of these techniques over large distances (as it has been achieved for qubit systems[203]), and follow the dream of teleporting the entire quantum information of a quantum system.
+1. Applications in Entanglement Swapping
+Extending the teleportation scheme to a situation where the teleportee photon itself is entangled with another photon leads to entanglement swapping[204]. The intriguing fact in this scenario is that two photons become entangled that never interacted before nor ever shared a common past. Entanglement swapping has become an important fundamental concept, for example, to overcome long distances in quantum networks [205, 206] or in fundamental experiments regarding entanglement[34, 207]. Generalizing this concept to more complex entanglement structures in higherdimensions has not fully been achieved yet, but some important intermediate results have been reported.
+
+15
+
+In 2017, the ﬁrst entanglement swapping experiment with a high-dimensional degree of freedom was reported[208]. There the authors perform a Bell-state projection onto a large number of 2-dimensional subspaces. Conditioned on two-fold detections, they know that two initially independent photons are now in an incoherent superposition of many two-dimensionally entangled states, in the form
+
+ρ = c1 |ψ−−1,1 ψ−−1,1| + c2 + |ψ−−2,2 ψ−−2,2| + c3 |ψ−−2,1 ψ−−2,1| + c4 |ψ−−1,2 ψ−−1,2| + c5 |ψ1−,2 ψ1−,2| + c6 |ψ−−1,−2 ψ−−1,−2| .
+
+(12)
+
+The authors report average ﬁdelities of the twodimensionally entangled swapped subspaces of F = 80% (background subtracted; raw: F = 57%) for the six 2dimensionally entangled systems. They also explain in detail that their system is not high-dimensionally entangled, as one would need a three-dimensional Bell state measurement.
+An interesting application of their method lies in Ghost imaging[209]. In conventional Ghost imaging [210], the object never interacts with the photon used to image it – but only with its correlated partner photon. In the demonstrated scheme, the photon interacting with the object does not even share a common past with the photon used for imaging. Thus it is conceptually interesting, whether quantum or classical correlations are required for this task.
+
+V. FUTURE DIRECTIONS FOR PHOTONIC HIGH-DIMENSIONAL ENTANGLEMENT
+The proof-of-principle experiments detailed in this review deﬁne the current technological and conceptual state-of-the-art. Many essential challenges are awaiting in the next few years, to enhance conceptual understanding and practical applicability of high-dimensional multi-photonic entanglement.
+On the technological side, highly-eﬃcient or deterministic single-photon or photon-pair sources are necessary to increase count rates of multi-photon experiments [211]. The development of near-unity photon detectors with small timing jitter will be signiﬁcant for scaling up time-bin entangled states. The employment of eﬃcient multi-outcome detection schemes (e.g. with detector arrays) will be necessary to harness the highdimensional information stored in single photons. Scaling integrated optics to more modes, and in particular, multi-photon generation on-chip will be essential
+
+for path-encoding schemes[212]. The access to complex entangled states gives rise to interesting properties, such as absolutely maximally entangled quantum states [213, 214], and their peculiar features can not be investigated in laboratories. A critical question is how to control and manipulate entangled multi-photonic states experimentally. It remains open whether some of the unconventional methods that have been demonstrated successfully for single quDits [118, 215, 216] will still be feasible when many particles are concerned.
+In basic research on high-dimensional many-body entanglement, several questions remain unanswered. For example, the generalisation of high-dimensional multiphotonic all-versus-nothing violations of local realism is a way to extend our understanding of the severe difference between our classical worldview and predictions of quantum mechanics. Here, of particular importance are generalisations of the GHZ argument [46–48, 217], and its application to asymmetrically entangled states that only appear when both the number of particles and dimension is beyond two [176]. This involves the understanding of whether non-hermitian measurements are necessary to ﬁnd the most extensive violations, as they have appeared in recent results. It is an open question of what the most eﬃcient protocols for highdimensional quantum teleportation are, and how multiple (high-dimensional) degrees of freedom can be experimentally teleported. This will be essential for the philosophically appealing goal of teleporting the entire quantum information of a single photon.
+Of course, usually the most exciting advances are unknown unknowns, thus cannot be predicted. In the light of the enormous progress in the experimental capabilities of high-dimensional multipartite quantum entanglement in just the last ﬁve years, we would like to encourage and invite theoretical and experimental quantum scientists to explore and exploit the hidden potential of complex, high-dimensional many-body quantum entanglement.
+ACKNOWLEDGEMENTS
+We thank Sebastian Ecker and Lukas Bulla for insightful discussions related to time-bin entanglement. This work was supported by the Austrian Academy of Sciences (ÖAW), University of Vienna via the project QUESS and the Austrian Science Fund (FWF) with SFB F40 (FOQUS). ME acknowledges support from FWF project W 1210-N25 (CoQuS). MK acknowledges support from FWF via the Erwin Schrödinger fellowship No. J4309.
+
+[1] Eörs Szathmáry, “Why are there four letters in the genetic alphabet?” Nature Reviews Genetics 4, 995
+
+(2003).
+
+16
+
+[2] Helle Bechmann-Pasquinucci and Asher Peres, “Quantum cryptography with 3-state systems,” Physical Review Letters 85, 3313 (2000).
+[3] Nicolas J Cerf, Mohamed Bourennane, Anders Karlsson, and Nicolas Gisin, “Security of quantum key distribution using d-level systems,” Physical Review Letters 88, 127902 (2002).
+[4] Tamás Vértesi, Stefano Pironio, and Nicolas Brunner, “Closing the detection loophole in bell experiments using qudits,” Physical review letters 104, 060401 (2010).
+[5] C Senko, P Richerme, J Smith, A Lee, I Cohen, A Retzker, and C Monroe, “Realization of a quantum integer-spin chain with controllable interactions,” Physical Review X 5, 021026 (2015).
+[6] Bo Yan, Steven A Moses, Bryce Gadway, Jacob P Covey, Kaden RA Hazzard, Ana Maria Rey, Deborah S Jin, and Jun Ye, “Observation of dipolar spin-exchange interactions with lattice-conﬁned polar molecules,” Nature 501, 521 (2013).
+[7] Valentina Parigi, Vincenzo D’Ambrosio, Christophe Arnold, Lorenzo Marrucci, Fabio Sciarrino, and Julien Laurat, “Storage and retrieval of vector beams of light in a multiple-degree-of-freedom quantum memory,” Nature communications 6, 7706 (2015).
+[8] Dong-Sheng Ding, Wei Zhang, Shuai Shi, ZhiYuan Zhou, Yan Li, Bao-Sen Shi, and Guang-Can Guo, “High-dimensional entanglement between distant atomic-ensemble memories,” Light: Science & Applications 5, e16157 (2016).
+[9] Matthew Neeley, Markus Ansmann, Radoslaw C Bialczak, Max Hofheinz, Erik Lucero, Aaron D O’Connell, Daniel Sank, Haohua Wang, James Wenner, Andrew N Cleland, et al., “Emulation of a quantum spin with a superconducting phase qudit,” Science 325, 722–725 (2009).
+[10] Soonwon Choi, Joonhee Choi, Renate Landig, Georg Kucsko, Hengyun Zhou, Junichi Isoya, Fedor Jelezko, Shinobu Onoda, Hitoshi Sumiya, Vedika Khemani, et al., “Observation of discrete time-crystalline order in a disordered dipolar many-body system,” Nature 543, 221 (2017).
+[11] Samuel L Braunstein and Peter Van Loock, “Quantum information with continuous variables,” Reviews of Modern Physics 77, 513 (2005).
+[12] Christian Weedbrook, Stefano Pirandola, Raúl GarcíaPatrón, Nicolas J Cerf, Timothy C Ralph, Jeﬀrey H Shapiro, and Seth Lloyd, “Gaussian quantum information,” Reviews of Modern Physics 84, 621 (2012).
+[13] Dagmar Bruß, “Characterizing entanglement,” Journal of Mathematical Physics 43, 4237–4251 (2002).
+[14] Ryszard Horodecki, Paweł Horodecki, Michał Horodecki, and Karol Horodecki, “Quantum entanglement,” Reviews of modern physics 81, 865 (2009).
+[15] Otfried Gühne and Géza Tóth, “Entanglement detection,” Physics Reports 474, 1–75 (2009).
+[16] Martin B Plenio and Shashank S Virmani, “An introduction to entanglement theory,” in Quantum Information and Coherence (Springer, 2014) pp. 173–209.
+
+[17] Nicolai Friis, Giuseppe Vitagliano, Mehul Malik, and Marcus Huber, “Entanglement certiﬁcation from theory to experiment,” Nature Reviews Physics , 1 (2018).
+[18] Albert Einstein, Boris Podolsky, and Nathan Rosen, “Can quantum-mechanical description of physical reality be considered complete?” Physical review 47, 777 (1935).
+[19] E Schrödinger, “Die gegenwärtige Situation in der Quantenmechanik,” Naturwissenschaften 23, 823–828 (1935).
+[20] David Bohm, Quantum theory (Prentice-Hall, 1951). [21] John S Bell, “On the einstein podolsky rosen paradox,”
+Physics Physique Fizika 1, 195 (1964). [22] Stuart J Freedman and John F Clauser, “Experimental
+test of local hidden-variable theories,” Physical Review Letters 28, 938 (1972). [23] Alain Aspect, Jean Dalibard, and Gérard Roger, “Experimental test of bell’s inequalities using time-varying analyzers,” Physical review letters 49, 1804 (1982). [24] ZY Ou and L Mandel, “Violation of bell’s inequality and classical probability in a two-photon correlation experiment,” Physical Review Letters 61, 50 (1988). [25] Jürgen Brendel, E Mohler, and W Martienssen, “Experimental test of bell’s inequality for energy and time,” EPL (Europhysics Letters) 20, 575 (1992). [26] Paul G Kwiat, Aephraim M Steinberg, and Raymond Y Chiao, “High-visibility interference in a bellinequality experiment for energy and time,” Physical Review A 47, R2472 (1993). [27] Paul G Kwiat, Klaus Mattle, Harald Weinfurter, Anton Zeilinger, Alexander V Sergienko, and Yanhua Shih, “New high-intensity source of polarizationentangled photon pairs,” Physical Review Letters 75, 4337 (1995). [28] R. P. Feynman, R. B. Leighton, and M. Sands, Quantum Mechanics, The Feynman Lectures on Physics, Vol. 3 (Reading, MA: Addison-Wesley, 1965). [29] William K Wootters and Wojciech H Zurek, “A single quantum cannot be cloned,” Nature 299, 802 (1982). [30] Charles H Bennett and Gilles Brassard, “Quantum cryptography: public key distribution and coin tossing.” Theor. Comput. Sci. 560, 7–11 (2014). [31] Simon Kochen and Ernst P Specker, “The problem of hidden variables in quantum mechanics,” in The logicoalgebraic approach to quantum mechanics (Springer, 1975) pp. 293–328. [32] Radek Lapkiewicz, Peizhe Li, Christoph Schaeﬀ, Nathan K Langford, Sven Ramelow, Marcin Wieśniak, and Anton Zeilinger, “Experimental non-classicality of an indivisible quantum system,” Nature 474, 490 (2011). [33] Erwin Schrödinger, “Discussion of probability relations between separated systems,” in Mathematical Proceedings of the Cambridge Philosophical Society, Vol. 31 (Cambridge University Press, 1935) pp. 555–563. [34] Bas Hensen, Hannes Bernien, Anaïs E Dréau, Andreas Reiserer, Norbert Kalb, Machiel S Blok, Just Ruitenberg, Raymond FL Vermeulen, Raymond N Schouten, Carlos Abellán, et al., “Loophole-free bell inequality violation using electron spins separated by 1.3 kilometres,” Nature 526, 682 (2015).
+
+17
+
+[35] Marissa Giustina, Marijn AM Versteegh, Sören
+
+Wengerowsky, Johannes Handsteiner, Armin
+
+Hochrainer, Kevin Phelan, Fabian Steinlechner,
+
+Johannes Koﬂer, Jan-Åke Larsson, Carlos Abellán,
+
+et al., “Signiﬁcant-loophole-free test of bell’s theorem
+
+with entangled photons,” Physical review letters 115,
+
+250401 (2015).
+
+[36] Lynden K Shalm, Evan Meyer-Scott, Bradley G Chris-
+
+tensen, Peter Bierhorst, Michael A Wayne, Mar-
+
+tin J Stevens, Thomas Gerrits, Scott Glancy, Deny R
+
+Hamel, Michael S Allman, et al., “Strong loophole-
+
+free test of local realism,” Physical review letters 115,
+
+250402 (2015).
+
+[37] N David Mermin, “Quantum mechanics vs local real-
+
+ism near the classical limit: A bell inequality for spin
+
+s,” Physical Review D 22, 356 (1980).
+
+[38] Dagomir Kaszlikowski, Piotr Gnaciński, Marek
+
+Żukowski, Wieslaw Miklaszewski, and Anton
+
+Zeilinger, “Violations of local realism by two entan-
+
+gled n-dimensional systems are stronger than for two
+
+qubits,” Physical Review Letters 85, 4418 (2000).
+
+[39] Thomas Durt, Dagomir Kaszlikowski,
+
+and
+
+M Żukowski, “Violations of local realism with
+
+quantum systems described by n-dimensional hilbert
+
+spaces up to n= 16,” Physical Review A 64, 024101
+
+(2001).
+
+[40] Daniel Collins, Nicolas Gisin, Noah Linden, Serge
+
+Massar, and Sandu Popescu, “Bell inequalities for ar-
+
+bitrarily high-dimensional systems,” Physical review
+
+letters 88, 040404 (2002).
+
+[41] Artur K Ekert, “Quantum cryptography based on
+
+bell’s theorem,” Physical review letters 67, 661 (1991).
+
+[42] Dominic Mayers and Andrew Yao, “Quantum cryptog-
+
+raphy with imperfect apparatus,” in Proceedings 39th
+
+Annual Symposium on Foundations of Computer Sci-
+
+ence (Cat. No. 98CB36280) (IEEE, 1998) pp. 503–509.
+
+[43] Daniel M Greenberger, Michael A Horne, and Anton
+
+Zeilinger, “Going beyond bell’s theorem,” in Bell’s the-
+
+orem, quantum theory and conceptions of the universe
+
+(Springer, 1989) pp. 69–72.
+
+[44] Peter W Shor, “Scheme for reducing decoherence in
+
+quantum computer memory,” Physical review A 52,
+
+R2493 (1995).
+
+[45] N David Mermin, “Extreme quantum entanglement
+
+in a superposition of macroscopically distinct states,”
+
+Physical Review Letters 65, 1838 (1990).
+
+[46] Junghee Ryu, Changhyoup Lee, Marek Żukowski, and
+
+Jinhyoung Lee, “Greenberger-horne-zeilinger theorem
+
+for n qudits,” Physical Review A 88, 042101 (2013).
+
+[47] Junghee Ryu, Changhyoup Lee, Zhi Yin, Ramij Ra-
+
+haman, Dimitris G. Angelakis, Jinhyoung Lee, and
+
+Marek Żukowski, “Multisetting greenberger-horne-
+
+zeilinger theorem,” Phys. Rev. A 89, 024103 (2014).
+
+[48] Jay Lawrence, “Rotational covariance and
+
+greenberger-horne-zeilinger theorems for three or
+
+more particles of any dimension,” Physical Review A
+
+89, 012105 (2014).
+
+[49] Weidong Tang, Sixia Yu, and CH Oh, “Multisetting
+
+greenberger-horne-zeilinger paradoxes,” Physical Re-
+
+view A 95, 012131 (2017).
+
+[50] Paul Adrien Maurice Dirac, The principles of quantum mechanics, 27 (Oxford university press, 1981).
+[51] Meng-Jun Hu, Xiao-Min Hu, and Yong-Sheng Zhang, “Are observables necessarily hermitian?” Quantum Studies: Mathematics and Foundations 4, 243–249 (2017).
+[52] Michael Reck, Anton Zeilinger, Herbert J Bernstein, and Philip Bertani, “Experimental realization of any discrete unitary operator,” Physical Review Letters 73, 58 (1994).
+[53] Xiaogang Qiang, Xiaoqi Zhou, Jianwei Wang, Callum M Wilkes, Thomas Loke, Sean O’Gara, Laurent Kling, Graham D Marshall, Raﬀaele Santagati, Timothy C Ralph, et al., “Large-scale silicon quantum photonics implementing arbitrary two-qubit processing,” Nature photonics 12, 534 (2018).
+[54] R Ghosh, CK Hong, ZY Ou, and L Mandel, “Interference of two photons in parametric down conversion,” Physical Review A 34, 3962 (1986).
+[55] Leonard Mandel and Emil Wolf, Optical coherence and quantum optics (Cambridge university press, 1995).
+[56] Matthew D Eisaman, Jingyun Fan, Alan Migdall, and Sergey V Polyakov, “Invited review article: Singlephoton sources and detectors,” Review of scientiﬁc instruments 82, 071101 (2011).
+[57] Jianwei Wang, Stefano Paesani, Yunhong Ding, Raffaele Santagati, Paul Skrzypczyk, Alexia Salavrakos, Jordi Tura, Remigiusz Augusiak, Laura Mančinska, Davide Bacco, et al., “Multidimensional quantum entanglement with large-scale integrated optics,” Science 360, 285–291 (2018).
+[58] Christoph Schaeﬀ, Robert Polster, Marcus Huber, Sven Ramelow, and Anton Zeilinger, “Experimental access to higher-dimensional entangled quantum systems using integrated optics,” Optica 2, 523–529 (2015).
+[59] Marek Żukowski, Anton Zeilinger, and Michael A Horne, “Realizable higher-dimensional two-particle entanglements via multiport beam splitters,” Physical Review A 55, 2564 (1997).
+[60] Alessandro Rossi, Giuseppe Vallone, Andrea Chiuri, Francesco De Martini, and Paolo Mataloni, “Multipath entanglement of two photons,” Physical review letters 102, 153902 (2009).
+[61] Malcolm N O’Sullivan-Hale, Irfan Ali Khan, Robert W Boyd, and John C Howell, “Pixel entanglement: experimental realization of optically entangled d= 3 and d= 6 qudits,” Physical Review Letters 94, 220501 (2005).
+[62] Gregory A Howland and John C Howell, “Eﬃcient high-dimensional entanglement imaging with a compressive-sensing double-pixel camera,” Physical review X 3, 011013 (2013).
+[63] Christoph Schaeﬀ, Robert Polster, Radek Lapkiewicz, Robert Fickler, Sven Ramelow, and Anton Zeilinger, “Scalable ﬁber integrated source for higherdimensional path-entangled photonic qunits,” Optics Express 20, 16145–16153 (2012).
+[64] Yi-Han Luo, Han-Sen Zhong, Manuel Erhard, Xi-Lin Wang, Li-Chao Peng, Mario Krenn, Xiao Jiang, Li Li, Nai-Le Liu, Chao-Yang Lu, et al., “Quantum teleportation in high dimensions,” Phys. Rev. Lett. 123,
+
+18
+
+070505 (2019). [65] Nicholas C Harris, Gregory R Steinbrecher, Mihika
+Prabhu, Yoav Lahini, Jacob Mower, Darius Bunandar, Changchen Chen, Franco NC Wong, Tom BaehrJones, Michael Hochberg, Seth Lloyd, and Dirk Englund, “Quantum transport simulations in a programmable nanophotonic processor,” Nature Photonics 11, 447 (2017). [66] Jay E Sharping, Kim Fook Lee, Mark A Foster, Amy C Turner, Bradley S Schmidt, Michal Lipson, Alexander L Gaeta, and Prem Kumar, “Generation of correlated photons in nanoscale silicon waveguides,” Optics express 14, 12388–12393 (2006). [67] H Jin, FM Liu, P Xu, JL Xia, ML Zhong, Y Yuan, JW Zhou, YX Gong, W Wang, and SN Zhu, “Onchip generation and manipulation of entangled photons based on reconﬁgurable lithium-niobate waveguide circuits,” Physical review letters 113, 103601 (2014). [68] Liangliang Lu, Lijun Xia, Zhiyu Chen, Leizhen Chen, Tonghua Yu, Tao Tao, Wenchao Ma, Ying Pan, Xinlun Cai, Yanqing Lu, Shining Zhu, and Xiao-Song Ma, “Three-dimensional entanglement on a silicon chip,” arXiv:1911.08807 (2019). [69] Nathan Wiebe, Christopher Granade, Christopher Ferrie, and David G Cory, “Hamiltonian learning and certiﬁcation using quantum resources,” Physical review letters 112, 190501 (2014). [70] Jianwei Wang, Stefano Paesani, Raﬀaele Santagati, Sebastian Knauer, Antonio A Gentile, Nathan Wiebe, Maurangelo Petruzzella, Jeremy L O’Brien, John G Rarity, Anthony Laing, et al., “Experimental quantum hamiltonian learning,” Nature Physics 13, 551 (2017). [71] Mario Krenn, Marcus Huber, Robert Fickler, Radek Lapkiewicz, Sven Ramelow, and Anton Zeilinger, “Generation and conﬁrmation of a (100× 100)dimensional entangled quantum system,” Proceedings of the National Academy of Sciences 111, 6243–6247 (2014). [72] Manuel Erhard, Mehul Malik, and Anton Zeilinger, “A quantum router for high-dimensional entanglement,” Quantum Science and Technology 2, 014001 (2017). [73] Mario Krenn, Armin Hochrainer, Mayukh Lahiri, and Anton Zeilinger, “Entanglement by path identity,” Physical Review Letters 118, 080401 (2017). [74] Mario Krenn, Xuemei Gu, and Anton Zeilinger, “Quantum experiments and graphs: Multiparty states as coherent superpositions of perfect matchings,” Physical review letters 119, 240403 (2017). [75] Jonathan Leach, Miles J Padgett, Stephen M Barnett, Sonja Franke-Arnold, and Johannes Courtial, “Measuring the orbital angular momentum of a single photon,” Physical Review Letters 88, 257901 (2002). [76] Jean-François Morizur, Lachlan Nicholls, Pu Jian, Seiji Armstrong, Nicolas Treps, Boris Hage, Magnus Hsu, Warwick Bowen, Jiri Janousek, and Hans-A Bachor, “Programmable unitary spatial mode manipulation,” JOSA A 27, 2524–2531 (2010). [77] G Cañas, N Vera, J Cariñe, P González, J Cardenas, PWR Connolly, A Przysiezna, ES Gómez, M Figueroa, G Vallone, et al., “High-dimensional decoy-state quan-
+
+tum key distribution over multicore telecommunication ﬁbers,” Physical Review A 96, 022317 (2017). [78] Yunhong Ding, Davide Bacco, Kjeld Dalgaard, Xinlun Cai, Xiaoqi Zhou, Karsten Rottwitt, and Leif Katsuo Oxenløwe, “High-dimensional quantum key distribution based on multicore ﬁber using silicon photonic integrated circuits,” npj Quantum Information 3, 25 (2017). [79] Hee Jung Lee, Sang-Kyung Choi, and Hee Su Park, “Experimental demonstration of four-dimensional photonic spatial entanglement between multi-core optical ﬁbres,” Scientiﬁc reports 7, 4302 (2017). [80] Natalia Herrera Valencia, Suraj Goel, Will McCutcheon, Hugo Deﬁenne, and Mehul Malik, “Unscrambling entanglement through a complex medium,” arXiv:1910.04490 (2019). [81] Y Ding, D Llewellyn, I Faruque, S Paesani, D Bacco, R Santagati, Y Qian, Y Li, Y Xiao, M Huber, et al., “Demonstration of chip-to-chip quantum teleportation,” in CLEO: Applications and Technology (Optical Society of America, 2019) pp. JTh5C–4. [82] Alois Mair, Alipasha Vaziri, Gregor Weihs, and Anton Zeilinger, “Entanglement of the orbital angular momentum states of photons,” Nature 412, 313 (2001). [83] Melanie McLaren, Megan Agnew, Jonathan Leach, Filippus S Roux, Miles J Padgett, Robert W Boyd, and Andrew Forbes, “Entangled besselgaussian beams,” Optics express 20, 23589–23597 (2012). [84] Mario Krenn, Robert Fickler, Marcus Huber, Radek Lapkiewicz, William Plick, Sven Ramelow, and Anton Zeilinger, “Entangled singularity patterns of photons in ince-gauss modes,” Physical Review A 87, 012326 (2013). [85] Les Allen, Marco W Beijersbergen, RJC Spreeuw, and JP Woerdman, “Orbital angular momentum of light and the transformation of laguerre-gaussian laser modes,” Physical Review A 45, 8185 (1992). [86] Manuel Erhard, Robert Fickler, Mario Krenn, and Anton Zeilinger, “Twisted photons: new quantum perspectives in high dimensions,” Light: Science & Applications 7, 17146 (2018). [87] Alison M Yao and Miles J Padgett, “Orbital angular momentum: origins, behavior and applications,” Advances in Optics and Photonics 3, 161–204 (2011). [88] Gabriel Molina-Terriza, Juan P Torres, and Lluis Torner, “Twisted photons,” Nature physics 3, 305 (2007). [89] Alipasha Vaziri, Gregor Weihs, and Anton Zeilinger, “Experimental two-photon, three-dimensional entanglement for quantum communication,” Physical Review Letters 89, 240401 (2002). [90] Ebrahim Karimi, Sebastian A Schulz, Israel De Leon, Hammam Qassim, Jeremy Upham, and Robert W Boyd, “Generating optical orbital angular momentum at visible wavelengths using a plasmonic metasurface,” Light: Science & Applications 3, e167 (2014). [91] FM Miatto, D Giovannini, J Romero, S FrankeArnold, SM Barnett, and MJ Padgett, “Bounds and optimisation of orbital angular momentum bandwidths within parametric down-conversion systems,”
+
+19
+
+The European Physical Journal D 66, 178 (2012). [92] J Romero, D Giovannini, S Franke-Arnold, SM Bar-
+nett, and MJ Padgett, “Increasing the dimension in high-dimensional two-photon orbital angular momentum entanglement,” Physical Review A 86, 012334 (2012). [93] Adetunmise C Dada, Jonathan Leach, Gerald S Buller, Miles J Padgett, and Erika Andersson, “Experimental high-dimensional two-photon entanglement and violations of generalized bell inequalities,” Nature Physics 7, 677 (2011). [94] E Karimi, RW Boyd, P De La Hoz, H De Guise, J Řeháček, Z Hradil, A Aiello, G Leuchs, and Luis Lorenzo Sánchez-Soto, “Radial quantum number of laguerregauss modes,” Physical review A 89, 063813 (2014). [95] Ebrahim Karimi, Daniel Giovannini, Eliot Bolduc, Nicolas Bent, Filippo M Miatto, Miles J Padgett, and Robert W Boyd, “Exploring the quantum nature of the radial degree of freedom of a photon via hong-oumandel interference,” Physical Review A 89, 013829 (2014). [96] William N Plick and Mario Krenn, “Physical meaning of the radial index of laguerre-gauss beams,” Physical Review A 92, 063841 (2015). [97] Alipasha Vaziri, Jian-Wei Pan, Thomas Jennewein, Gregor Weihs, and Anton Zeilinger, “Concentration of higher dimensional entanglement: qutrits of photon orbital angular momentum,” Physical Review Letters 91, 227902 (2003). [98] EV Kovlakov, SS Straupe, and SP Kulik, “Quantum state engineering with twisted photons via adaptive shaping of the pump beam,” Physical Review A 98, 060301 (2018). [99] Shilong Liu, Zhiyuan Zhou, Shikai Liu, Yinhai Li, Yan Li, Chen Yang, Zhaohuai Xu, Zhaodi Liu, Guangcan Guo, and Baosen Shi, “Coherent manipulation of a three-dimensional maximally entangled state,” Physical Review A 98, 062316 (2018). [100] Jaroslav Kysela, Manuel Erhard, Armin Hochrainer, Mario Krenn, and Anton Zeilinger, “Experimental high-dimensional entanglement by path identity,” arXiv:1904.07851 (2019). [101] Lorenzo Marrucci, C Manzo, and D Paparo, “Optical spin-to-orbital angular momentum conversion in inhomogeneous anisotropic media,” Physical review letters 96, 163905 (2006). [102] NR Heckenberg, R McDuﬀ, CP Smith, and AG White, “Generation of optical phase singularities by computer-generated holograms,” Optics letters 17, 221–223 (1992). [103] Jessica Bavaresco, Natalia Herrera Valencia, Claude Klöckl, Matej Pivoluska, Paul Erker, Nicolai Friis, Mehul Malik, and Marcus Huber, “Measurements in two bases are suﬃcient for certifying high-dimensional entanglement,” Nature Physics 14, 1032 (2018). [104] Florian Schlederer, Mario Krenn, Robert Fickler, Mehul Malik, and Anton Zeilinger, “Cyclic transformation of orbital angular momentum modes,” New Journal of Physics 18, 043019 (2016). [105] Amin Babazadeh, Manuel Erhard, Feiran Wang, Mehul Malik, Rahman Nouroozi, Mario Krenn,
+
+and Anton Zeilinger, “High-dimensional single-photon quantum gates: Concepts and experiments,” Physical review letters 119, 180510 (2017). [106] Mario Krenn, Mehul Malik, Robert Fickler, Radek Lapkiewicz, and Anton Zeilinger, “Automated search for new quantum experiments,” Physical Review Letters 116, 090405 (2016). [107] Xiaoqin Gao, Mario Krenn, Jaroslav Kysela, and Anton Zeilinger, “Arbitrary d-dimensional pauli x gates of a ﬂying qudit,” Physical Review A 99, 023825 (2019). [108] Xuemei Gu, Mario Krenn, Manuel Erhard, and Anton Zeilinger, “Gouy phase radial mode sorter for light: Concepts and experiments,” Physical review letters 120, 103601 (2018). [109] Dongzhi Fu, Yiyu Zhou, Rui Qi, Stone Oliver, Yunlong Wang, Seyed Mohammad Hashemi Rafsanjani, Jiapeng Zhao, Mohammad Mirhosseini, Zhimin Shi, Pei Zhang, et al., “Realization of a scalable laguerre– gaussian mode sorter based on a robust radial mode sorter,” Optics express 26, 33057–33065 (2018). [110] Yiyu Zhou, Mohammad Mirhosseini, Stone Oliver, Jiapeng Zhao, Seyed Mohammad Hashemi Rafsanjani, Martin PJ Lavery, Alan E Willner, and Robert W Boyd, “Using all transverse degrees of freedom in quantum communications based on a generic mode sorter,” Optics express 27, 10383–10394 (2019). [111] Mehul Malik, Manuel Erhard, Marcus Huber, Mario Krenn, Robert Fickler, and Anton Zeilinger, “Multiphoton entanglement in high dimensions,” Nature Photonics 10, 248 (2016). [112] Manuel Erhard, Mehul Malik, Mario Krenn, and Anton Zeilinger, “Experimental greenberger–horne– zeilinger entanglement beyond qubits,” Nature Photonics 12, 759 (2018). [113] Gregorius CG Berkhout, Martin PJ Lavery, Johannes Courtial, Marco W Beijersbergen, and Miles J Padgett, “Eﬃcient sorting of orbital angular momentum states of light,” Physical review letters 105, 153601 (2010). [114] Martin PJ Lavery, David J Robertson, Anna Sponselli, Johannes Courtial, Nicholas K Steinhoﬀ, Glenn A Tyler, Alan E Willner, and Miles J Padgett, “Eﬃcient measurement of an optical orbital-angular-momentum spectrum comprising more than 50 states,” New Journal of Physics 15, 013024 (2013). [115] Mohammad Mirhosseini, Mehul Malik, Zhimin Shi, and Robert W Boyd, “Eﬃcient separation of the orbital angular momentum eigenstates of light,” Nature communications 4, 2781 (2013). [116] Nicolas K Fontaine, Roland Ryf, Haoshuo Chen, David Neilson, and Joel Carpenter, “Design of high order mode-multiplexers using multiplane light conversion,” in 2017 European Conference on Optical Communication (ECOC) (IEEE, 2017) pp. 1–3. [117] Nicolas K Fontaine, Roland Ryf, Haoshuo Chen, David T Neilson, Kwangwoong Kim, and Joel Carpenter, “Laguerre-gaussian mode sorter,” Nature communications 10, 1865 (2019). [118] Florian Brandt, Markus Hiekkamäki, Frédéric Bouchard, Marcus Huber, and Robert Fickler, “High-dimensional quantum gates using full-ﬁeld
+
+20
+
+spatial modes of photons,” arXiv:1907.13002 (2019). [119] Graham Gibson, Johannes Courtial, Miles J Padgett,
+Mikhail Vasnetsov, Valeriy Pas’ko, Stephen M Barnett, and Sonja Franke-Arnold, “Free-space information transfer using light beams carrying orbital angular momentum,” Optics express 12, 5448–5456 (2004). [120] Jian Wang, Jeng-Yuan Yang, Irfan M Fazal, Nisar Ahmed, Yan Yan, Hao Huang, Yongxiong Ren, Yang Yue, Samuel Dolinar, Moshe Tur, et al., “Terabit free-space data transmission employing orbital angular momentum multiplexing,” Nature photonics 6, 488 (2012). [121] Nenad Bozinovic, Yang Yue, Yongxiong Ren, Moshe Tur, Poul Kristensen, Hao Huang, Alan E Willner, and Siddharth Ramachandran, “Terabit-scale orbital angular momentum mode division multiplexing in ﬁbers,” science 340, 1545–1548 (2013). [122] Mario Krenn, Robert Fickler, Matthias Fink, Johannes Handsteiner, Mehul Malik, Thomas Scheidl, Rupert Ursin, and Anton Zeilinger, “Communication with spatially modulated light through turbulent air across vienna,” New Journal of Physics 16, 113028 (2014). [123] Frédéric Bouchard, Alicia Sit, Felix Hufnagel, Aazad Abbas, Yingwen Zhang, Khabat Heshami, Robert Fickler, Christoph Marquardt, Gerd Leuchs, Ebrahim Karimi, et al., “Quantum cryptography with twisted photons through an outdoor underwater channel,” Optics express 26, 22563–22573 (2018). [124] Mario Krenn, Johannes Handsteiner, Matthias Fink, Robert Fickler, Rupert Ursin, Mehul Malik, and Anton Zeilinger, “Twisted light transmission over 143 km,” Proceedings of the National Academy of Sciences 113, 13648–13653 (2016). [125] Siddharth Ramachandran, Poul Kristensen, and Man F Yan, “Generation and propagation of radially polarized beams in optical ﬁbers,” Optics letters 34, 2525–2527 (2009). [126] GKL Wong, Myeong Soo Kang, HW Lee, F Biancalana, C Conti, T Weiss, and P St J Russell, “Excitation of orbital angular momentum resonances in helically twisted photonic crystal ﬁber,” Science 337, 446–449 (2012). [127] Charles Brunet, Pravin Vaity, Younès Messaddeq, Sophie LaRochelle, and Leslie A Rusch, “Design, fabrication and validation of an oam ﬁber supporting 36 states,” Optics express 22, 26117–26127 (2014). [128] Charles Brunet, Bora Ung, Lixian Wang, Younès Messaddeq, Sophie LaRochelle, and Leslie A Rusch, “Design of a family of ring-core ﬁbers for oam transmission studies,” Optics express 23, 10553–10563 (2015). [129] P Gregg, P Kristensen, and S Ramachandran, “Conservation of orbital angular momentum in air-core optical ﬁbers,” Optica 2, 267–270 (2015). [130] Alan E Willner, Hao Huang, Yan Yan, Yongxiong Ren, Nisar Ahmed, Goudong Xie, Changjing Bao, L Li, Y Cao, Z Zhao, et al., “Optical communications using orbital angular momentum beams,” Advances in Optics and Photonics 7, 66–106 (2015). [131] Alicia Sit, Robert Fickler, Fatimah Alsaiari, Frédéric Bouchard, Hugo Larocque, Patrick Gregg, Lu Yan,
+
+Robert W Boyd, Siddharth Ramachandran, and Ebrahim Karimi, “Quantum cryptography with structured photons through a vortex ﬁber,” Optics letters 43, 4108–4111 (2018). [132] Alicia Sit, Frédéric Bouchard, Robert Fickler, Jérémie Gagnon-Bischoﬀ, Hugo Larocque, Khabat Heshami, Dominique Elser, Christian Peuntinger, Kevin Günthner, Bettina Heim, et al., “High-dimensional intracity quantum cryptography with structured photons,” Optica 4, 1006–1010 (2017). [133] Daniele Cozzolino, Davide Bacco, Beatrice Da Lio, Kasper Ingerslev, Yunhong Ding, Kjeld Dalgaard, Poul Kristensen, Michael Galili, Karsten Rottwitt, Siddharth Ramachandran, et al., “Orbital angular momentum states enabling ﬁber-based high-dimensional quantum communication,” Physical Review Applied 11, 064058 (2019). [134] Mario Krenn, Johannes Handsteiner, Matthias Fink, Robert Fickler, and Anton Zeilinger, “Twisted photon entanglement through turbulent air across vienna,” Proceedings of the National Academy of Sciences 112, 14197–14201 (2015). [135] Robert Fickler, Radek Lapkiewicz, William N Plick, Mario Krenn, Christoph Schaeﬀ, Sven Ramelow, and Anton Zeilinger, “Quantum entanglement of high angular momenta,” Science 338, 640–643 (2012). [136] Robert Fickler, Geoﬀ Campbell, Ben Buchler, Ping Koy Lam, and Anton Zeilinger, “Quantum entanglement of angular momentum states with quantum numbers up to 10,010,” Proceedings of the National Academy of Sciences 113, 13642–13647 (2016). [137] Robert Fickler, Mario Krenn, Radek Lapkiewicz, Sven Ramelow, and Anton Zeilinger, “Real-time imaging of quantum entanglement,” Scientiﬁc reports 3, 1914 (2013). [138] Manuel Erhard, Hammam Qassim, Harjaspreet Mand, Ebrahim Karimi, and Robert W Boyd, “Real-time imaging of spin-to-orbital angular momentum hybrid remote state preparation,” Physical Review A 92, 022321 (2015). [139] Wolfgang Tittel, Jürgen Brendel, Hugo Zbinden, and Nicolas Gisin, “Violation of bell inequalities by photons more than 10 km apart,” Physical Review Letters 81, 3563 (1998). [140] Ivan Marcikic, Hugues De Riedmatten, Wolfgang Tittel, Hugo Zbinden, Matthieu Legré, and Nicolas Gisin, “Distribution of time-bin entangled qubits over 50 km of optical ﬁber,” Physical Review Letters 93, 180502 (2004). [141] Fabian Steinlechner, Sebastian Ecker, Matthias Fink, Bo Liu, Jessica Bavaresco, Marcus Huber, Thomas Scheidl, and Rupert Ursin, “Distribution of highdimensional entanglement via an intra-city free-space link,” Nature communications 8, 15971 (2017). [142] Michael Kues, Christian Reimer, Piotr Roztocki, Luis Romero Cortés, Stefania Sciara, Benjamin Wetzel, Yanbing Zhang, Alfonso Cino, Sai T Chu, Brent E Little, et al., “On-chip generation of high-dimensional entangled quantum states and their coherent control,” Nature 546, 622 (2017).
+
+21
+
+[143] James D Franson, “Bell inequality for position and time,” Physical Review Letters 62, 2205 (1989).
+[144] Jürgen Brendel, Nicolas Gisin, Wolfgang Tittel, and Hugo Zbinden, “Pulsed energy-time entangled twinphoton source for quantum communication,” Physical Review Letters 82, 2594 (1999).
+[145] Wolfgang Tittel, Jürgen Brendel, Hugo Zbinden, and Nicolas Gisin, “Quantum cryptography using entangled photons in energy-time bell states,” Physical Review Letters 84, 4737 (2000).
+[146] Christian Reimer, Michael Kues, Piotr Roztocki, Benjamin Wetzel, Fabio Grazioso, Brent E Little, Sai T Chu, Tudor Johnston, Yaron Bromberg, Lucia Caspani, et al., “Generation of multiphoton entangled quantum states by means of integrated frequency combs,” Science 351, 1176–1180 (2016).
+[147] Michael Kues, Christian Reimer, Joseph M Lukens, William J Munro, Andrew M Weiner, David J Moss, and Roberto Morandotti, “Quantum optical microcombs,” Nature Photonics 13, 170 (2019).
+[148] Hugues De Riedmatten, Ivan Marcikic, Hugo Zbinden, and Nicolas Gisin, “Creating high dimensional entanglement using mode-locked lasers,” Quantum Info. Comput. 2, 425–433 (2002).
+[149] Malte Avenhaus, Maria V Chekhova, Leonid A Krivitsky, Gerd Leuchs, and Christine Silberhorn, “Experimental veriﬁcation of high spectral entanglement for pulsed waveguided spontaneous parametric downconversion,” Physical Review A 79, 043836 (2009).
+[150] Giorgio Brida, V Caricato, MV Fedorov, Marco Genovese, Marco Gramegna, and SP Kulik, “Characterization of spectral entanglement of spontaneous parametric-down conversion biphotons in femtosecond pulsed regime,” EPL (Europhysics Letters) 87, 64003 (2009).
+[151] Francesco Vedovato, Costantino Agnesi, Marco Tomasin, Marco Avesani, Jan-Åke Larsson, Giuseppe Vallone, and Paolo Villoresi, “Postselection-loopholefree bell violation with genuine time-bin entanglement,” Physical review letters 121, 190401 (2018).
+[152] Anthony Martin, Thiago Guerreiro, Alexey Tiranov, Sébastien Designolle, Florian Fröwis, Nicolas Brunner, Marcus Huber, and Nicolas Gisin, “Quantifying photonic high-dimensional entanglement,” Physical review letters 118, 110501 (2017).
+[153] Andrew M Weiner, Jonathan P Heritage, and EM Kirschner, “High-resolution femtosecond pulse shaping,” JOSA B 5, 1563–1572 (1988).
+[154] D Yelin, D Meshulach, and Y Silberberg, “Adaptive femtosecond pulse compression,” Optics letters 22, 1793–1795 (1997).
+[155] Andrew M Weiner, “Femtosecond pulse shaping using spatial light modulators,” Review of scientiﬁc instruments 71, 1929–1960 (2000).
+[156] Avi Pe’Er, Barak Dayan, Asher A Friesem, and Yaron Silberberg, “Temporal shaping of entangled photons,” Physical review letters 94, 073601 (2005).
+[157] John M Donohue, Megan Agnew, Jonathan Lavoie, and Kevin J Resch, “Coherent ultrafast measurement of time-bin encoded photons,” Physical review letters 111, 153602 (2013).
+
+[158] Jean-Philippe W MacLean, John M Donohue, and Kevin J Resch, “Direct characterization of ultrafast energy-time entangled photon pairs,” Physical review letters 120, 053601 (2018).
+[159] S Ramelow, L Ratschbacher, A Fedrizzi, NK Langford, and A Zeilinger, “Discrete tunable color entanglement,” Physical Review Letters 103, 253601 (2009).
+[160] Laurent Olislager, Johann Cussey, Anh Tuan Nguyen, Philippe Emplit, Serge Massar, J-M Merolla, and K Phan Huy, “Frequency-bin entangled photons,” Physical Review A 82, 013804 (2010).
+[161] Christof Bernhard, Bänz Bessire, Thomas Feurer, and André Stefanov, “Shaping frequency-entangled qudits,” Physical Review A 88, 032322 (2013).
+[162] Poolad Imany, Jose A Jaramillo-Villegas, Ogaga D Odele, Kyunghun Han, Daniel E Leaird, Joseph M Lukens, Pavel Lougovski, Minghao Qi, and Andrew M Weiner, “50-ghz-spaced comb of high-dimensional frequency-bin entangled photons from an on-chip silicon nitride microresonator,” Optics express 26, 1825– 1840 (2018).
+[163] David J Moss, Roberto Morandotti, Alexander L Gaeta, and Michal Lipson, “New cmos-compatible platforms based on silicon nitride and hydex for nonlinear optics,” Nature photonics 7, 597 (2013).
+[164] Hsuan-Hao Lu, Joseph M Lukens, Nicholas A Peters, Ogaga D Odele, Daniel E Leaird, Andrew M Weiner, and Pavel Lougovski, “Electro-optic frequency beam splitters and tritters for high-ﬁdelity photonic quantum information processing,” Physical Review Letters 120, 030502 (2018).
+[165] Laurent Olislager, Erik Woodhead, Kien Phan Huy, Jean-Marc Merolla, Philippe Emplit, and Serge Massar, “Creating and manipulating entangled optical qubits in the frequency domain,” Physical Review A 89, 052323 (2014).
+[166] Xiaoqin Gao, Manuel Erhard, Anton Zeilinger, and Mario Krenn, “Computer-inspired concept for high-dimensional multipartite quantum gates,” arXiv:1910.05677 (2019).
+[167] Jeremy C Adcock, Caterina Vigliar, Raﬀaele Santagati, Joshua W Silverstone, and Mark G Thompson, “Programmable four-photon graph states on a silicon chip,” Nature communications 10, 1–6 (2019).
+[168] Irfan Ali-Khan, Curtis J Broadbent, and John C Howell, “Large-alphabet quantum key distribution using energy-time entangled bipartite states,” Physical Review Letters 98, 060503 (2007).
+[169] Tian Zhong, Hongchao Zhou, Robert D Horansky, Catherine Lee, Varun B Verma, Adriana E Lita, Alessandro Restelli, Joshua C Bienfang, Richard P Mirin, Thomas Gerrits, et al., “Photon-eﬃcient quantum key distribution using time–energy entanglement with high-dimensional encoding,” New Journal of Physics 17, 022002 (2015).
+[170] Zheshen Zhang, Jacob Mower, Dirk Englund, Franco NC Wong, and Jeﬀrey H Shapiro, “Unconditional security of time-energy entanglement quantum key distribution using dual-basis interferometry,” Physical review letters 112, 120506 (2014).
+
+22
+
+[171] Sebastian Ecker, Frédéric Bouchard, Lukas Bulla, Florian Brandt, Oskar Kohout, Fabian Steinlechner, Robert Fickler, Mehul Malik, Yelena Guryanova, Rupert Ursin, et al., “Entanglement distribution beyond qubits or: How i stopped worrying and learned to love the noise,” arXiv preprint arXiv:1904.01552 (2019).
+[172] Julio T Barreiro, Nathan K Langford, Nicholas A Peters, and Paul G Kwiat, “Generation of hyperentangled photon pairs,” Physical Review Letters 95, 260501 (2005).
+[173] Julio T Barreiro, Tzu-Chieh Wei, and Paul G Kwiat, “Beating the channel capacity limit for linear photonic superdense coding,” Nature physics 4, 282 (2008).
+[174] Trent M Graham, Herbert J Bernstein, Tzu-Chieh Wei, Marius Junge, and Paul G Kwiat, “Superdense teleportation using hyperentangled photons,” Nature communications 6, 7185 (2015).
+[175] Robert Fickler, Radek Lapkiewicz, Marcus Huber, Martin PJ Lavery, Miles J Padgett, and Anton Zeilinger, “Interface between path and orbital angular momentum entanglement for high-dimensional photonic quantum information,” Nature communications 5, 4502 (2014).
+[176] Marcus Huber and Julio I de Vicente, “Structure of multidimensional entanglement in multipartite systems,” Physical Review Letters 110, 030501 (2013).
+[177] Marcus Huber, Martí Perarnau-Llobet, and Julio I de Vicente, “Entropy vector formalism and the structure of multidimensional entanglement in multipartite systems,” Physical Review A 88, 042328 (2013).
+[178] Justin B Spring, Benjamin J Metcalf, Peter C Humphreys, W Steven Kolthammer, Xian-Min Jin, Marco Barbieri, Animesh Datta, Nicholas ThomasPeter, Nathan K Langford, Dmytro Kundys, James C. Gates, Brian J. Smith, Peter G.R. Smith, and Ian A. Walmsley, “Boson sampling on a photonic chip,” Science 339, 798 (2013).
+[179] Matthew A Broome, Alessandro Fedrizzi, Saleh Rahimi-Keshari, Justin Dove, Scott Aaronson, Timothy C Ralph, and Andrew G White, “Photonic boson sampling in a tunable circuit,” Science 339, 794 (2013).
+[180] Max Tillmann, Borivoje Dakić, René Heilmann, Stefan Nolte, Alexander Szameit, and Philip Walther, “Experimental boson sampling,” Nature Photonics 7, 540 (2013).
+[181] Andrea Crespi, Roberto Osellame, Roberta Ramponi, Daniel J Brod, Ernesto F Galvao, Nicolo Spagnolo, Chiara Vitelli, Enrico Maiorino, Paolo Mataloni, and Fabio Sciarrino, “Integrated multimode interferometers with arbitrary designs for photonic boson sampling,” Nature Photonics 7, 545 (2013).
+[182] Marco Bentivegna, Nicolò Spagnolo, Chiara Vitelli, Fulvio Flamini, Niko Viggianiello, Ludovico Latmiral, Paolo Mataloni, Daniel J Brod, Ernesto F Galvão, Andrea Crespi, et al., “Experimental scattershot boson sampling,” Science advances 1, e1400255 (2015).
+[183] Hui Wang, Yu He, Yu-Huai Li, Zu-En Su, Bo Li, HeLiang Huang, Xing Ding, Ming-Cheng Chen, Chang Liu, Jian Qin, et al., “High-eﬃciency multiphoton boson sampling,” Nature Photonics 11, 361 (2017).
+
+[184] Han-Sen Zhong, Yuan Li, Wei Li, Li-Chao Peng, ZuEn Su, Yi Hu, Yu-Ming He, Xing Ding, Weijun Zhang, Hao Li, et al., “12-photon entanglement and scalable scattershot boson sampling with optimal entangledphoton pairs from parametric down-conversion,” Physical review letters 121, 250505 (2018).
+[185] Stefano Paesani, Yunhong Ding, Raﬀaele Santagati, Levon Chakhmakhchyan, Caterina Vigliar, Karsten Rottwitt, Leif K Oxenløwe, Jianwei Wang, Mark G Thompson, and Anthony Laing, “Generation and sampling of quantum states of light in a silicon chip,” Nature Physics 15, 925–929 (2019).
+[186] Hui Wang, Jian Qin, Xing Ding, Ming-Cheng Chen, Si Chen, Xiang You, Yu-Ming He, Xiao Jiang, Z Wang, L You, et al., “Boson sampling with 20 input photons in 60-mode interferometers at 1014 state spaces,” arXiv:1910.09930 (2019).
+[187] Scott Aaronson and Alex Arkhipov, “The computational complexity of linear optics,” Proceedings of the forty-third annual ACM symposium on Theory of computing , 333 (2011).
+[188] Chong-Ki Hong, Zhe-Yu Ou, and Leonard Mandel, “Measurement of subpicosecond time intervals between two photons by interference,” Physical review letters 59, 2044 (1987).
+[189] BC Hiesmayr, MJA De Dood, and W Löﬄer, “Observation of four-photon orbital angular momentum entanglement,” Physical review letters 116, 073601 (2016).
+[190] Yu He, X Ding, Z-E Su, H-L Huang, J Qin, C Wang, S Unsleber, C Chen, H Wang, Y-M He, et al., “Timebin-encoded boson sampling with a single-photon device,” Physical review letters 118, 190501 (2017).
+[191] B Fang, M Menotti, M Liscidini, JE Sipe, and VO Lorenz, “Three-photon discrete-energy-entangled w state in an optical ﬁber,” Physical review letters 123, 070508 (2019).
+[192] Xi-Lin Wang, Yi-Han Luo, He-Liang Huang, MingCheng Chen, Zu-En Su, Chang Liu, Chao Chen, Wei Li, Yu-Qiang Fang, Xiao Jiang, et al., “18-qubit entanglement with six photons’ three degrees of freedom,” Physical review letters 120, 260502 (2018).
+[193] Charles H Bennett, Gilles Brassard, Claude Crépeau, Richard Jozsa, Asher Peres, and William K Wootters, “Teleporting an unknown quantum state via dual classical and einstein-podolsky-rosen channels,” Physical review letters 70, 1895 (1993).
+[194] Dik Bouwmeester, Jian-Wei Pan, Klaus Mattle, Manfred Eibl, Harald Weinfurter, and Anton Zeilinger, “Experimental quantum teleportation,” Nature 390, 575 (1997).
+[195] Qiang Zhang, Alexander Goebel, Claudia Wagenknecht, Yu-Ao Chen, Bo Zhao, Tao Yang, Alois Mair, Jörg Schmiedmayer, and Jian-Wei Pan, “Experimental quantum teleportation of a two-qubit composite system,” Nature Physics 2, 678 (2006).
+[196] Xi-Lin Wang, Xin-Dong Cai, Zu-En Su, Ming-Cheng Chen, Dian Wu, Li Li, Nai-Le Liu, Chao-Yang Lu, and Jian-Wei Pan, “Quantum teleportation of multiple degrees of freedom of a single photon,” Nature 518, 516 (2015).
+
+23
+
+[197] John Calsamiglia, “Generalized measurements by linear elements,” Physical Review A 65, 030301 (2002).
+[198] Sandeep K Goyal and Thomas Konrad, “Teleporting photonic qudits using multimode quantum scissors,” Scientiﬁc reports 3, 3548 (2013).
+[199] Sandeep K Goyal, Patricia E Boukama-Dzoussi, Sibasish Ghosh, Filippus S Roux, and Thomas Konrad, “Qudit-teleportation for photons with linear optics,” Scientiﬁc reports 4, 4543 (2014).
+[200] Hao Zhang, Chao Zhang, Xiao-Min Hu, Bi-Heng Liu, Yun-Feng Huang, Chuan-Feng Li, and Guang-Can Guo, “Arbitrary two-particle high-dimensional bellstate measurement by auxiliary entanglement,” Physical Review A 99, 052301 (2019).
+[201] Chenyu Zhang, JF Chen, Chaohan Cui, Jonathan P Dowling, ZY Ou, and Tim Byrnes, “Quantum teleportation of photonic qudits using linear optics,” Physical Review A 100, 032330 (2019).
+[202] Xiao-Min Hu, Chao Zhang, Bi-Heng Liu, YunFeng Huang, Chuan-Feng Li, and Guang-Can Guo, “Experimental multi-level quantum teleportation,” arXiv:1904.12249 (2019).
+[203] Ji-Gang Ren, Ping Xu, Hai-Lin Yong, Liang Zhang, Sheng-Kai Liao, Juan Yin, Wei-Yue Liu, Wen-Qi Cai, Meng Yang, Li Li, et al., “Ground-to-satellite quantum teleportation,” Nature 549, 70 (2017).
+[204] Marek Zukowski, Anton Zeilinger, Michael A Horne, and Aarthur K Ekert, ““event-ready-detectors”bell experiment via entanglement swapping,” Physical Review Letters 71, 4287–4290 (1993).
+[205] H-J Briegel, Wolfgang Dür, Juan I Cirac, and Peter Zoller, “Quantum repeaters: the role of imperfect local operations in quantum communication,” Physical Review Letters 81, 5932 (1998).
+[206] Zhen-Sheng Yuan, Yu-Ao Chen, Bo Zhao, Shuai Chen, Jörg Schmiedmayer, and Jian-Wei Pan, “Experimental demonstration of a bdcz quantum repeater node,” Nature 454, 1098 (2008).
+[207] Jian-Wei Pan, Dik Bouwmeester, Harald Weinfurter, and Anton Zeilinger, “Experimental entanglement swapping: entangling photons that never interacted,” Physical Review Letters 80, 3891 (1998).
+[208] Yingwen Zhang, Megan Agnew, Thomas Roger, Filippus S Roux, Thomas Konrad, Daniele Faccio, Jonathan Leach, and Andrew Forbes, “Simultaneous entanglement swapping of multiple orbital angular momentum states of light,” Nature communications 8, 632 (2017).
+[209] Nicholas Bornman, Megan Agnew, Feng Zhu, Adam Vallés, Andrew Forbes, and Jonathan Leach, “Ghost imaging using entanglement-swapped photons,” npj Quantum Information 5, 63 (2019).
+[210] Paul-Antoine Moreau, Ermes Toninelli, Thomas Gregory, and Miles J Padgett, “Imaging with quantum states of light,” Nature Reviews Physics , 1 (2019).
+[211] Hui Wang, Yu-Ming He, T-H Chung, Hai Hu, Ying Yu, Si Chen, Xing Ding, M-C Chen, Jian Qin, Xiaoxia Yang, et al., “Towards optimal single-photon sources from polarized microcavities,” Nature Photonics , 1–6 (2019).
+
+[212] Jianwei Wang, Fabio Sciarrino, Anthony Laing, and Mark G Thompson, “Integrated photonic quantum technologies,” Nature Photonics , 1–12 (2019).
+[213] Dardo Goyeneche, Daniel Alsina, José I Latorre, Arnau Riera, and Karol Życzkowski, “Absolutely maximally entangled states, combinatorial designs, and multiunitary matrices,” Physical Review A 92, 032316 (2015).
+[214] Alba Cervera-Lierta, José Ignacio Latorre, and Dardo Goyeneche, “Quantum circuits for maximally entangled states,” Physical Review A 100, 022342 (2019).
+[215] SM Popoﬀ, G Lerosey, R Carminati, M Fink, AC Boccara, and S Gigan, “Measuring the transmission matrix in optics: an approach to the study and control of light propagation in disordered media,” Physical review letters 104, 100601 (2010).
+[216] Robert Fickler, Manit Ginoya, and Robert W Boyd, “Custom-tailored spatial mode sorting by controlled random scattering,” Physical Review B 95, 161108 (2017).
+[217] Jay Lawrence, “Many-qutrit mermin inequalities with three measurement bases,” arXiv:1910.05869 (2019).
+

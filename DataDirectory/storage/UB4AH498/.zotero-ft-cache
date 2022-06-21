@@ -1,0 +1,413 @@
+Journal of Physics: Conference Series
+PAPER • OPEN ACCESS
+Melting curve of Si by means of the Z-method
+To cite this article: Felipe González-Cataldo et al 2018 J. Phys.: Conf. Ser. 1043 012038 View the article online for updates and enhancements.
+This content was downloaded from IP address 191.101.76.55 on 25/06/2018 at 13:14
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+Melting curve of Si by means of the Z-method
+Felipe Gonz´alez-Cataldo1, Fernando Corvacho2, Gonzalo Guti´errez2
+1Department of Earth and Planetary Science, University of California, Berkeley, California 94720, USA. 2Grupo de NanoMateriales, Departamento de F´ısica, Facultad de Ciencias, Universidad de Chile, Casilla 653, Santiago, Chile
+E-mail: f gonzalez@berkeley.edu
+Abstract. The melting curve of silicon is investigated through classical molecular dynamics simulations. We explore pressures from 0 to 20 GPa using the EDIP, Stillinger-Weber, and Tersoﬀ interactomic potentials. Using the Z method, we demonstrate that the predicted melting temperature Tm can be signiﬁcantly overestimated, depending on the potential chosen. Our results show that none of the potentials explored is able to reproduce the experimental melting curve of silicon by means of the Z-method. However, the EDIP potential does predict the change in the Clapeyron slope, associated with the diamond to β-tin phase transition.
+
+1. Introducci´on Solid silicon is a key material in the semiconductor industry, and has played a major role in the development of new technologies. At ambient pressure, Si crystallizes in the diamond structure, and transforms to the metallic β-tin structure around 12 GPa. Many aspects of the phase diagram of Si have been studied, such as the identiﬁcation of diﬀerent structures up to 250 GPa [1, 2], but an accurate determination of the melting curve still remains challenging, since high-temperature and high-pressure experiments on Si are diﬃcult. Therefore, the available data need further theoretical conﬁrmation.
+The Z method is a novel technique that allows to determine the melting temperature of a material, based on a series of simulations at constant volume. The method has been applied to study wide variety of materials, such as Ar [3], Ta [4], Pt [5], SiO2 [6], BeO [7], and many others, showing good agreement with other methods, and experiments. In this paper, we explore the predictions of the Z method for Si when diﬀerent empirical potentials are used in classical molecular dynamics.
+2. Methodology 2.1. Classical Molecular Dynamics Since its development in 1960, Molecular Dynamics (MD) has been a powerful tool to study the properties of materials from their atoms interactions. Given an empirical interatomic potential, macroscopic properties of a material can be calculated by integrating the equations of motion of the atoms in the system and applying the theorems from Statistical Mechanics [8]. Nowadays, many softwares are available to perform MD, being LAMMPS [9] one of the most widely used. LAMMPS comes with several empirical potentials available, including the Tersoﬀ [10, 11], EDIP [12], and Stillinger-Weber (SW) potentials [13], whose parameters have been adjusted
+
+Content from this work may be used under the terms of the Creative Commons Attribution 3.0 licence. Any further distribution
+
+of this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI.
+
+Published under licence by IOP Publishing Ltd
+
+1
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+from ab initio simulations and have shown to properly describe the mechanical properties of silicon.
+The SW potential has been shown to reproduce the pair-correlation function g(r) of the liquid, and was ﬁt to reproduce the melting temperature Tm at ambient pressure to within a few hundred degrees of the experimental value of 1685 K [13]. The Tersoﬀ potentials have been widely used to study silicon, but it is well known that it has problems describing the elastic constants and melting point. On the other hand, a modiﬁed version of Tersoﬀ, so called MOD [14], shows good agreement with the experimental value of the melting temperature at ambient pressure. EDIP is an empirical potential that is also an improvement to the Tersoﬀ potentials and, although it was developed earlier than MOD, it also reproduces the melting point of Si at ambient pressure, together with an accurate description of several structural properties. (Details about their functional form can be found in Appendix A). Thus, it is our purpose to benchmark the Z method for Si with all these potentials to show the diﬀerences in the prediction of the melting temperature for diﬀerent pressures.
+Using a cubic cell of 8000 atoms in the diamond structure, we carried out simulations of Si in the microcanonical ensemble for several densities, from 2.12 to 2.98 g/cm3. We used a time step of Δt = 1 fs, and a simulation time of at least 50 ps to converge the thermodynamic properties.
+2.2. Z Method The Z method is a procedure that has been extensively used in multiple melting studies, even in materials with anomalous melting curves, such as Li [15] and H [16]. The idea is to perform ab initio or classical MD in the microcanonical ensemble (NVE) on a single solid system at diﬀerent initial total energies. The total energy is controlled by setting a diﬀerent initial temperature in each simulation. When the crystal is heated beyond its overheating limit, the temperature naturally drops to the melting temperature as the latent heat is removed from the kinetic energy (see Figure 1). The connected P–T points on the isochore form a Z-shaped curve. Several simulations for each isochore are needed in order to yield an accurate melting temperature.
+
+Figure 1. Schematic representation of the isochoric lines in Z-method simulations. TLS is the maximum overheating temperature, and Tm the melting temperature.
+
+2.3. Mean Squared Displacement
+
+The Mean Squared Displacement (MSD) is a measure of the average displacement of atoms in
+
+a given sample, given by
+
+r2(τ ) = ri(t0 + τ )2 − ri(t0) t0,i ,
+
+(1)
+
+2
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+where the average is taken over all particles i and time spans t0. For the Z method, it allows to discriminate a solid from the liquid. When the atoms oscillate around the lattice positions, the slope of MSD is zero, meaning that the material is solid. If the MSD has a positive slope, the material is liquid. We calculated the MSD using the LPMD software [17], which allows to perform and analyze molecular dynamics simulations from diﬀerent formats. In Figure 2 we show the MSD of Si for diﬀerent temperatures along an isochore.
+
+Figure 2. MSD for Si at a density ρ = 2.515 g/cm3. The system melts when it is initial temperature is T0 = 4600 K, which drops to a melting temperature of 1337 K for this density. The pressure equilibrates to 1.74 GPa after melting.
+When we initialized the system at T0 = 4600 K, it reached an equilibrium temperature of T = 2077 K still in solid state. When the energy was increased, the equilibrium temperature drops to a melting temperature of 1337 K. In the simulations that were close to the melting temperature, we observed that a long time was needed to completely melt the sample. Instabilities in the overheated diamond structure (Figure 3(a)) give rise to nucleation zones (Figure 3(b)), which grow until they completely melt the crystal (Figure 3(c) and 3(d)). We used OVITO [18] to identify the atoms that are coordinated in the diamond structure, and separate them from the liquid (red atoms in Figure 3).
+3. Z method for diﬀerent potentials In Figures 4 and 5 we show diﬀerent isochores Si using the EDIP and SW potentials. To reduce the size eﬀects, for each isochore, we repeated all the simulations close to the melting point using 16000 atoms, and a relaxation time of 200 ps to ensure convergence.
+We observe that, regardless of the potential used, the shape of the Z curve is inverted, as it has been observed in the case of lithium [15]. This is a clear signature of materials with negative Clausius-Clapeyron slope. We also notice that the variation in pressure between the overheated solid and the liquid is sometimes higher that 20 GPa, specially for Tersoﬀ potentials. Each isochore varies signiﬁcantly depending on the potential used. That has serious consequences on the prediction of the speciﬁc heat Cv = (∂U/∂T )V , which is precisely the shape of the Z curve in the E-T phase space. On Figure 6 we show all the melting temperatures in the diagrams above, each one corresponding to a diﬀerent isochore.
+We observe that, consistent with previous results, the Tersoﬀ potential T3 signiﬁcantly overestimates the melting temperature of Si (around 20% higher than the melting temperatures reported by Deb). However, the MOD potential signiﬁcantly underestimates the melting temperatures, despite the fact that it is an improvement to T3 and that it does reproduce
+3
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+(a) t = 0.50ps
+
+(b) t = 0.75ps
+
+(c) t = 1.50ps
+
+(d) t = 4.00ps
+
+Figure 3. Melting of an overheated Si crystal during a simulation for the density ρ = 2.515 g/cm3. Red atoms represent the liquid, while gray atoms remain in diamond coordination.
+Small crystals remain solid for long periods of time in the simulation, but melt later on. The
+pressure equilibrates at 7.2 GPa, and the temperature drops from the initial T0 = 4600 K to Tm = 1337 K.
+
+the melting temperature at zero pressure. We conclude that Tersoﬀ potentials are not suited to simulate melting processes in any of its forms, using the Z method.
+On the other hand, EDIP predicts a melting temperature of Tm = 1500 K at zero pressure that, although it is similar to the one predicted by MOD, is more than 100 K below the experimental melting temperature. It is interesting to notice that EDIP predicts a melting curve that changes slope around 7 GPa. Although it is far from the β-tin transition that occurs at 12 GPa, it is a signature of a solid-solid phase transition occurring below the melting curve. The SW potential predicts signiﬁcantly high melting temperatures at high pressures. It also predicts a positive Clapeyron slope, regardless of the pressure range. However, it seems to agree
+
+4
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+(a) EDIP
+
+(b) Stillinger-Weber
+
+Figure 4. Silicon isochores obtained with the EDIP and SW potentials. The experimental melting curve of Si from Deb [19] and Young [20] are shown as reference. ρ0 = 2.33 g/cm3.
+
+(a) Tersoﬀ MOD
+
+(b) Tersoﬀ T3
+
+Figure 5. Silicon isochores obtained with the MOD and T3 potentials. The experimental melting curve of Si from Deb [19] and Young [20] are shown as reference. ρ0 = 2.33 g/cm3.
+
+with the predictions from EDIP and MOD. Nevertheless, using the Z method, the SW is not capable of reproducing the 1685 K for the ambient pressure melting temperature.
+Further research is needed regarding the use of Z method with classical potentials for Si. Improvements to the Z method, such as the inverse Z methodology [5], the two phase method [21], and ﬁrst principles molecular dynamics must be considered to explain the mismatch on the predictions of the melting temperature of Si.
+
+5
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+2500
+
+2000
+
+Temperature (K)
+
+1500
+
+1000
+
+EDIP
+
+Tersoff T3
+
+500 Tersoff MOD
+
+Stillinger-Weber
+
+Experiment (Deb, 2001) Experiment (Young, 1991)
+
+Diamond
+
+β-Tin
+
+00
+
+5
+
+10
+
+15
+
+20
+
+Pressure (GPa)
+
+Figure 6. Melting points of Si obtained from the diﬀerent interatomic potentials. The experimental melting curve of Si from Deb [19] and Young [20] are shown as reference.
+
+Appendix A. Functional form of the potentials The functional form of the EDIP potential is given by
+
+where
+
+Ei = φ2(Rij, Zi) +
+
+φ3(Rij, Rik, Zi)
+
+j=i
+
+j=i k=i,k>j
+
+φ2(r, Z) = A
+
+B r
+
+ρ
+− e−βZ2
+
+exp
+
+σ r−a
+
+,
+
+(A.1) (A.2)
+
+γ
+
+γ
+
+φ3(Rij, Rik, Zi) = exp Rij − a exp Rik − a h (cos(θijk), Zi) ,
+
+(A.3)
+
+Zi = f (Rim)
+
+⎧ ⎪⎪⎪⎪⎪⎪⎨ 1
+
+f (r)
+
+=
+
+⎪⎪⎪⎪⎪⎪⎩
+
+exp 0
+
+m=i
+
+α
+
+( ) 1−
+
+r−c a−c
+
+−3
+
+r<c c<r<a ,
+r>a
+
+(A.4) (A.5)
+
+h(l, Z) = λ[(1 − e−Q(Z)(l+τ(Z))2 ) + ηQ(Z)(l + τ (Z))2],
+
+(A.6)
+
+Q(Z) = Q0e−μZ
+
+(A.7)
+
+τ (Z) = u1 + u2(u3e−u4Z − e−2u4Z )
+
+(A.8)
+
+For a given conﬁguration of atomic positions {Ri}, the energy over the atom i is given by Ei, where φ2 represents the pair potential part, and φ3 the three-body interactions. The eﬀective coordination number, Zi, is given as a sum of f (Rim), which represents the contribution of the m closest neighbors.
+
+6
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+A = 7.9821730 [eV] B = 1.5075463 [˚A] a = 3.1213820 [˚A] c = 2.5609104 [˚A] σ = 0.5774108 [˚A]
+λ = 1.4533108 [eV] γ = 1.1247945 [˚A]
+ρ = 1.2085196
+η = 0.2523244
+
+Qo = 312.1341346 μ = 0.6966326
+β = 0.0070975
+α = 3.1083847
+u1 = -0.165799 u2 = 32.557 u3 = 0.286198 u4 = 0.66
+
+Table A1. Values of the parameters of the EDIP potential for the case of silicon, obtained from ﬁts to ab initio calculations based on Density Functional Theory (DFT).
+
+The values of the potential are given in the following table For Stillinger-Weber, we have
+
+Ei = φ2(rij) +
+
+φ3(rij , rik, θijk)
+
+j>i
+
+j=i k>j
+
+(A.9)
+
+where
+
+φ2(rij ) = Aij ij Bij
+
+σij
+
+pij
+−
+
+rij
+
+σij qij rij
+
+φ3(rij, rik, θijk) = λijk ijk [cos(θijk) − cos(θ0ijk))]2 exp
+
+The parameters used for silicon are
+
+exp
+
+σij
+
+rij − aij σij
+
+γij σij rij − aij σij
+
+exp
+
+,
+
+(A.10)
+
+γik σik
+rik − aikσik (A.11)
+
+A = 7.049556277 B = 0.6022245584 a = 1.80 p=4 q=0
+
+λ = 21.0
+γ = 1.20
+σ = 0.20951 nm = 3.4723x10−12 erg/at
+
+For the Tersoﬀ potential,
+
+where
+
+1
+
+Ei = 2
+
+Vij
+
+i j=i
+
+Vij = fC (rij)[fR(rij) + bijfA(rij)],
+
+⎧
+
+⎪⎪⎪⎪⎨ 1
+
+r < R−D
+
+fC (x)
+
+=
+
+⎪⎪⎪⎪⎩
+
+1 2
+0
+
+−
+
+1 2
+
+sin
+
+π r−R 2D
+
+R−D<r<R+D , r > R+D
+
+fR(r) = A exp(−λ1r), fA(r) = −B exp(−λ2r),
+
+(A.12) (A.13)
+(A.14) (A.15) (A.16)
+
+7
+
+XX Chilean Physics Symposium
+
+IOP Publishing
+
+IOP Conf. Series: Journal of Physics: Conf. Ser1i2e3s415064738(9200‘1’8“)”012038 doi:10.1088/1742-6596/1043/1/012038
+
+bij
+
+=
+
+(1
+
++
+
+βnςinj
+
+)−
+
+1 2n
+
+,
+
+ςij =
+
+fC (rij)g(θijk) exp[λm3 (rij − rik)m]
+
+k=i,j
+
+g(θ) = γijk
+
+1
+
++
+
+c2 d2
+
+−
+
+[d2
+
++
+
+c2 (cos(θ) −
+
+cos(θ0))2]
+
+(A.17) (A.18)
+(A.19)
+
+Acknowledgements G. Guti´errez appreciates support from project PAIFAC-2016, Facultad de Ciencias,
+Universidad de Chile. F. Gonza´lez-Cataldo thanks support from CONICYT, postdoctoral scholarship Becas Chile 74160058.
+
+References
+[1] Hu J Z, Merkle L D, Menoni C S and Spain I L 1986 Phys. Rev. B 34 4679–4684 [2] Mujica A, Rubio A, Mun˜oz A and Needs R J 2003 Reviews of Modern Physics 75 863–912 [3] Belonoshko A, Skorodumova N V, Rosengren A and Johansson B 2006 Physical Review B 73 012201 [4] Liu C M, Xu C, Cheng Y, Chen X R and Cai L C 2015 Journal of Applied Physics 118 235901 [5] Burakovsky L, Chen S P, Preston D L and Sheppard D G 2014 Journal of Physics: Conference Series 500
+162001 [6] Gonz´alez-Cataldo F, Davis S and Guti´errez G 2016 Scientiﬁc Reports 6 26537 [7] Li D, Zhang P and Yan J 2014 Scientiﬁc reports 4 4707 [8] Allen M P and Tildesley D J 1989 Computer simulation of liquids (Oxford university press) [9] Plimpton S 1995 Journal of computational physics 117 1–19 [10] Tersoﬀ J 1989 Phys. Rev. B 39 5566–5568 [11] Tersoﬀ J 1988 Phys. Rev. B 38 9902–9905 [12] Justo J a F, Bazant M Z, Kaxiras E, Bulatov V V and Yip S 1998 Phys. Rev. B 58 2539–2550 [13] Stillinger F H and Weber T A 1985 Phys. Rev. B 31 5262–5271 [14] Kumagai T, Izumi S, Hara S and Sakai S 2007 Computational materials science 39 457–464 [15] Li D, Zhang P, Yan J and Liu H Y 2011 EPL (Europhysics Letters) 95 56004 [16] Davis S, Belonoshko A, Johansson B, Skorodumova N V and van Duin A C T 2008 The Journal of chemical
+physics 129 194508 [17] Davis S, Loyola C, Gonz´alez F and Peralta J 2010 Computer Physics Communications 181 2126–2139 [18] Stukowski A 2009 Modelling and Simulation in Materials Science and Engineering 18 015012 [19] Deb S K, Wilding M, Somayazulu M and McMillan P F 2001 Nature 414 528–530 [20] Young D A 1991 Phase Diagrams of the Elements (University of California Press) [21] Zhang W J, Liu Z L and Peng Y F 2014 Physica B: Condensed Matter 449 144–149
+
+8
+

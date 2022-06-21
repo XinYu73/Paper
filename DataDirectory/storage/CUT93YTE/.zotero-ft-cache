@@ -1,0 +1,419 @@
+Particle-swarm structure prediction on clusters
+Cite as: J. Chem. Phys. 137, 084104 (2012); https://doi.org/10.1063/1.4746757 Submitted: 11 May 2012 • Accepted: 03 August 2012 • Published Online: 23 August 2012 Jian Lv, Yanchao Wang, Li Zhu, et al.
+ARTICLES YOU MAY BE INTERESTED IN An effective structure prediction method for layered materials based on 2D particle swarm optimization algorithm The Journal of Chemical Physics 137, 224108 (2012); https://doi.org/10.1063/1.4769731 A consistent and accurate ab initio parametrization of density functional dispersion correction (DFT-D) for the 94 elements H-Pu The Journal of Chemical Physics 132, 154104 (2010); https://doi.org/10.1063/1.3382344 Crystal structure prediction using ab initio evolutionary techniques: Principles and applications The Journal of Chemical Physics 124, 244704 (2006); https://doi.org/10.1063/1.2210932
+
+J. Chem. Phys. 137, 084104 (2012); https://doi.org/10.1063/1.4746757 © 2012 American Institute of Physics.
+
+137, 084104
+
+THE JOURNAL OF CHEMICAL PHYSICS 137, 084104 (2012)
+Particle-swarm structure prediction on clusters
+Jian Lv, Yanchao Wang, Li Zhu, and Yanming Maa) State Key Laboratory of Superhard Materials, Jilin University, Changchun 130012, China (Received 11 May 2012; accepted 3 August 2012; published online 23 August 2012)
+
+We have developed an efﬁcient method for cluster structure prediction based on the generalization of particle swarm optimization (PSO). A local version of PSO algorithm was implemented to utilize a ﬁne exploration of potential energy surface for a given non-periodic system. We have speciﬁcally devised a technique of so-called bond characterization matrix (BCM) to allow the proper measure on the structural similarity. The BCM technique was then employed to eliminate similar structures and deﬁne the desirable local search spaces. We ﬁnd that the introduction of point group symmetries into generation of cluster structures enables structural diversity and apparently avoids the generation of liquid-like (or disordered) clusters for large systems, thus considerably improving the structural search efﬁciency. We have incorporated Metropolis criterion into our method to further enhance the structural evolution towards low-energy regimes of potential energy surfaces. Our method has been extensively benchmarked on Lennard-Jones clusters with different sizes up to 150 atoms and applied into prediction of new structures of medium-sized Lin (n = 20, 40, 58) clusters. High search efﬁciency was achieved, demonstrating the reliability of the current methodology and its promise as a major method on cluster structure prediction. © 2012 American Institute of Physics. [http://dx.doi.org/10.1063/1.4746757]
+
+I. INTRODUCTION
+Clusters containing few to several thousands of atoms are the basic building blocks for nanoscience and function as a bridge linking isolated atoms with their bulk counterparts. The magnetic, optical, and reactive properties of clusters are peculiar and strongly size-dependent. The structures of clusters are fundamentally related to their physical properties and are keys in the researches of clusters. However, it remains a technical difﬁculty to determine cluster structures by relying solely on experiment. A joint experimental and theoretical study is greatly desired, where theoretical prediction of cluster structures is crucial.1–4
+Predicting the ground state structure of a cluster is a challenging global optimization task. One has to locate the global minimum of the potential energy surfaces on which the number of local minima increases exponentially with increasing cluster sizes.5 In the past 20 years, several efﬁcient global optimization methods on cluster structural prediction have been developed,6–14 some of which are basin hopping (BH),9 simulated annealing,6 minima hopping (MH),11,14 genetic algorithm (GA),7,8,14 and random sampling methods.13 The ﬁrst three methods started with an initially guessed structure and were designed to overcome energy barriers by employing Monte Carlo or molecular dynamics moves. They have been successful in application into realistic systems.15–20 GA works by mimicking natural process of biological evolution. A variety of crossover and mutation operations have been implemented and the viability of the method has been testiﬁed in many studies (see, e.g., Refs. 21–23).
+The particle swarm optimization (PSO) algorithm was proposed by Kennedy and Eberhart in the mid 1990s.24,25 As
+a)Author to whom correspondence should be addressed. Electronic mail: mym@jlu.edu.cn. URL: http://nlshm-lab.jlu.edu.cn/YanmingMa.html.
+
+a stochastic global optimization algorithm, PSO is inspired by the social behavior of birds ﬂocking or ﬁsh schooling and designed to solve problems related to multidimensional optimization. In an earlier study, Call et al. applied the PSO algorithm into structure prediction of small clusters or isolated molecules and proved that it is superior to simulated annealing.26 However, this implementation of PSO algorithm did not use the local optimizations, which are critical for the practical applications, until the end of each run. As a result, the method is limited to trivial cases (e.g., LJ26 cluster) and failed for difﬁcult systems (e.g., LJ38 and LJ75 clusters). By a careful survey of literatures, it was found that this ﬁrst attempt of PSO implementation does not generate any practical application. Recently, we have developed a crystal structure analysis by particle swarm optimization (CALYPSO) methodology27–29 which is the ﬁrst application of PSO algorithm into extended systems (e.g., crystals, two-dimensional layers, etc.). The CALYPSO method can efﬁciently explore the multidimensional potential energy surfaces of a periodic system at given external conditions (e.g., pressure) and requires only known information of chemical compositions to predict the stable structure. The method is successful in predicting two-/three-dimensional crystal structures for various systems ranging from elements to ternary compounds.30–36
+Clusters are non-periodic systems and can be regarded as zero-dimensional materials. They possess various structural motifs and usually exhibit geometrical frustration due to the competition between surface and bulk. Thus the direct application of CALYPSO method,28 which was earlier designed for periodic systems, into the prediction of cluster structures is not feasible. There, both the structural generation and characterization techniques are inefﬁcient when dealing with clusters. The main algorithm of PSO should also be
+
+0021-9606/2012/137(8)/084104/8/$30.00
+
+137, 084104-1
+
+© 2012 American Institute of Physics
+
+084104-2 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+
+FIG. 1. The ﬂow chart of CALYPSO.
+properly revised to allow the structural evolution of clusters. In this work, we present a systematic method for prediction of cluster structures based on the generalization of PSO algorithm. Our current implementation has signiﬁcantly advanced the earlier work26 by introducing several more efﬁcient techniques (e.g., symmetry constraints in structural generation, a more ﬁnely deﬁned bond characterization matrix for ﬁngerprinting structures, and the local structure optimization).
+The developed CALYPSO method on cluster structure prediction was then benchmarked on LJ clusters with sizes up to 150 atoms. High search efﬁciency was achieved, demonstrating the reliability of the current methodology. Furthermore, as a more realistic example, medium-sized Lin (n = 20, 40, 58) clusters were studied, and new putative global stable structures were presented.
+
+A. Generation of cluster structures with the constraint of point groups
+Our experiences tell that a proper introduction of symmetric constraints on structural generation can signiﬁcantly reduce the optimization variables, and thus fasten the convergence of structural search.28,29 This is particularly true for clusters. As cluster size increases, randomly generated structures are frequently liquid-like (or disordered) and are likely to adopt point groups with C1 symmetry. Moreover, it was suggested that higher symmetric structures often possess extremely either low or high energies.38 Although there exist an inﬁnite number of point groups, the symmetry adapted stochastic search method has demonstrated that the use of a small number of simple point groups, such as C2, Cs, and C2v, can efﬁciently sample the potential energy surfaces of clusters.39 In the current implementation, six point groups ranging from C1 to C6 were adopted to constrain the generation of clusters. In order to examine the efﬁciency of this symmetric constraint applied, two LJ clusters containing 38 and 100 atoms, respectively, were used as the testing systems. For each cluster, 10 000 structures were randomly generated with and without symmetric constraints, respectively, and then locally optimized using the GULP code.40 The obtained energetic distributions are shown in Fig. 2. For LJ38 cluster [Fig. 2(a)], the generated structures without symmetric constraints have a Gaussian-like energetic distribution forming a well-deﬁned sharp peak centered at a high energy 0.18 ε/atom. A careful inspection of these cluster structures revealed a large number of disordered or liquid-like structures. The generation of these initial structures has largely reduced structural diversity, thus leading to the depleted search efﬁciency. Instead, once the point group symmetry was applied, a much broader energetic distribution is evident with the generation of a large number of lower energy structures.
+
+II. METHOD AND IMPLEMENTATION
+Our global optimization method through CALYPSO code for predicting cluster structures comprises mainly ﬁve steps as depicted in the ﬂow chart of Fig. 1. First, the initial structures are randomly generated with the constraint of symmetries. Once a new structure is generated, the bond characterization matrix is calculated and applied to examine the similarity of this structure with all the previous ones. After all the structures of each population have been generated, local structural optimizations are performed to eliminate the noise of energy surface and drive the systems to the local minima. Then, Metropolis criterion37 is employed to either accept or reject the optimized structures. Eventually, PSO operations are applied to produce new structures for the next generation.
+
+FIG. 2. Energetic distributions of randomly generated structures for (a) LJ38
+and (b) LJ100 clusters. Energies are shown relative to the global minimum. The LJ potential for a pair of atoms is given by Uij = ε[(r0/rij)12 − 2(r0/rij)6],
+where ε and r0 are the pair equilibrium well depth and separation, respectively. The reduced units, i.e., ε = r0 = 1 are employed throughout.
+
+084104-3 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+
+When the cluster sizes turn into 100 atoms [Fig. 2(b)], the peaks of energetic distribution shift to higher energies and become apparently narrower, signifying a worse random structure sampling for a larger system. This illustrates the general difﬁculty in predicting cluster structure for a large system. Nevertheless, with the inclusion of symmetry, the randomly generated structures as a whole shift to low-energy regimes, utilizing a better sample for the subsequent structural evolution. It should be stressed that generation of random structures with the constraints of C1 to C6 point groups symmetries does not introduce any bias into our structural searches since there is no need on any system-speciﬁc prior information. In fact, any higher order point groups are not excluded during our random structure generation. It is noted that our symmetrically constrained structural generation is in apparently contrasted to the biased structural generation based on pre-supposing icosahedral or decahedral grids in the LJ clusters.41
+
+B. Bond characterization matrix
+
+During the structural evolution, a large number of trial structures are produced for each generation. Thus, it is highly demanding to devise a technique which can ﬁngerprint a structure and measure the similarity between different structures. Such technique can then be used to eliminate similar structures to effectively accelerate the search convergence. To fulﬁll this task, Call et al.,26 introduced a distance metric technique by relying on the interatomic distances. However, this distance metric requires ordering of atoms in a structure, and thus is not able to unambiguously ﬁngerprint structures. We have developed a more efﬁcient technique named as bond characterization matrix (BCM), which is on the basis of information of all bonds in a structure. This is an advanced version of the bond-orientational order parameter technique, which was earlier introduced by Steinhardt et al.42 In early implementations, the bond-orientational order parameter was used to characterize the structural motif of extended monoatomic system or the local environment of an atom.43–45 Here, we generalized it to multicomponent clusters. In our implementation, a bond vector −→ rij between atoms i and j was deﬁned if the inter-atomic distance is less than a given cutoff distance. −→ rij is associated with the spherical harmonics Ylm(θ ij,φij), where θ ij and φij are the polar angles. The average over all bonds formed by types A and B atoms can be derived by the equation:
+
+QδlmAB
+
+=
+
+1 NAB
+
+Ylm(θij , φij ),
+i∈A,j ∈B
+
+(1)
+
+where δAB and NAB denotes the type and number of bonds, respectively. Only even-l spherical harmonics are used in
+Eq. (1) to guarantee the invariant bond information with respect to the direction of the bonds.42 In order to avoid the
+dependence on the choice of reference frame, it is important to consider the rotationally invariant combinations,42
+
+Qδl AB =
+
+4π l 2l + 1
+
+QδlmAB 2.
+
+(2)
+
+m=−l
+
+Each series of Qδl AB for l = 0, 2, 4, 6, 8, and 10 can be used to represent a type of bonds and thus is an element of BCM. As a result, the similarity of two structures can be quantitatively represented by the Euclidean distance between their BCMs,
+
+Duv =
+
+1 Ntype δAB l
+
+QlδAB ,u − QlδAB ,v 2,
+
+(3)
+
+where u and v denote two individual structures and Ntype is the number of bond types. Since all Ql except for Q0 are zero for isotropic system,42 it is therefore plausible to deﬁne a distance
+from a structure to the isotropic system as
+
+Duv =
+
+1 Ntype δAB l
+
+QlδAB ,u 2.
+
+(4)
+
+This distance can then be used to estimate the degree of order for a given structure. To illustrate the performance of this designed BCM technique on identifying the structural similarity and order, two LJ38 clusters with different structural motifs are chosen as testing examples. The ﬁrst structure is the global stable structure, having a face-centered cubic structural motif [LJ38-Oh, Fig. 3(a)]. The second structure is an incomplete Mackay icosahedron [LJ38-C5v, Fig. 3(b)]. The BCMs of ﬁrst and second structures are shown by histograms in Figs. 3(c) and 3(d), respectively, which are dramatically different from each other. Except for Q2 and Q10, LJ38-Oh
+
+FIG. 3. Structures of (a) LJ38-Oh and (b) LJ38-C5v. Histograms of BCMs for (c) LJ38-Oh and (d) LJ38-C5v. BCM distances with respect to the unaltered structures as a function of distortions for (e) LJ38-Oh and (f) LJ38-C5v. Each data point was obtained by averaging over the distances of 100 randomly
+distorted structures and the error bar denotes the standard deviation.
+
+084104-4 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+
+structure has obviously larger Ql values than those in LJ38-C5v structure. The resultant distance between these two structures is a very large value of 0.618 04, characterizing their large structural differences. The distances to the isotropic system are 0.727 76 for LJ38-Oh and 0.162 55 for LJ38-C5v, respectively, illustrating a high degree of order of LJ38-Oh. Moreover, we randomly distorted these two cluster structures, and plotted out their distances to the unaltered structure as a function of distortion in Figs. 3(e) and 3(f). It was illustrated that the distances increase linearly with the distortions at the initial stage, reﬂecting correctly the structural deviations. Eventually, the curves become ﬂat at the distortion of about 0.4r0. At this stage, the distances are approaching those distances relative to the isotropic limits favorable for disordered systems.
+
+C. “Local” PSO algorithm with Metropolis criterion
+
+Our method is within the evolutionary scheme where structures evolve according to PSO algorithm. As a stochastic global optimization algorithm, PSO is inspired by the social behavior of birds ﬂocking or ﬁsh schooling and can be seen as a distributed behavior algorithm that performs multidimensional search. In practice, a candidate structure in the conﬁgurational space is regard as a particle, and a set of individual particles is called a population or a generation. Each particle explores the search space via a velocity vector which is affected by both its personal best experience and the best position found by the population so far.
+The cluster structures in the ﬁrst generation were randomly generated with the constraint of point groups as we have described above. Local optimizations for these structures are then performed to eliminate the noises of energy landscape and drive the systems into local minima. A certain number of low-energy structures (usually 80% of the population size) on the most promising areas of the search space were selected to produce new structures through PSO operations (Eq. (5)) for the next generation. The rest structures at each generation were then randomly generated with the symmetric constraints. This implementation enriched the structural diversity, which is crucial for the search efﬁciency. Within the PSO scheme, the position of ith particle at the jth dimension is updated according to the equation:
+
+xit,+j 1 = xit,j + vit,+j 1,
+
+(5)
+
+where t denotes the generation index and j ∈ {1, 2, 3}. The new velocity (vit,+j1) is calculated on the basis of its previous location (xit,j ), previous velocity (vit,j ), the personal best location (pbestit,j ) with an achieved best ﬁtness of this individual and the population best location (gbestit,j ) with the best ﬁtness for the entire population:
+
+vit,+j 1 = ωvit,j + c1r1 pbestit,j − xit,j + c2r2 gbestit,j − xit,j ,
+
+(6)
+
+where ω (in the range of 0.9–0.4) denotes the inertia weight, c1 = 2 and c2 = 2, r1 and r2 are two random numbers and uniformly distributed in the range [0,1]. This so-called global PSO relies only on one gbest for the entire population where all particles seek new positions only in regions related to
+
+the single overall best position. The methodology has been demonstrated to be efﬁcient and powerful for global structural convergence,28,29 especially for small systems. However, it is noteworthy that for large systems with much more complex energy landscapes, ﬁner structural searches are desirable.
+We here introduce the local PSO in which the information is diffused into small parts of the swarm.25,26,32 In this implementation, each particle assumes a set of other particles to be its neighbors and its velocity is adjusted according to both its individual position and the best position (lbest) achieved so far within its neighborhood. In practice, the actual number of lbests used is dependent on the population size. For population sizes in the range 20–50, we typically choose four lbests with very different structural motifs as guides for the structural evolution. Our goal is to perform the simultaneous searches in four different energy funnels. The BCM technique described above was adopted to deﬁne these four lbests. For each generation, the global best structure is automatically set as one of lbests, and then the other three lbests were determined by their ﬁtness rankings and their BCM distances with respect to the global best structure. During the structural evolution, each particle’s velocity is updated according to the equation:
+vit,+j 1 = ωvit,j + c1r1 pbestit,j − xit,j + c2r2 lbestit,j − xit,j ,
+(7)
+where the adopted lbest is the one nearest to this particle in BCM distance. Local PSO algorithm can be seen as a combination of several information-shared global PSO. The advantage of this search principle is quite clear. It apparently avoids the premature structures by maintaining multiple attractors and allows the exploration of larger space of potential energy surfaces, though it is computationally more demanding. It should be noted that, as proven in early studies of GA,46,47 maintaining the structural diversity during the evolution is crucial for the success of a population-based evolutionary method. Hartke has shown that, by utilizing the concept of niches to prevent domination of the population by only one structural motif, the search efﬁciency of GA can be dramatically improved for exploring non-icosahedral minima of LJ clusters (e.g., LJ75-LJ77).47 Though the actual operations are different between the niches in GA and our current local PSO technique, they could serve for the same purpose. In GA, a certain number of structures are selected from different niches to maintain the diversity of the population. In our local PSO technique, the diversity is maintained by adjusting the velocity (direction for the evolution) of the structure. Both the attractors (lbests) and what structures does it attract are dynamically varied during the evolution.
+In our method, structures evolve towards low-energy regimes driven by local PSO operations. However, it is not unreasonable to produce new structures with higher energies. To avoid this deﬁciency, we have implemented the Metropolis criterion,37 in the spirit of Monte Carlo simulations, into our method for acceptance or rejection of new structures. After the whole set of structures for each generation has been optimized, Metropolis criterion is applied. The structure will be accepted if it has a lower energy than its parent structure.
+
+084104-5 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+
+Otherwise, a selection probability is imposed based on the relative energies according to the Boltzmann distribution. The introduction of Metropolis criterion further improves the possibility of generation of low-energy structures during structural evolution.
+III. APPLICATIONS AND RESULTS
+We have implemented all the techniques described above for cluster structure prediction into our CALYPSO code. We here benchmarked the developed method on prediction of structures of LJ clusters with sizes up to 150 atoms. As a realistic application, medium-sized Lin (n = 20, 40, 58) clusters were studied. For Lin clusters, the calculations were performed in the framework of density-functional theory within all-electron projector-augmented wave method48,49 as implemented in the VASP code.50 In the local structural optimization, the exchange-correlation interaction was treated by the generalized gradient approximation (GGA) with the Perdew-Burke-Enzerhof parameterization (PBE),51 which gives correct results for Li2, Li4 clusters, and their bulk counterpart.52 In the energy evaluations, both local density approximation (LDA) and generalized gradient approximation were used and gave the same results on energetic order of different structures.
+A. Results for the LJ clusters
+The LJ potential is a mathematically simple model that approximates the interaction of two neutral atoms. Clusters bonded by this potential give universal results because LJ potential contains only one energy and one length scale (both are set to 1 in this study). The LJ clusters have been extensively studied.9,53,54 Putative global stable structures up to 1000 atoms are available in the Cambridge Cluster Database.55 These LJ clusters pose the same kind of problems for global optimization methods as other more realistic systems do. The very small computational costs make LJ clusters ideal benchmark systems.
+Here, six LJ clusters containing 26, 38, 55, 75, 100, and 150 atoms, respectively, were chosen as benchmark systems. While LJ26 and LJ55 clusters are easy systems, LJ38 and LJ75 clusters possess nontrivial double-funnel energy landscapes.54 LJ100 and LJ150 are examples of big systems. An overview of the testing results compared with those derived from GA, MH, and BH methods14,56 can be found in Table I. Since local structural optimization is the most expensive components, its number is an indication of the efﬁciency of a global optimization method. Our CALYPSO method is capable of ﬁnding the global stable structures for all these testing systems. It is clearly seen that for easy LJ26 and LJ55 clusters, the search efﬁciency of our method is comparable with those of the other three methods. For LJ38 and LJ75 clusters, their potential energy surfaces are much more complex, and the global stable structures reside in very narrow funnels separated by large energy barriers.54 Therefore, the correct prediction of LJ38 and LJ75 structures is challenging.14,56 Our method is efﬁcient and readily found the global stable
+
+TABLE I. Testing results for the LJ clusters. Nopt indicates the average number of local optimizations needed to ﬁnd the global minimum and Npop is the population size. Temperature of 1.0 in a reduced unit is used. The statistics were obtained between 50 and 100 independent runs, as indicated in the column runs, and the standard deviation is similar to the mean value in each case. When two numbers are present, the ﬁrst one indicates the number of successful runs. A failure means that the ground state structures cannot be found within 11 000 local optimizations for CALYPSO, while it indicates too long runtime for GA and BH calculations.
+
+Systems
+
+Energy
+
+Method
+
+Nopt
+
+Npop
+
+Runs
+
+LJ26 LJ38
+LJ55
+LJ75 LJ100 LJ150
+
+−108.316 62
+
+CALYPSO GAa MHa
+
+73 20
+
+100
+
+56 10
+
+100
+
+96
+
+100
+
+−173.928 42
+
+PSOc
+
+1649 30
+
+20
+
+CALYPSO
+
+605 30
+
+100
+
+GAa
+
+1265 25
+
+100
+
+−279.248 47
+
+MHa BHb PSOc
+
+1190 2068
+210 20
+
+100 1000
+50
+
+CALYPSO
+
+159 20
+
+100
+
+GAa
+
+100 10
+
+100
+
+MHa
+
+190
+
+100
+
+BHb
+
+126
+
+1000
+
+−397.492 33 CALYPSO
+
+2858
+
+30
+
+49/50
+
+GAa
+
+...
+
+...
+
+...
+
+MHa
+
+27 375
+
+20
+
+−557.039 82 CALYPSO
+
+5376
+
+30
+
+41/50
+
+GAa
+
+5908
+
+60
+
+35/40
+
+MHa BHb
+
+5960 3335
+
+42/50 1000
+
+−893.310 26 CALYPSO
+
+4163
+
+30
+
+50
+
+GAa MHa
+
+7980
+
+60
+
+17/20
+
+9490
+
+45/50
+
+aThe data derived from GA and MH methods are taken from Ref. 14. bThe data derived from BH method are taken from Ref. 56. cThe data denote the PSO searches without applying the symmetry-based structural gen-
+eration and BCM techniques.
+
+structures. For example, for the most challenging LJ75 cluster, CALYPSO method only needed 2858 local optimizations, while standard GA failed and MH algorithm needed a fairly large number of 27 375 optimizations. It should be stated that the data in Table I were published in 1999 and 2009, respectively, and derived from different methods, which might have been signiﬁcantly improved over recent years.18 In fact, there are no convergence criteria for any methods designed for non-deterministic searches, thus a failure of a method for given clusters just means the ground state structures were not found within certain computational efforts (e.g., CPU times or the number of local optimizations). It is noteworthy that GA with the implementation of niches can address the problem of LJ75.47 We also tried to test the performance of our method by switching off symmetry constraints on structural generation and BCM techniques for LJ38 and LJ55 clusters as shown in Table I. It is clearly seen that the structural searches become much less efﬁcient. Therefore, the efﬁciency of the CALYPSO method is intimately related to our devised techniques on improving structural diversity during evolution, which is critical to the success of a population-based evolutionary method. Note that our current testing results, which denote the performance of mere PSO operations, are still
+
+084104-6 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+
+FIG. 5. (a)–(e) Structures of LJ100 clusters with different motifs found by a single CALYPSO search. The ﬁrst and second numbers below each cluster are the energies in ε relative to the global minimum and BCM distances with respect to isotropic system. See text for detailed structural descriptions.
+
+FIG. 4. (a) The history of a CALYPSO structure search performed on LJ100 cluster. (b) Energy-distance distribution for the minima searched during the CALYPSO run. The energies are shown relative to the global minimum and the BCM distances were calculated with respect to the isotropic system. Four lbests at the 200th generation are shown by solid squares.
+comparable with those results derived from GA, MH, and BH methods.
+As an illustration, Fig. 4(a) depicts the history of a CALYPSO search performed on LJ100 cluster. At the ﬁrst 50 generations, the overall energies decreased rapidly. After that, structural searches were mainly conducted on the low-energy regions and the global stable structure was successfully produced at the 163th generation. The diversity of the structures in this run can be seen from the energy-distance distribution as shown in Fig. 4(b). Structures possessing similar structural motifs have nearly identical BCM distances to the reference isotropic system, and these structures are expected to reside in one energy funnel. Different funnels can be clearly identiﬁed by the calculated BCM distances [Fig. 4(b)]. At the 200th generation, four lbests structures were found to locate at four different funnels. The ﬁrst lbest structure is the global stable structure [Fig. 5(a)] having the icosahedral structural motif and a BCM distance of 0.161 37. The second one contains the Marks decahedral motif and has a BCM distance of 0.368 57 [Fig. 5(b)]. The third and fourth lbests consist of Marks decahedral and Mackay icosahedral cores with incomplete anti-Mackay overlayer [Figs. 5(c) and 5(d)], respectively. We also examined structures with much larger BCM distances at about 0.722 59. These structures contained fragments of a face-centered cubic crystal [Fig. 5(e)].
+We also applied the CALYPSO method to tackle more challenging LJ98 and LJ104 clusters. The ground state structure of LJ98 cluster has a tetrahedral symmetry with a structural motif different from the icosahedral one.57 Analogous to the LJ75, the LJ104 clusters possess a decahedral global stable structure. The testing results for the two clusters are
+
+shown in Table II, compared with those derived from monotonic sequence basin-hopping (MSBH) (Ref. 58) and hierarchical greedy algorithm (HGA) (Ref. 59) methods. The CALYPSO method can readily ﬁnd the global stable structures of these two clusters. However, the search efﬁciency for the LJ98 cluster is relatively lower than those searches of other clusters. The tetrahedral global stable structure was located in three of ten runs. We found that during the failure runs none of the four lbests reside in the funnel of tetrahedral structural motif due to the competition of other low-lying funnels. Thus, an increase of the number of lbests may improve the performance.
+
+B. Putative global stable structures of Lin (n = 20, 40, 58) clusters
+Li is the lightest metallic element in periodic table. Li clusters are thus considered to be prototype systems for understanding the various physical properties of simple metal clusters. Since the seminal experimental work by Knight et al.,60 numerous theoretical studies have been performed to understand the structures of Li clusters.52,61–66 Geometric structures for Li clusters with sizes up to 147 atoms have been proposed based on the density functional calculations.61 Here, we used the developed CALYPSO method to revisit the structures of three Lin clusters, where n = 20, 40, and 58 are magic
+
+TABLE II. Testing results for the LJ98 and LJ104 clusters. Please see the caption of Table I for other notations. Here, a failure means that the ground state structures cannot be found within 50 000 local optimizations.
+
+Systems
+
+Energy
+
+Method
+
+Nopt
+
+Npop
+
+Runs
+
+LJ98
+
+−543.665 361
+
+LJ104
+
+−582.086 642
+
+aReference 58. bReference 59.
+
+CALYSPO MSBHa HGAb
+CALYPSO
+
+8920 180 000
+5660 14 978
+
+30
+
+3/10
+
+6/1000
+
+53/500
+
+50
+
+10
+
+084104-7 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+55-atom Mackay icosahedron with three adatoms [Fig. 6(e)]. We also found another intriguing structure, where the three additional atoms have been incorporated into the 55-atom Mackay icosahedron, leading to a 14-coordinated core [Fig. 6(f)]. This structure is energetically less favorable by only about 15 meV at PBE level (∼25 meV at LDA level).
+
+FIG. 6. (a) The putative global stable structure of Li20. The three internal and ﬁve capped atoms are shown in blue and red, respectively. (b) and (c) Two metastable structures of Li20. (d) The putative global stable structure of Li40. (e) and (f) The putative global stable and second lowest energy structures of Li58, respectively. The point group symmetry and energy relative to the global minimum at the PBE level are given below each cluster.
+numbers derived from the structureless jellium model.2 For each cluster, two independently structural searches with a population size of 30 were performed and stopped at the 10th generations. Both searches found the same lowest energy structure.
+For the Li20 cluster, our predicted lowest energy structure is composed of three centered trigonal prisms with ﬁve additional capped atoms [Fig. 6(a)]. This is in excellent agreement with the theoretical result of Fournier et al. by using the “Tabu search in Descriptor Space” where the energetic calculations were performed at both LDA and GGA levels.63 Gardet et al.62 and Jose et al.64 have proposed a structure consisting of double icosahedral motif [Fig. 6(b)] for Li20 cluster based on maximizing the number of pentagonal bipyramids (energetic calculations were performed at LDA and GGA levels) and molecular electrostatic potential method (PW91 and B3LYP functionals were used for energetic calculations), respectively. Most recently, Centeno and Fuentealba66 predicted a structure possessing the double icosahedral motif [Fig. 6(c)] by using the big bang methodology at the B3LYP level. Our structural simulations also identiﬁed these two structures [Figs. 6(b) and 6(c)], but they are metastable (about 180/215 and 60/103 meV higher in energy at the PBE/LDA levels, respectively) with respect to the structure having three centered trigonal prisms. For the Li40 cluster, we found the most stable structure is a perfect 45-atom polyicosahedron with ﬁve missing vertex atoms [Fig. 6(d)]. This structure is similar to the one predicted by simulated annealing at PBE level,52 but with a quite different arrangement of the anti-Mackay overlayer. This peculiar atomic arrangement results in a much lower energy (∼121 meV at PBE level and ∼107 meV at LDA level) in our structure. The polyicosahedral structural packing maintains a coordination number of 12 for each internal atom. For monoatomic systems, this type of packing can induce bond strains. Notably, similar structures were recently proposed for Na clusters.67 For the Li58 cluster, our simulations predicted a
+
+IV. CONCLUSIONS
+In summary, we have developed a systematic CALYPSO methodology for cluster structure prediction by generalization of PSO algorithm. We have introduced several major techniques on efﬁciently sampling the energy landscapes, whose applications were not limited to the non-periodic systems. The key element of the proposed method is the local PSO algorithm which enables a simultaneous search in different energy funnels of a potential energy surface. To provide good sampling structure sets for the local PSO evolution, point group symmetries were introduced into the generation of cluster structures. The BCM technique allows a quantitative measure on the structural similarity and can be used to deﬁne desirable local search spaces. The application of Metropolis criterion further improved the structural evolution towards lowenergy regimes of potential energy surfaces. Testing on the benchmarked LJ systems indicates the method presented here can efﬁciently search the potential energy surface of a nonperiodic system. For medium-sized Lin clusters, the proposed global stable structures either matched or improved over the results of previous studies. Overall, the current methodology has been proved to be a promising approach for cluster structure prediction.
+ACKNOWLEDGMENTS
+The authors acknowledge funding support from the National Natural Science Foundation of China (under Grant Nos. 91022029 and 11025418), the research fund of Key Laboratory of Surface Physics and Chemistry (Grant No. SPC201103), the China 973 Program under Grant No. 2011CB808204 and Graduate Innovation Fund of Jilin University (Project 20121061). The calculations were performed in the High Performance Computing Center of Jilin University.
+1M. Brack, Rev. Mod. Phys. 65, 677 (1993). 2W. A. de Heer, Rev. Mod. Phys. 65, 611 (1993). 3D. J. Wales, Energy Landscapes (Cambridge University Press, 2003). 4F. Baletto and R. Ferrando, Rev. Mod. Phys. 77, 371 (2005). 5F. H. Stillinger, Phys. Rev. E 59, 48 (1999). 6S. Kirkpatrick, C. D. Gelatt, and M. P. Vecchi, Science 220, 671 (1983). 7B. Hartke, J. Phys. Chem. 97, 9973 (1993). 8D. M. Deaven and K. M. Ho, Phys. Rev. Lett. 75, 288 (1995). 9D. J. Wales and J. P. K. Doye, J. Phys. Chem. A 101, 5111 (1997). 10J. Lee, I.-H. Lee, and J. Lee, Phys. Rev. Lett. 91, 080201 (2003). 11S. Goedecker, J. Chem. Phys. 120, 9911 (2004). 12L. Cheng, Y. Feng, J. Yang, and J. Yang, J. Chem. Phys. 130, 214112 (2009). 13C. J. Pickard, and R. J. Needs, J. Phys.: Condens. Matter 23, 053201 (2011). 14S. E. Schonborn, S. Goedecker, S. Roy, and A. R. Oganov, J. Chem. Phys. 130, 144108 (2009). 15J. P. K. Doye and D. J. Wales, New J. Chem. 22, 733 (1998).
+
+084104-8 Lv et al.
+
+J. Chem. Phys. 137, 084104 (2012)
+
+16S. Goedecker, W. Hellmann, and T. Lenosky, Phys. Rev. Lett. 95, 055501
+(2005). 17W. Hellmann, R. G. Hennig, S. Goedecker, C. J. Umrigar, B. Delley, and
+T. Lenosky, Phys. Rev. B 75, 085411 (2007). 18K. Bao, S. Goedecker, K. Koga, F. Lançon, and A. Neelov, Phys. Rev. B 79,
+041405 (2009); S. De, A. Willand, M. Amsler, P. Pochet, L. Genovese, and
+S. Goedecker, Phys. Rev. Lett. 106, 225502 (2011); M. Sicher, S. Mohr,
+and S. Goedecker, J. Chem. Phys. 134, 044106 (2011). 19J. Zhao, L. Wang, F. Li, and Z. Chen, J. Phys. Chem. A 114, 9969
+(2010). 20G. Barcaro and A. Fortunelli, J. Phys. Chem. C 111, 11384 (2007). 21R. L. Johnston, Dalton Trans. 22, 4193 (2003). 22J. Zhao and R. Xie, J. Comput. Theor. Nanosci. 1, 117 (2004). 23S. Heiles, A. J. Logsdail, R. Schafer, and R. L. Johnston, Nanoscale 4, 1109
+(2012). 24R. Eberhart and J. Kennedy, A New Optimizer Using Particle Swarm The-
+ory (IEEE, New York, NY, 1995). 25J. Kennedy and R. Eberhart, Particle Swarm Optimization (IEEE, Piscat-
+away, NJ, 1995), p. 1942. 26S. T. Call, D. Y. Zubarev, and A. I. Boldyrev, J. Comput. Chem. 28, 1177
+(2007). 27Y. Ma, Y. Wang, J. Lv, and L. Zhu, CALYPSO: A Crystal Struc-
+ture Prediction Package. Free for academic use, please register at
+http://www.calypso.org.cn. 28Y. Wang, J. Lv, L. Zhu, and Y. Ma, Phys. Rev. B 82, 094116 (2010). 29Y. Wang, J. Lv, L. Zhu, and Y. Ma, Comput. Phys. Commun. 183, 2063
+(2012). 30X. Luo, J. Yang, H. Liu, X. Wu, Y. Wang, Y. Ma, S.-H. Wei, X. Gong, and
+H. Xiang, J. Am. Chem. Soc. 133, 16285 (2011). 31J. Lv, Y. Wang, L. Zhu, and Y. Ma, Phys. Rev. Lett. 106, 015503 (2011). 32Y. Wang, H. Liu, J. Lv, L. Zhu, H. Wang, and Y. Ma, Nat. Commun. 2, 563
+(2011). 33L. Zhu, H. Wang, Y. Wang, J. Lv, Y. Ma, Q. Cui, Y. Ma, and G. Zou, Phys.
+Rev. Lett. 106, 145501 (2011). 34H. Liu, H. Wang, and Y. Ma, J. Phys. Chem. C 116, 9221 (2012). 35H. Wang, J. S. Tse, K. Tanaka, T. Iitaka, and Y. Ma, Proc. Natl. Acad. Sci.
+U.S.A. 109, 6463 (2012). 36L. Zhu, Z. Wang, Y. Wang, G. Zou, H.-k. Mao, and Y. Ma, Proc. Natl. Acad.
+Sci. U.S.A. 109, 751 (2012). 37N. Metropolis, A. W. Rosenbluth, M. N. Rosenbluth, A. H. Teller, and
+E. Teller, J. Chem. Phys. 21, 1087 (1953). 38D. J. Wales, Chem. Phys. Lett. 285, 330 (1998).
+
+39S. E. Wheeler, P. v. R. Schleyer, and H. F. Schaefer, J. Chem. Phys. 126,
+104104 (2007). 40J. D. Gale, Z. Krist. 220, 552 (2005). 41Y. Xiang, H. Jiang, W. Cai, and X. Shao, J. Phys. Chem. A 108, 3586
+(2004). 42P. J. Steinhardt, D. R. Nelson, and M. Ronchetti, Phys. Rev. B 28, 784
+(1983). 43S. von Alfthan, P. D. Haynes, K. Kaski, and A. P. Sutton, Phys. Rev. Lett.
+96, 055505 (2006). 44Z. Yang and L.-H. Tang, Phys. Rev. B 79, 045402 (2009). 45A. L. S. Chua, N. A. Benedek, L. Chen, M. W. Finnis, and A. P. Sutton,
+Nat. Mater. 9, 418 (2010). 46D. E. Goldberg, Genetic Algorithms in Search, Optimization, and Machine
+Learning (Addison-Wesley, 1989). 47B. Hartke, J. Comput. Chem. 20, 1752 (1999). 48P. E. Blöchl, Phys. Rev. B 50, 17953 (1994). 49G. Kresse and D. Joubert, Phys. Rev. B 59, 1758 (1999). 50G. Kresse and J. Furthmüller, Phys. Rev. B 54, 11169 (1996). 51J. P. Perdew, K. Burke, and M. Ernzerhof, Phys. Rev. Lett. 77, 3865 (1996). 52Z. Guo, B. Lu, X. Jiang, J. Zhao, and R.-H. Xie, Physica E 42, 1755 (2010). 53J. P. K. Doye, D. J. Wales, and M. A. Miller, J. Chem. Phys. 109, 8143
+(1998). 54J. P. K. Doye, M. A. Miller, and D. J. Wales, J. Chem. Phys. 110, 6896
+(1999). 55D. J. Wales, J. P. K. Doye, A. Dullweber, M. P. Hodges, F. Y. Naumkin,
+F. Calvo, J. Hernández-Rojas, and T. F. Middleton, The Cambridge cluster
+database, see http://www-wales.ch.cam.ac.uk/CCD.html. 56D. J. Wales and H. A. Scheraga, Science 285, 1368 (1999). 57R. H. Leary and J. P. K. Doye, Phys. Rev. E 60, 6320 (1999). 58R. H. Leary, J. Global Optim. 18, 367 (2000). 59S. V. Krivov, Phys. Rev. E 66, 025701 (2002). 60W. D. Knight, K. Clemenger, W. A. de Heer, W. A. Saunders, M. Y. Chou,
+and M. L. Cohen, Phys. Rev. Lett. 52, 2141 (1984). 61M.-W. Sung, R. Kawai, and J. H. Weare, Phys. Rev. Lett. 73, 3552 (1994). 62G. Gardet, F. Rogemond, and H. Chermette, J. Chem. Phys. 105, 9933
+(1996). 63R. Fournier, J. B. Y. Cheng, and A. Wong, J. Chem. Phys. 119, 9444 (2003). 64J. J. K. V and S. R. Gadre, J. Chem. Phys. 129, 164314 (2008). 65N. Goel, S. Gautam, and K. Dharamvir, Int. J. Quantum Chem. 112, 575
+(2010). 66J. Centeno and P. Fuentealba, Int. J. Quantum Chem. 111, 1419 (2011). 67A. Aguado and O. Kostko, J. Chem. Phys. 134, 164304 (2011).
+

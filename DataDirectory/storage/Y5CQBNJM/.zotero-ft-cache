@@ -1,0 +1,645 @@
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+First-principles studies of the Gilbert damping and exchange interactions for half-metallic Heuslers alloys
+
+Jonathan Chico,1,* Samara Keshavarz,1 Yaroslav Kvashnin,1 Manuel Pereiro,1 Igor Di Marco,1 Corina Etz,2 Olle Eriksson,1 Anders Bergman,1 and Lars Bergqvist3,4
+1Department of Physics and Astronomy, Materials Theory Division, Uppsala University, Box 516, SE-75120 Uppsala, Sweden 2Department of Engineering Sciences and Mathematics, Materials Science Division, Lulea˚ University of Technology, Lulea˚, Sweden 3Department of Materials and Nano Physics, School of Information and Communication Technology, KTH Royal Institute of Technology,
+Electrum 229, SE-16440 Kista, Sweden 4SeRC (Swedish e-Science Research Center), KTH Royal Institute of Technology, SE-10044 Stockholm, Sweden
+(Received 22 April 2016; revised manuscript received 3 June 2016; published 30 June 2016)
+Heusler alloys have been intensively studied due to the wide variety of properties that they exhibit. One of these properties is of particular interest for technological applications, i.e., the fact that some Heusler alloys are half-metallic. In the following, a systematic study of the magnetic properties of three different Heusler families Co2MnZ, Co2FeZ, and Mn2VZ with Z = (Al, Si, Ga, Ge) is performed. A key aspect is the determination of the Gilbert damping from ﬁrst-principles calculations, with special focus on the role played by different approximations, the effect that substitutional disorder and temperature effects. Heisenberg exchange interactions and critical temperature for the alloys are also calculated as well as magnon dispersion relations for representative systems, the ferromagnetic Co2FeSi and the ferrimagnetic Mn2VAl. Correlation effects beyond standard densityfunctional theory are treated using both the local spin density approximation including the Hubbard U and the local spin density approximation plus dynamical mean ﬁeld theory approximation, which allows one to determine if dynamical self-energy corrections can remedy some of the inconsistencies which were previously reported for these alloys.
+
+DOI: 10.1103/PhysRevB.93.214439
+
+I. INTRODUCTION
+The limitations presented by traditional electronic devices, such as Joule heating, which leads to higher energy consumption, leakage currents, and poor scaling with size among others [1], have sparked profound interest in the ﬁelds of spintronics and magnonics. Spintronics applications rely in the transmission of information in both spin and charge degrees of freedom of the electron, whilst in magnonics information is transmitted via magnetic excitations, spin waves, or magnons. Half-metallic materials with a large Curie temperature are of great interest for these applications. Due to the fact that they are conductors in only one of the spin channels makes them ideal candidates for possible devices [2]. Half-metals also have certain advantages for magnonic applications, due to the fact that they are insulators in a spin channel and thus can have a smaller total density of states at the Fermi energy than metals. This can result into a small Gilbert damping, which is an instrumental prerequisite for magnonic applications [3].
+The name “full Heusler alloys” refer to a set of compounds with formula X2YZ with X and Y typically being transition metals [4]. The interest in them stems from the fact that their properties can be completely different from those of their constituents. Heusler compounds can be superconducting [5] (Pd2YSn), semiconductors [6] (TiCoSb), half-metallic [7] (Co2MnSi), and can show a wide array of magnetic conﬁgurations: ferromagnetic [7] (Co2FeSi), ferrimagnetic [8] (Mn2VAl), or antiferromagnetic [9] (CrMnSb). Due to such a wide variety of behaviors, full Heusler alloys have been studied in great detail since their discovery in 1903, leading to the
+*jonathan.chico@physics.uu.se
+
+discovery of new Heusler families such as the half-Heuslers, with formula XYZ, and the inverse Heuslers, with formula X2YZ. The latter tend to exhibit a different crystal structure and have been predicted to show quite remarkable properties [10].
+Many Heusler alloys have also been predicted to be halfmetallic, in particular Co2MnSi has been the focus of many theoretical and experimental works [7,11,12], due to its large Curie temperature of 985 K [13], half-metallicity, and low damping parameter, which makes it an ideal candidate for possible spintronic applications. Despite the large amount of research devoted to the half-metallic Heusler alloys, such as Co2MnSi, only recently theoretical predictions of the Gilbert damping parameter have been made for some Heusler alloys [14,15].
+In the present work ﬁrst-principle calculations of the full Heusler families Co2MnZ, Co2FeZ and Mn2VZ with Z = (Al, Si, Ga, Ge) are performed, with special emphasis on the determination of the Gilbert damping and the interatomic exchange interactions. A study treatment of the systems with different exchange correlation potentials is also performed.
+The paper is organized as follows. In Sec. II the computational methods used are presented. Then, in Sec. III, magnetic moments and spectral properties are discussed. In Sec. IV the results for the exchange stiffness parameter, the critical temperature obtained via Monte Carlo simulations, and magnon dispersion relations are presented. Finally, in Sec. V, the calculated damping parameter for the different Heusler is presented and discussed.
+II. COMPUTATIONAL METHODS
+The full Heusler alloys (X2YZ) have a crystal structure given by the space group F m-3m with X occupying the
+
+2469-9950/2016/93(21)/214439(14)
+
+214439-1
+
+©2016 American Physical Society
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+Wyckoff
+
+position
+
+8c
+
+(
+
+1 4
+
+,
+
+1 4
+
+,
+
+1 4
+
+),
+
+while
+
+Y
+
+sits
+
+in
+
+the
+
+4a
+
+(0,0,0)
+
+and
+
+Z
+
+in
+
+the
+
+4b
+
+(
+
+1 2
+
+,
+
+1 2
+
+,
+
+1 2
+
+).
+
+To determine the properties of the systems ﬁrst principles
+
+electronic structure calculations were performed. They were
+
+mainly done by means of the Korringa-Kohn-Rostocker
+
+Green’s function formalism as implemented in the SPR-KKR
+
+package [16]. The shape of the potential was considered by
+
+using both the atomic sphere approximation (ASA) and a full
+
+potential (FP) scheme. The calculations of exchange interac-
+
+tions were performed in scalar relativistic approximation while
+
+the full relativistic Dirac equation was used in the damping
+
+calculations. The exchange correlation functional was treated
+
+using both the local spin density approximation (LSDA), as
+
+considered by Vosko, Wilk, and Nusair (VWN) [17], and
+
+the generalized gradient approximation (GGA), as devised by
+
+Perdew, Burke, and Ernzerhof (PBE) [18]. For cases in which
+
+substitutional disorder is considered, the coherent potential
+
+approximation (CPA) is used [19,20].
+
+Static correlation effects beyond LSDA or GGA are taken
+
+into account by using the LSDA + U approach, where the
+
+Kohn-Sham Hamiltonian is supplemented with an additional
+
+term describing local Hubbard interactions [21], for the d
+
+states of Co, Mn, and Fe. The U-matrix describing this on-site
+
+interactions was parametrized through the Hubbard parameter
+
+U and the Hund exchange J , using values UCo = UMn = UFe = 3 eV and JCo = JMn = JFe = 0.8 eV, which are in
+
+the range of the values considered in previous theoretical
+
+studies [13,22–24]. It is also worth mentioning, that the values
+
+of U and J can be determined via ﬁrst-principles methods, as
+
+shown in a recent work by S¸ as¸iogˇlu et al. [25]. This approach
+
+is used for the Heusler alloys families Co2MnZ and Co2FeZ, as
+
+previous studies have shown that for systems such as Co2FeSi
+
+it might be necessary to reproduce several experimental
+
+observations, although this topic is still up for debate [23].
+
+Since part of correlation effects of the 3d orbitals is already
+
+included in LSDA, their contribution has to be subtracted
+
+before adding the +U self-energy. This contribution to be
+
+removed is usually called “double-counting” (DC) correction
+
+and there is no unique way of deﬁning it (see, e.g., Ref. [26]).
+
+We have used two of the most widely used schemes for the DC,
+
+namely the atomic limit (AL), also known as fully localized
+
+limit (FLL) [27], and the around mean ﬁeld (AMF) [28]. The
+
+dependence of the results on this choice will be extensively
+
+discussed in the following sections.
+
+In order to shine some light on the importance of the
+
+dynamical correlations for the magnetic properties of the
+
+selected Heusler alloys, a series of calculations were performed
+
+in the framework of DFT plus dynamical mean ﬁeld theory
+
+(DMFT) [29,30], as implemented in the full-potential linear
+
+mufﬁn-tin orbital (FP-LMTO) code RSPt [31]. As for LSDA +
+
+U , the DMFT calculations are performed for a selected set of
+
+metal 3d orbitals on top of the LSDA solution in a fully charge
+
+self-consistent manner [32,33]. The effective impurity prob-
+
+lem, which is the core of the DMFT, is solved through the spin-
+
+polarized T-matrix ﬂuctuation-exchange (SPTF) solver [34].
+
+This type of solver is perturbative and is appropriate for the
+
+systems with moderate correlation effects, where U/W < 1
+
+(W denotes the bandwidth) [35]. Contrary to the prior DMFT
+
+studies [36,37], we have performed the perturbation expansion
+
+of the Hartree-Fock-renormalized Green’s function (GHF ) and not of the bare one. Concerning the DC correction, we here use both the FLL approach, described above, as well as the so-called “ (0)” correction. In the latter case, the orbitally averaged static part of the DMFT self-energy is removed, which is often a good choice for metals [30,38]. Finally, in order to extract information about the magnetic excitations in the systems, we have performed a mapping onto an effective Heisenberg Hamiltonian
+
+Hˆ = − Jij ei ej ,
+
+(1)
+
+i=j
+
+where Jij is an exchange interaction between the spins located at site i and j , while the ei (ej ) represents the unity vector along the magnetization direction at site i(j ). The exchange parameters then are computed by making use of the well established LKAG (Liechtenstein, Katsnelson, Antropov, and Gubanov) formalism, which is based on the magnetic force theorem [39–41]. More speciﬁc details about the implementation of the LKAG formalism in RSPt can be found in Ref. [42]. We also note that the performance of the RSPt method was recently published in Ref. [43] and it was found that the accuracy was similar to that of augmented plane wave methods.
+From the exchange interactions between magnetic atoms, it is possible to obtain the spin wave stiffness, D, which for cubic systems is written as [44]
+
+D= 2 3
+
+i,j
+
+√mJiijmj |rij |2 exp
+
+− η rij , alat
+
+(2)
+
+where the mi’s are the magnetic moments of a given atom, rij is the distance between the two considered magnetic moments, alat is the lattice parameter, and η is a convergence parameter used to ensure the convergence of Eq. (2); the value of D is taken under the limit η → 0. To ensure the convergence of the summation, it is also important to take into consideration long range interactions. Hence the exchange interactions are considered up to six lattice constants from the central atom.
+The obtained exchange interactions were then used to calculate the critical temperature by making use of the Binder cumulant, obtained from Monte Carlo simulations as implemented in the UppASD package [45]. This was calculated for three different numbers of cell repetitions (10 × 10 × 10, 15 × 15 × 15, and 20 × 20 × 20), with the intersection point determining the critical temperature of the system [46].
+The Gilbert damping, α, is calculated via linear response theory [47]. Temperature effects in the scattering process of electrons are taken into account by considering an alloy analogy model within CPA with respect to the atomic displacements and thermal ﬂuctuations of the spin moments [48]. Vertex corrections are also considered here, because they provide the “scattering in” term of the Boltzmann equation and it corrects signiﬁcant error in the damping, whenever there is an appreciable s-p or s-d scattering in the system [16,49].
+From the calculated exchange interactions, the adiabatic magnon spectra (AMS) can be determined by calculating the Fourier transform of the interatomic exchange interactions [50]. This is determined for selected cases and is compared with the magnon dispersion relation obtained from
+
+214439-2
+
+FIRST-PRINCIPLES STUDIES OF THE GILBERT . . .
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+the dynamical structure factor, Sk(q,ω), resulting from spin dynamics calculations. The Sk(q,ω) is obtained from the
+Fourier transform of the time and spatially displaced spin-spin correlation function, Ck(r − r ,t) [51],
+
+Sk(q,ω) = √ 1
+
+∞
+
+eiq·(r−r )
+
+eiωt Ck(r − r ,t)dt. (3)
+
+2π N r,r
+
+−∞
+
+The advantage of using the dynamical structure factor over the adiabatic magnon spectra is the capability of studying temperature effects as well as the inﬂuence of the damping parameter determined from ﬁrst-principles calculations or from experimental measurements.
+
+III. ELECTRONIC STRUCTURE
+The calculated spin magnetic moments for the selected systems are reported in Table I. These values are obtained from SPR-KKR with various approximations of the exchange correlation potential and for different geometrical shapes of the potential itself. For the Co2MnZ family, when Z = (Si, Ge), the obtained spin magnetic moments do not seem to be heavily inﬂuenced by the choice of exchange correlation potential or potential shape. However, for Z = (Al, Ga) a large variation is observed in the spin moment when one includes the Hubbard parameter U .
+For the Co2FeZ systems, a pronounced difference can be observed in the magnetic moments between the LSDA and the experimental values for Z = (Si, Ge). Previous theoretical works [13,22,24] suggested that the inclusion of a +U term is necessary to obtain the expected spin magnetic moments, but such a conclusion has been recently questioned [23]. To estimate which double counting scheme would be most suitable to treat correlation effects in this class of systems, an interpolation scheme between the FLL and AMF treatments was tested, as described in Ref. [60] and implemented in the FP-LAPW package Elk [61]. It was found that both Co2MnSi and Co2FeSi are better described with the AMF scheme, as indicated by their small αU parameter of ∼0.1 for both materials (αU = 0 denotes complete AMF and αU = 1 FLL), which is in agreement with the recent work by Tsirogiannis and Galanakis [62].
+
+To test whether a more sophisticated way to treat correlation effects improves the description of these materials, electronic structure calculations for Co2MnSi and Co2FeSi using the DMFT scheme were performed. The LSDA + DMFT[ (0)] calculations yielded total spin moments of 5.00μB and 5.34μB for respectively Co2MnSi and Co2FeSi. These values are almost equal to those obtained in LSDA, which is also the case in elemental transition metals [33]. As mentioned above for LSDA + U , the choice of the DC is crucial for these systems. The main reason why no signiﬁcant differences are found between DMFT and LSDA values is that the employed “ (0)” DC almost entirely preserves the static part of the exchange splitting obtained in LSDA [63]. For instance, by using FLL DC, we obtained a total magnetization of 5.00μB and 5.61μB in Co2MnSi and Co2FeSi, respectively. We note that the spin moment of Co2FeSi still does not reach the value expected from the Slater-Pauling rule, but the DMFT modiﬁes it in a right direction, if albeit to a smaller degree that the LSDA + U schemes.
+Another important aspect of the presently studied systems is the fact that they are predicted to be half-metallic. In Fig. 1, the density of states (DOS) for both Co2MnSi and Co2FeSi is presented using LSDA and LSDA + U . For Co2MnSi, the DOS at the Fermi energy is observed to exhibit a very clear gap in one of the spin channels, in agreement with previous theoretical works [7]. For Co2FeSi, instead a small pseudogap region is observed in one of the spin channels, but the Fermi level is located just at the edge of the boundary as shown in previous works [24]. Panels (a) and (b) of Fig. 1 also show that some small differences arise depending on the ASA or FP treatment. In particular, the gap in the minority spin channel is slightly reduced in ASA.
+When correlation effects are considered within the LSDA + U method, the observed band gap for Co2MnSi becomes larger, while the Fermi level is shifted and still remains in the gap. When applying LSDA + U to Co2FeSi in the FLL scheme, EF is shifted farther away from the edge of the gap, which explains why the moment becomes almost an integer as expected from the Slater-Pauling behavior [7,24,64]. Moreover, one can see that in ASA the gap in the spin down channel is much smaller in comparison to the results obtained in FP.
+
+TABLE I. Summary of the spin magnetic moments obtained using different approximations as obtained from SPR-KKR for the Co2MnZ
+and Co2FeZ families with Z = (Al,Si,Ga,Ge). Different exchange correlation potential approximations and shapes of the potential have been used. The symbol † signiﬁes that the Fermi energy is located at a gap in one of the spin channels.
+
+Quantity
+alat [A˚ ] mALDSAA [μB ] mAGSGAA [μB ] mALDSAA+U AMF [μB ] mALDSAA+U FLL [μB ] mFLPDA [μB ] mFGPGA [μB ] mFLPDA+U AMF [μB ] mFLPDA+U FLL [μB ] mexp [μB ]
+
+Co2MnAl
+5.75 [52] 4.04† 4.09† 4.02† 4.77 4.02† 4.03† 4.59 4.03† 4.04 [56]
+
+Co2MnGa
+5.77 [52] 4.09† 4.15† 4.08 4.90 4.08† 4.11 4.99 4.17 4.09 [57]
+
+Co2MnSi
+5.65 [53] 4.99† 4.99† 4.98† 5.02† 4.98† 4.98† 4.98† 4.99† 4.96 [58]
+
+Co2MnGe
+5.743 [54] 4.94† 4.96† 4.98† 5.11 4.98† 4.99† 5.13 4.99† 4.84 [58]
+
+Co2FeAl
+5.730 [52] 4.86† 4.93† 4.94† 5.22 4.91† 4.98† 5.12 4.99† 4.96 [56]
+
+Co2FeGa
+5.737 [52] 4.93† 5.00† 4.99† 5.36 4.97† 5.01† 5.40 5.09 5.15 [58]
+
+Co2FeSi
+5.640 [23] 5.09 5.37 5.19 5.86† 5.28 5.55 5.98† 5.86† 6.00 [24]
+
+Co2FeGe
+5.750 [55] 5.29 5.53 5.30 5.94† 5.42 5.70 5.98† 5.98† 5.74 [59]
+
+214439-3
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+FIG. 1. Total density of states for different exchange correlation potentials with the dashed line indicating the Fermi energy, subﬁgures (a)
+and (b) when LSDA is used for Co2MnSi and Co2FeSi, respectively. Subﬁgures (c) and (d) show the DOS when the systems (Co2MnSi and Co2FeSi, respectively) are treated with LSDA + U . It can be seen that the half-metallicity of the materials can be affected by the shape of the potential and the choice of exchange correlation potential chosen.
+
+When the dynamical correlation effects are considered via DMFT, the overall shape of DOS remains quite similar to that of bare LSDA, especially close to the Fermi level, as seen in Fig. 8 in Appendix A. This is related to the fact that we use a perturbative treatment of the many-body effects, which favors Fermi-liquid behavior. Similarly to LSDA+U , the LSDA+DMFT calculations result in the increased spindown gaps, but the produced shift of the bands is not as large as in LSDA+U . This is quite natural, since the inclusion of the dynamical correlations usually tends to screen the static contributions coming from LSDA+U .
+According to Ref. [36] taking into account dynamical correlations in Co2MnSi results in the emergence of the nonquasiparticle states (NQS’s) inside the minority-spin gap, which at ﬁnite temperature tend to decrease the spin polarization at the Fermi level. These NQS’s were ﬁrst predicted theoretically for model systems [65] and stem from the electron-magnon interactions, which are accounted in DMFT (for review, see Ref. [2]). Our LSDA+DMFT results for Co2MnSi indeed show the appearance of the NQS’s, as evident from the pronounced imaginary part of the self-energy at the bottom of the conduction minority-spin band (see Appendix B). An analysis of the orbital decomposition of the self-energy reveals that the largest contribution to the NQS’s comes from the Mn-TEg states. However, in our calculations, where the temperature was set to 300 K, the NQS’s appeared above Fermi level and did not contribute to the system’s depolarization, in agreement with the recent experimental study [12].
+We note that a half-metallic state with a magnetic moment of around 6μB for Co2FeSi was reported in a previous LSDA+DMFT[FLL] study by Chadov et al. [37]. In their
+
+calculations, both LSDA+U and LSDA+DMFT calculations resulted in practically the same positions of the unoccupied spin-down bands, shifted to the higher energies as compared to LSDA. This is due to technical differences in the treatment of the Hartree-Fock contributions to the SPTF self-energy, which in Ref. [37] is done separately from the dynamical contributions, while in this study a uniﬁed approach is used. Overall, the improvements in computational accuracy with respect to previous implementations could be responsible for the obtained qualitative disagreement with respect to Refs. [36,37]. Moreover, given that the results qualitatively depend on the choice of the DC term, the description of the electronic structure of Co2FeSi is not conclusive.
+The discrepancies in the magnetic moments presented in Table I with respect to the experimental values can in part be traced back to details of the density of the states around the Fermi energy. The studied Heusler alloys are thought to be half-metallic, which in turn lead to integer moments following the Slater-Pauling rule [7]. Therefore, any approximation that destroys half-metallicity will have a profound effect on their magnetic properties [7]. For example, for Co2FeAl when the potential is treated in LSDA + U [FLL] with ASA the Fermi energy is located at a sharp peak close to the edge of the band gap, destroying the half-metallic state (see Supplemental Material [66], Fig. 1). A similar situation occurs in LSDA + U [AMF] with a full potential scheme. It is also worth mentioning that despite the fact that the Fermi energy for many of these alloys is located inside the pseudogap in one of the spin channels, this does not ensure a full spin polarization, which is instead observed in systems as, e.g., Co2MnSi. Another important factor is the fact that EF can
+
+214439-4
+
+FIRST-PRINCIPLES STUDIES OF THE GILBERT . . .
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+TABLE II. Lattice constants used for the electronic structure calculations and summary of the magnetic properties for Mn2VZ with Z = (Al,Si,Ga,Ge). As for the ferromagnetic families, different shapes of the potential and exchange correlations potential functionals were used. The magnetic moments follow quite well the SlaterPauling behavior with all the studied exchange correlation potentials. The symbol † signiﬁes that the Fermi energy is located at a gap in one of the spin channels.
+
+Quantity
+alat [A˚ ] mALDSAA [μB ] mAGSGAA [μB ] mFLPDA [μB ] mFGPGA [μB ] mexp [μB ]
+
+Mn2VAl
+5.687 [67] 1.87 1.99† 1.92 1.98†
+
+Mn2VGa
+5.905 [68] 1.97† 2.04† 1.95† 2.02† 1.86 [68]
+
+Mn2VSi
+6.06 [67] 1.00† 1.01† 0.99† 0.99†
+
+Mn2VGe
+6.095 [69] 0.99† 1.00† 0.99 0.99†
+
+be close to the edge of the gap as in Co2MnGa when the shape of the potential is considered to be given by ASA and the exchange correlation potential is dictated by LSDA; hence the half-metallicity of these alloys could be destroyed due to temperature effects.
+The other Heusler family investigated here is the ferrimagnetic Mn2VZ with Z = (Al,Si,Ga,Ge). The lattice constants used in the simulations correspond to either experimental or previous theoretical works. These data are reported in Table II together with appropriate references. Table II also illustrates the magnetic moments calculated using different exchange correlation potentials and shapes of the potential. It can be seen that in general there is a good agreement with previous works, resulting in spin moments which obey the Slater-Pauling behavior.
+For these systems, the Mn atoms align themselves in an antiparallel orientation with respect to the V moments, resulting in a ferrimagnetic ground state. As for the ferromagnetic compounds, the DOS shows a pseudogap in one of the spin channels (see Supplemental Material [66], Figs. 8 and 9) indicating that at T = 0 K these compounds could be half-metallic. An important factor is the fact that the spin polarization for these systems is usually considered to be in
+
+the opposite spin channel than for the ferromagnetic alloys presently studied; henceforth the total magnetic moment is usually assigned to a negative sign such that it complies with the Slater-Pauling rule [7,67].
+IV. EXCHANGE INTERACTIONS AND MAGNONS
+In this section, the effects that different exchange correlation potentials and geometrical shapes of the potential have over the exchange interactions will be discussed.
+A. Ferromagnetic Co2MnZ and Co2FeZ with Z = (Al,Si,Ga,Ge)
+In Table III the calculated spin wave stiffness, D, is shown. In general there is a good agreement between the calculated values for the Co2MnZ family, with the obtained values using LSDA or GGA being somewhat larger than the experimental measurements. This is in agreement with the observations in the previous section, in which the same exchange correlation potentials were found to be able to reproduce the magnetic moments and half-metallic behavior for the Co2MnZ family. In particular, for Co2MnSi the ASA calculations are in agreement with experiments [70,71] and previous theoretical calculations [72]. It is important to notice that the experimental measurements are performed at room temperature, which can lead to softening of the magnon spectra, leading to a reduced spin wave stiffness.
+However, for the Co2FeZ family neither LSDA or GGA can consistently predict the spin wave stiffness, with Z = (Al,Ga) resulting in an overestimated value of D, while for Co2FeSi the obtained value is severely underestimated. However, for some materials in this family, e.g., Co2FeGa, the spin wave stiffness agrees with previous theoretical results [72]. These data reﬂect the inﬂuence that certain approximations have on the location of the Fermi level, which previously has been shown to have profound effects on the magnitude of the exchange interactions [73]. This can be observed in the halfmetallic Co2MnSi; when it is treated with LSDA + U [FLL] in ASA the Fermi level is located at the edge of the gap [see Fig. 1(c)], resulting in a severely underestimated spin wave stiffness with respect to both the LSDA value and
+
+TABLE III. Summary of the spin wave stiffness, D, for Co2MnZ and Co2FeZ with Z = (Al,Si,Ga,Ge). For the Co2MnZ family both LSDA and GGA exchange correlation potentials yield values close to the experimental measurements. However, for the Co2FeZ family a larger data spread is observed. The symbol ∗ implies that the ground state for these systems was found to be ferrimagnetic from Monte Carlo techniques
+and the critical temperature presented here is calculated from the ferrimagnetic ground state.
+
+Quantity DLADSAA [meV A˚ 2] DGAGSAA [meV A˚ 2] DLADSAA+U FLL [meV A˚ 2] DLADSAA+U AMF [meV A˚ 2] DLFDPA [meV A˚ 2] DGFPGA [meV A˚ 2] DLFDPA+U FLL [meV A˚ 2] DLFDPA+U AMF [meV A˚ 2] Dexp [meV A˚ 2]
+
+Co2MnAl
+282 269 29∗ 259 433 483 447 216 190 [74]
+
+Co2MnGa
+291 268 487∗ 318 405 452 400 348 264 [75]
+
+Co2MnSi
+516 538 205 443 613 691 632 583 575 [70]-534 [71]
+
+Co2MnGe
+500 515 94 417 624 694 577 579 413 [76]
+
+Co2FeAl
+644 675 289 553 692 740 652 771 370 [77]
+
+Co2FeGa
+616 415 289 588 623 730 611 690 496 [78]
+
+Co2FeSi
+251 267 314 235 223 323 461 557 715 [79]
+
+Co2FeGe
+206 257 173 214 275 344 436 563
+
+214439-5
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+the experimental measurements (see Table III). The great importance of the location of the Fermi energy on the magnetic properties can be seen in the cases of Co2MnAl and Co2MnGa. In LSDA + U [FLL], these systems show noninteger moments which are overestimated with respect to the experimental measurements (see Table I), but also results in the exchange interactions of the system preferring a ferrimagnetic alignment. Even more the exchange interactions can be severely suppressed when the Hubbard U is used. For example, for Co2MnGe in ASA the dominant interaction is between the Co-Mn moments, in LSDA the obtained value is 0.79 mRy, while in LSDA + U [FLL] is reduced to 0.34 mRy; also, the nearest neighbor Co1-Co2 exchange interaction changes from ferromagnetic to antiferromagnetic when going from LSDA to LSDA + U [FLL] which lead the low values obtained for the spin wave stiffness, as will be discussed below also for the low Tc for some of these systems.
+It is important to notice that the systems that exhibit the largest deviation from the experimental values are usually those that under a certain exchange correlation potential and potential geometry lose their half-metallic character. Such effects are specially noticeable when one compares LSDA + U [FLL] results in ASA and FP, where half-metallicity is more easily lost in ASA due to the fact that the pseudogap is much smaller under this approximation than under FP (see Fig. 1). In general, it is important to notice that under ASA the geometry of the potential is imposed, that is nonspherical contributions to the potential are neglected. While this has been shown to be very successful to describe many properties, it does introduce an additional approximation which can lead to an ill treatment of the properties of some systems. Hence care must be placed when one is considering an ASA treatment for the potential geometry, since it can lead to large variations of the exchange interactions and thus is one of the causes of the large spread on the values observed in Table III for the exchange stiffness and in Table IV for the Curie temperature.
+One of the key factors behind the small values of the spin stiffness for Co2FeSi and Co2FeGe, in comparison with the rest of the Co2FeZ family, lies in the fact that in LSDA and GGA an antiferromagnetic long-range Fe-Fe interaction is present (see Fig. 11 in Appendix C). As the magnitude of the Fe-Fe interaction decreases the exchange stiffness increases, e.g., as in LSDA + U [AMF] with a full potential
+
+scheme. These exchange interactions are one of the factors behind the reduced value of the stiffness; this is evident when comparing with Co2FeAl, which while having similar nearest neighbor Co-Fe exchange interactions, overall displays a much larger spin wave stiffness for most of the studied exchange correlation potentials.
+Using LSDA + DMFT[ (0)] for Co2MnSi and Co2FeSi, the obtained stiffness is 580 meV A˚ 2 and 280 meV A˚ 2, respectively, whilst in LSDA+DMFT[FLL] for Co2MnSi the stiffness is 630 meV A˚ 2 and for Co2FeSi is 282 meV A˚ 2. As can be seen for Co2MnSi there is a good agreement between the KKR LSDA + U [FLL], the FP-LMTO LSDA+DMFT[FLL], and the experimental values.
+The agreement with experiments is particularly good when correlation effects are considered as in the LSDA + DMFT[ (0)] approach. On the other hand, for Co2FeSi the spin wave stiffness is severely underestimated which is once again consistent with what is shown in Table III.
+Using the calculated exchange interactions, the critical temperature, Tc, for each system can be calculated. Using the ASA, the Tc of both the Co2MnZ and Co2FeZ systems is consistently underestimated with respect to experimental results, as shown in Table IV. The same underestimation has been observed in previous theoretical studies [80], for systems such as Co2Fe(Al,Si) and Co2Mn(Al,Si). However, using a full potential scheme instead leads to Curie temperatures in better agreement with the experimental values, specially when the exchange correlation potential is considered to be given by the GGA (see Table IV). Such observation is consistent with what was previously mentioned, regarding the effect of the ASA treatment on the spin wave stiffness and magnetic moments, where in certain cases ASA was found to not be the best treatment to reproduce the experimental measurements. As mentioned above, this is strongly related to the fact that in general ASA yields a smaller pseudogap in the half-metallic materials, leading to modiﬁcation of the exchange interactions. Thus, in general, a full potential approach seems to be able to better describe the magnetic properties in the present systems, since the pseudogap around the Fermi energy is better described in a FP approach for a given choice of exchange correlation potential.
+The inclusion of correlation effects for the Co2FeZ family leads to an increase of the Curie temperature, as for the spin
+
+TABLE IV. Summary of the critical temperature for Co2MnZ and Co2FeZ with Z = (Al,Si,Ga,Ge), with different exchange correlation potentials and shape of the potentials. The symbol ∗ implies that the ground state for these systems was found to be ferrimagnetic from Monte
+Carlo techniques and the critical temperature presented here is calculated from the ferrimagnetic ground state.
+
+Quantity
+TcLDA ASA [K] TcGGA ASA [K] TcLDA+U ASAFLL [K] TcLDA+U ASAAMF [K] TcLDA FP [K] TcGGA FP [K] TcLDA+U FPFLL [K] TcLDA+U FPAMF [K] Tcexp [K]
+
+Co2MnAl
+360 350 50∗ 325 525 600 525 450 697 [80]
+
+Co2MnGa
+350 300 625∗ 425 475 525 475 450 694
+
+Co2MnSi
+750 763 125 650 875 1000 950 1000 985 [13]
+
+Co2MnGe
+700 700 225 600 825 925 875 875 905
+
+Co2FeAl
+913 975 575 950 1050 1150 1050 1275 1000 [81]
+
+Co2FeGa
+917 973 550 950 975 1100 975 1225 1093 [82]
+
+Co2FeSi
+655 800 994 650 750 900 1050 1450 1100 [24]
+
+Co2FeGe
+650 750 475 625 750 875 1075 1350 981 [59]
+
+214439-6
+
+FIRST-PRINCIPLES STUDIES OF THE GILBERT . . .
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+stiffness. This is related to the enhancement of the interatomic
+exchange interactions as exempliﬁed in the case of Co2FeSi. However, the choice of DC once more is shown to greatly
+inﬂuence the magnetic properties. For the Co2FeZ family, AMF results in much larger Tc than the FLL scheme, whilst for Co2MnZ the differences are smaller, with the exception of Z = Al. All these results showcase how important a proper description of the pseudogap region is in determining the
+magnetic properties of the system. Another observation is the fact that even if a given combi-
+nation of exchange correlation potential and geometrical treatment of the potential can yield a value of Tc in agreement with experiments, it does not necessarily mean that the spin wave stiffness is correctly predicted (see Table III and Table IV).
+When considering the LSDA + DMFT[ (0)] scheme, critical temperatures of 688 K and 663 K are obtained for Co2MnSi and Co2FeSi, respectively. Thus the values of the Tc are underestimated in comparison with the LSDA+U or LSDA results. The reason for such behavior becomes clear when one looks directly on the Jij ’s, computed with the different schemes, which are shown in Appendix C. These results suggest that taking into account the dynamical correlations (LSDA + DMFT[ (0)]) slightly suppresses most of the Jij ’s as compared to the LSDA outcome. This is an expected result, since the employed choice of DC correction preserves the exchange splitting obtained in LSDA, while the dynamical self-energy, entering the Green’s function, tends to lower its magnitude. Since these two quantities are the key ingredients deﬁning the strength of the exchange couplings, the Jij ’s obtained in DMFT are very similar to those of LSDA (see, e.g., Refs. [42,83]). The situation is a bit different if one employs FLL DC, since an additional static correction enhances the local exchange splitting [84]. For instance, in the case of Co2MnSi the LSDA+DMFT[FLL] scheme provided a Tc of 764 K, which is closer to the experiment. The consistently better agreement of the LSDA + U [FLL] and LSDA+DMFT[FLL] estimates of the Tc with experimental values might indicate that explicit account for static local correlations is important for all considered systems.
+Using the calculated exchange interactions, it is also possible to determine the adiabatic magnon spectra (AMS). In Fig. 2 is shown the effect that different exchange correlation potentials have over the description of the magnon dispersion relation of Co2FeSi is shown. The most noticeable effect between different treatments of the exchange correlation potential is shifting the magnon spectra, while its overall shape seems to be conserved. This is a direct result from the enhancement of nearest neighbor interactions (see Fig. 11).
+When comparing the AMS treatment with the dynamical structure factor, S(q,ω), at T = 300 K and damping parameter αLSDA = 0.004, obtained from ﬁrst-principles calculations (details explained in Sec. V), a good agreement at the long wavelength limit is found. However, a slight softening can be observed compared to the AMS. Such differences can be explained due to temperature effects included in the spin dynamics simulations. Due to the fact that the critical temperature of the system is much larger than T = 300 K (see Table IV), temperature effects are quite small. The high energy optical branches are also softened and in general are much less visible. This is expected since the correlation was studied using only vectors in the ﬁrst Brillouin zone and, as has
+
+FIG. 2. (a) Adiabatic magnon spectra for Co2FeSi for different exchange correlation potentials. In the case of FP-LSDA and LSDA + DMFT[ (0)] the larger deviations are observed in the case of high energies, with the DMFT curve having a lower maximum than the LSDA results. In (b) a comparison of the adiabatic magnon spectra (solid lines) with the dynamical structure factor S(q,ω) at T = 300 K, when the shape of the potential is considered to be given by the atomic sphere approximation and the exchange correlation potential to be given by LSDA, some softening can be observed due to temperature effects specially observed at higher q points.
+been shown in previous works [51], a phase shift is sometimes necessary to properly reproduce the optical branches, implying the need of vectors outside the ﬁrst Brillouin zone. Also, Stoner excitations dealing with electron-hole excitations are not included in this approach, which result in the Landau damping which affects the intensity of the optical branches. Such effects are not captured by the present approach, but can be studied by other methods such as time dependent DFT [85]. The shape of the dispersion relation along the path -X also corresponds quite well with previous theoretical calculations performed by Ku¨bler [86].
+B. Ferrimagnetic Mn2VZ with Z = (Al,Si,Ga,Ge)
+As mentioned above, the Mn based Mn2VZ full Heusler family has a ferrimagnetic ground state, with the Mn atoms orienting parallel to each other and antiparallel with respect to
+
+214439-7
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+TABLE V. Summary of the spin wave stiffness, D, and the critical temperature for Mn2VZ with Z = (Al,Si,Ga,Ge) for different shapes of the potential and exchange correlation potentials.
+
+Quantity
+DLADSAA [meV A˚ 2] DGAGSAA [meV A˚ 2] DLFDPA [meV A˚ 2] DGFPGA [meV A˚ 2] Dexp [meV A˚ 2] TcLDA ASA [K] TcGGA ASA [K] TcLDA FP [K] TcGGA FP [K] Tcexp [K]
+
+Mn2VAl
+314 324 421 415 534 [87] 275 425 425 600 768 [87]
+
+Mn2VGa
+114 73 206 91
+350 425 450 500 783 [68]
+
+Mn2VSi
+150 250 200 350
+
+Mn2VGe
+147 149 191 162
+147 250 200 350
+
+the V moments. For all the studied systems the Mn-Mn nearest neighbor exchange interactions dominate. In Table V the obtained spin wave stiffness, D, and critical temperature Tc are shown. For Mn2VAl, it can be seen that the spin wave stiffness is trend when compared to the experimental value. The same underestimation can be observed in the critical temperature. For Mn2VAl, one may notice that the best agreement with experiments is obtained for GGA in FP. An interesting aspect of the high Tc observed in these materials is the fact that the magnetic order is stabilized due to the antiferromagnetic interaction between the Mn and V sublattices, since the Mn-Mn interaction is in general much smaller than the Co-Co, Co-Mn, and Co-Fe interactions present in the previously studied ferromagnetic materials.
+For these systems it can be seen that in general the FP description yields Tc’s which are in better agreement with experiment, albeit if the values are still underestimated. As for the Co based systems the full potential technique improves the description of the pseudogap, it is important to notice that for most systems both in ASA and FP the half-metallic character is preserved. However, the density of states at the Fermi level changes which could lead to changes in the exchange interactions.
+As for the ferromagnetic systems one can calculate the magnon dispersion relation and it is reported in Fig. 3 for Mn2VAl. A comparison with Fig. 2 illustrates some of the differences between the dispersion relation of a ferromagnet and of a ferrimagnetic material. In Fig. 3 some overlap between the acoustic and optical branches is observed, as well as a quite ﬂat dispersion relation for one of the optical branches. Such an effect is not observed in the studied ferromagnetic cases. In general the different exchange correlation potentials only tend to shift the energy of the magnetic excitations, while the overall shape of the dispersion does not change noticeably, which is consistent with what was seen in the ferromagnetic case.
+The observed differences between the LSDA and GGA results in the small q limit corresponds quite well with what is observed in Table V, where the spin wave stiffness for GGA with the potential given by ASA is somewhat larger than the LSDA case. This is directly related to the observation that the
+
+FIG. 3. Adiabatic magnon dispersion relation for Mn2VAl when different exchange correlation potentials are considered. In general only a shift in energy is observed when considering LSDA or GGA with the overall shape being conserved. nearest neighbor Mn-Mn and Mn-V interactions are larger in GGA than in LSDA. Again, such an observation is tied to the DOS at the Fermi level, since Mn2VAl is not half-metallic in LSDA; on the other hand, in GGA the half-metallic state is obtained (see Table II).
+V. GILBERT DAMPING The Gilbert damping is calculated for all the previously studied systems using ASA and a fully relativistic treatment. In Fig. 4, the temperature dependence of the Gilbert damping for Co2MnSi is reported for different exchange-correlation potentials. When correlation effects are neglected or included via the LSDA + U [AMF], the damping increases with
+FIG. 4. Temperature dependence of the Gilbert damping for Co2MnSi for different exchange correlation potentials. For LSDA, GGA, and LSDA + U [AMF] exchange correlation potentials the damping increases with temperature, whilst for LSDA + U [FLL] the damping decreases as a function of temperature.
+
+214439-8
+
+FIRST-PRINCIPLES STUDIES OF THE GILBERT . . .
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+FIG. 5. Gilbert damping for different Heusler alloys at T = 300 K as a function of density of states at the Fermi energy for LSDA exchange correlation potential. In general the damping increases as the density of states at the Fermi energy increases (the dotted line is to guide the eyes).
+
+temperature. On the other hand, in the LSDA + U [FLL] scheme, the damping decreases as a function of temperature, and its overall magnitude is much larger. Such observation can be explained from the fact that in this approximation a small amount of states exists at the Fermi energy in the pseudogap region, hence resulting in a larger damping than in the half-metallic cases [see Fig. 1(c)].
+In general the magnitude of the damping, αLSDA = 7.4 × 10−4, is underestimated with respect to older experimental measurements at room temperature, which yielded values of α = [0.003 − 0.006] [88] and α ∼ 0.025 for polycrystalline samples [89], whilst it agrees with previously performed theoretical calculations [14]. Such discrepancy between the experimental and theoretical results could stem from the fact that in the theoretical calculations only the intrinsic damping is calculated, while in experimental measurements in addition extrinsic effects such as eddy currents and magnon-magnon scattering can affect the obtained values. It is also known that sample capping or sample termination can have profound effects over the half-metallicity of Co2MnSi [90]. Recent experiments showed that ultralow damping, α = 7 × 10−4, for Co1.9Mn1.1Si can be measured when the capping is chosen such that the half-metallicity is preserved [91], which is in very good agreement with the present theoretical calculations.
+In Fig. 5, the Gilbert damping at T = 300 K for the different Heusler alloys as a function of the density of states at the Fermi level is presented. As expected, the increased density of states at the Fermi energy results in an increased damping. Also it can be seen that, in general, alloys belonging to a given family have quite similar damping parameter, except for Co2FeSi and Co2FeGe. Their anomalous behavior stems from the fact that in the LSDA approach both Co2FeSi and Co2FeGe are not half-metals. Such clear dependence on the density of states is expected, since the spin orbit coupling is small for these materials, meaning that the dominating contribution to the damping comes from the details of the density of states around the Fermi energy [92,93].
+
+FIG. 6. Gilbert damping for the random alloy Co2Mn1−xFexSi as a function of the Fe concentration at T = 300 K when (a) only atomic displacements are considered and (b) when both atomic displacements and spin ﬂuctuations are considered.
+Effects of substitutional disorder
+In order to investigate the possibility to inﬂuence the damping, we performed calculations for the chemically disordered Heusler alloys Co2Mn1−xFexSi, Co2MeAl1−xSix, and Co2MeGa1−xGex, where Me = (Mn, Fe).
+Due to the small difference between the lattice parameters of Co2MnSi and Co2FeSi, the lattice constant is unchanged when varying the concentration of Fe. This is expected to play a minor role on the following results. When one considers only atomic displacement contributions to the damping [see Fig. 6(a)], the obtained values are clearly underestimated in comparison with the experimental measurements at room temperature [94]. Under the LSDA, GGA, and LSDA + U [AMF] treatments, the damping is shown to increase with increasing concentration of Fe. On the other hand, in LSDA + U [FLL] the damping at low concentrations of Fe is much larger than in the other cases, and it decreases with Fe concentration, until a minima is found at Fe concentration of x ∼ 0.8. This increase can be related to the DOS at the Fermi energy, which is reported
+
+214439-9
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+in Fig. 1(c) for Co2MnSi. One can observe a small amount of states at EF , which could lead to increased values of the damping in comparison with the ones obtained in traditional LSDA. As for the pure alloys, a general trend relating the variation of the DOS at the Fermi level and the damping with respect to the variation of Fe concentration can be obtained, analogous to the results shown in Fig. 5.
+When spin ﬂuctuations are considered in addition to the atomic displacements contribution, the magnitude of the damping increases considerably, as shown in Fig. 6(b). This is specially noticeable at low concentrations of Fe. Mn rich alloys have a Tc lower than the Fe rich ones, thus resulting in larger spin ﬂuctuations at T = 300 K. The overall trend for LSDA and GGA is modiﬁed at low concentrations of Fe when spin ﬂuctuations are considered, whilst for LSDA + U [FLL] the changes in the trends occur mostly at concentrations between x = [0.3–0.8]. An important aspect is the overall good agreement of LSDA, GGA, and LSDA + U [AMF]. Instead results obtained in LSDA + U [FLL] stand out as different from the rest. This is expected since as was previously mentioned the FLL DC is not the most appropriate scheme to treat these systems. An example of such inadequacy can clearly be seen in Fig. 6(b) for Mn rich concentrations, where the damping is much larger with respect to the other curves. As mentioned above, this could result from the appearance of states at the Fermi level.
+Overall the magnitude of the intrinsic damping presented here is smaller than the values reported in experiments [94], which report values for the damping of Co2MnSi of α ∼ 0.005 and α ∼ 0.020 for Co2FeSi, in comparison with the calculated values of αLSDA = 7.4 × 10−4 and αLSDA = 4.1 × 10−3 for Co2MnSi and Co2FeSi, respectively. In experiments also a minimum at the concentration of Fe of x ∼ 0.4 is present, while such minima is not seen in the present calculations. However, similar trends as those reported here (for LSDA and GGA) are seen in the work by Oogane and Mizukami [15]. A possible reason behind the discrepancy between theory and experiment, could stem from the fact that as the Fe concentration increases, correlation effects also increase in relative importance. Such a situation cannot be easily described through the computational techniques used in this work, and will affect the details of the DOS at the Fermi energy, which in turn could modify the damping. Another important factor inﬂuencing the agreement between theory and experiments arises from the difﬁculties in separating extrinsic and intrinsic damping in experiments [95]. This, combined with the large spread in the values reported in various experimental studies [89,96,97], points towards the need for improving both theoretical and experimental approaches, if one intends to determine the minimum damping attainable for these alloys with sufﬁcient accuracy.
+Up until now in the present work, disorder effects have been considered at the Y site of the Heusler structure. In the following chemical disorder will be considered on the Z site instead. Hence the chemical structure changes to the type Co2MeZA1−x ZBx (Me = Fe,Mn). The alloys Co2MeAlxSi1−x and Co2MeGaxGe1−x are considered. The lattice constant for the off stoichiometric compositions is treated using Vegard’s law [98], interpolating between the values given in Table I.
+
+FIG. 7. Dependence of the Gilbert damping for the alloys Co2MeAlx Si1−x and Co2MeGax Ge1−x with Me denoting Mn or Fe under the LSDA exchange correlation potential.
+In Fig. 7 the dependence of the damping on the concentration of defects is reported, as obtained in LSDA. For Co2FeGaxGe1−x as the concentration of defects increases the damping decreases. Such a behavior can be understood by inspecting the density of states at the Fermi level which follows the same trend; it is important to notice that Co2FeGa is a half-metallic system, while Co2FeGe is not (see Table I). On the other hand, for Co2FeAlxSi1−x, the damping increases slightly with Al concentration; however, for the stoichiometric Co2FeAl is reached the damping decreases suddenly, as in the previous case. This is a direct consequence of the fact that Co2FeAl is a half-metal and Co2FeSi is not; hence when the half-metallic state is reached a sudden decrease of the damping is observed. For the Mn based systems, as the concentration of defects increases the damping increases, this stark difference with the Fe based systems. For Co2MnAlxSi1−x this is related to the fact that both Co2MnAl and Co2MnSi are half-metals in LSDA; hence the increase is only related to the fact that the damping for Co2MnAl is larger than the one of Co2MnSi; it is also relevant to mention that the trend obtained here corresponds quite well with what is observed in both experimental and theoretical results in Ref. [88]. A similar explanation can be used for the Co2MnGaxGe1−x alloys, as both are half-metallic in LSDA. As expected, the half-metallic Heuslers have a lower Gilbert damping than the other ones, as shown in Fig. 7.
+VI. CONCLUSIONS
+The treatment of several families of half-metallic Heusler alloys has been systematically investigated using several approximations for the exchange correlation potential, as well as for the shape of the potential. Special care has been paid to the calculation of their magnetic properties, such as the Heisenberg exchange interactions and the Gilbert damping. Profound differences have been found in the description of the systems depending on the choice of exchange correlation potentials, specially for systems in which correlation effects
+
+214439-10
+
+FIRST-PRINCIPLES STUDIES OF THE GILBERT . . .
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+might be necessary to properly describe the presumed halfmetallic nature of the studied alloy.
+In general, no single combination of exchange correlation potential and potential geometry was found to be able to reproduce all the experimentally measured magnetic properties of a given system simultaneously. Two of the key contributing factors are the exchange correlation potential and the double counting scheme used to treat correlation effects. The destruction of the half-metallicity of any alloy within the study has profound effects on the critical temperature and spin wave stiffness. A clear indication of this fact is that even if the FLL double counting scheme may result in a correct description of the magnetic moments of the system, the exchange interactions may be severely suppressed. For the systems studied with DMFT techniques either minor improvement or results similar to the ones obtained from LSDA is observed. This is consistent with the inclusion of local d − d screening, which effectively diminishes the strength of the effective Coulomb interaction with respect to LSDA + U (for the same Hubbard parameter U ). In general, as expected, the more sophisticated treatment for the geometrical shape of the potential, that is a full potential scheme, yields results closer to experiments, which in these systems is intrinsically related to the description of the pseudogap region.
+Finally, the Gilbert damping is underestimated with respect to experimental measurements, but in good agreement with previous theoretical calculations, one of the possible reasons being the difﬁculty from the experimental point of view of separating intrinsic and extrinsic contributions to the damping, as well as the strong dependence of the damping on the crystalline structure. A clear correlation between the density of states at the Fermi level and the damping is also observed, which is related to the presence of a small spin orbit coupling in these systems. This highlights the importance that halfmetallic materials, and their alloys, have in possible spintronic and magnonic applications due to their low intrinsic damping, and tunable magnetodynamic variables. These results could spark interest from the experimental community due to the possibility of obtaining ultralow damping in half-metallic Heusler alloys.
+ACKNOWLEDGMENTS
+The authors acknowledge valuable discussions with M. I. Katsnelsson and A. I. Lichtenstein. The work was ﬁnanced through the VR (Swedish Research Council) and GGS (Go¨ran Gustafssons Foundation). O.E. acknowledges support from the KAW foundation (Grants No. 2013.0020 and No. 2012.0031). O.E. and A.B acknowledge eSSENCE. L.B. acknowledges support from the Swedish e-Science Research Centre (SeRC). The computer simulations were performed on resources provided by the Swedish National Infrastructure for Computing (SNIC) at the National Supercomputer Centre (NSC) and High Performance Computing Center North (HPC2N).
+APPENDIX A: DOS FROM LSDA+DMFT
+Here we show the DOS in Co2MnSi and Co2FeSi obtained from LSDA and LSDA+DMFT calculations. The results shown in Fig. 8 indicate that the DMFT increases the spin-
+
+FIG. 8. DOS in Co2FeSi (top panel) and Co2MnSi (bottom panel) obtained in different computational setups.
+down (pseudo)gap in both Co2FeSi and Co2MnSi. In the latter case the shift of the bands is more pronounced. In Co2FeSi it manifests itself in an enhanced value of the total magnetization. For both studied systems, the FLL DC results in relatively larger values of the gaps as compared with the “ (0)” estimates. However, for the same choice of the DC this gap appears to be smaller in LSDA+DMFT than in LSDA+U . Present conclusion is valid for both Co2FeSi and Co2MnSi (see Fig. 1 for comparison.)
+APPENDIX B: NQS IN Co2MnSi
+Here we show the calculated spectral functions in Co2MnSi obtained with LSDA + DMFT[ (0)] approach. As discussed in the main text, the overall shape of DOS is reminiscent of that obtained in LSDA. However, a certain amount of the spectral weight appears above the minority-spin gap. An inspection of the imaginary part of the self-energy in minority-spin channel, shown in the bottom panel of Fig. 9, suggests a strong increase of Mn spin-down contribution at the corresponding energies, thus conﬁrming the nonquasiparticle nature of the obtained states. We note that the use of FLL DC formulation results in an enhanced spin-down gap which pushes the NQS to appear at even higher energies above EF (see Appendix A).
+
+214439-11
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+TABLE VI. Orbital-resolved Jij ’s between the nearest neighbors in Co2MnSi in mRy. In the case of Co1-Co1, the second nearest neighbor value is given, due to smallness of the ﬁrst one. The results were obtained with LSDA.
+
+Co1-Co1 Co1-Co2 Co-Mn Mn-Mn
+
+Total
+0.070 0.295 1.237 0.124
+
+Eg -Eg
+0.077 0.357 0.422 − 0.082
+
+T2g -T2g
+− 0.003 − 0.058 − 0.079
+0.118
+
+Eg -T2g
+− 0.002 − 0.002
+0.700 0.044
+
+T2g -Eg
+− 0.002 − 0.002
+0.194 0.044
+
+FIG. 9. Top panel: DOS in Co2MnSi projected onto Mn and Co 3d states of different symmetry. Middle and bottom panels: orbitalresolved spin-up and spin-down imaginary parts of the self-energy. The results are shown for the “ (0)” DC.
+APPENDIX C: IMPACT OF CORRELATION EFFECTS ON THE Ji j ’S IN Co2MnSi AND Co2FeSi
+In this section we present a comparison of the exchange parameters calculated in the framework of the LSDA+DMFT using different DC terms. The calculated Jij ’s between different magnetic atoms within the ﬁrst few coordination spheres are shown in Fig. 10. One can see that the leading interactions which stabilize the ferromagnetism in these systems are the nearest-neighbor intrasublattice couplings between Co and
+
+Fe(Mn) atoms and, to a lower extent, the interaction between two Co atoms belonging to the different sublattices. This qualitative behavior is obtained independent of the employed method for treating correlation effects and is in good agreement with prior DFT studies. As explained in the main text, the LSDA and LSDA + DMFT[ (0)] results are more similar to each other, whereas most of the Jij ’s extracted from LSDA+DMFT[FLL] are relatively enhanced due to inclusion of an additional static contribution to the exchange splitting. This is also reﬂected in both values of the spin stiffness and the Tc.
+In order to have a further insight into the details of the magnetic interactions in the system, we report here the orbitalresolved Jij ’s between the nearest-neighbors obtained with LSDA. The results, shown in Table VI, reveal few interesting observations. First of all, all the T2g-derived contributions are negligible for all the interactions involving Co atoms. This has to do with the fact that these orbitals are practically ﬁlled and therefore cannot participate in the exchange interactions. As to the most dominant Co-Mn interaction, the Eg-Eg and Eg-T2g contributions are both strong and contribute to the total ferromagnetic coupling. This is related to strong spin polarization of the Mn-Eg states.
+Correlation effects also have profound effects on the exchange interactions of Co2FeSi (see Fig. 11). In particular, the Fe-Fe interactions can be dramatically changed when considering static correlation effects. It is specially noticeable
+
+Co1-Co1
+
+Fe-Fe
+
+Co1-Co2
+
+Co-Fe
+
+FIG. 10. Calculated exchange parameters in Co2MnSi within LSDA and LSDA+DMFT for different choice of DC.
+
+FIG. 11. Exchange interactions for Co2FeSi within LSDA and LSDA + U schemes and a full potential approach for different DC
+choices.
+
+214439-12
+
+FIRST-PRINCIPLES STUDIES OF THE GILBERT . . .
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+how the antiferromagnetic exchange interactions can decrease signiﬁcantly which can affect the exchange stiffness and the critical temperature as described in the main text. Also the long-range nature of the Fe-Fe interactions is on display,
+
+indicating that to be able to predict macroscopic variables from the present approach, attention must be paid to the cutoff range. As in Co2MnSi, correlation effects do not greatly affect the Co-Co exchange interactions.
+
+[1] D. D. Awschalom and M. E. Flatte´, Nat. Phys. 3, 153 (2007). [2] M. I. Katsnelson, V. Y. Irkhin, L. Chioncel, A. I. Lichtenstein,
+and R. A. de Groot, Rev. Mod. Phys. 80, 315 (2008). [3] V. V. Kruglyak, S. O. Demokritov, and D. Grundler, J. Phys. D:
+Appl. Phys. 43, 264001 (2010). [4] T. Graf, C. Felser, and S. S. Parkin, Prog. Solid State Chem. 39,
+1 (2011). [5] S. K. Malik, A. M. Umarji, and G. K. Shenoy, Phys. Rev. B 31,
+6971 (1985). [6] Y. Xia, V. Ponnambalam, S. Bhattacharya, A. L. Pope, S. J.
+Poon, and T. M. Tritt, J. Phys.: Condens. Matter 13, 77 (2001). [7] I. Galanakis, P. H. Dederichs, and N. Papanikolaou, Phys. Rev.
+B 66, 174429 (2002). [8] I. Galanakis, K. O¨ zdog˘an, E. S¸ as¸ıog˘lu, and B. Aktas¸, Phys. Rev.
+B 75, 092407 (2007). [9] R. A. de Groot, Physica B 172, 45 (1991). [10] S. Skaftouros, K. O¨ zdog˘an, E. S¸ as¸ıog˘lu, and I. Galanakis, Phys.
+Rev. B 87, 024420 (2013). [11] S. Trudel, O. Gaier, J. Hamrle, and B. Hillebrands, J. Phys. D:
+Appl. Phys. 43, 193001 (2010). [12] M. Jourdan, J. Mina´r, J. Braun, A. Kronenberg, S. Chadov, B.
+Balke, A. Gloskovskii, M. Kolbe, H. Elmers, G. Scho¨nhense et al., Nat. Commun. 5, 3974 (2014). [13] B. Balke, G. H. Fecher, H. C. Kandpal, C. Felser, K. Kobayashi, E. Ikenaga, J.-J. Kim, and S. Ueda, Phys. Rev. B 74, 104405 (2006). [14] A. Sakuma, J. Phys. D: Appl. Phys. 48, 164011 (2015). [15] M. Oogane and S. Mizukami, Philos. Trans. R. Soc. London A 369, 3037 (2011). [16] H. Ebert, D. Ko¨dderitzsch, and J. Mina´r, Rep. Prog. Phys. 74, 096501 (2011). [17] S. H. Vosko, L. Wilk, and M. Nusair, Can. J. Phys. 58, 1200 (1980). [18] J. P. Perdew, K. Burke, and M. Ernzerhof, Phys. Rev. Lett. 77, 3865 (1996). [19] P. Soven, Phys. Rev. 156, 809 (1967). [20] G. M. Stocks, W. M. Temmerman, and B. L. Gyorffy, Phys. Rev. Lett. 41, 339 (1978). [21] J. Hubbard, Proc. R. Soc. London A Mat. 276, 238 (1963). [22] G. H. Fecher and C. Felser, J. Phys. D: Appl. Phys. 40, 1582 (2007). [23] L. Makinistian, M. M. Faiz, R. P. Panguluri, B. Balke, S. Wurmehl, C. Felser, E. A. Albanesi, A. G. Petukhov, and B. Nadgorny, Phys. Rev. B 87, 220402 (2013). [24] S. Wurmehl, G. H. Fecher, H. C. Kandpal, V. Ksenofontov, C. Felser, H.-J. Lin, and J. Morais, Phys. Rev. B 72, 184434 (2005). [25] E. S¸ as¸ıog˘lu, I. Galanakis, C. Friedrich, and S. Blu¨gel, Phys. Rev. B 88, 134402 (2013). [26] M. Karolak, G. Ulm, T. Wehling, V. Mazurenko, A. Poteryaev, and A. Lichtenstein, Proceedings of International Workshop on Strong Correlations and Angle-Resolved Photoemission Spectroscopy, 2009 [J. Electron Spectrosc. 181, 11 (2010)].
+
+[27] A. I. Liechtenstein, V. I. Anisimov, and J. Zaanen, Phys. Rev. B 52, R5467 (1995).
+[28] M. T. Czyz˙yk and G. A. Sawatzky, Phys. Rev. B 49, 14211 (1994).
+[29] A. Georges, G. Kotliar, W. Krauth, and M. J. Rozenberg, Rev. Mod. Phys. 68, 13 (1996).
+[30] G. Kotliar, S. Y. Savrasov, K. Haule, V. S. Oudovenko, O. Parcollet, and C. A. Marianetti, Rev. Mod. Phys. 78, 865 (2006).
+[31] J. M. Wills, O. Eriksson, M. Alouani, and D. L. Price, in Electronic Structure and Physical Properties of Solids, edited by H. Dreysse, Lecture Notes in Physics Vol. 535 (Springer, Heidelberg, 2000), pp. 148–167.
+[32] O. Gra˚na¨s, I. D. Marco, P. Thunstro¨m, L. Nordstro¨m, O. Eriksson, T. Bjo¨rkman, and J. M. Wills, Comput. Mater. Sci. 55, 295 (2012).
+[33] A. Grechnev, I. Di Marco, M. I. Katsnelson, A. I. Lichtenstein, J. Wills, and O. Eriksson, Phys. Rev. B 76, 035107 (2007).
+[34] M. I. Katsnelson and A. I. Lichtenstein, Eur. Phys. J. B 30, 9 (2002).
+[35] A. I. Lichtenstein and M. I. Katsnelson, Phys. Rev. B 57, 6884 (1998).
+[36] L. Chioncel, Y. Sakuraba, E. Arrigoni, M. I. Katsnelson, M. Oogane, Y. Ando, T. Miyazaki, E. Burzo, and A. I. Lichtenstein, Phys. Rev. Lett. 100, 086402 (2008).
+[37] S. Chadov, G. H. Fecher, C. Felser, J. Mina´r, J. Braun, and H. Ebert, J. Phys. D: Appl. Phys. 42, 084002 (2009).
+[38] A. I. Lichtenstein, M. I. Katsnelson, and G. Kotliar, Phys. Rev. Lett. 87, 067205 (2001).
+[39] A. Liechtenstein, M. Katsnelson, V. Antropov, and V. Gubanov, J. Magn. Magn. Mater. 67, 65 (1987).
+[40] A. I. Liechtenstein, M. I. Katsnelson, and V. A. Gubanov, J. Phys. F: Met. Phys. 14, L125 (1984).
+[41] M. I. Katsnelson and A. I. Lichtenstein, Phys. Rev. B 61, 8906 (2000).
+[42] Y. O. Kvashnin, O. Gra˚na¨s, I. Di Marco, M. I. Katsnelson, A. I. Lichtenstein, and O. Eriksson, Phys. Rev. B 91, 125133 (2015).
+[43] K. Lejaeghere, G. Bihlmayer, T. Bjo¨rkman, P. Blaha, S. Blu¨gel, V. Blum, D. Caliste, I. E. Castelli, S. J. Clark, A. Dal Corso et al., Science 351, 6280 (2016).
+[44] M. Pajda, J. Kudrnovsky´, I. Turek, V. Drchal, and P. Bruno, Phys. Rev. B 64, 174402 (2001).
+[45] B. Skubic, J. Hellsvik, L. Nordstro¨m, and O. Eriksson, J. Phys.: Condens. Matter. 20, 315203 (2008).
+[46] K. Binder, Rep. Prog. Phys. 60, 487 (1997). [47] H. Ebert, S. Mankovsky, D. Ko¨dderitzsch, and P. J. Kelly, Phys.
+Rev. Lett. 107, 066603 (2011). [48] H. Ebert, S. Mankovsky, K. Chadova, S. Polesya, J. Mina´r, and
+D. Ko¨dderitzsch, Phys. Rev. B 91, 165132 (2015). [49] W. H. Butler, Phys. Rev. B 31, 3260 (1985). [50] S. V. Halilov, H. Eschrig, A. Y. Perlov, and P. M. Oppeneer,
+Phys. Rev. B 58, 293 (1998).
+
+214439-13
+
+JONATHAN CHICO et al.
+
+PHYSICAL REVIEW B 93, 214439 (2016)
+
+[51] C. Etz, L. Bergqvist, A. Bergman, A. Taroni, and O. Eriksson, J. Phys.: Condens. Matter 27, 243202 (2015).
+[52] K. Buschow and P. van Engen, J. Magn. Magn. Mater. 25, 90 (1981).
+[53] P. Webster, J. Phys. Chem. Solids 32, 1221 (1971). [54] T. Ambrose, J. J. Krebs, and G. A. Prinz, J. Appl. Phys. 87, 5463
+(2000). [55] H. C. Kandpal, G. H. Fecher, and C. Felser, J. Phys. D: Appl.
+Phys. 40, 1507 (2007). [56] K. Buschow, P. van Engen, and R. Jongebreur, J. Magn. Magn.
+Mater. 38, 1 (1983). [57] K. O¨ zdog˘an, E. S¸ as¸ıog˘lu, B. Aktas¸, and I. Galanakis, Phys. Rev.
+B 74, 172412 (2006). [58] P. J. Brown, K. U. Neumann, P. J. Webster, and K. R. A. Ziebeck,
+J. Phys.: Condens. Matter 12, 1827 (2000). [59] K. Ramesh Kumar, K. Bharathi, J. Chelvane, S. Venkatesh, G.
+Markandeyulu, and N. Harishkumar, IEEE Trans. Magn. 45, 3997 (2009). [60] A. G. Petukhov, I. I. Mazin, L. Chioncel, and A. I. Lichtenstein, Phys. Rev. B 67, 153106 (2003). [61] The elk fp-lapw code, http://elk.sourceforge.net/, accessed 201603-17. [62] C. Tsirogiannis and I. Galanakis, J. Magn. Magn. Mater. 393, 297 (2015). [63] If one utilizes the “ (0)” DC for SPTF performed for the bare Green’s function, then the static terms are strictly preserved. In our case there is some renormalization due to the Hartree-Fock renormalization. [64] E. S¸ as¸ıog˘lu, L. M. Sandratskii, P. Bruno, and I. Galanakis, Phys. Rev. B 72, 184415 (2005). [65] V. Y. Irkhin, M. I. Katsnelson, and A. I. Lichtenstein, J. Phys.: Condens. Matter 19, 315201 (2007). [66] See Supplemental Material at http://link.aps.org/supplemental/ 10.1103/PhysRevB.93.214439 for the density of states of the different materials treated in this work. [67] K. O¨ zdogan, I. Galanakis, E. S¸ as¸ioglu, and B. Aktas¸, J. Phys.: Condens. Matter 18, 2905 (2006). [68] K. R. Kumar, N. H. Kumar, G. Markandeyulu, J. A. Chelvane, V. Neu, and P. Babu, J. Magn. Magn. Mater. 320, 2737 (2008). [69] E. S¸ as¸ioglu, L. M. Sandratskii, and P. Bruno, J. Phys.: Condens. Matter 17, 995 (2005). [70] J. Hamrle, O. Gaier, S.-G. Min, B. Hillebrands, Y. Sakuraba, and Y. Ando, J. Phys. D: Appl. Phys. 42, 084005 (2009). [71] H. Pandey, P. C. Joshi, R. P. Pant, R. Prasad, S. Auluck, and R. C. Budhani, J. Appl. Phys. 111, 023912 (2012). [72] J. Thoene, S. Chadov, G. Fecher, C. Felser, and J. Ku¨bler, J. Phys. D: Appl. Phys. 42, 084013 (2009). [73] B. Belhadji, L. Bergqvist, R. Zeller, P. H. Dederichs, K. Sato, and H. Katayama-Yoshida, J. Phys.: Condens. Matter 19, 436227 (2007). [74] T. Kubota, J. Hamrle, Y. Sakuraba, O. Gaier, M. Oogane, A. Sakuma, B. Hillebrands, K. Takanashi, and Y. Ando, J. Appl. Phys. 106, 113907 (2009).
+
+[75] R. Umetsu, A. Okubo, A. Fujita, T. Kanomata, K. Ishida, and R. Kainuma, IEEE Trans. Magn. 47, 2451 (2011).
+[76] S. Trudel, J. Hamrle, B. Hillebrands, T. Taira, and M. Yamamoto, J. Appl. Phys. 107, 043912 (2010).
+[77] O. Gaier, J. Hamrle, S. Trudel, A. C. Parra, B. Hillebrands, E. Arbelo, C. Herbort, and M. Jourdan, J. Phys. D: Appl. Phys. 42, 084004 (2009).
+[78] M. Zhang, E. Brck, F. R. de Boer, Z. Li, and G. Wu, J. Phys. D: Appl. Phys. 37, 2049 (2004).
+[79] O. Gaier, J. Hamrle, S. Trudel, B. Hillebrands, H. Schneider, and G. Jakob, J. Phys. D: Appl. Phys. 42, 232001 (2009).
+[80] D. Comtesse, B. Geisler, P. Entel, P. Kratzer, and L. Szunyogh, Phys. Rev. B 89, 094410 (2014).
+[81] M. Belmeguenai, H. Tuzcuoglu, M. S. Gabor, T. Petrisor, C. Tiusan, F. Zighem, S. M. Chrif, and P. Moch, J. Appl. Phys. 115, 043918 (2014).
+[82] X. B. Liu and Z. Altounian, J. Appl. Phys. 109, 07B108 (2011). [83] S. Keshavarz, Y. O. Kvashnin, I. Di Marco, A. Delin, M. I.
+Katsnelson, A. I. Lichtenstein, and O. Eriksson, Phys. Rev. B 92, 165129 (2015). [84] This manifests itself in the larger magnetic moment values, as was discussed above. [85] P. Buczek, A. Ernst, P. Bruno, and L. M. Sandratskii, Phys. Rev. Lett. 102, 247206 (2009). [86] J. Ku¨bler, Theory of Itinerant Electron Magnetism (Oxford University Press, Oxford, 2000), Vol. 106. [87] R. Y. Umetsu and T. Kanomata, 20th International Conference on Magnetism, ICM 2015 [Phys. Proc. 75, 890 (2015)]. [88] M. Oogane, T. Kubota, Y. Kota, S. Mizukami, H. Naganuma, A. Sakuma, and Y. Ando, Appl. Phys. Lett. 96, 252501 (2010). [89] R. Yilgin, M. Oogane, Y. Ando, and T. Miyazaki, Proceedings of the 17th International Conference on Magnetism. The International Conference on Magnetism [J. Magn. Magn. Mater. 310, 2322 (2007)]. [90] S. J. Hashemifar, P. Kratzer, and M. Schefﬂer, Phys. Rev. Lett. 94, 096402 (2005). [91] S. Andrieu, A. Neggache, T. Hauet, T. Devolder, A. Hallal, M. Chshiev, A. M. Bataille, P. Le Fe`vre, and F. Bertran, Phys. Rev. B 93, 094417 (2016). [92] S. Mankovsky, D. Ko¨dderitzsch, G. Woltersdorf, and H. Ebert, Phys. Rev. B 87, 014430 (2013). [93] S. Lounis, M. dos Santos Dias, and B. Schweﬂinghaus, Phys. Rev. B 91, 104420 (2015). [94] T. Kubota, S. Tsunegi, M. Oogane, S. Mizukami, T. Miyazaki, H. Naganuma, and Y. Ando, Appl. Phys. Lett. 94, 122504 (2009). [95] R. D. McMichael, D. J. Twisselmann, and A. Kunz, Phys. Rev. Lett. 90, 227601 (2003). [96] R. Yilgin, Y. Sakuraba, M. Oogane, S. Mizukami, Y. Ando, and T. Miyazaki, Jpn. J. Appl. Phys. 46, L205 (2007). [97] S. Qiao, J. Zhang, R. Hao, H. Zhaong, Y. Kang, and S. Kang, in Magnetics Conference (INTERMAG), 2015 IEEE (IEEE, New York, 2015), p. 1. [98] L. Vegard, Z. Phys. 5, 17 (1921).
+
+214439-14
+
