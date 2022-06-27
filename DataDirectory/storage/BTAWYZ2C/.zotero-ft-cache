@@ -1,0 +1,576 @@
+Journal of Physics: Condensed Matter
+
+FAST TRACK COMMUNICATION
+A simple law governing coupled magnetic orders in perovskites
+To cite this article: L Bellaiche et al 2012 J. Phys.: Condens. Matter 24 312201
+View the article online for updates and enhancements.
+
+You may also like
+- Proposal for quantifying the Dzyaloshinsky–Moriya interaction by domain walls annihilation measurement Ryo Hiramatsu, Kab-Jin Kim, Yoshinobu Nakatani et al.
+- Loschmidt Echo of a central spin coupled to an XY spin chain: The role of the Dzyaloshinsky-Moriya interaction Han-Li Lian and
+- Spin waves in skyrmionic structures with various topological charges Levente Rózsa, Markus Weißenhofer and Ulrich Nowak
+
+This content was downloaded from IP address 59.72.115.44 on 27/06/2022 at 02:49
+
+IOP PUBLISHING J. Phys.: Condens. Matter 24 (2012) 312201 (6pp)
+FAST TRACK COMMUNICATION
+
+JOURNAL OF PHYSICS: CONDENSED MATTER doi:10.1088/0953-8984/24/31/312201
+
+A simple law governing coupled magnetic orders in perovskites
+
+L Bellaiche1, Zhigang Gui1 and Igor A Kornev2
+1 Physics Department and Institute for Nanoscience and Engineering, University of Arkansas, Fayetteville, AR 72701, USA 2 Laboratoire SPMS, UMR 8580 du CNRS, Ecole Centrale Paris, 92295 Chatenay-Malabry, France
+E-mail: laurent@uark.edu
+Received 15 June 2012 Published 9 July 2012 Online at stacks.iop.org/JPhysCM/24/312201
+Abstract An energetic expression containing four different macroscopic terms is proposed to explain and understand coupled magnetic orders (and the directions of the simultaneously occurring ferromagnetic and/or antiferromagnetic vectors) in terms of anti-phase and/or in-phase tilting of oxygen octahedra in magnetic and multiferroic perovskites. This expression is derived from a suggested simple microscopic formula, and has its roots in the Dzyaloshinsky–Moriya interaction. Comparison with data available in the literature and with ﬁrst-principles calculations we conduct here conﬁrms the validity of such a simple and general law for any tested structural paraelectric and even ferroelectric phase, and for any chosen direction of any selected primary magnetic vector.
+(Some ﬁgures may appear in colour only in the online journal)
+
+Perovskites form an important class of materials that can display a wealth of phenomena, such as magnetism, ferroelectricity, multiferroicity, charge and orbital ordering and superconductivity [1–7]. Interestingly, several structural phases in various magnetic and multiferroic perovskites display a complex spin arrangement that generates different coexisting magnetic order parameters. For instance, the R3c or Cc states of BiFeO3 (BFO) multiferroics exhibit a spin-canted structure that results in a weak ferromagnetic (FM) moment— also known as a F-type magnetic ordering—superimposed on a large G-type antiferromagnetic (AFM) vector [9–13]. Similarly, the paraelectric Pnma phase of YFeO3 [14, 15] and of RMO3 magnetic compounds (where R3+ is a rare-earth ion or yttrium and M3+ = Fe3+ or Cr3+) [16], as well as the Pnma phase and polar Pmc21 state of CaMnO3 magnetic ﬁlms simultaneously possess three coupled magnetic orders (out of the four formed by ferromagnetism, and the ‘typical’ G-, A- and C-type antiferromagnetism [8]) when choosing a primary FM or AFM vector being oriented along a high-symmetry direction [17]. Note that, from the structural
+
+point of view, the Pnma state (which is the ground state of many perovskites [18]) and the Pmc21 phase are rather complex because long-range-ordered in-phase and anti-phase tilting of oxygen octahedra coexist there (unlike in R3c and Cc states for which only anti-phase tilting exists). While group theory and/or previous theoretical developments [16, 19–22] are able to predict which magnetic orders can couple and simultaneously exist in R3c, Cc, Pnma and Pmc21 states in magnetic or multiferroic perovskites—and along which directions the resulting FM and/or AFM vectors can lie—they do not indicate if the sense of the tilting of the oxygen octahedra (i.e. in-phase versus anti-phase) and the direction of the axis of this tilting have some effect on coupled magnetic orders. Moreover, group theory is unable to reveal if the coupled magnetic vectors can be of large magnitude, and is by no means easy to apply to determine which magnetic orders are coupled, and along which directions the FM and/or AFM vectors are oriented, when choosing a low-symmetry direction for the primary magnetic order in R3c, Cc, Pnma or Pmc21 states. More importantly, the ﬁndings in the R3c and
+
+0953-8984/12/312201+06$33.00
+
+1
+
+c 2012 IOP Publishing Ltd Printed in the UK & the USA
+
+J. Phys.: Condens. Matter 24 (2012) 312201
+Cc states of BiFeO3 [10–12] and in the Pnma and/or Pmc21 phases of YFeO3, RMO3 and CaMnO3 [14–17] make us wonder if there is a ‘general’ law governing coupled magnetic orders in magnetic or multiferroic perovskites that involves (in a straightforward fashion) the magnitude, direction and sense of rotation of the tilting of the oxygen octahedra. By a ‘general’ law, we mean an energetic expression that is valid for any crystallographic (non-polar or even polar) phase in any perovskite, and for any direction of any primary magnetic vector (among the conventional F, G, C and A-types). Such a hypothetical law would obviously be of large beneﬁt, since it may be able to resolve the aforementioned unknown issues but also because it may be used to search for novel multiferroic or magnetic perovskites for which the coupled magnetic orders, and their magnitudes and directions, will play an important role in the materials’ functionalities. The aim of this paper is to demonstrate that such a general law not only exists but also has a simple analytical form.
+In the quest for this simple law, we ﬁrst deﬁne the ‘antiferrodistortive’ (AFD) quantity, ωi, that characterizes the tilting of the oxygen octahedra in the unit cell i. This pseudo-vector is centered at the B site of the cell i, and is such that its direction provides the axis about which the oxygen octahedra tilt while its magnitude gives the tilt angle [23]. For instance, ωi = 0.1(x + y + z) correspond√s to a rotation of the oxygen octahedra located at cell i by 0.1 3 radians about the [111] direction, when x, y and z are the unit vectors along the [100], [010] and [001] pseudo-cubic directions, respectively. Let us also denote as mi the magnetic dipole centered on the i site, and introduce the following energetic term [11]:
+
+E = K (ωi − ωj) · (mi × mj),
+
+(1)
+
+i,j
+
+where the sum over i runs over all the B-atoms of the
+
+perovskite structure while the sum over j only runs over the
+
+B-atoms that are ﬁrst-nearest neighbors of the B-site i. K is
+
+a parameter that characterizes the strength of this energetic
+
+interaction and is therefore material dependent. Note that
+
+equation (1) can be considered as a particular case of the
+
+so-called Dzyaloshinsky–Moriya interaction [24, 25] which is
+
+analytically given by D ·(mi ×mj); the ‘mysterious’ D vector
+
+is here simply the difference between the AFD pseudo-vectors
+
+at sites i and j.
+
+Let us now denote as nx(i), ny(i) and nz(i) the integers
+
+indexing the center of the cell i. More precisely, in the
+
+ideal perovskite structure and when denoting the ﬁve-atom
+
+cubic lattice constant as alat, this cell i is centered at alat(nx(i)x + ny(i)y + nz(i)z) with respect to a chosen
+
+origin. For a crystallographic phase exhibiting tilting oxygen
+
+octahedra associated with the R-point of the cubic ﬁrst
+
+Brillouin zone (i.e. for anti-phase rotations), ωi can be written as (−1)nx(i)+ny(i)+nz(i)ωR, where ωR is a constant,
+
+site-independent vector. Similarly, for phases in which the
+
+AFD motions are in-phase and associated with the M-point of
+
+the cubic Brillouin zone (corresponding to the vector qM,xy =
+
+2π alat
+
+(x+y)),
+
+ωi
+
+is
+
+simply
+
+equal
+
+to
+
+(−1)nx (i)+ny (i) ωM ,
+
+where
+
+ωM
+
+is another homogeneous vector. In the more complex cases for
+
+which both anti-phase and in-phase rotations coexist, ωi is
+
+Fast Track Communication
+simply the sum of the two previous terms, that is3:
+
+ωi = (−1)nx(i)+ny(i)+nz(i)ωR + (−1)nx(i)+ny(i)ωM, (2)
+
+Let us now denote the magnetization as F, the G-type
+
+AFM vector (that corresponds to the R-point of the cubic
+
+ﬁrst Brillouin zone) as G, the C-type AFM vector associated
+
+with qM,xy as C and the A-type AFM vector for which
+
+the corresponding magnetic propagation vector is qX,z =
+
+2π alat
+
+z
+
+as
+
+A.
+
+Let
+
+us
+
+also
+
+assume
+
+that
+
+these
+
+AFM
+
+vectors
+
+and
+
+magnetization can all coexist within a system. In that case, it
+
+is straightforward to prove that the magnetic dipole moment
+
+at site i is given by:
+
+mi = F + (−1)nx(i)+ny(i)+nz(i)G
+
++ (−1)nx(i)+ny(i)C + (−1)nz(i)A.
+
+(3)
+
+After working out some algebra and recalling that the six ﬁrst-nearest-neighbor B-sites j of a B-site i are distant by ±alatx, ±alaty and ±alatz from this site i, one can prove that inserting equations (2) and (3) into (1) provides the following general formula:
+
+E = 24NKωR · (G × F) + 16NKωM · (C × F) + 16NKωM · (G × A) + 8NKωR · (C × A). (4)
+
+It is important to realize that several remarkable works [16, 19–22] have derived important properties of the Dzyaloshinsky vector and investigated the origins of some coupled magnetic orders, but that none of these works have explicitly proposed the concise equation (4).4 In order to test such a simple equation, we will not only compare its predictions with existing data in the literature, but also with the results of ﬁrst-principles calculations [28]. For these latter cases, we choose a given material (namely, BFO bulk) and consider different crystallographic phases. Spin–orbit and non-collinear magnetism are included in these calculations (we numerically found that omitting them will not lead to any coupled magnetism, as consistent with [10, 11, 17]). Technically, we use the local spin density approximation and a Hubbard U parameter [29] equal to 3.8 eV for Fe ions, as in [11, 30, 31]. The ﬁve-atom cubic lattice constant, alat, is chosen to be 3.85 A˚ . In each of these calculations, only one magnetic order among the four discussed above is initially chosen with a selected direction of its corresponding order parameter vector. However, while the ions and lattice vectors are kept frozen, the system is then allowed to relax its magnetic structure, and can thus adopt secondary magnetic orders in order to minimize its total energy (the initially chosen magnetic order is referred to as the primary
+
+3 To better understand what the ωR and ωM vectors represent, let us choose the particular case for which ωR = 0.01(x + y) and ωM = 0.04z. Such an example corresponds to a a−a−c+ tilting system (using Glazer
+n√otations [26]) with the angle of anti-phase tilting (about [110]) being 2 × 0.01 radian and the angle of in-phase tilting (about [001]) being
+0.04 rad. Note also that structural constraints associated with the rotation of
+the oxygen octahedra imply that, for any component of ωM that is non-zero, that component of ωR must be zero, and vice versa [27]. 4 Note that equation (4) deals with the coupled magnetic orderings occurring
+in the B sublattice of ABO3 perovskites, since the sums involved in equation (1) run over such a sublattice.
+
+2
+
+J. Phys.: Condens. Matter 24 (2012) 312201
+
+Fast Track Communication
+
+Table 1. Ferromagnetic (F) and antiferromagnetic (G, C and A) vectors for different oxygen octahedra tilting arrangements and different resulting paraelectric phases in BiFeO3 bulks, as predicted by ﬁrst principles. The chosen ωR and ωM AFD vectors are provided in the ﬁrst two columns. The asterisk indicates the primary magnetic vector. Each different case is referred to by an integer that is indicated at the beginning of each row. The magnetic vectors are expressed in units of Bohr magneton per Fe ion. The AFD vectors are indicated in radians. The integers in parentheses indicate the energetic term (ﬁrst, second, third or fourth) of equation (4) that is consistent with the direction of the magnetic vectors found by ﬁrst principles. Glazer notations [26] are used to describe the tilting arrangements of the oxygen octahedra.
+
+a0a0c−
+
+I4/mcm
+
+ωR
+
+ωM
+
+G
+
+F
+
+C
+
+A
+
+1: 0.16z
+
+0
+
+4.04z∗
+
+0(1)
+
+N/A
+
+N/A
+
+2: 0.16z
+
+0
+
+4.04x∗
+
+−0.011y(1)
+
+N/A
+
+N/A
+
+3: 0.16z
+
+0
+
+2.86(x + y)∗
+
+0.008(x − y)(1)
+
+N/A
+
+N/A
+
+4: 0.16z
+
+0
+
+2.86(x + z)∗
+
+−0.007y(1)
+
+N/A
+
+N/A
+
+5: 0.16z
+
+0
+
+−0.024y(1)
+
+4.14x∗
+
+N/A
+
+N/A
+
+a−a−a−
+
+R3¯ c
+
+6: 0.16(−x − y + z) 0
+
+2.33(−x − y + z)∗
+
+0(1)
+
+N/A
+
+N/A
+
+7: 0.16(−x − y + z) 0
+
+2.34(x + y + z)∗
+
+0.012(x − y)(1)
+
+N/A
+
+N/A
+
+8: 0.16(−x − y + z) 0
+
+2.87(x + z)∗
+
+0.008(x − 2y − z)(1)
+
+N/A
+
+N/A
+
+a0a0c+
+
+P4/mbm
+
+9: 0 10: 0 11: 0
+
+0.16z N/A 0.16z N/A 0.16z N/A
+
+0(2)
+
+4.10z∗
+
+N/A
+
+−0.007x(2)
+
+4.11y∗
+
+N/A
+
+4.18x∗
+
+−0.012y(2)
+
+N/A
+
+a−a−c+
+
+Pnma
+
+12: 0.16(x + y) 13: 0.16(x + y) 14: 0.16(x + y) 15: 0.16(x + y) 16: 0.16(x + y) 17: 0.16(x + y) 18: 0.16(x + y) 19: 0.16(x + y) 20: 0.16(x + y) 21: 0.16(x + y) 22: 0.16(x + y)
+
+0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z
+
+4.05z∗ 2.34(x + y + z)∗ 2.34(x − y + z)∗ 2.87(x − y)∗ 2.87(x + y)∗ 2.60(−x + y + 2/3z)∗ 0(1, 3) −0.007(x + y)(3) 0.007(x − y)(3) 0.005(x − y)(3) 0.015(−x + y)(1)
+
+0.010(−x + y)(1) 0.006(−x + y)(1) 0.005(−x + y + 2z)(1) 0.012z(1) 0(1, 2) 0.002(−x + y − 3z)(1) −0.032(x + y)(2) 0(1, 2) 0.022z(1) 0.012(−x − y + 2z)(1, 2) 4.23z∗
+
+−0.040(x + y)(2) 0.015(−x − y + 2z)(2, 4)
+−0.019(x + y)(2) 0(2, 4) 0.043z(4)
+−0.008(x + y)(2) 0.017(−x + y)(4) 0.030z(4) 0(2, 4) 0.009(−x + y)(4) 0(2, 4)
+
+0(3, 4) 0.001(x − y)(3) −0.001(x + y)(3) −0.002(x + y)(3) 0.002(x − y)(3) 0.001(x + y)(3) 4.15z∗ 2.94(x − y)∗ 2.94(x + y)∗ 2.40(x + y + z)∗ −0.014(x + y)(3)
+
+magnetic order, while the other magnetic vectors are termed as secondary). The results of these ﬁrst-principles calculations are indicated in tables 1 and 2, and are now discussed in the light of equation (4).
+Anti-phase tilting within a 10-atom unit cell. Let us ﬁrst consider structures for which only anti-phase tilting of oxygen octahedra can exist. For that, we select in our ﬁrst-principles calculations a 10-atom unit cell having the following lattice vectors: a1 = alat(y + z), a2 = alat(x + z) and a3 = alat(x + y). Regarding magnetic ordering, this unit cell only allows ferromagnetism or G-type antiferromagnetism to exist/coexist. Consequently, equation (4) reduces to its ﬁrst term, that is E = 24NKωR · (G × F). The minimization of this latter energetic term implies that an initially pure G-type AFM structure will have its spins canted via the creation of a magnetization that is parallel or antiparallel to ωR×G because of the existence of anti-phase tilting. Table 1 reveals that such a prediction indeed holds when performing ﬁrst-principles calculations, independently of the chosen direction of the G-type AFM vector and independently of the arrangement of anti-phase tilting of oxygen octahedra (and therefore independently of the corresponding crystallographic phase). As a matter of fact, it is valid for a a0a0c− tilting conﬁguration
+
+(see cases 1–4, that corresponds to a I4/mcm space group) but also for a a−a−a− arrangement (see cases 6–8, for which the space group is R3¯c). In particular: (i) no weak magnetization exists when G lies along ωR, as evidenced by cases 1 and 6 of table 1; (ii) the magnitude of the magnetization, for a given anti-phase tilting angle, should be the largest when ωR and G are perpendicular to each other, which is indeed veriﬁed in table 1 (see cases 2 and 3 for a0a0c−, and case 8 for a−a−a−). Moreover, starting from a free-energy expansion for which the energetic terms involving the magnetization are simply a term proportional to F2 and the currently proposed 24NKωR · (G × F) term, one can prove that, for a given G vector, the magnitude of the magnetization should be directly proportional to the magnitude of ωR—that is to the anti-phase tilting angle. Figure 1 indeed conﬁrms the linear relationship between the magnitude of the magnetization and tilting angle, up to a quite large magnitude of ωR. The ﬁrst term of equation (4) can therefore be practically used to design materials in which a large G-type AFM vector will coexist with a signiﬁcant magnetization, by searching for a structure in which the G-type AFM vector is perpendicular to a large
+
+3
+
+J. Phys.: Condens. Matter 24 (2012) 312201
+
+Fast Track Communication
+
+Table 2. Ferromagnetic (F) and antiferromagnetic (G, C and A) vectors for different oxygen octahedra tilting arrangements and different
+resulting ferroelectric phases in BiFeO3 bulks, as predicted by ﬁrst principles. The chosen ωR and ωM AFD vectors are provided in the ﬁrst two columns. The asterisk indicates the primary magnetic vector. Each different case is referred to by an integer that is indicated at the
+beginning of each row. The magnetic vectors are expressed in units of Bohr magneton per Fe ion. The AFD vectors are indicated in radians. Glazer notations [26] are used to describe the oxygen octahedra tilting arrangements. The polarization is expressed in C m−2.
+
+a0a0c−
+
+P = 0.38z
+
+I4cm
+
+ωR
+
+ωM
+
+G
+
+F
+
+C
+
+A
+
+1: 0.16z
+
+0
+
+4.04z∗
+
+0
+
+N/A
+
+N/A
+
+2: 0.16z
+
+0
+
+4.04x∗
+
+−0.007y
+
+N/A
+
+N/A
+
+3: 0.16z
+
+0
+
+2.86(x + z)∗
+
+−0.005y
+
+N/A
+
+N/A
+
+a0a0c−
+
+P = 0.38x
+
+Fmm2
+
+ωR
+
+ωM
+
+G
+
+F
+
+C
+
+A
+
+4: 0.16z
+
+0
+
+4.04z∗
+
+0
+
+N/A
+
+N/A
+
+5: 0.16z
+
+0
+
+4.04x∗
+
+−0.012y
+
+N/A
+
+N/A
+
+6: 0.16z
+
+0
+
+2.86(x + z)∗
+
+−0.009y
+
+N/A
+
+N/A
+
+a−a−a−
+
+P = 0.38(−x − y + z)
+
+R3c
+
+ωR
+
+ωM
+
+G
+
+F
+
+C
+
+A
+
+7: 0.16(−x − y + z) 0
+
+2.33(−x − y + z)∗
+
+0
+
+N/A
+
+N/A
+
+8: 0.16(−x − y + z) 0
+
+2.33(x + y + z)∗
+
+0.012(x − y)
+
+N/A
+
+N/A
+
+9: 0.16(−x − y + z) 0
+
+2.85(x + z)∗
+
+0.008(x − 2y − z)
+
+N/A
+
+N/A
+
+a−a−c+
+ωR 10: 0.16(x + y) 11: 0.16(x + y) 12: 0.16(x + y) 13: 0.16(x + y) 14: 0.16(x + y) 15: 0.16(x + y) 16: 0.16(x + y) 17: 0.16(x + y) 18: 0.16(x + y) 19: 0.16(x + y) 20: 0.16(x + y)
+
+ωM 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z 0.16z
+
+P = 0.38z
+G 4.05z∗ 2.34(x + y + z)∗ 2.34(x − y + z)∗ 2.86(x − y)∗ 2.86(x + y)∗ 2.59(−x + y + 2/3z)∗ 0 −0.006(x + y) 0.011(−x + y) 0.004(x − y) 0.012(−x + y)
+
+F
+0.009 (−x + y) 0.005(−x + y) 0.005(−x + y + 2z) 0.011z 0 0.003(−x + y − 3z)(1) −0.019(x + y) 0 0.003z 0.009(−x − y + 2z) 4.22z∗
+
+Pna21
+C −0.034(x + y) −0.009(−x − y + 2z) −0.016(x + y)
+0 0.03z −0.009(x + y)(2) +0.031(−x + y) 0.015z(4) 0 0.008(−x + y) 0
+
+A
+0 0.001(−x + y) −0.001(x + y) −0.001(x + y) 0.0005(x − y) 0.001(x + y) 4.15z∗ 2.94(x − y)∗ 2.94(x + y)∗ 2.40(x + y + z)∗ −0.011(x + y)
+
+ωR.5 Note also that the ﬁrst term of equation (4) further implies that a material being primarily FM and possessing anti-phase tilting of oxygen octahedra will also exhibit a secondary G-type AFM order for which the AFM vector will be parallel or antiparallel to F × ωR. Case 5 in table 1 also conﬁrms such prediction.
+In-phase tilting within a 10-atom unit cell. Let us now consider only in-phase tilting of oxygen octahedra, and, accordingly choose another unit cell that is spanned by the following lattice vectors: a1 = alat(x − y), a2 = alat(x + y) and a3 = alatz. In terms of magnetic ordering, such a 10-atom supercell can only possess a magnetization and/or a C-type AFM vector. As a result, only the second term is conserved in equation (4), that is E = 16NKωM · (C × F). This simple term predicts that, in a primarily C-type AFM (respectively, FM) material, in-phase tilting will create a magnetization (respectively, a C vector) aligned along ωM × C (respectively, F × ωM). Cases 9–11 in table 1 also conﬁrm these predictions.
+5 Note also that, if we assume that the magnetic anisotropy only arises from the ﬁrst term of equation (4) in a primarily G-type structure, then the minimization of the total magnetic energy should result in a G vector and a magnetization that should not only be perpendicular to each other but also should each be perpendicular to ωR. This is indeed the case in BiFeO3 ﬁlms [10, 11]
+
+Figure 1. Magnitude of the magnetization as a function of the angle of tilting of the oxygen octahedra in the R3¯c phase of BiFeO3 bulk, as predicted by ﬁrst principles. The primary G-type AFM vector is aligned along [101], while ωR is chosen to be along the [1¯1¯1] pseudo-cubic direction.
+Complex tilting of oxygen octahedra. Let us now investigate more complex tilting of oxygen octahedra, i.e. those that exhibit both in-phase and anti-phase tilting. An example of such an arrangement is the a−a−c+ conﬁguration
+
+4
+
+J. Phys.: Condens. Matter 24 (2012) 312201
+that can be tackled by ﬁrst principles by choosing a 20-atom supercell that is generated by the following lattice vectors: a1 = alat(x − y), a2 = alat(x + y) and a3 = 2alatz. Such a supercell can adopt a magnetization, as well as G-, C- and A-types of antiferromagnetism [17]. Consequently, all four terms of equation (4) can be activated and play a role in the creation of coupled magnetic orders. Cases 12–22 of table 1 display ab initio results for the Pnma phase of BFO, when initially choosing different primary magnetic orders and different directions of the corresponding FM/AFM vectors. Once again, all these results are in-line with equation (4). Let us provide details on a couple of them to fully appreciate its predictive power. For instance, selecting an initial G vector along [11¯0] (see case 15) causes the creation of: (i) a magnetization along the z-axis as a result of the ﬁrst term of equation (4), since the corresponding ωR is along [110]; and (ii) a A vector that is aligned along [1¯1¯0] because of the third term of equation (4) in which ωM is parallel to [001]. In such case, there is no C-type AFM ordering because the second and fourth terms of equation (4) vanish (since F is parallel to ωM and A is parallel to ωR, respectively). It is also important to notice that cases 12, 15 and 16 in table 1 are fully consistent with the experimental results for the Pnma phase of YFeO3 [14, 15]. Similarly, the measurements for LaMnO3 [8] are consistent with our case 20, and those for LuCrO3 [32] and LuFeO3 [33] fully match the predictions expressed in cases 12 and 15, respectively. The observed temperature-induced reorientation of the primary and secondary coupled magnetic orders in the Fe sublattice of NdFeO3 [34] is also covered by equation (4): it corresponds to cases 15, 14 and 12 as the temperature is reduced. Moreover, cases 12, 15, 16, 18, 19, 20 and 22 fully agree with the analysis based on group theory [17] for the Pnma structure (for any perovskite, including CaMnO3)6. It is thus interesting to realize that our predictions are consistent with pure symmetry analysis associated with the B sites of the ABO3 perovskite structure while no symmetry argument was used to derive equation (4). It is also important to realize that equation (4) is more informative than group theory by indicating the microscopic reasons responsible for the coupled magnetic orders and the corresponding directions of their FM/AFM vectors. Another interesting issue that was not addressed in [14, 15, 17] is the possibility that all the four aforementioned magnetic orderings simultaneously exist within a structure. Table 1 reveals that this indeed can occur (see cases 13, 14, 17 and 21). Let us try to take advantage of equation (4) to understand why it happens for the sole case 21, in which the primary AFM vector is of A-type and is aligned along [111]. This speciﬁc A vector generates: (i) a G vector aligned along [11¯0] because of the third term of equation (4), and (ii) a C vector aligned along [11¯0] because of the fourth term of equation (4). The ﬁrst and second terms of equation (4) then imply that a F vector should be created with the preferred energetic choice
+6 Note that the x-, y- and z-axes in [8, 14–16, 32–34] are chosen along the [11¯0], [110] and [001] pseudo-cubic directions, respectively, while they are along the [110], [001] and [11¯0] directions, respectively, in [17]. Such choices contrast with ours, for which the x-, y- and z-axes are along the [100], [010] and [001] pseudo-cubic directions.
+
+Fast Track Communication
+of having a component along ωR × G (that is, along [001]) and also having a component along ωM × C (that is along [1¯1¯0]). The system does follow such energetic requirements by choosing a FM vector that is along [1¯1¯2], which also allows it to be perpendicular to the primary A vector. Moreover, equation (4) is general in the sense that it is also valid for low-symmetry directions. For instance, in an a−a−c+ tilting system, choosing G along the [3¯32] direction should lead to a magnetization along [1¯13¯] via the ﬁrst term of equation (4), and to the formation of C and A vectors along [110] via the second and third terms of equation (4) (the fourth term of equation (4) vanishes because C and A are along the same direction). Case 17 in table 1 conﬁrms the predictive power of equation (4) even for these low-symmetry directions of G and F.
+Polar phases. Interestingly, none of the terms of equation (4) explicitly involves electric dipoles, which implies that the direction of the resulting coupled magnetic orders should not depend on the electric polarization. In other words, what matter are ‘only’ the primary magnetic vector and the tilting arrangement of the oxygen octahedra. Table 2 reports ab initio calculations on phases possessing a polarization in addition to tilting of oxygen octahedra, and indeed conﬁrms such a surprising prediction. For instance, the secondary FM vector is still along the y-axis when the primary G vector lies along [100] for a a0a0c− tilting conﬁguration, independently of the fact that the polarization is along the z-axis (case 2 of table 2, with a I4cm polar space group) or along the x-axis (case 5 of table 2, with a Fmm2 polar space group)—exactly as in case 2 of table 1 (for which the space group is non-polar I4/mcm). As demonstrated by the comparison of these two tables, the insensitivity of the direction of the coupled magnetic orders to the existence and direction of the polarization even holds for complex cases, such as those involving an a−a−c+ tilting conﬁguration and a primary A vector aligned along the [111] direction (see case 21 of table 1 and case 19 of table 2). As detailed in table 2, ab initio calculations on phases possessing a polarization (in addition to tilting of oxygen octahedra), proves that equation (4) works well even for complex cases7. As nicely emphasized in [17], knowledge of such insensitivity is of large importance for designing materials with non-zero linear magneto-electric coefﬁcients8.
+We hope that our work revealing the simple law described by equation (4), that explicitly involves tilting of oxygen octahedra and that governs coupled ‘typical’ magnetic orders in perovskites, is of large beneﬁt to researchers working on magnetism and multiferroic materials, and is of broad interest
+7 This insensitivity is a general feature of magnetic perovskites, as demonstrated by the fact that it also explains an interesting result of [17], namely why the directions of the G, F, C and A vectors do not vary (for a given primary vector aligned a speciﬁc direction) when going from a non-polar Pnma phase to a polar Pmc21 phase. 8 Note, however, that the polarization does have a small effect on coupled magnetic orders: it can slightly modify the magnitude of the secondary magnetic orders, see, e.g., the magnetization in case 4 of table 1 versus cases 3 and 6 of table 2. In other words, one can think of the effect of polarization on equation (4) as being to weakly renormalize the strength of the K parameter.
+
+5
+
+J. Phys.: Condens. Matter 24 (2012) 312201
+to the scientiﬁc community9. It would also be interesting to determine if equation (1) can be used to derive novel energetic expressions in the case of coupled magnetic orders that are more complicated than F-, G-, A- and C-types. It should also be noted that our work does not exclude the possibility that other energetic terms, such as other Dzyaloshinsky–Moriya interactions [24, 25] or a spin-current-induction model [35], involving the electrical polarization [36] or other structural degrees of freedom (rather than AFD distortions) can also possibly govern coupled magnetic orders in materials.
+We thank J In˜iguez for insightful discussions and suggestions. This work is ﬁnancially supported by NSF grants DMR1066158 and DMR-0701558. We also thank the Department of Energy, Ofﬁce of Basic Energy Sciences, under contract ER-46612, ONR grants N00014-11-1-0384 and N00014-081-0915, and ARO grant W911NF-12-1-0085 for discussions with scientists supported by these grants. Some computations were also made possible thanks to the MRI grant 0722625 from NSF and ONR grant N00014-07-1-0825 (DURIP).
+References
+[1] Catalan G and Scott J F 2009 Adv. Mater. 21 2463 [2] Auciello O, Scott J F and Ramesh R 1998 Phys. Today 51 (7)
+22 [3] Lines M E and Glass A M 1977 Principles and Applications of
+Ferroelectrics and Related Materials (Oxford: Clarendon) [4] Cheong S-W and Mostovoy M 2007 Nature Mater. 6 13 [5] Ramesh R and Spaldin N A 2007 Nature Mater. 6 21 [6] Keimer B 2006 Nature Mater. 5 9333 [7] Cava R J et al 1998 Nature 332 814 [8] Wollan E O and Koehler W C 1955 Phys. Rev. 100 545 [9] Be´a H et al 2005 Appl. Phys. Lett. 87 072508
+Be´a H et al 2007 Phil. Mag. Lett. 87 165 [10] Ederer C and Spaldin N A 2005 Phys. Rev. B 71 060401
+
+Fast Track Communication
+[11] Albrecht D, Lisenkov S, Ren W, Rahmedov D, Kornev I A and Bellaiche L 2010 Phys. Rev. B 81 140401(R)
+[12] Dupe´ B, Prosandeev S, Geneste G, Dkhil B and Bellaiche L 2011 Phys. Rev. Lett. 106 237601
+[13] Wardecki D et al 2008 J. Phys. Soc. Japan 77 103709 [14] Lu¨tgemeier H, Bohn H G and Brajczewska M 1980 J. Magn.
+Magn. Mater. 21 289 [15] Plakhty V P, Chernenkov Yu P and Bedrizova M N 1983 Solid
+State Commun. 47 309 [16] Moskvin A S and Bostrem I G 1977 Fiz. Tverd. Tela 19 2616
+Moskvin A S and Bostrem I G 1977 Sov. Phys.—Solid State 19 1532 (Engl. transl.)
+[17] Bousquet E and Spaldin N 2011 Phys. Rev. Lett. 107 197603 [18] Howard C J and Stokes H T 2005 Acta Crystallogr. A 61 93 [19] Keffer F 1962 Phys. Rev. 126 896 [20] Moskvin A S 1971 Sov. Phys.—Solid State 12 2593 [21] Moskvin A S 2007 J. Exp. Theor. Phys. 104 913 [22] Brtaut E F 1962 J. Appl. Phys. 33 1138 [23] Kornev I et al 2006 Phys. Rev. Lett. 97 157601 [24] Dzyaloshinsky I 1958 J. Phys. Chem. Solids 4 241 [25] Moriya T 1960 Phys. Rev. Lett. 4 228 [26] Glazer A M 1975 Acta Crystallogr. A 31 756 [27] Stokes H T, Kisi E H, Hatch D M and Howard C J 2002 Acta
+Crystallogr. B 58 934 Howard C J and Stokes H T 1998 Acta Crystallogr. B 54 782 [28] Kresse G and Hafner J 1993 Phys. Rev. B 47 558(R) Kresse G and Furthmu¨ller J 1996 Phys. Rev. B 54 11169 [29] Anisimov V I, Aryasetiawan F and Lichtenstein A I 1997
+J. Phys.: Condens. Matter 9 767 [30] Kornev I et al 2007 Phys. Rev. Lett. 99 227602 [31] Lisenkov S, Kornev I A and Bellaiche L 2009 Phys. Rev. B
+79 012101 Lisenkov S, Kornev I A and Bellaiche L 2009 Phys. Rev. B
+79 219902(E) [32] Hornreich R M, Shtrikmann S, Wanklyn B M and
+Yaeger I 1976 Phys. Rev. B 13 4046 [33] Venugopalan S and Becker M M 1990 J. Chem. Phys. 93 3833 [34] Bartolome´ J et al 1997 Phys. Rev. B 55 11432 [35] Katsura H, Nagaosa N and Balatsky A V 2005 Phys. Rev. Lett.
+95 057205 [36] de Souza R and Moore J E 2008 Appl. Phys. Lett. 92 022514
+
+9 Note that we have also performed ﬁrst-principles calculations on BiMnO3 (not shown here). These computations conﬁrm ﬁndings reported here.
+6
+

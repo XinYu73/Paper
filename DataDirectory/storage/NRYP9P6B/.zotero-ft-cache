@@ -1,0 +1,706 @@
+Journal of Alloys and Compounds 888 (2021) 161521
+Contents lists available at ScienceDirect
+Journal of Alloys and Compounds
+journal homepage: www.elsevier.com/locate/jalcom
+
+Ab-initio study of the electronic structure and magnetic properties of
+
+Ce2Fe17
+
+]]]]
+]]]]]]
+
+Alena Vishinaa,⁎,1, Olle Erikssona,b, Olga Yu. Vekilovaa,c, Anders Bergmana, Heike C. Herpera
+
+a Department of Physics and Astronomy, Uppsala University, Box 516, SE-75120 Uppsala, Sweden b School of Science and Technology, Örebro University, SE-701 82 Örebro, Sweden c Department of Materials and Environmental Chemistry, Stockholm University, 10691 Stockholm, Sweden
+
+article info
+Article history: Received 25 May 2021 Received in revised form 29 July 2021 Accepted 8 August 2021 Available online 10 August 2021
+Keywords: Permanent magnets Rare earth alloys and compounds Cerium Magnetism Spin dynamics Computer simulations
+
+abstract
+The Ce2Fe17 intermetallic compound has been studied intensely for several decades; its low-temperature state is reported experimentally either as ferromagnetic or antiferromagnetic by different authors, with a measured ordering temperature ranging within a hundred Kelvin. The existing theoretical investigations overestimate the experimental total magnetic moment of Ce2Fe17 by 20–40% and predict a ferromagnetic ground state. By means of first-principle electronic structure calculations, we show that the total magnetic moment of Ce2Fe17 can be reproduced within the Local Density Approximation while functionals based on the Generalized Gradient Approximation fail. Atomistic spin dynamics simulations are shown to capture the change in the magnetic state of Ce2Fe17 with temperature, and closely replicate the reported helical structure that appears in some of the experimental investigations.
+© 2021 The Author(s). Published by Elsevier B.V. CC_BY_4.0
+
+1. Introduction
+The Ce2Fe17 compound with its high magnetization and low cost can be considered as an attractive material for rare-earth (RE) lean permanent magnets. The drawback of this compound is the low Curie temperature and its basal plane magnetocrystalline aniso­ tropy. A large amount of work has been done to remedy these shortcomings, e.g. increasing the magnetic transition temperature by nitrogenation or hydrogenation [1,2] as well as replacing iron partially with Ga [3], Al [4], or Si [5]. It encourages the attempts to tune the properties of this material with the ambition to enhance its use in practical magnetic applications. A recent theoretical work by Pandey and Parker [6] predicts that Zr and Co doping of Ce2Fe17 improves the magnetic characteristics considerably, making these systems good candidates for permanent-magnetic materials.
+Moreover, Ce2Fe17−xZx alloys (with Z = H, C, N, Mn, Ga) show a number of interesting properties such as complex temperature de­ pendence of the magnetocaloric effect in Ce2Fe17Mnx [7,8], giant magnetoresistance [9] in Ce2Fe17, spontaneous magnetostriction [10], and significant deviation in the lattice volume of Ce2Fe17 from a
+⁎ Corresponding author. E-mail address: alena.vishina@physics.uu.se (A. Vishina).
+1 orcid=0000–0002-4583–2877
+https://doi.org/10.1016/j.jallcom.2021.161521 0925-8388/© 2021 The Author(s). Published by Elsevier B.V. CC_BY_4.0
+
+line that shows the monotonic decrease in RE2Fe17 unit cell volume from one rare-earth element to the next [11].
+Hence, Ce2Fe17 has a large potential for magnetic applications. Theoretical studies of the influence of doping could prove even more effective and feasible than the experimental tryouts, provided the properties of the material can be correctly described. Ce2Fe17, along with the different structures of Ce2Fe17−xZx type, have been studied experimentally since the 1970′ies. However, the results of these studies regarding the magnetic state of Ce2Fe17 vary a lot and sometimes contradict each other. We would like to stress, that to our knowledge no conclusive theoretical description of the magnetic properties of Ce2Fe17 has been provided that could shed any light on the seemingly controversial experimental results.
+This work aims to carefully investigate the best way of describing the electronic and magnetic structure of Ce2Fe17. Conclusions made from the present work will hopefully aid in further investigations of the electronic and magnetic properties of various modifications of Ce2Fe17−xZx. We start with a brief overview (Sec. 2) of the existing theoretical and experimental data. Then we analyze the electronic and magnetic ground state of Ce2Fe17 in Sec. 4.1. By coupling to a low energy spin-Hamiltonian, we also address the magnetic structures at higher temperatures (Sec. 4.2). Overall, our results show that ex­ perimental findings are reproduced and explained both at low and higher temperatures.
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+Table 1
+Magnetic moment per unit cell of Ce2Fe17, calculated for the relaxed crystal structures (Fig. 2) and the moment calculated for the most common experimental volume (V = 258.17 Å3 [15]) along with the relaxed crystal structure parameters and TC. The values are calculated with different computational approaches, exchange correlation functionals (Exc), and two different descriptions of the Ce 4f state (localized core and itinerant valence). Note, that for the 4f as core calculation the contribution from the 4f Ce moment is not included in the listed total moment.
+
+Method
+
+Code
+
+Exc
+
+Relaxed structures
+
+VASP
+
+LSDA
+
+VASP
+
+LSDA
+
+VASP
+
+GGA
+
+VASP
+
+GGA
+
+VASP
+
+GGA
+
+VASP
+
+GGA
+
+4f
+valence U= 3 eV core valence U= 3 eV U= 5 eV
+
+M
+μB/f.u.
+6.3 4.4 40.65 37.68 37.92 37.86
+
+a
+Å
+8.042 8.055 8.605 8.415 8.458 8.449
+
+c
+Å
+11.611 11.697 12.589 12.649 12.541 12.535
+
+V Å3
+216.78 217.62 267.82 258.56 258.97 258.28
+
+Ordering temperature K
+
+Most common experimental volume
+
+VASP VASP VASP RSPt RSPt RSPt RSPt
+
+LSDA LSDA GGA GGA GGA LSDA LSDA
+
+valence U= 3 eV core core valence core valence
+
+28.47 27.37 39.45 37.61 36.99 32.76 32.24
+
+575 625 non-collinear non-collinear
+
+2. Overview: previous theory and experiment
+In this section, we present a short outline of the existing ex­ perimental and theoretical data available for Ce2Fe17. A more de­ tailed overview can be found in Appendix A.
+The main message we would like to deliver here is that the lowtemperature magnetic state and transition temperatures Ce2Fe17 reported experimentally vary considerably, depending on sample preparation and the measurement techniques used to determine the magnetic properties. Nonetheless, some general trends can be ex­ tracted. We compiled most of them in the diagram in Fig. 1.
+At low temperatures, a number of experimental papers report a ferromagnetic (FM) state [12–15] with transition temperatures varying between 20 and 160 K and an average moment per Fe atom of 1.8 μB [12]. A transition to the paramagnetic (PM) state takes place between 206 and 270 K [9,12,14]. The region between the two phases
+Fig. 1. (Color online) Sketch of magnetic transition temperatures obtained for Ce2Fe17 together with magnetic moments per formula unit (f.u.) if provided (filled squares) in the publications. Open squares denote calculated magnetic moments from DFT (T = 0 K). Since no transition temperatures were given in the theoretical work the data were placed at T = 0K. Colors and arrows mark the respective magnetic configuration: FM, helical/fan, AFM from the left to the right. Note: Measured magnetic moments were provided either as moment per Fe atom or per f.u. For the graph moment per f.u. was chosen i.e. if only the moment per Fe atom was available the total magnetic moment was approximated by multiplying by 17 and subtracting 2 * 0.6μB to account for the Ce moment. All data including references can be found in the appendix (Table 2).
+
+is even more controversially discussed (reporting antiferromagnetic (AFM), non-collinear (NC), and direct transition to PM state, for the details see Appendix A).
+Some experiments, however, show the absence of the FM phase. Givord and Lemaire [16] reported a fan magnetic order of Ce2Fe17 below 90 K and a helical magnetic order between TC = 90 K and TN = 225 K. The fan magnetic structure is parallel to the basal plane with the fan angle of 40∘ at 4.2 K. The helical spin configuration at 140 K is characterized by the rotational axis parallel to c-axis and magneti­ zation in the basal plane rotating by an angle of 27∘ from plane to plane, and a wave vector q = 0.037 Å; the mean iron moment is 1.55 μB.
+Janssen et al [9] observe two transition temperatures, 125 K and 215 K. These are considered to be first the critical temperature at which the magnetic structure changes from one AFM order to an­ other and secondly the Neél temperature. The authors also state that the first AFM order is not a fan structure because this phase does not have any FM component. Induced FM order is reported in the higher fields in which the average Fe moment is 1.70 μB at 5 K.
+A helical spin structure with a wave vector q = 0.0372 Å parallel to the c-axis is reported by Fukuda et al. [17] in the temperature region between TC = 125 K and TN = 210 K. A modified helix is ob­ served below TC with q = 0.0435 Å. Depending on the type of the NC structure obtained experimentally, the magnetic moments per Fe atom vary significantly, see Fig. 1 and Appendix A for details.
+A number of authors show a significant decrease in TC (up to the total suppression of the FM state) and saturation magnetization when external pressure is applied to samples [18,19].
+Another aspect, extremely relevant for theoretical description of the system, is the nature of the 4f state of Ce which determines the level of theory needed to describe the electronic structure of Ce2Fe17 correctly. From the lattice constants Buschow and Wieringen [12] suggested Ce to be tetravalent whereas a mixed valence state of Ce has been reported in Ce2Fe17 with the 4f states being delocalized [2,20]. A number of authors find hybridization between the Fe 3dand Ce 4f-electron states to be extremely important for the magnetic state of Ce2Fe17 [18,19] and suggest that there is no pure localized 4f 1 configuration of Ce [11,21] in this material.
+Furthermore, the 4f electron character might change as the effect of doping [22–24,2,20,25] (for the details see Appendix A). It is shown that a considerable increase in volume, magnetization, and TC is observed along with the decrease in Ce valence i.e. increase in localization [1,2,25,26].
+
+2
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+Table 2 Overview of the available experimental and theoretical data on Ce2Fe17 (Reported ground state, Curie, Neel, and transition temperatures, magnetization per Fe atom (or per f.u.), lattice parameters, lattice data measurement temperature). Several lines per paper correspond to different samples. ‘Sat’ stands for saturation moment, ‘calc’ marks theoretical calculations, ’IF’ notes induced FM state. * gives the real composition of the samples in [15].
+
+Reference
+
+Ground
+
+TC
+
+TN
+
+Tt
+
+M (per Fe,
+
+a
+
+c
+
+state
+
+K
+
+K
+
+K
+
+or f.u., μB
+
+Å
+
+Å
+
+V
+
+T
+
+Å3
+
+Buschov et al. [12] Naumov et al.[13]
+Kuchin et al. [14] Teplych et al. [15] Ce2Fe17.31* Ce2Fe17.23* Ce2Fe17.19* Ce2Fe16.89* Givord et al. [16] Janssen et al. [9] Kreyssig et al. [50] Janssen et al. [57] Makihara et al. [58]
+Isnard et al. [2] Koyama et al. [59] Hautot et al. [60] Pandey et al. [6] (calc) Sözen et al. [28] (calc) Lukoyanov et al. [61] (calc)
+
+FM FM FM FM
+FM FM FM FM fan helical AFM AFM fan
+helical
+helical helical fan FM FM FM
+
+70
+
+270
+
+1.8 (sat)
+
+22
+
+212
+
+75,109
+
+94
+
+207.8
+
+94
+
+206
+
+8.49 8.49 8.495 8.492
+
+12.416 12.408 12.415 12.408
+
+258.3 258.2 258.6 258.3
+
+room room room room
+
+20
+
+203
+
+102
+
+47
+
+210
+
+101
+
+85
+
+203
+
+116
+
+205
+
+225
+
+90
+
+215
+
+125
+
+118
+
+208
+
+124
+
+225
+
+210
+
+125
+
+225
+
+90
+
+29.6/f.u. (4 K)
+29.8/f.u. (4 K) 1.55 (140 K) 1.7 (5 K IF)
+30.46/f.u. (4 K) 30.5/f.u. (sat) 1.49 (4 K) 37.43/f.u. 37.46/f.u. 35.98/f.u.
+
+8.4897 8.4923 8.4949 8.5027
+8.489 8.489 8.489 8.494 8.467 8.487 8.49
+8.403
+
+12.4083 12.4098 12.4112 12.4180
+12.41 12.41 12.468 12.425 12.44 12.41 12.413
+12.641
+
+258.17 258.36 258.52 259.16
+258.2 258.2 259.4 258.8 257.4 258.0 258.3
+257.7
+
+room room room room
+room room 8 K room 8 K room room
+
+The existing theoretical research into Ce2Fe17 basically fails to reproduce the experimental magnetic state of the compound. The reported total magnetic moment considerably overestimates the experimental values (of around 28 μB/f.u. at low temperatures). Using the Tight-Binding Linear Muffin-Tin Orbitals Atomic-Sphere Approximation (TB-LMTO-ASA) [27] without spin-orbit coupling and in Local Density Approximation (LDA) Lukoyanov et al. obtained a moment of 35.98 μB/f.u. An even higher moment (38.04 μB/f.u.) has been reported in the recent Full-potential Density Functional Theory (DFT) study within the Generalized Gradient Approximation (GGA) and the Hubbard U correction for the Ce 4f states by Pandey and Parker [6]. The same overestimation was obtained in Ref. [28] for a
+
+plain DFT/GGA calculations using the VASP code [29–32] and the Projector Augmented Wave (PAW) [33] method. All above men­ tioned studies assumed a collinear FM ground state. For details see Appendix A.
+The main conclusion from this section is that there exists not only some controversy in experimental results obtained for Ce2Fe17, but also a large discrepancy between the theoretical and experi­ mental data, see Table 2. Moreover, it is difficult to identify any theoretical work explaining the reason for these contradictions. The motivation of the present study is to provide an explanation to all these confusing results, and to provide a microscopical under­ standing of the magnetic properties of Ce2Fe17.
+
+3. Computational methods
+
+Fig. 2. (Color online) Calculated total energy versus unit cell volume, for Ce2Fe17, with 5s 25p 64f 15d 16s 2 valence configuration (red circles) and 5s 25p 65d 16s 2 valence configuration (blue squares). The latter curve has a FerriM and FM branches; each curve has the magnetic moment of the relaxed state written above it. The range of experimental volumes found in ICSD database [47] along with the most common experimental volume are also given in the graph. The GGA functional was used for all calculated data-points. The figure also shows the primitive unit cell of β-Ce2Fe17 (inset). Iron atoms are shown with brown spheres, two Fe atom in 6c positions are highlighted with red, Ce atoms are yellow.
+
+The relaxed crystal structure of Ce2Fe17 was determined using Vienna Ab Initio Simulation Package (VASP) [29–32] within the Projector Augmented Wave (PAW) method [33]. For Ce the potential with 5s 25p 64f 15d 16s 2 valence configuration was chosen when the f electron was treated as a valence state; a 5s 25p 65d 16s 2 config­ uration was used to treat 4f 1 as a core state. LDA was used in Ce­ perley and Alder form [34] in the parametrization of Perdew and Zunger [35]. Also, the GGA in Perdew, Burke, and Ernzerhof (PBE) form [36] was employed, as well as the LDA+U correction scheme [37,38]. The plane-wave energy cutoff was set to 400 eV.
+DFT + U calculations were performed in VASP within the ap­ proach introduced by Dudarev et al [39] which depends only on the effective Ueff = U − J with Hubbard parameter U and Hund’s coupling parameter J. For the non-collinear VASP calculation in the conven­ tional (57 atoms/u.c.) and double (117 atoms/u.c.) unit cells, the in­ tegration of the Brillouin zone was performed using 3×3x3 and 3×3x1 Monkhorst-Pack [40] k-point sampling, respectively. Fixed spin moment (FSM) calculations were conducted with VASP by performing the volume-relaxation (c/a ratio and shape unchanged) for each value of the fixed total magnetic moment. These calcula­ tions were performed in GGA in the PBE form.
+The unit cell magnetization was also calculated with the fullpotential linear muffin-tin orbital method (FP-LMTO), including spin-orbit interaction as implemented in the RSPt code [41,42], with
+
+3
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+the PBE functional [36] for exchange and correlation. The results
+
+were obtained with the tetrahedron method with Blöchl correction
+
+for the Brillouin zone integration [43]; the converged k-point Mon­
+
+khorst-Pack meshes [44] 24 × 24 × 24 were used for the calculations.
+
+RSPt was also used to calculate the interatomic exchange interac­
+
+tions as well as the hybridization function Δ(E) with an additional
+
+iteration on top of the converged calculations.
+
+The Curie temperature was determined using Metropolis Monte
+
+Carlo (MC), and Atomistic Spin Dynamics (ASD) simulations im­
+
+plemented within the Uppsala Atomistic Spin Dynamics (UppASD)
+
+software [45]. The simulations were performed on a 32 × 32 × 32 su­
+
+percell with periodic boundary conditions using the exchange para­
+
+meters calculated with the RSPt code within the first nine coordination
+
+shells and with the PBE functional [36] for exchange and correlation.
+
+From the MC simulations, the critical temperatures were determined
+
+by the location of divergences in the magnetic heat capacity Cm, cal­
+
+culated as Cm
+
+=
+
+d <U> dT
+
+where <U> is the average total energy per spin as
+
+obtained from the MC simulations.
+
+The presence of spin-spirals in the simulated magnetic structures
+
+is identified by means of the static structure factor S(q), i.e. the
+
+Fourier transform of the equal-time spatial correlation function C(r)
+
+[45]. Wave-vectors q that exhibit a large spectral weight in S(q) in­
+
+dicates the presence of spin-spirals with the same wave-vector q in
+
+the sample. Note that that using this convention, S(q = 0) corre­
+
+sponds to the average magnetization m and is thus non-zero if the
+
+magnetic structure contains a ferromagnetic component.
+
+The Sumo package [46] was used for the density of states (DOS)
+
+plots.
+
+4. Results
+
+4.1. Ground state with DFT
+
+β-Ce2Fe17 crystallizes in R-3m crystallographic space group with two cerium atoms occupying the 6c site; two iron atoms are situated in 6c positions, 3 Fe atoms are occupying 9d sites, and six Fe atoms are in each of 18f and 18h sites (see inset of Figure 2).
+The current investigation started with a crystal structure relaxation,
+performed using VASP. The nature of 4f states in Ce (localized or itin­ erant, or something in between) varies depending largely on the compound, cf Sec. 2. To investigate the effect of the choice of the va­ lence state we performed unit cell relaxation with two different va­ lence configurations: 5s 25p 64f 15d 16s 2 was chosen when the 4f electron was treated as a valence state; 5s 25p 65d 16s 2 configuration was used to treat 4f 1 as a core state. The former corresponds to an itinerant 4f electron state of Ce, while the latter is appropriate for the localized 4f-state. The total energy, calculated in GGA, is shown in
+Figure 2 as a function of the volume; the relaxed unit cell parameters and corresponding magnetic moments are given in Table 1.
+The experimental unit cell volumes of Ce2Fe17 are given in the Inorganic Crystal Structure Database (ICSD) [47] and are found to vary between 255.7 and 269.6 Å3, although the most commonly occurring volumes fall between 258 and 259 Å3. Treating the 4f electron as a core state leads to a minimum of the unit cell volume of 267.82 Å3, which
+overestimates the typical experimental value. In the relaxed state, Fe atoms are oriented ferromagnetically (here we define FM as the par­ allel orientation of magnetic moments of all Fe atoms, even though the moments of the Ce atoms are oriented antiferromagnetically to the Fe spins) with a total magnetic moment of 40.65 μB/f.u. (Table 1). This is a moment that excludes the 4f moment of Ce. In the case of a free atom, for a trivalent Ce ion (Ce3+) the 4f angular momentum is J = L − S = 5∕2, and the Landé factor is given by gJ = 6∕7, such that the total moment contributed by the Ce 4f electron amounts to 2.14 μB. This moment is found to be directed parallel to the spin moment of Fe (anti-parallel to the Ce spd moment). For this reason a total moment of 44.93 μB/f.u. can be expected for the 4f as core calculation, which is much too large
+
+compared with the experimental results. Hybridization function cal­ culations described further show, however, that this treatment of Ce 4f moment is not entirely correct as Ce ion is in an intermediate valence state. The calculated atom projected magnetic moments for this cal­ culation are: 2.64 μB for the Fe 6c site, 2.20–2.22 μB for the Fe 9d site, 2.46–2.49 μB for the Fe 18f site, 2.41–2.44 μB for the Fe 18h site, and −0.31 μB for the Ce 6c site. We note that the moments of the Fe 9d site and the Fe 18f site have range of values, since the atoms have slightly different environment. The highest magnetic moment belongs to the 6c site of Fe which are highlighted with red color in Figure 2.
+Another interesting feature observed here is the magnetic phase transition which happens as the unit cell of Ce2Fe17 is decreased in volume. This is shown with a blue arrow in Figure 2. The main dif­ ference of the new magnetic state is the magnetic moment of the Ce 6c site; we define this state as a ferrimagnetic (FerriM) state. The relaxed total moment of the system when it is forced to stay in the FerriM state is 28.01 μB/f.u. (−0.35 μB for the Fe 6c site, 1.28 μB for the Fe 9d site, 2.10–2.12 μB for the Fe 18f site, 2.10–2.12 μB for the Fe 18h site, and −0.26 μB for the Ce 6c site). Here the magnetic moment of the Fe (6c) sites is basically quenched. Again adding the localized 4f moment of Ce results in a total moment of 32.29 μB/f.u. At larger volumes this state is meta stable, but for compressed volumes it represents the lowest energy state (for the electronic configuration with Ce 4f states are treated as core electrons).
+Treating the 4f electron as an itinerant valence state gives the re­ laxed unit cell volume of 256.92 Å3, which is much closer to the most common experimental one. The calculated total magnetic moment of 37.33 μB is lower than the moment obtained while treating f electron as a core, but it is still much higher than the experimental value of 28–31 μB/f.u. This FM state is characterized by local moments of 2.58 μB for the Fe 6c site, 2.04–2.08 μB for the Fe 9d site, 2.38–2.41 μB for the Fe 18f site, 2.20–2.21 μB for the Fe 18h site, and −0.80 μB for the Ce 6c site, which are in accordance with the other theoretical works that employed the GGA functional [6,28]. Again, the Fe (6c) atoms provide the largest moment also for this calculation.
+As the next step, we performed similar calculations using LSDA treating the Ce 4f electrons as itinerant valence states. The LSDA functional vastly underestimates the u.c. volume, see Table 1, which is common for LSDA. Magnetic moment evaluated for this com­ pressed volume is much smaller than the experimental one. How­ ever, the calculated magnetic moment is quite close to the experimental value if one calculates it within LSDA for the experi­ mental unit cell parameters. As we see in Table 1, for the experi­ mental volume we obtain a total magnetic moment of 28.47 μB/f.u. (with atomic resolved moments as: 2.30 μB/Fe 6c, 1.32–1.34 μB/Fe 9d, 1.72–1.73 μB/Fe 18f, 1.76–1.78 μB/Fe 18h, and −0.57 μB/Ce 6c).
+The DFT + U formalism [37,38] is often used to describe the (partial) localization of rare-earth 4f electrons, although we note that several articles have found faults in its applications to the 4f shell, when it is occupied by more than one electron [48,49]. As we mentioned in Sec. 2, the mixed valence state of Ce is reported in several experimental works on Ce2Fe17X-systems. Hence, the method of treating the 4f-electrons of Ce (either as itinerant or localized) might have an important effect on the magnetic state of Ce2Fe17 and should be investigated. We used several values of U − J for the 4f electron of Ce; as reported in Table 1, this approach makes little change to the total magnetic moment and crystal structure parameters of Ce2Fe17 and does not reproduce the experimental value of the total magnetic moment (for the details, in­ cluding the density of states calculated with LSDA, GGA, and GGA + U see Appendix C).
+Since some of the experiments (see Sec. 2) show a non-collinear ground state of Ce2Fe17, while one of the investigations [50] suggests a double cell superstructure, we performed non-collinear GGA VASP calculations for the primitive unit cell (with 57 atoms per u.c.) and a supercell that was doubled in the z-direction (with 114 atoms per
+
+4
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+u.c.). However, according to our calculations, the collinear orienta­ tion of spins is lower in energy, for any of the volumes investigated.
+To crosscheck our findings full-potential calculations were per­ formed using the FP-LMTO method as implemented in the RSPt code [41,42] and the Ce2Fe17 structures relaxed in VASP. The two methods give similar results (see Table 1), with a high total magnetic moment, both when treating the 4f electrons as valence and as a core state. The results from the RSPt calculations are consistent with our findings from VASP, namely, Fe in the 6c site carrying the largest moment while Ce spin moment is directed anti-parallel to Fe.
+In the past, it has been shown that the 4f hybridization function, being a good indicator of 4f orbital overlap, can help to understand the degree of localization of Ce 4f states [26]. Therefore, we cal­ culated the hybridization function, Δ(E), for the largest and the smallest experimental unit cell volumes found in ICSD (see Fig. 6, Appendix B) treating the Ce 4f states are itinerant. The absolute value of the peak is situated about 1 eV below EF, and it is seen to decrease from 0.27 to 0.23 with the increase in volume (in LSDA). The values themselves, if compared with results for other Ce-based compounds [26], show an intermediate magnitude of the hy­ bridization function in the range of γ-Ce, that is between that of the materials which are known to have itinerant 4f electrons (like CeO2 [51])) and the materials with a well established, localized 4f shell (e.g. CeBi [52]). This result for Ce2Fe17 supports the findings by Coey [11] who pointed to the intermediate nature of the 4f state (see Sec. 2). Buschow’s argumentation [12] that the 4f state must be itinerant, was solely based on the volume and that alone is not a sufficient criterion and in case of 3d valence electrons of the ligand (Fe) the systems are slightly more localized even for small volumes than systems with e.g. p electrons [26]. (For comparison the hy­ bridization function was also calculated in GGA, see discussion in Appendix B.).
+Fixed spin moment (FSM) calculations are sometimes utilized to investigate the existence of the local and global energy minima, as function of the total magnetic moment [53]. We performed FSM calculations for Ce2Fe17 by changing the total moment within a re­ gion of values containing the experimental magnetic moment of about 29 μB/f.u. and a calculated magnetic moment of 38 μB/f.u. In these calculations the 4f electrons were treated as valence (GGA, without a U-term). The details can be found in Appendix D. No pronounced minimum is observed around the experimental value, however, the curve does demonstrate a slight deviation from the monotonic decrease in the region around 30 μB/f.u.
+Hence, neither GGA nor LSDA can reproduce all the observed ground state properties of Ce2Fe17 in a consistent way. While LSDA considerably underestimates the volume of the unit cell GGA re­ produces the experimental crystal structure well. Unfortunately, GGA calculations noticeably overestimate the magnetic moment. At the same time, LSDA gives a total magnetic moment very close to the experimental one, if the experimental unit cell parameters are used. Hence, from a practical point of view, if the magnetic properties of Ce2Fe17 are of interest, the LSDA functional is to be preferred, in combination with the treatment of the Ce 4f states that is some­ where between the itinerant and localized. Such an approach could be based on the dynamical mean field theory for the 4f states of Ce in combination with LSDA for rest of the valence states. Such a study, however, is outside of the scope of the present investigation.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+and estimate the Curie temperature, we performed Monte Carlo and atomistic spin-dynamics simulations of Ce2Fe17.
+For the magnetic moments and exchange parameters Jij obtained with GGA (both f in the valence and f in the core) Ce2Fe17 remains FM (for computational details see Sec. 3) at higher temperatures. The example of a simulated spin structure is given in Appendix E, Fig. 9. TC depends on the volume (and the way 4f is treated) and equals to 460 K for the lowest reported experimental volume (V = 255.77 Å3 [54]) and 575 K for the most common experimental volume (V = 258.17 Å3 [15]) (4f is treated as core). These temperatures are much higher than any of the reported in experiments, see Table 2. Hence, we can conclude that not only does GGA fail to capture the correct magnetic moment at 0 K, but the ASD calculations based on GGA input overestimate the magnetic moment at higher tempera­ tures and produce the Curie temperature at least four times higher than the TC observed experimentally.
+The picture changes, however, when the LDA magnetic moments and exchange parameters are used as an input for the ASD simula­ tions. Non-collinear spin structure is observed at low temperatures for all the u.c. volumes of Ce2Fe17. All the simulations described further are based on the LDA magnetic configuration, treating the 4f states as core electrons.
+The low-temperature spin structure, obtained for the most common experimental volume (V = 258.17 Å3 [15]), is shown in Fig. 3. The net moment for this configuration is around 27 μB∕f. u. which agrees well with the experimental data.
+Specific heat calculated with UppASD up to the temperature of 400 K catches a phase transition (see the narrow peak in Fig. 4 de­ noted as Tt1). We observe a spin-spiral state with a significant fer­ romagnetic component at low temperatures (up to the first transition temperature of Tt1 = 93 K). This result explains the FM state reported in several experiments at low temperatures and the corresponding magnetic moment, which is noticeably lower than the moment one would expect for seventeen atoms of Fe per unit cell. The magnetization obtained for the low temperature (Fig. 4) is close to the experimental (where the FM state is reported). A dif­ ferent spin-spiral state can also be observed above the temperature of 93 K, and this state is stable until the temperature of around 220 K
+
+4.2. Curie temperature and magnetic structure from atomistic spin dynamics simulations
+
+As we can see from the overview given in Sec. 2, a number of magnetic configurations have been reported for the low-tempera­ ture state of Ce2Fe17, including FM, AFM, and non-collinear spin structures. To analyze the magnetic structure at finite temperatures
+
+Fig. 3. (Color online) Magnetic configuration of Ce2Fe17 at T = 0 K, obtained from ASD simulations based on exchange parameters calculated in LDA for experimental crystal structure with V = 258.17 Å3 [15].
+
+5
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+Fig. 4. (Color online) The change in specific heat with temperature calculated with UppASD code (unit cell volume was 258.17 Å3). Two peaks in specific heat, show two transition temperatures of Ce2Fe17 (see discussion in the text).
+(see the broad peak in Fig. 4 denoted as Tt2). A correlation function analysis in this region Tt1 < T < Tt2 shows that some q-vectors seem to be more populated than others, which is not expected in a para­ magnetic phase (data not shown). However, long-range order is no
+
+Journal of Alloys and Compounds 888 (2021) 161521
+longer obvious and the spin-spiral state in that temperature range is probably due to the short-range order.
+In Fig. 5 we show the angle-distribution of spins for several temperatures. The top two figures corresponding to the tempera­ tures below Tt1 clearly demonstrate the significant z-component of magnetization with a preferable direction of the total magnetic moment. The figure at the bottom left shows the spin distribution in the temperature region between Tt1 and Tt2 where the net magnet moment is equal to zero. Lastly, the diagram at the bottom right of Fig. 5 corresponds to the paramagnetic region. When looking at Fig. 4, we can see that our theoretical results are in good agreement with the experimental data outlined in Fig. 1.
+The low-temperature spin structure (Fig. 3) was found to contain a combination of several spin spirals. The wave vectors present in the spin structure were identified from the static structure factor S (q). In addition to the ferromagnetic component, significant spectral weight was also found for q-vectors parallel to c and equal to 0.048, 0.01, and 0.058 Å−1. The first of the values is in a good agreement with the experimental value of 0.0435 Å−1 observed by Fukuda et al [17] for the temperatures below 125 K. Both Fukuda et al. [17] and Givord et al. [16] report the value of 0.037 Å−1 for the wave vector in the temperature region 125 K < T < 210 K.
+The magnetic structure between the two transition temperatures was found to be more difficult to analyze. The spin-spirals present below Tt1, including the ferromagnetic component, can not be identified above Tt2. While there is a finite spectral weight for certain
+
+Fig. 5. (Color online) Distribution of spin directions (in spherical coordinates) in the non-collinear spin structures of Ce2Fe17 calculated with UppASD (V = 258.17 Å3 [15]). The top two figures belong to the temperature range below Tt1 where the spin-spiral state has a significant ferromagnetic component. The bottom left diagram describes the spin-spiral state in the region between Tt1 and Tt2 which has a zero total magnetic moment. The figure at the bottom right belongs to the paramagnetic state above Tt2.
+6
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+other wave-vectors q in the temperature range, a rather large amount of numerical noise keeps us from further conclusions re­ garding the magnetic structure between Tt1 and Tt2.
+It is worth mentioning, that for the lowest reported experimental volume (V = 255.77 Å3 [54]) ASD simulations based on GGA input (4f in the core) result in a low-temperature spin-spiral state similar to the simulations based on LDA data for higher volumes.
+5. Discussion and conclusions
+Despite the large number of reported experimental data for Ce2Fe17 compound, the amount of existing theoretical works is ra­ ther scarce. All the previous computational studies report the FM ground state of this material while considerably overestimating its magnetic moment. Experimental investigations, on the other hand, have not come to a consensus - both FM and AFM states are reported for the low-temperature region.
+We started our investigation by performing DFT and DFT + U cal­ culations to determine the ground state of Ce2Fe17. One of the diffi­ culties in the current case is treating the 4f electron of Ce which depends on the degree of localization of 4f states [11]. Deviation from well-localized trivalent core state configuration is quite common for the compounds of Ce. Unlike the other elements in lanthinide series, 4f orbitals of Ce are sufficiently extended to be capable of significant overlap with the conduction-electron orbitals of the neighboring atoms. The choice of the valence-core configuration is, hence, crucial for the electronic structure and the material properties [26].
+Experimental investigations report the mixed-valence state of Ce in Ce2Fe17, the magnetic moment is determined to be of 5d character [2]. The hybridization function calculations we performed likewise shows the intermediate state between the materials with itinerant 4f elec­ trons and compounds with the localized 4f shell. Hence, we performed the DFT calculations for two cases, treating the f-electron as a core and a valence state. Both calculations (in GGA approximation) overestimate the total magnetic moment by 30–40%. Treating 4f as a valence state, however, gives the unit cell volume which closely reproduces experi­ mental data; GGA + f in the core calculation overestimates the most common experimental volume of 258 Å3 by about 4%. LDA fails in the structure relaxation of Ce2Fe17 with a relaxed u.c. volume under­ estimating the experimental one by 15% and the total magnetic mo­ ment of the relaxed unit cell 80% below experimental. However, if applied to the experimental unit cell (or the structure relaxed in GGA), LDA produces the total magnetic moment in good agreement with the experimental one. It has been reported before [55] that using PBE functional produces better results for structure relaxation of many materials containing 3d elements, while LDA sometimes gives a better
+
+result for the magnetic state [56]. Ce2Fe17 is another case where the ground state needs to be treated with the LDA. This fact is most likely due to the GGA not catching the intermediate nature of 4f state, as shown in Appendix B.
+ASD simulations performed based on the GGA magnetic config­ uration, as might be expected, predict the FM state of Ce2Fe17 up to the TC of about 600 K that considerably overestimates the experi­ mental value. At the same time, LDA input results in a non-collinear spin structure with a significant ferromagnetic component which becomes non-magnetic at TC = 93 K, quite close to the experimental value. ASD simulations closely reproduce the experimental direction and size of the wave vectors of the non-collinear spin structure. Therefore, we believe that the low-temperature state of Ce2Fe17 (named FM in many experimental works) is non-collinear with a strong FM component, i.e. that it is a helical phase.
+CRediT authorship contribution statement
+Alena Vishina: Conceptualization, Software, Formal analysis, Investigation, Writing − original draft, Writing − review & editing, Project administration. Olle Eriksson: Conceptualization, Resources, Writing − review & editing, Supervision, Funding acquisition. Olga Yu. Vekilova: Conceptualization, Writing − review & editing. Anders Bergman: Software, Formal analysis, Writing − review & editing. Heike C. Herper: Conceptualization, Writing − review & editing, Supervision, Project administration.
+Declaration of Competing Interest
+The authors declare no competing interests.
+Acknowledgment
+The authors would like to acknowledge the support of the Swedish Foundation for Strategic Research, within the project Magnetic Materials for Green Energy Technology (ref. EM16-0039), the Swedish Energy Agency, the Swedish Research Council, The Knut and Alice Wallenberg Foundation, eSSENCE, ST and UPP the CSC IT Centre for Science, and the ERC (synergy grant FASTCORR, project 854843). In addition, we acknowledge support from the Swedish National Infrastructure for Computing (SNIC) for the computation resources (projects SNIC 2020/8–34 and SNIC 2020/1–20). Olga Yu. Vekilova acknowledges the support of Sweden’s Innovation Agency (Vinnova).
+
+Appendix A. Overview of the available experimental and theoretical data for Ce2Fe17
+
+In this section, we present the existing experimental and theoretical data available for Ce2Fe17; the main details of the magnetic state and structure parameters are outlined in Table 2 and presented in the diagram in Fig. 1.
+Two crystalline forms of Ce2Fe17 were reported by Buschow and Wieringen [12]: the hexagonal, Th2Ni17 (α-Ce2Fe17), and the rhombohedral, Th2Zn17 (β-Ce2Fe17) phases. The hexagonal structure could not be obtained as single-phase [12]; the rhombohedral structure is the one considered in all the following experimental research.
+Buschow and Wieringen [12] observed the ferromagnetic (FM) (with a moment of 1.80 μB per Fe atom) to antiferromagnetic (AFM) transition near T = 70 K and an antiferromagnetic to paramagnetic (PM) transition close to TN = 270 K, for the compound the β-Ce2Fe17. From the lattice constants, Ce is in this work suggested to be tetravalent.
+Two samples of Ce2Fe17 were prepared in Ref. [13] by two different methods demonstrating different magnetic behavior. One of the samples has a FM to AFM transition at T = 22 K, with another transition between different helicoidal states at 75 K and 109 K. A higher temperature of the FM to AFM transition (T = 94 K) is observed in the second sample. The differences in sample preparation are the crucibles (a semi-gravitational copper crucible and a crucible made of Al2O3) and the annealing times (8 and 300 h, both at 1000∘C). The sample with the smaller temperature for the FM to AFM transition, has smaller lattice parameters. The authors of Ref. [13] report Mössbauer spectra that show the regions with AFM ordering in FM samples. Furthermore, a temperature for the AFM to FM transition of T = 94 K was reported, together with a N é el temperature, TN = 206 K, by Kuchin et al. [14].
+Seven samples were considered in Ref. [15] to determine the correlation between their crystal structures and magnetic states. The FM to AFM transition temperature of the samples changes drastically from 20 K to 116 K; while TN and magnetic moment remain mostly unchanged.
+
+7
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+Some experiments, however, show the absence of the FM phase. Givord and Lemaire [16] reported a fan magnetic order of Ce2Fe17 below 90 K and a helical magnetic order between TC = 90 K and TN = 225 K. The fan magnetic structure is parallel to the basal plane with the fan angle of 40∘ at 4.2 K. The helical spin configuration at 140 K is characterized by the rotational axis parallel to c-axis and magnetization in the basal plane rotating by an angle of 27∘ from plane to plane, and a wave vector q = 0.037 Å; the mean iron moment is 1.55 μB.
+In Ref.[58] the temperature and magnetic field dependence of the lattice parameter were investigated for two samples of Ce2Fe17 with two different ground states - the fan, and the helical spin structures. They note that by applying a magnetic field of 5 T the helical spin state can be transformed into the fan spin structure. Anisotropy of the exchange interactions was determined from the thermal change in a and c lattice
+parameters. Magnetoelasticity of Ce2Fe17 was also studied in [10]. Similar to other reports, the authors of this work, note that the magnetic properties of the compound are sample-dependent, especially for the low-temperature range.
+Janssen et al [9] report the giant magnetoresistance in the rhombohedral Th2Zn17-type structure of Ce2Fe17. They also observe two tran­ sition temperatures, 125 K, and 215 K. These are considered to be first the critical temperature at which the magnetic structure changes from
+one AFM order to another and secondly the Neél temperature. The authors also state that the first AFM order is not a fan structure because this phase does not have any FM component. Induced FM order is reported in the higher fields in which the average Fe moment is 1.70 μB at 5 K.
+A helical spin structure with a wave vector q = 0.0372 Å parallel to the c-axis is reported by Fukuda et al. [17] in the temperature region between TC = 125 K and TN = 210 K. A modified helix is observed below TC with q = 0.0435 Å and a super-structured magnetic cell with c parameter twice as large as in the chemical unit cell.
+In Ref. [57] authors report Ce2Fe17 to be AFM with two transition temperatures, TN = 208 K and Tt = 124 K, where Tt is a second magneticorder transition to another AF phase. They also present the magnetic phase H-T diagram of Ce2Fe17.
+Kreyssig et al. [50] report a superstructure that was observed in Ce2Fe17 below 118 K as the AF ordered state, which can be constructed by the doubling of a unit cell in the c-direction with the same space group as the room-temperature structure.
+A significant decrease in TC has been observed when the hydrostatic pressure was applied in [18,19]. Prokhnenko et al. report [19] that the FM state can be suppressed by pressures higher than 3 kbar and that it is replaced by a new AFM phase. Koyama et al. [59] have performed magnetization measurements on Ce2Fe17 under high pressures and magnetic fields. There are two transition temperatures TN = 210 K and Tt = 125 K observed at the ambient pressure of 0 GPa with the helical structure below Tt.
+Saturation magnetization decreases from 30.5 μB/f.u. at 0 GPa to 29.5 μB/f.u. at 0.8 GPa. The authors report at least seven magnetic phases found in the B-T diagram. It was also concluded that hybridization between the Fe 3d- and Ce 4f-electron states is extremely important for the
+magnetic state of Ce2Fe17. Coey et al. [11] discuss the hybridization between Ce 4f and Fe 3d electron states, and it was suggested that in this material there is no pure,
+localized 4f 1 configuration of Ce. This analysis is in line with previous, more general discussions on the nature of the 4f states of Ce-Fe compounds [21]. The decrease in Ce2Fe17 u.c. volume within a series of isostructural rare-earth intermetallics is attributed to 4f electrons behaving as itinerant electrons with a heavy mass. Fujii et al [23] showed that the nitrogenation of Ce2Fe17 causes the conversion of itinerant 4f-electron state into a more localized but valence fluctuating 4f-electron state. A similar effect seems to be observed upon hydrogenation [24]. This change in the 4f electron character as the effect of interstitial hydrogen and nitrogen is also described in Ref.[22].
+Isnard et al. [2] investigate the change in the values of Ce valence in Ce2Fe17Hx with the addition of hydrogen based on the absorption and magnetic circular x-ray dichroism experiments. They report a mixed valence state (v=3.3) of Ce in Ce2Fe17. The magnetic moment carried by the Ce atoms is determined to be of 5d character. The 4f state in all Ce2Fe17Hx compounds is reported to be delocalized. As x changes from 0 to 5 a noticeable increase in the u.c. volume from 258.3 to 271.9 Å3 is observed along with the increase in magnetization from 30.46 to 35.35 μB/f.u. along with a suggested change in Ce valence from 3.33 to 3.26.
+Valeanu et al state in Ref.[20] that iron magnetism shows a gradual transition from an itinerant behavior in R2Fe17 to a rather localized one in R2Fe17Cx, where R is a RE element. A similar effect is reported in Ref.[1] for Ce2Fe17Nx. With an increase in x from 0 to 3, the volume increases to 280.8 Å3 as the magnetization changes from 29.7 to 37.7 μB/f.u. and the transition temperature increases from TN = 225 K to TC = 728 K. According to the authors, Ce2Fe17 demonstrates a helimagnetic structure below the N é el temperature of 225 K while the nitrogenated sample of Ce2Fe17N3 exhibits a ferromagnetic-like behavior below TC= 728 K.
+The effect of Ga and H substitution on the degree of localization of the 4f states of cerium and the magnetic state of Ce2Fe17−xGaxHy was also considered in [25] with X-ray absorption spectroscopy combined with magnetization measurements. The authors report that substitution of iron by gallium as well as the addition of hydrogen lead to a localization of the 4f states of Ce in Ce2Fe17−xGax with the values of v = 3.26 for Ce2Fe16Ga, v = 3.22 for Ce2Fe15Ga2, v = 3.16 for Ce2Fe16GaH5. Ce 5d magnetic moment in Ce2Fe15Ga2 is shown to couple antiparallel to the 3d magnetic moment of Fe and is estimated to be 0.35 μB.
+Mössbauer spectral study of the magnetic properties of Ce2Fe17Hx with x = 0,1,2,3,4, and 5 was performed by Hautot et al. [60] taking into account the fan and helical magnetic structure of Ce2Fe17. The authors found that iron magnetic moments in Ce2Fe17 range from 0.91 μB to 2.13 μB depending on the Fe site with the average iron magnetic moment of 1.49 μB.
+A magnetic study of Ce2Fe17Hx is also presented in Ref. [2]. The changes in transition temperature from TN = 225 to TC = 444 K and magnetic moment from 30.46 to 35.35 μB/f.u. are noted as x goes from 0 to 5. At the same time Ce valence was suggested to shift from 3.33 to 3.26.
+In Ref. [61] the authors combined the experimental and theoretical studies of Ce2Fe17. Using a Tight-Binding Linear Muffin-Tin Orbitals Atomic-Sphere Approximation (TB-LMTO-ASA) program package [27], without taking into account spin-orbit coupling, they obtained a total
+moment of 35.98 μB/f.u. (−0.61 μB at Ce 6c site, 2.47 μB at Fe 6c site, 2.06 μB at Fe 9d site, 2.25 μB at Fe 18f site, and 2.15 μB at Fe 18h site). Moreover, in their recent theoretical work, Pandey and Parker [6] performed first-principles DFT + U (Ueff = 3 eV on the Ce 4f orbital)
+calculations using the general potential linearized augmented plane-wave (LAPW) method plus local orbitals implemented in WIEN2K code [62] and generalized gradient approximation (GGA) of Perdew, Burke, and Erzerhof [36] to investigate Zr doping of Ce2Fe17 and Ce2Co17. They model Ce2Fe17 as a ferromagnet and obtain a total magnetic moment of 38.04 μB/f.u. (−0.66 μB at Ce 6c site, 2.56 μB at Fe 6c site, 2.05 μB at Fe 9d site, 2.36 μB at Fe 18f site, and 2.22 μB at Fe 18h site) for the experimental lattice parameters.
+In Ref. [28] the authors investigated the properties of Ce-based magnetic materials. DFT calculations without Hubbard U parameter were performed for Ce-Fe binary alloys with 5s 25p 64f 15d 16s 2 valence configuration of Ce in GGA by Perdew and coworkers [36]. Their collinear spin-polarized calculation with Vienna ab initio simulation package VASP [29–32] using the projector-augmented wave (PAW) [33] method gives the following magnetic moments for Ce2Fe17: 2.59 μB at Fe 6c site, 2.06 μB at Fe 9d site, 2.39 μB at Fe 18f site, 2.23 μB at Fe 18h site, and −0.81 μB at Ce 6c site.
+
+8
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+B. Hybridization function in LDA and GGA
+
+Fig. 6 (left) shows the change of hybridization function calculated within the framework of LDA with the volume. In addition to the hybridization function, Δ(E), calculated in LDA, we performed the similar calculations in GGA. The hybridization function was calculated for the largest and the smallest experimental unit cells found in ICSD, see the right panel of Fig. 6. We can see, that unlike the case of LDA in GGA the absolute value of the peak situated about 1 eV below EF changes significantly from 0.44 eV for 255.8 Å3 to 0.22 eV for 269.6 Å3. The u.c. volume observed in most of the experiments is 258.2 Å3. Hence, for most of the ex­ perimental unit cells GGA doesn’t catch the intermediate nature of the 4f state (see discussion in Sec. 4). This fact might explain the failure of GGA to reproduce the magnetic state of Ce2Fe17 correctly.
+
+Fig. 6. (Color online) The hybridization function Δ(E) of Ce2Fe17, as a function of energy relative to the Fermi energy for the smallest and the largest experimental unit cells available in ICSD, calculated in the framework of LDA (left) and comparison of the hybridization functions calculated within LDA and GGA (right).
+C. LDA + U calculations and DOS
+We used several values of U − J for the 4f electron of Ce; as is shown in Table 1 this approach makes little change to the total magnetic moment and crystal structure parameters of Ce2Fe17. The reason for this insensitivity can be understood by investigating the DOS of Ce2Fe17, Figure 7. All of
+
+Fig. 7. (Color online) Spin polarized DOS of Ce2Fe17 calculated for a typical experimental unit cell in LDA (top), GGA (middle), and DOS calculated with 4f states treated with the GGA+U approximation (bottom). In all plots, spin-up states are shown as positive while spin-down as negative.
+9
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+the spin-up 4f states of Ce and most of the spin-down states are empty with the spin-up peak lying ~1 eV above the Fermi level. The DOS is calculated both in GGA and LDA. For the former, the spin-up channel of Fe is completely filled and the spin-down channel is partially occupied. The main difference between the two lies in the spin-up d-states of iron which are not fully filled in the case of LDA. Different values of U produce only a slight shift in the 4f spin-up peak.
+
+D. Fixed spin moment calculations
+
+Fixed spin moment (FSM) calculations are sometimes utilized to investigate the existence of the local and global energy minima, as function of the total magnetic moment [53]. The method was first introduced by Schwarz and Mohn [63]. In the case of LaFe13−xSix [64], for instance, FSM curves show a shift of the system’s magnetic state from one local minimum to another with the change of the lattice parameter. We performed similar calculations for Ce2Fe17, by changing the total moment within a region of values containing the experimental magnetic moment of about 29 μB/f.u. and a calculated magnetic moment of 38 μB/f.u. In these calculations the 4f electrons were treated as valence (GGA, without a U-term). The results are shown in Fig. 8. No pronounced minimum is observed around the experimental value, however, the curve does demonstrate a slight deviation from the monotonic decrease in the region around 30 μB/f.u. The global minimum is located at the value of 37.5 μB/f.u.
+
+Fig. 8. (Color online) Total energy calculated for different values of the fixed spin magnetic moment. The 4f states are treated as itinerant, and the GGA functional was employed.
+E. Details of ASD simulations in GGA
+ASD simulations, based on the GGA exchange parameters and magnetic moments, result in FM spin order up to the high temperatures of 400–500 K depending on the u.c. volume. This result contradicts all the experimental findings. Fig. 9 shows the simulated spin structure for the experimental u.c. with V = 255.77 Å3 [54] at T = 100 K.
+
+Fig. 9. (Color online) Magnetic configuration of Ce2Fe17 calculated with ASD simulations based on exchange parameters calculated in GGA (T = 100 K, for the experimental structure with volume V = 255.77 Å3 [54]).
+10
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+
+Journal of Alloys and Compounds 888 (2021) 161521
+
+References
+[1] O. Isnard, S. Miraglia, D. Fruchart, C. Giorgetti, E. Dartyge, G. Krill, X-ray ab­ sorption spectroscopy and magnetic circular x-ray dichroism in, J. Phys.: Condens. Matter 8 (14) (1996) 2437–2446, https://doi.org/10.1088/0953-8984/8/ 14/017
+[2] O. Isnard, S. Miraglia, D. Fruchart, C. Giorgetti, S. Pizzini, E. Dartyge, G. Krill, J.P. Kappler, Magnetic study of the Ce2Fe17Hx compounds: Magnetic circular xray dichroism, x-ray-absorption near-edge structure, magnetization, and dif­ fraction results, Phys. Rev. B 49 (1994) 15692–15701, https://doi.org/10.1103/ PhysRevB.49.15692
+[3] G.J. Long, S. Mishra, O. Pringle, Z. Hu, W. Yelon, F. Grandjean, D. Middleton, K. Buschow, A magnetic, neutron diffraction, and mössbauer spectral study of theCe2Fe17Gax solid solutions, J. Magn. Magn. 176 (2) (1997) 217–232, https://doi. org/10.1016/S0304-8853(97)00650-1 〈http://www.sciencedirect.com/science/ article/pii/S0304885397006501〉.
+[4] S.R. Mishra, G.J. Long, O.A. Pringle, D.P. Middleton, Z. Hu, W.B. Yelon, F. Grandjean, K.H.J. Buschow, A magnetic, neutron diffraction, andmössbauer spectral study of the Ce2Fe17Alx solidsolutions, J. Appl. Phys. 79 (6) (1996) 3145–3155, https://doi.org/10.1063/1.361257
+[5] D.P. Middleton, S.R. Mishra, G.J. Long, O.A. Pringle, Z. Hu, W.B. Yelon, F. Grandjean, K.H.J. Buschow, A magnetic, neutron diffraction, andmössbauer spectral study of the Ce2Fe17−xSix solidsolutions, J. Appl. Phys. 78 (9) (1995) 5568–5576, https://doi.org/10.1063/1.359678
+[6] T. Pandey, D.S. Parker, Phys. Rev. Appl. 13 (2020) 034039, https://doi.org/10.1103/ PhysRevApplied.13.034039 ([link]).
+[7] A. Kuchin, W. Iwasieczko, Magnetocaloriceffect in the Ce2Fe17−xMnx helical magnets, J. of Alloys Compd. 509 (24) (2011) 6763–6767, https://doi.org/10.1016/j.jallcom.2011. 04.043 〈http://www.sciencedirect.com/science/article/pii/S0925838811008644〉.
+[8] W. Iwasieczko, A. Kuchin, Predictablemagnetocaloric effect in the Ce2Fe17−xMnxHy hydrides, J. Alloy. Compd. 563 (2013) 130–134, https://doi.org/ 10.1016/j.jallcom.2013.02.116 〈http://www.sciencedirect.com/science/article/pii/ S0925838813004246〉.
+[9] Y. Janssen, H. Fujii, T. Ekino, K. Izawa, T. Suzuki, T. Fujita, F.R. de Boer, Giantmagnetoresistance in Ce2Fe17, Phys. Rev. B 56 (1997) 13716–13719, https:// doi.org/10.1103/PhysRevB.56.13716
+[10] A. Andreev, A. Lindbaum, Spontaneousmagnetostriction of Ce2Fe17, J. Alloy. Compd. 297 (1) (2000) 43–45, https://doi.org/10.1016/S0925-8388(99)00601-5 〈http://www.sciencedirect.com/science/article/pii/S0925838899006015〉.
+[11] J.M.D. Coey, J.E.M. Allan, A.A. Minakov, Y.V. Bugaslavsky, Ce2Fe17: mixed valence or 4f band? J. Appl. Phys. 73 (10) (1993) 5430–5432.
+[12] K.H.J. Buschow, J.S. van Wieringen, Crystalstructure and magnetic properties of cerium-iron compounds, Phys. Status (b) 42 (1) (1970) 231–239, https://doi.org/ 10.1002/pssb.19700420124
+[13] S.P. Naumov, V.V. Serikov, N.M. Kleinerman, A.G. Kuchin, N.V. Mushnikov, F.G. Vagizov, Inhomogeneous magnetic state of Ce2Fe17 evidencedby mössbauer spectroscopy, Phys. Solid State 60 (9) (2018) 1718–1726.
+[14] A. Kuchin, A. Pirogov, V. Khrabrov, A. Teplykh, A. Ermolenko, E. Belozerov, Magneticand structural properties of Ce2Fe17−xMnx compounds, J. Alloy. Compd. 313 (1) (2000) 7–12, https://doi.org/10.1016/S0925-8388(00)01039-2 〈http:// www.sciencedirect.com/science/article/pii/S0925838800010392〉.
+[15] P. Teplykh, A. Pirogov, A. Kuchin, A. Teplykh, Realcrystal structure and magnetic state of Ce2Fe17 compounds, Phys. B: Condens. Matter 350 (1, Supplement) (2004) E99–E102, https://doi.org/10.1016/j.physb.2004.03.027 (proceedings of the Third European Conference on Neutron Scattering), 〈http://www. sciencedirect.com/science/article/pii/S0921452604002662〉.
+[16] D. Givord, R. Lemaire, Magnetic transition and anomalous thermal expansionin R2Fe17 compounds, IEEE Trans. Magn. 10 (2) (1974) 109–113.
+[17] H. Fukuda, Y. Janssen, H. Fujii, T. Ekino, Y. Morii, Anomalous magnetic andtran­ sport properties in Ce2Fe17 and Lu2Fe17, J. Magn. Soc. Jpn. 23 (1–2) (1999) 108–110, https://doi.org/10.3379/jmsjmag.23.108
+[18] I. Medvedeva, Z. Arnold, A. Kuchin, J. Kamarád, High pressure effect onmagnetic properties and volume anomalies of Ce2Fe17, J. Appl. Phys. 86 (11) (1999) 6295–6300.
+[19] O. Prokhnenko, C. Ritter, Z. Arnold, O. Isnard, J. Kamarád, A. Pirogov, A. Teplykh, A. Kuchin, Neutron diffraction studies of the magnetic phasetransitions in Ce2Fe17 compound under pressure, J. Appl. Phys. 92 (1) (2002) 385–391.
+[20] M. Valeanu, N. Plugaru, E. Burzo, Volumeeffects in 2:17 interstitial compounds, Phys. Status Solidi (b) 184 (2) (1994) K77–K80, https://doi.org/10.1002/pssb. 2221840240
+[21] O. Eriksson, L. Nordström, M.S.S. Brooks, B. Johansson, 4f -bandmagnetism in CeFe2, Phys. Rev. Lett. 60 (1988) 2523–2526, https://doi.org/10.1103/PhysRevLett. 60.2523
+[22] H. Fujii, M. Akayama, K. Nakao, K. Tatami, Effect of interstitial hydrogen andni­ trogen on magnetic and structural properties of R2T17 (R =Y, Ce and Sm; T = Fe, Co and Ni, J. Alloys Compd. 219 (1) (1995) 10–15.
+[23] H. Fujii, K. Tatami, M. Akayama, K. Yamamoto, in: T. Yamaguchi, M. Abe, (Eds.), 6th Int. Conf. on Ferrites, ICF-6, Japan Society of Powder and PowderMetallurgy, Tokyo, 1992: p. 1081.
+[24] O. Isnard, S. Miraglia, D. Fruchart, J. Deportes, Magnetizationproperties of RE2Fe17Hx compounds: RE = Nd, Ce,Ho, J. Magn. Magn. Mater. 103 (1) (1992) 157–164 〈http:// www.sciencedirect.com/science/article/pii/030488539290249N〉.
+[25] O. Isnard, S. Miraglia, C. Giorgetti, E. Dartyge, G. Krill, D. Fruchart, Cevalence state probed by xafs study in Ce2Fe17−xGaxHy compounds, J. Alloy. Compd. 262–263 (1997)
+
+198–201, https://doi.org/10.1016/S0925-8388(97)00380-0 (proceedings of the
+
+Twelfth International Conference on Solid Compounds ofTransition Elements),
+
+〈http://www.sciencedirect.com/science/article/pii/S0925838897003800〉.
+
+[26] H.C. Herper, T. Ahmed, J.M. Wills, I. DiMarco, T. Björkman, D. Iuşan, A.V. Balatsky,
+
+O. Eriksson, Combiningelectronic structure and many-body theory with large
+
+databases: a method forpredicting the nature of 4f states in ce compounds, Phys.
+
+Rev. Mater. 1 (2017) 033802, https://doi.org/10.1103/PhysRevMaterials.1.033802
+
+[27] O.K. Andersen, Linearmethods in band theory, Phys. Rev. B 12 (1975) 3060–3083,
+
+https://doi.org/10.1103/PhysRevB.12.3060
+
+[28] H.i.d.I. Sözen, S. Ener, F. Maccari, K.P. Skokov, O. Gutfleisch, F. Körmann,
+
+J. Neugebauer, T. Hickel, Ab initiophase stabilities of ce-based hard magnetic
+
+materials and comparison withexperimental phase diagrams, Phys. Rev. Mater. 3
+
+(2019) 084407, https://doi.org/10.1103/PhysRevMaterials.3.084407
+
+[29] G. Kresse, J. Hafner, Ab initio molecular dynamics for liquid metals, Phys. Rev. B
+
+47 (1993) 558.
+
+[30] G. Kresse, J. Hafner, Ab initio molecular-dynamics simulation of theliquid-metal-
+
+amorphous-semiconductor transition in germanium, Phys. Rev. B49 (1994)
+
+14251.
+
+[31] G. Kresse, J. Furthmüller, Comput. Mat. Sci. 6 (1996) 15.
+
+[32] G. Kresse, J. Furthmüller, Phys. Rev. B 54 (1996) 11169.
+
+[33] P.E. Blöchl, Phys. Rev. B 50 (1994) 17953.
+
+[34] D.M. Ceperley, B.J. Alder, Ground state ofthe electron gas by a stochastic method,
+
+Phys. Rev. Lett. 45 (1980) 566–569, https://doi.org/10.1103/PhysRevLett.45.566
+
+[35] J.P. Perdew, A. Zunger, Self-interactioncorrection to density-functional approx­
+
+imations for many-electron systems, Phys. Rev. B 23 (1981) 5048–5079, https://
+
+doi.org/10.1103/PhysRevB.23.5048
+
+[36] J. Perdew, K. Burke, M. Ernzerhof, Phys. Rev. Lett. 77 (1996) 3865.
+
+[37] V.I. Anisimov, J. Zaanen, O.K. Andersen, Band theory and mottinsulators: hub­
+
+bard U instead of stoner I, Phys. Rev. B 44 (1991) 943–954, https://doi.org/10.
+
+1103/PhysRevB.44.943
+
+[38] I.V. Solovyev, P.H. Dederichs, V.I. Anisimov, Corrected atomiclimit in the local-
+
+density approximation and the electronic structure of dimpurities in Rb, Phys.
+
+Rev. B 50 (1994) 16861–16871, https://doi.org/10.1103/PhysRevB.50.16861
+
+[39] S.L. Dudarev, G.A. Botton, S.Y. Savrasov, C.J. Humphreys, A.P. Sutton, Electron-
+
+energy-lossspectra and the structural stability of nickel oxide: An LSDA. U study,
+
+Phys. Rev. B 57 (1998) 1505–1509, https://doi.org/10.1103/PhysRevB.57.1505
+
+[40] H.J. Monkhorst, J.D. Pack, Special points forbrillouin-zone integrations, Phys. Rev.
+
+B 13 (1976) 5188–5192, https://doi.org/10.1103/PhysRevB.13.5188
+
+[41] J.M. Wills, B.R. Cooper, Synthesis of band and model hamiltonian theory for­
+
+hybridizing cerium systems, Phys. Rev. B 36 (1987) 3809.
+
+[42] J.M. Wills, M. Alouani, P. Andersson, A. Delin, O. Eriksson, O. Grechnyev, Full-
+
+Potential Electronic Structure Method, Springer series in solid statescience,
+
+Springer, Berlin, Germany, 2010.
+
+[43] P.E. Blöchl, O. Jepsen, O.K. Andersen, Phys. Rev. B 49 (1994) 16223.
+
+[44] H.J. Monkhorst, J.D. Pack, Phys. Rev. B 13 (1976) 5188.
+
+[45] O. Eriksson, A. Bergman, L. Bergqvist, J. Hellsvik, Atomistic Spin
+
+Dynamics:Foundations and Applications, Oxford University Press, Oxford, 2017.
+
+[46] A. Ganose, A. Jackson, D. Scanlon, Command-line tools for plotting and analysisof
+
+periodic ab initio calculations, J. Open Source Softw. 3 (28) (2018) 717.
+
+[47] Inorganic crystal structure database. 〈http://www2.fiz-karlsruhe.de/icsd_home.
+
+html〉.
+
+[48] L. Peters, I. DiMarco, P. Thunström, M.I. Katsnelson, A. Kirilyuk, O. Eriksson,
+
+Treatment of 4f states of the rare earths: the case study of TbN, Phys. Rev. B 89
+
+(2014) 205109, https://doi.org/10.1103/PhysRevB.89.205109
+
+[49] I.L.M. Locht, Y.O. Kvashnin, D.C.M. Rodrigues, M. Pereiro, A. Bergman,
+
+L. Bergqvist, A.I. Lichtenstein, M.I. Katsnelson, A. Delin, A.B. Klautau,
+
+B. Johansson, I. DiMarco, O. Eriksson, Standard model ofthe rare earths analyzed
+
+from the hubbard I approximation, Phys. Rev. B94 (2016) 085137, https://doi.org/
+
+10.1103/PhysRevB.94.085137
+
+[50] A. Kreyssig, S. Chang, Y. Janssen, J.W. Kim, S. Nandi, J.Q. Yan, L. Tan,
+
+R.J. McQueeney, P.C. Canfield, A.I. Goldman, Crystallographicphase transition
+
+within the magnetically ordered state ofCe2Fe17, Phys. Rev. B 76 (2007) 054421, https://doi.org/10.1103/PhysRevB.76.054421
+
+[51] H.C. Herper, O.Y. Vekilova, S.I. Simak, I.D. Marco, O. Eriksson, Localized versus
+
+itinerantcharacter of 4f-states in cerium oxides, J. Phys.: Condens. 32 (21) (2020)
+
+215502, https://doi.org/10.1088/1361-648x/ab6e92
+
+[52] M.S. Litsarev, I. DiMarco, P. Thunström, O. Eriksson, Correlatedelectronic struc­
+
+ture and chemical bonding of cerium pnictides andγ -ce, Phys. Rev. B 86 (2012)
+
+115116, https://doi.org/10.1103/PhysRevB.86.115116
+
+[53] H. Yamada, K. Terao, First-order transition ofFe2 p and anti-metamagnetic transition, Phase Transit. 75 (1–2) (2002) 231–242, https://doi.org/10.1080/
+
+01411590290023120
+
+[54] Z.X. Tang, E.W. Singleton, G.C. Hadjipanayis, Rare-earth transitionmetal carbides,
+
+IEEE Trans. Magn. 28 (5) (1992) 2572–2574.
+
+[55] P. Haas, F. Tran, P. Blaha, Calculation of thelattice constant of solids with semi­
+
+local functionals, Phys. Rev. B 79 (2009) 085104, https://doi.org/10.1103/
+
+PhysRevB.79.085104
+
+[56] L.
+
+Ke,
+
+D.D.
+
+Johnson,
+
+Intrinsic
+
+magneticproperties
+
+inR (Fe1 xCox)11Tiz (R = Yand Ce ; z = H, C,and N), Phys. Rev. B 94 (2016) 024423, https://doi.org/10.1103/PhysRevB.94.024423
+
+[57] Y. Janssen, S. Chang, A. Kreyssig, A. Kracher, Y. Mozharivskyj, S. Misra,
+
+P.C. Canfield, Magneticphase diagram of Ce2Fe17, Phys. Rev. B 76 (2007) 054420, https://doi.org/10.1103/PhysRevB.76.054420
+
+[58] Y. Makihara, H. Fujii, T. Fujiwara, K. Watanabe, K. Takahashi, K. Koyama,
+
+M. Motokawa, Magneto-volumeeffect in the ground and field-induced states of
+
+11
+
+A. Vishina, O. Eriksson, O.Y. Vekilova et al.
+Ce2Fe17, Phys. B: Condens. Matter 329–333 (2003) 663–664, https://doi.org/10. 1016/S0921-4526(02)02514-0 proceedings of the23rd International Conference on Low Temperature Physics 〈http://www.sciencedirect.com/science/article/pii/ S0921452602025140〉. [59] K. Koyama, H. Fujii, T. Goto, H. Fukuda, Y. Janssen, Magneticphase transitions of Ce2Fe17 under high pressures and highmagnetic fields, Phys. B: Condens. Matter 294–295 (2001) 168–171, https://doi.org/10.1016/S0921-4526(00) 00634-7 (proceedings of the Sixth International Symposium on Research in High MagneticFields), 〈http://www.sciencedirect.com/science/article/pii/ S0921452600006347〉. [60] D. Hautot, G.J. Long, F. Grandjean, O. Isnard, Mössbauerspectral study of the magnetic properties of Ce2Fe17Hx (x = 0, 1, 2, 3, 4, and 5), Phys. Rev. B 62 (2000) 11731–11741, https://doi.org/10.1103/PhysRevB.62.11731
+
+Journal of Alloys and Compounds 888 (2021) 161521
+[61] A.V. Lukoyanov, A.S. Shkvarin, Y.V. Knyazev, Y.I. Kuz’min, A.G. Kuchin, N.N. Efremova, L.D. Finkel’shtein, I.A. Nekrasov, V.I. Anisimov, Electronic struc­ ture of the intermetallic compounds Ce2Fe17 and Ce2Fe15.3M1.7 (M = Al, Si): ex­ periment andtheory, Phys. Solid State 49 (2007) 99, https://doi.org/10.1134/ S1063783407010179
+[62] P. Blaha, K. Schwarz, G.K.H. Madsen, D. Kvasnicka, J. Luitz, An AugmentedPlane Wave. Local Orbitals Program for Calculating Crystal Properties, Vienna University of Technology, Austria, 2001.
+[63] K. Schwarz, P. Mohn, Itinerantmetamagnetism in YCO2, J. Phys. F: Met. Phys. 14 (7) (1984) L129–L134, https://doi.org/10.1088/0305-4608/14/7/008
+[64] M.D. Kuz’min, M. Richter, Mechanism of thestrong magnetic refrigerant per­ formance ofLaFe13−xSix, Phys. Rev. B 76 (2007) 092401, https://doi.org/10.1103/ PhysRevB.76.092401
+
+12
+

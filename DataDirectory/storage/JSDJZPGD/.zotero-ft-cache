@@ -1,0 +1,571 @@
+PRL 104, 020504 (2010)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 15 JANUARY 2010
+
+Local Unitary Equivalence of Multipartite Pure States
+
+B. Kraus Institute for Theoretical Physics, University of Innsbruck, A-6020 Innsbruck, Austria
+(Received 20 October 2009; published 14 January 2010)
+Necessary and sufﬁcient conditions for the equivalence of arbitrary n-qubit pure quantum states under local unitary (LU) operations are derived. First, an easily computable standard form for multipartite states is introduced. Two generic states are shown to be LU equivalent iff their standard forms coincide. The LUequivalence problem for nongeneric states is solved by presenting a systematic method to determine the LU operators (if they exist) which interconvert the two states.
+
+DOI: 10.1103/PhysRevLett.104.020504
+
+PACS numbers: 03.67.Àa, 03.65.Ud
+
+Multipartite states occur in many applications of quantum information, like one-way quantum computing, quantum error correction, and quantum secret sharing [1,2]. Furthermore, the theory of many-body states plays also an important role in other ﬁelds of physics [3]. The existence of those practical and abstract applications is due to the subtle properties of multipartite entangled states. Thus, one of the main goals in quantum-information theory is to gain a better understanding of the nonlocal properties of quantum states. Whereas the bipartite case is well understood, the multipartite case is much more complex. Even though a big theoretical effort has been undertaken where several entanglement measures for multipartite states have been introduced [4], different classes of entangled states have been identiﬁed [5], and a normal form of multipartite states has been presented [6], we are far from completely understanding the nonlocal properties of multipartite states [7].
+One way to gain insight into the entanglement properties of quantum states is to consider their interconvertibility. That is, given two states jÉi, jÈi the question is whether or not jÉi can be transformed into jÈi by local operations [7]. One particularly interesting case, which is also investigated in this Letter, is the local unitary (LU) equivalence of multipartite states. We say that a n-partite state jÉi is LU equivalent to jÈi (jÉi ’LU jÈi) if there exist local unitary operators U1 Á Á Á Un such that jÉi ¼ U1  Á Á Á  UnjÈi. Note that two states which are LU equivalent are equally useful for any kind of application and they possess precisely the same amount of entanglement. This is why understanding the interconvertibility of quantum states by LU operations is part of the solution to the more general problem of characterizing the different types of entangled quantum states.
+Several approaches have been used to tackle this longstanding problem. For instance in [8] a standard form for 3qubit states has been presented. For n-qubit states the socalled local polynomial invariants have been introduced [9]. However, even though it is known that it is sufﬁcient to consider only a ﬁnite set of them, this complete ﬁnite set is known only for very few simple cases.
+
+Here, we derive necessary and sufﬁcient conditions for the existence of LU operations which transform two n-qubit states into each other. For generic states, states where none of the single qubit reduced states is completely mixed, the conditions can be easily computed. For arbitrary n-qubit states a systematic method to determine the unitaries (in case they exist) which interconvert the states is presented.
+The sequel of the Letter is organized as follows. First, we introduce a standard form of multipartite states, which we use in order to derive easily computable necessary and sufﬁcient conditions for the LU equivalence of generic multipartite states. As in the bipartite case, it is shown that two generic states are LU equivalent iff their standard forms coincide. For nongeneric states it is shown that whenever one of the single qubit reduced states is not completely mixed, the problem of LU equivalence of n-qubit states can be reduced to the one of (n À 1)-qubit states. Then, a systematic method to determine the local unitaries (if they exist) which interconvert two arbitrary states is presented. It is shown that the states are LU equivalent iff there exists a solution to a ﬁnite set of equations. The number of variables involved in those equations depends on the entanglement properties of the states. The case with the largest number of variables occurs for the sometimes-called maximally entangled states of n qubits, where any bipartition of dn=2e qubits is maximally entangled with the rest. It is known, however, that only for certain values of n such states exist [10]. The power of this method is illustrated by considering several examples.
+Throughout this Letter the following notation is used. By X, Y, Z we denote the Pauli operators. The subscript of an operator will always denote the system it is acting on, or the system it is describing. The reduced states of system i1 Á Á Á ik of jÉi (jÈi) will always be denoted by i1ÁÁÁik (i1ÁÁÁik ) respectively, i.e., i1ÁÁÁik ¼ tr:i1ÁÁÁ:ik ðjÉihÉjÞ. We denote by i the classical bit string (i1 Á Á Á in) with ik 2 f0; 1g 8 k 2 f1 Á Á Á ng and jii  ji1 Á Á Á ini denotes the computational basis. Normalization factors as well as the tensor product symbol will be omitted whenever it does not cause any confusion.
+
+0031-9007= 10=104(2)=020504(4)
+
+020504-1
+
+Ó 2010 The American Physical Society
+
+PRL 104, 020504 (2010)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 15 JANUARY 2010
+
+Let us start by introducing a unique standard form of
+multipartite states (see also [11]). Let jÉi be a n-qubit state. As a ﬁrst step we apply local unitaries Ui1 such that all the single qubit reduced states of the state jÉti ¼ U11  Á Á Á Un1jÉi are diagonal in the computational basis, i.e., tr:iðjÉtihÉtjÞ ¼ Di ¼ diagð1i ; 2i Þ. We call any such decomposition trace decomposition of the state jÉi. A
+
+sorted trace decomposition is then deﬁned as a trace decomposition with 1i ! 2i . Note that transforming a state into its sorted trace decomposition, which we will denote
+by jÉsti in the following, can be easily done by computing the spectral decomposition of all the single qubit reduced
+
+states. The sorted trace decomposition of a generic state jÉi with i Þ 1 8 i is unique up to local phase gates. That is U1 Á Á Á UnjÉsti is a sorted trace decomposition of jÉi iff (up to a global phase 0) Ui ¼ ZiðiÞ  diagð1; eiiÞ. In order to make the sorted trace decomposition of generic
+
+states unique we impose phases i, i 2 f0 Á Á Á ng.
+
+the We
+
+fworlliotewjiÉngstico¼ndPitiionijioi,n
+
+the and
+
+deﬁne the set S ¼ fi: i Þ 0g and S" denotes the set of
+
+the ﬁrst (in lexicographic order) linearly independent vec-
+
+tors in S [12]. The global phase 0 is chosen to make i0 real and positive where i0 ¼ 0 in case 0 Þ 0 else i0
+denotes the ﬁrst (in lexicographic order) linearly dependent
+
+vector in S. After that, the n phases are chosen to make the coefﬁcients ei0i for i 2 S" real and positive [13]. The sodeﬁned standard form, which will be denoted by jÉsi in the following, is unique. If i ¼ 1, for some system i, the standard form can be similarly deﬁned [11], however it will
+
+not be unique then. Because of the deﬁnition any state is
+
+LU equivalent to its standard form [14].
+
+We employ now the standard form to derive a criterion
+
+for the LU equivalence of generic multipartite states. First of all note that jÉi ’LU jÈi iff jÉsi ’LU jÈsi. Using then that the standard form is unique we obtain the following
+
+theorem.
+Theorem 1.—Let jÉi be an n qubit state with i Þ 1 8 i. Then jÉi ’LU jÈi iff the standard form of jÉi is equivalent to the standard form of jÈi, i.e., jÉsi ¼ jÈsi.
+Thus, similarly to the bipartite case, two generic states
+
+are LU equivalent iff their standard forms coincide, which
+
+can LU
+
+be easily equivalent
+
+checked. then jÉi
+
+¼FuNrthiUerimjÈoirew, itihf
+
+the states are Ui ¼ ðUsi ÞyVsi,
+
+where Usi , (Vsi) denote the local unitaries which transform
+
+jÉi (jÈi) into its standard form respectively.
+
+In order to study now the nongeneric cases, we will
+
+rewrite the necessary and sufﬁcient condition derived
+
+above. For a generic state, jÉi it is easy to verify that
+
+jÉsi ¼ jÈsi iff there exists a bit string k ¼ ðk1 Á Á Á knÞ,
+
+local phase gates ZiðiÞ, and a global phase 0 such that
+
+ei0
+
+O Zi
+
+ði
+
+ÞXiki
+
+W" ijÉi
+
+¼
+
+O V" ijÈi;
+
+(1)
+
+i
+
+i
+
+where W" i (i). That
+
+(V" is
+
+iN ) airWe"
+
+iljoÉcialaunnditNariieVs" i jwÈhiicahreditaragcoenadliezceom-i
+
+positions of jÉi and jÈi respectively. For generic states
+
+ki is chosen such that the order of the eigenvalues of
+
+tNhe
+i
+
+single qubit reduced states V"ijÈi coincides. In order to
+
+of
+
+N
+i
+
+Xiki
+
+check then
+
+W" ijÉi and whether or
+
+not there exist phases i such that Eq. (1) is satisﬁed, we
+
+make use of the following lemma, whose proof is pre-
+
+sented in [16,17]. There, we will consider four n-qubit
+
+states. The systems, each composed out of n qubits will
+
+be denoted by A, B, C, D, respectively. The ith qubit of
+
+system A will be denoted by Ai, etc. Furthermore, we will
+
+use PiAC
+
+¼thePknjoktaithikokn jAj1;Ci1iÁÁ¼ÁAiÀð1j;0C1iÀ11;0AiiþÀ1;Cijþ110ÁÁÁ0A1ni;CÞnAi;Bai;nCdi;Di
+
+and simi-
+
+larly we deﬁne PiBD for systems B, D. For a state jÉi we
+
+jdaÉneﬁdinþjeÉ20eiKÀ¼Éi"j0ÉPikfk2þKs2ÉuPecÀhki2tPhKaniÉ¼t1jhkk" iikj.iÉjkii¼fo0rg
+
+and some
+
+jÉf" igi ¼ phases " i
+
+Lemma 2.—Let jÉi, jÈi be n-qubit states. Then,
+
+there such
+
+exist that
+
+local jÉi ¼
+
+pehia0seNgni¼at1eZs i
+
+ZiðiÞ ðiÞjÈi
+
+and iff
+
+a phase 0 there exist
+
+phases f" igni¼0 such that (i) jhijÉ0ij ¼ jhijÈf"igij8 i
+
+and (ii) hjiPiACPiBDjÉ0iAjÉ0iBjÈf" igiCjÈf" igiD ¼
+
+0 8 i 2 f1 Á Á Á ng.
+
+Let us now consider the nongeneric case. Obviously, two
+
+arbitrary states jÉi, jÈi are LU equivalent iff there exist local unitaries V"k, W" k, a bit string k, and phases i such that Eq. (1) is fulﬁlled. We will show now how V"k, W" k can
+be determined by imposing necessary conditions of
+
+LU equivalence.
+
+First of all, we note that for any state jÉi with i Þ 1 for some system i, ki as well as V"i and W" i can be easily
+
+determined as follows. If jÉi ’LU jÈi then all the reduced
+
+states must be LU equivalent, in particular Di ¼
+
+dW"iai ,gðV" ii1.;
+
+i2Þ ¼ W" iiW" Analogously
+
+y i
+
+¼
+
+V"
+
+to the
+
+iiV" yi , generic
+
+for some case, this
+
+unitaries equation
+
+determines W" i and V"i (and ki ¼ 0) uniquely up to a phase
+
+gate. Thus, for this case we have that jÉi ’LU jÈi iff there
+
+exist two phases i and 0 and local unitaries Uj such that
+
+O ihljW" iÉsi ¼ eið0þilÞ Uj ihljV" iÈsi for l 2 f0;1g; (2)
+
+jÞi
+
+where W" i, and V"i are chosen such that Di ¼
+
+diagði1;
+
+i2Þ
+
+¼
+
+W"
+
+i
+
+i
+
+W"
+
+y i
+
+¼
+
+V" iiV" yi .
+
+Hence,
+
+if
+
+there
+
+is
+
+one system where the reduced state is not proportional to
+
+the identity then we can reduce the problem of LU
+
+equivalence of n-qubit states to the one of (n À 1)-qubit
+
+states. This statement can be easily generalized to the case
+
+where more than one single qubit reduced state is not
+
+completely mixed.
+
+Let us now consider the more complicated case, where
+
+some i ¼ 1. There, it is obviously no longer possible to determine V"i, W" i by imposing the necessary condition of LU equivalence, i ¼ UiiUiy. However, we will show next which necessary condition can be used in order to
+
+determine them. Before we do so, we explain the problem
+
+which might occur if i ¼ 1 by considering a simple example. Let jÉi and jÈi denote two states with 12 ¼ 12 ¼ 1 À jÉÀihÉÀj, for some  Þ 0. Then we ﬁnd
+
+020504-2
+
+PRL 104, 020504 (2010)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 15 JANUARY 2010
+
+that 12 ¼ U1U212U1yU2y iff U1 ¼ U2, which implies that jÉi ’LU jÈi iff there exist local unitaries U1, U3 Á Á Á Un such that jÉi ¼ U1U1 Á Á Á UnjÈi. Thus, the unitary U2 depends on U1. Or, stated differently, W" 2 (and 2) depends on U1 ¼ ½Z1ð1ÞX1k1 W" 1y in Eq. (1), where we set V1 ¼ V2 ¼ 1. In general we might neither be able to determine the phase 2, nor W" 2 as a function of U1 alone. However, the next lemma shows that any W" k can be determined as a function of a few unitaries and V"k can always be determined directly form the state jÈi. We will see that
+
+the number of unitaries which are required to deﬁne W" k
+
+depends on the entanglement properties of the state.
+
+Lemma 3.—If jÉi ¼ U1 Á Á Á UnjÈi and if there exist
+
+systems then V"k
+
+n1 Á Á in Eq.
+
+Á nl (1)
+
+and k can be
+
+such that n1ÁÁÁnl determined from
+
+;k Þ n1ÁÁÁnl  1k the state jÈi and
+
+W" k can be determined as a function of the unitaries
+
+Un1 Á Á Á Unl .
+
+j1ÈÁ1PÁiÁÁÁrÁ¼lo;knol¼Pf.¼—jPiWli1jÁiiÁtaiÁhlhnjjoÈdjutirti:wlklþoðr1jisÁÈtÁseÁni,iohfjÈÉwgjihjeÞne¼ÞreerPaliij1tiyÁ¼iÁÁ1lÁwÁðÁilej11ÉÁ,aÁisiÁsltþuhilme1ÞÁr.ÁeeÁn
+
+n1 ¼ and
+Since exist
+
+at least two tuples i and j ¼ ðj1 Á Á Á jlÞ such that the 2 Â 2 matrix Xij  tr:kðjÈiihÈjjÞ /6 1. Thus, at least one of the two Hermitian operators Yij ¼ Xij þ ðXijÞy and Zji ¼ iXij À iðXijÞy is not proportional to the identity. Without loss of generality we assume that 1 /6 Yij ¼ tr:k½ðjiihjj þ H:cÞjÈihÈj. Using that jÉi ¼ U1 Á Á Á UnjÈi we have
+
+UkYijUky ¼ tr:k½ðjiihjj þ H:cÞU1y ÁÁÁUlyjÉihÉjU1 ÁÁÁUl: (3)
+
+Since Yij is Hermitian we can diagonalize it as well as the
+
+right-hand side of Eq. (3) and obtain UkV"yk DV"kUky ¼
+
+W"
+
+y k
+
+ðU1
+
+Á
+
+Á
+
+Á
+
+Ul
+
+ÞDðU1
+
+Á
+
+Á
+
+Á
+
+UlÞW"
+
+kðU1
+
+Á
+
+Á
+
+Á
+
+UlÞ,
+
+which
+
+is
+
+true
+
+iff D ¼ Xik DðU1 Á Á Á UlÞXik, with ik 2 f0; 1g and Uk ¼
+
+ei00
+
+W"
+
+y k
+
+ðU1
+
+Á
+
+Á
+
+Á
+
+UlÞZð0kÞXik
+
+V"
+
+k,
+
+for
+
+some
+
+phases
+
+00,
+
+0k.
+
+Thus, we have jÉi ¼ U1 Á Á Á UnjÈi iff there exists ik 2
+
+f0; 1g, and 0 and k such that ei0 Xik ZðkÞ Â
+
+W" kðU1 Á Á Á UlÞjÉi ¼ U1 Á Á Á V" k Á Á Á UnjÈi, where V"k is
+
+the unitary which diagonalizes Yij and can therefore be determined directly from the state jÈi and W" kðU1 Á Á Á UlÞ
+
+diagonalizes the right-hand side of Eq. (3).
+
+j
+
+Note that the proof of Lemma 3 is constructive. The idea
+
+was to impose the necessary condition for LU equivalence
+
+given in Eq. (3) for any l tuples i, j. Since the 2 Â 2
+
+matrices occurring in this equation are Hermitian, one
+
+can, similarly to the previous cases, determine the unitaries V"k, W" k by diagonalizing these matrices. In contrast to before we will ﬁnd here, that W" k might depend on U1 Á Á Á Ul.
+We use now Lemma 3 to present a constructive method
+
+to compute all local unitaries as functions of a few varia-
+
+bles. If some unitary Ui cannot be determined in this way, we write Ui ¼ eÀiiZi eÀiiXi eÀiiZi (up to a phase) and choose without loss of generality V"i ¼ 1, ki ¼ 0, and
+
+W" i ¼ eiiXi eiiZi in Eq. (1). We will say then that we
+
+consider Ui as a variable. The constructive method to compute now V"k and W" k in
+
+Eq. (1) is as follows: (1) If there exists a system i such that
+
+i
+
+Þ
+
+1
+
+compute
+
+V" i ,
+
+W" i
+
+using
+
+that
+
+W" ii
+
+W"
+
+y i
+
+¼
+
+V" iiV" yi
+
+¼
+
+Di (ki ¼ 0). Furthermore, compute V"k and W" kðUiÞ for any
+
+system k with ik Þ i  1 using Lemma 3. (2) For all systems i for which i Þ 1 apply the unitaries W" i (V"i) to
+
+jÉi (jÈi) respectively and measure system i in the com-
+
+putational basis thereby reducing the number of systems
+
+[see Eq. (2)]. After this step we have i ¼ 1 8 i. Then we continue as follows: (3) Consider the two-qubit reduced
+
+states: (3a) There exist systems i, j such that ij Þ 1. Without loss of generality we choose i ¼ 1, consider U1 as variable, and set V" 1 ¼ 1, k1 ¼ 0 and W" 1 ¼ ei1X1 ei1Z1 . Then, compute V"j and W" jðU1Þ using Lemma 3 for any
+system j with 1j Þ 1. Let us denote by J2 the set of
+systems j, for which 1j Þ 1. (3b) If there exists no system
+i, j such that ij Þ 1 consider U1 and U2 as variables and set V" i ¼ 1, ki ¼ 0 and W" i ¼ eiiXi eiiZi , for i ¼ 1, 2. Furthermore, set J2 ¼ f2g. (4) Consider the three-qubit
+reduced states: (4a) There exists a system k such that 1jk Þ 1j  1 for some j 2 J2. Compute V"k and W" kðU1; UjÞ using Lemma 3 for any system k with 1jk Þ 1j  1. (4b) If there exists no system k such that 1jk Þ 1j  1 include U3 as variable. (5) Continue in this way
+
+until all unitaries are either determined as functions of a
+
+few unitaries, or are free parameters. If at some point it is not possible to choose V"k or W" k unitary, e.g., if the eigen-
+values of the operators occurring in Eq. (3) do not coincide,
+
+the states are not LU equivalent. Once all unitaries V"i are determined and all unitaries W" i
+are determined as functions of a few variables, we have that
+
+jÉi ’LU jÈi iff there exists a bit string k and phases figni¼0, such that Eq. (1) is fulﬁlled. In order to check the existence of the local phase gates in Eq. (1) (for some
+
+bit string k), we use Lemma 2. It is important to note
+
+here that the state on the right-hand side of Eq. (1) is
+
+completely determined, thus, the set KÉ in Lemma 2 can be determined and therefore this lemma can be applied.
+
+The states are LU equivalent iff the conditions in Lemma 2
+
+are fulﬁlled for some bit string k. The unitaries which
+
+interconvert the states are, up to the symmetry of the
+
+states, uniquely determined and are given by Ui ¼
+
+W"
+
+y i
+
+Zði
+
+ÞXki
+
+V"
+
+i
+
+(up
+
+to
+
+a
+
+global
+
+phase)
+
+[18].
+
+Note that this method introduces a natural classiﬁcation
+
+of multipartite states. We have to add a unitary Uk as a variable only if i1ÁÁÁil;k ¼ i1ÁÁÁil  1k for some properly chosen i1 Á Á Á il. The worst case, i.e., the case which in-
+volves the largest number of variables, occurs for maxi-
+
+mally entangled states (all bipartite splittings are
+
+maximally entangled). In this case, which exists only for
+
+certain instances of n, we have dn=2e unitaries as variables.
+
+For a pure state the equation above holds iff for any out-
+
+come of any von Neumann measurement on systems
+
+020504-3
+
+PRL 104, 020504 (2010)
+
+PHYSICAL REVIEW LETTERS
+
+week ending 15 JANUARY 2010
+
+i1 Á Á Á il, system k is maximally entangled with the remaining systems. Thus, two states jÉi, jÈi with i1ÁÁÁil;k ¼ i1ÁÁÁil  1 and i1ÁÁÁil;k Þ i1ÁÁÁil  1 can neither be LU equivalent nor possess the same entanglement. Hence, the method presented above suggests that in order to characterize the nonlocal properties of multipartite states, one should ﬁrst identify the class (as described above) to which the state belongs to and then determine within this class the entanglement of the state. It might well be that the different classes lead to different applications. For instance, the states used for error correction and oneway quantum computing have the property that all single qubit reduced states are completely mixed.
+In order to illustrate the power of this method we consider ﬁrst the simplest examples of two and three-qubit states. The standard form of a two-qubit state is jÉi ¼ 1j00i þ 2j11i. Thus, the method above tells us that if 1 Þ 2, i.e., i Þ 1, then jÉi ’LU jÈi iff the Schmidt coefﬁcients i are the same. For 1 ¼ 2 it is straightforward to show that the unitaries Ui, which are obtained using the method above for the states jÈþi  j00i þ j11i and some LU-equivalent state V1V2jÈþi are U1 ¼ V1W and U2 ¼ V2WÃ for any unitary W. The reason why the unitaries Ui are not completely determined by Vi is due to the symmetry of jÈþi. For three qubits the method is almost equally simple. First, we transform both states into their trace decomposition. If none of the reduced states is completely mixed, we simply compare their standard forms (Theorem 1). If there exists some i such that i Þ 1, we know that Ui ¼ ZðiÞ. We measure system i in the computational basis and are left with two two-qubit states [see Eq. (2)]. For the remaining case, where i ¼ 1 8 i it can be easily shown that jÉi is LU equivalent to the GHZ state, jÉ0i ¼ j000i þ j111i [17]. Even without using this fact also in this case the right unitaries can be directly computed using the presented method (for, details see [17]).
+The LU-equivalence classes of up to 5-qubit states are investigated in [17]. We will show there, for instance, that for 4-qubit states with ij ¼ 1 for some i, j (which is the hardest class of states using the method presented above), the LU-equivalence class is determined by only three parameters. Thus, the entanglement of those states is completely determined by the fact that system ij is maximally entangled to the other two qubits and those three parameters, to which also an operational meaning will be given [17]. This example shows already that the method presented here does not only give necessary and sufﬁcient conditions for the LU equivalence of arbitrary multipartite states, but also leads to a new insight into their entanglement properties. Moreover, the results presented here lead also to a criterion of LU equivalence for certain mixed and also d-level states [17] and to conditions for the existence of more general operations transforming one state into the other, namely local operations and classical communica-
+
+tion (LOCC). This is due to the fact that two multipartite states, having the same marginal one-party entropies, are either LU equivalent, or LOCC incomparable [19].
+The author would like to thank Hans Briegel for continuous support and interest in this work and acknowledges support of the FWF (Elise Richter Program).
+Note added.—Recently, the author became aware of a similar standard form presented in Ref. [20].
+[1] D. Gottesman, Ph.D. thesis, Caltech [arXiv:quant-ph/ 9705052].
+[2] R. Raussendorf and H. J. Briegel, Phys. Rev. Lett. 86, 5188 (2001).
+[3] For a recent reviews, see L. Amico et al., Rev. Mod. Phys. 80, 517 (2008); F. Verstraete et al., Adv. Phys. 57, 143 (2008), and references therein.
+[4] See, for instance, V. Coffman, J. Kundu, and W. K. Wootters, Phys. Rev. A 61, 052306 (2000); F. Verstraete, M. Popp, and J. I. Cirac, Phys. Rev. Lett. 92, 027901 (2004); J. Eisert and H. J. Briegel, Phys. Rev. A 64, 022306 (2001).
+[5] W. Du¨r, G. Vidal, and J. I. Cirac, Phys. Rev. A 62, 062314 (2000); F. Verstraete et al., Phys. Rev. A 65, 052112 (2002).
+[6] F. Verstraete, J. Dehaene, and B. DeMoor, Phys. Rev. A 68, 012103 (2003).
+[7] For a recent review, see R. Horodecki et al., Rev. Mod. Phys. 81, 865 (2009), and references therein.
+[8] A. Acin et al., Phys. Rev. Lett. 85, 1560 (2000). [9] M. Grassl, M. Rotteler, and T. Beth, Phys. Rev. A 58, 1833
+(1998). [10] See, for instance, S. Bravyi, Phys. Rev. A 67, 012313
+(2003); J. Preskill, Quantum Computation, Lecture Notes for Physics Vol. 219 (California Institute of Technology, Pasadena CA, 1998), http://www.theory.caltech.edu/ people/preskill/ph219/. [11] C. Kruszynska and B. Kraus, Phys. Rev. A 79, 052304 (2009). [12] We sort the vectors in S in lexicographic order and include the ﬁrst vector (Þ0) in the set S". A subsequent vector is included in S" if it is linearly independent of the vectors in S". [13] If there are less than n linearly independent vectors in S, say k, then k phases can be deﬁned like that, the other phases leave the state invariant and can therefore be chosen arbitrarily. [14] Note that this standard form coincides for the simplest case of two qubits with the Schmidt decomposition [15] and can be generalized to d-level systems. [15] M. A. Nielsen and I. L. Chuang, Quantum Computation and Quantum Information (Cambridge University Press, Cambridge, U.K., 2000). [16] B. Kraus, arXiv: quant-ph/09095152v1. [17] B. Kraus (to be published). [18] Note that the phases i can be easily computed. [19] C. H. Bennett et al., Phys. Rev. A 63, 012307 (2000). [20] See H. A. Carteret et al., J. Math. Phys. (N.Y.) 41, 7932 (2000), and references therein.
+
+020504-4
+

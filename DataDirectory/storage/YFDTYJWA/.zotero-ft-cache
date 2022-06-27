@@ -1,0 +1,222 @@
+Applied Surface Science 495 (2019) 143623
+Contents lists available at ScienceDirect
+Applied Surface Science
+journal homepage: www.elsevier.com/locate/apsusc
+Full length article
+First-principles design of highly-eﬃcient earth-abundant electrocatalysts for
+T
+hydrogen evolution reaction: TiF3 and its analogs
+Junru Wang, Siyun Qi, Xiaohan Song, Yuanyuan Qu, Weifeng Li, Mingwen Zhao⁎
+School of Physics & State Key Laboratory of Crystal Materials, Shandong University, Jinan 250100, Shandong, China
+
+ARTICLE INFO
+Keywords: Electrocatalysts Hydrogen evolution reaction TiF3 First-principles calculations D-band center
+
+ABSTRACT
+Hydrogen evolution reaction (HER) plays an important role in water splitting to produce hydrogen. The high price of precious platinum-based catalysts that are the best HER electrocatalysts by now hampers the commercial application. Low-cost, earth-abundant and highly-eﬃcient HER electrocatalysts are thus long-desired. On the basis of ﬁrst-principles calculations, we investigated the HER electrocatalytic performance of the non-precious TiF3 and its analogs. Our calculations showed that TiF3 and WO3 can serve as eﬃcient HER electrocatalysts with the overpotentials comparable to those of the platinum-based catalysts. To uncover the origins of electrocatalytic performance, we established a relationship between the surface adsorption ability of a material and its electronic structure. The low HER overpotentials, unique porous structure and high abundance in earth make these materials promising candidates for high-performance HER electrocatalysts.
+
+1. Introduction
+Increasing environmental issues and depletion of fossil fuels have posed urgent demands on clean and renewable energy sources [1]. Hydrogen evolution reaction (HER) which is a fundamental process in electrocatalysis plays an important role in energy conversion through water splitting to produce hydrogen [2]. An ideal HER electrocatalyst should have zero overpotential. But the realistic electrocatalytic materials always have a nonzero overpotential that is needed to overcome the initial reaction energy barrier. Therefore, it's vital to design the catalysts with a low overpotential and fast kinetics for the eﬃcient HER [3]. By far, noble metal Pt and Pt-group metals were adopted as the most reactive HER electrocatalysts [4,5]. However, the low abundance and high cost limit their widespread utilization. Development of lowcost, earth-abundant, high-eﬃcient electrocatalysts to replace Pt-based electrocatalysts is highly demanding and has become the frontier of catalysis research.
+A variety of non-noble metal catalyst systems have recently brought up and emerged as promising candidates for new-generation electrocatalysts. These materials include transition metal chalcogenides MX2 (M: Mo, W, Fe; X: S, Se) [6–10], metal carbides [11], metal nitrides [12], metal phosphide [13], metal oxide [14], Mxene [15], metal-free material (carbon material and C3N4) [16–18] and metal materials (Ni, Co, etc.) [19]. However, the HER eﬃciency of the electrocatalysts remains lower than the noble metal electrocatalysts. Additionally, some
+
+of the HER catalysts face the problem of irreversible recovery due to structure deformation as more active sites are introduced, e.g. by forming porous structures on surfaces [20].
+In this work, we proposed a new family of HER electrocatalytic materials: TiF3 and its analogs with intrinsic large voids in its cubic crystal [21]. Using ﬁrst-principles calculations, we demonstrated that the under-coordinated metal atoms on the surfaces exhibit excellent HER catalytic performance. The predicted overpotentials of these nonnoble metal catalysts are comparable to those of the Pt-based catalysts. We also developed a description for the relationship between bond strength and electronic structure. We hope that this work can unlock the potential of earth-abundant materials as highly-eﬃcient HER electrocatalysts and oﬀer vital guidance for the design of novel HER electrocatalysts.
+2. Method and computational details
+Our ﬁrst-principles calculations were performed within the framework of density-functional theory (DFT), which is implemented in the Vienna ab initio simulation package known as VASP [22]. The electron–ion interactions were described by projector-augmented-wave (PAW) potentials [23]. The generalized gradient approximation (GGA) [24] in the form of Perdew–Burke Ernzerhof (PBE) [25] was adopted for the exchange–correlation functional. The plane waves employed to expand the Kohn–Sham electron wavefunction have an energy cutoﬀ of
+
+⁎ Corresponding author. E-mail address: zmw@sdu.edu.cn (M. Zhao).
+https://doi.org/10.1016/j.apsusc.2019.143623 Received 5 May 2019; Received in revised form 13 July 2019; Accepted 8 August 2019 Available online 09 August 2019 0169-4332/ © 2019 Elsevier B.V. All rights reserved.
+
+J. Wang, et al.
+
+Applied Surface Science 495 (2019) 143623
+
+520 eV. Structural optimizations were carried out using a conjugate gradient (CG) method without any symmetry constrains until the maximum force on each atom was less than 0.01 eV Å−1. In the electronic band structure calculations, we employed the hybrid functional proposed by Heyd, Scuseria and Ernzerhof (HSE06) [26]. In the HSE06 functional, the PBE exchange term is splitted into a short-range and a long-range part, and 25% of the short-range part is then replaced by a short-range Hartree-Fock term. The Brillouin zone (BZ) integration was sampled on a grid of 11 × 11 × 11 k-points for the unit cells of bulk crystals [27]. The long-range van der Waals interactions were taken into account by using the DFT-D2 method [28]. For the nanosheets, a 2 × 2 slab repeated periodically along the x- and y-directions was employed and a vacuum space up to 20 Å was applied along the z-direction to avoid interaction between neighboring images. A 5 × 5 × 1 k-point grid for structural optimizations, a 9 × 9 × 1 k-point grid for static computation, and a 21 × 21 × 1 k-point grid for the density of states (DOS) calculations were employed in the Brillouin zone integration [27]. The slab model contains three atomic layers with two symmetric terminals. The top two layers were fully relaxed during structural optimizations, while other layers were ﬁxed at the lattice positions of bulk crystals. Spin-polarization was considered in the whole calculations. The kinetic barrier and transition state for H desorption and H2 formation were simulated by using the climbing image nudged elastic band (CNEB) method as implemented in the VASP transition state tools [29,30]. The intermediate images were relaxed until the forces were less than 0.02 eV/Å.
+As for the HER in an acid electrolyte (pH = 0), H+ can act as the proton donor, the overall reaction scheme can be written as:
+
+H+ + e− + ∗ ⇌ 1/2H2 ∗ ⇌ 1/2H2 (g) + ∗
+
+(1)
+
+The symbol * represents the catalysts and H* is the H adsorbed on the surface of the catalysts. The free energies of the studied systems can be obtained by using the following equation: ΔG = ΔE + ΔZPE - TΔS, where ΔE, ΔZPE, ΔS are the binding energy, zero-point energy change and entropy diﬀerence. ΔZPE is the zero-point energy diﬀerence between the adsorbed state of the system and the gas-phase state. The reversible hydrogen electrode (RHE) model developed by Nørskov and co-workers was used to obtain the Gibbs reaction free energy of these electrochemical elementary steps [31,32]. In this model, we set up RHE as the reference electrode where the proton-electron pair corresponds to half a hydrogen molecule: μH+ + μe- = 1/2μH2, at conditions of U = 0 V and PH2 = 1 bar.
+The chemical potential of each adsorbate is deﬁned as: μ = E + EZPE - T × S, where E is the total energy obtained from DFT calculations, EZPE is zero-point energy correction calculated from vibrational frequencies, and S is the entropy at 298 K taken from the standard tables.
+The reaction free energy (ΔGH⁎) and the theoretical overpotential (η) of HER are determined by using the following equations:
+ΔGH∗ = μH∗ − 0.5 × μH2 − μ∗
+η = −∣ΔGH∗∣/e
+
+For the calculations of the band center of the anti-bonding state projected onto the d orbitals of transition metal atom and s orbitals of the H atom (Eanti-bond), the following expression was used [33]:
+
+Eanti−bond
+
+=
+
+∫+∞ Ef
+
+E
+
+∫+∞ Ef
+
+× (ρd (E) (ρd (E) +
+
++ ρs
+
+ρs (E))dE (E ) ) dE
+
+.
+
+3. Results and discussion
+The crystal structures of TiF3 and its analogs (WO3, ScF3, ReO3, NbF3, TaF3, and MoF3) have a cubic cell belonging to a space group of pm3m. Metal ions locate at the corners of the cube linked by anions. Each metal ion is coordinated by six anions, and each anion is bonded to two metal ions. The optimized lattice constants range from 3.795 Å
+
+Table 1 Lattice constants and electronic properties of TiF3 and its analogs. The band gaps were obtained by using the HSE06 functional.
+
+WO3 ScF3 ReO3 TiF3
+
+NbF3
+
+TaF3
+
+MoF3
+
+Lattice constant (Å) Magnetic moments
+(μB/cell) Band Gap (eV)
+
+3.834 0
+1.468
+
+4.068 0
+8.638
+
+3.795 0
+0
+
+3.933 1
+Halfmetal
+
+4.112 2
+Halfmetal
+
+4.110 4.053
+
+2
+
+3
+
+Half- 2.632 metal
+
+to 4.112 Å, as listed in Table 1. Such a line-centered cubic lattice leads to intrinsic large voids, oﬀering abundant active sites and channels for hydrogen diﬀusion. Notably, the TiF3 material and its analogs have been synthesized more than half a century ago [34–41]. Very recently, their utilizations in hydrogen storage and photocatalysis were reported [42,43]. TiO2/TiF3 hybrids exhibit excellent visible-light photocatalytic reactivity in the photodegradation of methyl orange under visible light irradiation, which was attributed to the high concentration of Ti3+ species provided by TiF3 [42]. TiF3 can also act as an eﬃcient catalyst to facilitate hydrogen and dehydrogenation in a variety of reversible hydrogen storage materials, such as MgH2 and NaAlH4 [43]. Although the associated mechanism remains under debate, the interaction between TiF3 and hydrogen is expected to play an important role in the catalytic processes. However, the electrocatalytic HER performance of TiF3 in water splitting to produce hydrogen has never been reported to date.
+These materials exhibit diverse electronic properties. TiF3 crystal has a spin-polarized ground state with remarkable spin-splitting of about 1.4 eV, as shown in Fig. S1(b). Each Ti ion owns ~1 μB magnetic moments. Half-metallicity is quite evident in the band structure of TiF3 crystal. The Fermi level crosses the bands of one spin channel, leading to abundant electronic states at the Fermi level, whereas a large band gap of about 8.00 eV appears in the opposite spin channel. The bands in the proximity of the Fermi level are rather dispersive in the momentum space, suggesting good conductivity of the conducting spin channel. The origin of the electron spin-polarization has been reported in our previous work [44]. Electron spin-polarization has also been found in the electronic band structures of NbF3, TaF3 and MoF3 crystals. Similar to the case of TiF3, NbF3 and TaF3 are half-metals and each metal ion owns ~2 μB magnetic moments. MoF3 is a spin-polarized semiconductor where each Mo ion carries ~3 μB magnetic moments. No spin-polarization was found in ScF3, WO3, and ReO3 crystals. The electronic structures of these materials are summarized in Fig. S1.
+In these line-centered cubic lattices, the (001) surfaces have the lowest density of dangling bonds and thus are more accessible in experiments. The energetic preferability of the (001) surfaces was also been conﬁrmed by the surface energy calculations, as seen in Table S1. In the work, we choose the (001) surface of these materials to investigate the ability of hydrogen adsorption. A slab model of a 2 × 2 nanosheet terminated by two (001) planes was adopted, as shown in Fig. 1(a). The slab lattice parameters were ﬁxed to the optimized cell parameters of bulk crystals, to mimic the support bulk. For simpliﬁcation, the nanosheets contain only three atomic layers with the atoms on the lowest layer been ﬁxed to mimic bulk eﬀect. We also checked the convergence of this model by employing a thicker model contains more atomic layers and got the same conclusion, as shown in Fig. S2.
+Now we take the TiF3 nanosheet as a representative model to describe the adsorption of hydrogen on the (001) plane of these materials. The possible adsorption sites include the center of a square (H site), the top of a Ti atom (T1 site) or an F atom (T2 site), and the top of a TieF bond (B site), as shown in Fig. 1(a). It is found that the H atom can stably adsorb on these sites expect the B site. The H atom placed at the B site moves to the T1 site during structural relaxation.
+We deﬁned the binding energy (Eb) of a H atom on the TiF3 nanosheet as Eb=EH+TiF3−ETiF3−EH, where EH+TiF3, ETiF3 represent the
+
+2
+
+J. Wang, et al.
+
+Applied Surface Science 495 (2019) 143623
+
+Fig. 1. (a) Top and side views of possible adsorption sites on the pristine TiF3 nanosheets. (b) Diﬀerential charge densities of H adsorbed on the TiF3 nanosheet. Yellow and blue colors indicate the electron accumulation and depletion, respectively. The isovalue is 0.002 e Å−3. (For interpretation of the references to colour in
+this ﬁgure legend, the reader is referred to the web version of this article.)
+
+total energies of TiF3 nanosheets with and without H adsorption, EH is the energy of an isolated H atom. The Eb values calculated from our calculations are −2.514 eV (for the T1 site), −1.871 eV (for the T2 site) and 0.485 eV (for the H site), respectively. The T1 site (top of Ti) is the
+energetically most preferable for H adsorption. Generally, an obvious
+electron-accepting region is commonly found around the H atom, representing a signiﬁcant electron transfer from TiF3 to H, as shown in Fig. 1(b). This is also consistent with the larger electronegativity of H
+than that of Ti. The amounts of electron transfer were quantitatively
+evaluated by performing Bader charge analysis [45]. About 0.46 elec-
+trons transfer from the TiF3 nanosheets to the adsorbed H atom. Generally, the overall HER pathway can be described by a three-
+state diagram comprising an initial state H+ + e−, an intermediate adsorbed H*, and a ﬁnal product 1/2H2 (Fig. 2a) [33,46–47]. The Gibbs free-energy of the intermediate state, |ΔGH⁎|, was regarded as a major descriptor of the HER activity. A smaller |ΔGH⁎| means high catalytic activity. The optimal value of |ΔGH⁎| is zero. The well-known highly eﬃcient Pt catalyst has |ΔGH⁎| ≈ 0.09 eV [46] (Fig. 2a). We also
+
+calculated the |ΔGH⁎| of the (111) surface of Pt crystal using the abovementioned strategy and found that it is about 0.12 eV. Notably, the HER overpotentials (η) of Pt-based electrocatalysts measured in experiments are highly dependent on the composition of the catalysts, which are −0.16 V for Pt/Ni3N nanosheets [48], –0.05 V for Pt-Ni/C octahedral [49], –0.052 V for Pt/C [50],–0.022 V for Pt-Ni-Co [50], –0.032 V for Pt/Ni(OH)2 [51], and −0.01 V for Pt/Fe-NF [52]. Our calculations showed that the ΔGH⁎ of TiF3 is only −0.03 eV for the T1 site, which is comparable to those of Pt-based catalysts. The HER free-energy dia-
+grams of TiF3 and its analogs are plotted in Fig. 2(a). TiF3 has two types of action sites, T1 and T2. The ΔGH⁎ of T2 site is about −0.55 eV. Notably, WO3 and ReO3 also exhibit high HER catalytic performance with the overpotentials of only −0.05 V and −0.22 V. However, ReO3 is not only as expensive as Pt but also a compound of acute toxicity, and
+thus unsuitable for water splitting to produce hydrogen in practical
+applications.
+We then investigated the HER free-energy diagrams of TiF3, WO3 and ReO3 under diﬀerent H* coverage levels (θ). We considered four
+
+Fig. 2. (a) The calculated free-energy diagrams of HER at the equilibrium potential for TiF3 and its analogs and Pt reference. (b) Free-energy diagram of HER on the surface of TiF3 under diﬀerent H* coverage (0.25, 0.5, 0.75, and 1.0) conditions. Blue, argent, green spheres indicate the Ti, F and H atoms, respectively. (For interpretation of the references to colour in this ﬁgure legend, the reader is referred to the web version of this article.)
+
+3
+
+J. Wang, et al.
+levels of H* coverage with θ =0.25, 0.5, 0.75 and 1.0, corresponding to adsorbing 1, 2, 3 and 4 hydrogen atoms on a 2 × 2 supercell. The freeenergy diagrams under diﬀerent H* coverage are plotted in Figs. 2(b) and S3. The ΔGH⁎ of TiF3 increases to 0.05, 0.17 and 0.24 eV at θ = 0.5, 0.75 and 1.0, respectively. We can see that the HER performance of TiF3 is comparable to the Pt-catalysts as the H* coverage is lower than ~50%. For ReO3, high HER catalytic performance is maintained at diﬀerent H* coverage, as indicated by the stable ΔGH⁎ around −0.22 eV. For WO3, The ΔGH⁎ of TiF3 increases to 0.04, 0.17 and 0.26 eV at θ = 0.5, 0.75 and 1.0, it is noteworthy that the HER free energies of WO3 and TiF3 exhibit uniform trend with the increase of H* coverage. The stability of the ΔGH⁎ values is crucial for maintaining high HER performance of the catalysts at diﬀerent H* coverage levels.
+The apparent activity of electrocatalyst materials can be improved through two strategies. One is climbing to the top of the volcano plot through optimizing ΔGH⁎. The other is modifying the physiochemical properties of catalysts to increase the density of the exposed active sites for an identiﬁed sample. The ﬁrst strategy can be achieved through the principle that the catalytic property of a catalyst is determined by its electronic structure [53]. A descriptor was always introduced to describe the relationship between ΔGH⁎ and electronic structure. Here, we established a descriptor based on the electron density of states (DOS) to show the relationship between ΔGH⁎ and electronic structure. We enumerated seven relationships, as shown in Supplementary Fig. S4, and found that the weighted center of total DOS without the adsorption of H below the Fermi level (DOS2) shows a better linear relation with ΔGH⁎ for the crystals considered in this work, as shown in Fig. 3(a). The closer the weighted center of total DOS is to the Fermi level, the stronger the H* adsorption strength will be. Considering the decisive role of d orbitals in the formation of H-M bonds, only the d-projected DOS of transition metal atom in the adsorption position is presented. The adsorption strength of hydrogen is connected to the center of the d-orbit of the underlying metal atom. As the center is closer to the Fermi level, stronger interaction between adsorbate and catalyst surface will be
+
+Applied Surface Science 495 (2019) 143623
+obtained. The relationship between the surface adsorption ability of a material
+and its electronic structure can be explained in terms of bond formation. When a proton from the electrolyte combines with an electron from the electrode on the catalyst surface to form a H*, the electronic states of the active transition metal interacts with those of hydrogen, and consequently their hybridized energy levels split into two: antibonding states (σ∗) that is normally above the Fermi level and the bonding states (σ) under the Fermi level. The adsorption strength of H on the catalyst surface can be tuned by the position of the anti-bonding states, that is, the closer the anti-bonding states to the Fermi level, the weaker the interaction between catalyst surface and hydrogen and vice versa, as elucidated in Fig. 3(b). The occupation of anti-bonding states weakens the adsorption of the H on the catalyst surface.
+The surface reconstruction of these catalysts also aﬀects their interaction with H. TiF3 and its analogs undergo a z-in Jahn-Teller (JT) distortion, forming a compressed octahedral structure. Therefore, the electron wavefunction overlap between the catalyst surface and H atom mainly is more remarkable along the z-direction than other directions. This is consistent with the partial spin-resolved electron density of the eg states of the transition metal atom, (Figs. 3(c), S5) which shows that the contributions of the dz2 orbit are closer to the Fermi level than those of the dx2-y2 orbit. The energy and wavefunctions of these dz2 states facilitate the strong interaction with H, i.e., the closer the center of dz2 orbit to the Fermi level, the stronger interaction between adsorbate and catalyst surface will be obtained (Fig. S4(g)).
+Finally, we discussed the catalytic performance of TiF3 and its analogs. We found that H2O prefers to absorb on the top of Ti (T1 site) on the surface with the binding energy of 0.67 eV. The decomposition from H3O+ to H+ and H2O is barrierless, which is beneﬁcial for the Volmer step. We evaluated the kinetic barriers for two adsorbed H* species on the active sites of TiF3, WO3 and ReO3 to form a H2 molecule in the framework of the Tafel mechanism. In the initial state, the distances between the H atom and the active sites are 1.72 Å, 1.74 Å and
+
+Fig. 3. (a) The relationship between ΔGH⁎ and the weighted center of projected d-orbital density of states of transition metal atom without hydrogen adsorption. Only the occupied states are taken into accounted. (b) The center of the anti-bonding states projected on the d orbitals of transition metal atom and s orbitals of the H atom. (c) The spin-resolved electron density of the eg states projected onto the Ti on the surface of TiF3. (d) Energy level diagram of orbital hybridization of active sites and hydrogen adsorbate. EF is the Fermi level of the substrate; σ∗ and σ indicate bonding and anti-bonding states, respectively.
+
+4
+
+J. Wang, et al.
+
+Applied Surface Science 495 (2019) 143623
+
+Fig. 4. Free energy proﬁles of Tafel mechanism pathway for hydrogen evolution on TiF3.
+1.67 Å for TiF3, WO3 and ReO3, respectively. The energy barriers between the initial states and the adsorbing states are determined to be 1.90 eV (TiF3), 3.11 eV (WO3) and 3.89 eV (ReO3), respectively, as shown in Figs. 4 and S6. Notably, the energy barrier of TiF3 is comparable to the values of freestanding carbon-based materials (~2 eV) [16], N-doped graphene on Fe substrate (1.93 eV) [54]. From a thermodynamic point of view, TiF3 provides suitable binding strength for HER catalysis.
+4. Conclusions
+In summary, we proposed from ﬁrst-principles calculations a new family of electrocatalytic materials with intrinsic porous structures TiF3 and its analogs, for hydrogen evolution reaction. They are predicted to have wonderful HER catalytic performance characterized by low free-energy changes, TiF3 (ΔGH⁎ = −0.03 eV), WO3 (ΔGH⁎ = −0.05 eV). A descriptor based on the d-band center is proposed to reveal the origins of catalytic activity. These theoretical results are expected to oﬀer a vital guidance for the design of high-eﬃcient hydrogen evolution reaction electrocatalysts.
+Declaration of competing interest
+There are no conﬂicts to declare.
+Acknowledgement
+This study is supported by the National Natural Science Foundation of China (No. 11774201) and the Basic Research Project of Natural Science Foundation of Shandong Province (ZR2018ZB0751).
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https:// doi.org/10.1016/j.apsusc.2019.143623.
+References
+[1] M.S. Dresselhaus, I.L. Thomas, Alternative energy technologies, Nature 414 (2001) 332–337.
+[2] Z.W. Seh, J. Kibsgaard, C.F. Dickens, I. Chorkendorﬀ, J.K. Norskov, T.F. Jaramillo, Combining theory and experiment in electrocatalysis: insights into materials design, Science 355 (2017) eaad4998.
+[3] J.A. Turner, Sustainable hydrogen production, Science 305 (2004) 972–974. [4] Y. Jiao, Y. Zheng, M. Jaroniec, S. Qiao, Design of electrocatalysts for oxygen- and
+hydrogen-involving energy conversion reactions, Chem. Soc. Rev. 44 (2015) 2060–2086. [5] B.E. Conway, B.V. Tilak, Interfacial processes involving electrocatalytic evolution and oxidation of H2, and the role of chemisorbed H, Electrochim. Acta 47 (2002) 3571–3594. [6] J.D. Benck, T.R. Hellstern, J. Kibsgaard, P. Chakthranont, T.F. Jaramillo, Catalyzing the hydrogen evolution reaction (HER) with molybdenum sulﬁde nanomaterials,
+
+ACS Catal. 4 (2014) 3957–3971. [7] T.F. Jaramillo, K.P. Jorgensen, J. Bonde, J.H. Nielsen, S. Horch, I. Chorkendorﬀ,
+Identiﬁcation of active edge sites for electrochemical H2 evolution from MoS2 nanocatalysts, Science 317 (2007) 100–102. [8] R. Miao, B. Dutta, S. Sahoo, J. He, W. Zhong, S.A. Cetegen, T. Jiang, S.P. Alpay, S.L. Suib, Mesoporous Iron sulﬁde for highly eﬃcient electrocatalytic hydrogen evolution, J. Am. Chem. Soc. 139 (2017) 13604–13607. [9] G. Gao, Y. Jiao, F. Ma, Y. Jiao, E. Waclawik, A. Du, Charge mediated semiconducting-to-metallic phase transition in molybdenum disulﬁde monolayer and hydrogen evolution reaction in new 1T′ phase, J. Phys. Chem. C 119 (2015) 13124–13128. [10] G. Gao, Q. Sun, A. Du, Activating catalytic inert basal plane of molybdenum disulﬁde to optimize hydrogen evolution activity via defect doping and strain engineering, J. Phys. Chem. C 120 (2016) 16761–16766. [11] W. Chen, C.H. Wang, K. Sasaki, N. Marinkovic, W. Xu, J.T. Muckerman, Y. Zhu, R.R. Adzic, Highly active and durable nanostructured molybdenum carbide electrocatalysts for hydrogen production, Energy Environ. Sci. 6 (2013) 943–951. [12] B.F. Cao, G.M. Veith, J.C. Neuefeind, R.R. Adzic, P.G. Khalifah, Mixed close-packed
+cobalt molybdenum nitrides as non-noble metal electrocatalysts for the hydrogen evolution reaction, J. Am. Chem. Soc. 135 (2013) 19186–19192. [13] P. Jiang, Q. Liu, X. Sun, NiP2 nanosheet arrays supported on carbon cloth: an efﬁcient 3d hydrogen evolution cathode in both acidic and alkaline solutions, Nanoscale 6 (2014) 13440–13445. [14] R. Wu, J. Zhang, Y. Shi, D. Liu, B. Zhang, Metallic WO2–carbon mesoporous nanowires as highly eﬃcient electrocatalysts for hydrogen evolution reaction, J. Am. Chem. Soc. 137 (2015) 6983–6986. [15] G. Gao, A.P. O'Mullane, A. Du, 2D MXenes: a new family of promising catalysts for the hydrogen evolution reaction, ACS Catal. 7 (2016) 494–500. [16] Y. Jiao, Y. Zheng, K.R. Davey, S. Qiao, Activity origin and catalyst design principles for electrocatalytic hydrogen evolution on heteroatom-doped graphene, Nat.
+Energy 1 (2016) 16130.
+[17] Y. Zheng, Y. Jiao, Y. Zhu, L.H. Li, Y. Han, Y. Chen, A. Du, M. Jaroniec, S. Qiao, Hydrogen evolution by a metal-free electrocatalyst, Nat. Commun. 5 (2014) 3783.
+[18] G. Gao, Y. Jiao, F. Ma, Y. Jiao, E. Waclawik, A. Du, Metal-free graphitic carbon nitride as mechano-catalyst for hydrogen evolution reaction, J. Catal. 332 (2015) 149–155.
+[19] W. Zhou, J. Zhou, Y. Zhou, J. Lu, K. Zhou, L. Yang, Z. Tang, L. Li, S. Chen, N-doped carbon-wrapped cobalt nanoparticles on N-doped graphene nanosheets for higheﬃciency hydrogen production, Chem. Mater. 27 (2015) 2026–2032.
+[20] Z. Fang, L. Peng, Y. Qian, X. Zhang, Y. Xie, J.J. Cha, G. Yu, Dual tuning of Ni–Co–A (A = P, Se, O) nanosheets by anion substitution and holey engineering for eﬃcient hydrogen evolution, J. Am. Chem. Soc. 140 (2018) 5241–5247.
+[21] J. Wang, F. Li, X. Liu, H. Zhou, X. Shao, Y. Qu, M. Zhao, Cu3N and its analogs: a new class of electrodes for lithium ion batteries, J. Mater. Chem. A 5 (2017) 8762–8768.
+[22] G. Kresse, D. Joubert, From ultrasoft pseudopotentials to the projector augmentedwave method, Phys. Rev. B 59 (1999) 1758–1775.
+[23] G. Kresse, J. Furthmuller, Eﬃcient iterative schemes for ab initio total-energy calculations using a plane-wave basis set, Phys. Rev. B 54 (1996) 11169–11186.
+[24] J.P. Perdew, K. Burke, Y. Wang, Generalized gradient approximation for the exchange-correlation hole of a many-electron system, Phys. Rev. B 54 (1996) 16533–16539.
+[25] J.P. Perdew, K. Burke, M. Ernzerhof, Generalized gradient approximation made simple, Phys. Rev. Lett. 77 (1996) 3865–3868.
+[26] J. Heyd, G.E. Scuseria, M. Ernzerhof, Hybrid functionals based on a screened coulomb potential, J. Chem. Phys. 118 (2003) 8207–8215.
+[27] D.J. Chadi, Special points for Brillouin-zone integrations, Phys. Rev. B 16 (1977) 1746–1747.
+[28] S. Grimme, Semiempirical Gga-type density functional constructed with a longrange dispersion correction, J. Comput. Chem. 27 (2006) 1787–1799.
+[29] G. Henkelman, B.P. Uberuaga, H. Jónsson, A climbing image nudged elastic band method for ﬁnding saddle points and minimum energy paths, J. Chem. Phys. 113 (2000) 9901–9904.
+[30] G. Henkelman, H. Jónsson, Improved tangent estimate in the nudged elastic band method for ﬁnding minimum energy paths and saddle points, J. Chem. Phys. 113 (2000) 9978–9985.
+[31] J. Rossmeisl, Z.W. Qu, H. Zhu, G.J. Kroes, J.K. Nørskov, Electrolysis of water on oxide surfaces, J. Electroanal. Chem. 607 (2007) 83–89.
+[32] J. Rossmeisl, A. Logadottir, J.K. Nørskov, Electrolysis of water on (oxidized) metal surfaces, Chem. Phys. 319 (2005) 178–184.
+[33] H. Xu, D. Cheng, D. Cao, X.C. Zeng, A universal principle for a rational design of single-atom electrocatalysts, Nat. Catal. 1 (2018) 339–348.
+[34] P. Ehrlich, G. Pietzka, Über Titantriﬂuorid, Z. Anorg. Allg. Chem. 275 (1954) 121–140.
+[35] K. Vorres, J. Donohue, The structure of titanium oxydiﬂuoride, Acta Crystallogr. 8 (1955) 25–26.
+[36] B.J. Kennedy, T. Vogt, Power X-ray diﬀraction study of the rhombohedral to cubic phase transition in TiF3, Mater. Res. Bull. 37 (2002) 77–83.
+[37] K. Meisel, Rheniumtrioxyd. Über Die Kristallstruktur Des Rheniumtrioxyds, Z. Anorg. Allg. Chem. 207 (1932) 121–128.
+[38] L.S. Palatnik, O.A. Obol'yaninova, M.N. Naboka, N.T. Gladkikh, New modiﬁcations of tungsten oxides, Inorg. Mater. 9 (1973) 801–804.
+[39] P. Ehrlich, F. Plöger, G. Pietzka, Über Niobtriﬂuorid, Z. Anorg. Allg. Chem. 282 (1955) 19–23.
+[40] V. Gutman, K. Jack, The crystal structures of molybdenum triﬂuoride, MoF3, and tantalum triﬂuoride, TaF3, Acta Crystallogr. 4 (1951) 244–246.
+[41] P. Fedorov, B. Sobelev, V. Trncova, Ionic conductivity and dielectric relaxation of
+
+5
+
+J. Wang, et al.
+
+Applied Surface Science 495 (2019) 143623
+
+scandium ﬂuoride, Crystallogr. Rep. 40 (1995) 663–666. [42] X. Meng, B. Huang, X. Ma, Z. Wang, Z. Zheng, J. Wang, X. Qin, X. Zhang, Y. Dai, A
+Ti3+:TiO2/TiF3 hybrid with enhanced visible-light photocatalytic reactivity, CrystEngcomm 16 (2014) 6538–6541. [43] R.R. Shahi, A. Bhatnagar, S.K. Pandey, V. Dixit, O.N. Srivastava, Eﬀects of Ti-based catalysts and synergistic eﬀect of Swcnts-TiF3 on hydrogen uptake and release from MgH2, Int. J. Hydrog. Energy 39 (2014) 14255–14261. [44] J. Wang, F. Li, B. Yang, X. Liu, M. Zhao, Half-metallic TiF3: a potential anode material for Li-ion spin batteries, J. Mater. Chem. A 5 (2017) 21486–21490. [45] G. Henkelman, A. Arnaldsson, H. Jonsson, A fast and robust algorithm for Bader decomposition of charge density, Comput. Mater. Sci. 36 (2006) 354–360. [46] J.K. Norskov, T. Bligaard, A. Logadottir, J.R. Kitchin, J.G. Chen, S. Pandelov,
+U. Stimming, Trends in the exchange current for hydrogen evolution, J. Electrochem. Soc. 152 (2005) J23–J26. [47] J.K. Norskov, T. Bligaard, J. Rossmeisl, C.H. Christensen, Towards the computational design of solid catalysts, Nat. Chem. 1 (2009) 37–46. [48] Y. Wang, L. Chen, X. Yu, Y. Wang, G. Zheng, Superb alkaline hydrogen evolution
+and simultaneous electricity generation by Pt-decorated Ni3N nanosheets, Adv. Energy Mater. 7 (2017) 1601390.
+
+[49] R. Kavian, S. Choi, J. Park, T. Liu, H.C. Peng, N. Lu, J. Wang, M.J. Kim, Y. Xia, S.W. Lee, Pt–Ni octahedral nanocrystals as a class of highly active electrocatalysts toward the hydrogen evolution reaction in an alkaline electrolyte, J. Mater. Chem. A 4 (2016) 12392–12397.
+[50] A. Oh, Y.J. Sa, H. Hwang, H. Baik, J. Kim, B. Kim, S.H. Joo, K. Lee, Rational design of Pt-Ni-Co ternary alloy nanoframe crystals as highly eﬃcient catalysts toward the alkaline hydrogen evolution reaction, Nanoscale 8 (2016) 16379–16386.
+[51] S.A. Abbas, S.H. Kim, M.I. Iqbal, S. Muhammad, W.S. Yoon, K.D. Jung, Synergistic eﬀect of nano-Pt and Ni spine for her in alkaline solution: hydrogen spillover from nano-Pt to Ni spine, Sci. Rep. 8 (2018) 2986.
+[52] L. Huang, Y. Hou, Z. Yu, Z. Peng, L. Wang, J. Huang, B. Zhang, L. Qian, L. Wu, Z. Li, Pt/Fe-NF electrode with high double-layer capacitance for eﬃcient hydrogen evolution reaction in alkaline media, Int. J. Hydrog. Energy 42 (2017) 9458–9466.
+[53] B. Hammer, J.K. Norskov, Theoretical surface science and catalysis: calculations and concepts, Adv. Catal. 45 (2000) 71–129.
+[54] W. Pei, S. Zhou, Y. Bai, J. Zhao, N-doped graphitic carbon materials hybridized with transition metals (compounds) for hydrogen evolution reaction: understanding the synergistic eﬀect from atomistic level, Carbon 133 (2018) 260–266.
+
+6
+
