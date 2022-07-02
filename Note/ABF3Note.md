@@ -31,7 +31,10 @@
    1 1 -1 -1 -1 1.359407144 0.866
    ```
 
-   ​	- The first two entries indicate the sites, which corresponds to the types that one whishes to map
+   	- The first two entries indicate the sites, which corresponds to the types that one whishes to map
+    - third - fifth entries
+      - maptype = 1: the vector is specified in carteisan coodinates.
+      - maptype = 2:  the coordination vector is put in basis coordinates
 
 ## Analysis
 
