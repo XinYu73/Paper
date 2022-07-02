@@ -16,9 +16,9 @@
 	},
 	"priority": 100,
 	"configOptions": {
-		"hash": "c823865cffef626f98106561016e9d147fe9dba295167290dc568c7d76d741b2"
+		"hash": "304d8dc8c472e2e370fe9bfe7fe63ee8848fa492f390b6ef2627534919a3cd4b"
 	},
-	"lastUpdated": "2022-06-14"
+	"lastUpdated": "2022-06-30"
 }
 
 ZOTERO_CONFIG = {"GUID":"zotero@chnm.gmu.edu","ID":"zotero","CLIENT_NAME":"Zotero","DOMAIN_NAME":"zotero.org","PRODUCER":"Digital Scholar","PRODUCER_URL":"https://digitalscholar.org","REPOSITORY_URL":"https://repo.zotero.org/repo/","BASE_URI":"http://zotero.org/","WWW_BASE_URL":"https://www.zotero.org/","PROXY_AUTH_URL":"https://zoteroproxycheck.s3.amazonaws.com/test","API_URL":"https://api.zotero.org/","STREAMING_URL":"wss://stream.zotero.org/","SERVICES_URL":"https://services.zotero.org/","API_VERSION":3,"CONNECTOR_MIN_VERSION":"5.0.39","PREF_BRANCH":"extensions.zotero.","BOOKMARKLET_ORIGIN":"https://www.zotero.org","BOOKMARKLET_URL":"https://www.zotero.org/bookmarklet/","START_URL":"https://www.zotero.org/start","QUICK_START_URL":"https://www.zotero.org/support/quick_start_guide","PDF_TOOLS_URL":"https://www.zotero.org/download/xpdf/","SUPPORT_URL":"https://www.zotero.org/support/","SYNC_INFO_URL":"https://www.zotero.org/support/sync","TROUBLESHOOTING_URL":"https://www.zotero.org/support/getting_help","FEEDBACK_URL":"https://forums.zotero.org/","CONNECTORS_URL":"https://www.zotero.org/download/connectors","CHANGELOG_URL":"https://www.zotero.org/support/changelog","CREDITS_URL":"https://www.zotero.org/support/credits_and_acknowledgments","LICENSING_URL":"https://www.zotero.org/support/licensing","GET_INVOLVED_URL":"https://www.zotero.org/getinvolved","DICTIONARIES_URL":"https://download.zotero.org/dictionaries/"}
@@ -281,6 +281,7 @@ var Citationgraph__Translator__doExport = (() => {
     "importExtra",
     "importJabRefAbbreviations",
     "importJabRefStrings",
+    "importNoteToExtra",
     "importSentenceCase",
     "importUnknownTexCommand",
     "itemObserverDelay",
@@ -289,6 +290,7 @@ var Citationgraph__Translator__doExport = (() => {
     "keyConflictPolicy",
     "keyScope",
     "kuroshiro",
+    "language",
     "mapMath",
     "mapText",
     "mapUnicode",
@@ -343,6 +345,7 @@ var Citationgraph__Translator__doExport = (() => {
     exportBraceProtection: ["Better BibLaTeX", "Better BibTeX"],
     exportTitleCase: ["Better BibLaTeX", "Better BibTeX"],
     jabrefFormat: ["Better BibLaTeX", "Better BibTeX"],
+    language: ["Better BibLaTeX", "Better BibTeX"],
     mapMath: ["Better BibLaTeX", "Better BibTeX"],
     mapText: ["Better BibLaTeX", "Better BibTeX"],
     mapUnicode: ["Better BibLaTeX", "Better BibTeX"],
@@ -402,6 +405,7 @@ var Citationgraph__Translator__doExport = (() => {
     importExtra: true,
     importJabRefAbbreviations: true,
     importJabRefStrings: true,
+    importNoteToExtra: "",
     importSentenceCase: "on+guess",
     importUnknownTexCommand: "ignore",
     itemObserverDelay: 5,
@@ -410,6 +414,7 @@ var Citationgraph__Translator__doExport = (() => {
     keyConflictPolicy: "keep",
     keyScope: "library",
     kuroshiro: false,
+    language: "langid",
     mapMath: "",
     mapText: "",
     mapUnicode: "conservative",
@@ -449,55 +454,522 @@ var Citationgraph__Translator__doExport = (() => {
       displayOptions: ["useJournalAbbreviation", "exportNotes"]
     },
     translator: {
-      "Better BibTeX": {
-        autoexport: true,
-        cached: true,
-        preferences: ["asciiBibTeX", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
-        displayOptions: ["exportNotes", "useJournalAbbreviation"],
-        types: {
-          asciiBibTeX: { type: "boolean" },
-          bibtexParticleNoOp: { type: "boolean" },
-          bibtexURL: { enum: ["off", "note", "note-url-ish", "url", "url-ish"] },
-          DOIandURL: { enum: ["both", "doi", "url"] },
-          exportNotes: { type: "boolean" },
-          useJournalAbbreviation: { type: "boolean" }
-        }
+      "Better CSL JSON": {
+        autoexport: {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "collection",
+                "library"
+              ]
+            },
+            "id": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "scheduled",
+                "running",
+                "done",
+                "error"
+              ]
+            },
+            "translatorID": {
+              "const": "f4b52ab0-f878-4556-85a0-c7aeedd09dfc"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "error": {
+              "type": "string"
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "path",
+            "status",
+            "translatorID"
+          ]
+        },
+        cache: {
+          "type": "object",
+          "properties": {
+            "itemID": {
+              "type": "integer"
+            },
+            "entry": {
+              "type": "string"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "itemID",
+            "exportNotes",
+            "useJournalAbbreviation",
+            "entry"
+          ],
+          "additionalProperties": false
+        },
+        preferences: [],
+        displayOptions: []
       },
       "Better BibLaTeX": {
-        autoexport: true,
-        cached: true,
+        autoexport: {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "collection",
+                "library"
+              ]
+            },
+            "id": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "scheduled",
+                "running",
+                "done",
+                "error"
+              ]
+            },
+            "translatorID": {
+              "const": "f895aa0d-f28e-47fe-b247-2ea77c6ed583"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "asciiBibLaTeX": {
+              "type": "boolean"
+            },
+            "biblatexExtendedNameFormat": {
+              "type": "boolean"
+            },
+            "DOIandURL": {
+              "enum": [
+                "both",
+                "doi",
+                "url"
+              ]
+            },
+            "error": {
+              "type": "string"
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "path",
+            "status",
+            "translatorID",
+            "exportNotes",
+            "useJournalAbbreviation",
+            "asciiBibLaTeX",
+            "biblatexExtendedNameFormat",
+            "DOIandURL"
+          ]
+        },
+        cache: {
+          "type": "object",
+          "properties": {
+            "itemID": {
+              "type": "integer"
+            },
+            "entry": {
+              "type": "string"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "asciiBibLaTeX": {
+              "type": "boolean"
+            },
+            "biblatexExtendedNameFormat": {
+              "type": "boolean"
+            },
+            "DOIandURL": {
+              "enum": [
+                "both",
+                "doi",
+                "url"
+              ]
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "itemID",
+            "exportNotes",
+            "useJournalAbbreviation",
+            "asciiBibLaTeX",
+            "biblatexExtendedNameFormat",
+            "DOIandURL",
+            "entry"
+          ],
+          "additionalProperties": false
+        },
         preferences: ["asciiBibLaTeX", "biblatexExtendedNameFormat", "DOIandURL"],
-        displayOptions: ["exportNotes", "useJournalAbbreviation"],
-        types: {
-          asciiBibLaTeX: { type: "boolean" },
-          biblatexExtendedNameFormat: { type: "boolean" },
-          DOIandURL: { enum: ["both", "doi", "url"] },
-          exportNotes: { type: "boolean" },
-          useJournalAbbreviation: { type: "boolean" }
-        }
+        displayOptions: ["exportNotes", "useJournalAbbreviation"]
       },
-      "Better CSL JSON": {
-        autoexport: true,
-        cached: true,
-        preferences: [],
-        displayOptions: [],
-        types: {}
+      "Better BibTeX": {
+        autoexport: {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "collection",
+                "library"
+              ]
+            },
+            "id": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "scheduled",
+                "running",
+                "done",
+                "error"
+              ]
+            },
+            "translatorID": {
+              "const": "ca65189f-8815-4afe-8c8b-8c7c15f0edca"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "asciiBibTeX": {
+              "type": "boolean"
+            },
+            "bibtexParticleNoOp": {
+              "type": "boolean"
+            },
+            "bibtexURL": {
+              "enum": [
+                "off",
+                "note",
+                "note-url-ish",
+                "url",
+                "url-ish"
+              ]
+            },
+            "DOIandURL": {
+              "enum": [
+                "both",
+                "doi",
+                "url"
+              ]
+            },
+            "error": {
+              "type": "string"
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "path",
+            "status",
+            "translatorID",
+            "exportNotes",
+            "useJournalAbbreviation",
+            "asciiBibTeX",
+            "bibtexParticleNoOp",
+            "bibtexURL",
+            "DOIandURL"
+          ]
+        },
+        cache: {
+          "type": "object",
+          "properties": {
+            "itemID": {
+              "type": "integer"
+            },
+            "entry": {
+              "type": "string"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "asciiBibTeX": {
+              "type": "boolean"
+            },
+            "bibtexParticleNoOp": {
+              "type": "boolean"
+            },
+            "bibtexURL": {
+              "enum": [
+                "off",
+                "note",
+                "note-url-ish",
+                "url",
+                "url-ish"
+              ]
+            },
+            "DOIandURL": {
+              "enum": [
+                "both",
+                "doi",
+                "url"
+              ]
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "itemID",
+            "exportNotes",
+            "useJournalAbbreviation",
+            "asciiBibTeX",
+            "bibtexParticleNoOp",
+            "bibtexURL",
+            "DOIandURL",
+            "entry"
+          ],
+          "additionalProperties": false
+        },
+        preferences: ["asciiBibTeX", "bibtexParticleNoOp", "bibtexURL", "DOIandURL"],
+        displayOptions: ["exportNotes", "useJournalAbbreviation"]
       },
       "BetterBibTeX JSON": {
-        autoexport: true,
-        cached: false,
+        autoexport: {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "collection",
+                "library"
+              ]
+            },
+            "id": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "scheduled",
+                "running",
+                "done",
+                "error"
+              ]
+            },
+            "translatorID": {
+              "const": "36a3b0b5-bad0-4a04-b79b-441c7cef77db"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "error": {
+              "type": "string"
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "path",
+            "status",
+            "translatorID",
+            "exportNotes"
+          ]
+        },
+        cache: false,
         preferences: [],
-        displayOptions: ["exportNotes"],
-        types: {
-          exportNotes: { type: "boolean" }
-        }
+        displayOptions: ["exportNotes"]
       },
       "Better CSL YAML": {
-        autoexport: true,
-        cached: true,
+        autoexport: {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "collection",
+                "library"
+              ]
+            },
+            "id": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "scheduled",
+                "running",
+                "done",
+                "error"
+              ]
+            },
+            "translatorID": {
+              "const": "0f238e69-043e-4882-93bf-342de007de19"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "error": {
+              "type": "string"
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "path",
+            "status",
+            "translatorID"
+          ]
+        },
+        cache: {
+          "type": "object",
+          "properties": {
+            "itemID": {
+              "type": "integer"
+            },
+            "entry": {
+              "type": "string"
+            },
+            "exportNotes": {
+              "type": "boolean"
+            },
+            "useJournalAbbreviation": {
+              "type": "boolean"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "meta": {
+              "type": "object"
+            },
+            "$loki": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "itemID",
+            "exportNotes",
+            "useJournalAbbreviation",
+            "entry"
+          ],
+          "additionalProperties": false
+        },
         preferences: [],
-        displayOptions: [],
-        types: {}
+        displayOptions: []
       }
     }
   };
@@ -671,6 +1143,10 @@ var Citationgraph__Translator__doExport = (() => {
         acc[pref] = (_b2 = (_a2 = this.getPreferenceOverride(pref)) != null ? _a2 : Zotero.getHiddenPref(`better-bibtex.${pref}`)) != null ? _b2 : dflt;
         return acc;
       }, {});
+      this.importToExtra = {};
+      this.preferences.importNoteToExtra.toLowerCase().split(/\s*,\s*/).filter((field) => field).forEach((field) => {
+        this.importToExtra[field.replace(/\s*=.*/, "")] = field.match(/\s*=\s*force$/) ? "force" : "plain";
+      });
       this.skipFields = this.preferences.skipFields.toLowerCase().split(",").map((field) => this.typefield(field)).filter((s) => s);
       this.skipField = this.skipFields.reduce((acc, field) => {
         acc[field] = true;
@@ -712,7 +1188,7 @@ var Citationgraph__Translator__doExport = (() => {
           this.registerCollection(collection, "");
         }
       }
-      if (!this.initialized && mode === "export" && this.preferences.testing && typeof __estrace === "undefined" && ((_e = schema.translator[ZOTERO_TRANSLATOR_INFO.label]) == null ? void 0 : _e.cached)) {
+      if (!this.initialized && mode === "export" && this.preferences.testing && typeof __estrace === "undefined" && ((_e = schema.translator[ZOTERO_TRANSLATOR_INFO.label]) == null ? void 0 : _e.cache)) {
         const ignored = ["testing"];
         this.preferences = new Proxy(this.preferences, {
           set: (object, property, _value) => {
