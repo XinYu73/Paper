@@ -1,0 +1,2662 @@
+Using MPI
+
+Scientiﬁc and Engineering Computation William Gropp and Ewing Lusk, editors; Janusz Kowalik, founding editor
+A complete list of books published in the Scientiﬁc and Engineering Computation series appears at the back of this book.
+
+Using MPI Portable Parallel Programming with the Message-Passing Interface Third Edition William Gropp Ewing Lusk Anthony Skjellum
+The MIT Press Cambridge, Massachusetts London, England
+
+c 2014 Massachusetts Institute of Technology All rights reserved. No part of this book may be reproduced in any form by any electronic or mechanical means (including photocopying, recording, or information storage and retrieval) without permission in writing from the publisher. This book was set in LATEX by the authors and was printed and bound in the United States of America. Library of Congress Cataloging-in-Publication Data Gropp, William. Using MPI : portable parallel programming with the Message-Passing Interface / William Gropp, Ewing Lusk, and Anthony Skjellum. — Third edition.
+p. cm. — (Scientiﬁc and engineering computation) Includes bibliographical references and index. ISBN 978-0-262-52739-2 (pbk. : alk. paper) 1. Parallel programming (Computer science) 2. Parallel computers—Programming. 3. Computer interfaces. I. Lusk, Ewing. II. Skjellum, Anthony. III. Title. IV. Title: Using Message-Passing Interface. QA76.642.G76 2014 005.2’75—dc23
+2014033587
+10 9 8 7 6 5 4 3 2 1
+
+To Patty, Brigid, and Jennifer
+
+Contents
+
+Series Foreword
+
+xiii
+
+Preface to the Third Edition
+
+xv
+
+Preface to the Second Edition
+
+xix
+
+Preface to the First Edition
+
+xxi
+
+1
+
+Background
+
+1
+
+1.1 Why Parallel Computing?
+
+1
+
+1.2 Obstacles to Progress
+
+2
+
+1.3 Why Message Passing?
+
+3
+
+1.3.1 Parallel Computational Models
+
+3
+
+1.3.2 Advantages of the Message-Passing Model
+
+9
+
+1.4 Evolution of Message-Passing Systems
+
+10
+
+1.5 The MPI Forum
+
+11
+
+2
+
+Introduction to MPI
+
+13
+
+2.1 Goal
+
+13
+
+2.2 What Is MPI?
+
+13
+
+2.3 Basic MPI Concepts
+
+14
+
+2.4 Other Interesting Features of MPI
+
+18
+
+2.5 Is MPI Large or Small?
+
+20
+
+2.6 Decisions Left to the Implementor
+
+21
+
+3
+
+Using MPI in Simple Programs
+
+23
+
+3.1 A First MPI Program
+
+23
+
+3.2 Running Your First MPI Program
+
+28
+
+3.3 A First MPI Program in C
+
+29
+
+3.4 Using MPI from Other Languages
+
+29
+
+3.5 Timing MPI Programs
+
+31
+
+3.6 A Self-Scheduling Example: Matrix-Vector Multiplication
+
+32
+
+3.7 Studying Parallel Performance
+
+38
+
+3.7.1 Elementary Scalability Calculations
+
+39
+
+viii
+
+Contents
+
+3.7.2 Gathering Data on Program Execution
+
+41
+
+3.7.3 Instrumenting a Parallel Program with MPE
+
+42
+
+Logging
+
+3.7.4 Events and States
+
+43
+
+3.7.5 Instrumenting the Matrix-Matrix Multiply Program
+
+43
+
+3.7.6 Notes on Implementation of Logging
+
+47
+
+3.7.7 Graphical Display of Logﬁles
+
+48
+
+3.8 Using Communicators
+
+49
+
+3.9 Another Way of Forming New Communicators
+
+55
+
+3.10 A Handy Graphics Library for Parallel Programs
+
+57
+
+3.11 Common Errors and Misunderstandings
+
+60
+
+3.12 Summary of a Simple Subset of MPI
+
+62
+
+3.13 Application: Computational Fluid Dynamics
+
+62
+
+3.13.1 Parallel Formulation
+
+63
+
+3.13.2 Parallel Implementation
+
+65
+
+4
+
+Intermediate MPI
+
+69
+
+4.1 The Poisson Problem
+
+70
+
+4.2 Topologies
+
+73
+
+4.3 A Code for the Poisson Problem
+
+81
+
+4.4 Using Nonblocking Communications
+
+91
+
+4.5 Synchronous Sends and “Safe” Programs
+
+94
+
+4.6 More on Scalability
+
+95
+
+4.7 Jacobi with a 2-D Decomposition
+
+98
+
+4.8 An MPI Derived Datatype
+
+100
+
+4.9 Overlapping Communication and Computation
+
+101
+
+4.10 More on Timing Programs
+
+105
+
+4.11 Three Dimensions
+
+106
+
+4.12 Common Errors and Misunderstandings
+
+107
+
+4.13 Application: Nek5000/NekCEM
+
+108
+
+5
+
+Fun with Datatypes
+
+113
+
+Contents
+
+ix
+
+5.1 MPI Datatypes
+
+113
+
+5.1.1 Basic Datatypes and Concepts
+
+113
+
+5.1.2 Derived Datatypes
+
+116
+
+5.1.3 Understanding Extents
+
+118
+
+5.2 The N-Body Problem
+
+119
+
+5.2.1 Gather
+
+120
+
+5.2.2 Nonblocking Pipeline
+
+124
+
+5.2.3 Moving Particles between Processes
+
+127
+
+5.2.4 Sending Dynamically Allocated Data
+
+132
+
+5.2.5 User-Controlled Data Packing
+
+134
+
+5.3 Visualizing the Mandelbrot Set
+
+136
+
+5.3.1 Sending Arrays of Structures
+
+144
+
+5.4 Gaps in Datatypes
+
+146
+
+5.5 More on Datatypes for Structures
+
+148
+
+5.6 Deprecated and Removed Functions
+
+149
+
+5.7 Common Errors and Misunderstandings
+
+150
+
+5.8 Application: Cosmological Large-Scale Structure Formation
+
+152
+
+6
+
+Parallel Libraries
+
+155
+
+6.1 Motivation
+
+155
+
+6.1.1 The Need for Parallel Libraries
+
+155
+
+6.1.2 Common Deﬁciencies of Early Message-Passing
+
+156
+
+Systems
+
+6.1.3 Review of MPI Features That Support Libraries
+
+158
+
+6.2 A First MPI Library
+
+161
+
+6.3 Linear Algebra on Grids
+
+170
+
+6.3.1 Mappings and Logical Grids
+
+170
+
+6.3.2 Vectors and Matrices
+
+175
+
+6.3.3 Components of a Parallel Library
+
+177
+
+6.4 The LINPACK Benchmark in MPI
+
+179
+
+6.5 Strategies for Library Building
+
+183
+
+6.6 Examples of Libraries
+
+184
+
+6.7 Application: Nuclear Green’s Function Monte Carlo
+
+185
+
+x
+
+Contents
+
+7
+
+Other Features of MPI
+
+189
+
+7.1 Working with Global Data
+
+189
+
+7.1.1 Shared Memory, Global Data, and Distributed
+
+189
+
+Memory
+
+7.1.2 A Counter Example
+
+190
+
+7.1.3 The Shared Counter Using Polling Instead of an
+
+193
+
+Extra Process
+
+7.1.4 Fairness in Message Passing
+
+196
+
+7.1.5 Exploiting Request-Response Message Patterns
+
+198
+
+7.2 Advanced Collective Operations
+
+201
+
+7.2.1 Data Movement
+
+201
+
+7.2.2 Collective Computation
+
+201
+
+7.2.3 Common Errors and Misunderstandings
+
+206
+
+7.3 Intercommunicators
+
+208
+
+7.4 Heterogeneous Computing
+
+216
+
+7.5 Hybrid Programming with MPI and OpenMP
+
+217
+
+7.6 The MPI Proﬁling Interface
+
+218
+
+7.6.1 Finding Buﬀering Problems
+
+221
+
+7.6.2 Finding Load Imbalances
+
+223
+
+7.6.3 Mechanics of Using the Proﬁling Interface
+
+223
+
+7.7 Error Handling
+
+226
+
+7.7.1 Error Handlers
+
+226
+
+7.7.2 Example of Error Handling
+
+229
+
+7.7.3 User-Deﬁned Error Handlers
+
+229
+
+7.7.4 Terminating MPI Programs
+
+232
+
+7.7.5 Common Errors and Misunderstandings
+
+232
+
+7.8 The MPI Environment
+
+234
+
+7.8.1 Processor Name
+
+236
+
+7.8.2 Is MPI Initialized?
+
+236
+
+7.9 Determining the Version of MPI
+
+237
+
+7.10 Other Functions in MPI
+
+239
+
+7.11 Application: No-Core Conﬁguration Interaction
+
+240
+
+Calculations in Nuclear Physics
+
+Contents
+
+xi
+
+8
+
+Understanding How MPI Implementations
+
+245
+
+Work
+
+8.1 Introduction
+
+245
+
+8.1.1 Sending Data
+
+245
+
+8.1.2 Receiving Data
+
+246
+
+8.1.3 Rendezvous Protocol
+
+246
+
+8.1.4 Matching Protocols to MPI’s Send Modes
+
+247
+
+8.1.5 Performance Implications
+
+248
+
+8.1.6 Alternative MPI Implementation Strategies
+
+249
+
+8.1.7 Tuning MPI Implementations
+
+249
+
+8.2 How Diﬃcult Is MPI to Implement?
+
+249
+
+8.3 Device Capabilities and the MPI Library Deﬁnition
+
+250
+
+8.4 Reliability of Data Transfer
+
+251
+
+9
+
+Comparing MPI with Sockets
+
+253
+
+9.1 Process Startup and Shutdown
+
+255
+
+9.2 Handling Faults
+
+257
+
+10 Wait! There’s More!
+
+259
+
+10.1 Beyond MPI-1
+
+259
+
+10.2 Using Advanced MPI
+
+260
+
+10.3 Will There Be an MPI-4?
+
+261
+
+10.4 Beyond Message Passing Altogether
+
+261
+
+10.5 Final Words
+
+262
+
+Glossary of Selected Terms
+
+263
+
+A The MPE Multiprocessing Environment
+
+273
+
+A.1 MPE Logging
+
+273
+
+A.2 MPE Graphics
+
+275
+
+A.3 MPE Helpers
+
+276
+
+B MPI Resources Online
+
+279
+
+xii
+C Language Details C.1 Arrays in C and Fortran
+C.1.1 Column and Row Major Ordering C.1.2 Meshes vs. Matrices C.1.3 Higher Dimensional Arrays C.2 Aliasing References Subject Index Function and Term Index
+
+Contents
+281 281 281 281 282 285 287 301 305
+
+Series Foreword
+The Scientiﬁc and Engineering Series from MIT Press presents accessible accounts of computing research areas normally presented in research papers and specialized conferences. Elements of modern computing that have appeared thus far in the series include parallelism, language design and implementation, system software, and numerical libraries. The scope of the series continues to expand with the spread of ideas from computing into new aspects of science.
+This book in the series is the ﬁrst of two books describing how to use the MessagePassing Interface (MPI), a communication library for both parallel computers and workstation networks. MPI has been developed as a standard for message passing and related operations. Its adoption by both users and implementors is providing the parallel programming community with the portability and features needed to develop application programs and parallel libraries that tap the power of today’s (and tomorrow’s) high-performance computers.
+William Gropp and Ewing Lusk, Editors
+
+Preface to the Third Edition
+In the ﬁfteen years since the second edition of Using MPI was published, in 1999, high-performance computing (HPC) has undergone many changes. Some aspects of HPC have been disruptive and revolutionary; but others, no less signiﬁcant, have been gradual and evolutionary. This edition of Using MPI updates the second edition to bring our presentation of the Message-Passing Interface (MPI) standard into line with these changes.
+The most dramatic change has been in parallel computing hardware. The speed (cycle rate) of individual processing units has leveled oﬀ because of power and heatdissipation constraints, causing parallelism to become mainstream and, for HPC, putting increased pressure on the scale of parallelism. Computer vendors have responded. The preface to the second edition refers to “the very largest computers in the world, with thousands of processors.” Today, applications run on computers with millions of processors. The processors referred to at that time have also undergone substantial change. Multiple processors sharing memory, multicore processors, with multiple hardware threads per core, perhaps with attached graphical processing units (GPUs), are now common in HPC machines and indeed in all computers.
+In the programming languages area, change has been less dramatic. HPC applications still rely on Fortran, C, and C++ for the compute-intensive parts of their algorithms (except for GPUs), although these standard languages have themselves evolved. C now means C11, and (for our purposes here) Fortran means Fortran 2008. OpenMP has emerged as the most widely used approach in computational science to the shared-memory programming appropriate for multiprocessor nodes and multicore processors. GPU programming can be said to be where message passing was in the early 1990s, with competing application programming interfaces (APIs) and a search for a standard that will provide portability among competing hardware devices without sacriﬁcing performance.
+Applications have changed even less, although the increased scale of the largest machines has stimulated the search for more scalable algorithms and the use of libraries that provide new levels of scalability. Adoption of radically new programming models and languages has been conservative: most large applications are written in Fortran, C, or C++, with parallelism provided by MPI (or libraries written on top of it), OpenMP, and (increasingly) vendor-speciﬁc GPU-executed subsections. Reliance on MPI has remained central to application development and/or execution.
+MPI itself has changed in some ways but not others. Basic functions have not changed: the ﬁrst example code from the ﬁrst edition of this book is still valid. The
+
+xvi
+
+Preface to the Third Edition
+
+basic point-to-point and collective communication functions are unaltered. The largest changes to the MPI standard are those made by the MPI-3 Forum. After a “rest period” of some ﬁfteen years, the MPI Forum reconstituted itself in 2008, with both veteran and new members, to bring the MPI standard up to date with respect to the new developments in hardware capabilities, core language evolution, the needs of applications, and the experience gained over the years by computer vendors, MPI implementors, and users. The changes included substantial additions to the API, especially in the area of remote memory operations, but also removal or replacement of some functions and a few changes that aﬀect even simple programs. The most substantive changes are described in a companion volume to this one, Using Advanced MPI, but all the changes by the MPI-3 Forum that aﬀect the material described here are incorporated in this volume.
+About the Third Edition
+This third edition of Using MPI contains many updates to the second edition.
+• All example code has been brought up to date with respect to modern C and Fortran.
+• MPI-3 changes that are relevant to our discussions and examples are fully reﬂected in both the example code and the text. All deprecated functions have been removed, and where new, better ways of doing things have been made available, they are used.
+• The C++ bindings, which were removed in MPI-3, have vanished, leaving only a brief discussion of how to use MPI in C++ programs.
+• Applications have been updated or replaced with those more typical of current practice.
+• The references have been updated to reﬂect the substantial attention MPI has received in academic and other literature.
+Our order of presentation again is guided by the level of complexity in the algorithms we study. This tutorial approach diﬀers substantially from that given in more formal presentations of the MPI standard such as [112]. The overall structure of this edition is little changed from that of the previous edition; however, each individual chapter does include substantial updates. Among other changes, the applications sections, which have been contributed by active computational scientists
+
+Preface to the Third Edition
+
+xvii
+
+using MPI, have as their primary audience those who are interested in how MPI has been used in a speciﬁc scientiﬁc domain. These sections may easily be skipped by the general reader. We include them to demonstrate that MPI has been used in quite advanced application programs.
+We begin in Chapter 1 with a brief overview of the current situation in parallel computing environments, the message-passing model, and the process that produced MPI. This chapter has been updated to describe in more detail the changes in HPC environments that have occurred since the previous edition, as discussed brieﬂy above. We have also updated the account of MPI Forum activities to describe the recent work of the MP-3 Forum.
+Chapter 2 introduces the basic concepts that arise from the message-passing model itself and how MPI augments these basic concepts to create a full-featured, high-performance-capable interface. Parts of this chapter have been completely rewritten.
+In Chapter 3 we set the pattern for the remaining chapters. We present several examples and the small number of MPI functions that are required to express them. We describe how to execute the examples using one widely used MPI implementation and how to investigate the performance of these programs using a graphical performance-analysis tool. The previous edition’s application in this chapter has been moved to the libraries chapter, written using only the MPI functions introduced in this chapter, together with a new library described there.
+Chapter 4 rounds out the basic features of MPI by focusing on a particular application prototypical of a large family: solution of the Poisson problem. We introduce MPI’s facilities for application-oriented process structures called virtual topologies. Using performance analysis tools, we illustrate how to improve performance using slightly more advanced MPI message-passing functions. The discussion of nonblocking operations here has been expanded. We conclude with a discussion of a production code currently being used to investigate a number of problems in ﬂuid mechanics.
+Some of the more advanced features for message passing provided by MPI are covered in Chapter 5. We use the N-body problem as a setting for much of the discussion. We complete our discussion of derived datatypes with a focus on features that have been added in MPI-3. Our application is a cosmology simulation that uses advanced approaches to N-body problems.
+We believe that the majority of programmers of parallel computers will, in the long run, access parallelism through libraries. Indeed, enabling the construction of robust libraries is one of the primary motives behind the MPI eﬀort, and perhaps its single most distinguishing feature when compared with other parallel program-
+
+xviii
+
+Preface to the Third Edition
+
+ming environments. In Chapter 6 we address this issue with a series of examples. We introduce a new library (the Asynchronous Dynamic Load Balancing (ADLB) library) and describe its use in simplifying a nuclear structure application while increasing its scalability.
+MPI contains a variety of advanced features that will only have been touched on or presented in their simplest form at this point in the book. These features include elaborate collective data-distribution and data-collection schemes, error handling, and facilities for implementing client-server applications. In Chapter 7 we ﬁll out the description of these features using further examples taken from applications. Our application in this chapter is a sophisticated hybrid calculation for nuclear theory.
+In Chapter 8 we discuss what one ﬁnds “under the hood” in implementations of MPI. Understanding the choices available to MPI implementors can provide insight into the behavior of MPI programs in various computing environments. Changes in communication hardware and ubiquity of multithreading motivate updates to the previous edition’s treatment.
+Chapter 9 presents a comparison of MPI with sockets, a standard interface for sending messages between processes on diﬀerent machines for both Unix and Microsoft systems. Examining the similarities and diﬀerences helps one understand the assumptions that MPI makes about underlying system services.
+Chapter 10 contains a brief summary of the material in the companion volume to this book, which includes topics from both MPI-2 and MPI-3. We conclude with a few thoughts on the future of MPI.
+We include a glossary of terms used in this book. The appendices include material that would have been out of place in the main text. Appendix A describes the MPE library that we use in several of our examples and gives its Fortran and C bindings. Appendix B provides pointers to supplementary material for this book, including complete source code for the examples, and related MPI materials that are available on the net. Appendix C discusses some issues of C and Fortran that are relevant to MPI and may be unfamiliar to some readers. It has been updated to reﬂect new developments in Fortran and particular issues related to MPI-3.
+Acknowledgments for the Third Edition
+We gratefully acknowledge the careful and thoughtful work of our copy editor, Gail Pieper. We are also grateful to those who contributed application examples: Steve Pieper, James Vary and Pieter Maris, Salman Habib and Hal Finkel, and Paul Fischer.
+
+Preface to the Second Edition
+When Using MPI was ﬁrst published in 1994, the future of MPI was unknown. The MPI Forum had just concluded its work on the Standard, and it was not yet clear whether vendors would provide optimized implementations or whether users would select MPI for writing new parallel programs or would port existing codes to MPI.
+Now the suspense is over. MPI is available everywhere and widely used, in environments ranging from small workstation networks to the very largest computers in the world, with thousands of processors. Every parallel computer vendor oﬀers an MPI implementation, and multiple implementations are freely available as well, running on a wide variety of architectures. Applications large and small have been ported to MPI or written as MPI programs from the beginning, and MPI is taught in parallel programming courses worldwide.
+In 1995, the MPI Forum began meeting again. It revised in a compatible way and signiﬁcantly extended the MPI speciﬁcation, releasing version 1.2 (covering the topics included in the original, 1.0 speciﬁcation) and version 2.0 (covering entirely new topics) in the summer of 1997. In this book, we update the original Using MPI to reﬂect these later decisions of the MPI Forum. Roughly speaking, this book covers the use of MPI 1.2, while Using MPI 2 (published by MIT Press as a companion volume to this book) covers extensions in MPI 2.0. New topics in MPI2 include parallel I/O, one-sided operations, and dynamic process management. However, many topics relevant to the original MPI functions were modiﬁed as well, and these are discussed here. Thus this book can be viewed as the up-to-date version of the topics covered in the original edition.
+About the Second Edition
+This second edition of Using MPI: Portable Programming with the Message-Passing Interface contains many changes from and additions to the ﬁrst edition.
+• We have added many new examples and have added additional explanations to the examples from the ﬁrst edition.
+• A section on common errors and misunderstandings has been added to several chapters.
+• We have added new material on the performance impact of choices among alternative MPI usages.
+
+xx
+
+Preface to the Second Edition
+
+• A chapter on implementation issues has been added to increase understanding of how and why various MPI implementations may diﬀer, particularly with regard to performance.
+• Since “Fortran” now means Fortran 90 (or Fortran 95 [17]), all Fortran examples have been updated to Fortran 90 syntax. We do, however, explain the small modiﬁcations necessary to run the examples in Fortran 77.
+• We have added the new functions from the MPI 1.2 speciﬁcation, and also those from MPI 2.0 whose exposition seems to belong with functions from MPI 1.2.
+• We describe new tools in the MPE toolkit, reﬂecting their evolution since the publication of the ﬁrst edition.
+• The chapter on converting to MPI from earlier message-passing systems has been greatly revised, now that many of those systems have been completely supplanted by MPI. We include a comparison of MPI syntax and semantics with PVM, since conversion of programs from PVM to MPI is still going on. We also compare MPI with the use of Unix sockets.
+• Some functions in MPI 1.0 are now deprecated, since better deﬁnitions have now been made. These are identiﬁed and their replacements described.
+• Errors, particularly those in the example programs, have been corrected.
+[To preclude possible confusion on the part of the reader, the outline of the second edition that occurred here has been omitted.]
+Acknowledgments for the Second Edition
+We thank Peter Lyster of NASA’s Goddard Space Flight Center for sharing his marked-up copy of the ﬁrst edition of Using MPI with us. We thank Puri Bangalore, Nicholas Carriero, Robert van de Geijn, Peter Junglas, David Levine, Bryan Putnam, Bill Saphir, David J. Schneider, Barry Smith, and Stacey Smith for sending in errata for the ﬁrst edition (and anyone that we’ve forgotten), and Anand Pillai for correcting some of the examples in Chapter 6. The reviewers of the prospectus for this book oﬀered many helpful suggestions for topics. We thank Gail Pieper for her careful and knowledgeable editing.
+
+Preface to the First Edition
+About This Book
+During 1993, a broadly based group of parallel computer vendors, software writers, and application scientists collaborated on the development of a standard portable message-passing library deﬁnition called MPI, for Message-Passing Interface. MPI is a speciﬁcation for a library of routines to be called from C and Fortran programs. As of mid-1994, a number of implementations are in progress, and applications are already being ported.
+Using MPI: Portable Parallel Programming with the Message-Passing Interface is designed to accelerate the development of parallel application programs and libraries by demonstrating how to use the new standard. It ﬁlls the gap among introductory texts on parallel computing, advanced texts on parallel algorithms for scientiﬁc computing, and user manuals of various parallel programming languages and systems. Each topic begins with simple examples and concludes with real applications running on today’s most powerful parallel computers. We use both Fortran (Fortran 77) and C. We discuss timing and performance evaluation from the outset, using a library of useful tools developed speciﬁcally for this presentation. Thus this book is not only a tutorial on the use of MPI as a language for expressing parallel algorithms, but also a handbook for those seeking to understand and improve the performance of large-scale applications and libraries.
+Without a standard such as MPI, getting speciﬁc about parallel programming has necessarily limited one’s audience to users of some speciﬁc system that might not be available or appropriate for other users’ computing environments. MPI provides the portability necessary for a concrete discussion of parallel programming to have wide applicability. At the same time, MPI is a powerful and complete speciﬁcation, and using this power means that the expression of many parallel algorithms can now be done more easily and more naturally than ever before, without giving up eﬃciency.
+Of course, parallel programming takes place in an environment that extends beyond MPI. We therefore introduce here a small suite of tools that computational scientists will ﬁnd useful in measuring, understanding, and improving the performance of their parallel programs. These tools include timing routines, a library to produce an event log for post-mortem program visualization, and a simple real-time graphics library for run-time visualization. Also included are a number of utilities that enhance the usefulness of the MPI routines themselves. We call the union of these libraries MPE, for MultiProcessing Environment. All the example programs
+
+xxii
+
+Preface to the First Edition
+
+and tools are freely available, as is a model portable implementation of MPI itself developed by researchers at Argonne National Laboratory and Mississippi State University [59].
+Our order of presentation is guided by the level of complexity in the parallel algorithms we study; thus it diﬀers substantially from the order in more formal presentations of the standard.
+[To preclude possible confusion on the part of the reader, the outline of the ﬁrst edition that occurred here has been omitted.]
+In addition to the normal subject index, there is an index for the deﬁnitions and usage examples for the MPI functions used in this book. A glossary of terms used in this book may be found before the appendices.
+We try to be impartial in the use of Fortran and C for the book’s examples; many examples are given in each language. The MPI standard has tried to keep the syntax of its calls similar in Fortran and C; for the most part they diﬀer only in case (all capitals in Fortran, although most compilers will accept all lower case as well, while in C only the “MPI” and the next letter are capitalized), and in the handling of the return code (the last argument in Fortran and the returned value in C). When we need to refer to an MPI function name without specifying whether it is Fortran or C, we will use the C version, just because it is a little easier to read in running text.
+This book is not a reference manual, in which MPI routines would be grouped according to functionality and completely deﬁned. Instead we present MPI routines informally, in the context of example programs. Precise deﬁnitions are given in [93]. Nonetheless, to increase the usefulness of this book to someone working with MPI, we have provided for each MPI routine that we discuss a reminder of its calling sequence, in both Fortran and C. These listings can be found set oﬀ in boxes scattered throughout the book, located near the introduction of the routines they contain. In the boxes for C, we use ANSI C style declarations. Arguments that can be of several types (typically message buﬀers) are typed as void*. In the Fortran boxes the types of such arguments are marked as being of type <type>. This means that one of the appropriate Fortran data types should be used. To ﬁnd the “binding box” for a given MPI routine, one should use the appropriate bold-face reference in the Function Index (f90 for Fortran, C for C).
+Acknowledgments
+Our primary acknowledgment is to the Message Passing Interface Forum (MPIF), whose members devoted their best eﬀorts over the course of a year and a half to
+
+Preface to the First Edition
+
+xxiii
+
+producing MPI itself. The appearance of such a standard has enabled us to collect and coherently express our thoughts on how the process of developing application programs and libraries for parallel computing environments might be carried out. The aim of our book is to show how this process can now be undertaken with more ease, understanding, and probability of success than has been possible before the appearance of MPI.
+The MPIF is producing both a ﬁnal statement of the standard itself and an annotated reference manual to ﬂesh out the standard with the discussion necessary for understanding the full ﬂexibility and power of MPI. At the risk of duplicating acknowledgments to be found in those volumes, we thank here the following MPIF participants, with whom we collaborated on the MPI project. Special eﬀort was exerted by those who served in various positions of responsibility: Lyndon Clarke, James Cownie, Jack Dongarra, Al Geist, Rolf Hempel, Steven Huss-Lederman, Bob Knighten, Richard Littleﬁeld, Steve Otto, Mark Sears, Marc Snir, and David Walker. Other participants included Ed Anderson, Joe Baron, Eric Barszcz, Scott Berryman, Rob Bjornson, Anne Elster, Jim Feeney, Vince Fernando, Sam Fineberg, Jon Flower, Daniel Frye, Ian Glendinning, Adam Greenberg, Robert Harrison, Leslie Hart, Tom Haupt, Don Heller, Tom Henderson, Alex Ho, C.T. Howard Ho, John Kapenga, Bob Leary, Arthur Maccabe, Peter Madams, Alan Mainwaring, Oliver McBryan, Phil McKinley, Charles Mosher, Dan Nessett, Peter Pacheco, Howard Palmer, Paul Pierce, Sanjay Ranka, Peter Rigsbee, Arch Robison, Erich Schikuta, Ambuj Singh, Alan Sussman, Robert Tomlinson, Robert G. Voigt, Dennis Weeks, Stephen Wheat, and Steven Zenith.
+While everyone listed here made positive contributions, and many made major contributions, MPI would be far less important if it had not had the beneﬁt of the particular energy and articulate intelligence of James Cownie of Meiko, Paul Pierce of Intel, and Marc Snir of IBM.
+Support for the MPI meetings came in part from ARPA and NSF under grant ASC-9310330, NSF Science and Technology Center Cooperative Agreement No. CCR-8809615, and the Commission of the European Community through Esprit Project P6643. The University of Tennessee kept MPIF running ﬁnancially while the organizers searched for steady funding.
+The authors speciﬁcally thank their employers, Argonne National Laboratory and Mississippi State University, for the time and resources to explore the ﬁeld of parallel computing and participate in the MPI process. The ﬁrst two authors were supported by the U.S. Department of Energy under contract W-31-109-Eng-38. The third author was supported in part by the NSF Engineering Research Center for Computational Field Simulation at Mississippi State University.
+
+xxiv
+
+Preface to the First Edition
+
+The MPI Language Speciﬁcation is copyrighted by the University of Tennessee and will appear as a special issue of International Journal of Supercomputer Applications, published by MIT Press. Both organizations have dedicated the language deﬁnition to the public domain.
+We also thank Nathan Doss of Mississippi State University and Hubertus Franke of the IBM Corporation, who participated in the early implementation project that has allowed us to run all of the examples in this book. We thank Ed Karrels, a student visitor at Argonne, who did most of the work on the MPE library and the proﬁling interface examples. He was also completely responsible for the new version of the upshot program for examining logﬁles.
+We thank James Cownie of Meiko and Brian Grant of the University of Washington for reading the manuscript and making many clarifying suggestions. Gail Pieper vastly improved the prose. We also thank those who have allowed us to use their research projects as examples: Robert Harrison, Dave Levine, and Steven Pieper.
+Finally we thank several Mississippi State University graduate students whose joint research with us (and each other) have contributed to several large-scale examples in the book. The members of the Parallel Scientiﬁc Computing class in the Department of Computer Science at MSU, spring 1994, helped debug and improve the model implementation and provided several projects included as examples in this book. We speciﬁcally thank Purushotham V. Bangalore, Ramesh Pankajakshan, Kishore Viswanathan, and John E. West for the examples (from the class and research) that they have provided for us to use in the text.
+
+Using MPI
+
+1 Background
+In this chapter we survey the setting in which the MPI standard has evolved, from the current situation in parallel computing and the status of the message-passing model for parallel computation to the actual process by which MPI was developed.
+1.1 Why Parallel Computing?
+Fast computers have stimulated the rapid growth of a new way of doing science. The two broad classical branches of theoretical science and experimental science have been joined by computational science. Computational scientists simulate on supercomputers phenomena too complex to be reliably predicted by theory and too dangerous or expensive to be reproduced in the laboratory. Successes in computational science have caused demand for supercomputing resources to rise sharply over the past twenty years.
+During this time parallel computers have evolved from experimental contraptions in laboratories to become the everyday tools of computational scientists who need the ultimate in computer resources in order to solve their problems.
+Several factors have stimulated this evolution. It is not only that the speed of light and the eﬀectiveness of heat dissipation impose physical limits on the speed of a single computer. (To pull a bigger wagon, it is easier to add more oxen than to grow a gigantic ox.) It is also that the cost of advanced single-processor computers increases more rapidly than their power. (Large oxen are expensive.) And price/performance ratios become really favorable if the required computational resources can be found instead of purchased. This factor caused many sites to exploit existing workstation networks, originally purchased to do modest computational chores, as SCANs (SuperComputers At Night) by utilizing the workstation network as a parallel computer. And as personal computer (PC) performance increased and prices fell steeply, both for the PCs themselves and the network hardware necessary to connect them, dedicated clusters of PC workstations provided signiﬁcant computing power on a budget. The largest of these clusters, assembled out of commercial oﬀ-the-shelf (COTS) parts, competed with oﬀerings from traditional supercomputer vendors. One particular ﬂavor of this approach, involving open source system software and dedicated networks, acquired the name “Beowulf” [113]. Further, the growth in performance and capacity of wide-area networks (WANs) has made it possible to write applications that span the globe. Many researchers are exploring the concept of a “grid” [50] of computational resources and connections that is in some ways analogous to the electric power grid.
+
+2
+
+Chapter 1
+
+Thus, considerations of both peak performance and price/performance are pushing large-scale computing in the direction of parallelism. So why hasn’t parallel computing taken over? Why isn’t every program a parallel one?
+1.2 Obstacles to Progress
+Barriers to the widespread use of parallelism are in all three of the usual large subdivisions of computing: hardware, algorithms, and software.
+In the hardware arena, we are still trying to build intercommunication networks (often called switches) that keep up with speeds of advanced single processors. Although not needed for every application (many successful parallel programs use Ethernet for their communication environment and some even use electronic mail), in general, faster computers require faster switches to enable most applications to take advantage of them. Over the past ten years much progress has been made in this area, and today’s parallel supercomputers have a better balance between computation and communication than ever before.
+Algorithmic research has contributed as much to the speed of modern parallel programs as has hardware engineering research. Parallelism in algorithms can be thought of as arising in three ways: from the physics (independence of physical processes), from the mathematics (independence of sets of mathematical operations), and from the programmer’s imagination (independence of computational tasks). A bottleneck occurs, however, when these various forms of parallelism in algorithms must be expressed in a real program to be run on a real parallel computer. At this point, the problem becomes one of software.
+The biggest obstacle to the spread of parallel computing and its beneﬁts in economy and power is inadequate software. The author of a parallel algorithm for an important computational science problem may ﬁnd the current software environment obstructing rather than smoothing the path to use of the very capable, cost-eﬀective hardware available.
+Part of the obstruction consists of what is not there. Compilers that automatically parallelize sequential algorithms remain limited in their applicability. Although much research has been done and parallelizing compilers work well on some programs, the best performance is still obtained when the programmer supplies the parallel algorithm. If parallelism cannot be provided automatically by compilers, what about libraries? Here some progress has occurred, but the barriers to writing libraries that work in multiple environments have been great. The requirements of libraries and how these requirements are addressed by MPI are the subject matter of Chapter 6.
+
+Background
+
+3
+
+Other parts of the obstruction consist of what is there. The ideal mechanism for communicating a parallel algorithm to a parallel computer should be expressive, eﬃcient, and portable. Before MPI, various mechanisms all represented compromises among these three goals. Some vendor-speciﬁc libraries were eﬃcient but not portable, and in most cases minimal with regard to expressiveness. High-level languages emphasize portability over eﬃciency. And programmers are never satisﬁed with the expressivity of their programming language. (Turing completeness is necessary, but not suﬃcient.)
+MPI is a compromise too, of course, but its design has been guided by a vivid awareness of these goals in the context of the next generation of parallel systems. It is portable. It is designed to impose no semantic restrictions on eﬃciency; that is, nothing in the design (as opposed to a particular implementation) forces a loss of eﬃciency. Moreover, the deep involvement of vendors in MPI’s deﬁnition has ensured that vendor-supplied MPI implementations can be eﬃcient. As for expressivity, MPI is designed to be a convenient, complete deﬁnition of the message-passing model, the justiﬁcation for which we discuss in the next section.
+1.3 Why Message Passing?
+To put our discussion of message passing in perspective, we brieﬂy review informally the principal parallel computational models. We focus then on the advantages of the message-passing model.
+1.3.1 Parallel Computational Models
+A computational model is a conceptual view of the types of operations available to a program. It does not include the speciﬁc syntax of a particular programming language or library, and it is (almost) independent of the underlying hardware that supports it. That is, any of the models we discuss can be implemented on any modern parallel computer, given a little help from the operating system. The eﬀectiveness of such an implementation, however, depends on the gap between the model and the machine.
+Parallel computational models form a complicated structure. They can be diﬀerentiated along multiple axes: whether memory is physically shared or distributed, how much communication is in hardware or software, exactly what the unit of execution is, and so forth. The picture is made confusing by the fact that software can provide an implementation of any computational model on any hardware. This section is thus not a taxonomy; rather, we wish to deﬁne our terms in order to
+
+4
+
+Chapter 1
+
+delimit clearly our discussion of the message-passing model, which is the focus of MPI.
+Data parallelism. Although parallelism occurs in many places and at many levels in a modern computer, one of the ﬁrst places it was made available to the programmer was in vector processors. Indeed, the vector machine began the current age of supercomputing. The vector machine’s notion of operating on an array of similar data items in parallel during a single operation was extended to include the operation of whole programs on collections of data structures, as in SIMD (single-instruction, multiple-data) machines such as the ICL DAP and the Thinking Machines CM-2. The parallelism need not necessarily proceed instruction by instruction in lock step for it to be classiﬁed as data parallel. Data parallelism is now more a programming style than a computer architecture, and the CM-2 is extinct.
+At whatever level, the model remains the same: the parallelism comes entirely from the data and the program itself looks much like a sequential program. The partitioning of data that underlies this model may be done by a compiler. High Performance Fortran (HPF) [79] deﬁned extensions to Fortran that allowed the programmer to specify a partitioning and that the compiler would translate into code, including any communication between processes. While HPF is rarely used anymore, some of these ideas have been incorporated into languages such as Chapel or X10.
+Compiler directives such as those deﬁned by OpenMP [97] allow the programmer a way to provide hints to the compiler on where to ﬁnd data parallelism in sequentially coded loops.
+Data parallelism has made a dramatic comeback in the form of graphical processing units, or GPUs. Originally developed as attached processors to support video games, they are now being incorporated into general-purpose computers as well.
+Shared memory. Parallelism that is not determined implicitly by data independence but is explicitly speciﬁed by the programmer is control parallelism. One simple model of control parallelism is the shared-memory model, in which each processor has access to all of a single, shared address space at the usual level of load and store operations. A schematic diagram of this arrangement is shown in Figure 1.1. Access to locations manipulated by multiple processes is coordinated by some form of locking, although high-level languages may hide the explicit use of locks. Early examples of this model were the Denelcor HEP and Alliant family of shared-memory multiprocessors, as well as Sequent and Encore machines. The Cray
+
+Background
+
+5
+
+Address space
+
+Processes
+Figure 1.1: The shared-memory model
+parallel vector machines, as well as the SGI Power Challenge series, were also of this same model. Now there are many small-scale shared-memory machines, often called “symmetric multiprocessors” (SMPs). Over the years, “small” has evolved from two or four (now common on laptops) to as many as sixty-four processors sharing one memory system.
+Making “true” shared-memory machines with more than a few tens of processors is diﬃcult (and expensive). To achieve the shared-memory model with large numbers of processors, one must allow some memory references to take longer than others. The most common shared-memory systems today are single-chip multicore processors or nodes consisting of a few multicore processors. Such nodes can be assembled into very large distributed-memory machines. A variation on the sharedmemory model occurs when processes have a local memory (accessible by only one process) and also share a portion of memory (accessible by some or all of the other processes). The Linda programming model [37] is of this type.
+Message passing. The message-passing model posits a set of processes that have only local memory but are able to communicate with other processes by sending and receiving messages. It is a deﬁning feature of the message-passing model that data transfer from the local memory of one process to the local memory of another requires operations to be performed by both processes. Since MPI is a speciﬁc realization of the message-passing model, we discuss message passing in detail below.
+In Figure 1.2 we don’t show a speciﬁc communication network because it is not part of the computational model. The IBM Blue Gene/P had a three-dimensional mesh, and the BG/Q has a ﬁve-dimensional mesh (although the ﬁfth dimension
+
+6
+
+Chapter 1
+
+Network
+
+Address space
+
+Process
+
+Figure 1.2: The message-passing model
+
+is small). Many clusters use multilevel switched networks, and supercomputers such as the IBM PERCS and Cray Cascade also use high-radix (many connections) switches. Now message-passing models (represented by MPI) are implemented on a wide variety of hardware architectures.
+Remote memory operations. Halfway between the shared-memory model, where processes access memory without knowing whether they are triggering remote communication at the hardware level, and the message-passing model, where both the local and remote processes must participate, is the remote memory operation model. This model was typiﬁed by put and get operations on such machines as the Cray T3E. Now multiple vendors support such operations, at least at a low level (not visible to the programmer and not in any portable way). In this case one process can access the memory of another without that other’s participation, but it does so explicitly, not the same way it accesses its local memory. A related type of operation is the “active message” [120], which causes execution of a (typically short) subroutine in the address space of the other process. Active messages are
+
+Background
+
+7
+
+often used to facilitate remote memory copying, which can be thought of as part of the active-message model. Such remote memory copy operations are exactly the “one-sided” sends and receives unavailable in the classic message-passing model. The ﬁrst commercial machine to popularize this model was the TMC CM-5, which used active messages both directly and as an implementation layer for the TMC message-passing library.
+MPI-style remote memory operations were introduced in the MPI-2 Standard and further developed in the MPI-3 standard, described in Using Advanced MPI [55]. Hardware support for one-sided operations, even on “commodity” networks, is now standard. In addition to proprietary interfaces such as IBM’s LAPI [107], there are industry standards such as InﬁniBand [6], which have the potential to bring good support for remote memory access operations even to inexpensive parallel computers.
+Threads. Early forms of the shared-memory model provided processes with separate address spaces, which could obtain shared memory through explicit memory operations, such as special forms of the C malloc operation. The more common version of the shared-memory model now speciﬁes that all memory be shared. This allows the model to be applied to multithreaded systems, in which a single process (address space) has associated with it several program counters and execution stacks. Since the model allows fast switching from one thread to another and requires no explicit memory operations, it can be used portably in Fortran programs. The diﬃculty imposed by the thread model is that any “state” of the program deﬁned by the value of program variables is shared by all threads simultaneously, although in most thread systems it is possible to allocate thread-local memory. One widely used thread model is speciﬁed by the POSIX Standard [76]. A higher-level approach to programming with threads is also oﬀered by OpenMP [97, 38].
+Hybrid models. Combinations of the above models are also possible, in which some clusters of processes share memory with one another but communicate with other clusters via message passing (Figure 1.3), or in which single processes may be multithreaded (separate threads share memory) yet not share memory with one another. In any case, attached GPUs may contribute vector-style parallelism as well.
+All of the world’s largest parallel machines provide a combined (or hybrid) model at the hardware level, even though they are currently being programmed largely with MPI. MPI implementations can take advantage of such hybrid hardware by
+
+8
+
+Chapter 1
+
+Figure 1.3: The hybrid model
+utilizing the shared memory to accelerate message-passing operations between processes that share memory.
+These combined models lead to software complexity, in which a shared-memory approach (like OpenMP) is combined with a message-passing approach (like MPI), along with code to manage an attached GPU (like CUDA). A signiﬁcant number of applications have been ported to (or originally written for) such complex execution environments, but at a considerable cost in programming complexity and (in some cases) loss of portability.
+The description of parallel computing models we have given here has focused on what they look like to the programmer. The underlying hardware for supporting these and future models continues to evolve. Among these directions is support for multithreading at the hardware level. One approach has been to add support for large numbers of threads per processor core; this approach helps hide the relatively high latency of memory access. The YarcData Urika [16] is the most recent version of this approach; previous systems include the Tera MTA and the Denelcor HEP. Another approach, now used on most commodity processors, is simultaneous multithreading (sometimes called hyperthreading), where several hardware threads share the same resources in a compute core. Simultaneous multithreading is usually transparent to the programmer.
+
+Background
+
+9
+
+1.3.2 Advantages of the Message-Passing Model
+In this book we focus on the message-passing model of parallel computation, and in particular the MPI instantiation of that model. While we do not claim that the message-passing model is uniformly superior to the other models, we can say here why it has become widely used and why we can expect it to be around for a long time.
+Universality. The message-passing model ﬁts well on separate processors connected by a (fast or slow) communication network. Thus, it matches the highest level of the hardware of most of today’s parallel supercomputers, as well as workstation networks and dedicated PC clusters. Where the machine supplies extra hardware to support a shared-memory model, the message-passing model can take advantage of this hardware to speed data transfer. Use of a GPU can be orthogonal to the use of MPI.
+Expressivity. Message passing has been found to be a useful and complete model in which to express parallel algorithms. It provides the control missing from the data-parallel and compiler-based models in dealing with data locality. Some ﬁnd its anthropomorphic ﬂavor useful in formulating a parallel algorithm. It is well suited to adaptive, self-scheduling algorithms and to programs that can be made tolerant of the imbalance in process speeds found on shared networks.
+Ease of debugging. Debugging of parallel programs remains a challenging research area. While debuggers for parallel programs are perhaps easier to write for the shared-memory model, it is arguable that the debugging process itself is easier in the message-passing paradigm. The reason is that one of the most common causes of error is unexpected overwriting of memory. The message-passing model, by controlling memory references more explicitly than any of the other models (only one process at a time has direct access to any memory location except during a well-deﬁned, short time period), makes it easier to locate erroneous memory reads and writes. Some parallel debuggers even can display message queues, which are normally invisible to the programmer.
+Performance. The most compelling reason that message passing will remain a permanent part of the parallel computing environment is performance. As modern CPUs have become faster, management of their caches and the memory hierarchy in general has become the key to getting the most out of these machines. Message
+
+10
+
+Chapter 1
+
+passing provides a way for the programmer to explicitly associate speciﬁc data with processes and thus allow the compiler and cache-management hardware to function fully. Indeed, one advantage distributed-memory computers have over even the largest single-processor machines is that they typically provide more memory and more cache. Memory-bound applications can exhibit superlinear speedups when ported to such machines. And even on shared-memory computers, use of the message-passing model can improve performance by providing more programmer control of data locality in the memory hierarchy.
+This analysis explains why message passing has emerged as one of the more widely used paradigms for expressing parallel algorithms. Although it has shortcomings, message passing remains closer than any other paradigm to being a standard approach for the implementation of parallel applications.
+1.4 Evolution of Message-Passing Systems
+Message passing has only recently, however, become a standard for portability, in both syntax and semantics. Before MPI, there were many competing variations on the message-passing theme, and programs could only be ported from one system to another with diﬃculty. Several factors contributed to the situation.
+Vendors of parallel computing systems, while embracing standard sequential languages, oﬀered diﬀerent, proprietary message-passing libraries. There were two (good) reasons for this situation:
+• No standard emerged, and—until MPI—no coherent eﬀort was made to create one. This situation reﬂected the fact that parallel computing is a new science, and experimentation has been needed to identify the most useful concepts.
+• Without a standard, vendors quite rightly treated the excellence of their proprietary libraries as a competitive advantage and focused on making their advantages unique (thus nonportable).
+To deal with the portability problem, the research community contributed a number of libraries to the collection of alternatives. The better known of these are PICL [52], PVM [27] , PARMACS [29], p4 [31, 35, 36], Chameleon [67], Zipcode [111], and TCGMSG [68]; these libraries were publicly available but none of them are still widely used, having been supplanted by MPI. Many other experimental systems, of varying degrees of portability, have been developed at universities. In addition, commercial portable message-passing libraries were developed, such as Express [39], with considerable added functionality. These portability libraries,
+
+Background
+
+11
+
+from the user’s point of view, also competed with one another, and some users were driven to then write their own metaportable libraries to hide the diﬀerences among them. Unfortunately, the more portable the code thus produced, the less functionality in the libraries the code could exploit, because it must be a least common denominator of the underlying systems. Thus, to achieve portable syntax, one must restrict oneself to deﬁcient semantics, and many of the performance advantages of the nonportable systems are lost.
+Sockets, both the Berkeley (Unix) variety and Winsock (Microsoft) variety, also oﬀer a portable message-passing interface, although with minimal functionality. We analyze the diﬀerence between the socket interface and the MPI interface in Chapter 9.
+1.5 The MPI Forum
+The plethora of solutions being oﬀered to the user by both commercial software makers and researchers eager to give away their advanced ideas for free necessitated unwelcome choices for the user among portability, performance, and features.
+The user community, which deﬁnitely includes the software suppliers themselves, determined to address this problem. In April 1992, the Center for Research in Parallel Computation sponsored a one-day workshop on Standards for Message Passing in a Distributed-Memory Environment [121]. The result of that workshop, which featured presentations of many systems, was a realization both that a great diversity of good ideas existed among message-passing systems and that people were eager to cooperate on the deﬁnition of a standard.
+At the Supercomputing ’92 conference in November, a committee was formed to deﬁne a message-passing standard. At the time of creation, few knew what the outcome might look like, but the eﬀort was begun with the following goals:
+• to deﬁne a portable standard for message passing, which would not be an oﬃcial, ANSI-like standard but would attract both implementors and users;
+• to operate in a completely open way, allowing anyone to join the discussions, either by attending meetings in person or by monitoring e-mail discussions; and
+• to be ﬁnished in one year.
+The MPI eﬀort was a lively one, as a result of the tensions among these three goals. The MPI Forum decided to follow the format used by the High Performance
+
+12
+
+Chapter 1
+
+Fortran Forum, which had been well received by its community. (It even decided to meet in the same hotel in Dallas.)
+The MPI standardization eﬀort has been successful in attracting a wide class of vendors and users because the MPI Forum itself was so broadly based. At the original (MPI-1) forum, the parallel computer vendors were represented by Convex, Cray, IBM, Intel, Meiko, nCUBE, NEC, and Thinking Machines. Members of the groups associated with the portable software libraries were also present: PVM, p4, Zipcode, Chameleon, PARMACS, TCGMSG, and Express were all represented. Moreover, a number of parallel application specialists were on hand. In addition to meetings every six weeks for more than a year, there were continuous discussions via electronic mail, in which many persons from the worldwide parallel computing community participated. Equally important, an early commitment to producing a model implementation [65] helped demonstrate that an implementation of MPI was feasible.
+The ﬁrst version of the MPI standard [93] was completed in May 1994. During the 1993–1995 meetings of the MPI Forum, several issues were postponed in order to reach early agreement on a core of message-passing functionality. The forum reconvened during 1995–1997 to extend MPI to include remote memory operations, parallel I/O, dynamic process management, and a number of features designed to increase the convenience and robustness of MPI. Although some of the results of this eﬀort are described in this book, most of them are covered formally in [56] and described in a more tutorial approach in [60]. We refer to this as MPI-2.
+The MPI-2 version remained the deﬁnition of MPI for nearly ﬁfteen years. Then, in response to developments in hardware and software and the needs of applications, a third instantiation of the forum was constituted, again consisting of vendors, computer scientists, and computational scientists (the application developers). During 2008–2009, the forum updated the MPI-2 functions to reﬂect recent developments, culminating in the release of MPI-2.2 in September 2009. The forum continued to meet, substantially extending MPI with new operations, releasing the MPI-3 standard in September of 2012. Since then, the forum has continued to meet to further enhance MPI, for example, considering how MPI should behave in an environment where hardware is somewhat unreliable.
+This book primarily covers the functionality introduced in MPI-1, revised and updated to reﬂect the (few) changes that the MPI-2 and MPI-3 forums introduced into this functionality. It is a companion to the standard itself, showing how MPI is used and how its features are exploited in a wide range of situations. The more substantive additions to the MPI-1 standard are covered in the standard itself, of course, and in Using Advanced MPI [55].
+
+2 Introduction to MPI
+In this chapter we introduce the basic concepts of MPI, showing how they arise naturally out of the message-passing model.
+2.1 Goal
+The primary goal of the MPI speciﬁcation is to demonstrate that users need not compromise among eﬃciency, portability, and functionality. Speciﬁcally, users can write portable programs that still take advantage of the specialized hardware and software oﬀered by individual vendors. At the same time, advanced features, such as application-oriented process structures and dynamically managed process groups with an extensive set of collective operations, can be expected in every MPI implementation and can be used in every parallel application program where they might be useful. One of the most critical families of users is the parallel library writers, for whom eﬃcient, portable, and highly functional code is extremely important. MPI is the ﬁrst speciﬁcation that allows these users to write truly portable libraries. The goal of MPI is ambitious; but because the collective eﬀort of collaborative design and competitive implementation has been successful, it has removed the need for an alternative to MPI as a means of specifying message-passing algorithms to be executed on any computer platform that implements the message-passing model.
+This tripartite goal—portability, eﬃciency, functionality—has forced many of the design decisions that make up the MPI speciﬁcation. We describe in the following sections just how these decisions have aﬀected both the fundamental send and receive operations of the message-passing model and the set of advanced messagepassing operations included in MPI.
+2.2 What Is MPI?
+MPI is not a revolutionary new way of programming parallel computers. Rather, it is an attempt to collect the best features of many message-passing systems that have been developed over the years, improve them where appropriate, and standardize them. Hence, we begin by summarizing the fundamentals of MPI.
+• MPI is a library, not a language. It speciﬁes the names, calling sequences, and results of subroutines to be called from Fortran programs and the functions to be called from C programs. The programs that users write in Fortran and C are compiled with ordinary compilers and linked with the MPI library.
+
+14
+
+Chapter 2
+
+• MPI is a speciﬁcation, not a particular implementation. As of this writing, all parallel computer vendors oﬀer an MPI implementation for their machines and free, publicly available implementations can be downloaded over the Internet. A correct MPI program should be able to run on all MPI implementations without change.
+• MPI addresses the message-passing model. Although it is far more than a minimal system, its features do not extend beyond the fundamental computational model described in Chapter 1. A computation remains a collection of processes communicating with messages. Functions deﬁned in MPI-2 and MPI-3 extend the basic message-passing model considerably, but still focus on the movement of data among separate address spaces.
+The structure of MPI makes it straightforward to port existing codes and to write new ones without learning a new set of fundamental concepts. Nevertheless, the attempts to remove the shortcomings of prior systems have made even the basic operations a little diﬀerent. We explain these diﬀerences in the next section.
+2.3 Basic MPI Concepts
+Perhaps the best way to introduce the basic concepts in MPI is ﬁrst to derive a minimal message-passing interface from the message-passing model itself and then to describe how MPI extends such a minimal interface to make it more useful to application programmers and library writers.
+In the message-passing model of parallel computation, the processes executing in parallel have separate address spaces. Communication occurs when a portion of one process’s address space is copied into another process’s address space. This operation is cooperative and occurs only when the ﬁrst process executes a send operations and the second process executes a receive operation. What are the minimal arguments for the send and receive functions?
+For the sender, the obvious arguments that must be speciﬁed are the data to be communicated and the destination process to which the data is to be sent. The minimal way to describe data is to specify a starting address and a length (in bytes). Any sort of data item might be used to identify the destination; typically it has been an integer.
+On the receiver’s side, the minimum arguments are the address and length of an area in local memory where the received variable is to be placed, together with a variable to be ﬁlled in with the identity of the sender, so that the receiving process can know which process sent it the message.
+
+Introduction to MPI
+
+15
+
+Although an implementation of this minimum interface might be adequate for some applications, more features usually are needed. One key notion is that of matching: a process must be able to control which messages it receives, by screening them by means of another integer, called the type or tag of the message. Since we are soon going to use “type” for something else altogether, we will use the word “tag” for this argument to be used for matching. A message-passing system is expected to supply queuing capabilities so that a receive operation specifying a tag will complete successfully only when a message sent with a matching tag arrives. This consideration adds the tag as an argument for both sender and receiver. It is also convenient if the source can be speciﬁed on a receive operation as an additional screening parameter.
+Moreover, it is useful for the receive to specify a maximum message size (for messages with a given tag) but allow for shorter messages to arrive. In this case the actual length of the message received needs to be returned in some way.
+Now our minimal message interface has become
+send(address, length, destination, tag)
+and
+receive(address, length, source, tag, actlen)
+where the source and tag in the receive can be either input arguments used to screen messages or special values used as “wild cards” to indicate that messages will be matched from any source or with any tag, in which case they could be ﬁlled in with the actual tag and destination of the message received. The argument actlen is the length of the message received. Typically it is considered an error if a matching message is received that is too long, but not if it is too short.
+Many systems with variations on this type of interface were in use when the MPI eﬀort began. Several of them were mentioned in the preceding chapter. Such message-passing systems proved extremely useful, but they imposed restrictions considered undesirable by a large user community. The MPI Forum sought to lift these restrictions by providing more ﬂexible versions of each of these parameters, while retaining the familiar underlying meanings of the basic send and receive operations. Let us examine these parameters one by one, in each case discussing ﬁrst the original restrictions and then the MPI version.
+Describing message buﬀers. The (address, length) speciﬁcation of the message to be sent was a good match for early hardware but is not really adequate for two diﬀerent reasons:
+
+16
+
+Chapter 2
+
+• Often, the message to be sent is not contiguous. In the simplest case, it may be a row of a matrix that is stored columnwise. More generally, it may consist of an irregularly dispersed collection of structures of diﬀerent sizes. In the past, programmers (or libraries) have had to provide code to pack this data into contiguous buﬀers before sending it and to unpack it at the receiving end. However, as communications processors began to appear that could deal directly with strided or even more generally distributed data, it became more critical for performance that the packing be done “on the ﬂy” by the communication processor in order to avoid the extra data movement. This cannot be done unless the data is described in its original (distributed) form to the communication library.
+• The information content of a message (its integer values, ﬂoating-point values, etc.) is really independent of how these values are represented in a particular computer as strings of bits. If we describe our messages at a higher level, then it will be possible to send messages between machines that represent such values in diﬀerent ways, such as with diﬀerent byte orderings or diﬀerent ﬂoating-point number representations. This will also allow the use of MPI communication between computation-specialized machines and visualizationspecialized machines, for example, or among workstations of diﬀerent types on a network. The communication library can do the necessary conversion if it is told precisely what is being transmitted.
+The MPI solution, for both of these problems, is to specify messages at a higher level and in a more ﬂexible way than (address, length) in order to reﬂect the fact that a message contains much more structure than just a string of bits. Instead, an MPI message buﬀer is deﬁned by a triple (address, count, datatype), describing count occurrences of the data type datatype starting at address. The power of this mechanism comes from the ﬂexibility in the values of datatype.
+To begin with, datatype can take on the values of elementary data types in the host language. Thus (A, 300, MPI_REAL) describes a vector A of 300 real numbers in Fortran, regardless of the length or format of a ﬂoating-point number. An MPI implementation for heterogeneous networks guarantees that the same 300 reals will be received, even if the receiving machine has a very diﬀerent ﬂoating-point format.
+The full power of data types, however, comes from the fact that users can construct their own data types using MPI routines and that these data types can describe noncontiguous data. Details of how to construct these “derived” data types are given in Chapter 5.
+
+Introduction to MPI
+
+17
+
+Separating families of messages. Nearly all message-passing systems have provided a tag argument for the send and receive operations. This argument allows the programmer to deal with the arrival of messages in an orderly way, even if the arrival of messages is not in the order anticipated. The message-passing system queues messages that arrive “of the wrong tag” until the program(mer) is ready for them. Usually a facility exists for specifying wild-card tags that match any tag.
+This mechanism has proven necessary but insuﬃcient, because the arbitrariness of the tag choices means that the entire program must use tags in a predeﬁned, coherent way. Particular diﬃculties arise in the case of libraries, written far from the application programmer in time and space, whose messages must not be accidentally received by the application program.
+MPI’s solution is to extend the notion of tag with a new concept: the context. Contexts are allocated at run time by the system in response to user (and library) requests and are used for matching messages. They diﬀer from tags in that they are allocated by the system instead of the user and no wild-card matching is permitted.
+The usual notion of message tag, with wild-card matching, is retained in MPI.
+Naming processes. Processes belong to groups. If a group contains n processes, then its processes are identiﬁed within the group by ranks, which are integers from 0 to n − 1. All processes in an MPI implementation belong to an initial group. Within this group, processes are numbered similarly to the way in which they are numbered in many previous message-passing systems, from 0 up to 1 less than the total number of processes.
+Communicators. The notions of context and group are combined in a single object called a communicator, which becomes an argument to most point-to-point and collective operations. Thus the destination or source speciﬁed in a send or receive operation always refers to the rank of the process in the group identiﬁed with the given communicator.
+That is, in MPI the basic (blocking) send operation has become
+MPI_Send(address, count, datatype, destination, tag, comm)
+where
+• (address, count, datatype) describes count occurrences of items of the form datatype starting at address,
+• destination is the rank of the destination in the group associated with the communicator comm,
+
+18
+
+Chapter 2
+
+• tag is an integer used for message matching, and
+• comm identiﬁes a group of processes and a communication context.
+The receive has become
+MPI_Recv(address, maxcount, datatype, source, tag, comm, status)
+Here, the arguments are as follows:
+• (address, maxcount, datatype) describe the receive buﬀer as they do in the case of MPI_Send. It is allowable for less than maxcount occurrences of datatype to be received. The arguments tag and comm are as in MPI_Send, with the addition that a wildcard, matching any tag, is allowed.
+• source is the rank of the source of the message in the group associated with the communicator comm, or a wildcard matching any source,
+• status holds information about the actual message size, source, and tag, useful when wild cards have been used.
+The source, tag, and count of the message actually received can be retrieved from status.
+Several early message-passing systems returned the “status” parameters by separate calls that implicitly referenced the most recent message received. MPI’s method is one aspect of its eﬀort to be reliable in the situation where multiple threads are receiving messages on behalf of a process.
+2.4 Other Interesting Features of MPI
+Our focus so far has been on the basic send and receive operations, since one may well regard as the most fundamental new feature in MPI the small but important way in which each of the arguments of the “traditional” send/receive was modiﬁed from the minimal message-passing interface we described at the beginning of this section. Nevertheless, MPI is a large speciﬁcation and oﬀers many other advanced features, including the following:
+Collective communications. A proven concept from early message-passing libraries is the notion of collective operation, performed by all the processes in a computation. Collective operations are of two kinds:
+
+Introduction to MPI
+
+19
+
+• Data movement operations are used to rearrange data among the processes. The simplest of these is a broadcast, but many elaborate scattering and gathering operations can be deﬁned (and are supported in MPI).
+• Collective computation operations (minimum, maximum, sum, logical OR, etc., as well as user-deﬁned operations).
+In both cases, a message-passing library can take advantage of its knowledge of the structure of the machine in order to optimize and increase the parallelism in these operations.
+MPI has an extremely ﬂexible mechanism for describing data movement routines. These are particularly powerful when used in conjunction with the derived datatypes.
+MPI also has a large set of collective computation operations and a mechanism by which users can provide their own. In addition, MPI provides operations for creating and managing groups in a scalable way. Such groups can be used to control the scope of collective operations.
+Virtual topologies. One can conceptualize processes in an application-oriented topology, for convenience in programming. Both general graphs and grids of processes are supported in MPI. Topologies provide a high-level method for managing process groups without dealing with them directly. Since topologies are a standard part of MPI, we do not treat them as an exotic, advanced feature. We use them early in the book (Chapter 4) and freely from then on.
+Debugging and proﬁling. Rather than specifying any particular interface, MPI requires the availability of “hooks” that allow users to intercept MPI calls and thus deﬁne their own debugging and proﬁling mechanisms. In Chapter 7 we give an example of how to write such hooks for analyzing program behavior.
+Communication modes. MPI has both the blocking send and receive operations described above and nonblocking versions whose completion can be tested for and waited for explicitly. It is possible to test and wait on multiple operations simultaneously. MPI also has multiple communication modes. The standard mode corresponds to current common practice in message-passing systems. The synchronous mode requires sends to block until the corresponding receive has occurred (as opposed to the standard mode blocking send, which blocks only until the buﬀer can be reused). The ready mode (for sends) is a way for the programmer to notify
+
+20
+
+Chapter 2
+
+the system that the receive has been posted, so that the underlying system can use a faster protocol if it is available. The buﬀered mode provides user-controllable buﬀering for send operations.
+Support for libraries. The structuring of all communication through communicators provides to library writers for the ﬁrst time the capabilities they need to write parallel libraries that are completely independent of user code and inter-operable with other libraries. Libraries can maintain arbitrary data, called attributes, associated with the communicators they allocate, and can specify their own error handlers. The tools for creating MPI parallel libraries that take advantage of these features are described in Chapters 6 and 7.
+Support for heterogeneous networks. MPI programs can run on networks of machines that have diﬀerent lengths and formats for various fundamental datatypes, since each communication operation speciﬁes a (possibly very simple) structure and all the component datatypes, so that the implementation always has enough information to do data format conversions if they are necessary. MPI does not specify how these conversions are done, however, thus allowing a variety of optimizations. We discuss heterogeneity speciﬁcally in Chapter 7.
+Processes and processors. The MPI standard talks about processes. A process is a software concept that represents an address space and one or more threads (each thread has a separate program counter and call stack). In contrast, a processor is a piece of hardware containing a central processing unit capable of executing a program. Some MPI implementations will limit an MPI program to one MPI process per processor; others will allow multiple MPI processes on each processor.
+An MPI process is usually the same as a process in the operating system, but that isn’t required by the MPI standard. See [41, 78] for examples of one Unix process containing multiple MPI processes.
+2.5 Is MPI Large or Small?
+Perhaps the most fundamental decision for the MPI Forum was whether MPI would be “small and exclusive,” incorporating the minimal intersection of existing libraries, or “large and inclusive,” incorporating the union of the functionality of existing systems.
+In the end, although some ideas were left out, an attempt was made to include a relatively large number of features that had proven useful in various libraries and
+
+Introduction to MPI
+
+21
+
+MPI_Init MPI_Comm_size MPI_Comm_rank MPI_Send MPI_Recv MPI_Finalize
+
+Initialize MPI Find out how many processes there are Find out which process I am Send a message Receive a message Terminate MPI
+
+Table 2.1: The six-function version of MPI
+
+applications. At the same time the number of ideas in MPI is small; the number of functions in MPI comes from combining a small set of orthogonal concepts.
+To demonstrate just how little one needs to learn to write MPI programs, we present here a list of the indispensable functions, the ones that the programmer really cannot do without. There are six. With only these functions a vast number of useful and eﬃcient programs can be written. The other functions add ﬂexibility (datatypes), robustness (nonblocking send/receive), eﬃciency (“ready” mode), modularity (groups, communicators), or convenience (collective operations, topologies). Nonetheless, one can forego all of these concepts and use only the six routines from MPI shown in Table 2.1 to write complete message-passing programs.
+The designers of MPI attempted to make the features of MPI consistent and orthogonal. Hence users can incrementally add sets of functions to their repertoire as needed, without learning everything at once. For example, for collective communication, one can accomplish a lot with just MPI_Bcast and MPI_Reduce, as we show in Chapter 3. The next addition to one’s repertoire is likely to be the nonblocking operations, which we discuss in Chapter 4, followed by derived datatypes, introduced in Chapter 4 and explored in more depth in Chapter 5. The unfolding of topics in this book will be driven by examples that motivate the introduction of MPI routines a little at a time.
+
+2.6 Decisions Left to the Implementor
+The MPI standard does not specify every aspect of a parallel program. Some aspects of parallel programming that are left to the speciﬁc implementation are as follows:
+• Process startup is left to the implementation. This strategy allows considerable ﬂexibility in how an MPI program is executed, at some cost in portability of the parallel programming environment.
+
+22
+
+Chapter 2
+
+• Although MPI speciﬁes a number of error codes, the implementation is allowed to return a richer set of error codes than is speciﬁed in the standard.
+• The amount of system buﬀering provided for messages is implementation dependent, although users can exert some control if they choose. In Chapter 4 we describe what we mean by buﬀering and techniques for dealing with the buﬀering problem . Chapter 8 contains a look at buﬀering issues from the implementor’s point of view.
+• Further issues, including some impacting performance, that come up when one looks more deeply into implementation issues are covered in Chapter 8.
+The implementation used in preparing examples for this book is MPICH [59], a freely available, portable implementation of MPI. Instructions for obtaining MPICH and the source code for the examples used here are given in Appendix B.
+
+3 Using MPI in Simple Programs
+
+In this chapter we introduce the most basic MPI calls and use them to write some simple parallel programs. Simplicity of a parallel algorithm does not limit its usefulness, however: even a small number of basic routines are enough to implement a major application. We also demonstrate in this chapter a few of the tools that we use throughout this book to study the behavior of parallel programs.
+
+3.1 A First MPI Program
+
+For our ﬁrst parallel program, we choose a “perfect” parallel program: it can be expressed with a minimum of communication, load balancing is automatic, and we can verify the answer. Speciﬁcally, we compute the value of π by numerical integration. Since
+
+1 0
+
+1
+
+1 + x2 dx
+
+=
+
+arctan(x)|10
+
+=
+
+arctan(1)
+
+− arctan(0)
+
+=
+
+arctan(1)
+
+=
+
+π, 4
+
+we will integrate the function f (x) = 4/(1+x2). To do this integration numerically, we divide the interval from 0 to 1 into some number n of subintervals and add up the areas of the rectangles as shown in Figure 3.1 for n = 5. Larger values of the parameter n will give us more accurate approximations of π. This is not, in fact, a very good way to compute π, but it makes a good example.
+To see the relationship between n and the error in the approximation, we write an interactive program in which the user supplies n and the program ﬁrst computes an approximation (the parallel part of the program) and then compares it with a known, highly accurate approximation to π.
+The parallel part of the algorithm occurs as each process computes and adds up the areas for a diﬀerent subset of the rectangles. At the end of the computation, all of the local sums are combined into a global sum representing the value of π. Communication requirements are consequently simple. One of the processes (we’ll call it the manager) is responsible for communication with the user. It obtains a value for n from the user and broadcasts it to all of the other processes. Each process is able to compute which rectangles it is responsible for from n, the total number of processes, and its own rank. After reporting a value for π and the error in the approximation, the manager asks the user for a new value for n.
+The complete program is shown in Figure 3.2. In most of this book we will show only the “interesting” parts of programs and refer the reader to other sources for the complete, runnable version of the code. For our ﬁrst few programs, however,
+
+24
+
+Chapter 3
+
+Figure 3.1: Integrating to ﬁnd the value of π
+we include the entire code and describe it more or less line by line. In the directory of programs that accompanies this book, the pi program is available as ‘simplempi/pi.f’. See Appendix B for details of how to obtain this code, other examples, and an implementation of MPI.
+Our program starts like any other, with the program main statement. Fortran programs may use either include "mpif.h" or the mpi module. MPI-3 implementations should also provide an mpi_f08 module; this module provides a newer interface for Fortran but requires diﬀerent declarations for MPI objects. See Using Advanced MPI [55] for details. The include ﬁle or module is necessary in every MPI Fortran program and subprogram to deﬁne various constants and variables. In this book, all of the examples use the mpi module because it provides valuable checking for correct argument types and counts. However, if your MPI implementation does not provide an mpi module, you can use the mpif.h include ﬁle.
+After a few lines of variable deﬁnitions, we get to three lines that will probably be found near the beginning of every Fortran MPI program:
+call MPI_INIT(ierr) call MPI_COMM_RANK(MPI_COMM_WORLD, myid, ierr) call MPI_COMM_SIZE(MPI_COMM_WORLD, numprocs, ierr)
+
+Using MPI in Simple Programs
+
+25
+
+program main
+
+use mpi
+
+double precision PI25DT
+
+parameter
+
+(PI25DT = 3.141592653589793238462643d0)
+
+double precision mypi, pi, h, sum, x, f, a
+
+integer n, myid, numprocs, i, ierr
+
+!
+
+function to integrate
+
+f(a) = 4.d0 / (1.d0 + a*a)
+
+call MPI_INIT(ierr) call MPI_COMM_RANK(MPI_COMM_WORLD, myid, ierr) call MPI_COMM_SIZE(MPI_COMM_WORLD, numprocs, ierr)
+
+do
+
+if (myid .eq. 0) then
+
+print *, ’Enter the number of intervals: (0 quits) ’ read(*,*) n endif
+
+!
+
+broadcast n
+
+call MPI_BCAST(n, 1, MPI_INTEGER, 0, MPI_COMM_WORLD, ierr)
+
+!
+
+check for quit signal
+
+if (n .le. 0) exit
+
+!
+
+calculate the interval size
+
+h = 1.0d0/n
+
+sum = 0.0d0
+
+do i = myid+1, n, numprocs
+
+x = h * (dble(i) - 0.5d0) sum = sum + f(x)
+
+enddo
+
+mypi = h * sum
+
+!
+
+collect all the partial sums
+
+call MPI_REDUCE(mypi, pi, 1, MPI_DOUBLE_PRECISION, &
+
+MPI_SUM, 0, MPI_COMM_WORLD, ierr)
+
+!
+
+node 0 prints the answer.
+
+if (myid .eq. 0) then
+
+print *, ’pi is ’, pi, ’ Error is’, abs(pi - PI25DT) endif
+
+enddo
+
+call MPI_FINALIZE(ierr)
+
+end
+
+Figure 3.2: Fortran program (fpi) for calculating π
+
+26
+
+Chapter 3
+
+The call to MPI_INIT is required in every MPI program and must be the ﬁrst MPI call.1 It establishes the MPI “environment.” Only one invocation of MPI_INIT can occur in each program execution. Its only argument is an error code. Every Fortran MPI subroutine returns an error code in its last argument, which is either MPI_SUCCESS or an implementation-deﬁned error code. In this example (and in many of our examples) we will be sloppy and not test the return codes from our MPI routines, assuming that they will always be MPI_SUCCESS. This approach will improve readability of the code at the expense of possible debugging time. We will discuss later (in Section 7.7) how to check, handle, and report errors.
+As described in Chapter 2, all MPI communication is associated with a communicator that describes the communication context and an associated group of processes. In this program we will be using only the default communicator, predeﬁned and named MPI_COMM_WORLD, which deﬁnes one context and the set of all processes. MPI_COMM_WORLD is one of the items deﬁned in the mpi module and in ‘mpif.h’.
+The call MPI_COMM_SIZE returns (in numprocs) the number of processes that the user has started for this program. Precisely how the user caused these processes to be started depends on the implementation, but any program can ﬁnd out the number with this call. The value numprocs is actually the size of the group of processes associated with the default communicator MPI_COMM_WORLD. We think of the processes in any group as being numbered with consecutive integers beginning with 0, called ranks. By calling MPI_COMM_RANK, each process ﬁnds out its rank in the group associated with a communicator. Thus, although each process in this program will get the same number in numprocs, each will have a diﬀerent number for myid.
+Next, the manager process (which can identify itself by using myid) gets a value for n, the number of rectangles, from the user. The line
+call MPI_BCAST(n, 1, MPI_INTEGER, 0, MPI_COMM_WORLD, ierr)
+sends the value of n to all other processes. Note that all processes call MPI_BCAST, both the process sending the data (with rank zero) and all of the other processes in MPI_COMM_WORLD.2 The call to MPI_BCAST results in every process (in the
+1There are a few exceptions, including the MPI_Initialized routine, which a library can call to determine whether MPI_Init has been called. See Section 7.8.2.
+2In some message-passing systems, messages sent with a broadcast can be received with a receive, just like a message sent with a send. In MPI, communication involving more than two processes is collective, and all participating processes call the same routine. MPI_BCAST is an example of a collective communication routine.
+
+Using MPI in Simple Programs
+
+27
+
+group associated with the communicator given in the ﬁfth argument) ending up with a copy of n. The data to be communicated is described by the address (n), the datatype (MPI_INTEGER), and the number of items (1). The process with the original copy is speciﬁed by the fourth argument (0 in this case, the manager process, which just reads it from the user). (MPI assigns a type to every data item. MPI datatypes are described in full in Section 5.1.)
+Thus, after the call to MPI_BCAST, all processes have n and their own identiﬁers, which is enough information for each one to compute its contribution, mypi. Each process computes the area of every numprocs’th rectangle, starting with myid+1. Next, all of the values of mypi held by the individual processes need to be added up. MPI provides a rich set of such operations, using the MPI_REDUCE routine, with an argument specifying which arithmetic or logical operation is being requested. In our case the call is
+call MPI_REDUCE(mypi, pi, 1, MPI_DOUBLE_PRECISION, MPI_SUM, 0, & MPI_COMM_WORLD, ierr)
+The ﬁrst two arguments identify the source and result addresses, respectively. The data being collected consists of 1 (third argument) item of type MPI_DOUBLE_PRECISION (fourth argument). The operation is addition (MPI_SUM, the next argument), and the result of the operation is to be placed in pi on the process with rank 0 (ﬁfth argument). The last two arguments are the communicator and error return code, as usual. The ﬁrst two arguments of MPI_REDUCE must not overlap (i.e., must be diﬀerent variables or sections of an array). A full list of such operations is presented in Section 7.2.2, where user-deﬁned operations are also discussed.
+All processes then return to the top of the loop (the manager prints the answer ﬁrst). The MPI_BCAST causes all the processes except the manager to wait for the next value of n.
+When the user types a zero in response to the request for a number of rectangles, the loop terminates and all processes execute
+call MPI_FINALIZE(ierr)
+This call must be made by every process in an MPI computation; it terminates the MPI “environment.” With few exceptions, no MPI calls may be made by a process after its call to MPI_FINALIZE. In particular, MPI_INIT cannot be called again.
+The Fortran bindings for the MPI routines used in this section are summarized in Table 3.1. In the tables of Fortran bindings, the expression <type> stands for any Fortran datatype, such as INTEGER or DOUBLE PRECISION.
+
+28
+
+Chapter 3
+
+MPI INIT(ierror) integer ierror
+MPI COMM SIZE(comm, size, ierror) integer comm, size, ierror
+MPI COMM RANK(comm, rank, ierror) integer comm, rank, ierror
+MPI BCAST(buﬀer, count, datatype, root, comm, ierror) <type> buﬀer(*) integer count, datatype, root, comm, ierror
+MPI REDUCE(sendbuf, recvbuf, count, datatype, op, root, comm, ierror) <type> sendbuf(*), recvbuf(*) integer count, datatype, op, root, comm, ierror
+MPI FINALIZE(ierror) integer ierror
+Table 3.1: Fortran bindings for routines used in the fpi program
+3.2 Running Your First MPI Program
+The way in which MPI programs are “launched” on a particular machine or network is not itself part of the MPI standard. Therefore it may vary from one machine to another. Several existing MPI implementations have used a syntax like
+mpirun -np 4 fpi
+The MPI Forum settled on a standard that recommended, but did not require, the syntax
+mpiexec -n 4 fpi
+instead. See Using Advanced MPI [55] for a complete discussion of the options for mpiexec.
+Some MPI implementations may require diﬀerent commands to start MPI programs; often man mpi will give tell you how to run programs. The MPI standard strongly encourages implementors to provide an mpiexec command that provides a uniform interface to starting MPI programs.
+
+Using MPI in Simple Programs
+
+29
+
+int MPI Init(int *argc, char ***argv)
+int MPI Comm size(MPI Comm comm, int *size)
+int MPI Comm rank(MPI Comm comm, int *rank)
+int MPI Bcast(void *buf, int count, MPI Datatype datatype, int root, MPI Comm comm)
+int MPI Reduce(const void *sendbuf, void *recvbuf, int count, MPI Datatype datatype, MPI Op op, int root, MPI Comm comm)
+int MPI Finalize()
+Table 3.2: C bindings for routines used in the pi program
+3.3 A First MPI Program in C
+In this section we repeat the program for computing the value of π, but this time in C rather than Fortran. In general, every eﬀort was made in MPI to keep the Fortran and C bindings similar. The primary diﬀerence is that error codes are returned as the value of C functions instead of in a separate argument. In addition, the arguments to most functions are more strongly typed than they are in Fortran (with the mpi module), having speciﬁc C types such as MPI_Comm and MPI_Datatype where Fortran has integers (the mpi_f08 Fortran module provides similarly strong typing). The included ﬁle is, of course, diﬀerent: instead of the mpi module, we #include the ﬁle ‘mpi.h’. Moreover, the arguments to MPI_Init are diﬀerent, so that a C program can take advantage of command-line arguments. An MPI implementation is expected to remove from the argv array any command-line arguments that should be processed by the implementation before returning control to the user program and to decrement argc accordingly. Note that the arguments to MPI_Init in C are the addresses of the usual main arguments argc and argv. One is allowed to pass NULL for both of these addresses.
+The program is shown in Figure 3.3, and deﬁnitions of the C versions of the MPI routines used in this program are given in Table 3.2.
+3.4 Using MPI from Other Languages
+The current MPI standard (version 3.0 at the time of this writing) deﬁnes language bindings for Fortran and C. At one point explicit C++ bindings were deﬁned as
+
+30
+
+Chapter 3
+
+#include "mpi.h" #include <math.h> int main(int argc, char *argv[]) {
+int n, myid, numprocs, i; double PI25DT = 3.141592653589793238462643; double mypi, pi, h, sum, x; MPI_Init(&argc,&argv); MPI_Comm_size(MPI_COMM_WORLD, &numprocs); MPI_Comm_rank(MPI_COMM_WORLD, &myid); while (1) {
+if (myid == 0) { printf("Enter the number of intervals: (0 quits) "); scanf("%d",&n);
+} MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD); if (n == 0)
+break; else {
+h = 1.0 / (double) n; sum = 0.0; for (i = myid + 1; i <= n; i += numprocs) {
+x = h * ((double)i - 0.5); sum += (4.0 / (1.0 + x*x)); } mypi = h * sum; MPI_Reduce(&mypi, &pi, 1, MPI_DOUBLE, MPI_SUM, 0,
+MPI_COMM_WORLD); if (myid == 0)
+printf("pi is approximately %.16f, Error is %.16f\n", pi, fabs(pi - PI25DT));
+} } MPI_Finalize(); return 0; }
+Figure 3.3: C program for calculating π
+
+Using MPI in Simple Programs
+
+31
+
+well (see the second edition of this book); but they did not prove useful in the long run and so have been removed from the standard. C++ users should be able to freely use the C bindings by including into their program the ﬁle ‘mpi.h’, which deﬁnes them. Individual computer scientists have produced bindings for other languages, although they are not oﬃcially blessed by the MPI Forum and may not be complete. A web search will turn up at least experimental bindings for languages such as Python, Ruby, Java, Julia, and D.
+3.5 Timing MPI Programs
+Sequential algorithms are tested for correctness by seeing whether they give the right answer. For parallel programs, the right answer is not enough: one wishes to decrease the execution time. Therefore, measuring speed of execution is part of testing the program to see whether it performs as intended.
+Many operating systems and libraries provide timing mechanisms, but so far all of those that both are portable and provide access to high resolution clocks are cumbersome to use. Therefore MPI provides a simple routine that can be used to time programs or sections of programs.
+MPI_Wtime() returns a double-precision ﬂoating-point number that is the time in seconds since some arbitrary point of time in the past. The point is guaranteed not to change during the lifetime of a process. Thus, a time interval can be measured by calling this routine at the beginning and end of a program segment and subtracting the values returned. Making this a ﬂoating-point value allows the use of high-resolution timers if they are supported by the underlying hardware, although no particular resolution is speciﬁed. MPI provides a function to ﬁnd out what the resolution is. This function, called MPI_Wtick, has no arguments. It returns a ﬂoating-point number that is the time in seconds between successive ticks of the clock. The bindings are shown in Tables 3.3 and 3.4. The values returned by MPI_Wtime are not synchronized with other processes. That is, you cannot compare a value from MPI_Wtime from process 8 with a value from process 2. Only the diﬀerence in values of MPI_Wtime, taken on the same process, has any meaning.3
+Suppose we wished to measure the speedup obtained by our program for computing π. Since this program is written as an interactive program, we wish to time only the section that does internal communications and computation. We don’t
+3If in fact the values of MPI_Wtime are synchronized among the processes, the MPI implementation sets an attribute to indicate this. This will be discussed in Section 7.8.
+
+32
+
+Chapter 3
+
+double precision MPI WTIME() double precision MPI WTICK()
+Table 3.3: Fortran binding for MPI timing routines double MPI Wtime() double MPI Wtick()
+Table 3.4: C binding for MPI timing routines
+
+want to include time spent waiting for user input. Figure 3.4 shows how the central
+
+part of our π program is modiﬁed to provide timings. Then, by running it with
+
+varying numbers of processes, we can measure speedup. Speedup for p processors
+
+is normally deﬁned as
+
+time for 1 process
+
+time for p processes
+
+Thus, a nearly perfect speedup would be a phrase like “speedup of 97.8 with 100
+
+processors.” Note that for this program, because of the small amount of computa-
+
+tional work done, speedups greater than one are unlikely; we’ll discuss this in more
+
+detail in Section 4.6.
+
+3.6 A Self-Scheduling Example: Matrix-Vector Multiplication
+So far, we have been able to write a “message-passing” program without explicitly sending and receiving messages. The next example will illustrate such explicit point-to-point communication and, at the same time, illustrate one of the most common of parallel algorithm prototypes: the self-scheduling, or manager-worker, algorithm. We will demonstrate the self-scheduling prototype ﬁrst in the context of matrix-vector multiplication, for simplicity, but the same abstract algorithm has been used in many other contexts.
+This example was chosen not because it illustrates the best way to parallelize this particular numerical computation (it doesn’t) but because it illustrates the basic MPI send and receive operations in the context of a fundamental type of parallel algorithm, applicable in many situations.
+The idea is that one process, which we call the manager process, is responsible for coordinating the work of the others. This mechanism is particularly appropriate when the other processes (the worker processes) do not have to communicate with
+
+Using MPI in Simple Programs
+
+33
+
+double precision starttime, endtime
+
+...
+
+do
+
+! ... read n on process zero
+
+starttime = MPI_WTIME()
+
+!
+
+broadcast n
+
+call MPI_BCAST(n, 1, MPI_INTEGER, 0, MPI_COMM_WORLD, ierr)
+
+!
+
+check for quit signal
+
+if ( n .le. 0 ) exit
+
+!
+
+calculate the interval size
+
+h = 1.0d0/n
+
+sum = 0.0d0
+
+do i = myid+1, n, numprocs
+
+x = h * (dble(i) - 0.5d0)
+
+sum = sum + f(x)
+
+enddo
+
+mypi = h * sum !
+
+collect all the partial sums
+
+call MPI_REDUCE(mypi, pi, 1, MPI_DOUBLE_PRECISION, &
+
+MPI_SUM, 0, MPI_COMM_WORLD, ierr)
+
+!
+
+node 0 prints the answer.
+
+endtime = MPI_WTIME()
+
+if (myid .eq. 0) then
+
+print *, ’pi is ’, pi, ’Error is ’, abs(pi - PI25DT) print *, ’time is ’, endtime-starttime, ’ seconds’ endif
+
+enddo
+
+Figure 3.4: Timing the program for calculating π
+
+one another and when the amount of work that each worker must perform is diﬃcult to predict. In the case of matrix-vector multiplication, the ﬁrst criterion holds but not the second. We can, of course, take the view that we might be computing on a network of workstations with varying loads and so, even if equal amounts of work were assigned, the time it takes for each worker to complete its task might vary widely. In any event, the point of this example is the use of the MPI send and receive routines to express the manager-worker parallel algorithm, rather than the matrix-vector multiplication itself.
+In our example of multiplying a matrix by a vector, a unit of work to be given out will consist of the dot product of one row of the matrix A with the (column) vector b. The manager begins by broadcasting b to each worker. It then sends
+
+34
+
+Chapter 3
+
+one row of the matrix A to each worker. At this point the manager begins a loop, terminated when it has received all of the entries in the product. The body of the loop consists of receiving one entry in the product vector from whichever worker sends one, then sending the next task to that worker. In other words, completion of one task by a worker is considered to be a request for the next task. Once all tasks have been handed out, termination messages are sent instead.
+Each worker, after receiving the broadcast value of b, also enters a loop, terminated by the receipt of the termination message from the manager. The body of the loop consists of receiving a row of A, forming the dot product with b, and sending the answer back to the manager.
+Although the manager and workers execute distinct algorithms, and in some environments they can be compiled into separate executable ﬁles, the more portable and convenient alternative is to combine them into a single program, with a test near the beginning to separate the manager code from the worker code.
+We present the code here in three chunks: the code executed by all processes, the code executed only by the manager, and the code executed only by the workers. The code that is executed by all processes is shown in Figure 3.5. It does not contain any MPI calls that we have not already seen.
+Now we ﬁll in the sections carried out by the manager and workers. The way in which the manager obtains the matrix A and the vector b is irrelevant, so we don’t show their initialization here. We have arbitrarily made A of size 100 × 100, just to be speciﬁc. The code for the manager is shown in Figure 3.6 on page 37. The new MPI call is the send operation, which the manager uses to send a row of A to a worker. In this ﬁrst version we pack the data into a contiguous buﬀer before sending it. (In Section 5.2, we will show how MPI can do this for us.) Then the message is sent to process i with
+tag = i dest = i call MPI_SEND(buffer, cols, MPI_DOUBLE_PRECISION, dest, &
+tag, MPI_COMM_WORLD, ierr)
+The ﬁrst three arguments, buffer, cols, and MPI_DOUBLE_PRECISION, describe the message in the usual MPI way: address, count, and datatype. The next argument, i, is the destination, an integer specifying the rank of the destination process in the group associated with the communicator given by the argument MPI_COMM_WORLD. Next comes an integer message type, or tag, in MPI terminology. We use the tag in this case to send a little extra information along with the row, namely, the row number. The worker will send this number back with the
+
+Using MPI in Simple Programs
+
+35
+
+program main use mpi integer MAX_ROWS, MAX_COLS, rows, cols parameter (MAX_ROWS = 1000, MAX_COLS = 1000) double precision a(MAX_ROWS,MAX_COLS), b(MAX_COLS) double precision c(MAX_ROWS), buffer(MAX_COLS), ans
+
+integer myid, manager, numprocs, ierr, status(MPI_STATUS_SIZE) integer i, j, numsent, sender integer anstype, row
+
+call MPI_INIT(ierr) call MPI_COMM_RANK(MPI_COMM_WORLD, myid, ierr) call MPI_COMM_SIZE(MPI_COMM_WORLD, numprocs, ierr) manager = 0 rows = 100 cols = 100
+
+if (myid .eq. manager) then
+
+!
+
+manager initializes and then dispatches
+
+...
+
+else
+
+!
+
+workers receive b, then compute dot products until they
+
+!
+
+receive a done message
+
+...
+
+endif
+
+call MPI_FINALIZE(ierr) end
+
+Figure 3.5: Fortran program for matrix-vector multiplication: common part
+
+36
+
+Chapter 3
+
+dot product it computes, so the manager will know where to store the answer in the vector c. Of course, we are assuming that there are enough tag values to keep track of the rows of A. MPI guarantees that at least the values from 0 to 32767 are valid, which will suﬃce for small tests of this program. (More tag values might be available; see Section 7.8 for how to ﬁnd out. We reserve tag value 0 for the termination message. Then a communicator is speciﬁed (in this case the “default” communicator MPI_COMM_WORLD, whose group includes all processes), and a place (ierr) in which to return an error code. (We will consider error codes in more detail in Section 7.7.)
+The responses from the workers are received by the line
+call MPI_RECV(ans, 1, MPI_DOUBLE_PRECISION, MPI_ANY_SOURCE, & MPI_ANY_TAG, MPI_COMM_WORLD, status, ierr)
+This is a blocking receive; that is, control is not returned to the user program until the message has been received. The ﬁrst three arguments specify a place to put the message. Here it is a single double-precision number, the dot product of one row of A with b. The manager process can also specify that it wishes to wait for a message from a speciﬁc process. Here it does not wish to be so selective, so it uses the predeﬁned value MPI_ANY_SOURCE to indicate that it will accept messages from any process associated with the MPI_COMM_WORLD communicator. The use of MPI ANY TAG indicates that any row is acceptable.
+The argument status is an output argument that provides information about the message that is received (including the source, tag, and length). In Fortran, it is an array of integers of size MPI_STATUS_SIZE. It is declared in the user’s program. Here we have called it status. The entry status(MPI_SOURCE) is ﬁlled in with the rank of the process that sent the message. It is important here because we will send the next unit of work (the next row) to that worker. We also need to know the value of status(MPI_TAG) in order to know where to store the answer in the vector c. In C, status is a structure of type MPI_Status; the element status.MPI_SOURCE is the source, and the element status.MPI_TAG is the tag value. In C programs, the status is usually passed by reference (that is, &status). In Fortran and C, other entries in status are used to determine the number of items that were actually received with the routine MPI_Get_count, which we will discuss in Section 7.1.3.
+After all rows have been sent, the manager sends a message with tag zero to the workers to tell them they are ﬁnished. The content of this message is irrelevant; all the information is carried by the tag. In fact, since the content of the message is irrelevant, we send a message of zero length by setting the count ﬁeld to zero.
+
+Using MPI in Simple Programs
+
+37
+
+! manager initializes and then dispatches
+
+! initialize a and b (arbitrary)
+
+do j = 1,cols
+
+b(j) = 1
+
+do i = 1,rows
+
+a(i,j) = i
+
+enddo
+
+enddo
+
+numsent = 0
+
+! send b to each worker process
+
+call MPI_BCAST(b, cols, MPI_DOUBLE_PRECISION, manager, &
+
+MPI_COMM_WORLD, ierr)
+
+! send a row to each worker process; tag with row number
+
+do i = 1,min(numprocs-1,rows)
+
+do j = 1,cols
+
+buffer(j) = a(i,j)
+
+enddo
+
+call MPI_SEND(buffer, cols, MPI_DOUBLE_PRECISION, i, &
+
+i, MPI_COMM_WORLD, ierr)
+
+numsent = numsent+1
+
+enddo
+
+do i = 1,rows
+
+call MPI_RECV(ans, 1, MPI_DOUBLE_PRECISION, &
+
+MPI_ANY_SOURCE, MPI_ANY_TAG, &
+
+MPI_COMM_WORLD, status, ierr)
+
+sender
+
+= status(MPI_SOURCE)
+
+anstype = status(MPI_TAG)
+
+! row is tag value
+
+c(anstype) = ans
+
+if (numsent .lt. rows) then
+
+! send another row
+
+do j = 1,cols
+
+buffer(j) = a(numsent+1,j)
+
+enddo
+
+call MPI_SEND(buffer, cols, MPI_DOUBLE_PRECISION, &
+
+sender, numsent+1, MPI_COMM_WORLD, ierr)
+
+numsent = numsent+1
+
+else
+
+! Tell sender that there is no more work
+
+call MPI_SEND(MPI_BOTTOM, 0, MPI_DOUBLE_PRECISION, &
+
+sender, 0, MPI_COMM_WORLD, ierr)
+
+endif
+
+enddo
+
+Figure 3.6: Fortran program for matrix-vector multiplication: manager part
+
+38
+
+Chapter 3
+
+!
+
+workers receive b, then compute dot products until
+
+!
+
+done message received
+
+call MPI_BCAST(b, cols, MPI_DOUBLE_PRECISION, manager, &
+
+MPI_COMM_WORLD, ierr)
+
+if (myid .le. rows) then
+
+! skip if more processes than work
+
+do
+
+call MPI_RECV(buffer, cols, MPI_DOUBLE_PRECISION, &
+
+manager, MPI_ANY_TAG, MPI_COMM_WORLD, &
+
+status, ierr)
+
+if (status(MPI_TAG) .eq. 0) exit
+
+row = status(MPI_TAG)
+
+ans = 0.0
+
+do i = 1,cols
+
+ans = ans+buffer(i)*b(i) enddo
+
+call MPI_SEND(ans, 1, MPI_DOUBLE_PRECISION, manager, &
+
+row, MPI_COMM_WORLD, ierr)
+
+enddo
+
+endif
+
+Figure 3.7: Fortran program for matrix-vector multiplication: worker part
+
+The worker code is given in Figure 3.7. It is a simple loop in which a message is received from the manager and then is acted upon. Whether the message is a row to work on or a termination message is determined by its tag, which is available in status(MPI_TAG).
+If the message is a row (the tag is nonzero), then the dot product with b is computed and sent back to the manager, and the worker waits for another task with MPI_RECV. Otherwise the worker branches to the MPI_FINALIZE in the code shared by manager and worker.
+The new routines used in this example are the basic send and receive routines. Their Fortran and C bindings are given in Tables 3.5 and 3.6, respectively.
+Now that we have discussed MPI_Send and MPI_Recv, we have covered all of the six functions listed in Chapter 2 as the minimal subset of MPI.
+3.7 Studying Parallel Performance
+In this section we study the behavior of parallel programs in more depth than just by timing them as we did in Section 3.5. We will begin with a simple example
+
+Using MPI in Simple Programs
+
+39
+
+MPI SEND(buf, count, datatype, dest, tag, comm, ierror) <type> buf(*) integer count, datatype, dest, tag, comm, ierror
+MPI RECV(buf, count, datatype, source, tag, comm, status, ierror) <type> buf(*) integer count, datatype, source, tag, comm, status(MPI STATUS SIZE), ierror
+Table 3.5: Fortran bindings for send and receive routines
+
+int MPI Send(const void *buf, int count, MPI Datatype datatype, int dest, int tag, MPI Comm comm)
+int MPI Recv(void *buf, int count, MPI Datatype datatype, int source, int tag, MPI Comm comm, MPI Status *status)
+Table 3.6: C bindings for send and receive routines
+
+of scalability analysis, applied to matrix-vector and matrix-matrix multiplication. This is an interesting and deep topic in its own right (see, for example, [49] or [80]). We can convey the ﬂavor of an analysis by looking at the program we have just written. We will then switch from an analytical approach to an experimental one and show how to instrument a program so that it produces a log that we can study with graphical tools.
+
+3.7.1 Elementary Scalability Calculations
+
+Scalability analysis is the estimation of the computation and communication re-
+
+quirements of a particular problem and the mathematical study of how these re-
+
+quirements change as the problem size and/or the number of processes changes. As
+
+an elementary example, let us look at the matrix-vector multiplication algorithm
+
+that we have just presented. The amount of computation is easy to estimate. Let
+
+us suppose, for simplicity, that the matrix A is square, of size n × n. Then for each
+
+element of the product c of A and b, we have to perform n multiplications and
+
+n − 1 additions. There are n elements of c, so the total number of ﬂoating-point
+
+operations is
+
+n × (n + (n − 1)) = 2n2 − n.
+
+40
+
+Chapter 3
+
+For simplicity, we assume that additions and multiplications take the same amount of time, which we call Tcalc. We assume further that the total computation time is dominated by the ﬂoating-point operations. Thus our rough estimate for computation time is (2n2 − n) × Tcalc.
+Now let us estimate the communication costs. Let us not count the cost of sending b to each worker process, assuming that it arrived there some other way (perhaps it is computed there). Then the number of ﬂoating-point numbers that have to be communicated is n (to send a row of A), + 1 (to send the answer back) for each element of c, for a grand total of
+n × (n + 1) = n2 + n.
+
+If we assume that the time it takes to communicate a ﬂoating-point number is Tcomm, the total communication time is roughly (n2 + n) × Tcomm.
+Therefore the ratio of communication to computation is
+
+n2 + n 2n2 − n
+
+×
+
+Tcomm . Tcalc
+
+Since the cost of a single ﬂoating-point operation is usually much less than the cost
+
+of communicating one ﬂoating-point number, we hope to make this ratio as small
+
+as possible. Often by making a problem larger, one can reduce to insigniﬁcance
+
+the communication overhead. Here the bad news is that it doesn’t happen in this
+
+case. The ratio Tcomm/Tcalc is roughly independent of n. (For the purposes of this
+
+analysis, we will ignore the eﬀects of message sizes on communication costs; more
+
+detail
+
+is
+
+presented
+
+in
+
+Section
+
+4.6.)
+
+As
+
+n
+
+gets
+
+larger,
+
+the
+
+ratio
+
+n2 +n 2n2 −n
+
+just
+
+gets
+
+closer
+
+to
+
+1 2
+
+.
+
+This
+
+means
+
+that
+
+communications
+
+overhead
+
+will
+
+always
+
+be
+
+a
+
+problem
+
+in
+
+this
+
+simplistic algorithm for matrix-vector multiply. (In Chapter 4, we will discuss the
+
+eﬀect of message size on the communication cost.)
+
+Better news is provided by a similar analysis of matrix-matrix multiplication.
+
+We can easily modify our matrix-vector algorithm to multiply two matrices instead.
+
+The vector b becomes a matrix B, we still distribute a copy of B to all the worker
+
+processes, and we collect back a whole row of the product matrix C from each
+
+process. The worker code is shown in Figure 3.8, and the manager code is modiﬁed
+
+accordingly. (We save listing of the whole program until later, when we show the
+
+instrumented version.)
+
+Now let us do the scalability analysis for this (still not so very good) algorithm
+
+for matrix multiplication. For simplicity, let us again suppose that A is square and
+
+that B is square as well. Then the number of operations for each element of C is
+
+Using MPI in Simple Programs
+
+41
+
+! workers receive B, then compute rows of C until done message do i = 1,bcols call MPI_BCAST(b(1,i), brows, MPI_DOUBLE_PRECISION, & manager, MPI_COMM_WORLD, ierr) enddo do call MPI_RECV(buffer, acols, MPI_DOUBLE_PRECISION, manager,& MPI_ANY_TAG, MPI_COMM_WORLD, status, ierr) if (status(MPI_TAG) .eq. 0) exit row = status(MPI_TAG) do i = 1,bcols ans(i) = 0.0 do j = 1,acols ans(i) = ans(i) + buffer(j)*b(j,i) enddo enddo call MPI_SEND(ans, bcols, MPI_DOUBLE_PRECISION, manager, & row, MPI_COMM_WORLD, ierr) enddo
+
+Figure 3.8: Matrix-matrix multiplication: worker part
+
+(as before) n multiplications and n − 1 adds, but now there are n2 elements of C to be computed, as opposed to n. Therefore, the number of ﬂoating-point operations is
+n2 × (2n − 1) = 2n3 − n2.
+The number of ﬂoating-point numbers communicated for each row is n (to send the row of A, plus n to send the row of C back), and there are n rows, so
+
+n × 2n
+
+is the answer. Now the ratio of communication to computation is
+
+2n2 2n3 − n2
+
+×
+
+Tcomm , Tcalc
+
+which approaches 1/n as n becomes large. Therefore for this problem we should expect communication overhead to play a smaller role than in large problems.
+
+3.7.2 Gathering Data on Program Execution
+Timing results provide some insight into the performance of our program, and our programs so far have not been diﬃcult to understand. But suppose that we need
+
+42
+
+Chapter 3
+
+to see in detail just what the sequence of events was, just what amounts of time were spent on each phase of the computation, and just how long each individual communication operation took. The easiest way to understand this data at a glance would be through a graphical tool of some kind.
+Several projects have been developed to create ﬁles of events with associated time stamps and then examine them in postmortem fashion by interpreting them graphically on a workstation. Such ﬁles are called logﬁles.
+In this book we will use some simple tools for creating logﬁles and viewing them. We treat the library for creation of logﬁles as separate from the message-passing library. Viewing the logﬁle is independent of its creation, and multiple tools can be used. The tools we describe in this chapter are the ones we used to prepare the illustrative screenshots shown here. They are part of the MPE (MultiProcessing Environment) described more fully in AppendixA. Since MPE was initially developed, other tools, similar in intent, have been developed and made widely available. See, for example, [10, 99, 108]. Although these systems have diﬀerent interfaces and capabilities, they are used in similar ways, so our discussion of MPE remains a useful guide to using them for performance analysis.
+In the next few sections we describe routines in the MPE library for explicit logging of programmer-chosen events under program control, and we use the matrixmatrix multiplication program as an example. These routines will be used in Chapter 7 to build a completely automatic logging mechanism based on the standard MPI proﬁling interface.
+The logﬁle viewing program we demonstrate here is called upshot; it is a simple graphical display of parallel time lines and state durations, based on an earlier program of the same name [70]. Further description of upshot is given in Appendix A.4 Upshot itself has evolved into a newer graphical display system, written in Java in Chicago during the era of Michael Jordan and therefore called Jumpshot [129]. The logging systems cited above all use a form of it for displaying logﬁles.
+3.7.3 Instrumenting a Parallel Program with MPE Logging
+Although there are advantages to having logﬁle creation and logﬁle examination be parts of a single integrated system, we separate them so that they can undergo separate development. We present in this section the MPE library for logﬁle cre-
+4The strange name “upshot” arose historically. Once there was a program called “gist” that was written at BBN for the Butterﬂy software environment. It inspired a program written at Argonne, and the thesaurus suggested “upshot” as related to “gist.”
+
+Using MPI in Simple Programs
+
+43
+
+ation. It is designed to coexist with any MPI implementation. It is also used in the automatic instrumentation techniques for MPI programs discussed in Chapter 7. Reference bindings for MPE are given in Appendix A. Here we describe the routines needed to instrument a program with explicit, programmer-controlled events. In Chapter 7 we show how automatic logging can be done, with a decrease in programmer involvement but a corresponding decrease in ﬂexibility.
+Generally speaking, we need to call the MPE_Log_event routine only when we wish to record a log. The time-stamp and process identiﬁer are collected automatically; the user speciﬁes an event type and optionally can also supply one integer data item and one (short) character string. In addition, each process must call MPE_Init_log to prepare for logging and MPE_Finish_log to merge the ﬁles being stored locally at each process into a single logﬁle, which is written out. MPE_Stop_log can be used to suspend logging, although the timer continues to run. MPE_Start_log causes logging to resume.
+3.7.4 Events and States
+The programmer chooses whatever non-negative integers are desired for event types; the system attaches no particular meaning to event types. Events are considered to have no duration. For measuring the duration of program states, pairs of events are speciﬁed as the beginnings and endings of states. A state is deﬁned by the MPE_Describe_state routine, which speciﬁes the starting and ending event types. For the beneﬁt of a logﬁle display program, whatever it might be, MPE_Describe_state also adds a state name and a color (and a bitmap pattern for use by monochrome displays) for the state. The corresponding MPE_Describe_event provides an event description for an event type. Note that this diﬀers from the approach taken in [125], for example, where every “event” has duration. We treat events as atomic, and we deﬁne states, whether long or short, in terms of events.
+3.7.5 Instrumenting the Matrix-Matrix Multiply Program
+Now let us instrument the matrix-matrix multiply program using these routines. The ﬁrst decision to make is which events to log. In this example it is easier ﬁrst to decide on the states to be visualized and then to provide starting and ending events for each state. We could get a reasonably complete picture of the matrix-matrix multiply by measuring in the manager program
+• broadcast of B,
+
+44
+
+Chapter 3
+
+• sending each row of A, and
+• receiving each row of C
+and in the worker program
+• receipt of B (by broadcast),
+• receipt of each row of A,
+• computation of the row of C, and
+• sending each row of C back to the manager.
+The overall framework of the instrumented version of our matrix-matrix multiplication program is shown in Figure 3.9. This is much the same as Figure 3.5, except for some changes to the program variables to reﬂect the fact that this is matrix-matrix instead of matrix-vector multiplication. The logging setup section just before the main if that separates manager and worker does the MPE_INIT_LOG and then deﬁnes four states, for broadcasting, computing, sending and receiving. For example, the line
+ierror = MPE_DESCRIBE_STATE(1, 2, "Bcast", "red:vlines3")
+deﬁnes the “Bcast” state as the time between events of type 1 and events of type 2. We will use those event types to bracket the MPI_BCAST call in the program. The name of the state will be used in the logﬁle display program (whatever it may be) to label data associated with this state. The last argument is a hint to the display program about how we wish this state displayed. Here we are requesting “red” on a color display and the bitmap pattern “vlines3” on a black-and-white display. The black-and-white (bitmap) versions are the ones used in this book. Calling the MPE_DESCRIBE_STATE routine just inserts a record into the logﬁle that the display program can use if it wishes.
+At the end of the computation, the call to MPE_FINISH_LOG gathers the log buﬀers from all the processes and merges them based on the time-stamps. Process zero writes the logﬁle to the ﬁle named as the argument of MPE_FINISH_LOG.
+Code speciﬁc to the manager process is shown in Figure 3.10. We have just inserted calls to MPE_LOG_EVENT before and after each of the sections of code that we wish to be represented as a state, using the event types that we chose above. In addition, we have in some cases added data in the integer data ﬁeld (the loop index in this case).
+
+Using MPI in Simple Programs
+
+45
+
+! matmat.f - matrix - matrix multiply,
+
+! simple self-scheduling version
+
+program main
+
+use mpi
+
+integer MAX_AROWS, MAX_ACOLS, MAX_BCOLS
+
+parameter (MAX_AROWS = 20, MAX_ACOLS = 1000, MAX_BCOLS = 20)
+
+double precision a(MAX_AROWS,MAX_ACOLS), b(MAX_ACOLS,MAX_BCOLS)
+
+double precision c(MAX_AROWS,MAX_BCOLS)
+
+double precision buffer(MAX_ACOLS), ans(MAX_BCOLS)
+
+double precision starttime, stoptime
+
+integer myid, master, numprocs, ierr, status(MPI_STATUS_SIZE)
+
+integer i, j, numsent, sender
+
+integer anstype, row, arows, acols, brows, bcols, crows, ccols
+
+call MPI_INIT(ierr)
+
+call MPI_COMM_RANK(MPI_COMM_WORLD, myid, ierr)
+
+call MPI_COMM_SIZE(MPI_COMM_WORLD, numprocs, ierr)
+
+arows = 10
+
+acols = 20
+
+brows = 20
+
+bcols = 10
+
+crows = arows
+
+ccols = bcols
+
+master = 0
+
+ierr = MPE_INIT_LOG()
+
+if (myid .eq. 0) then
+
+ierr = MPE_DESCRIBE_STATE(1, 2, "Bcast", "red:vlines3")
+
+ierr = MPE_DESCRIBE_STATE(3, 4, "Compute","blue:gray3")
+
+ierr = MPE_DESCRIBE_STATE(5, 6, "Send", "green:light_gray")
+
+ierr = MPE_DESCRIBE_STATE(7, 8, "Recv", "yellow:gray")
+
+endif
+
+if (myid .eq. 0) then
+
+!
+
+master initializes and then dispatches ...
+
+else
+
+!
+
+slaves receive b, then compute rows of c ...
+
+endif
+
+ierr = MPE_FINISH_LOG("pmatmat.log")
+
+call MPI_FINALIZE(ierr)
+
+end
+
+Figure 3.9: Matrix-matrix multiplication with logging: common part
+
+46
+
+Chapter 3
+
+!
+
+master initializes and then dispatches
+
+.... initialization of a and b, broadcast of b
+
+numsent = 0
+
+!
+
+send a row of a to each other process; tag with row number
+
+!
+
+For simplicity, assume arows .ge. numprocs - 1
+
+do i = 1,numprocs-1
+
+do j = 1,acols
+
+buffer(j) = a(i,j)
+
+enddo
+
+ierr = MPE_LOG_EVENT(5, i, "send")
+
+call MPI_SEND(buffer, acols, MPI_DOUBLE_PRECISION, i, &
+
+i, MPI_COMM_WORLD, ierr)
+
+ierr = MPE_LOG_EVENT(6, i, "sent")
+
+numsent = numsent+1
+
+enddo
+
+do i = 1,crows
+
+ierr = MPE_LOG_EVENT(7, i, "recv")
+
+call MPI_RECV(ans, ccols, MPI_DOUBLE_PRECISION, &
+
+MPI_ANY_SOURCE, MPI_ANY_TAG, &
+
+MPI_COMM_WORLD, status, ierr)
+
+sender
+
+= status(MPI_SOURCE)
+
+anstype = status(MPI_TAG)
+
+ierr = MPE_LOG_EVENT(8, anstype, "recvd")
+
+do j = 1,ccols
+
+c(anstype,j) = ans(j)
+
+enddo
+
+if (numsent .lt. arows) then
+
+do j = 1,acols
+
+buffer(j) = a(numsent+1,j)
+
+enddo
+
+ierr = MPE_LOG_EVENT(5, i, "send")
+
+call MPI_SEND(buffer, acols, MPI_DOUBLE_PRECISION, &
+
+sender, numsent+1, MPI_COMM_WORLD, ierr)
+
+ierr = MPE_LOG_EVENT(6, i, "sent")
+
+numsent = numsent+1
+
+else
+
+ierr = MPE_LOG_EVENT(5, 0, "send")
+
+call MPI_SEND(1.0, 1, MPI_DOUBLE_PRECISION, sender, &
+
+0, MPI_COMM_WORLD, ierr)
+
+ierr = MPE_LOG_EVENT(6, 0, "sent")
+
+endif
+
+enddo
+
+Figure 3.10: Matrix-matrix multiplication with logging: manager part
+
+Using MPI in Simple Programs
+
+47
+
+! slaves receive b, then compute rows of c until done message ierr = MPE_LOG_EVENT(1, 0, "bstart") do i = 1,bcols call MPI_BCAST(b(1,i), brows, MPI_DOUBLE_PRECISION, & master, MPI_COMM_WORLD, ierr) enddo ierr = MPE_LOG_EVENT(2, 0, "bend") ierr = MPE_LOG_EVENT(7, i, "recv") do call MPI_RECV(buffer, acols, MPI_DOUBLE_PRECISION, master, & MPI_ANY_TAG, MPI_COMM_WORLD, status, ierr) if (status(MPI_TAG) .eq. 0) exit row = status(MPI_TAG) ierr = MPE_LOG_EVENT(8, row, "recvd") ierr = MPE_LOG_EVENT(3, row, "compute") do i = 1,bcols ans(i) = 0.0 do j = 1,acols ans(i) = ans(i) + buffer(j)*b(j,i) enddo enddo ierr = MPE_LOG_EVENT(4, row, "computed") ierr = MPE_LOG_EVENT(5, row, "send") call MPI_SEND(ans, bcols, MPI_DOUBLE_PRECISION, master, & row, MPI_COMM_WORLD, ierr) ierr = MPE_LOG_EVENT(6, row, "sent") enddo
+Figure 3.11: Matrix-matrix multiplication: worker part
+We log in the “receive” event the loop index we have reached, and in the “received” event the number of the row that was received. We have not really used the character data ﬁeld here, since we have not varied it according to the individual event being logged; here it is merely echoing the event type.
+Code speciﬁc to the worker process is shown in Figure 3.11. Again, the placement of calls to MPE_LOG_EVENT is routine.
+3.7.6 Notes on Implementation of Logging
+For accuracy, logging of an event should be a low-overhead operation. MPE_Log_event stores a small amount of information in memory, which is quite fast. During
+
+48
+
+
+
+
+
+
+
+
+
+
+Chapter 3
+
+Figure 3.12: Upshot output
+MPE_Finish_log, these buﬀers are merged in parallel, and the ﬁnal buﬀer, sorted by time-stamp, is written out by process 0.
+One subtle aspect of collecting logs with time-stamps is the necessity of relying on local clocks. On some parallel computers there are synchronized clocks, but on others the clocks are only approximately synchronized. On workstation networks, the situation is much worse, and clocks even drift with respect to each other as well.
+To compensate for this situation, the time-stamps are postprocessed with respect to synchronizations at MPE_Init_log and MPE_Finish_log. Postprocessing, which includes aligning and stretching the time axes of each process so that the MPE_Init_log and MPE_Finish_log take place at the same time, is done as part of MPE_Finish_log. MPI itself is used to combine the logs, and the combining process is done in parallel, with the logﬁle itself written out by the process with rank 0 in MPI_COMM_WORLD.
+3.7.7 Graphical Display of Logﬁles
+After an MPI program instrumented with the MPE logging routines has completed, the directory where it executed contains a ﬁle of events sorted by time, with time adjusted to correct for oﬀset and drift. We can write many programs to extract useful data from this ﬁle. One that we describe here and use from time to time in the rest of this book is the graphical display program upshot. A sample of upshot output is shown in Figure 3.12, which displays a portion of the logﬁle collected while running the matrix-matrix multiplication program on six Suns on an Ethernet. One can tell which one was the Sparc-10; the others were Sparc-2’s.
+Upshot displays parallel time lines, with states indicated by colored bars on color displays and patterns of dots or lines on monochrome displays (like the page of this
+
+Using MPI in Simple Programs
+
+49
+
+book). Time-stamp values, adjusted to start at 0, are shown along the bottom of the frame. A particular view is shown in Figure 3.12.
+Of course, the information in logﬁles can be displayed in simple summary form as well, without graphics. The logﬁle is easy to parse with other tools as well. For example, we can add up the time intervals recorded for each state, getting something like the following.
+
+State: Time:
+
+Bcast 0.146799
+
+Compute 0.044800
+
+Send
+
+0.030711
+
+Recv
+
+0.098852
+
+-----------------
+
+Total: 0.321162
+
+Such summary information is a crude form of proﬁling; it tells us where the program is spending its time. Note that since the events and states may be described by the programmer and are not tied to the message-passing library, the MPE library can be useful in studying aspects of an algorithm that have nothing to do with interprocess communication.
+
+3.8 Using Communicators
+Up to this point, all our examples have used MPI_COMM_WORLD as an argument to nearly every MPI call. What is it for, if it is always the same? In this section we describe communicators, which are perhaps the most pervasive and distinguishing feature of the MPI library speciﬁcation. While a more comprehensive discussion of the purpose and use of communicators occurs in Chapter 6, we give here an extremely simple example that illustrates some of the MPI functions dealing with groups and communicators.
+The example will illustrate the Monte Carlo method of integration. We will use it to ﬁnd (again) the value of π. This will not be a particularly good way to ﬁnd the value of π, but it will provide us with a simple example. To make it more interesting, we will introduce here some of the MPE real-time graphics operations, so that we can watch our program in action.
+In Figure 3.13, if the radius of the circle is 1, then the area is π and the area of the square around it is 4. Therefore the ratio r of the area of the circle to that of the square is π/4. We will compute the ratio r by generating random points (x, y) in the square and counting how many of them turn out to be in the circle (by
+
+50
+
+Chapter 3
+
+Figure 3.13: Monte Carlo computation of π
+determining for each one whether x2 + y2 < 1). Then π = 4r. The testing of these points is highly parallelizable.
+The issue of parallel random number generators is too deep for us here (see, for example, [104, 21, 32] for discussions of the topic). To avoid the issue, we will use only one random number generator and devote a separate process to it. This process will generate the random numbers and will hand them out to the other processes for evaluation and display. Since the other processes will need to perform collective operations that do not involve this random number “server,” we need to deﬁne a communicator whose group (see Chapter 2 for a brief discussion of groups) does not include it. The program itself is shown in Figures 3.14 through 3.17. This example is in C and has two purposes: to illustrate the use of a nondefault communicator, and to demonstrate the use of the MPE graphics library. We delay discussion of the graphics routines until the next section. The code that illustrates communicator manipulation is as follows:
+MPI_Comm world, workers; MPI_Group world_group, worker_group; int ranks[1];
+
+Using MPI in Simple Programs
+
+51
+
+MPI_Init(&argc,&argv);
+
+world = MPI_COMM_WORLD;
+
+MPI_Comm_size(world, &numprocs);
+
+MPI_Comm_rank(world, &myid);
+
+server = numprocs-1;
+
+/* last process is server */
+
+MPI_Comm_group(world, &world_group); ranks[0] = server; MPI_Group_excl(world_group, 1, ranks, &worker_group); MPI_Comm_create(world, worker_group, &workers); MPI_Group_free(&worker_group); MPI_Group_free(&world_group);
+
+The new feature here is that we have two communicators, world and workers. The communicator workers will contain all the processes except the random number server. This code illustrates how to build a communicator that has all the processes except the server process in it. To do this, we deal explicitly with the group of processes associated with the default communicator MPI_COMM_WORLD. Let us go through this code line by line.
+Two communicators, world and workers, are declared, along with two groups of processes, world_group and worker_group. In C, an MPI group is described by a MPI_Group type. After the required call to MPI_Init, we assign MPI_COMM_WORLD to world. We ﬁnd out how many processes there are with the call to MPI_Comm_size, and we assign to server the rank of the last process in the original group. The next few lines of code build the communicator that has as its group all of the processes except the random number server. First we extract from the MPI_COMM_WORLD communicator its group, which contains all processes. This is done with a call to MPI_Comm_Group. It returns in world_group the group of all processes. Next we build a new group. Groups can be manipulated in many ways (see Chapter 7), but here the simplest approach is to use MPI_Group_excl, which takes a given group and forms a new group by excluding certain of the original group’s members. The members to be excluded are speciﬁed with an array of ranks; here we exclude a single process. Then the call to MPI_Group_excl returns in worker_group the new group, containing all the processes except the random number server. We create the new communicator from MPI_COMM_WORLD by calling MPI_Comm_create with the old communicator and the new group, getting back the new communicator in workers. This is the communicator we will use for collective operations that do not involve the random number server. At the end of the program, we release this communicator with a call to MPI_Comm_-
+
+52
+
+Chapter 3
+
+/* compute pi using Monte Carlo method */ #include <math.h>
+
+#include "mpi.h"
+
+#include "mpe.h"
+
+#define CHUNKSIZE
+
+1000
+
+/* message tags */ #define REQUEST 1
+
+#define REPLY 2
+
+int main(int argc, char *argv[]) {
+
+int iter;
+
+int in, out, i, iters, max, ix, iy, ranks[1], done, temp;
+
+double x, y, Pi, error, epsilon;
+
+int numprocs, myid, server, totalin, totalout, workerid;
+
+int rands[CHUNKSIZE], request;
+
+MPI_Comm world, workers;
+
+MPI_Group world_group, worker_group;
+
+MPI_Status status;
+
+MPI_Init(&argc, &argv);
+
+world = MPI_COMM_WORLD;
+
+MPI_Comm_size(world, &numprocs);
+
+MPI_Comm_rank(world, &myid);
+
+server = numprocs-1; if (myid == 0)
+
+/* last proc is server */
+
+sscanf( argv[1], "%lf", &epsilon );
+
+MPI_Bcast(&epsilon, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+MPI_Comm_group(world, &world_group);
+
+ranks[0] = server;
+
+MPI_Group_excl(world_group, 1, ranks, &worker_group);
+
+MPI_Comm_create(world, worker_group, &workers);
+
+MPI_Group_free(&worker_group);
+
+Figure 3.14: Monte Carlo computation of π: beginning
+
+Using MPI in Simple Programs
+
+53
+
+if (myid == server) { do {
+
+/* I am the rand server */
+
+MPI_Recv(&request, 1, MPI_INT, MPI_ANY_SOURCE, REQUEST,
+
+world, &status);
+
+if (request) {
+
+for (i = 0; i < CHUNKSIZE; ) {
+
+rands[i] = random();
+
+if (rands[i] <= INT_MAX) i++;
+
+}
+
+MPI_Send(rands, CHUNKSIZE, MPI_INT,
+
+status.MPI_SOURCE, REPLY, world);
+
+}
+
+}
+
+while(request > 0);
+
+}
+
+Figure 3.15: Monte Carlo computation of π: server
+
+free. Finally, since we needed only the group worker_group in order to create the workers communicator, we may now release it by calling MPI_Group_free.
+The code that “tidies up” by freeing the group and communicator that we created during the run merits further discussion, because it illustrates an important point: communicators contain internal references to groups. When we extract the group explicitly, by a call to MPI_Comm_group, we create another reference to the group. Later on, when we call MPI_Group_free with this reference, we are freeing the reference, which becomes invalid, but we are not destroying the group itself, since there is another reference inside the communicator. For this reason, we may actually call
+MPI_Group_free(&worker_group);
+and
+MPI_Comm_free(&workers);
+in either order; the group does not cease to exist until both references to the group have been freed. As an aid to safe programming, MPI sets the arguments to a free call to a special null object; this makes it easier to detect the inadvertent use of an (now) invalid object. These null objects have names (so that one can test for them); they are MPI_GROUP_NULL and MPI_COMM_NULL. Others will be introduced as they are needed.
+
+54
+
+Chapter 3
+
+else { request = 1;
+
+/* I am a worker process */
+
+done = in = out = 0;
+
+max = INT_MAX;
+
+/* max int, for normalization */
+
+MPI_Send(&request, 1, MPI_INT, server, REQUEST, world);
+
+MPI_Comm_rank(workers, &workerid);
+
+iter = 0;
+
+while (!done) {
+
+iter++;
+
+request = 1;
+
+MPI_Recv(rands, CHUNKSIZE, MPI_INT, server, REPLY,
+
+world, MPI_STATUS_IGNORE);
+
+for (i=0; i<CHUNKSIZE; ) {
+
+x = (((double) rands[i++])/max) * 2 - 1; y = (((double) rands[i++])/max) * 2 - 1; if (x*x + y*y < 1.0)
+in++;
+
+else
+
+out++;
+
+}
+
+MPI_Allreduce(&in, &totalin, 1, MPI_INT, MPI_SUM,
+
+workers);
+
+MPI_Allreduce(&out, &totalout, 1, MPI_INT, MPI_SUM,
+
+workers);
+
+Pi = (4.0*totalin)/(totalin + totalout); error = fabs( Pi-3.141592653589793238462643);
+
+done = (error < epsilon || (totalin+totalout) > 1000000);
+
+request = (done) ? 0 : 1;
+
+if (myid == 0) {
+
+printf( "\rpi = %23.20f", Pi );
+
+MPI_Send(&request, 1, MPI_INT, server, REQUEST,
+
+world);
+
+}
+
+else {
+
+if (request)
+
+MPI_Send(&request, 1, MPI_INT, server, REQUEST,
+
+world);
+
+}
+
+MPI_Comm_free(&workers);
+
+}
+
+}
+
+Figure 3.16: Monte Carlo computation of π: workers
+
+Using MPI in Simple Programs
+
+55
+
+if (myid == server) { ...
+
+/* I am the rand server */
+
+} else { ...
+
+/* I am a worker process */
+
+}
+
+if (myid == 0) {
+
+printf( "\npoints: %d\nin: %d, out: %d, <ret> to exit\n",
+
+totalin+totalout, totalin, totalout );
+
+getchar();
+
+}
+
+MPI_Finalize();
+
+}
+
+Figure 3.17: Monte Carlo computation of π: ending
+
+The code in Figure 3.16 also introduces a new feature. We’ve talked about MPI_Recv and the status parameter; for Fortran programs, this is an output parameter of type integer status(MPI_STATUS_SIZE). But what if you don’t want any of the information that the status parameter provides? In that case, in either C or Fortran, you can pass the special value MPI_STATUS_IGNORE. This does just what it says—ignore the status parameter.
+The other new MPI library call introduced in this example is MPI_Allreduce. This diﬀers from the MPI_Reduce that we have seen before in that the result of the reduction operation is available in all processes, not just in the one speciﬁed as root. Depending on implementation, MPI_Allreduce may be more eﬃcient than the equivalent MPI_Reduce followed by an MPI_Bcast. Here we use it to test whether it is time to stop. We have provided an error value on the command line, and each process compares the current value of π with the precalculated value we have put into the program.
+The speciﬁc bindings for the functions used in the Monte Carlo example are shown in Tables 3.7 and 3.8.
+3.9 Another Way of Forming New Communicators
+The preceding example was useful in introducing the notions of MPI groups and communicators. However, there is a slightly easier way of creating new communicators containing a subset of the processes in an existing communicator.
+
+56
+
+Chapter 3
+
+int MPI Allreduce(const void *sendbuf, void *recvbuf, int count, MPI Datatype datatype, MPI Op op, MPI Comm comm)
+int MPI Comm group(MPI Comm comm, MPI Group *group) int MPI Group excl(MPI Group group, int n, const int ranks[],
+MPI Group *newgroup) int MPI Group free(MPI Group *group) int MPI Comm create(MPI Comm comm, MPI Group group,
+MPI Comm *newcomm) int MPI Comm free(MPI Comm *comm)
+Table 3.7: C bindings for new routines needed by Monte Carlo example
+
+MPI ALLREDUCE(sendbuf, recvbuf, count, datatype, op, comm, ierror) <type> sendbuf(*), recvbuf(*) integer count, datatype, op, comm, ierror
+MPI COMM GROUP(comm, group, ierror) integer comm, group, ierror
+MPI GROUP EXCL(group, n, ranks, newgroup, ierror) integer group, n, ranks(*), newgroup, ierror
+MPI GROUP FREE(group, ierror) integer group, ierror
+MPI COMM CREATE(comm, group, newcomm, ierror) integer comm, group, newcomm, ierror
+MPI COMM FREE(comm, ierror) integer comm, ierror
+Table 3.8: Fortran bindings for new routines needed by Monte Carlo example
+
+Using MPI in Simple Programs
+
+57
+
+int MPI Comm split(MPI Comm oldcomm, int color, int key, MPI Comm *newcomm)
+Table 3.9: C binding for splitting communicators
+MPI COMM SPLIT(oldcomm, color, key, newcomm, ierror) integer oldcomm, color, key, newcomm, ierror
+Table 3.10: Fortran binding for splitting communicators
+MPI_Comm_split is a collective operation taking as input a communicator and two integers, called the color and the key, returning a new communicator. All the processes that pass in the same value of color will be placed in the same communicator, and that communicator will be the one returned to them. The bindings for MPI_Comm_split is shown in Table 3.9 and 3.10.
+The key argument is used to assign ranks to the processes in the new communicator. If all processes passing the same value of color also pass the same value of key, then they are given ranks in the new communicator that are in the same order as their ranks in the old communicator. If they pass in diﬀerent values for key, then these values are used to determine their order in the new communicator.
+Note that MPI_Comm_split creates several new communicators (one for each color value) but that each process is given access only to one of the new communicators, the one whose group the process belongs to.
+The alternative way of creating new communicators out of MPI_COMM_WORLD simpliﬁes our program substantially. Instead of manipulating the groups of the communicators directly, we create the communicator for the workers by having all of them pass to MPI_Comm_split the same color value, but one that is diﬀerent from that passed in by the server. All the code involving group extraction and the call to MPI_Comm_create is replaced by
+color = (myid == server); MPI_Comm_split(world, color, 0, &workers);
+3.10 A Handy Graphics Library for Parallel Programs
+A second reason for including this Monte Carlo example is that it allows us to introduce in its simplest possible form the MPE graphics library. In many programs, parallel or not, it would be convenient to provide some simple graphics output.
+
+58
+
+Chapter 3
+
+Figure 3.18: Monte Carlo computation of π: output
+The X Window System (X11) provides this capability, but it has a steep learning curve. We decided that in order to better represent some of the computations in the examples in this book, it would be useful to add to the model implementation a simple graphics interface. One unusual aspect of this library is that it allows shared access by parallel processes to a single display. This functionality can be implemented in several ways. One way is to use the X11 windowing system, which implements it directly. Another mechanism would be to have all process communicate (using MPI and a separate communicator) with a single process that draws on the display. The great feature of libraries is that the application need not know how they are implemented but only the application programmer interface (API) to the library.
+We can animate the Monte Carlo program with only four calls: to initialize shared access to a shared display, to free it, to draw points, and to update the display with the points that have been drawn. All processes declare
+MPE_Graph graph;
+which deﬁnes a “handle” to a graphics object that will be manipulated by the MPE graphics routines. The type MPE_Graph is deﬁned in the ﬁle ‘mpe.h’, which must
+
+Using MPI in Simple Programs
+
+59
+
+be included. At the beginning of the program, all processes might do
+MPE_Open_graphics(&graph, MPI_COMM_WORLD, (char *)0, -1, -1, WINDOW_SIZE, WINDOW_SIZE, MPE_GRAPH_INDEPENDENT);
+which initializes this handle. The arguments in this case specify that the communicator MPI_COMM_WORLD will be used for communication for this graphics object, that the default display from the user’s environment should be used as the X display ((char *)0 as third argument instead of a display name), and that the user will be asked to place the window that is created. One could specify a location (x,y) by using non-negative integers instead of (-1, -1). The rest of the arguments specify that the window will be square with side WINDOW_SIZE and that graphics operations will not be collective. For details, see Appendix A.
+At the end of the program, each process does
+MPE_Close_graphics(&graph);
+to terminate access to the display. The only drawing command in this program is used to draw single points on the display. We will draw the points that lie within the circle of radius 1. Therefore, as more points are generated, we expect to see a rounder and rounder circle emerge. We can see this happening in Figure 3.18. The subroutine call
+MPE_Draw_point(graph, (int)(WINDOW_SIZE/2 + x*WINDOW_SIZE/2), (int)(WINDOW_SIZE/2 - y*WINDOW_SIZE/2), MPE_BLACK);
+draws a point at the two coordinates given by its second and third arguments, in the color given by its last argument (of type MPE_Color). The line
+MPE_Update(graph);
+causes all of the drawing actions that may have been buﬀered up to this point to be ﬂushed to the display. We can cut down on traﬃc to the X server by calling this only after a large number of calls to MPE_Draw_point. In our program (not shown in this book) MPE_Update is called after each process has ﬁnished with one batch of points.
+
+60
+
+Chapter 3
+
+3.11 Common Errors and Misunderstandings
+Experience with helping people learn MPI has helped us identify a set of mistakes that users often make. In this section we call your attention to some of them in the hope that we can help you avoid them right from the beginning.
+Forgetting ierr in Fortran. Perhaps the most common error made in MPI programs written in Fortran is to forget the last argument, where the error code is returned. Some Fortran compilers will catch this at compile time, but others will not, leading to hard-to-ﬁnd errors.
+Misdeclaring status in Fortran. When an MPI_Recv returns, certain information has been stored in the status argument. Status is an array of integers (of size MPI_STATUS_SIZE), not a single integer. Many compilers will not complain about this, but running the program will deﬁnitely lead to an unexpected memory overwrite and mysterious behavior.
+Misdeclaring string variables in Fortran. In Fortran, strings are not the same as arrays of characters. Although this is not really an MPI issue, MPI does use string variables, and so this error sometimes happens when someone uses MPI for the ﬁrst time. A ten-character string a in Fortran should be declared as something like
+character*10 a
+and deﬁnitely not
+character a(10)
+The latter is an array of characters, not a single character string variable.
+Expecting argc and argv to be passed to all processes. The arguments to MPI_Init in C are &argc and &argv. This feature allows the MPI implementation to ﬁll these in on all processes, but the MPI standard does not require it. Some implementations propagate argc and argv to all processes; some don’t. The same is true for the environment (variables whose values are accessible by getenv); some implementations may start all processes with the environment in existence when mpirun or mpiexec is run, but others may not. A portable program will not rely on this feature. Remember that MPI does not assume it is running under Unix, and some MPI implementations run on Windows or in specialized (e.g., real-time)
+
+Using MPI in Simple Programs
+
+61
+
+environments. MPI-3 provides a way to access some of this information with a predeﬁned MPI_Info object, MPI_INFO_ENV. MPI_Info is described in Using Advanced MPI [55].
+Doing things before MPI_Init or after MPI_Finalize. The MPI standard says little about the situation before MPI_Init or after MPI_Finalize, not even how many processes are running. Doing anything whatsoever in your program during either of these periods may yield unexpected and implementation-dependent results. For example, argc and argv may not make any sense until after MPI_Init has processed them, and so an MPI application should not access them until then. One exception is the behavior after MPI_Finalize returns. The MPI standard guarantees that at least the process with rank zero in MPI_COMM_WORLD will continue executing after MPI_Finalize returns. This permits an application to perform any non-MPI cleanup and, in a POSIX environment, provide an exit code for the program. If you use this feature, make sure to test that the process is the one with rank zero in MPI_COMM_WORLD—after MPI_Finalize, it’s possible that all MPI processes are still running.
+Matching MPI_Bcast with MPI_Recv. It is easy to think that MPI_Bcast is a “multiple send” operation, and that the recipients of the broadcast message should receive it with MPI_Recv. On the contrary, MPI_Bcast is a collective operation that must be called on all processes in the group of the speciﬁed communicator. It functions as a multisend on the speciﬁed root process and as a receive on the others. The reason is that it allows for optimal performance. An MPI_Recv does not have to check whether the message it has just received is part of a broadcast and hence may have to be forwarded to other processes.
+Assuming your MPI implementation is thread-safe. We discussed multithreading in Chapter 1. MPI was designed so that it could be implemented in a thread-safe manner (multiple threads could call MPI routines at the same time) but the standard does not require it of implementations. If you use multithreading in your program (or even if your compiler generates multithreaded code for you) and your MPI implementation is not thread-safe, you may get unpredictable results. See Using Advanced MPI [55] for a discussion of the MPI-2 features that make MPI’s interaction with threads more explicit.
+
+62
+
+Chapter 3
+
+3.12 Summary of a Simple Subset of MPI
+In this chapter we have introduced basic MPI routines through simple example programs. In particular, we have deﬁned the six functions that make up the minimal MPI subset that we discussed in Chapter 2. We have added to those the two most common collective operations and the basic timing routine, and we have shown how to work with groups and communicators. We have also introduced a few useful tools: MPE logging, MPE graphics, and upshot, as representative of a class of widely available performance analysis tools. We will continue to use these tools as we look at more example programs in the chapters to come. Additionally, we have summarized a few of the common problems that MPI beginners sometimes make.
+In some ways we have already provided enough of the MPI library to write serious applications. In other ways we have barely scratched the surface. MPI oﬀers much more, as we will see in the upcoming chapters.
+The following section is the ﬁrst of our “Application” sections. These appear at the end of several chapters. You might want to skip these if you are reading the book sequentially, since in many cases they require considerable study and knowledge of the particular ﬁeld in order to understand fully. We include them to demonstrate the range and complexity of scientiﬁc applications that have been enabled by MPI.
+3.13 Application: Computational Fluid Dynamics
+The following application illustrates the usefulness of user-deﬁned virtual topologies and collective communication over these virtual topologies, all within a computational ﬂuid dynamics code. It illustrates the use of operations on communicators to deﬁne topologies not provided directly by MPI. The use of MPI topology deﬁnition routines will be explained in the next chapter. The computation of ﬂow regimes over complex conﬁgurations involves the numerical solution of a system of coupled nonlinear partial diﬀerential equations known as the Navier-Stokes equations. Researchers in the CFD lab at the Mississippi State University NSF Engineering Research Center for Computational Field Simulation have developed an implicit, ﬁnite-volume code (known as UNCLE) for solving the unsteady three-dimensional incompressible Euler and Navier-Stokes equations using an artiﬁcial compressibility approach [117, 116, 123]. The ﬂow solver can be used in a variety of applications ranging from maneuvering underwater vehicles to centrifugal compressors.
+This code uses dynamic multiblock grids with relative motion in order to account for complex moving geometries. Key elements of the solution method include highresolution, ﬂux-based, upwind ﬁnite-volume approximations in time-varying trans-
+
+Using MPI in Simple Programs
+
+63
+
+formed coordinates and a multiple-pass solution algorithm based on discretized Newton relaxation [123]. The equations in the fully coupled unsteady form are solved by using third-order spatial diﬀerencing for both steady and unsteady ﬂows and second-order time diﬀerencing for unsteady ﬂows. Relaxation at each time step is carried out by using a simple symmetric Gauss-Seidel sweeps. Turbulent ﬂows are simulated by using the Baldwin-Lomax turbulence model.
+Large memory requirements and large run times severely restrict the size and complexity of the problems that can be handled using the sequential version of the code. Therefore, the need was identiﬁed for a scalable portable parallel version that could take advantage of existing and emerging parallel platforms. The message-passing interface required for the parallel implementation had to support collective operations within user-deﬁned groups as well as provide safe communication contexts for overlapping sets of collective operations (we will see an example of overlapping communicators later in this section).
+3.13.1 Parallel Formulation
+The parallel formulation employs spatial decomposition of the overall grid into subblocks that are assigned to separate processes [100]. To exploit coarse-grained parallelism and message passing, the implicit subiteration algorithm was modiﬁed at block interfaces to provide a block-decoupled algorithm. This decoupled algorithm utilizes Gauss-Seidel relaxation sweeps within each process but is eﬀectively explicit at block boundaries, allowing parallel solution for all blocks. The solution at points shared by neighboring processes is updated between each subiteration by means of a message exchange.
+The implementation of the Baldwin-Lomax turbulence model [25] introduces additional complexity into the parallel implementation of the ﬂow code. This mainly aﬀects the set-up phase of the solution process. The model requires the normal derivative of the tangential velocity at all impermeable surfaces in order to calculate the turbulent viscosity. This derivative is calculated in any block that includes an impermeable surface. The values of the derivatives then are propagated along the blocks that lie on any of the computational domain axes that begin with or terminate in an impermeable boundary. The blocks that satisfy the above condition are grouped together to share the derivative information. The turbulence model further requires the calculation of the maxima and minima of quantities that are distributed among the blocks of the above group.
+The time-dependent equations in Cartesian coordinates are transformed into general curvilinear coordinates while introducing the artiﬁcial compressibility terms
+
+64
+
+Chapter 3
+
+Figure 3.19: Multiblock grid of physical domain for CFD problem
+into the equations. The coordinate transformation essentially maps the arbitrary shape of the region of interest to a computational domain that is a rectangular parallelepiped. The solution procedure consists of two diﬀerent phases. The ﬁrst involves setting up a linear system using appropriate ﬂux formulation and linearization techniques. The second phase is the solution of the linear system. The size of the system is equal to four times the number of grid points in the domain and could be of order 104–106 unknowns for realistic problems. However, the coeﬃcient matrix of the linear system is extremely sparse and is generally solved by using iterative methods. From the parallel processing point of view, the set-up phase is easily parallelizable, having local data dependencies and being conﬁned to at most 13-point stencils for three-dimensional problems.
+Mapping of the physical domain into a single rectangular parallelepiped is often not possible for complex geometries. This problem is resolved by resorting to what are known as multiblock grids, where the physical domain is partitioned appropriately before being mapped into a number of rectangular three-dimensional domains that share common faces. This is shown in Figure 3.19. The linear system in each block is solved by using symmetric Gauss-Seidel iterations with boundary information being exchanged at the end of each forward and backward iteration [116].
+Key areas of the parallel implementation include (a) initialization of the ﬂow ﬁeld, (b) duplication of stored data for points near block interfaces, (c) exchange of data during subiterations, for points having duplicated storage, and (d) treatment
+
+Using MPI in Simple Programs Block A
+
+65 Block B
+
+Figure 3.20: Information interchange between grid blocks in CFD application
+of line searches along coordinates emanating from solid boundaries, which arise from the particular algebraic turbulence model used. These issues are discussed below.
+3.13.2 Parallel Implementation
+In the parallel implementation of this code [100], the domain is partitioned into a number of nearly equally sized subdomains, each of which is assigned to a diﬀerent process. The local data dependencies at the boundary of each block are taken into account by a two-cell-deep layer of buﬀer cells whose values are updated from the appropriate block, as shown in Figure 3.20.
+These values are used for setting up and solving the linear system. Each node independently performs Gauss-Seidel iterations and exchanges information through point-to-point messages. Thus each block goes through the sequence of operations shown in Figure 3.21.
+
+66
+
+Chapter 3
+
+Initialize
+Set up Ax =b
+Iterate
+Exchange messages
+While !converged
+Figure 3.21: Simple ﬂowchart of algorithm for CFD application
+The data duplication and updating at the block boundaries are implemented using the MPI_Sendrecv routine. Since this is a locally blocking routine, tight synchronization is achieved among the blocks. A message is exchanged after each forward and backward sweep of the symmetric Gauss-Seidel iteration, as shown in Figure 3.22.
+The connectivity of the processes gives rise to a Cartesian virtual topology having empty nodes in it. Each process is tagged by using an ordered triplet P,Q,R that represents its coordinate on the virtual Cartesian grid. These coordinates are then used to deﬁne communicators for processes that are oriented along any of the three axes of the grid. This technique involves repeated use of the MPI_COMM_SPLIT, by using the values of the coordinate triplet at the color value. For example, in creating the communicator in the second coordinate, we could use
+call MPI_COMM_SPLIT(MPI_COMM_WORLD, p+r*p_max, q, & q_comm, ierror)
+
+Using MPI in Simple Programs
+
+67
+
+(0,2)
+J
+
+I ÇÇÇÇ(((111ÇÇÇÇ,,,210)))ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ((((ÇÇ2222,,,,2310ÇÇ)))) ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ
+
+Figure 3.22: Communication pattern for CFD application with turbulence model
+The communicators that are deﬁned in this way form the basis for all the collective operations needed for implementing the turbulence model.
+The details of the parallel turbulence model implementation are shown in Figure 3.22. The blocks with the shaded borders have impermeable boundaries and therefore calculate the velocity derivatives. The values of the derivative are then broadcast to the blocks through which the arrows pass. This is done using the MPI_BCAST routine within an appropriately deﬁned communicator. Thus each arrow represents a separate process group and its associated communicator. A global MPI_ALLREDUCE operation using the local minimum and maximum leaves the global minimum and maximum with each process that participates. The pattern here shows overlapping communicators, as promised above. For each process, there are two communicators: one for the row that the process is in and one for the column. The code for the broadcasts in this step looks very roughly like
+
+68
+
+Chapter 3
+
+call MPI_BCAST(deriv, count, MPI_DOUBLE_PRECISION, row_root, & row_comm, ierror)
+call MPI_BCAST(deriv, count, MPI_DOUBLE_PRECISION, col_root, & col_comm, ierror)
+This application illustrates how MPI can simplify the coding of a complex application. The key simpliﬁcations that result come from the use of virtual topologies and collective communication with the virtual topologies. Although the researchers chose to use their own virtual topologies in this case, the availability of communicators and the ease of building subset communicators with MPI_COMM_SPLIT made programming easy. This application would be extremely diﬃcult on a system that was strictly a point-to-point message-passing interface without contexts of message passing.
+
+4 Intermediate MPI
+In the preceding chapter we considered a number of straightforward parallel algorithms. We wrote parallel programs for these algorithms using straightforward MPI subroutine calls, and we veriﬁed with timing and program visualization tools that our programs behaved as we expected.
+In this chapter we introduce several important issues that require more subtlety in our analysis and more precision in our tools. The mathematical problem we address here (the Poisson problem) is only a little more complicated than the problems of the preceding chapter, but the parallel algorithm, particularly the communication pattern, admits more options.
+We introduce several new MPI routines. For example, since our mathematical problem takes place on a ﬁnite-diﬀerence computational grid, we introduce the MPI notion of virtual topology, which makes the allocation of processes to particular parts of a grid convenient to manage. We also describe many of the variations on the basic send and receive operations supported by MPI; indeed, the communication patterns needed here by our parallel algorithm motivated some of the more esoteric MPI features.
+Our ﬁrst goal in this chapter is thus to show how MPI enables eﬃcient programs to be written concisely. A secondary goal is to explain some of the issues that arise in analyzing communication patterns in grid-based problems.
+We approach both of these goals by examining a number of programs for the 2-D and 3-D Poisson problem, a model partial diﬀerential equation. Because Fortran provides a much more convenient syntax for manipulating multidimensional arrays than does C, the bulk of the examples in this chapter are written in Fortran.
+We also use the Poisson problem as a means to introduce the diﬀerent mechanisms by which an MPI program can send data from one process to another, particularly with respect to both how data is buﬀered in the message passing system and how nonblocking communications can be used. By examining the diﬀerent approaches in the context of a single application, we clarify the distinctions between these approaches. We begin by presenting the mathematical problem and an approach to solving it computationally. Then we describe MPI’s virtual topology feature, which allows us to manage a grid of processes. As we progress, we introduce several new MPI functions while considering various ways of organizing the communications. To help in understanding the reasons for the diﬀerent implementation choices, we also make another brief foray into scalability analysis.
+This chapter may also be viewed as a discussion of the sparse matrix-vector product, because that is really the fundamental operation at work in these algorithms. While we will not discuss it in this book, the message-passing operations
+
+70
+
+Chapter 4
+
+discussed in this chapter are the same as are used in implementing a parallel sparse matrix-vector product. The Jacobi method was chosen for its simplicity in the computational part of the program, allowing us to present a complete application.
+
+4.1 The Poisson Problem
+
+The Poisson problem is a simple partial diﬀerential equation (PDE) that is at the core of many applications. More elaborate problems and algorithms often have the same communication structure that we will use here to solve this problem. Thus, by studying how MPI can be used here, we are providing fundamentals on how communication patterns appear in more complex PDE problems. At the same time, we can demonstrate a wide variety of message-passing techniques and how MPI may be used to express them.
+We emphasize that while the Poisson problem is a useful example for describing the features of MPI that can be used in solving partial diﬀerential equations and other problems that involve decomposition across many processes, the numerical techniques in this section are not the last word in solving PDEs and give poor performance relative to more recent and sophisticated methods. For information on more sophisticated, freely available parallel solvers for PDEs that use MPI, see [24]. For more details about the mathematical terminology used in this chapter, consult [81], among other sources.
+The Poisson problem is expressed by the following equations:
+
+∇2u = f (x, y) in the interior u(x, y) = g(x, y) on the boundary
+
+(4.1) (4.2)
+
+To simplify the discussion, we use the unit square as the domain. To ﬁnd an approximate solution to this problem, we deﬁne a square mesh (also
+called a grid) consisting of the points (xi, yj), given by
+
+i
+
+xi
+
+=
+
+, i = 0, . . . , n + 1, n+1
+
+j
+
+yj
+
+=
+
+, j = 0, . . . , n + 1, n+1
+
+where there are n + 2 points along each edge of the mesh (see Figure 4.1). We will ﬁnd an approximation to u(x, y) only at the points (xi, yj). We use the shorthand ui,j to refer to the approximation to u at (xi, yj). The value 1/(n + 1) is used
+
+Intermediate MPI
+
+71
+
+i,j+1 i-1,j i,j i+1,j
+i,j-1
+
+Figure 4.1: Five-point stencil approximation for 2-D Poisson problem, with n = 7. The boundaries of the domain are shown in gray.
+
+frequently; we will denote it by h (following common practice). We can approximate (4.1) at each of these points with the formula [81]
+
+ui−1,j + ui,j+1 + ui,j−1 + ui+1,j − 4ui,j h2
+
+= fi,j .
+
+(4.3)
+
+We wish to solve (4.3) for ui,j everywhere on the mesh. Since the formula involves u at ﬁve points, we must ﬁnd some way to solve for u everywhere. One approach is to rewrite (4.3) as
+
+1 ui,j = 4
+
+ui−1,j + ui,j+1 + ui,j−1 + ui+1,j − h2fi,j
+
+,
+
+iterate by choosing values for all mesh points ui,j, and then replace them by using1
+
+uki,+j 1
+
+=
+
+1 4
+
+uki−1,j + uki,j+1 + uki,j−1 + uki+1,j − h2fi,j
+
+.
+
+1The ways in which arrays and matrices correspond to one another and are laid out in memory by Fortran and C compilers are often a source of confusion. We discuss this topic in excruciating detail in Appendix C.
+
+72
+
+Chapter 4
+
+integer i, j, n double precision u(0:n+1,0:n+1), unew(0:n+1,0:n+1) do j=1, n
+do i=1, n unew(i,j) = & 0.25*(u(i-1,j)+u(i,j+1)+u(i,j-1)+u(i+1,j) - & h * h * f(i,j))
+enddo enddo
+Figure 4.2: Jacobi iteration
+
+i,j+1 i-1,j i,j i+1,j
+i,j-1
+
+rank = 2 rank = 1
+
+rank = 0
+Figure 4.3: 1-D decomposition of the domain
+This process, known as Jacobi iteration, is repeated until the solution is reached. Fortran code for this is shown in Figure 4.2.
+To parallelize this algorithm, we need to parallelize the loops in the code. To do so, we must distribute the data, in this case the arrays u, unew, and f, across the processes. Several approaches are possible.
+One of the simplest decompositions is shown in Figure 4.3. In this decomposition, the physical domain is sliced into slabs, with the computations on each slab being handled by a diﬀerent process.
+
+Intermediate MPI
+
+73
+
+integer i, j, n double precision u(0:n+1,s:e), unew(0:n+1,s:e) do j=s, e
+do i=1, n unew(i,j) = & 0.25*(u(i-1,j)+u(i,j+1)+u(i,j-1)+u(i+1,j) - & h * h * f(i,j))
+enddo enddo
+Figure 4.4: Jacobi iteration for a slice of the domain
+This decomposition is easily described in Fortran. On each process, the arrays are dimensioned as
+double precision u(0:n+1,s:e)
+where s:e indicates the values of j that this process is responsible for. This way of declaring u changes the code for the algorithm to that shown in Figure 4.4. Unfortunately, a problem arises. The loop will require elements such as u(i,s-1), that is, data from a diﬀerent process. The rest of this chapter will discuss how to identify which process the data is from and how to get that data.
+But ﬁrst, let us ﬁx our routine. Since the data is needed, we must expand our arrays to hold the data. In this case, a dimension of
+double precision u(0:n+1,s-1:e+1)
+is suﬃcient (see Figure 4.5). The elements of the array that are used to hold data from other processes are called ghost points. In Section 4.3 we will show how to get the data for these ghost points.
+4.2 Topologies
+Our next task is deciding how to assign processes to each part of the decomposed domain. An extensive literature on this subject (e.g., [53, 64, 92, 119, 128, 69, 74, 75]) exists. Handling this assignment of processes to regions is one of the services that MPI provides to the programmer, exactly because the best (or even a good) choice of decomposition depends on the details of the underlying hardware.
+The description of how the processes in a parallel computer are connected to one another is often called the topology of the computer (or more precisely, of the
+
+74
+
+Chapter 4
+
+rank = 2
+rank = 1
+rank = 0
+Figure 4.5: The computational domain, with ghost points, for one of the processes
+interconnection network). In most parallel programs, each process communicates with only a few other processes; the pattern of communication is called an application topology or virtual topology. The relationships between the topology of the parallel computer’s hardware and the application can be made in many ways; some are better than others.
+For example, simply assigning processes in increasing rank from the bottom may seem to be the best approach. On some parallel computers, however, this ordering can lead to performance degradation (see [71, 77] for more details). It is hard for anyone but the vendor to know the best way for application topologies to be ﬁtted onto the physical topology of the parallel machine. MPI allows the vendor to help optimize this aspect of the program through implementation of the MPI topology functions.
+The topology functions are sometimes treated as an “exotic” feature of MPI, but we introduce them here, early in the book, because they make many types of MPI programs easier to write.
+MPI allows the user to deﬁne a particular application, or virtual, topology. An important virtual topology is the Cartesian topology. This is simply a decomposition in the natural coordinate (e.g., x, y) directions. A two-dimensional Cartesian decomposition is shown in Figure 4.6. Each element of the decomposition (rectangles in the ﬁgure) is labeled by a coordinate tuple indicating the position of
+
+Intermediate MPI
+
+75
+
+(0,2)
+
+(1,2)
+
+(2,2)
+
+(3,2)
+
+(0,1)
+
+(1,1)
+
+(2,1)
+
+(3,1)
+
+(0,0)
+
+(1,0)
+
+(2,0)
+
+(3,0)
+
+Figure 4.6: A two-dimensional Cartesian decomposition of a domain, also showing a shift by one in the ﬁrst dimension. Tuples give the coordinates as would be returned by MPI_Get_coords.
+
+the element in each of the coordinate directions. For example, the second process from the left and the third from the bottom is labeled (1,2). (The indices start from zero, following the practice of C, rather than starting at one, which may be more natural for Fortran users.) MPI provides a collection of routines for deﬁning, examining, and manipulating Cartesian topologies.
+The routine MPI_Cart_create creates a Cartesian decomposition of the processes, with the number of dimensions given by the ndim argument. The user can specify the number of processes in any direction by giving a positive value to the corresponding element of dims. For example, to form the decomposition shown in Figure 4.6, one can use the following code:
+integer dims(2) logical isperiodic(2), reorder
+
+dims(1)
+
+=4
+
+dims(2)
+
+=3
+
+isperiodic(1) = .false.
+
+isperiodic(2) = .false.
+
+reorder
+
+= .true.
+
+ndim
+
+=2
+
+call MPI_CART_CREATE(MPI_COMM_WORLD, ndim, dims, isperiodic, &
+
+reorder, comm2d, ierr)
+
+This creates a new communicator in the sixth argument from the communicator in the ﬁrst argument. The new communicator has the Cartesian topology deﬁned by the second through ﬁfth arguments. The isperiodic argument indicates whether
+
+76
+
+Chapter 4
+
+the processes at the “ends” are connected (for example, is the right neighbor of the process at the right end the leftmost process in that row?). This is useful for “periodic” domains. For example, in simulating the weather on the Earth within the temperate latitudes using a three-dimensional grid with the dimensions referring to east-west, north-south, and up-down, the ﬁrst of these is periodic and the other two are not.
+Note that we have not speciﬁed which process is assigned to each of the elements of the decomposition. By setting the argument reorder to .true., we have allowed MPI to ﬁnd a good way to assign the process to the elements of the decomposition.
+In one dimension, we can simply use the rank in the new communicator, plus or minus one, to ﬁnd our neighbors (and not use MPI_Cart_create). Even here, this may not be the best choice, because neighbors deﬁned in this way may not be neighbors in the actual hardware. In more than one dimension, however, it is more diﬃcult to determine the neighboring processes. The reorder argument, when true, lets MPI know that it may reorder the processes for better performance.
+Fortunately, MPI provides a simple way to ﬁnd the neighbors of a Cartesian mesh. The most direct way is to use the routine MPI_Cart_get. This routine returns values of the dims and isperiodic argument used in MPI_Cart_create as well as an array coords that contains the Cartesian coordinates of the calling process. For example, the code
+call MPI_CART_GET(comm2d, 2, dims, isperiodic, coords, ierr) print *, ’(’, coords(1), ’,’, coords(2), ’)’
+will print the coordinates of the calling process in the communicator comm2d. Another way is to use MPI_Cart_coords; this routine, given a rank in a communicator, returns the coordinates of the process with that rank. For example, to get the coordinates of the calling process, one can use
+call MPI_COMM_RANK(comm2d, myrank, ierr) call MPI_CART_COORDS(comm2d, myrank, 2, coords, ierr)
+However, another way exists that is more closely related to what we are trying to accomplish. Each process needs to send and receive data from its neighbors. In the 1-D decomposition, these are the neighbors above and below. There are many ways to do this transfer, but a simple one is illustrated in Figure 4.7. This represents a copy of the top row from one process to the bottom ghost-point row of the process above it, followed by a copy of the bottom row to the top ghost-point row of the process below. If we look at the ﬁrst of these operations, we see that each process
+

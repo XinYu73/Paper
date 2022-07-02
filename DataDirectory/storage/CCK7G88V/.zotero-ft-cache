@@ -1,0 +1,1422 @@
+Python, PyGame, and Raspberry Pi Game Development
+Second Edition — Sloan Kelly
+
+Python, PyGame, and Raspberry Pi Game
+Development
+Second Edition
+Sloan Kelly
+
+Python, PyGame, and Raspberry Pi Game Development
+Sloan Kelly Niagara Falls, ON, Canada
+
+ISBN-13 (pbk): 978-1-4842-4532-3 https://doi.org/10.1007/978-1-4842-4533-0
+
+ISBN-13 (electronic): 978-1-4842-4533-0
+
+Copyright © 2019 by Sloan Kelly
+
+This work is subject to copyright. All rights are reserved by the Publisher, whether the whole or part of the material is concerned, specifically the rights of translation, reprinting, reuse of illustrations, recitation, broadcasting, reproduction on microfilms or in any other physical way, and transmission or information storage and retrieval, electronic adaptation, computer software, or by similar or dissimilar methodology now known or hereafter developed.
+Trademarked names, logos, and images may appear in this book. Rather than use a trademark symbol with every occurrence of a trademarked name, logo, or image we use the names, logos, and images only in an editorial fashion and to the benefit of the trademark owner, with no intention of infringement of the trademark.
+The use in this publication of trade names, trademarks, service marks, and similar terms, even if they are not identified as such, is not to be taken as an expression of opinion as to whether or not they are subject to proprietary rights.
+While the advice and information in this book are believed to be true and accurate at the date of publication, neither the authors nor the editors nor the publisher can accept any legal responsibility for any errors or omissions that may be made. The publisher makes no warranty, express or implied, with respect to the material contained herein.
+Managing Director, Apress Media LLC: Welmoed Spahr Acquisitions Editor: Spandana Chatterjee Development Editor: James Markham Coordinating Editor: Divya Modi
+Cover designed by eStudioCalamar
+Cover image designed by Freepik (www.freepik.com)
+Distributed to the book trade worldwide by Springer Science+Business Media New York, 233 Spring Street, 6th Floor, New York, NY 10013. Phone 1-800-SPRINGER, fax (201) 348-4505, e-mail orders-ny@springer-sbm.com, or visit www.springeronline.com. Apress Media, LLC is a California LLC and the sole member (owner) is Springer Science + Business Media Finance Inc (SSBM Finance Inc). SSBM Finance Inc is a Delaware corporation.
+For information on translations, please e-mail rights@apress.com, or visit http://www.apress.com/ rights-permissions.
+Apress titles may be purchased in bulk for academic, corporate, or promotional use. eBook versions and licenses are also available for most titles. For more information, reference our Print and eBook Bulk Sales web page at http://www.apress.com/bulk-sales.
+Any source code or other supplementary material referenced by the author in this book is available to readers on GitHub via the book’s product page, located at www.apress.com/978-1-4842-4532-3. For more detailed information, please visit http://www.apress.com/source-code.
+Printed on acid-free paper
+
+For Annamarie
+
+Table of Contents
+About the Author������������������������������������������������������������������������������xvii About the Technical Reviewer�����������������������������������������������������������xix Acknowledgments����������������������������������������������������������������������������� xxi Introduction������������������������������������������������������������������������������������� xxiii
+Chapter 1: What Is a Programming Language?������������������������������������1 What Does a Computer Program Do?�������������������������������������������������������������������2 Conclusion������������������������������������������������������������������������������������������������������������ 3
+Chapter 2: What Is Python?������������������������������������������������������������������5 Programming Styles����������������������������������������������������������������������������������������������5 Object-Oriented����������������������������������������������������������������������������������������������������� 7 Functional������������������������������������������������������������������������������������������������������������� 8 What Is Pygame?��������������������������������������������������������������������������������������������������8 Conclusion������������������������������������������������������������������������������������������������������������ 9
+Chapter 3: Introducing Python������������������������������������������������������������11 The Terminal Window������������������������������������������������������������������������������������������11 Running the Python Interpreter���������������������������������������������������������������������������12 Python Is Interpreted�������������������������������������������������������������������������������������������13 Python As a Calculator����������������������������������������������������������������������������������������13 Keywords������������������������������������������������������������������������������������������������������������ 16 Printing��������������������������������������������������������������������������������������������������������������� 17 String Formatting������������������������������������������������������������������������������������������19
+v
+
+Table of Contents
+Variables������������������������������������������������������������������������������������������������������������� 22 Naming Variables�������������������������������������������������������������������������������������������22
+Python As a Calculator, Part II�����������������������������������������������������������������������������23 Arithmetic Operators�������������������������������������������������������������������������������������26 Data Types�����������������������������������������������������������������������������������������������������27 Numeric Types�����������������������������������������������������������������������������������������������27 String Formatting Again��������������������������������������������������������������������������������29
+Conclusion���������������������������������������������������������������������������������������������������������� 31
+Chapter 4: Breaking Free from the Interpreter�����������������������������������33 What Is IDLE?������������������������������������������������������������������������������������������������������33 Starting IDLE�������������������������������������������������������������������������������������������������������33 Starting a New File���������������������������������������������������������������������������������������������34 Hello, World!��������������������������������������������������������������������������������������������������������36 Running from the Command Line������������������������������������������������������������������36 Running from Inside IDLE������������������������������������������������������������������������������38 Conclusion���������������������������������������������������������������������������������������������������������� 39
+Chapter 5: Making Decisions��������������������������������������������������������������41 A Note About Blocks��������������������������������������������������������������������������������������������44 Testing for Equality���������������������������������������������������������������������������������������������45 Using Boolean Logic��������������������������������������������������������������������������������������������50 And���������������������������������������������������������������������������������������������������������������� 50 Or������������������������������������������������������������������������������������������������������������������� 51 Not����������������������������������������������������������������������������������������������������������������� 52 Nesting Ifs�����������������������������������������������������������������������������������������������������������52 A Note on Switch������������������������������������������������������������������������������������������������54 Conclusion���������������������������������������������������������������������������������������������������������� 54
+vi
+
+Table of Contents
+Chapter 6: Making the Raspberry Pi Repeat Itself�����������������������������55 The for Loop��������������������������������������������������������������������������������������������������������55 The range() Function�������������������������������������������������������������������������������������57 While Loops���������������������������������������������������������������������������������������������������������58 Counting�������������������������������������������������������������������������������������������������������� 58 Sentinel��������������������������������������������������������������������������������������������������������� 60 Conditional����������������������������������������������������������������������������������������������������� 62 Conclusion���������������������������������������������������������������������������������������������������������� 62
+Chapter 7: Containers�������������������������������������������������������������������������63 Container Nomenclature�������������������������������������������������������������������������������������63 Tuples������������������������������������������������������������������������������������������������������������������ 64 Removing Elements from a Tuple������������������������������������������������������������������64 Changing Element Values������������������������������������������������������������������������������65 Tuples in Printing�������������������������������������������������������������������������������������������66 Deconstructing Tuples�����������������������������������������������������������������������������������67 Lists�������������������������������������������������������������������������������������������������������������������� 67 List Creation��������������������������������������������������������������������������������������������������68 Adding Values to the List�������������������������������������������������������������������������������68 Removing Values from a List�������������������������������������������������������������������������69 Doctor’s Waiting Room Program��������������������������������������������������������������������70 Dictionaries��������������������������������������������������������������������������������������������������������� 73 Iterating Through Dictionaries�����������������������������������������������������������������������74 Adding New Items to Dictionaries�����������������������������������������������������������������74 Removing Entries from a Dictionary��������������������������������������������������������������74 Conclusion���������������������������������������������������������������������������������������������������������� 75
+vii
+
+Table of Contents
+Chapter 8: Putting It Together: Tic-Tac-Toe����������������������������������������77 The Rules������������������������������������������������������������������������������������������������������������77 Program Layout���������������������������������������������������������������������������������������������������79 Variables������������������������������������������������������������������������������������������������������������� 79 The Game������������������������������������������������������������������������������������������������������������80 Save and Run������������������������������������������������������������������������������������������������������85 Conclusion���������������������������������������������������������������������������������������������������������� 85
+Chapter 9: Basic Introduction to PyGame�������������������������������������������87 Importing the PyGame Framework���������������������������������������������������������������������87 Initializing PyGame����������������������������������������������������������������������������������������������88 The Main Loop����������������������������������������������������������������������������������������������������89 Images and Surfaces������������������������������������������������������������������������������������������92 Creating Images��������������������������������������������������������������������������������������������������93 Loading Images���������������������������������������������������������������������������������������������������93 Drawing Images��������������������������������������������������������������������������������������������������94 Screen Coordinates and Resolution��������������������������������������������������������������������94 Sprite Sheets������������������������������������������������������������������������������������������������������95 Full Listing����������������������������������������������������������������������������������������������������������97 Conclusion���������������������������������������������������������������������������������������������������������� 97
+Chapter 10: Designing Your Game������������������������������������������������������99 Initial Concept�����������������������������������������������������������������������������������������������������99 Prototyping�������������������������������������������������������������������������������������������������� 100 Functional Specification�����������������������������������������������������������������������������������101 Weapon Firing���������������������������������������������������������������������������������������������101 Program Design������������������������������������������������������������������������������������������������101 Coding��������������������������������������������������������������������������������������������������������������� 102
+viii
+
+Table of Contents
+Testing�������������������������������������������������������������������������������������������������������������� 104 Iteration������������������������������������������������������������������������������������������������������������� 105 Conclusion�������������������������������������������������������������������������������������������������������� 105
+Chapter 11: Game Project: Bricks����������������������������������������������������107 The Main Framework����������������������������������������������������������������������������������������108 Images�������������������������������������������������������������������������������������������������������������� 109 Moving the Bat��������������������������������������������������������������������������������������������������110 Bat Initialization�������������������������������������������������������������������������������������������111 Drawing the Bat�������������������������������������������������������������������������������������������112 Moving the Bat��������������������������������������������������������������������������������������������112 Moving the Ball�������������������������������������������������������������������������������������������������114 Ball Initialization������������������������������������������������������������������������������������������114 Ball Movement���������������������������������������������������������������������������������������������115 Bat and Ball Collision�����������������������������������������������������������������������������������118 Serving the Ball�������������������������������������������������������������������������������������������120 Brick Wall����������������������������������������������������������������������������������������������������������121 Brick and Ball Collision��������������������������������������������������������������������������������122 Out of Bounds����������������������������������������������������������������������������������������������124 Conclusion�������������������������������������������������������������������������������������������������������� 125
+Chapter 12: User-Defined Functions�������������������������������������������������127 What Is a Function?������������������������������������������������������������������������������������������127 Format of a Function�����������������������������������������������������������������������������������������127 Functions as a Menial Task/Mnemonic Device�������������������������������������������������128 Sending Parameters�����������������������������������������������������������������������������������������129 Default Argument Values�����������������������������������������������������������������������������������131 Named Parameters��������������������������������������������������������������������������������������132
+ix
+
+Table of Contents
+Returning Values�����������������������������������������������������������������������������������������������133 Returning Tuples������������������������������������������������������������������������������������������134
+Accessing Global Variables�������������������������������������������������������������������������������135 Real-World Example of a Function��������������������������������������������������������������������136 Conclusion�������������������������������������������������������������������������������������������������������� 139
+Chapter 13: File Input and Output�����������������������������������������������������141 Reading a File from Disk�����������������������������������������������������������������������������������141 Writing Data to a File����������������������������������������������������������������������������������������143 Reading and Writing Containers to a File����������������������������������������������������������144 Writing Your Own Serializer�������������������������������������������������������������������������145 Writing Your Own Deserializer���������������������������������������������������������������������147 JSON����������������������������������������������������������������������������������������������������������������� 148 JSON Serialization���������������������������������������������������������������������������������������148 JSON Deserializer����������������������������������������������������������������������������������������149 Handling Errors�������������������������������������������������������������������������������������������������150 Conclusion�������������������������������������������������������������������������������������������������������� 151
+Chapter 14: Introducing Object-Oriented Programming�������������������153 Classes and Objects������������������������������������������������������������������������������������������154 Encapsulation��������������������������������������������������������������������������������������������������� 154 Abstraction�������������������������������������������������������������������������������������������������������� 155 Inheritance�������������������������������������������������������������������������������������������������������� 155 Polymorphism��������������������������������������������������������������������������������������������������� 155 Why Should You Use OOP?��������������������������������������������������������������������������������156 Data Hiding��������������������������������������������������������������������������������������������������156 Reusable������������������������������������������������������������������������������������������������������ 156 Easier to Code and Test Separately�������������������������������������������������������������156
+x
+
+Table of Contents
+The Ball Class���������������������������������������������������������������������������������������������������157 Creating an Instance of the Class���������������������������������������������������������������������160
+The Ball update( ) Method����������������������������������������������������������������������������161 Constructors������������������������������������������������������������������������������������������������ 162 SOLID���������������������������������������������������������������������������������������������������������������� 164 Single Responsibility�����������������������������������������������������������������������������������165 Open-Closed Principle���������������������������������������������������������������������������������165 Liskov Substitution��������������������������������������������������������������������������������������166 Interface Segregation����������������������������������������������������������������������������������166 Dependency Inversion���������������������������������������������������������������������������������167 Conclusion�������������������������������������������������������������������������������������������������������� 170
+Chapter 15: Inheritance, Composition, and Aggregation������������������171 Inheritance�������������������������������������������������������������������������������������������������������� 172 Base and Child Classes�������������������������������������������������������������������������������������173 Programming to the Interface���������������������������������������������������������������������175 A Note About Constructors and Base Classes���������������������������������������������175 Composition������������������������������������������������������������������������������������������������������ 177 Aggregation������������������������������������������������������������������������������������������������������� 179 Conclusion�������������������������������������������������������������������������������������������������������� 180
+Chapter 16: Game Project: Snake�����������������������������������������������������181 Functions���������������������������������������������������������������������������������������������������������� 182 Snake Framework���������������������������������������������������������������������������������������������183 Images�������������������������������������������������������������������������������������������������������������� 190 Loading the Images�������������������������������������������������������������������������������������191 The Game Map��������������������������������������������������������������������������������������������������192 Drawing the ‘Game Over’ Screen����������������������������������������������������������������������193
+xi
+
+Table of Contents
+Drawing the Game��������������������������������������������������������������������������������������������195 Drawing the Walls���������������������������������������������������������������������������������������������196 Drawing the Player Data�����������������������������������������������������������������������������������198 Drawing the Snake��������������������������������������������������������������������������������������������199 Updating the Game�������������������������������������������������������������������������������������������202
+The updateGame( ) Method��������������������������������������������������������������������������203 Snake Movement�����������������������������������������������������������������������������������������205 Touching a Berry������������������������������������������������������������������������������������������206 Collision Detection��������������������������������������������������������������������������������������������208 Helper Functions�����������������������������������������������������������������������������������������208 Conclusion�������������������������������������������������������������������������������������������������������� 212
+Chapter 17: Model View Controller���������������������������������������������������213 Model���������������������������������������������������������������������������������������������������������������� 214 View������������������������������������������������������������������������������������������������������������������ 214 Controller���������������������������������������������������������������������������������������������������������� 214 Why Use MVC?��������������������������������������������������������������������������������������������������215 The Classes�������������������������������������������������������������������������������������������������216 Folder���������������������������������������������������������������������������������������������������������� 217 The Robot Model�����������������������������������������������������������������������������������������217 The Robot View��������������������������������������������������������������������������������������������219 The Radar View��������������������������������������������������������������������������������������������221 The Robot Controller������������������������������������������������������������������������������������222 The Robot Generator������������������������������������������������������������������������������������225 Ensuring Constant Speed����������������������������������������������������������������������������������227 The Main Robot Program����������������������������������������������������������������������������������228 Conclusion�������������������������������������������������������������������������������������������������������� 230
+xii
+
+Table of Contents
+Chapter 18: Audio�����������������������������������������������������������������������������233 Playing a Sound������������������������������������������������������������������������������������������������234 Playing, Pausing, and Changing Volume�����������������������������������������������������������235 Conclusion�������������������������������������������������������������������������������������������������������� 240
+Chapter 19: Finite State Machines���������������������������������������������������241 Game State�������������������������������������������������������������������������������������������������������241 Menu System����������������������������������������������������������������������������������������������������241 Non-player Artificial Intelligence�����������������������������������������������������������������������242 A Finite State Machine Example�����������������������������������������������������������������������243 Finite State Machine Manager��������������������������������������������������������������������244 Conclusion�������������������������������������������������������������������������������������������������������� 249
+Chapter 20: Game Project: Invaders�������������������������������������������������251 The Classes�������������������������������������������������������������������������������������������������������253 The Finite State Machine����������������������������������������������������������������������������������254 MVC and ‘Invaders’�������������������������������������������������������������������������������������������255 The Framework�������������������������������������������������������������������������������������������������255 Bitmap Font�������������������������������������������������������������������������������������������������259 Interstitial Screens��������������������������������������������������������������������������������������263 The Main Menu��������������������������������������������������������������������������������������������264 Player and Bullets���������������������������������������������������������������������������������������������267 The Bullet Classes���������������������������������������������������������������������������������������267 The Player Classes��������������������������������������������������������������������������������������270 Testing Player����������������������������������������������������������������������������������������������273 The Alien Swarm Classes����������������������������������������������������������������������������������275 Collision Detection��������������������������������������������������������������������������������������������282 Explosions��������������������������������������������������������������������������������������������������� 282 Collision Controller��������������������������������������������������������������������������������������285
+xiii
+
+Table of Contents
+The Main Program���������������������������������������������������������������������������������������������288 The Main Game State����������������������������������������������������������������������������������������289 Running the Game��������������������������������������������������������������������������������������������292 Conclusion�������������������������������������������������������������������������������������������������������� 293
+Chapter 21: Simple Electronics with the GPIO Pins��������������������������295 Voltage, Current, and Resistance����������������������������������������������������������������������296 What You Will Need�������������������������������������������������������������������������������������������298 Breadboard�������������������������������������������������������������������������������������������������� 298 Breakout Board��������������������������������������������������������������������������������������������299 Jumper Wires����������������������������������������������������������������������������������������������300 LEDs������������������������������������������������������������������������������������������������������������ 302 Resistors������������������������������������������������������������������������������������������������������ 304 Switches������������������������������������������������������������������������������������������������������ 307 Building a Circuit�����������������������������������������������������������������������������������������������308 Connecting the Breakout Board to the Raspberry Pi�����������������������������������308 Providing Power and Ground�����������������������������������������������������������������������311 Adding the LED��������������������������������������������������������������������������������������������312 Completing the Circuit���������������������������������������������������������������������������������313 Testing the Circuit����������������������������������������������������������������������������������������315 Pin Meanings����������������������������������������������������������������������������������������������������316 The gpiozero Library�����������������������������������������������������������������������������������������317 The Circuit���������������������������������������������������������������������������������������������������318 The Python Program������������������������������������������������������������������������������������319 Getting Button Input������������������������������������������������������������������������������������320 Reading Button Input in Python�������������������������������������������������������������������321 Conclusion�������������������������������������������������������������������������������������������������������� 322
+xiv
+
+Table of Contents
+Chapter 22: Game Project: Memory��������������������������������������������������323 Arranging the Breadboard���������������������������������������������������������������������������������324 Placing the LEDs������������������������������������������������������������������������������������������324 Testing the Circuit���������������������������������������������������������������������������������������������326 Placing the Tact Switches����������������������������������������������������������������������������327 Testing the Button Circuit����������������������������������������������������������������������������328 The Memory Game��������������������������������������������������������������������������������������������330 The ButtonLED and ButtonLEDCollection Classes���������������������������������������331 The Main Program���������������������������������������������������������������������������������������334 Full Listing buttonled.py������������������������������������������������������������������������������������336 Full Listing memorygame.py�����������������������������������������������������������������������������338 Conclusion�������������������������������������������������������������������������������������������������������� 339
+Chapter 23: Game Project: Quiz��������������������������������������������������������341 The Electronics�������������������������������������������������������������������������������������������������341 Testing the Buttons��������������������������������������������������������������������������������������342 The Finite State Machine����������������������������������������������������������������������������������345 Making the Game����������������������������������������������������������������������������������������������347 The Questions����������������������������������������������������������������������������������������������348 UI Helper Classes�����������������������������������������������������������������������������������������354 The Game Runner and Base State Class�����������������������������������������������������359 Player Input�������������������������������������������������������������������������������������������������361 The State Classes����������������������������������������������������������������������������������������362 Playing the Game����������������������������������������������������������������������������������������������376 Conclusion�������������������������������������������������������������������������������������������������������� 377
+Chapter 24: Conclusion���������������������������������������������������������������������379
+Index�������������������������������������������������������������������������������������������������381
+xv
+
+About the Author
+Sloan Kelly has worked in the games industry for nearly 12 years. He has worked on a number of AAA and indie titles and currently works for an educational game company. He lives in Ontario, Canada, with his wife and children. Sloan is on Twitter @codehoose and makes YouTube videos in his spare time.  
+xvii
+
+About the Technical Reviewer
+John Watson is a game developer, artist, guitar player, husband, and father. Among John’s many software-powered side projects, he’s building a Raspberry Pi–powered device that generates interactive music in live modern dance performances. He’s also developing a retro-inspired 2D twin-stick arcade shooter called Gravity Ace. You can follow his progress on Twitter @yafd or at gravityace.com. Stop by and say hi!
+xix
+
+Acknowledgments
+I would like to thank Divya Modi, Spandana Chatterjee, and the entire team at Apress for giving me the opportunity to write the second edition of this book. A special thank you to Divya for keeping me in the loop throughout this process. I would also like to thank John Watson for the feedback that he gave while reviewing the text.
+Thank you also to Eben Upton who gave us the little machine we will use to make games and explore electronics with and to Pete Shinners for starting PyGame and the community for keeping it going. Finally, a huge thank you to Guido van Rossum for designing the excellent Python language that you, dear reader, are about to learn and enjoy.
+xxi
+
+Introduction
+This book is intended for anyone who wants to learn how to program games. It is ideally suited to students who want to learn Python and PyGame on their Raspberry Pi. While not necessary, this book has been oriented toward the Raspberry Pi computer.
+The Python programming language is ideally suited to beginners and experts alike. The skills you will learn in this book are easily transferable to other computer languages too.
+If you are unfamiliar with the Raspberry Pi, there are several good eBook guides on getting started including mine called A Slice of Raspberry Pi, available from all good eBook retailers.
+This book assumes that you are familiar with the Raspberry Pi computer and that you have the Raspberry Pi Foundation’s recommended Raspbian operating system installed. Raspbian is a distribution of the Debian Linux operating system built specifically for the Raspberry Pi. This distribution contains all the Software Development Kits (SDKs) including one for Python that includes PyGame. If you don’t have Raspbian installed, you will have to ensure that you have Python and PyGame installed on your system.
+Don’t have a Raspberry Pi? Not to worry, you can still learn Python and PyGame. The code in this book will work on other OSs with Python and PyGame installed; Python is a platform-independent language.
+You can obtain more information and download versions of Python from www.python.org. PyGame can be obtained from www.pygame.org/.
+Sprites from Ari Feldman’s SpriteLib have been used for the projects contained in this book.
+xxiii
+
+Introduction
+How This Book Is Organized
+The book is organized into chapters covering the following: • Introduction to the Python language • Containers in Python • The IDLE IDE • Introduction to PyGame library • Designing your game • User-defined functions • File input/output • Object-oriented design and programming • Model View Controller design pattern • Finite state machines • Interfacing with electronics
+There are five projects that produce complete games, all the code and resources for which are on the web site www.sloankelly.net/. The five games are
+• Bricks • Snake • Invaders • Copycat • Couch quiz Throughout the book are lines of code that you can type in to tell the computer to perform actions, or to add text to a file. In the book, these lines will appear like this:
+xxiv
+
+Introduction print 'hello world'
+Python uses white space characters, notably tabs, to denote blocks of code. Because this is an eBook and it is not possible to know how tabs will be rendered on your device, white space is very important to Python, so remember to use the “tab” key to indent the lines exactly as written like so: name='Sloan' if (name=='Sloan'):
+print ('Hello', name) The line that starts with “print” has been indented using the “tab” key. OS commands that are to be typed into a command window like Terminal will be preceded with a “$” sign: $ ls -al There are screenshots and other graphics throughout the text to illustrate output, but when it is just text it will appear in a box like this: This is output from a command. It can appear on one or more lines. Finally, anything important will appear in a note formatted like this: Take note of this message
+xxv
+
+CHAPTER 1
+
+What Is a Programming Language?
+A computer program is a list of statements that a computer must carry out in order to complete a task, usually a repetitive task that would take a human a long time to calculate. A computer language describes the arrangement or syntax of those statements. There are various computer languages out there, each suitable to one or more tasks.
+Each language has its own unique syntax and set of commands, but they all have constructs that perform roughly the same types of actions:
+• Input • Output • Branching (making decisions based on data) • Loops A command or keyword is a special phrase that is used by the language to perform an action whether it is to get input from the user or display text on the screen. These commands are reserved words that cannot be used
+
+© Sloan Kelly 2019
+
+1
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_1
+
+Chapter 1 What Is a Programming Language?
+for any other purpose in your program. We’ll dive deeper into them later in this book, but examples of keywords in Python are
+• for
+• if
+• pass
+What Does a Computer Program Do?
+A computer program performs a series of tasks over and over again manipulating the user’s input and delivering output in a feedback loop. When you move your mouse (input), the arrow on the screen moves along with it (output).
+The old definition of a computer program was a basic mathematical formula:
+Program = Algorithm + Data
+An algorithm is the step-by-step procedure for processing data. The algorithm solves a problem with the data that it has been supplied. What kind of problem? It could be anything from calculating the area of a rectangle or the volume of a room, where to move a player’s avatar based on the input from a joystick, or deciding how an enemy should react to a player who just obtained a power up.
+Are all computer programs written the same way? Is there a standard way to approach a given problem? Well, no. Not really. There are many ways to achieve the same result in computer programming! There is no correct way of solving a problem. So long as your program does what it is supposed to, that’s just fine! You may want to ‘tweak’ your code later to speed it up, but any optimization happens once you have the algorithm right. Your program must function as expected. This is of paramount importance.
+2
+
+Chapter 1 What Is a Programming Language?
+Conclusion
+Computer programs are used to perform laborious tasks on a series of data elements that are input by users. For games, that means updating the player avatar location and maintaining the game world while displaying it to the player.
+It is not advisable to stick to one language but rather experience as many languages as you can. This will enable you, the programmer, to decide which language is best for a given situation. Your first language is a great choice; Python is a very powerful language that can be used for a variety of purposes and is perfect for the first-time programmer.
+3
+
+CHAPTER 2
+
+What Is Python?
+
+Python is a modern programming language that supports object-oriented, functional, and imperative programming styles. It is ideal for the beginner because of its readability and ease of use. The upside to all of this is that you can write programs in less lines of code than an equivalent C/C++ or Java program.
+What on earth did I just say? Let’s break that last paragraph down and make it a little more readable.
+
+P rogramming Styles
+Python is suitable for programming in the following styles: • Imperative • Object-oriented • Functional
+Imperative programming was for the longest time the most common way to write computer code. It describes step by step how to perform changes to the data in a very linear manner.
+For example, we have the following items: • Tea bag • Milk
+
+© Sloan Kelly 2019
+
+5
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_2
+
+Chapter 2 What Is Python?
+• Cup • Spoon • Kettle • Water These are the things we use and manipulate in our ‘program’; this is our data. We want to change this data to a different state. What state? Well, we want a cup of milky tea. How do we do that? We prescribe a series of operations that will transform this data into some other data like so: • Place tea bag in cup • Pour water into kettle • Boil the kettle • While the kettle is boiling, watch TV • Pour the water from the kettle to the cup • Pour milk into the cup • Stir the tea with the spoon • Serve In code (not specifically Python code), this could be written as
+addTo(cup, tea_bag) addTo(kettle, water) boil(kettle) while isBoiling(kettle):
+watchTV() addTo(cup, getWaterFrom(kettle)) addTo(cup, milk) stir(cup) serve(cup)
+6
+
+Chapter 2 What Is Python?
+These are the prescribed steps (process) to change our initial data (our input) and transform it into our output. See Figure 2-1.
+
+INPUT
+
+PROCESS
+
+OUTPUT
+
+Figure 2-1.  Input, process, output block diagram
+O bject-Oriented
+Imperative programs separate the functionality (the algorithm) from the data. Object-oriented languages keep the functionality with the data. Objects contain the data and the instructions used to manipulate that data in one place.
+There is an advantage to this; algorithms stored with it process your data. Let’s take a pencil as an example. It has certain attributes that describe it:
+• Color • Hardness • Nib size • Length It also has certain actions or methods that can be applied to it: • Write • Erase • Sharpen
+
+7
+
+Chapter 2 What Is Python?
+These methods change the state of the object; remember that state is determined by the data. For example, when you write using a pencil, the nib length gets smaller and smaller. When you sharpen the pencil, its overall length gets shorter, but the nib size is reset to its maximum.
+F unctional
+Functional programming is not new and was first developed in the 1930s. It has its roots in lambda calculus. Functional programming uses mathematical functions to perform calculations. No data is changed in these calculations; instead new values are calculated. This means that functional programs have no state.
+Functional programming tends to be used for recursion (calling the same function from itself ) and iteration through items.
+In Python, Fibonacci numbers can be calculated with the following one line: fib = lambda n: n if n < 2 else fib(n-1) + fib(n-2)
+This was taken from a discussion on StackOverflow (http://bit.ly/ FibonacciPython).
+To calculate a value, the programmer simply passes in an integer value: fib(5)
+What Is Pygame?
+Pygame was started by Pete Shinners as a wrapper around the Simple DirectMedia Library (SDL). It has been maintained by the community since 2000 and is released under the GNU Lesser General Public License. Which means you are free to look at the source code if you so choose.
+8
+
+Chapter 2 What Is Python? Pygame was created to allow for the development of games without resorting to using programming languages like C or C++. Pygame can be used to write fast-paced 2D games in a retro style, or modern casual and hyper-casual games. It handles the difficulties of loading in images, displaying sprites, playing sounds, etc., for you. For more details about Pygame, please visit their web site: www.pygame.org/news.
+C onclusion
+Python is a modern, multiparadigm programming language. It can be used for imperative, object-oriented, and functional programming.
+In addition, Pygame is a framework that allows you to create fast-paced action games in 2D.
+So, now that we know what Python is capable of, it’s time we looked at the language itself.
+9
+
+CHAPTER 3
+
+Introducing Python
+
+In this chapter we will introduce the Python language. At this stage we’re only interested in understanding the format or syntax of the Python language and its keywords. Python is an interpreted language, meaning that it requires another program called an interpreter to run any code that we write.
+The Python interpreter program is called Python and is an executable program. When you run Python from the command line by itself then you will see the following:
+pi@raspberrypi ∼ $ python Python 2.7.9 (default, Jan 13 2013, 11:20:46) [GCC 4.9.2] on linux2 Type "help", "copyright", "credits" or "license" for more info >>>
+This is the Python interpreter and will run each command block as you type it in.
+
+The Terminal Window
+For our first few Python experiments we will use the Terminal window in Raspbian. To open a terminal window, click the icon on the top left of the screen that looks a bit like >_. This will open a window with some text that looks like this:
+pi@raspberrypi:~ $
+
+© Sloan Kelly 2019
+
+11
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_3
+
+Chapter 3 Introducing Python
+This is a very friendly prompt because the computer is telling some important information. It shows that you are logged in as (pi@raspberrypi) and where you are in the directory structure. In this case it’s ~ which is shorthand for your home directory.
+To the right of that text is the cursor. This is where the text that you type will appear.
+Running the Python Interpreter
+To start the Python interpreter, type the following in the terminal window: $ python
+A command block in Python is a list of commands at least one line long. Let’s try one now: print 'Hello, world!'
+This will instruct Python to display the phrase ‘Hello, world!’ onscreen. Notice that Python doesn’t display the quotation marks: Hello, world!
+This is because ‘Hello, world!’ is a string literal. A string is any phrase containing alphanumeric or symbol characters that is enclosed between ‘and’ or “and”. You can’t mix and match the quotes. Being able to use both becomes quite handy at times.
+Let’s try this: print "It's going to rain on Saturday."
+With double quotes used to mark where our string literal starts and ends, we can use the single quote as an apostrophe: It's going to rain on Saturday.
+12
+
+Chapter 3 Introducing Python
+If we used single quotes, we would have had to add a special escape character to the line:
+print 'It\'s going to rain on Saturday.'
+We’ll get to escape characters later, but that’s a little messy for just wanting to put an apostrophe in a sentence!
+Let’s break down the print statement that we’ve just used. print is a keyword used by Python to output information to the screen. The second part, the string literal, is a parameter of the print command. Parameters are also called arguments.
+Python Is Interpreted
+Every line of Python is interpreted. This means that the computer takes each line of code that you type and converts it one at a time to code that the computer can understand. The other type of language is compiled. When a language requires compilation to translate your source code into a language the computer can understand, that processing is done by another program called a compiler. This is a separate program that you run after you have written all your code.
+Because the Python language is interpreted, you only need one program to run it: Python. When we are in the interactive Python shell, anything we type is immediately interpreted by the program and the result displayed onscreen, if there is a result.
+Python As a Calculator
+Say we want to add two numbers together, for argument’s sake, 2 and 2. Type the following into the Python interpreter and press return:
+2+2
+13
+
+Chapter 3 Introducing Python
+What you will see onscreen is what you were (hopefully) expecting to see:
+4
+We will see later that all the arithmetic operations (add, subtract, multiply, and divide) are available as well as others that you might not have seen before. They’ll be introduced as you go through the text.
+Examples:
+5 * 4 10 / 2 7 + 2 9 - 4
+What about something more complex like
+2 + 2 * 6
+What did you expect to see? 24? Why is it 14? That’s because arithmetic operators work on an order of precedence, or put another way, some operators are more important than other operators. The operators ‘*’ for multiplication and ‘/’ for divide are more important than + and – used for addition and subtraction respectively.
+If you want to ensure the order of operation, you can use parenthesis marks ‘(’ and ‘)’ like so:
+(2 + 2) * 6
+Which will now give 24 because the addition of 2 and 2 will be performed first, then its product will be multiplied by 6. Watch your brackets! Ensure that they match up. If you don’t you’ll get a continuation marker ‘…’) as shown in the following:
+>>> (2 + 2 * 6 ...
+14
+
+Chapter 3 Introducing Python
+Let’s say you want to calculate the area of a floor (width × length) in meters and convert that value to square feet. Assume that the room is 2 meters by 4 meters. You could use something like
+(2 * 4) * (3.28 * 3.28)
+This is because there are 3.28 feet in a meter; to get a square meter in feet, we multiply the 3.28 feet by itself which gives us 10.7584. Multiplying that by 2 * 4 gives us
+86.0672
+Or approximately 86 square feet. We’ll go into this next bit in depth later, but for now we should take a moment to discuss what has been typed so far. The numeric values that you have entered are called constants. They can never change. 1 will always be 1 and 24.234 will always be 24.234. We can store constants in memory for safekeeping and refer to them later on in our program. These slots in the computer’s memory are called variables. They are called this because the value that we store can vary over the course of the program. Let’s say we wanted to store the 10.76 constant. We have to assign it a name. This action is called variable assignment and looks like this:
+squareFeet = 10.76
+You can read that as ‘assign the value 10.76 to squareFeet’ or ‘give squareFeet the value 10.76,’ or (as I like to call it) ‘squareFeet equals 10.76.’ That’s more of a “say what you see mentality” though!
+Any time we want to use this variable, we use it in much the same way as we’d use a constant. To calculate the area of that 2 × 4 meter room
+(2 * 4) * squareFeet
+Python is cAsE sEnsItIve! Note that the name of the variable is ‘squareFeet’ and not ‘squarefeet’ or ‘Squarefeet.’
+15
+
+Chapter 3 Introducing Python
+Keywords
+Python has a very small number of built-in keywords, 31 in total. From these though we can make any program you want to make from a simple bat and ball game to a spreadsheet application, if you fancy making one of them. Python’s keywords are the following:
+• and • as • assert • break • class • continue • def • del • elif • else • except • exec • finally • for • from • global • if • import • in
+16
+
+Chapter 3 Introducing Python
+• is • lambda • not • or • pass • print • raise • return • try • while • with • yield These are the building blocks of the language, the Lego bricks if you like. From all of these words you can create anything from simple calculations to games to application software. Sometimes, most of the really hard work is done for you and is supplied as a Python module. This is a library of commands, routines, and objects that are packaged together to provide a common functionality. PyGame is an example of a collection of modules. Each module in PyGame makes it easier for you the programmer to make a game by providing you with prewritten code to draw images on the screen, get input from the player, or play background music.
+Printing
+We’ve seen how to display simple results on the screen, but you can get much fancier with how those messages are formatted (how they look). For example, you can use escape sequences to add white space characters like tabs and returns to the text using the print command. For example:
+17
+
+Chapter 3 Introducing Python
+
+print("these\nare\non\nseparate\nlines") print("tab over\tto here")
+The backslash character “\” is used to generate an ‘escape’ code for the next character. Escape characters or control sequences date back to the teletype days and are used to control the output to the device we’re printing to: in this case the screen.
+There are various control sequences and these are listed in Table 3-1 with their descriptions.
+
+Table 3-1.  Control Sequences
+
+Escape Sequence Description
+
+\\ \’ \” \a \b \f \n \N(name) \r \t \uxxxx \Uxxxxxxxx \v \ooo \xhh
+
+Outputs a backslash Outputs a single quote mark (’) Outputs a double quote mark (”) Bell Performs a backspace Performs a form feed Performs a line feed Character named name in the UNICODE database Performs a carriage return Performs a horizontal tab Character with 16-bit hex value xxxx Character with 32-bit hex value xxxxxxxx Performs a vertical tab Character with the octal value ooo Character with the hex value hh
+
+18
+
+Chapter 3 Introducing Python
+
+From these escape characters you can create complex output. This can be used to display tabular information, for example:
+
+print("Team\t\tWon\tLost\nLeafs\t\t1\t1\nSabres\t\t0\t2")
+
+Will display the following table:
+
+Team Leafs Sabres
+
+Won Lost
+
+1
+
+1
+
+0
+
+2
+
+Which is pretty, but what if we want to do a better job? Say we wanted to align the numbers to the right instead of to the left? That means moving the numbers to the same column as the last character of “won” and “lost.” This is where string formatting comes into play.
+
+S tring Formatting
+String formatting allows you to decide how information will be displayed to the user as text. We’ve already seen how we can manipulate the visual portion of the text by deciding where the text will be placed; we’ll now examine at how the data can look to the user. We don’t need to change the data: we’re just altering how the user sees the data.
+Formatting is achieved by using placeholders in the text for information you want to insert. These are shown in Table 3-2.
+
+Table 3-2.  String Formatting Placeholders
+
+Placeholder
+
+Description
+
+%s
+
+String
+
+%d
+
+Whole number
+
+%f
+
+Floating point number
+
+%r
+
+Raw value
+
+19
+
+Chapter 3 Introducing Python
+The raw value isn’t particularly helpful for end users of your program, but it can be handy when you are debugging the code trying to find out what went wrong. More of that later in the debugging chapter.
+If we want to display three numbers, for example, the x-, y-, and z-coordinates of an object, then we could use something like print("{%d, %d, %d}" % (1, 2, 3))
+The ‘%’ inside the string literal denotes that the following item is a placeholder and it is of type ‘d’ for a whole number. The ‘%’ outside the string literal is used to say ‘fill in those placeholders with’ and then the last bit in parentheses ‘(’ and ‘)’ is called a tuple. Those are the values that are placed in the string in the order that they appear. The text that appears when you enter that line is {1, 2, 3}
+Let’s try it again, but this time with the player’s name, their score, and percentage completed: print("%s scored %d and completed %f of the quest" % ('Sloan', 15, 55))
+This will output Sloan scored 15 and completed 55.000000 of the quest
+You’ll notice that the output is a little over the top; the floating point number is showing a lot of zeros. We can minimize this by specifying how many points there should be to the right of the decimal point.
+Let’s change the line to show only two decimal points: print("%s scored %d and completed %.2f of the quest" % ('Sloan', 15, 55))
+20
+
+Chapter 3 Introducing Python
+
+Now the output of the statement is
+
+Sloan scored 15 and completed 55.00 of the quest
+
+We can also use the numbers after the ‘%’ symbol to space out the values. For example:
+
+print("%20s%20d" % ('Sloan', 15))
+
+This displays the values ‘Sloan’ and ‘15’ in columns of width 20:
+
+Sloan
+
+15
+
+The values are right-aligned to their positions and they both take up 20 columns. What if we wanted to left-align the name of the player though? We would use a negative value:
+
+print("%-20s%20d" % ('Sloan', 15))
+
+By using the negative value, you are specifying that you want 20 spaces but the text must be aligned to the left:
+
+Sloan
+
+15
+
+Going back to our hockey team example, we can now use this information to better place the text and data. Rather than relying on tabs that can vary depending on the size of the text, we can make the table use fixed values like so:
+
+print("%s%s%s\n%s%d%d\n%s%d%d" % ('Team', 'Won', 'Lost', 'Leafs',1,1,'Sabres',0,2))
+
+This shows how it appears without the values before the placeholder. And now with the column width of each item:
+
+print("%-10s%10s%10s\n%-10s%10d%10d\n%-10s%10d%10d" % ('Team', 'Won', 'Lost', 'Leafs',1,1,'Sabres',0,2))
+
+21
+
+Chapter 3 Introducing Python
+That’s a lot of ‘%’ symbols, isn’t it! This is a rather severe case, and not one that would be particularly common. In fact, you would use something called variable assignment to make this a lot easier to read. We will now look at that in detail now.
+Variables
+Variables are used to store the data in memory while we are processing it. We access the data using names. Each variable can be assigned a value. This value represents our data that we want processed. Let’s say we want to store the player’s name so that we could retrieve it later.
+This is called variable assignment. When we assign a value to a name, we are saying that that name now contains the assigned value:
+>>> player = 'Sloan' >>> print(player) Sloan >>>
+Our variable assignment is
+player='Sloan'
+The left-hand side of the equals sign (=) is the name and the right-­hand side of the equals sign is the value. The value can be anything from a string literal, a whole or floating point number, to a complex mathematical formula.
+Naming Variables
+You can call variables whatever you want, but I would suggest that they reflect the data that you are expecting to store in them. There are a couple of caveats to the characters you can use for a name. They can be alphanumeric characters and can contain the underscore character (_), but the name can’t start with a number. You should also be wary of starting
+22
+
+Chapter 3 Introducing Python
+names with the underscore character because this is sometimes used for internal names used by Python itself, and other special cases that will be discussed later.
+These are valid variable names:
+playerName player1 numOfLives _arg1 this_is_a_long_name_hope_its_worth__it__555
+These are invalid variable names. The reasons given are shown to the right of the ‘#’. The ‘#’ is used as a comment character in Python. Everything after the ‘#’ is ignored on a line:
+123Fred # starts with a number Fr*d # contains an illegal character &apos;*&apos; player$ # contains an illegal character &apos;$&apos; the Player # contains a space. Spaces are not allowed
+Python variable names are case sensitive! Be careful:
+thisVariable
+is not the same as
+Thisvariable
+You have been warned! Watch your cases!
+PYTHON IS CASE SENSITIVE!
+Python As a Calculator, Part II
+Remember that a computer program takes information from the user, processes it, and gives feedback to the user as output. We are going to turn
+23
+
+Chapter 3 Introducing Python
+Python into a calculator for this section. Say we set the price of a can of soda as 55 cents, let’s remember that by putting the value 55 inside a variable: canOfSoda = .55
+We can recall the price of a can of soda using this variable name. Now, suppose we have been told to buy 12 cans of soda, let’s remember that too in another variable: numCans = 12
+We can now print out the value of 12 cans of soda using a simple formula: canOfSoda * numCans
+But wait! What is this?! You don’t get 6.6, you actually get this: 6.6000000000000005
+This seems a little strange, doesn’t it? Why should this happen? This is all to do with precision. When computers calculate a fractional number, they have to use binary numbers (base 2, 0, or 1) to calculate those fractions. When translating them back into decimal values, it doesn’t quite add up. We can tidy it up ourselves using string formatting: "%2.2f" % (canOfSoda * numCans)
+That’s better! And we can further tidy it up to show the dollar (or local currency symbol) amount: "$%2.2f" % (canOfSoda * numCans)
+Which will display '$6.60'
+Notice that our values have ‘’ around them; that’s because we’re doing raw output to the Python terminal, so anything we type in immediately
+24
+
+Chapter 3 Introducing Python
+gets processed and output. If we want to print out the string without the quotes, we need to add the print command:
+print("$%2.2f" % (canOfSoda * numCans))
+Outputs:
+$6.60
+Bad news though, the price of a can of soda has now risen to 70 cents. No problem though, because we can just tell Python to remember the new value:
+canOfSoda = .7
+Now when we calculate 12 cans of soda we’ll get a new value. The output from the following session shows the previous value, the assignment, and the new value:
+>>> canOfSoda 0.55 >>> canOfSoda = .7 >>> canOfSoda 0.7 >>>
+If we want to see how much a dozen cans cost, we use the same line as before:
+print("$%2.2f" % (canOfSoda * numCans))
+Did you know that you can use the up and down cursor (arrow) keys on your keyboard to move forward and back through the history of the Python statements you typed in the interactive Python program? When you step through your statements, you can use the left and right cursor keys to move along the line and the delete/backspace keys to remove unwanted characters. Could save you some typing time!
+25
+
+Chapter 3 Introducing Python
+
+A rithmetic Operators
+
+Arithmetic operators are short-form symbols used to perform arithmetic on numbers. You will have used the majority of them at school; Python uses some different symbols compared to the ones used in school (Table 3-­3).
+
+Table 3-3.  Python Arithmetic Operators
+
+Operator Description
+
+Example
+
++
+
+Addition; the two values either side of the operator 4 + 5 will give 9
+
+are added together
+
+-
+
+Subtraction; the value on the right-hand side of 5 – 4 will give 1
+
+the operator is subtracted from the value on the
+
+left-hand side
+
+*
+
+Multiplication; the two values on either side of the 2 × 3 will give 6
+
+operator are multiplied together
+
+/
+
+Division; divides the value on the left-hand side of 10 / 5 will give 2
+
+the operator with the value on the right-hand side
+
+%
+
+Modulus; divides the value on the left-hand side of 5 / 2 will give 1
+
+the operator with the value on the right-hand side
+
+to produce the remainder
+
+**
+
+Exponent; raises the value on the left-hand side by 2 ** 4 will give 16.
+
+the power supplied on the right-hand side
+
+This is written in
+
+mathematics as 24
+
+or 2 * 2 * 2 * 2
+
+/
+
+Floor division; divides the value on the left-­hand 5 / 2 will give 2.0
+
+side of the operator with the value on the right-
+
+hand side to produce the integer lower value
+
+26
+
+Chapter 3 Introducing Python
+D ata Types
+Python uses something called duck typing. Duck typing ensures that as long as a method or functionality exists for a particular named value (a variable), then Python will perform that action upon it. The poet James Whitcomb Riley came up with this phrase to describe inductive reasoning:
+If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
+Python does have specific data types as well, and these are used to describe the contents of a variable. Python has the following built-in data types:
+• Numerics • Sequences • Mappings • Files • Classes • Instances • Exceptions
+N umeric Types
+Numbers in Python can be represented as whole or fractional. Whole numbers are called integers and they are numbers without a fractional component like –256, –5, 1, 5, 9, 17, 2048. Fractional numbers have a decimal point and some values after it, for example, 0.5, 0.333, –0.1.
+Whole numbers are represented by two data types: ‘int’ which is short for integer and ‘long.’ Fractional numbers are represented by ‘float.’ There is another type of number called ‘complex’ that we don’t really use in games, but Python can handle it.
+The numeric data types are described in detail in Table 3-4.
+27
+
+Chapter 3 Introducing Python
+
+Table 3-4.  Numeric Data Types
+
+Numeric Type Description
+
+int
+float long complex
+
+Integers are at least 32 bits in size (4 bytes), which means you can store any whole number up to and including 4,294,967,295. However, this is usually a signed value, which means that the range of values actually goes from –2,147,483,648 to +2,147,483,647.
+A floating point number is a number with a fractional component like 2.4 or 1.49387.
+Long integers have an unlimited precision and therefore no upper limit on the number of bits that can be used to store them.
+Complex numbers have real and imaginary parts. These parts are floating point numbers.
+
+In addition, the operators shown in Table 3-5 might come in handy. These aren’t used in normal everyday arithmetic, but you might want to negate a value or convert it from an integer to a floating point or vice versa.
+
+Table 3-5.  Additional Operators
+
+Operator
+
+Description
+
+Example
+
+–x +x abs(x) int(x) long(x) float(x) complex(real, imaginary)
+
+Negate the value ‘x’ Leave the value ‘x’ unchanged Absolute value of ‘x’ Convert ‘x’ to an integer Convert ‘x’ to an integer Convert ‘x’ to an integer Creates a complex number with the real part ‘real’ and the imaginary part ‘imaginary’
+
+–2 gives –2 +2 gives 2 abs(–5) gives 5 int(5.44) gives 5 long(5) gives 5 float(5) gives 5.0 complex(1,5) gives (1+5j)
+
+28
+
+Chapter 3 Introducing Python
+For example, to calculate the area of the side of a building that is 5 meters along by 10 meters high:
+width = 5 height = 10 area = width * height
+To display the value, type in
+area
+This will display the answer to 5 × 10:
+50
+String Formatting Again
+Let’s go back to our hockey score table:
+print("%-10s%10s%10s\n%-10s%10d%10d\n%-10s%10d%10d" % ('Team', 'Won', 'Lost', 'Leafs',1,1,'Sabres',0,2))
+We can break this down into smaller, more readable chunks of data. Don’t be afraid to do just that; making your program readable is preferable over speed. You should strive to get the code right rather than fast. Optimization can come later.
+MAKE YOUR CODE READABLE! WHEN YOU RETURN TO IT AT A LATER DATE, YOU WILL STILL BE ABLE TO MAKE SENSE OF IT!
+There is common formatting used throughout the table; each team is allotted ten characters for their name and won and lost numbers. At the end of each is a new line character. We can set a variable up to remember this format:
+formatter="%-10s%10s%10s\n"
+29
+
+Chapter 3 Introducing Python
+
+Then it’s a simple matter of assigning variables that use this format for each header and team:
+
+header=formatter % ("Team", "Won", "Lost") leafs=formatter % ("Leafs", 1, 1) sabres=formatter % ("Sabres", 0, 2)
+
+Now that we have our header and team data stored in variables, we can combine them all in one line to draw our table:
+
+print("%s%s%s" % (header, leafs, sabres))
+
+If we wanted we could assign this to a variable and print that out later. Our variable assignment would look like this:
+
+table = "%s%s%s" % (header, leafs, sabres)
+
+If we just type in the table in the Python interpreter program we get this displayed:
+
+'Team Won Lost\nLeafs 1 1\nSabres 0 2\n'
+
+This is the raw output of the contents of the name table. This shows us what the name table contains, but not how it will be displayed. To display the table correctly
+
+print(table)
+
+Will display
+
+Team Leafs Sabres
+
+Won
+
+Lost
+
+1
+
+1
+
+0
+
+2
+
+30
+
+Chapter 3 Introducing Python
+Conclusion
+Python can be used interactively through the Python interpreter by typing python in a terminal window. While this is handy for one-off calculations and simple text output, we shall now be delving deeper into the world of Python by creating actual programs using a tool like a text editor.
+31
+
+CHAPTER 4
+
+Breaking Free from the Interpreter
+Up until now we have used the interpreter to write our code. As each line is entered, the Python program interprets it and the processed line’s output is displayed onscreen. From now on we will use IDLE.
+To quit the interpreter, if you haven’t already done so, press Ctrl+D or enter quit(). Keep the terminal window open though! We will need that shortly.
+What Is IDLE?
+Throughout this book we will use the Integrated Development Environment (IDE) that is included with the Raspbian IDLE, which is short for Integrated Development and Learning Environment.
+S tarting IDLE
+To start IDLE, click the Raspberry Pi logo, open the “Programming” entry, and click “Python 3 (IDLE)”. The Python shell will open in a new window, as shown in Figure 4-1.
+
+© Sloan Kelly 2019
+
+33
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_4
+
+Chapter 4 Breaking Free from the Interpreter
+Figure 4-1.  Starting the IDLE IDE
+Starting a New File
+To start a new file click File ➤ New File or press Ctrl+N on your keyboard (Figure 4-2).
+Figure 4-2.  Create a new editor window by choosing New File from the File menu
+This will open a new text editor window that we can enter the code that makes up our program (Figure 4-3).
+34
+
+Chapter 4 Breaking Free from the Interpreter
+Figure 4-3.  A blank editor window that will be used to write a Python program
+It is a good idea to organize your work and know where to find it easily. Some basic project management will be shown here. We will first create a folder in the current user’s home directory (usually /home/pi) and call this new folder “pygamebook” (without the quotes). We will place all the programs we write inside this folder. We may make subfolders for each project, but the “pygamebook” is our main folder.
+In the terminal window/command prompt, enter the following commands pressing enter after each line to create the pygamebook folder: $ cd $ mkdir pygamebook
+The first line will ensure that the ‘pygamebook’ folder will be created in your home (~) directory. The second line creates (mkdir is short for ‘make directory’) a directory called ‘pygamebook.’ Use this folder to keep all the files that you create from this book together.
+35
+
+Chapter 4 Breaking Free from the Interpreter
+Hello, World!
+The first computer program most people write is one that displays the message ‘Hello, World!’ on the screen. This book will be no different! Type in the code below to the blank window, each line is described as we go.
+The first line of any Python script file is the location of the Python interpreter. This is called a hash-bang and looks like this:
+#!/usr/bin/python
+All programs are run by the shell. This is a part of the computer’s operating system that controls program’s access to resources like memory, disk drives, etc.
+Because source files are just text files, this hash-bang lets the shell know that it is a script that should be run by the Python interpreter located at /usr/bin/python.
+Now that we have that in place, we can start our program. In this instance, it’s super simple; our standard “Hello World!” program:
+print("Hello, World!")
+You should now have the following lines in the editor window:
+#!/usr/bin/python print("Hello, World!")
+Save the file by clicking File ➤ Save or by pressing Ctrl+S on your keyboard. When prompted, save the file as “hello.py” (without quotes) to the “pygamebook” folder we created earlier.
+Running from the Command Line
+If you want to run your program from the command prompt, you will have to perform one more step. By default, Raspbian does not make files executable; we have to do that. In a terminal window, move to the
+36
+
+Chapter 4 Breaking Free from the Interpreter ‘pygamebook’ folder and make the program executable by using the chmod command. The following sequence of command will do this: $ cd $ cd pygamebook $ chmod +x hello.py
+This adds the executable flag to the file’s attributes. Without this attribute, the operating system will not be able to run our program. To run the program in a terminal window, type $ ./hello.py
+You will only have to add the executable flag attribute ONCE per script! Why do we add the ‘./’? It is because in Raspbian executable files are searched through a series of paths. Our new folder isn’t part of the system path, so we must tell it where it is. Luckily there’s a shortcut for this; the current directory is called ‘.’ You can omit this step if you want; in fact the hash-bang line is only required if you are running the program on its own as shown previously. If you omit the line, the Raspbian shell doesn’t know what program to use to run the script. In this case, you can use $ python hello.py This will launch python and run the ‘hello.py’ script (Figure 4-4).
+Figure 4-4.  Adding the executable attribute and running hello.py from the command line
+37
+
+Chapter 4 Breaking Free from the Interpreter
+Running from Inside IDLE
+To run the program from within IDLE, press F5 on the keyboard or click Run ➤ Run Module from the menu (Figure 4-5).
+Figure 4-5.  Run the program by selecting Run Module from the Run menu or pressing F5 on the keyboard
+When the program runs you should see “Hello, World!” displayed in the window (Figure 4-6).
+Figure 4-6.  Running hello.py inside the IDLE From now on in this text, instead of using the Python interpreter like
+we did in the first few chapters, this book will concentrate on writing script files for our Python programs.
+WHEN CREATING A PYTHON SCRIPT FILE THAT WILL BE RUN FROM THE COMMAND LINE ALWAYS PLACE THE PATH TO THE INTERPRETER AS THE FIRST LINE IN A HASH-BANG: #!/usr/bin/python 38
+
+Chapter 4 Breaking Free from the Interpreter For the most part I will omit this line from the example programs and assume that we will be running from within IDLE or launching our programs with python.
+Conclusion
+Raspbian includes a Python IDE called IDLE that can be used to edit and run Python programs without resorting to using the terminal window. You can still run Python scripts that you create using IDLE in a terminal window, just make sure that you add the hash-bang line to show what Python interpreter program should be run when executing that script.
+Throughout the text I will use script and program interchangeably. A script is a text file that is interpreted by a program to execute the instructions within it. A program is similar, but it is usually (but not always) compiled to machine code. Because of those similarities I’m not going to quibble about whether a Python source file is called a program or a script in this text.
+39
+
+CHAPTER 5
+Making Decisions
+Up until now we have seen very linear programs. These programs follow from one statement to the next, never deviating. They’re just a linear shopping list; you get the vegetables first, then bread, then canned vegetables, and finally cat food. Why? Because that’s the order that those items typically appear in a supermarket.
+But what if you wanted to make simple changes? What if your program could decide what to do, based upon the input it was given?
+In computer science this is called branching. Essentially, a decision is made based upon the given data, and one block of code is executed over another block of code. Let’s look at a diagram in Figure 5-1.
+
+© Sloan Kelly 2019
+
+41
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_5
+
+Chapter 5 Making Decisions
+IS IT RAINING?
+YES NO
+BRING A BROLLY
+END
+Figure 5-1.  Flowchart showing a simple ‘if’ statement This is called a flowchart and shows the route taken (process) through
+a series of decisions based on our input that we use to generate our output. In the diagram, we’re asking a question: “Is it raining?” Our data is either a “YES” or a “NO.” If the answer to the question is “YES” then we bring a brolly (umbrella). Otherwise? We do nothing.
+Computers are excellent at these types of decisions; it’s either YES or NO; on or off; true or false.
+In fact, computers only really understand these binary decisions. BINARY MEANS THAT SOMETHING IS EITHER OFF OR ON, TRUE OR FALSE. In Python, we don’t have “YES” or “NO” values, but we do have similar values; ‘True’ and ‘False.’ That’s the ‘On’ and ‘Off ’ values respectively. 42
+
+Chapter 5 Making Decisions
+So how do we write this in Python? We use the ‘if’ keyword. In English, we’d say, “If it’s raining, I’ll bring my brolly”; in Python that’s written as
+isRaining = True if isRaining:
+print("I will take my umbrella to work today")
+The first line assigns the ‘True’ constant to ‘isRaining.’ True is a special keyword (along with False) that is used in Python to denote the result of a Boolean test.
+The second line checks the value contained within ‘isRaining’ and if it is set to True (which it is), it will print out the string of text. Notice that you will have to press the tab key at the start of the print statement. This is because it forms the list of statements that will execute if ‘isRaining’ is true. In this case, we have one statement, but if we had more statements to execute if ‘isRaining’ was true they would all be indented using the tab key.
+IF conditions always equate to one of two values: True or False. We could also have written that ‘if’ statement as
+if isRaining == True:
+This is much more explicit but is not the preferred use. When you have a variable that begins with ‘is’ or ‘has,’ the assumption is that it contains a Boolean value. ALWAYS! ALWAYS! – check that this is the case before you use the variable.
+The format of the ‘if’ statement is
+if condition: {statement}
+or
+if condition: {block}
+43
+
+Chapter 5 Making Decisions The second method is preferred because you may want to go back
+and add more lines to the code that is to execute inside the ‘if’ block. Not that for each line in the block, you will have to indent that line the same amount each time.
+A Note About Blocks
+A block of code is one or more lines of Python code. When contained within a controlling statement like an ‘if,’ ‘for,’ or a ‘while,’ for example, the statements that make up the block MUST be shifted one tab across. This is because Python does not use syntactic sugar or extra characters to denote the start and end of a block. Languages based upon the C language use ‘{‘ and ‘}’ to indicate blocks. Python does not. For example, see Figure 5-2; this is the C language-style equivalent beside the Python version.
+Figure 5-2.  Showing the difference between explicit block characters and Python’s implicit indentation method
+We can also place more than one line after the ‘:’ as shown in the following example: isSunny = True if isSunny:
+print("It is sunny outside") print("I won't need my umbrella")
+44
+
+Chapter 5 Making Decisions
+Both lines inside the ‘if’ block are executed only if ‘isSunny’ is ‘True.’ What if we wanted to display something if isRaining wasn’t true? Could we do this:
+isRaining = True if isRaining:
+print("I will take my umbrella to work today") print("It is nice and sunny")
+The program displays the following output when it is run:
+I will take my umbrella to work today. It is nice and sunny
+This is not an ideal situation because we were only looking for one line to be output. The second line is always going to be executed because as we know, programs run blindly step by step through a program until they get to the end and there are no more lines to process. What we need to do is this:
+isRaining = True if isRaining:
+print("I will take my umbrella to work today") else:
+print("It is nice and sunny")
+Notice the extra keyword ‘else’. This allows us to better control what we expect to do if ‘isRaining’ turns out to be false. You don’t have to put in an ‘else’ for each ‘if.’ Sometimes there will be no alternatives and you only want to run a particular set of statements for a particular condition.
+Testing for Equality
+Python allows the programmer to test for equality – we have seen this insofar as we were testing that a particular variable is equal to true. We
+45
+
+Chapter 5 Making Decisions
+know that IF conditions have to equate to one of two values: TRUE or FALSE, so how can we test for (in)equality? We use one of the following range operators:
+• Equals (==) • Less than (<) • Greater than (>) • Less than or equal to (<=) • Greater than or equal to (>=) • Not equal to (!=) These are mathematical symbols. For those of you unfamiliar with them, especially the less-than and greater-than symbols, the small pointy end points to the lesser value. You cannot use these operators against variables that contain Boolean True or False; equality operators can only work against numbers or character strings. The following program prompts the user to enter two string values and then checks which string is greater. We’ll cover the finer details in just a second, but the program does have some shortcomings. Can you see what they are? print “This program will take two strings and decide which one is greater”
+first = input("First string: ") second = input("Second string: ") if first > second:
+tup = (first, second) else:
+tup = (second, first) print("%s is greater than %s" % tup)
+46
+
+Chapter 5 Making Decisions
+
+The first line displays a message indicating what the program will do. The next two lines prompt the user to enter two separate string values and place them in ‘first’ and ‘second’ variables. The ‘if’ statement condition is
+if first > second:
+This checks to see if the first string is greater than the second. If it is, a tuple called ‘tup’ is created and first and second are stored. Note the order; first is before second. We’ll discuss tuples in length later, but for now let’s just say they’re a collection of one or more values.
+If the second string is greater than the first, then the tup variable is also created, but the order is reversed; ‘second’ appears before ‘first.’
+Type in the preceding program and run it. Enter the values in Table 5-­1.
+
+Table 5-1.  Values for Two String Program
+
+Run # of Program ‘first’
+
+‘second’
+
+1
+
+Lowercase a Uppercase A
+
+2
+
+Aaa
+
+Zzz
+
+3
+
+9
+
+100
+
+What do you notice about the results? Were you expecting that? The problem with our little example is that unless ‘first’ is absolutely greater than ‘second,’ the ‘else’ block is executed. We can remedy this by changing the program to
+print("This program will take two strings and decide which one is greater") tup = None first = input("First string: ") second = input("Second string: ") if first > second:
+tup = (first, second)
+47
+
+Chapter 5 Making Decisions
+elif second > first: tup = (second, first)
+if tup != None: print("%s is greater than %s" % tup)
+else: print("The strings were equal")
+The keyword ‘None’ is used to initially assign a value to ‘tup.’ None means that a value has not been assigned to the variable. We still want to have a variable called ‘tup’ and assign it a value later. So in this case we set ‘tup’ to equal ‘None’ initially because it might not get set at all in the logic of the program. If we don’t set it, then trying to access it will cause a ‘not defined’ error.
+If you see a “name ‘variable name’ not defined” error it usually means you have not assigned it a value before using it OR you have misspelt the variable name!
+Change the preceding program to use an equality sign (==) in the second ‘if.’ Will you need to change the text of the ‘print’ statements? If so, what would you change them to?
+More common than text equality is numeric equality. Equality tests for numbers are used for collision detection, deciding if a player or enemy is dead, how much fuel is remaining, etc.
+Say, for example, we wanted to check and see if the player’s character was within a certain boundary on the screen. This involves checking both the x- and y-coordinates of the player. We can combine our conditions in one statement using Boolean logic.
+In this example we are testing the player’s x- and y-coordinates to determine if they are inside a rectangular area that is 100 units across and 225 units tall and placed at (0, 25) as shown in Figure 5-3:
+48
+
+Chapter 5 Making Decisions y
+(100, 250)
+Player (50, 50) (0, 25)
+x
+Figure 5-3.  Position of the player within a rectangular area From the diagram it is clear to us that the player is inside the rectangle.
+How can we get the computer to check if the player is inside the rectangle and respond accordingly? This is in 2D space – two dimensions; a horizontal and a vertical component to the player’s position, that is, their x- and y-coordinates. The easiest way is to split this into two separate 1D checks and combine the results to both. In English:
+If the player’s x-coordinate is between 0 and 100 inclusive AND the player’s y-coordinate is between 25 and 250 inclusive, they are inside the area.
+In code this looks like x = 50 y = 50 if x >= 0 and x <= 100 and y >= 25 and y <= 250:
+print("Player is inside the area. Sound the alarm!") else:
+print("Player is outside the area. Do nothing")
+49
+
+Chapter 5 Making Decisions
+Using Boolean Logic
+As we saw in the previous chapter, computers use Boolean logic: any question so long as it results in a TRUE or FALSE answer. The following Boolean keywords can be used to make more complex If conditions:
+• And • Or • Not
+A nd
+And in an ‘if’ statement will equate to true only if both conditions are true:
+isRaining = True isSunny = True if isRaining and isSunny:
+print("Sun showers")
+In the context of a game you might have a condition to test that if the player has a key and he or she hits a door, and then opens the door:
+if playerHasKey and playerHitDoor: OpenTheDoor() RemoveKeyFromInventory()
+The two methods OpenTheDoor() and RemoveKeyFromInventory() are programmer made; they’re not part of Python. We’ll learn about how to make user-defined functions in a later chapter.
+In Boolean logic, truth tables are used to show the result of an operation (‘and,’ ‘or,’ or ‘not’). Typically, this shows the values for two inputs called ‘A’ and ‘B’ and a result.
+The truth table, shown in Table 5-2, for ‘and’ is as follows.
+50
+
+Chapter 5 Making Decisions
+
+Table 5-2.  ‘and’ Truth Table
+
+A
+
+B
+
+Result
+
+False False False
+
+False True
+
+False
+
+True
+
+False
+
+False
+
+True
+
+True
+
+True
+
+This shows that for ‘and,’ the combined result of ‘A’ and ‘B’ can only be true when both ‘A’ and ‘B’ are true.
+
+O r
+
+Or in an ‘if’ statement will equate to true if either one or the other condition is true:
+isRaining = True isSunny = False if isRaining or isSunny:
+print("Some kind of weather out there") else:
+print("No weather! How unusual for this time of year")
+The truth table for ‘or’ is shown in Table 5-3:
+
+Table 5-3.  ‘or’ Truth Table
+
+A
+
+B
+
+Result
+
+False False False False True True True False True True True True
+
+51
+
+Chapter 5 Making Decisions This shows that ‘or’ is only false when both ‘A’ and ‘B’ are false.
+
+N ot
+Not is used to negate a condition: turn it from a true to a false and vice versa. This is a unary operator and only works on a single condition:
+isRaining = True isSunny = False if isRaining and not isSunny:
+print("It's raining and not sunny") else:
+print("Sun showers")
+The truth table (Table 5-4) for ‘not’ is different in that it only has one input because it is a unary operator. The truth table therefore only has the ‘A’ input.
+
+Table 5-4.  ‘not’ Truth Table
+
+A
+
+Result
+
+False
+
+True
+
+True
+
+False
+
+You can see that whatever the input is, the ‘not’ keyword negates it.
+
+N esting Ifs
+When we need to make complex decisions based on a number of facts, we can do what is called “nesting.” This means placing an ‘if’ block of code inside another ‘if’ block of code, for example:
+
+52
+
+Chapter 5 Making Decisions
+
+isRaining = True isCloudy = True if isRaining:
+print("I will take my umbrella to work today") elif isCloudy:
+print("It looks like it will rain. I'll take my umbrella") else:
+print("It is sunny. I'll not bother with the brolly")
+
+The truth table for this is shown in Table 5-5 to make the preceding example clearer.
+
+Table 5-5.  ‘if’ Block Truth Table
+
+IsRaining IsCloudy
+
+Output
+
+True
+
+True
+
+I will take my umbrella to work today
+
+True
+
+False
+
+I will take my umbrella to work today
+
+False
+
+True
+
+It looks like it will rain, I’ll take my umbrella in case
+
+False
+
+False
+
+It is sunny. I’ll not bother with the brolly
+
+The format of an IF statement is therefore
+if condition: Action(s)
+[else: Action(s)]
+[elif condition: Action(s)]
+
+53
+
+Chapter 5 Making Decisions
+A Note on Switch
+For users of other languages, you should note that there is no “switch” statement in Python. It was proposed for the language, but ultimately rejected. In an OO (object-oriented) language like Python, “switch” can be replaced by polymorphic (we’ll get to this later!) calls. Stack Overflow (a great web site, and one you should bookmark) has a great article on how to get around “switch.”
+See http://stackoverflow.com/questions/126409/ways-toeliminate-­switch-in-code for details. The switch keyword can be easily implemented using ifs like so:
+character = input("Enter command (help, list): ") if character == "help":
+print("The help screen goes here") elif character == "list":
+print("List the items here") else:
+print("Invalid command!")
+C onclusion
+Computers are very good at making simple decisions quickly. Using the comparison and range operators, one can determine if two values are equal, or if they are within a range (e.g., between 1 and 10).
+These decisions can be combined using Boolean logic operators like And, Or, and Not and the If keyword to make branching code; run some code if true, some other code if false. We’ll see in later chapters how these small building blocks can build complex systems.
+54
+
+CHAPTER 6
+Making the Raspberry Pi Repeat Itself
+A video game repeats the action until all the players’ lives have gone, or the end of the game has been reached. So far, we have only written programs that run through a sequence of commands and then terminate. With the use of certain Python keywords, we can get the computer to repeat a block of code when required, either using conditions or for a set number of times.
+T he for Loop
+The ‘for loop’ in Python takes a list, and for each item in the list it performs a series of action. These actions are contained within the block of code that appears after the ‘:’ character and are shifted to the right by one tab. The flowchart in Figure 6-1 shows what happens inside a ‘for’ loop.
+
+© Sloan Kelly 2019
+
+55
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_6
+
+Chapter 6 Making the Raspberry Pi Repeat Itself
+FETCH NEXT ITEM
+
+END OF LIST REACHED?
+
+NO
+
+PROCESS
+
+STATEMENTS
+
+YES
+END
+Figure 6-1.  Flowchart diagram showing a for loop
+As an example, the following program will print the numbers 1 through 5 inclusive. We’ll talk about some of the quirks of the range() function in a moment.
+Don’t forget the hash-bang at the top of the script! Remember that you need the hash-bang to run script files from the command prompt. And you’ll also need to change the file mode (chmod) and add the executable flag. See Chapter 4 (“Breaking Free from the Interpreter”) if you can’t quite remember how to do it.
+for i in range(1, 6): print(i)
+The ‘i’ variable here has a special meaning. It is acting as a control for the loop. In fact, we give any variable that controls flow the name control variable. Again, this is just a name I’ve given the variable. I could have called in ‘n’ or ‘j’ or ‘fred.’ Control variables tend to have short names. I chose this one because we're iterating through integers or whole numbers and ‘i’ seemed appropriate for the task.
+56
+
+Chapter 6 Making the Raspberry Pi Repeat Itself
+The format of a ‘for’ loop is
+for condition: Action(s)
+Where ‘condition’ is any statement that generates a list.
+The range() Function
+The range() function is provided by Python and as such is referred to as an intrinsic function. It generates a list of numbers from the start value to 1-n where n is the last value in the range. The following examples are taken from statements typed into the Python interpreter:
+>>> range(1,6) [1, 2, 3, 4, 5] >>> range(2,4) [2, 3]
+You can also specify a third parameter. This parameter indicates the count that is added to each number after each iteration of the ‘for’ loop. The default value is 1 (one), which is why you don’t need to provide it:
+>>> range(10, 255, 10) [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250] >>> range (10, 0, -1) [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+That’s right, you can even use negative values to iterate from a larger number to a smaller number.
+We’ll talk about lists and dictionaries in the next chapter, but we’ve already established that the ‘for’ loop iterates through lists. So, what if we didn’t have numbers? What if we had the names of characters from TV:
+57
+
+Chapter 6 Making the Raspberry Pi Repeat Itself
+names = ['John', 'Anne', 'Fred', 'Beth'] for name in names:
+print(name)
+The ‘names’ variable is assigned the value of a list of people’s names. The ‘for’ loop iterates through each of the names and prints them on the screen. The control variable in this example is ‘name.’ At each iteration of the loop, the next name from the list will be pulled out and processed.
+While Loops
+For loops are great for iterating through a fixed list, but what if we don’t know how many items we have? For example, reading the contents of a file, or getting data from a web site. This is where the ‘while’ keyword comes in.
+Although the while loop has the same format no matter which one used, there are three types of while loop:
+• Counting • Sentinel • Conditional
+Counting
+A counting while loop is pretty much just a substitute for the ‘for’ keyword. Sure, you can use it for a substitute for the ‘for’ keyword, but it doesn’t look as elegant. For example:
+#!/usr/bin/python i = 1 while i < 6:
+print(i) i = i + 1
+58
+
+Chapter 6 Making the Raspberry Pi Repeat Itself
+In this example I’ve kept in the hash-bang. Whereas in the ‘for’ loop the control variable is contained within the ‘for’ statement, a ‘while’ loop has the control variable defined out-with the loop. The programmer also must manually update the control variable the required step each time. Don’t forget to update the control variable! If you don’t, you’ll end up in an infinite loop and will have to break out of your program using Ctrl + C!
+Notice that the format of a ‘while’ statement is
+while condition: Action(s)
+The ‘where condition’ is a statement that equates to ‘True’ or ‘False’: a Boolean. This is similar then to the ‘if’ keyword in that it too takes a Boolean condition as its argument. The flowchart for this ‘while’ loop is shown in Figure 6-2.
+i = 1
+
+i < 6
+NO END
+
+YES print(i) i = i + 1
+
+Figure 6-2.  The example ‘while’ loop's flowchart 59
+
+Chapter 6 Making the Raspberry Pi Repeat Itself
+From the flowchart we can see that the statements in the ‘while’ block are only executed while the Boolean condition is ‘True.’
+This means that the ‘while’ loop’s condition acts as a gatekeeper to the lines inside the block. If that condition is not true, don’t execute the lines within. Change the initialization of ‘i’ to 6:
+#!/usr/bin/python i = 6 while i < 6:
+print(i) i = i + 1
+Run the script. What happens? Nothing. No output at all. This is because i< 6, when i = 6 returns ‘False’.
+Sentinel
+A sentinel while loop is one that keeps looping around until a certain value is reached.
+Let’s return to our menu example from the previous chapter. We have three commands: list, help, and quit. When the user selects quit, the program ends.
+We have no idea how many commands the user will use throughout their session with the program, and we have no idea how many times they will use the same command. This is an ideal use case for the ‘while’ loop because it can be used to keep a program running while a condition has not been met:
+cmd = input("Command: ") while cmd != 'quit':
+if cmd == 'help': print("Put help here")
+elif cmd == 'list':
+60
+
+Chapter 6 Making the Raspberry Pi Repeat Itself print("Put list here") else: print("Invalid command!") cmd = input("Command: ") When we start getting into multiple tabs, you really have to keep the correct spacing. In your editor you should see a program like the one shown in Figure 6-3.
+Figure 6-3.  The menu program showing the indented lines of code If the input() function does not work for you, try raw_input() because you may be running Python 2.7 Here is a typical output from running the program:
+Command: help Put help here Command: list Put list here Command: badcommand Invalid command! Command: quit
+61
+
+Chapter 6 Making the Raspberry Pi Repeat Itself
+Conditional
+These are a combination of the previous two: counting and sentinel. This is when you want to count a sequence but you don’t know what sequence you are counting. Let’s say you want to write a program to sum all the numbers up to a certain value. You might write something like this:
+#!/usr/bin/python topNum = int(input("Sum of numbers to? ")) count = 0 while topNum > 0:
+count += topNum topNum = topNum - 1 print("Sum of all numbers is %d" % count)
+To get the input as a number we have to convert to an integer (whole number) using the int() function.
+The input() function always returns a string!
+Conclusion
+Looping is used a lot in computer programs. Based on the circumstances you will have to make a choice as to which loop to use: the for loop or the while.
+If the range is known or you want to loop through a list of values (like the names example in this chapter) then the for loop is perfect for you.
+There are three types of while loop: counting, sentinel, and conditional. The counting version is very rarely used and most people prefer the ‘for’ loop. However, sentinel and conditional are widely used to keep looping until a certain – usually at the time of writing – unknown condition is met.
+62
+
+CHAPTER 7
+Containers
+Up until now, we’ve mostly stored a single value in a variable like this: playerName = 'Sloan'
+Python allows you to store multiple values in the same variable. In this, you are assigning a container object a name. There are three different types of containers:
+• Tuple • List • Dictionary There are cases when you will use one over the other, and we’ll discuss the pros and cons of each use.
+C ontainer Nomenclature
+Container subparts are called elements. Each element can be indexed using the ‘[‘and’]’ characters and specifying a number between 0 and n-1 where ‘n’ is the number of items in the container between them. We’ll see how this works in the Tuples part.
+
+© Sloan Kelly 2019
+
+63
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_7
+
+Chapter 7 Containers
+Tuples
+Tuples are immutable collections of objects. Neither the elements in the collection nor the container itself can be modified. This means that you can’t add and remove elements from a tuple.
+For video games you might want to store the position of a player – their x- and y-coordinates – in a tuple.
+A tuple is a list of objects, either literals or variable names, separated by a comma and enclosed in parentheses characters ‘(’ and ‘)’. For example: ('sloan', 'robert')
+To access an element in the tuple, use the ‘[’ and ‘]’ characters and place the index value between them. Say you want the first element in the array, then you would specify ‘0’ like so: ('sloan', 'robert')[0]
+This will display 'sloan'
+Removing Elements from a Tuple
+If you want to remove items from a tuple (you can’t) but there is a way around it. Create a new tuple! Let’s say you have a tuple that contains five elements but you don’t want the third element: numbers = (1, 2, 3, 4, 5) tuple(x for x in numbers if x != 3)
+Woah! That looks needlessly complex! That’s because tuples are immutable and that means they can’t change. Let’s break down the
+64
+
+Chapter 7 Containers
+complexity a little. The tuple() function returns a tuple from whatever sequence it is given. For example:
+>>> tuple('abcdef') ('a', 'b', 'c', 'd', 'e', 'f') >>> tuple(['sloan', 'robert']) ('sloan', 'robert')
+In the former example, the character string is split into separate characters. The latter contains a list of names and a tuple is created from that list.
+The part that does all the magic is called list comprehension. It is used to create a list based upon existing lists.
+x for x in range(0, 5) if x != 3
+List comprehension takes in a list, processes each element in the list, and produces another list. As we’ve seen, the tuple() keyword makes a tuple out of any sequence. A string is a sequence of characters, a tuple is a (immutable) sequence of objects, and lists are also a sequence of objects.
+Don’t get too bogged down in the format of that statement; it is merely an example of how one would go about removing an item from a tuple.
+Changing Element Values
+Another ‘can’t do’ for tuples. However, there is also a way around that. Tuples are immutable which means they cannot be changed, and so are their elements. The only alternative is to create another tuple.
+In this example we have a tuple that represents the x- and y-coordinates of the player (‘playPos’) and another tuple that represents the speed (‘speed’) of the player. To get the next position of the player, we add
+65
+
+Chapter 7 Containers
+the speed to the current position. Remember, we can’t change the tuple or its elements. We must create a new tuple and assign that value to ‘playPos’:
+playPos = (5, 4) print("playPos = %d, %d" % playPos) speed = (2, 1) playPos = (playPos[0] + speed[0], playPos[1] + speed[1]) print("playPos = %d, %d" % playPos)
+The line:
+playPos = (playPos[0] + speed[0], playPos[1] + speed[1])
+On the right-hand side of the equals sign, the new tuple is created. This is then assigned to the name ‘playPos.’ The tuple that ‘playPos’ was assigned is overwritten by this new value. This is the equivalent of the following simple assignments:
+>>> num = 5 >>> print(num) 5 >>> num = 10 >>> print(num) 10
+In this example, the value ‘num’ is initially assigned the value 5. It is then assigned the value 10. This overwrites the value initially stored in ‘num.’
+Tuples in Printing
+We have used tuples before with respect to displaying formatted strings. For example:
+>>> numbers = (1, 2, 3, 4, 5) >>> print("%d %d %d %d %d" % numbers) 1 2 3 4 5
+66
+
+Chapter 7 Containers
+Deconstructing Tuples
+Another common action is to deconstruct the tuple into its component parts and assign them to separate variables. This is achieved by placing the variables that are to be assigned values on the left-hand side of the equals sign and the tuple on the other. In the following example we have a vector ‘vec’ that contains two elements: one for the x- and another for the y-coordinate:
+>>> vec = (2, 3) >>> x, y = vec >>> x 2 >>> y 3 >>>
+Similarly, you can construct a tuple by specifying comma-­ separated values too. I don‘t recommend this; I prefer to use the explicit parenthesized syntax, but this works just as well:
+>>> vec2 = x, y >>> vec2 (2, 3) >>>
+Lists
+Lists are mutable containers. This means that both the elements and the list itself can be altered. In the case of the list, this means that we can add and remove elements to the list after we create it. Items are added to the list using the append() method, and removal is through the remove() method. A method is an action that an object can perform. We will see more of methods in the object-oriented section of this text.
+67
+
+Chapter 7 Containers
+Lists are used a lot in video games. Your inventory is a list of items, the sprites (images) onscreen are stored as a list, and the collection of levels that make up your game could be stored in a list.
+List Creation
+You can create a blank list or one that is initially populated with values:
+blankList = [] populatedList = [1, 2, 3, 4, 5]
+The output of which, if we were to run these commands in the Python interpreter, would be
+>>> blankList = [] >>> populatedList = [1, 2, 3, 4, 5] >>> blankList [] >>> populatedList [1, 2, 3, 4, 5] >>>
+Adding Values to the List
+If we want to add values to the ‘blankList’ we simply use the append() method and place whatever we want to add within the parentheses:
+>>> blankList.append("Python") >>> blankList ['Python'] >>>
+Adding another computer language name (Lua this time) would mean that our blankList would contain
+68
+
+>>> blankList.append("Lua") >>> blankList ['Python', 'Lua'] >>>
+
+Chapter 7 Containers
+
+Removing Values from a List
+To remove an item from the list, the remove() method is used like so:
+>>> populatedList = [1, 2, 3, 4, 5] >>> populatedList.remove(3) >>> populatedList [1, 2, 4, 5] >>>
+You can also remove items from the list by their index value. There is no built-in method to do this in a list; instead we use the ‘del’ keyword. For example, to remove the first element, or index 0 (zero), we would use
+>>> populatedList = [1, 2, 4, 5] >>> del populatedList[0] >>> populatedList [2, 4, 5] >>>
+This means that we can remove more than one item as well; say we want to remove all the items from the list. We would do this:
+>>> populatedList = [2, 4, 5] >>> del populatedList[:] >>> populatedList [] >>>
+
+69
+
+Chapter 7 Containers
+ahead and populate the list again: populatedList = [1, 2, 3, 4, 5]
+Let’s say we want to delete 2 and 3 from the list. We could issue this line twice: del populatedList[1]
+Why twice? Well, index 1 of the list is the ‘2’ element. When we delete something in a list, everything after that moves up one slot. So, the array now contains
+[1, 3, 4, 5]
+Which means that index 1 now contains ‘3.’ Typing the same command twice is a little wasteful when we can do it all at once. We can use the colon (‘:’) to specify a range of values to remove. So now, to delete 2 and 3 at the same time we would use
+del populatedList[1:3]
+The number before the colon is the starting index for the deletion. The number after the column is one plus the number of elements you want to remove. If you wanted to remove everything from the first element onward, you could use
+del populatedList[1:]
+Doctor’s Waiting Room Program
+I’ve created a simple program to demonstrate lists using the example of a doctor’s waiting room. The user has the ability to add patients, remove them from the list as they are called, and quit the program. All actions are done through a menu. #!/usr/bin/python3 names = [] # an empty list of names
+70
+
+Chapter 7 Containers
+We start off with a blank list each morning.
+cmd = "" while cmd != '4':
+There are four commands: 1 – list names, 2 – add name, 3 – call next patient, and 4 – quit. The user’s commands will be stored in the ‘cmd’ variable. Note that we have a ‘while’ loop to keep the user inside the program until they choose to quit.
+print("1. List names") print("2. Add name") print("3. Call next patient") print("\n4. Quit")
+The menu is displayed to let the user know the options that they can choose.
+cmd = input("\rCommand : ")
+The user is now prompted for a command. We’ll now use a series of nested-ifs to perform the command chosen by the user.
+if cmd == '1': for name in names: print (name) print ("\n")
+If the user enters ‘1’ then we use a ‘for’ loop to go through all the names in the ‘names’ list. In each iteration, we print the patient’s name. Finally we end it with a newline character (‘\n’) to give us some white space onscreen.
+elif cmd == '2': newName = input("Name : ") names.append(newName)
+71
+
+Chapter 7 Containers
+If the user enters ‘2’ then we prompt them for the newly arrived patient’s name. We then add that new name to the list of names using the append() method.
+elif cmd == '3': if len(names) == 0: print ("There are no more patients!") else: nextPatient = names[0] names.remove(nextPatient) print ("Calling %s" % nextPatient)
+For the third and final command, but not quite the end of our program, the user has opted to call the next patient to be seen. The practice offers a strict first-come-first-served policy. This means that the first item in the list is removed. However, if we have no items in the list, then a warning message is displayed. You can determine the length of a list of items using the ‘len’ keyword.
+elif cmd != '4': print ("Invalid command!")
+The final lines in the program are used to let the user know that they have typed in an invalid command: something other than 1, 2, 3, or 4.
+Save the program as ‘patients.py’ (without the quotes) and don’t forget to change the program’s attributes to allow it to be executed. Remember! You only have to change this once: $ chmod +x patients.py
+72
+
+Chapter 7 Containers To run the program: $ ./patients.py When you are in the same directory as the program.
+Dictionaries
+Dictionaries are a set of key/value pairs. This means that instead of an indexing number, you can use a user-defined key to access the information.
+Dictionaries can be used in video games to look up related data. For example, if you want to look up what damage a particular sword does you could use a dictionary to store the data for each weapon in the game. You could do the same with a list, but it would take time to go through the list, one element at a time to find the data. When you want to find something quickly, use a dictionary.
+As an example, we’ll define a dictionary that contains telephone numbers for various people. A person’s telephone number can be obtained by using their name: >>> numbers = {'Sloan':'416-555-1234', 'Kevin':'212-555-4321'} >>> numbers['Sloan'] '416-555-1234' >>>
+The first line defines the dictionary ‘numbers’ containing two entries. Each entry is a separate key/value pair. Each key/value is separated using a colon ‘:’ and each pair is separated using a comma ‘,’.
+73
+
+Chapter 7 Containers
+Iterating Through Dictionaries
+We can iterate through each item using the iteritems() method for the dictionary: >>> for k,v in numbers.iteritems(): ... print ("%s = %s" % (k ,v )) ... Sloan = 416-555-1234 Kevin = 212-555-4321 >>>
+Adding New Items to Dictionaries
+Dictionaries have a simpler way of adding new items: if a key doesn’t exist, that value is added to the dictionary. If a key already exists then the new value is assigned to that key. >>> numbers['Frank'] = '216-555-1234' >>> numbers {'Sloan': '416-555-1234', 'Frank': '216-555-1234', 'Kevin': '2 >>>
+Removing Entries from a Dictionary
+To remove an entry from a dictionary, we use our old friend ‘del.’ To remove ‘Sloan’ from the dictionary ‘numbers’ >>> del numbers['Sloan'] >>> numbers {'Frank': '216-555-1234', 'Kevin': '212-555-4321'} >>>
+74
+
+Chapter 7 Containers
+Conclusion
+We’ve seen that Python offers us three different types of containers that provide options for our programs. The tuple can be used to group together like items that are immutable (cannot be changed). Use a tuple to define a structure line a point in space. The properties of a point in space are its x- and y-coordinates. These two elements don’t change, and you very rarely iterate (loop) through them. The list container can be used to store a collection of items that can be added and removed. Finally, the dictionary allows items to be added and removed as well as altered.
+We’re going to take a break from the Python language just now to look at how to go about designing a game and taking the leap to the windowed system called LXDE that the Raspberry Pi uses. This is because we’re going to start looking at PyGame in the next few chapters.
+75
+
+CHAPTER 8
+Putting It Together: Tic-Tac-Toe
+Before we start looking at PyGame and how to create arcade-style games we should take a step back and put what we’ve covered in the first few chapters into a simple ASCII console game of Tic-Tac-Toe – a game for two players.
+T he Rules
+For those of you who haven’t played Tic-Tac-Toe before, here are the rules: Draw a board on a piece of paper with nine squares, people usually
+do this by drawing two horizontal lines parallel to each other followed by two vertical lines parallel to each other but perpendicular to the horizontal lines like a hash symbol: # (Figure 8-1).
+
+© Sloan Kelly 2019
+
+77
+
+S. Kelly, Python, PyGame, and Raspberry Pi Game Development,
+
+https://doi.org/10.1007/978-1-4842-4533-0_8
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+123
+
+456
+
+789
+
+Figure 8-1.  The layout of a tic-tac-toe board
+The first player uses the token X and the second player uses the token O. Each player, starting with X, places their token on a box on the board. A slot can only take one token! The game ends when a player places a token that creates a horizontal, vertical, or diagonal three-in-a-row of their token like the examples shown in Figure 8-2.
+
+123
+
+123
+
+123
+
+456
+
+456
+
+456
+
+789
+
+789
+
+789
+
+Figure 8-2.  The winning lines in a tic-tac-toe board
+
+78
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+P rogram Layout
+The program will be laid out in the following general sections: • Variable declaration and initialization – Create the variables and give them initial values • Display a welcome message – Simple text indicating what the program does and how to play the game • Display the board • Get the player’s input – Where do they want to position their piece on the board • Test the validity of the input – Keep asking the player if the input is invalid • Place the piece on the board • Check if the player has won – If they have won, display a congratulatory message and end the game • Jump back up to ‘Display the board’ if there is still a slot available to place a token
+We will make use of while loop and if statements in this program. The while loops will keep the game being played while there are still slots open or no one has won. The if statements will be used to determine if we have a winner or if the player’s input is valid.
+V ariables
+We need a place to store data while the program is running and need to decide what variables we will be using. Table 8-1 shows what variables will be declared and how they will be used.
+79
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+
+Table 8-1.  Declared Variables
+
+Variable
+
+Use
+
+board
+
+Initially containing the characters 1 through 9, this will contain the positions of the X and O tokens on the board and will be used to draw the board onscreen
+
+currentToken The current token, that is, the current player and will contain either an X or an O
+
+winningToken One of the control variables that will be used to keep the game playing through all the player turns. When set to either X or O, the program will exit
+
+slotsFilled
+
+It is possible that no one will win the game – this is sometimes called a Cat’s Game. In this case we need a way to exit the while loop if no other moves can be made. This second control variable will increment each time a player makes a move
+
+The Game
+
+Create a new folder called ‘ch8’ inside the ‘pygamebook’ folder. Create a new file called ‘tictactoe.py’ inside ‘ch8.’ Open the file in the Python IDLE and enter the following text. I will add comments as I go along to help illustrate what the code is doing.
+
+#!/usr/bin/python
+
+#
+
+# Program:
+
+Tic-Tac-Toe Example
+
+# Author:
+
+Sloan Kelly
+
+The header information is useful because it can quickly identify what the purpose of this program or script is for, and who wrote it.
+
+board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+80
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+currentToken = 'X' winningToken = " slotsFilled = 0
+The variables used by the program are declared and initialized. The ‘board’ variable contains an array of strings that contain the symbols 1 – 9 inclusive. These will be used for two reasons: to show the player what number they can enter and secondly to allow the program to determine if a slot has been taken up by a token.
+The ‘currentToken’ is set to the first player’s token and the ‘winningToken’ and ‘slotsFilled’ are set to default values of an empty string (‘’) and 0 respectively. The latter two variables are used to control the game and ensure it keeps playing while there is no winner and there are slots to fill on the board.
+print ("Tic-Tac-Toe by Sloan Kelly") print ("Match three lines vertically, horizontally or diagonally") print ("X goes first, then O")
+Some basic information about the program will be displayed to the player. It let’s them know the name of the program, who authored it, and some basic rules of play.
+while winningToken == " and slotsFilled < 9:
+An example of a sentinel while loop, keeping the game running while no one has won and there are slots to be filled.
+print("\n") print("%s|%s|%s" % (board[0], board[1], board[2])) print("-+-+-") print("%s|%s|%s" % (board[3], board[4], board[5])) print("-+-+-") print("%s|%s|%s" % (board[6], board[7], board[8]))
+81
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+Display the board to the player. Over time, the entries in the board will fill with X’s and O’s, but on the first turn, the board contains the symbols 1 through 9. The player will then input that number and we will have to translate it down one because in Python array indexes start at 0, not at 1.
+Also – don’t forget your indentations!
+pos = -1 while (pos == -1):
+This while loop will keep the player inside it while they have chosen an invalid value for the slot.
+        pos = int(input("\n%s's turn. Where to? : " % currentToken)) if pos < 1 or pos > 9: pos = -1 print ("Invalid choice! 1-9 only.")
+Prompt the player for input and then validate it by ensuring the input is between 1 and 9 inclusive. If not, display an error message and set the ‘pos’ variable back to –1 (invalid entry) which keeps the player inside the while loop until they enter a correct value.
+pos = pos – 1
+Move ‘pos’ so that it is in the 0–8 range for the ‘board’ array.
+if board[pos] == 'X' or board[pos] == 'O': pos = -1
+            print("That spot has already been taken by %s! Try again" % board[pos])
+Check to see if the value at position ‘pos’ on the board has been taken by a player, if so display a warning.
+board[pos] = currentToken slotsFilled = slotsFilled + 1
+82
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+Otherwise, set the board at index ‘pos’ to the current token and increment the ‘slotsFilled’ variable. Notice that these two lines are outside the while loop because the ‘pos’ variable has been validated at this point.
+    row1 = board[0] == currentToken and board[1] == currentToken and board[2] == currentToken
+    row2 = board[3] == currentToken and board[4] == currentToken and board[5] == currentToken
+    row3 = board[6] == currentToken and board[7] == currentToken and board[8] == currentToken
+To make this program neater, I split the board, column, and diagonal checks over multiple lines of code. The first group determines the state of the rows.
+    col1 = board[0] == currentToken and board[3] == currentToken and board[6] == currentToken
+    col2 = board[1] == currentToken and board[4] == currentToken and board[7] == currentToken
+    col3 = board[2] == currentToken and board[5] == currentToken and board[8] == currentToken
+The second group determines the state of the columns.
+    diag1 = board[0] == currentToken and board[4] == currentToken and board[8] == currentToken
+    diag2 = board[2] == currentToken and board[4] == currentToken and board[6] == currentToken
+The final group determines the state of the diagonals.
+row = row1 or row2 or row3 col = col1 or col2 or col3 diag = diag1 or diag2
+83
+
+Chapter 8 Putting It Together: Tic-Tac-Toe
+The groups are combined into single variables to make the if-check easier.
+if (row or col or diag):
+If the player has obtained a row or a column or a diagonal, they have won and the game goes into the end game state.
+print("\n") print("%s|%s|%s" % (board[0], board[1], board[2])) print("-+-+-") print("%s|%s|%s" % (board[3], board[4], board[5])) print("-+-+-") print("%s|%s|%s" % (board[6], board[7], board[8]))
+Display the board again to show the players who won.
+print("Congratulations %s! You won!!" % currentToken) winningToken = currentToken
+Display a “Congratulations!” message and set the winning token. Remember – this is one of the sentinel control variables used by the main (the top) while loop. If this is set to a nonempty value, that is, we set it to the contents of ‘currentToken’, the main loop ends.
+if currentToken == 'X': currentToken = 'O'
+else: currentToken = 'X'
+If the game is still playing, the current token needs to be swapped for the opposite. If the current token is X we swap for the O and vice versa.
+if slotsFilled == 9 and winningToken == ": print("No one won :( Better luck next time, players!")
+84
+

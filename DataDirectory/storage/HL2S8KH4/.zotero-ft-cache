@@ -1,0 +1,3023 @@
+Fluent Python
+CLEAR, CONCISE, AND EFFECTIVE PROGRAMMING
+Luciano Ramalho
+
+Fluent Python
+
+“ Python’s simplicity lets you become productive quickly, but this often means
+you aren’t using everything it has to offer. With this hands-on guide, you’ll learn how to write effective, idiomatic Python code by leveraging its best—and possibly most neglected—features. Author Luciano Ramalho takes you
+
+I am proud to have been a tech reviewer for this excellent book—not only
+
+through Python’s core language features and libraries, and shows you how to will it help many
+
+make your code shorter, faster, and more readable at the same time.
+
+intermediate Python
+
+Many experienced programmers try to bend Python to fit patterns they programmers on their
+
+learned from other languages, and never discover Python features outside of their experience. With this book, those Python programmers will thoroughly learn how to become proficient in Python 3.
+This book covers:
+
+road towards mastery,
+but it has taught me quite
+” a few things, too! —Alex Martelli
+
+■ The Python data model: understand how special methods are
+
+Python Software Foundation Fellow
+
+the key to the consistent behavior of objects
+■ Data structures: take full advantage of built-in types, and understand the text versus bytes duality in the Unicode age
+■ Functions as objects: view Python functions as first-class objects, and understand how this affects popular design patterns
+
+“ Fluent Python is a treasure trove full of useful programming tricks for intermediate to
+
+■ Object-oriented idioms: build classes by learning about
+
+advanced Python coders
+
+references, mutability, interfaces, operator overloading, and
+
+who want to push the
+
+multiple inheritance
+■ Control flow: leverage context managers, generators, coroutines, and concurrency with the concurrent.futures and asyncio packages
+
+boundaries of their
+” knowledge.
+—Daniel and Audrey Roy Greenfeld authors of Two Scoops of Django
+
+■ Metaprogramming: understand how properties, attribute descriptors, class decorators, and metaclasses work
+
+Luciano Ramalho, a Python programmer since 1998, is a Python Software Foundation fellow, co-owner of Python.pro.br—a training company in Brazil— and cofounder of Garoa Hacker Clube, Brazil’s first hackerspace. He has led software development teams and taught Python courses in Brazilian media, banking, and government sectors.
+
+PROGRAMMING/PYTHON
+
+US $49.99
+
+CAN $57.99
+
+ISBN: 978-1-491-9-46008
+
+Twitter: @oreillymedia facebook.com/oreilly
+
+Fluent Python
+Luciano Ramalho
+Boston
+
+Fluent Python
+by Luciano Ramalho
+
+Copyright © 2015 Luciano Gama de Sousa Ramalho. All rights reserved.
+
+Printed in the United States of America.
+
+Published by O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
+
+O’Reilly books may be purchased for educational, business, or sales promotional use. Online editions are also available for most titles (http://safaribooksonline.com). For more information, contact our corporate/ institutional sales department: 800-998-9938 or corporate@oreilly.com.
+
+Editors: Meghan Blanchette and Rachel Roumeliotis Production Editor: Melanie Yarbrough Copyeditor: Kim Cofer Proofreader: Jasmine Kwityn
+
+Indexer: Judy McConville Cover Designer: Ellie Volckhausen Interior Designer: David Futato Illustrator: Rebecca Demarest
+
+August 2015:
+
+First Edition
+
+Revision History for the First Edition: 2015-07-24: First release 2015-08-21: Second release
+
+See http://oreilly.com/catalog/errata.csp?isbn=9781491946008 for release details.
+
+The O’Reilly logo is a registered trademark of O’Reilly Media, Inc. Fluent Python, the cover image, and related trade dress are trademarks of O’Reilly Media, Inc. While the publisher and author have used good faith efforts to ensure that the information and instructions contained in this work are accurate, the publisher and the author disclaim all responsibility for errors or omissions, including without limitation responsibility for damages resulting from the use of or reliance on this work. Use of the information and instructions contained in this work is at your own risk. If any code samples or other technology this work contains or describes is subject to open source licenses or the intel‐ lectual property rights of others, it is your responsibility to ensure that your use thereof complies with such licenses and/or rights.
+
+ISBN: 978-1-491-94600-8 [LSI]
+
+Para Marta, com todo o meu amor.
+
+Table of Contents
+
+Preface. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . xv
+
+Part I. Prologue
+
+1. The Python Data Model. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+
+A Pythonic Card Deck
+
+4
+
+How Special Methods Are Used
+
+8
+
+Emulating Numeric Types
+
+9
+
+String Representation
+
+11
+
+Arithmetic Operators
+
+12
+
+Boolean Value of a Custom Type
+
+12
+
+Overview of Special Methods
+
+13
+
+Why len Is Not a Method
+
+14
+
+Chapter Summary
+
+14
+
+Further Reading
+
+15
+
+Part II. Data Structures
+
+2. An Array of Sequences. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+
+Overview of Built-In Sequences
+
+20
+
+List Comprehensions and Generator Expressions
+
+21
+
+List Comprehensions and Readability
+
+21
+
+Listcomps Versus map and filter
+
+23
+
+Cartesian Products
+
+23
+
+Generator Expressions
+
+25
+
+Tuples Are Not Just Immutable Lists
+
+26
+
+Tuples as Records
+
+26
+
+Tuple Unpacking
+
+27
+
+v
+
+Nested Tuple Unpacking
+
+29
+
+Named Tuples
+
+30
+
+Tuples as Immutable Lists
+
+32
+
+Slicing
+
+33
+
+Why Slices and Range Exclude the Last Item
+
+33
+
+Slice Objects
+
+34
+
+Multidimensional Slicing and Ellipsis
+
+35
+
+Assigning to Slices
+
+36
+
+Using + and * with Sequences
+
+36
+
+Building Lists of Lists
+
+37
+
+Augmented Assignment with Sequences
+
+38
+
+A += Assignment Puzzler
+
+40
+
+list.sort and the sorted Built-In Function
+
+42
+
+Managing Ordered Sequences with bisect
+
+44
+
+Searching with bisect
+
+44
+
+Inserting with bisect.insort
+
+47
+
+When a List Is Not the Answer
+
+48
+
+Arrays
+
+48
+
+Memory Views
+
+51
+
+NumPy and SciPy
+
+52
+
+Deques and Other Queues
+
+55
+
+Chapter Summary
+
+57
+
+Further Reading
+
+59
+
+3. Dictionaries and Sets. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+
+Generic Mapping Types
+
+64
+
+dict Comprehensions
+
+66
+
+Overview of Common Mapping Methods
+
+66
+
+Handling Missing Keys with setdefault
+
+68
+
+Mappings with Flexible Key Lookup
+
+70
+
+defaultdict: Another Take on Missing Keys
+
+70
+
+The __missing__ Method
+
+72
+
+Variations of dict
+
+75
+
+Subclassing UserDict
+
+76
+
+Immutable Mappings
+
+77
+
+Set Theory
+
+79
+
+set Literals
+
+80
+
+Set Comprehensions
+
+81
+
+Set Operations
+
+82
+
+dict and set Under the Hood
+
+85
+
+A Performance Experiment
+
+85
+
+Hash Tables in Dictionaries
+
+87
+
+vi | Table of Contents
+
+Practical Consequences of How dict Works
+
+90
+
+How Sets Work—Practical Consequences
+
+93
+
+Chapter Summary
+
+93
+
+Further Reading
+
+94
+
+4. Text versus Bytes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+
+Character Issues
+
+98
+
+Byte Essentials
+
+99
+
+Structs and Memory Views
+
+102
+
+Basic Encoders/Decoders
+
+103
+
+Understanding Encode/Decode Problems
+
+105
+
+Coping with UnicodeEncodeError
+
+105
+
+Coping with UnicodeDecodeError
+
+106
+
+SyntaxError When Loading Modules with Unexpected Encoding
+
+108
+
+How to Discover the Encoding of a Byte Sequence
+
+109
+
+BOM: A Useful Gremlin
+
+110
+
+Handling Text Files
+
+111
+
+Encoding Defaults: A Madhouse
+
+114
+
+Normalizing Unicode for Saner Comparisons
+
+117
+
+Case Folding
+
+119
+
+Utility Functions for Normalized Text Matching
+
+120
+
+Extreme “Normalization”: Taking Out Diacritics
+
+121
+
+Sorting Unicode Text
+
+124
+
+Sorting with the Unicode Collation Algorithm
+
+126
+
+The Unicode Database
+
+127
+
+Dual-Mode str and bytes APIs
+
+129
+
+str Versus bytes in Regular Expressions
+
+129
+
+str Versus bytes on os Functions
+
+130
+
+Chapter Summary
+
+132
+
+Further Reading
+
+133
+
+Part III. Functions as Objects
+
+5. First-Class Functions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 139
+
+Treating a Function Like an Object
+
+140
+
+Higher-Order Functions
+
+141
+
+Modern Replacements for map, filter, and reduce
+
+142
+
+Anonymous Functions
+
+143
+
+The Seven Flavors of Callable Objects
+
+144
+
+User-Defined Callable Types
+
+145
+
+Function Introspection
+
+146
+
+Table of Contents | vii
+
+From Positional to Keyword-Only Parameters
+
+148
+
+Retrieving Information About Parameters
+
+150
+
+Function Annotations
+
+154
+
+Packages for Functional Programming
+
+156
+
+The operator Module
+
+156
+
+Freezing Arguments with functools.partial
+
+159
+
+Chapter Summary
+
+161
+
+Further Reading
+
+162
+
+6. Design Patterns with First-Class Functions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 167
+
+Case Study: Refactoring Strategy
+
+168
+
+Classic Strategy
+
+168
+
+Function-Oriented Strategy
+
+172
+
+Choosing the Best Strategy: Simple Approach
+
+175
+
+Finding Strategies in a Module
+
+176
+
+Command
+
+177
+
+Chapter Summary
+
+179
+
+Further Reading
+
+180
+
+7. Function Decorators and Closures. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 183
+
+Decorators 101
+
+184
+
+When Python Executes Decorators
+
+185
+
+Decorator-Enhanced Strategy Pattern
+
+187
+
+Variable Scope Rules
+
+189
+
+Closures
+
+192
+
+The nonlocal Declaration
+
+195
+
+Implementing a Simple Decorator
+
+196
+
+How It Works
+
+198
+
+Decorators in the Standard Library
+
+199
+
+Memoization with functools.lru_cache
+
+200
+
+Generic Functions with Single Dispatch
+
+202
+
+Stacked Decorators
+
+205
+
+Parameterized Decorators
+
+206
+
+A Parameterized Registration Decorator
+
+206
+
+The Parameterized Clock Decorator
+
+209
+
+Chapter Summary
+
+211
+
+Further Reading
+
+212
+
+viii | Table of Contents
+
+Part IV. Object-Oriented Idioms
+
+8. Object References, Mutability, and Recycling. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 219
+
+Variables Are Not Boxes
+
+220
+
+Identity, Equality, and Aliases
+
+221
+
+Choosing Between == and is
+
+223
+
+The Relative Immutability of Tuples
+
+224
+
+Copies Are Shallow by Default
+
+225
+
+Deep and Shallow Copies of Arbitrary Objects
+
+228
+
+Function Parameters as References
+
+229
+
+Mutable Types as Parameter Defaults: Bad Idea
+
+230
+
+Defensive Programming with Mutable Parameters
+
+232
+
+del and Garbage Collection
+
+234
+
+Weak References
+
+236
+
+The WeakValueDictionary Skit
+
+237
+
+Limitations of Weak References
+
+239
+
+Tricks Python Plays with Immutables
+
+240
+
+Chapter Summary
+
+242
+
+Further Reading
+
+243
+
+9. A Pythonic Object. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 247
+
+Object Representations
+
+248
+
+Vector Class Redux
+
+248
+
+An Alternative Constructor
+
+251
+
+classmethod Versus staticmethod
+
+252
+
+Formatted Displays
+
+253
+
+A Hashable Vector2d
+
+257
+
+Private and “Protected” Attributes in Python
+
+262
+
+Saving Space with the __slots__ Class Attribute
+
+264
+
+The Problems with __slots__
+
+267
+
+Overriding Class Attributes
+
+267
+
+Chapter Summary
+
+269
+
+Further Reading
+
+271
+
+10. Sequence Hacking, Hashing, and Slicing. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 275
+
+Vector: A User-Defined Sequence Type
+
+276
+
+Vector Take #1: Vector2d Compatible
+
+276
+
+Protocols and Duck Typing
+
+279
+
+Vector Take #2: A Sliceable Sequence
+
+280
+
+How Slicing Works
+
+281
+
+A Slice-Aware __getitem__
+
+283
+
+Vector Take #3: Dynamic Attribute Access
+
+284
+
+Table of Contents | ix
+
+Vector Take #4: Hashing and a Faster ==
+
+288
+
+Vector Take #5: Formatting
+
+294
+
+Chapter Summary
+
+301
+
+Further Reading
+
+302
+
+11. Interfaces: From Protocols to ABCs. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 307
+
+Interfaces and Protocols in Python Culture
+
+308
+
+Python Digs Sequences
+
+310
+
+Monkey-Patching to Implement a Protocol at Runtime
+
+312
+
+Alex Martelli’s Waterfowl
+
+314
+
+Subclassing an ABC
+
+319
+
+ABCs in the Standard Library
+
+321
+
+ABCs in collections.abc
+
+321
+
+The Numbers Tower of ABCs
+
+323
+
+Defining and Using an ABC
+
+324
+
+ABC Syntax Details
+
+328
+
+Subclassing the Tombola ABC
+
+329
+
+A Virtual Subclass of Tombola
+
+332
+
+How the Tombola Subclasses Were Tested
+
+335
+
+Usage of register in Practice
+
+338
+
+Geese Can Behave as Ducks
+
+338
+
+Chapter Summary
+
+340
+
+Further Reading
+
+342
+
+12. Inheritance: For Good or For Worse. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 347
+
+Subclassing Built-In Types Is Tricky
+
+348
+
+Multiple Inheritance and Method Resolution Order
+
+351
+
+Multiple Inheritance in the Real World
+
+356
+
+Coping with Multiple Inheritance
+
+358
+
+1. Distinguish Interface Inheritance from Implementation Inheritance
+
+359
+
+2. Make Interfaces Explicit with ABCs
+
+359
+
+3. Use Mixins for Code Reuse
+
+359
+
+4. Make Mixins Explicit by Naming
+
+359
+
+5. An ABC May Also Be a Mixin; The Reverse Is Not True
+
+360
+
+6. Don’t Subclass from More Than One Concrete Class
+
+360
+
+7. Provide Aggregate Classes to Users
+
+360
+
+8. “Favor Object Composition Over Class Inheritance.”
+
+361
+
+Tkinter: The Good, the Bad, and the Ugly
+
+361
+
+A Modern Example: Mixins in Django Generic Views
+
+362
+
+Chapter Summary
+
+366
+
+Further Reading
+
+367
+
+x | Table of Contents
+
+13. Operator Overloading: Doing It Right. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 371
+
+Operator Overloading 101
+
+372
+
+Unary Operators
+
+372
+
+Overloading + for Vector Addition
+
+375
+
+Overloading * for Scalar Multiplication
+
+380
+
+Rich Comparison Operators
+
+384
+
+Augmented Assignment Operators
+
+388
+
+Chapter Summary
+
+392
+
+Further Reading
+
+393
+
+Part V. Control Flow
+
+14. Iterables, Iterators, and Generators. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 401
+
+Sentence Take #1: A Sequence of Words
+
+402
+
+Why Sequences Are Iterable: The iter Function
+
+404
+
+Iterables Versus Iterators
+
+405
+
+Sentence Take #2: A Classic Iterator
+
+409
+
+Making Sentence an Iterator: Bad Idea
+
+411
+
+Sentence Take #3: A Generator Function
+
+412
+
+How a Generator Function Works
+
+413
+
+Sentence Take #4: A Lazy Implementation
+
+416
+
+Sentence Take #5: A Generator Expression
+
+417
+
+Generator Expressions: When to Use Them
+
+419
+
+Another Example: Arithmetic Progression Generator
+
+420
+
+Arithmetic Progression with itertools
+
+423
+
+Generator Functions in the Standard Library
+
+424
+
+New Syntax in Python 3.3: yield from
+
+433
+
+Iterable Reducing Functions
+
+434
+
+A Closer Look at the iter Function
+
+436
+
+Case Study: Generators in a Database Conversion Utility
+
+437
+
+Generators as Coroutines
+
+439
+
+Chapter Summary
+
+439
+
+Further Reading
+
+440
+
+15. Context Managers and else Blocks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 447
+
+Do This, Then That: else Blocks Beyond if
+
+448
+
+Context Managers and with Blocks
+
+450
+
+The contextlib Utilities
+
+454
+
+Using @contextmanager
+
+455
+
+Chapter Summary
+
+459
+
+Further Reading
+
+459
+
+Table of Contents | xi
+
+16. Coroutines. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 463
+
+How Coroutines Evolved from Generators
+
+464
+
+Basic Behavior of a Generator Used as a Coroutine
+
+465
+
+Example: Coroutine to Compute a Running Average
+
+468
+
+Decorators for Coroutine Priming
+
+469
+
+Coroutine Termination and Exception Handling
+
+471
+
+Returning a Value from a Coroutine
+
+475
+
+Using yield from
+
+477
+
+The Meaning of yield from
+
+483
+
+Use Case: Coroutines for Discrete Event Simulation
+
+489
+
+About Discrete Event Simulations
+
+489
+
+The Taxi Fleet Simulation
+
+490
+
+Chapter Summary
+
+498
+
+Further Reading
+
+500
+
+17. Concurrency with Futures. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 505
+
+Example: Web Downloads in Three Styles
+
+505
+
+A Sequential Download Script
+
+507
+
+Downloading with concurrent.futures
+
+509
+
+Where Are the Futures?
+
+511
+
+Blocking I/O and the GIL
+
+515
+
+Launching Processes with concurrent.futures
+
+515
+
+Experimenting with Executor.map
+
+517
+
+Downloads with Progress Display and Error Handling
+
+520
+
+Error Handling in the flags2 Examples
+
+525
+
+Using futures.as_completed
+
+527
+
+Threading and Multiprocessing Alternatives
+
+530
+
+Chapter Summary
+
+530
+
+Further Reading
+
+531
+
+18. Concurrency with asyncio. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 537
+
+Thread Versus Coroutine: A Comparison
+
+539
+
+asyncio.Future: Nonblocking by Design
+
+545
+
+Yielding from Futures, Tasks, and Coroutines
+
+546
+
+Downloading with asyncio and aiohttp
+
+548
+
+Running Circling Around Blocking Calls
+
+552
+
+Enhancing the asyncio downloader Script
+
+554
+
+Using asyncio.as_completed
+
+555
+
+Using an Executor to Avoid Blocking the Event Loop
+
+560
+
+From Callbacks to Futures and Coroutines
+
+562
+
+Doing Multiple Requests for Each Download
+
+564
+
+Writing asyncio Servers
+
+567
+
+xii | Table of Contents
+
+An asyncio TCP Server
+
+568
+
+An aiohttp Web Server
+
+573
+
+Smarter Clients for Better Concurrency
+
+576
+
+Chapter Summary
+
+577
+
+Further Reading
+
+579
+
+Part VI. Metaprogramming
+
+19. Dynamic Attributes and Properties. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 585
+
+Data Wrangling with Dynamic Attributes
+
+586
+
+Exploring JSON-Like Data with Dynamic Attributes
+
+588
+
+The Invalid Attribute Name Problem
+
+591
+
+Flexible Object Creation with __new__
+
+592
+
+Restructuring the OSCON Feed with shelve
+
+594
+
+Linked Record Retrieval with Properties
+
+598
+
+Using a Property for Attribute Validation
+
+604
+
+LineItem Take #1: Class for an Item in an Order
+
+604
+
+LineItem Take #2: A Validating Property
+
+605
+
+A Proper Look at Properties
+
+606
+
+Properties Override Instance Attributes
+
+608
+
+Property Documentation
+
+610
+
+Coding a Property Factory
+
+611
+
+Handling Attribute Deletion
+
+614
+
+Essential Attributes and Functions for Attribute Handling
+
+616
+
+Special Attributes that Affect Attribute Handling
+
+616
+
+Built-In Functions for Attribute Handling
+
+616
+
+Special Methods for Attribute Handling
+
+617
+
+Chapter Summary
+
+619
+
+Further Reading
+
+619
+
+20. Attribute Descriptors. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 625
+
+Descriptor Example: Attribute Validation
+
+625
+
+LineItem Take #3: A Simple Descriptor
+
+626
+
+LineItem Take #4: Automatic Storage Attribute Names
+
+631
+
+LineItem Take #5: A New Descriptor Type
+
+637
+
+Overriding Versus Nonoverriding Descriptors
+
+640
+
+Overriding Descriptor
+
+642
+
+Overriding Descriptor Without __get__
+
+643
+
+Nonoverriding Descriptor
+
+644
+
+Overwriting a Descriptor in the Class
+
+645
+
+Methods Are Descriptors
+
+646
+
+Table of Contents | xiii
+
+Descriptor Usage Tips
+
+648
+
+Descriptor docstring and Overriding Deletion
+
+650
+
+Chapter Summary
+
+651
+
+Further Reading
+
+651
+
+21. Class Metaprogramming. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 655
+
+A Class Factory
+
+656
+
+A Class Decorator for Customizing Descriptors
+
+659
+
+What Happens When: Import Time Versus Runtime
+
+661
+
+The Evaluation Time Exercises
+
+662
+
+Metaclasses 101
+
+666
+
+The Metaclass Evaluation Time Exercise
+
+669
+
+A Metaclass for Customizing Descriptors
+
+673
+
+The Metaclass __prepare__ Special Method
+
+675
+
+Classes as Objects
+
+677
+
+Chapter Summary
+
+678
+
+Further Reading
+
+679
+
+Afterword. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 683
+
+A. Support Scripts. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 687
+
+Python Jargon. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 715
+
+Index. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 725
+
+xiv | Table of Contents
+
+Preface
+Here’s the plan: when someone uses a feature you don’t understand, simply shoot them. This is easier than learning something new, and before too long the only living coders will be writing in an easily understood, tiny subset of Python 0.9.6 <wink>.1
+— Tim Peters Legendary core developer and author of The Zen of Python
+“Python is an easy to learn, powerful programming language.” Those are the first words of the official Python Tutorial. That is true, but there is a catch: because the language is easy to learn and put to use, many practicing Python programmers leverage only a fraction of its powerful features. An experienced programmer may start writing useful Python code in a matter of hours. As the first productive hours become weeks and months, a lot of developers go on writing Python code with a very strong accent carried from languages learned before. Even if Python is your first language, often in academia and in introductory books it is presented while carefully avoiding language-specific features. As a teacher introducing Python to programmers experienced in other languages, I see another problem that this book tries to address: we only miss stuff we know about. Coming from another language, anyone may guess that Python supports regular ex‐ pressions, and look that up in the docs. But if you’ve never seen tuple unpacking or descriptors before, you will probably not search for them, and may end up not using those features just because they are specific to Python. This book is not an A-to-Z exhaustive reference of Python. Its emphasis is on the lan‐ guage features that are either unique to Python or not found in many other popular languages. This is also mostly a book about the core language and some of its libraries. I will rarely talk about packages that are not in the standard library, even though the
+1. Message to the comp.lang.python Usenet group, Dec. 23, 2002: “Acrimony in c.l.p.” xv
+
+Python package index now lists more than 60,000 libraries and many of them are in‐ credibly useful.
+Who This Book Is For
+This book was written for practicing Python programmers who want to become pro‐ ficient in Python 3. If you know Python 2 but are willing to migrate to Python 3.4 or later, you should be fine. At the time of this writing, the majority of professional Python programmers are using Python 2, so I took special care to highlight Python 3 features that may be new to that audience. However, Fluent Python is about making the most of Python 3.4, and I do not spell out the fixes needed to make the code work in earlier versions. Most examples should run in Python 2.7 with little or no changes, but in some cases, backporting would require significant rewriting. Having said that, I believe this book may be useful even if you must stick with Python 2.7, because the core concepts are still the same. Python 3 is not a new language, and most differences can be learned in an afternoon. What’s New in Python 3.0 is a good starting point. Of course, there have been changes since Python 3.0 was released in 2009, but none as important as those in 3.0. If you are not sure whether you know enough Python to follow along, review the topics of the official Python Tutorial. Topics covered in the tutorial will not be explained here, except for some features that are new in Python 3.
+Who This Book Is Not For
+If you are just learning Python, this book is going to be hard to follow. Not only that, if you read it too early in your Python journey, it may give you the impression that every Python script should leverage special methods and metaprogramming tricks. Premature abstraction is as bad as premature optimization.
+How This Book Is Organized
+The core audience for this book should not have trouble jumping directly to any chapter in this book. However, each of the six parts forms a book within the book. I conceived the chapters within each part to be read in sequence. I tried to emphasize using what is available before discussing how to build your own. For example, in Part II, Chapter 2 covers sequence types that are ready to use, including some that don’t get a lot of attention, like collections.deque. Building user-defined sequences is only addressed in Part IV, where we also see how to leverage the abstract base classes (ABCs) from collections.abc. Creating your own ABCs is discussed even
+xvi | Preface
+
+later in Part IV, because I believe it’s important to be comfortable using an ABC before writing your own.
+This approach has a few advantages. First, knowing what is ready to use can save you from reinventing the wheel. We use existing collection classes more often than we im‐ plement our own, and we can give more attention to the advanced usage of available tools by deferring the discussion on how to create new ones. We are also more likely to inherit from existing ABCs than to create a new ABC from scratch. And finally, I believe it is easier to understand the abstractions after you’ve seen them in action.
+The downside of this strategy are the forward references scattered throughout the chapters. I hope these will be easier to tolerate now that you know why I chose this path.
+Here are the main topics in each part of the book: Part I
+A single chapter about the Python data model explaining how the special methods (e.g., __repr__) are the key to the consistent behavior of objects of all types—in a language that is admired for its consistency. Understanding various facets of the data model is the subject of most of the rest of the book, but Chapter 1 provides a high-level overview.
+Part II The chapters in this part cover the use of collection types: sequences, mappings, and sets, as well as the str versus bytes split—the cause of much celebration among Python 3 users and much pain for Python 2 users who have not yet migrated their code bases. The main goals are to recall what is already available and to explain some behavior that is sometimes surprising, like the reordering of dict keys when we are not looking, or the caveats of locale-dependent Unicode string sorting. To achieve these goals, the coverage is sometimes high level and wide (e.g., when many variations of sequences and mappings are presented) and sometimes deep (e.g., when we dive into the hash tables underneath the dict and set types).
+Part III Here we talk about functions as first-class objects in the language: what that means, how it affects some popular design patterns, and how to implement function dec‐ orators by leveraging closures. Also covered here is the general concept of callables in Python, function attributes, introspection, parameter annotations, and the new nonlocal declaration in Python 3.
+Part IV Now the focus is on building classes. In Part II, the class declaration appears in few examples; Part IV presents many classes. Like any object-oriented (OO) lan‐ guage, Python has its particular set of features that may or may not be present in the language in which you and I learned class-based programming. The chapters explain how references work, what mutability really means, the lifecycle of instan‐
+Preface | xvii
+
+ces, how to build your own collections and ABCs, how to cope with multiple in‐ heritance, and how to implement operator overloading—when that makes sense. Part V Covered in this part are the language constructs and libraries that go beyond se‐ quential control flow with conditionals, loops, and subroutines. We start with gen‐ erators, then visit context managers and coroutines, including the challenging but powerful new yield from syntax. Part V closes with a high-level introduction to modern concurrency in Python with collections.futures (using threads and processes under the covers with the help of futures) and doing event-oriented I/O with asyncio (leveraging futures on top of coroutines and yield from). Part VI This part starts with a review of techniques for building classes with attributes created dynamically to handle semi-structured data such as JSON datasets. Next, we cover the familiar properties mechanism, before diving into how object attribute access works at a lower level in Python using descriptors. The relationship between functions, methods, and descriptors is explained. Throughout Part VI, the step-bystep implementation of a field validation library uncovers subtle issues that lead to the use of the advanced tools of the final chapter: class decorators and metaclasses.
+Hands-On Approach
+Often we’ll use the interactive Python console to explore the language and libraries. I feel it is important to emphasize the power of this learning tool, particularly for those readers who’ve had more experience with static, compiled languages that don’t provide a read-eval-print#loop (REPL). One of the standard Python testing packages, doctest, works by simulating console sessions and verifying that the expressions evaluate to the responses shown. I used doctest to check most of the code in this book, including the console listings. You don’t need to use or even know about doctest to follow along: the key feature of doctests is that they look like transcripts of interactive Python console sessions, so you can easily try out the demonstrations yourself. Sometimes I will explain what we want to accomplish by showing a doctest before the code that makes it pass. Firmly establishing what is to be done before thinking about how to do it helps focus our coding effort. Writing tests first is the basis of test driven development (TDD) and I’ve also found it helpful when teaching. If you are unfamiliar with doctest, take a look at its documentation and this book’s source code repository. You’ll find that you can verify the correctness of most of the code in the book by typing python3 -m doctest example_script.py in the command shell of your OS.
+xviii | Preface
+
+Hardware Used for Timings
+The book has some simple benchmarks and timings. Those tests were performed on one or the other laptop I used to write the book: a 2011 MacBook Pro 13” with a 2.7 GHz Intel Core i7 CPU, 8GB of RAM, and a spinning hard disk, and a 2014 MacBook Air 13” with a 1.4 GHz Intel Core i5 CPU, 4GB of RAM, and a solid-state disk. The MacBook Air has a slower CPU and less RAM, but its RAM is faster (1600 versus 1333 MHz) and the SSD is much faster than the HD. In daily usage, I can’t tell which machine is faster.
+Soapbox: My Personal Perspective
+I have been using, teaching, and debating Python since 1998, and I enjoy studying and comparing programming languages, their design, and the theory behind them. At the end of some chapters, I have added “Soapbox” sidebars with my own perspective about Python and other languages. Feel free to skip these if you are not into such discussions. Their content is completely optional.
+Python Jargon
+I wanted this to be a book not only about Python but also about the culture around it. Over more than 20 years of communications, the Python community has developed its own particular lingo and acronyms. At the end of this book, Python Jargon contains a list of terms that have special meaning among Pythonistas.
+Python Version Covered
+I tested all the code in the book using Python 3.4—that is, CPython 3.4, the most popular Python implementation written in C. There is only one exception: “The New @ Infix Operator in Python 3.5” on page 383 shows the @ operator, which is only supported by Python 3.5. Almost all code in the book should work with any Python 3.x–compatible interpreter, including PyPy3 2.4.0, which is compatible with Python 3.2.5. The notable exceptions are the examples using yield from and asyncio, which are only available in Python 3.3 or later. Most code should also work with Python 2.7 with minor changes, except the Unicoderelated examples in Chapter 4, and the exceptions already noted for Python 3 versions earlier than 3.3.
+Preface | xix
+
+Conventions Used in This Book
+The following typographical conventions are used in this book: Italic
+Indicates new terms, URLs, email addresses, filenames, and file extensions. Constant width
+Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords. Note that when a line break falls within a constant_width term, a hyphen is not added —it could be misunderstood as part of the term. Constant width bold Shows commands or other text that should be typed literally by the user. Constant width italic Shows text that should be replaced with user-supplied values or by values deter‐ mined by context.
+This element signifies a tip or suggestion.
+This element signifies a general note.
+This element indicates a warning or caution.
+Using Code Examples
+Every script and most code snippets that appear in the book are available in the Fluent Python code repository on GitHub.
+xx | Preface
+
+We appreciate, but do not require, attribution. An attribution usually includes the title, author, publisher, and ISBN. For example: “Fluent Python by Luciano Ramalho (O’Reil‐ ly). Copyright 2015 Luciano Ramalho, 978-1-491-94600-8.”
+Safari® Books Online
+Safari Books Online is an on-demand digital library that delivers expert content in both book and video form from the world’s leading authors in technology and business. Technology professionals, software developers, web designers, and business and crea‐ tive professionals use Safari Books Online as their primary resource for research, prob‐ lem solving, learning, and certification training. Safari Books Online offers a range of product mixes and pricing programs for organi‐ zations, government agencies, and individuals. Subscribers have access to thousands of books, training videos, and prepublication manuscripts in one fully searchable database from publishers like O’Reilly Media, Prentice Hall Professional, Addison-Wesley Pro‐ fessional, Microsoft Press, Sams, Que, Peachpit Press, Focal Press, Cisco Press, John Wiley & Sons, Syngress, Morgan Kaufmann, IBM Redbooks, Packt, Adobe Press, FT Press, Apress, Manning, New Riders, McGraw-Hill, Jones & Bartlett, Course Technol‐ ogy, and dozens more. For more information about Safari Books Online, please visit us online.
+How to Contact Us
+Please address comments and questions concerning this book to the publisher: O’Reilly Media, Inc. 1005 Gravenstein Highway North Sebastopol, CA 95472 800-998-9938 (in the United States or Canada) 707-829-0515 (international or local) 707-829-0104 (fax)
+We have a web page for this book, where we list errata, examples, and any additional information. You can access this page at http://bit.ly/fluent-python. To comment or ask technical questions about this book, send email to bookques tions@oreilly.com. For more information about our books, courses, conferences, and news, see our website at http://www.oreilly.com.
+Preface | xxi
+
+Find us on Facebook: http://facebook.com/oreilly Follow us on Twitter: http://twitter.com/oreillymedia Watch us on YouTube: http://www.youtube.com/oreillymedia
+Acknowledgments
+The Bauhaus chess set by Josef Hartwig is an example of excellent design: beautiful, simple, and clear. Guido van Rossum, son of an architect and brother of a master font designer, created a masterpiece of language design. I love teaching Python because it is beautiful, simple, and clear. Alex Martelli and Anna Ravenscroft were the first people to see the outline of this book and encouraged me to submit it to O’Reilly for publication. Their books taught me idiomatic Python and are models of clarity, accuracy, and depth in technical writing. Alex’s 5,000+ Stack Overflow posts are a fountain of insights about the language and its proper use. Martelli and Ravenscroft were also technical reviewers of this book, along with Lennart Regebro and Leonardo Rochael. Everyone in this outstanding technical review team has at least 15 years of Python experience, with many contributions to high-impact Python projects in close contact with other developers in the community. Together they sent me hundreds of corrections, suggestions, questions, and opinions, adding tremen‐ dous value to the book. Victor Stinner kindly reviewed Chapter 18, bringing his expertise as an asyncio maintainer to the technical review team. It was a great privilege and a pleasure to collaborate with them over these past several months. Editor Meghan Blanchette was an outstanding mentor, helping me improve the orga‐ nization and flow of the book, letting me know when it was boring, and keeping me from delaying even more. Brian MacDonald edited chapters in Part III while Meghan was away. I enjoyed working with them, and with everyone I’ve contacted at O’Reilly, including the Atlas development and support team (Atlas is the O’Reilly book publishing platform, which I was fortunate to use to write this book). Mario Domenech Goulart provided numerous, detailed suggestions starting with the first Early Release. I also received valuable feedback from Dave Pawson, Elias Dorneles, Leonardo Alexandre Ferreira Leite, Bruce Eckel, J. S. Bueno, Rafael Gonçalves, Alex Chiaranda, Guto Maia, Lucas Vido, and Lucas Brunialti. Over the years, a number of people urged me to become an author, but the most per‐ suasive were Rubens Prates, Aurelio Jargas, Rudá Moura, and Rubens Altimari. Mauricio Bussab opened many doors for me, including my first real shot at writing a book. Renzo Nuccitelli supported this writing project all the way, even if that meant a slow start for our partnership at python.pro.br.
+xxii | Preface
+
+The wonderful Brazilian Python community is knowledgeable, generous, and fun. The Python Brasil group has thousands of people and our national conferences bring to‐ gether hundreds, but the most influential in my journey as a Pythonista were Leonardo Rochael, Adriano Petrich, Daniel Vainsencher, Rodrigo RBP Pimentel, Bruno Gola, Leonardo Santagada, Jean Ferri, Rodrigo Senra, J. S. Bueno, David Kwast, Luiz Irber, Osvaldo Santana, Fernando Masanori, Henrique Bastos, Gustavo Niemayer, Pedro Werneck, Gustavo Barbieri, Lalo Martins, Danilo Bellini, and Pedro Kroger. Dorneles Tremea was a great friend (incredibly generous with his time and knowledge), an amazing hacker, and the most inspiring leader of the Brazilian Python Association. He left us too early. My students over the years taught me a lot through their questions, insights, feedback, and creative solutions to problems. Érico Andrei and Simples Consultoria made it pos‐ sible for me to focus on being a Python teacher for the first time. Martijn Faassen was my Grok mentor and shared invaluable insights with me about Python and Neanderthals. His work and that of Paul Everitt, Chris McDonough, Tres Seaver, Jim Fulton, Shane Hathaway, Lennart Regebro, Alan Runyan, Alexander Limi, Martijn Pieters, Godefroid Chapelle, and others from the Zope, Plone, and Pyramid planets have been decisive in my career. Thanks to Zope and surfing the first web wave, I was able to start making a living with Python in 1998. José Octavio Castro Neves was my partner in the first Python-centric software house in Brazil. I have too many gurus in the wider Python community to list them all, but besides those already mentioned, I am indebted to Steve Holden, Raymond Hettinger, A.M. Kuchling, David Beazley, Fredrik Lundh, Doug Hellmann, Nick Coghlan, Mark Pilgrim, Martijn Pieters, Bruce Eckel, Michele Simionato, Wesley Chun, Brandon Craig Rhodes, Philip Guo, Daniel Greenfeld, Audrey Roy, and Brett Slatkin for teaching me new and better ways to teach Python. Most of these pages were written in my home office and in two labs: CoffeeLab and Garoa Hacker Clube. CoffeeLab is the caffeine-geek headquarters in Vila Madalena, São Paulo, Brazil. Garoa Hacker Clube is a hackerspace open to all: a community lab where anyone can freely try out new ideas. The Garoa community provided inspiration, infrastructure, and slack. I think Aleph would enjoy this book. My mother, Maria Lucia, and my father, Jairo, always supported me in every way. I wish he was here to see the book; I am glad I can share it with her. My wife, Marta Mello, endured 15 months of a husband who was always working, but remained supportive and coached me through some critical moments in the project when I feared I might drop out of the marathon. Thank you all, for everything.
+Preface | xxiii
+
+PART I
+Prologue
+
+CHAPTER 1
+The Python Data Model
+Guido’s sense of the aesthetics of language design is amazing. I’ve met many fine language designers who could build theoretically beautiful languages that no one would ever use, but Guido is one of those rare people who can build a language that is just slightly less theoretically beautiful but thereby is a joy to write programs in.1
+— Jim Hugunin Creator of Jython, cocreator of AspectJ, architect of the .Net DLR
+One of the best qualities of Python is its consistency. After working with Python for a while, you are able to start making informed, correct guesses about features that are new to you. However, if you learned another object-oriented language before Python, you may have found it strange to use len(collection) instead of collection.len(). This apparent oddity is the tip of an iceberg that, when properly understood, is the key to everything we call Pythonic. The iceberg is called the Python data model, and it describes the API that you can use to make your own objects play well with the most idiomatic language features. You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on. While coding with any framework, you spend a lot of time implementing methods that are called by the framework. The same happens when you leverage the Python data model. The Python interpreter invokes special methods to perform basic object oper‐ ations, often triggered by special syntax. The special method names are always written with leading and trailing double underscores (i.e., __getitem__). For example, the syn‐
+1. Story of Jython, written as a Foreword to Jython Essentials (O’Reilly, 2002), by Samuele Pedroni and Noel Rappin.
+3
+
+tax obj[key] is supported by the __getitem__ special method. In order to evaluate my_collection[key], the interpreter calls my_collection.__getitem__(key). The special method names allow your objects to implement, support, and interact with basic language constructs such as:
+• Iteration • Collections • Attribute access • Operator overloading • Function and method invocation • Object creation and destruction • String representation and formatting • Managed contexts (i.e., with blocks)
+Magic and Dunder
+The term magic method is slang for special method, but when talking about a specific method like __getitem__, some Python developers take the shortcut of saying “under-under-getitem” which is ambiguous, because the syntax __x has another special meaning.2 Being precise and pronouncing “under-under-getitemunder-under” is tiresome, so I follow the lead of author and teach‐ er Steve Holden and say “dunder-getitem.” All experienced Pytho‐ nistas understand that shortcut. As a result, the special methods are also known as dunder methods.3
+A Pythonic Card Deck
+The following is a very simple example, but it demonstrates the power of implementing just two special methods, __getitem__ and __len__. Example 1-1 is a class to represent a deck of playing cards. Example 1-1. A deck as a sequence of cards
+import collections
+2. See “Private and “Protected” Attributes in Python” on page 262. 3. I personally first heard “dunder” from Steve Holden. Wikipedia credits Mark Johnson and Tim Hochberg
+for the first written records of “dunder” in responses to the question “How do you pronounce __ (double underscore)?” in the python-list on September 26, 2002: Johnson’s message; Hochberg’s (11 minutes later).
+4 | Chapter 1: The Python Data Model
+
+Card = collections.namedtuple('Card', ['rank', 'suit'])
+class FrenchDeck: ranks = [str(n) for n in range(2, 11)] + list('JQKA') suits = 'spades diamonds clubs hearts'.split()
+def __init__(self): self._cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
+def __len__(self): return len(self._cards)
+def __getitem__(self, position): return self._cards[position]
+The first thing to note is the use of collections.namedtuple to construct a simple class to represent individual cards. Since Python 2.6, namedtuple can be used to build classes of objects that are just bundles of attributes with no custom methods, like a database record. In the example, we use it to provide a nice representation for the cards in the deck, as shown in the console session:
+>>> beer_card = Card('7', 'diamonds') >>> beer_card Card(rank='7', suit='diamonds')
+But the point of this example is the FrenchDeck class. It’s short, but it packs a punch. First, like any standard Python collection, a deck responds to the len() function by returning the number of cards in it:
+>>> deck = FrenchDeck() >>> len(deck) 52
+Reading specific cards from the deck—say, the first or the last—should be as easy as deck[0] or deck[-1], and this is what the __getitem__ method provides:
+>>> deck[0] Card(rank='2', suit='spades') >>> deck[-1] Card(rank='A', suit='hearts')
+Should we create a method to pick a random card? No need. Python already has a function to get a random item from a sequence: random.choice. We can just use it on a deck instance:
+>>> from random import choice >>> choice(deck) Card(rank='3', suit='hearts') >>> choice(deck) Card(rank='K', suit='spades')
+A Pythonic Card Deck | 5
+
+>>> choice(deck) Card(rank='2', suit='clubs')
+We’ve just seen two advantages of using special methods to leverage the Python data model:
+
+• The users of your classes don’t have to memorize arbitrary method names for stan‐ dard operations (“How to get the number of items? Is it .size(), .length(), or what?”).
+• It’s easier to benefit from the rich Python standard library and avoid reinventing the wheel, like the random.choice function.
+
+But it gets better. Because our __getitem__ delegates to the [] operator of self._cards, our deck auto‐ matically supports slicing. Here’s how we look at the top three cards from a brand new deck, and then pick just the aces by starting on index 12 and skipping 13 cards at a time:
+
+>>> deck[:3] [Card(rank='2', suit='spades'), Card(rank='3', suit='spades'), Card(rank='4', suit='spades')] >>> deck[12::13] [Card(rank='A', suit='spades'), Card(rank='A', suit='diamonds'), Card(rank='A', suit='clubs'), Card(rank='A', suit='hearts')]
+Just by implementing the __getitem__ special method, our deck is also iterable:
+
+>>> for card in deck: # doctest: +ELLIPSIS ... print(card) Card(rank='2', suit='spades') Card(rank='3', suit='spades') Card(rank='4', suit='spades') ...
+The deck can also be iterated in reverse:
+
+>>> for card in reversed(deck): ... print(card) Card(rank='A', suit='hearts') Card(rank='K', suit='hearts') Card(rank='Q', suit='hearts') ...
+
+# doctest: +ELLIPSIS
+
+6 | Chapter 1: The Python Data Model
+
+Ellipsis in doctests
+Whenever possible, the Python console listings in this book were extracted from doctests to ensure accuracy. When the output was too long, the elided part is marked by an ellipsis (...) like in the last line in the preceding code. In such cases, we used the # doctest: +ELLIPSIS directive to make the doctest pass. If you are trying these examples in the interactive console, you may omit the doctest directives altogether.
+
+Iteration is often implicit. If a collection has no __contains__ method, the in operator does a sequential scan. Case in point: in works with our FrenchDeck class because it is iterable. Check it out:
+>>> Card('Q', 'hearts') in deck True >>> Card('7', 'beasts') in deck False
+How about sorting? A common system of ranking cards is by rank (with aces being highest), then by suit in the order of spades (highest), then hearts, diamonds, and clubs (lowest). Here is a function that ranks cards by that rule, returning 0 for the 2 of clubs and 51 for the ace of spades:
+suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
+
+def spades_high(card): rank_value = FrenchDeck.ranks.index(card.rank) return rank_value * len(suit_values) + suit_values[card.suit]
+Given spades_high, we can now list our deck in order of increasing rank:
+
+>>> for card in sorted(deck, key=spades_high):
+
+...
+
+print(card)
+
+Card(rank='2', suit='clubs')
+
+Card(rank='2', suit='diamonds')
+
+Card(rank='2', suit='hearts')
+
+... (46 cards ommitted)
+
+Card(rank='A', suit='diamonds')
+
+Card(rank='A', suit='hearts')
+
+Card(rank='A', suit='spades')
+
+# doctest: +ELLIPSIS
+
+Although FrenchDeck implicitly inherits from object,4 its functionality is not inherited, but comes from leveraging the data model and composition. By implementing the spe‐ cial methods __len__ and __getitem__, our FrenchDeck behaves like a standard Python sequence, allowing it to benefit from core language features (e.g., iteration and slicing)
+
+4. In Python 2, you’d have to be explicit and write FrenchDeck(object), but that’s the default in Python 3. A Pythonic Card Deck | 7
+
+and from the standard library, as shown by the examples using random.choice, reversed, and sorted. Thanks to composition, the __len__ and __getitem__ imple‐ mentations can hand off all the work to a list object, self._cards.
+How About Shuffling?
+As implemented so far, a FrenchDeck cannot be shuffled, be‐ cause it is immutable: the cards and their positions cannot be changed, except by violating encapsulation and handling the _cards attribute directly. In Chapter 11, that will be fixed by adding a one-line __setitem__ method.
+How Special Methods Are Used
+The first thing to know about special methods is that they are meant to be called by the Python interpreter, and not by you. You don’t write my_object.__len__(). You write len(my_object) and, if my_object is an instance of a user-defined class, then Python calls the __len__ instance method you implemented. But for built-in types like list, str, bytearray, and so on, the interpreter takes a short‐ cut: the CPython implementation of len() actually returns the value of the ob_size field in the PyVarObject C struct that represents any variable-sized built-in object in memory. This is much faster than calling a method. More often than not, the special method call is implicit. For example, the statement for i in x: actually causes the invocation of iter(x), which in turn may call x.__iter__() if that is available. Normally, your code should not have many direct calls to special methods. Unless you are doing a lot of metaprogramming, you should be implementing special methods more often than invoking them explicitly. The only special method that is frequently called by user code directly is __init__, to invoke the initializer of the superclass in your own __init__ implementation. If you need to invoke a special method, it is usually better to call the related built-in function (e.g., len, iter, str, etc). These built-ins call the corresponding special meth‐ od, but often provide other services and—for built-in types—are faster than method calls. See, for example, “A Closer Look at the iter Function” on page 436 in Chapter 14. Avoid creating arbitrary, custom attributes with the __foo__ syntax because such names may acquire special meanings in the future, even if they are unused today.
+8 | Chapter 1: The Python Data Model
+
+Emulating Numeric Types
+Several special methods allow user objects to respond to operators such as +. We will cover that in more detail in Chapter 13, but here our goal is to further illustrate the use of special methods through another simple example. We will implement a class to represent two-dimensional vectors—that is Euclidean vectors like those used in math and physics (see Figure 1-1).
+Figure 1-1. Example of two-dimensional vector addition; Vector(2, 4) + Vector(2, 1) re‐ sults in Vector(4, 5).
+The built-in complex type can be used to represent twodimensional vectors, but our class can be extended to represent ndimensional vectors. We will do that in Chapter 14. We will start by designing the API for such a class by writing a simulated console session that we can use later as a doctest. The following snippet tests the vector addition pictured in Figure 1-1:
+>>> v1 = Vector(2, 4) >>> v2 = Vector(2, 1) >>> v1 + v2 Vector(4, 5)
+Note how the + operator produces a Vector result, which is displayed in a friendly manner in the console.
+How Special Methods Are Used | 9
+
+The abs built-in function returns the absolute value of integers and floats, and the magnitude of complex numbers, so to be consistent, our API also uses abs to calculate the magnitude of a vector:
+>>> v = Vector(3, 4) >>> abs(v) 5.0
+We can also implement the * operator to perform scalar multiplication (i.e., multiplying a vector by a number to produce a new vector with the same direction and a multiplied magnitude):
+>>> v * 3 Vector(9, 12) >>> abs(v * 3) 15.0
+Example 1-2 is a Vector class implementing the operations just described, through the use of the special methods __repr__, __abs__, __add__ and __mul__. Example 1-2. A simple two-dimensional vector class
+from math import hypot
+class Vector:
+def __init__(self, x=0, y=0): self.x = x self.y = y
+def __repr__(self): return 'Vector(%r, %r)' % (self.x, self.y)
+def __abs__(self): return hypot(self.x, self.y)
+def __bool__(self): return bool(abs(self))
+def __add__(self, other): x = self.x + other.x y = self.y + other.y return Vector(x, y)
+def __mul__(self, scalar): return Vector(self.x * scalar, self.y * scalar)
+Note that although we implemented four special methods (apart from __init__), none of them is directly called within the class or in the typical usage of the class illustrated by the console listings. As mentioned before, the Python interpreter is the only frequent
+10 | Chapter 1: The Python Data Model
+
+caller of most special methods. In the following sections, we discuss the code for each special method.
+String Representation
+The __repr__ special method is called by the repr built-in to get the string represen‐ tation of the object for inspection. If we did not implement __repr__, vector instances would be shown in the console like <Vector object at 0x10e100070>. The interactive console and debugger call repr on the results of the expressions evalu‐ ated, as does the %r placeholder in classic formatting with the % operator, and the !r conversion field in the new Format String Syntax used in the str.format method.
+Speaking of the % operator and the str.format method, you will notice I use both in this book, as does the Python community at large. I am increasingly favoring the more powerful str.for mat, but I am aware many Pythonistas prefer the simpler %, so we’ll probably see both in Python source code for the foreseea‐ ble future.
+Note that in our __repr__ implementation, we used %r to obtain the standard repre‐ sentation of the attributes to be displayed. This is good practice, because it shows the crucial difference between Vector(1, 2) and Vector('1', '2')—the latter would not work in the context of this example, because the constructor’s arguments must be num‐ bers, not str. The string returned by __repr__ should be unambiguous and, if possible, match the source code necessary to re-create the object being represented. That is why our chosen representation looks like calling the constructor of the class (e.g., Vector(3, 4)). Contrast __repr__ with __str__, which is called by the str() constructor and implicitly used by the print function. __str__ should return a string suitable for display to end users. If you only implement one of these special methods, choose __repr__, because when no custom __str__ is available, Python will call __repr__ as a fallback.
+“Difference between __str__ and __repr__ in Python” is a Stack Overflow question with excellent contributions from Pythonistas Alex Martelli and Martijn Pieters.
+How Special Methods Are Used | 11
+
+Arithmetic Operators
+Example 1-2 implements two operators: + and *, to show basic usage of __add__ and __mul__. Note that in both cases, the methods create and return a new instance of Vector, and do not modify either operand—self or other are merely read. This is the expected behavior of infix operators: to create new objects and not touch their operands. I will have a lot more to say about that in Chapter 13.
+As implemented, Example 1-2 allows multiplying a Vector by a number, but not a number by a Vector, which violates the com‐ mutative property of multiplication. We will fix that with the spe‐ cial method __rmul__ in Chapter 13.
+Boolean Value of a Custom Type
+Although Python has a bool type, it accepts any object in a boolean context, such as the expression controlling an if or while statement, or as operands to and, or, and not. To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False. By default, instances of user-defined classes are considered truthy, unless either __bool__ or __len__ is implemented. Basically, bool(x) calls x.__bool__() and uses the result. If __bool__ is not implemented, Python tries to invoke x.__len__(), and if that returns zero, bool returns False. Otherwise bool returns True. Our implementation of __bool__ is conceptually simple: it returns False if the mag‐ nitude of the vector is zero, True otherwise. We convert the magnitude to a Boolean using bool(abs(self)) because __bool__ is expected to return a boolean. Note how the special method __bool__ allows your objects to be consistent with the truth value testing rules defined in the “Built-in Types” chapter of The Python Standard Library documentation.
+A faster implementation of Vector.__bool__ is this:
+def __bool__(self): return bool(self.x or self.y)
+This is harder to read, but avoids the trip through abs, __abs__, the squares, and square root. The explicit conversion to bool is needed because __bool__ must return a boolean and or returns either operand as is: x or y evaluates to x if that is truthy, other‐ wise the result is y, whatever that is.
+12 | Chapter 1: The Python Data Model
+
+Overview of Special Methods
+The “Data Model” chapter of The Python Language Reference lists 83 special method names, 47 of which are used to implement arithmetic, bitwise, and comparison opera‐ tors. As an overview of what is available, see Tables 1-1 and 1-2.
+The grouping shown in the following tables is not exactly the same as in the official documentation.
+
+Table 1-1. Special method names (operators excluded)
+
+Category
+
+Method names
+
+String/bytes representation
+
+__repr__, __str__, __format__, __bytes__
+
+Conversion to number
+
+__abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__
+
+Emulating collections
+
+__len__, __getitem__, __setitem__, __delitem__, __contains__
+
+Iteration
+
+__iter__, __reversed__, __next__
+
+Emulating callables
+
+__call__
+
+Context management
+
+__enter__, __exit__
+
+Instance creation and destruction __new__, __init__, __del__
+
+Attribute management
+
+__getattr__, __getattribute__, __setattr__, __delattr__, __dir__
+
+Attribute descriptors
+
+__get__, __set__, __delete__
+
+Class services
+
+__prepare__, __instancecheck__, __subclasscheck__
+
+Table 1-2. Special method names for operators
+
+Category Unary numeric operators Rich comparison operators Arithmetic operators
+Reversed arithmetic operators
+Augmented assignment arithmetic operators Bitwise operators
+
+Method names and related operators
+__neg__ -, __pos__ +, __abs__ abs()
+__lt__ >, __le__ <=, __eq__ ==, __ne__ !=, __gt__ >, __ge__ >=
+__add__ +, __sub__ -, __mul__ *, __truediv__ /, __floordiv__ //, __mod__ %, __divmod__ divmod() , __pow__ ** or pow(), __round__ round()
+__radd__, __rsub__, __rmul__, __rtruediv__, __rfloordiv__, __rmod__, __rdivmod__, __rpow__
+__iadd__, __isub__, __imul__, __itruediv__, __ifloordiv__, __imod__, __ipow__
+__invert__ ~, __lshift__ <<, __rshift__ >>, __and__ &, __or__ |, __xor__ ^
+
+Overview of Special Methods | 13
+
+Category
+
+Method names and related operators
+
+Reversed bitwise operators __rlshift__, __rrshift__, __rand__, __rxor__, __ror__
+
+Augmented assignment bitwise __ilshift__, __irshift__, __iand__, __ixor__, __ior__ operators
+
+The reversed operators are fallbacks used when operands are swapped (b * a instead of a * b), while augmented assignments are shortcuts combining an infix operator with variable assign‐ ment (a = a * b becomes a *= b). Chapter 13 explains both reversed operators and augmented assignment in detail.
+
+Why len Is Not a Method
+I asked this question to core developer Raymond Hettinger in 2013 and the key to his answer was a quote from The Zen of Python: “practicality beats purity.” In “How Special Methods Are Used” on page 8, I described how len(x) runs very fast when x is an instance of a built-in type. No method is called for the built-in objects of CPython: the length is simply read from a field in a C struct. Getting the number of items in a collection is a common operation and must work efficiently for such basic and diverse types as str, list, memoryview, and so on.
+In other words, len is not called as a method because it gets special treatment as part of the Python data model, just like abs. But thanks to the special method __len__, you can also make len work with your own custom objects. This is a fair compromise between the need for efficient built-in objects and the consistency of the language. Also from The Zen of Python: “Special cases aren’t special enough to break the rules.”
+If you think of abs and len as unary operators, you may be more inclined to forgive their functional look-and-feel, as opposed to the method call syntax one might expect in an OO language. In fact, the ABC language—a direct ancestor of Python that pio‐ neered many of its features—had an # operator that was the equivalent of len (you’d write #s). When used as an infix opera‐ tor, written x#s, it counted the occurrences of x in s, which in Python you get as s.count(x), for any sequence s.
+
+Chapter Summary
+By implementing special methods, your objects can behave like the built-in types, en‐ abling the expressive coding style the community considers Pythonic.
+
+14 | Chapter 1: The Python Data Model
+
+A basic requirement for a Python object is to provide usable string representations of itself, one used for debugging and logging, another for presentation to end users. That is why the special methods __repr__ and __str__ exist in the data model. Emulating sequences, as shown with the FrenchDeck example, is one of the most widely used applications of the special methods. Making the most of sequence types is the subject of Chapter 2, and implementing your own sequence will be covered in Chap‐ ter 10 when we create a multidimensional extension of the Vector class. Thanks to operator overloading, Python offers a rich selection of numeric types, from the built-ins to decimal.Decimal and fractions.Fraction, all supporting infix arith‐ metic operators. Implementing operators, including reversed operators and augmented assignment, will be shown in Chapter 13 via enhancements of the Vector example. The use and implementation of the majority of the remaining special methods of the Python data model is covered throughout this book.
+Further Reading
+The “Data Model” chapter of The Python Language Reference is the canonical source for the subject of this chapter and much of this book. Python in a Nutshell, 2nd Edition (O’Reilly) by Alex Martelli has excellent coverage of the data model. As I write this, the most recent edition of the Nutshell book is from 2006 and focuses on Python 2.5, but there have been very few changes in the data model since then, and Martelli’s description of the mechanics of attribute access is the most author‐ itative I’ve seen apart from the actual C source code of CPython. Martelli is also a prolific contributor to Stack Overflow, with more than 5,000 answers posted. See his user profile at Stack Overflow. David Beazley has two books covering the data model in detail in the context of Python 3: Python Essential Reference, 4th Edition (Addison-Wesley Professional), and Python Cookbook, 3rd Edition (O’Reilly), coauthored with Brian K. Jones. The Art of the Metaobject Protocol (AMOP, MIT Press) by Gregor Kiczales, Jim des Rivieres, and Daniel G. Bobrow explains the concept of a metaobject protocol (MOP), of which the Python data model is one example.
+Soapbox
+Data Model or Object Model? What the Python documentation calls the “Python data model,” most authors would say is the “Python object model.” Alex Martelli’s Python in a Nutshell 2E, and David Beazley’s Python Essential Reference 4E are the best books covering the “Python data model,” but
+Further Reading | 15
+
+they always refer to it as the “object model.” On Wikipedia, the first definition of object model is “The properties of objects in general in a specific computer programming language.” This is what the “Python data model” is about. In this book, I will use “data model” because the documentation favors that term when referring to the Python object model, and because it is the title of the chapter of The Python Language Reference most relevant to our discussions. Magic Methods The Ruby community calls their equivalent of the special methods magic methods. Many in the Python community adopt that term as well. I believe the special methods are actually the opposite of magic. Python and Ruby are the same in this regard: both em‐ power their users with a rich metaobject protocol that is not magic, but enables users to leverage the same tools available to core developers. In contrast, consider JavaScript. Objects in that language have features that are magic, in the sense that you cannot emulate them in your own user-defined objects. For ex‐ ample, before JavaScript 1.8.5, you could not define read-only attributes in your Java‐ Script objects, but some built-in objects always had read-only attributes. In JavaScript, read-only attributes were “magic,” requiring supernatural powers that a user of the lan‐ guage did not have until ECMAScript 5.1 came out in 2009. The metaobject protocol of JavaScript is evolving, but historically it has been more limited than those of Python and Ruby. Metaobjects The Art of the Metaobject Protocol (AMOP) is my favorite computer book title. Less subjectively, the term metaobject protocol is useful to think about the Python data model and similar features in other languages. The metaobject part refers to the objects that are the building blocks of the language itself. In this context, protocol is a synonym of interface. So a metaobject protocol is a fancy synonym for object model: an API for core language constructs. A rich metaobject protocol enables extending a language to support new programming paradigms. Gregor Kiczales, the first author of the AMOP book, later became a pioneer in aspect-oriented programming and the initial author of AspectJ, an extension of Java implementing that paradigm. Aspect-oriented programming is much easier to imple‐ ment in a dynamic language like Python, and several frameworks do it, but the most important is zope.interface, which is briefly discussed in “Further Reading” on page 342 of Chapter 11.
+16 | Chapter 1: The Python Data Model
+
+PART II
+Data Structures
+
+CHAPTER 2
+An Array of Sequences
+As you may have noticed, several of the operations mentioned work equally for texts, lists and tables. Texts, lists and tables together are called trains. […] The FOR command also works generically on trains.1
+— Geurts, Meertens, and Pemberton ABC Programmer’s Handbook
+Before creating Python, Guido was a contributor to the ABC language—a 10-year re‐ search project to design a programming environment for beginners. ABC introduced many ideas we now consider “Pythonic”: generic operations on sequences, built-in tuple and mapping types, structure by indentation, strong typing without variable declara‐ tions, and more. It’s no accident that Python is so user-friendly. Python inherited from ABC the uniform handling of sequences. Strings, lists, byte se‐ quences, arrays, XML elements, and database results share a rich set of common oper‐ ations including iteration, slicing, sorting, and concatenation. Understanding the variety of sequences available in Python saves us from reinventing the wheel, and their common interface inspires us to create APIs that properly support and leverage existing and future sequence types. Most of the discussion in this chapter applies to sequences in general, from the familiar list to the str and bytes types that are new in Python 3. Specific topics on lists, tuples, arrays, and queues are also covered here, but the focus on Unicode strings and byte sequences is deferred to Chapter 4. Also, the idea here is to cover sequence types that are ready to use. Creating your own sequence types is the subject of Chapter 10.
+1. Leo Geurts, Lambert Meertens, and Steven Pemberton, ABC Programmer’s Handbook, p. 8. 19
+
+Overview of Built-In Sequences
+The standard library offers a rich selection of sequence types implemented in C: Container sequences
+list, tuple, and collections.deque can hold items of different types. Flat sequences
+str, bytes, bytearray, memoryview, and array.array hold items of one type. Container sequences hold references to the objects they contain, which may be of any type, while flat sequences physically store the value of each item within its own memory space, and not as distinct objects. Thus, flat sequences are more compact, but they are limited to holding primitive values like characters, bytes, and numbers. Another way of grouping sequence types is by mutability: Mutable sequences
+list, bytearray, array.array, collections.deque, and memoryview Immutable sequences
+tuple, str, and bytes Figure 2-1 helps visualize how mutable sequences differ from immutable ones, while also inheriting several methods from them. Note that the built-in concrete sequence types do not actually subclass the Sequence and MutableSequence abstract base classes (ABCs) depicted, but the ABCs are still useful as a formalization of what functionality to expect from a full-featured sequence type.
+Figure 2-1. UML class diagram for some classes from collections.abc (superclasses are on the left; inheritance arrows point from subclasses to superclasses; names in italic are abstract classes and abstract methods) Keeping in mind these common traits—mutable versus immutable; container versus flat—is helpful to extrapolate what you know about one sequence type to others.
+20 | Chapter 2: An Array of Sequences
+
+The most fundamental sequence type is the list—mutable and mixed-type. I am sure you are comfortable handling them, so we’ll jump right into list comprehensions, a powerful way of building lists that is somewhat underused because the syntax may be unfamiliar. Mastering list comprehensions opens the door to generator expressions, which—among other uses—can produce elements to fill up sequences of any type. Both are the subject of the next section.
+List Comprehensions and Generator Expressions
+A quick way to build a sequence is using a list comprehension (if the target is a list) or a generator expression (for all other kinds of sequences). If you are not using these syntactic forms on a daily basis, I bet you are missing opportunities to write code that is more readable and often faster at the same time. If you doubt my claim that these constructs are “more readable,” read on. I’ll try to convince you.
+For brevity, many Python programmers refer to list comprehen‐ sions as listcomps, and generator expressions as genexps. I will use these words as well.
+List Comprehensions and Readability
+Here is a test: which do you find easier to read, Example 2-1 or Example 2-2? Example 2-1. Build a list of Unicode codepoints from a string
+>>> symbols = '$¢£¥€¤' >>> codes = [] >>> for symbol in symbols: ... codes.append(ord(symbol)) ... >>> codes [36, 162, 163, 165, 8364, 164]
+Example 2-2. Build a list of Unicode codepoints from a string, take two
+>>> symbols = '$¢£¥€¤' >>> codes = [ord(symbol) for symbol in symbols] >>> codes [36, 162, 163, 165, 8364, 164]
+Anybody who knows a little bit of Python can read Example 2-1. However, after learning about listcomps, I find Example 2-2 more readable because its intent is explicit.
+List Comprehensions and Generator Expressions | 21
+
+A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks. The code in Example 2-1 is building up a list. In contrast, a listcomp is meant to do one thing only: to build a new list. Of course, it is possible to abuse list comprehensions to write truly incomprehensible code. I’ve seen Python code with listcomps used just to repeat a block of code for its side effects. If you are not doing something with the produced list, you should not use that syntax. Also, try to keep it short. If the list comprehension spans more than two lines, it is probably best to break it apart or rewrite as a plain old for loop. Use your best judgment: for Python as for English, there are no hard-and-fast rules for clear writing.
+Syntax Tip
+In Python code, line breaks are ignored inside pairs of [], {}, or (). So you can build multiline lists, listcomps, genexps, dictionar‐ ies and the like without using the ugly \ line continuation escape.
+Listcomps No Longer Leak Their Variables
+In Python 2.x, variables assigned in the for clauses in list comprehensions were set in the surrounding scope, sometimes with tragic consequences. See the following Python 2.7 console session:
+Python 2.7.6 (default, Mar 22 2014, 22:59:38) [GCC 4.8.2] on linux2 Type "help", "copyright", "credits" or "license" for more information. >>> x = 'my precious' >>> dummy = [x for x in 'ABC'] >>> x 'C'
+As you can see, the initial value of x was clobbered. This no longer happens in Python 3. List comprehensions, generator expressions, and their siblings set and dict compre‐ hensions now have their own local scope, like functions. Variables assigned within the expression are local, but variables in the surrounding scope can still be referenced. Even better, the local variables do not mask the variables from the surrounding scope. This is Python 3:
+>>> x = 'ABC' >>> dummy = [ord(x) for x in x] >>> x 'ABC' >>> dummy
+22 | Chapter 2: An Array of Sequences
+
+[65, 66, 67] >>>
+The value of x is preserved. The list comprehension produces the expected list.
+List comprehensions build lists from sequences or any other iterable type by filtering and transforming items. The filter and map built-ins can be composed to do the same, but readability suffers, as we will see next.
+Listcomps Versus map and filter
+Listcomps do everything the map and filter functions do, without the contortions of the functionally challenged Python lambda. Consider Example 2-3. Example 2-3. The same list built by a listcomp and a map/filter composition
+>>> symbols = '$¢£¥€¤' >>> beyond_ascii = [ord(s) for s in symbols if ord(s) > 127] >>> beyond_ascii [162, 163, 165, 8364, 164] >>> beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols))) >>> beyond_ascii [162, 163, 165, 8364, 164]
+I used to believe that map and filter were faster than the equivalent listcomps, but Alex Martelli pointed out that’s not the case—at least not in the preceding examples. The 02array-seq/listcomp_speed.py script in the Fluent Python code repository is a simple speed test comparing listcomp with filter/map. I’ll have more to say about map and filter in Chapter 5. Now we turn to the use of listcomps to compute Cartesian products: a list containing tuples built from all items from two or more lists.
+Cartesian Products
+Listcomps can generate lists from the Cartesian product of two or more iterables. The items that make up the cartesian product are tuples made from items from every input iterable. The resulting list has a length equal to the lengths of the input iterables mul‐ tiplied. See Figure 2-2.
+List Comprehensions and Generator Expressions | 23
+
+Figure 2-2. The Cartesian product of a sequence of three card ranks and a sequence of four suits results in a sequence of twelve pairings
+
+For example, imagine you need to produce a list of T-shirts available in two colors and three sizes. Example 2-4 shows how to produce that list using a listcomp. The result has six items.
+
+Example 2-4. Cartesian product using a list comprehension
+
+>>> colors = ['black', 'white']
+
+>>> sizes = ['S', 'M', 'L']
+
+>>> tshirts = [(color, size) for color in colors for size in sizes]
+
+>>> tshirts
+
+[('black', 'S'), ('black', 'M'), ('black', 'L'), ('white', 'S'),
+
+('white', 'M'), ('white', 'L')]
+
+>>> for color in colors:
+
+... for size in sizes:
+
+...
+
+print((color, size))
+
+...
+
+('black', 'S')
+
+('black', 'M')
+
+('black', 'L')
+
+('white', 'S')
+
+('white', 'M')
+
+('white', 'L')
+
+>>> tshirts = [(color, size) for size in sizes
+
+...
+
+for color in colors]
+
+>>> tshirts
+
+[('black', 'S'), ('white', 'S'), ('black', 'M'), ('white', 'M'),
+
+('black', 'L'), ('white', 'L')]
+
+24 | Chapter 2: An Array of Sequences
+
+This generates a list of tuples arranged by color, then size. Note how the resulting list is arranged as if the for loops were nested in the same order as they appear in the listcomp. To get items arranged by size, then color, just rearrange the for clauses; adding a line break to the listcomp makes it easy to see how the result will be ordered.
+In Example 1-1 (Chapter 1), the following expression was used to initialize a card deck with a list made of 52 cards from all 13 ranks of each of the 4 suits, grouped by suit:
+self._cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
+Listcomps are a one-trick pony: they build lists. To fill up other sequence types, a genexp is the way to go. The next section is a brief look at genexps in the context of building nonlist sequences.
+Generator Expressions
+To initialize tuples, arrays, and other types of sequences, you could also start from a listcomp, but a genexp saves memory because it yields items one by one using the iterator protocol instead of building a whole list just to feed another constructor. Genexps use the same syntax as listcomps, but are enclosed in parentheses rather than brackets. Example 2-5 shows basic usage of genexps to build a tuple and an array. Example 2-5. Initializing a tuple and an array from a generator expression
+>>> symbols = '$¢£¥€¤' >>> tuple(ord(symbol) for symbol in symbols) (36, 162, 163, 165, 8364, 164) >>> import array >>> array.array('I', (ord(symbol) for symbol in symbols)) array('I', [36, 162, 163, 165, 8364, 164])
+If the generator expression is the single argument in a function call, there is no need to duplicate the enclosing parentheses. The array constructor takes two arguments, so the parentheses around the generator expression are mandatory. The first argument of the array constructor defines the storage type used for the numbers in the array, as we’ll see in “Arrays” on page 48.
+Example 2-6 uses a genexp with a Cartesian product to print out a roster of T-shirts of two colors in three sizes. In contrast with Example 2-4, here the six-item list of T-shirts is never built in memory: the generator expression feeds the for loop producing one
+List Comprehensions and Generator Expressions | 25
+
+item at a time. If the two lists used in the Cartesian product had 1,000 items each, using a generator expression would save the expense of building a list with a million items just to feed the for loop. Example 2-6. Cartesian product in a generator expression
+>>> colors = ['black', 'white'] >>> sizes = ['S', 'M', 'L'] >>> for tshirt in ('%s %s' % (c, s) for c in colors for s in sizes): ... print(tshirt) ... black S black M black L white S white M white L
+The generator expression yields items one by one; a list with all six T-shirt variations is never produced in this example.
+Chapter 14 is devoted to explaining how generators work in detail. Here the idea was just to show the use of generator expressions to initialize sequences other than lists, or to produce output that you don’t need to keep in memory. Now we move on to the other fundamental sequence type in Python: the tuple.
+Tuples Are Not Just Immutable Lists
+Some introductory texts about Python present tuples as “immutable lists,” but that is short selling them. Tuples do double duty: they can be used as immutable lists and also as records with no field names. This use is sometimes overlooked, so we will start with that.
+Tuples as Records
+Tuples hold records: each item in the tuple holds the data for one field and the position of the item gives its meaning. If you think of a tuple just as an immutable list, the quantity and the order of the items may or may not be important, depending on the context. But when using a tuple as a collection of fields, the number of items is often fixed and their order is always vital. Example 2-7 shows tuples being used as records. Note that in every expression, sorting the tuple would destroy the information because the meaning of each data item is given by its position in the tuple.
+26 | Chapter 2: An Array of Sequences
+
+Example 2-7. Tuples used as records
+>>> lax_coordinates = (33.9425, -118.408056) >>> city, year, pop, chg, area = ('Tokyo', 2003, 32450, 0.66, 8014) >>> traveler_ids = [('USA', '31195855'), ('BRA', 'CE342567'), ... ('ESP', 'XDA205856')] >>> for passport in sorted(traveler_ids): ... print('%s/%s' % passport) ... BRA/CE342567 ESP/XDA205856 USA/31195855 >>> for country, _ in traveler_ids: ... print(country) ... USA BRA ESP
+Latitude and longitude of the Los Angeles International Airport. Data about Tokyo: name, year, population (millions), population change (%), area (km²). A list of tuples of the form (country_code, passport_number). As we iterate over the list, passport is bound to each tuple. The % formatting operator understands tuples and treats each item as a separate field. The for loop knows how to retrieve the items of a tuple separately—this is called “unpacking.” Here we are not interested in the second item, so it’s assigned to _, a dummy variable.
+Tuples work well as records because of the tuple unpacking mechanism—our next sub‐ ject.
+Tuple Unpacking
+In Example 2-7, we assigned ('Tokyo', 2003, 32450, 0.66, 8014) to city, year, pop, chg, area in a single statement. Then, in the last line, the % operator assigned each item in the passport tuple to one slot in the format string in the print argument. Those are two examples of tuple unpacking.
+Tuples Are Not Just Immutable Lists | 27
+
+Tuple unpacking works with any iterable object. The only require‐ ment is that the iterable yields exactly one item per variable in the receiving tuple, unless you use a star (*) to capture excess items as explained in “Using * to grab excess items” on page 29. The term tuple unpacking is widely used by Pythonistas, but iterable un‐ packing is gaining traction, as in the title of PEP 3132 — Exten‐ ded Iterable Unpacking.
+The most visible form of tuple unpacking is parallel assignment; that is, assigning items from an iterable to a tuple of variables, as you can see in this example:
+>>> lax_coordinates = (33.9425, -118.408056) >>> latitude, longitude = lax_coordinates # tuple unpacking >>> latitude 33.9425 >>> longitude -118.408056
+An elegant application of tuple unpacking is swapping the values of variables without using a temporary variable:
+>>> b, a = a, b
+Another example of tuple unpacking is prefixing an argument with a star when calling a function:
+>>> divmod(20, 8) (2, 4) >>> t = (20, 8) >>> divmod(*t) (2, 4) >>> quotient, remainder = divmod(*t) >>> quotient, remainder (2, 4)
+The preceding code also shows a further use of tuple unpacking: enabling functions to return multiple values in a way that is convenient to the caller. For example, the os.path.split() function builds a tuple (path, last_part) from a filesystem path:
+>>> import os >>> _, filename = os.path.split('/home/luciano/.ssh/idrsa.pub') >>> filename 'idrsa.pub'
+Sometimes when we only care about certain parts of a tuple when unpacking, a dummy variable like _ is used as placeholder, as in the preceding example.
+28 | Chapter 2: An Array of Sequences
+
+If you write internationalized software, _ is not a good dummy variable because it is traditionally used as an alias to the get text.gettext function, as recommended in the gettext module documentation. Otherwise, it’s a nice name for placeholder vari‐ able.
+Another way of focusing on just some of the items when unpacking a tuple is to use the *, as we’ll see right away.
+Using * to grab excess items
+Defining function parameters with *args to grab arbitrary excess arguments is a classic Python feature. In Python 3, this idea was extended to apply to parallel assignment as well:
+>>> a, b, *rest = range(5) >>> a, b, rest (0, 1, [2, 3, 4]) >>> a, b, *rest = range(3) >>> a, b, rest (0, 1, [2]) >>> a, b, *rest = range(2) >>> a, b, rest (0, 1, [])
+In the context of parallel assignment, the * prefix can be applied to exactly one variable, but it can appear in any position:
+>>> a, *body, c, d = range(5) >>> a, body, c, d (0, [1, 2], 3, 4) >>> *head, b, c, d = range(5) >>> head, b, c, d ([0, 1], 2, 3, 4)
+Finally, a powerful feature of tuple unpacking is that it works with nested structures.
+Nested Tuple Unpacking
+The tuple to receive an expression to unpack can have nested tuples, like (a, b, (c, d)), and Python will do the right thing if the expression matches the nesting structure. Example 2-8 shows nested tuple unpacking in action.
+Example 2-8. Unpacking nested tuples to access the longitude
+metro_areas = [ ('Tokyo', 'JP', 36.933, (35.689722, 139.691667)), # ('Delhi NCR', 'IN', 21.935, (28.613889, 77.208889)), ('Mexico City', 'MX', 20.142, (19.433333, -99.133333)),
+Tuples Are Not Just Immutable Lists | 29
+
+('New York-Newark', 'US', 20.104, (40.808611, -74.020386)), ('Sao Paulo', 'BR', 19.649, (-23.547778, -46.635833)), ]
+print('{:15} | {:^9} | {:^9}'.format('', 'lat.', 'long.')) fmt = '{:15} | {:9.4f} | {:9.4f}' for name, cc, pop, (latitude, longitude) in metro_areas: #
+if longitude <= 0: # print(fmt.format(name, latitude, longitude))
+Each tuple holds a record with four fields, the last of which is a coordinate pair. By assigning the last field to a tuple, we unpack the coordinates. if longitude <= 0: limits the output to metropolitan areas in the Western hemisphere.
+
+The output of Example 2-8 is:
+
+|
+
+Mexico City |
+
+New York-Newark |
+
+Sao Paulo
+
+|
+
+lat. | 19.4333 | 40.8086 | -23.5478 |
+
+long. -99.1333 -74.0204 -46.6358
+
+Before Python 3, it was possible to define functions with nested tuples in the formal parameters (e.g., def fn(a, (b, c), d):). This is no longer supported in Python 3 function definitions, for practical reasons explained in PEP 3113 — Removal of Tuple Pa‐ rameter Unpacking. To be clear: nothing changed from the per‐ spective of users calling a function. The restriction applies only to the definition of functions.
+
+As designed, tuples are very handy. But there is a missing feature when using them as records: sometimes it is desirable to name the fields. That is why the namedtuple func‐ tion was invented. Read on.
+Named Tuples
+The collections.namedtuple function is a factory that produces subclasses of tuple enhanced with field names and a class name—which helps debugging.
+Instances of a class that you build with namedtuple take exactly the same amount of memory as tuples because the field names are stored in the class. They use less memory than a regular object because they don’t store attributes in a per-instance __dict__.
+
+30 | Chapter 2: An Array of Sequences
+
+Recall how we built the Card class in Example 1-1 in Chapter 1:
+Card = collections.namedtuple('Card', ['rank', 'suit'])
+Example 2-9 shows how we could define a named tuple to hold information about a city.
+Example 2-9. Defining and using a named tuple type
+>>> from collections import namedtuple >>> City = namedtuple('City', 'name country population coordinates') >>> tokyo = City('Tokyo', 'JP', 36.933, (35.689722, 139.691667)) >>> tokyo City(name='Tokyo', country='JP', population=36.933, coordinates=(35.689722, 139.691667)) >>> tokyo.population 36.933 >>> tokyo.coordinates (35.689722, 139.691667) >>> tokyo[1] 'JP'
+Two parameters are required to create a named tuple: a class name and a list of field names, which can be given as an iterable of strings or as a single spacedelimited string. Data must be passed as positional arguments to the constructor (in contrast, the tuple constructor takes a single iterable). You can access the fields by name or position.
+A named tuple type has a few attributes in addition to those inherited from tuple. Example 2-10 shows the most useful: the _fields class attribute, the class method _make(iterable), and the _asdict() instance method.
+Example 2-10. Named tuple attributes and methods (continued from the previous ex‐ ample)
+>>> City._fields ('name', 'country', 'population', 'coordinates') >>> LatLong = namedtuple('LatLong', 'lat long') >>> delhi_data = ('Delhi NCR', 'IN', 21.935, LatLong(28.613889, 77.208889)) >>> delhi = City._make(delhi_data) >>> delhi._asdict() OrderedDict([('name', 'Delhi NCR'), ('country', 'IN'), ('population', 21.935), ('coordinates', LatLong(lat=28.613889, long=77.208889))]) >>> for key, value in delhi._asdict().items():
+print(key + ':', value)
+name: Delhi NCR country: IN population: 21.935
+Tuples Are Not Just Immutable Lists | 31
+
+coordinates: LatLong(lat=28.613889, long=77.208889) >>>
+_fields is a tuple with the field names of the class. _make() allow you to instantiate a named tuple from an iterable; City(*del hi_data) would do the same. _asdict() returns a collections.OrderedDict built from the named tuple instance. That can be used to produce a nice display of city data.
+
+Now that we’ve explored the power of tuples as records, we can consider their second role as an immutable variant of the list type.
+
+Tuples as Immutable Lists
+
+When using a tuple as an immutable variation of list, it helps to know how similar they actually are. As you can see in Table 2-1, tuple supports all list methods that do not involve adding or removing items, with one exception—tuple lacks the __re versed__ method. However, that is just for optimization; reversed(my_tuple) works without it.
+
+Table 2-1. Methods and attributes found in list or tuple (methods implemented by ob‐ ject are omitted for brevity)
+
+s.__add__(s2) s.__iadd__(s2) s.append(e) s.clear() s.__contains__(e) s.copy() s.count(e) s.__delitem__(p) s.extend(it) s.__getitem__(p) s.__getnewargs__() s.index(e) s.insert(p, e) s.__iter__() s.__len__() s.__mul__(n)
+
+list tuple
+
+● ● s + s2—concatenation
+
+●
+
+s += s2—in-place concatenation
+
+●
+
+Append one element after last
+
+●
+
+Delete all items
+
+● ● e in s
+
+●
+
+Shallow copy of the list
+
+● ● Count occurrences of an element
+
+●
+
+Remove item at position p
+
+●
+
+Append items from iterable it
+
+● ● s[p]—get item at position
+
+● Support for optimized serialization with pickle
+
+● ● Find position of first occurrence of e
+
+●
+
+Insert element e before the item at position p
+
+● ● Get iterator
+
+● ● len(s)—number of items
+
+● ● s * n—repeated concatenation
+
+32 | Chapter 2: An Array of Sequences
+
+list tuple
+
+s.__imul__(n)
+
+●
+
+s *= n—in-place repeated concatenation
+
+s.__rmul__(n)
+
+● ● n * s—reversed repeated concatenationa
+
+s.pop([p])
+
+●
+
+Remove and return last item or item at optional position p
+
+s.remove(e)
+
+●
+
+Remove first occurrence of element e by value
+
+s.reverse()
+
+●
+
+Reverse the order of the items in place
+
+s.__reversed__()
+
+●
+
+Get iterator to scan items from last to first
+
+s.__setitem__(p, e)
+
+●
+
+s[p] = e—put e in position p, overwriting existing item
+
+s.sort([key], [reverse]) ●
+
+Sort items in place with optional keyword arguments key and reverse
+
+a Reversed operators are explained in Chapter 13.
+
+Every Python programmer knows that sequences can be sliced using the s[a:b] syntax. We now turn to some less well-known facts about slicing.
+
+Slicing
+A common feature of list, tuple, str, and all sequence types in Python is the support of slicing operations, which are more powerful than most people realize. In this section, we describe the use of these advanced forms of slicing. Their imple‐ mentation in a user-defined class will be covered in Chapter 10, in keeping with our philosophy of covering ready-to-use classes in this part of the book, and creating new classes in Part IV.
+Why Slices and Range Exclude the Last Item
+The Pythonic convention of excluding the last item in slices and ranges works well with the zero-based indexing used in Python, C, and many other languages. Some convenient features of the convention are:
+• It’s easy to see the length of a slice or range when only the stop position is given: range(3) and my_list[:3] both produce three items.
+• It’s easy to compute the length of a slice or range when start and stop are given: just subtract stop - start.
+• It’s easy to split a sequence in two parts at any index x, without overlapping: simply get my_list[:x] and my_list[x:]. For example:
+
+>>> l = [10, 20, 30, 40, 50, 60] >>> l[:2] # split at 2 [10, 20] >>> l[2:] [30, 40, 50, 60]
+
+Slicing | 33
+
+>>> l[:3] # split at 3 [10, 20, 30] >>> l[3:] [40, 50, 60]
+But the best arguments for this convention were written by the Dutch computer scientist Edsger W. Dijkstra (see the last reference in “Further Reading” on page 59).
+Now let’s take a close look at how Python interprets slice notation.
+
+Slice Objects
+
+This is no secret, but worth repeating just in case: s[a:b:c] can be used to specify a stride or step c, causing the resulting slice to skip items. The stride can also be negative, returning items in reverse. Three examples make this clear:
+
+>>> s = 'bicycle' >>> s[::3] 'bye' >>> s[::-1] 'elcycib' >>> s[::-2] 'eccb'
+Another example was shown in Chapter 1 when we used deck[12::13] to get all the aces in the unshuffled deck:
+
+>>> deck[12::13] [Card(rank='A', suit='spades'), Card(rank='A', suit='diamonds'), Card(rank='A', suit='clubs'), Card(rank='A', suit='hearts')]
+The notation a:b:c is only valid within [] when used as the indexing or subscript operator, and it produces a slice object: slice(a, b, c). As we will see in “How Slicing Works” on page 281, to evaluate the expression seq[start:stop:step], Python calls seq.__getitem__(slice(start, stop, step)). Even if you are not implementing your own sequence types, knowing about slice objects is useful because it lets you assign names to slices, just like spreadsheets allow naming of cell ranges.
+Suppose you need to parse flat-file data like the invoice shown in Example 2-11. Instead of filling your code with hardcoded slices, you can name them. See how readable this makes the for loop at the end of the example.
+
+Example 2-11. Line items from a flat-file invoice
+
+>>> invoice = """
+
+... 0.....6.................................40........52...55........
+
+... 1909 Pimoroni PiBrella
+
+$17.50 3 $52.50
+
+... 1489 6mm Tactile Switch x20
+
+$4.95 2 $9.90
+
+... 1510 Panavise Jr. - PV-201
+
+$28.00 1 $28.00
+
+... 1601 PiTFT Mini Kit 320x240
+
+$34.95 1 $34.95
+
+... """
+
+34 | Chapter 2: An Array of Sequences
+
+>>> SKU = slice(0, 6) >>> DESCRIPTION = slice(6, 40) >>> UNIT_PRICE = slice(40, 52) >>> QUANTITY = slice(52, 55) >>> ITEM_TOTAL = slice(55, None) >>> line_items = invoice.split('\n')[2:] >>> for item in line_items: ... print(item[UNIT_PRICE], item[DESCRIPTION]) ...
+$17.50 Pimoroni PiBrella $4.95 6mm Tactile Switch x20 $28.00 Panavise Jr. - PV-201 $34.95 PiTFT Mini Kit 320x240
+We’ll come back to slice objects when we discuss creating your own collections in “Vector Take #2: A Sliceable Sequence” on page 280. Meanwhile, from a user perspective, slicing includes additional features such as multidimensional slices and ellipsis (...) notation. Read on.
+Multidimensional Slicing and Ellipsis
+The [] operator can also take multiple indexes or slices separated by commas. This is used, for instance, in the external NumPy package, where items of a two-dimensional numpy.ndarray can be fetched using the syntax a[i, j] and a two-dimensional slice obtained with an expression like a[m:n, k:l]. Example 2-22 later in this chapter shows the use of this notation. The __getitem__ and __setitem__ special methods that handle the [] operator simply receive the indices in a[i, j] as a tuple. In other words, to evaluate a[i, j], Python calls a.__getitem__((i, j)).
+The built-in sequence types in Python are one-dimensional, so they support only one index or slice, and not a tuple of them.
+The ellipsis—written with three full stops (...) and not … (Unicode U+2026)—is rec‐ ognized as a token by the Python parser. It is an alias to the Ellipsis object, the single instance of the ellipsis class.2 As such, it can be passed as an argument to functions and as part of a slice specification, as in f(a, ..., z) or a[i:...]. NumPy uses ... as a shortcut when slicing arrays of many dimensions; for example, if x is a fourdimensional array, x[i, ...] is a shortcut for x[i, :, :, :,]. See the Tentative NumPy Tutorial to learn more about this.
+At the time of this writing, I am unaware of uses of Ellipsis or multidimensional indexes and slices in the Python standard library. If you spot one, let me know. These syntactic features exist to support user-defined types and extensions such as NumPy.
+2. No, I did not get this backwards: the ellipsis class name is really all lowercase and the instance is a builtin named Ellipsis, just like bool is lowercase but its instances are True and False.
+Slicing | 35
+
+Slices are not just useful to extract information from sequences; they can also be used to change mutable sequences in place—that is, without rebuilding them from scratch.
+Assigning to Slices
+Mutable sequences can be grafted, excised, and otherwise modified in place using slice notation on the left side of an assignment statement or as the target of a del statement. The next few examples give an idea of the power of this notation:
+>>> l = list(range(10)) >>> l [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] >>> l[2:5] = [20, 30] >>> l [0, 1, 20, 30, 5, 6, 7, 8, 9] >>> del l[5:7] >>> l [0, 1, 20, 30, 5, 8, 9] >>> l[3::2] = [11, 22] >>> l [0, 1, 20, 11, 5, 22, 9] >>> l[2:5] = 100 Traceback (most recent call last):
+File "<stdin>", line 1, in <module> TypeError: can only assign an iterable >>> l[2:5] = [100] >>> l [0, 1, 100, 22, 9]
+When the target of the assignment is a slice, the right side must be an iterable object, even if it has just one item.
+Everybody knows that concatenation is a common operation with sequences of any type. Any introductory Python text explains the use of + and * for that purpose, but there are some subtle details on how they work, which we cover next.
+Using + and * with Sequences
+Python programmers expect that sequences support + and *. Usually both operands of + must be of the same sequence type, and neither of them is modified but a new sequence of the same type is created as result of the concatenation. To concatenate multiple copies of the same sequence, multiply it by an integer. Again, a new sequence is created:
+>>> l = [1, 2, 3] >>> l * 5 [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+36 | Chapter 2: An Array of Sequences
+
+>>> 5 * 'abcd' 'abcdabcdabcdabcdabcd'
+Both + and * always create a new object, and never change their operands.
+Beware of expressions like a * n when a is a sequence contain‐ ing mutable items because the result may surprise you. For exam‐ ple, trying to initialize a list of lists as my_list = [[]] * 3 will result in a list with three references to the same inner list, which is probably not what you want.
+The next section covers the pitfalls of trying to use * to initialize a list of lists.
+Building Lists of Lists
+Sometimes we need to initialize a list with a certain number of nested lists—for example, to distribute students in a list of teams or to represent squares on a game board. The best way of doing so is with a list comprehension, as in Example 2-12. Example 2-12. A list with three lists of length 3 can represent a tic-tac-toe board
+>>> board = [['_'] * 3 for i in range(3)] >>> board [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']] >>> board[1][2] = 'X' >>> board [['_', '_', '_'], ['_', '_', 'X'], ['_', '_', '_']]
+Create a list of three lists of three items each. Inspect the structure. Place a mark in row 1, column 2, and check the result.
+A tempting but wrong shortcut is doing it like Example 2-13. Example 2-13. A list with three references to the same list is useless
+>>> weird_board = [['_'] * 3] * 3 >>> weird_board [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']] >>> weird_board[1][2] = 'O' >>> weird_board [['_', '_', 'O'], ['_', '_', 'O'], ['_', '_', 'O']]
+The outer list is made of three references to the same inner list. While it is unchanged, all seems right. Placing a mark in row 1, column 2, reveals that all rows are aliases referring to the same object.
+Using + and * with Sequences | 37
+
+The problem with Example 2-13 is that, in essence, it behaves like this code:
+row = ['_'] * 3 board = [] for i in range(3):
+board.append(row)
+The same row is appended three times to board.
+On the other hand, the list comprehension from Example 2-12 is equivalent to this code:
+>>> board = [] >>> for i in range(3): ... row = ['_'] * 3 # ... board.append(row) ... >>> board [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']] >>> board[2][0] = 'X' >>> board # [['_', '_', '_'], ['_', '_', '_'], ['X', '_', '_']]
+Each iteration builds a new row and appends it to board. Only row 2 is changed, as expected.
+If either the problem or the solution in this section are not clear to you, relax. Chapter 8 was written to clarify the mechanics and pitfalls of references and mutable objects.
+So far we have discussed the use of the plain + and * operators with sequences, but there are also the += and *= operators, which produce very different results depending on the mutability of the target sequence. The following section explains how that works.
+Augmented Assignment with Sequences
+The augmented assignment operators += and *= behave very differently depending on the first operand. To simplify the discussion, we will focus on augmented addition first (+=), but the concepts also apply to *= and to other augmented assignment operators. The special method that makes += work is __iadd__ (for “in-place addition”). However, if __iadd__ is not implemented, Python falls back to calling __add__. Consider this simple expression:
+>>> a += b
+38 | Chapter 2: An Array of Sequences
+
+If a implements __iadd__, that will be called. In the case of mutable sequences (e.g., list, bytearray, array.array), a will be changed in place (i.e., the effect will be similar to a.extend(b)). However, when a does not implement __iadd__, the expression a += b has the same effect as a = a + b: the expression a + b is evaluated first, producing a new object, which is then bound to a. In other words, the identity of the object bound to a may or may not change, depending on the availability of __iadd__.
+In general, for mutable sequences, it is a good bet that __iadd__ is implemented and that += happens in place. For immutable sequences, clearly there is no way for that to happen.
+What I just wrote about += also applies to *=, which is implemented via __imul__. The __iadd__ and __imul__ special methods are discussed in Chapter 13.
+Here is a demonstration of *= with a mutable sequence and then an immutable one:
+>>> l = [1, 2, 3] >>> id(l) 4311953800 >>> l *= 2 >>> l [1, 2, 3, 1, 2, 3] >>> id(l) 4311953800 >>> t = (1, 2, 3) >>> id(t) 4312681568 >>> t *= 2 >>> id(t) 4301348296
+ID of the initial list After multiplication, the list is the same object, with new items appended ID of the initial tuple After multiplication, a new tuple was created
+Repeated concatenation of immutable sequences is inefficient, because instead of just appending new items, the interpreter has to copy the whole target sequence to create a new one with the new items concatenated.3
+We’ve seen common use cases for +=. The next section shows an intriguing corner case that highlights what “immutable” really means in the context of tuples.
+3. str is an exception to this description. Because string building with += in loops is so common in the wild, CPython is optimized for this use case. str instances are allocated in memory with room to spare, so that concatenation does not require copying the whole string every time.
+Augmented Assignment with Sequences | 39
+
+A += Assignment Puzzler
+Try to answer without using the console: what is the result of evaluating the two ex‐ pressions in Example 2-14?4 Example 2-14. A riddle
+>>> t = (1, 2, [30, 40]) >>> t[2] += [50, 60]
+What happens next? Choose the best answer: a. t becomes (1, 2, [30, 40, 50, 60]). b. TypeError is raised with the message 'tuple' object does not support item assignment. c. Neither. d. Both a and b.
+When I saw this, I was pretty sure the answer was b, but it’s actually d, “Both a and b.”! Example 2-15 is the actual output from a Python 3.4 console (actually the result is the same in a Python 2.7 console).5 Example 2-15. The unexpected result: item t2 is changed and an exception is raised
+>>> t = (1, 2, [30, 40]) >>> t[2] += [50, 60] Traceback (most recent call last):
+File "<stdin>", line 1, in <module> TypeError: 'tuple' object does not support item assignment >>> t (1, 2, [30, 40, 50, 60])
+Online Python Tutor is an awesome online tool to visualize how Python works in detail. Figure 2-3 is a composite of two screenshots showing the initial and final states of the tuple t from Example 2-15.
+4. Thanks to Leonardo Rochael and Cesar Kawakami for sharing this riddle at the 2013 PythonBrasil Confer‐ ence.
+5. A reader suggested that the operation in the example can be performed with t[2].extend([50,60]), without errors. We’re aware of that, but the intent of the example is to discuss the odd behavior of the += operator.
+40 | Chapter 2: An Array of Sequences
+
+Figure 2-3. Initial and final state of the tuple assignment puzzler (diagram generated by Online Python Tutor)
+
+If you look at the bytecode Python generates for the expression s[a] += b (Example 2-16), it becomes clear how that happens.
+
+Example 2-16. Bytecode for the expression s[a] += b
+
+>>> dis.dis('s[a] += b')
+
+1
+
+0 LOAD_NAME
+
+3 LOAD_NAME
+
+6 DUP_TOP_TWO
+
+7 BINARY_SUBSCR
+
+8 LOAD_NAME
+
+11 INPLACE_ADD
+
+12 ROT_THREE
+
+13 STORE_SUBSCR
+
+14 LOAD_CONST
+
+17 RETURN_VALUE
+
+0 (s) 1 (a) 2 (b)
+0 (None)
+
+Put the value of s[a] on TOS (Top Of Stack). Perform TOS += b. This succeeds if TOS refers to a mutable object (it’s a list, in Example 2-15). Assign s[a] = TOS. This fails if s is immutable (the t tuple in Example 2-15).
+
+This example is quite a corner case—in 15 years of using Python, I have never seen this strange behavior actually bite somebody. I take three lessons from this:
+• Putting mutable items in tuples is not a good idea.
+
+Augmented Assignment with Sequences | 41
+
+• Augmented assignment is not an atomic operation—we just saw it throwing an exception after doing part of its job.
+• Inspecting Python bytecode is not too difficult, and is often helpful to see what is going on under the hood.
+After witnessing the subtleties of using + and * for concatenation, we can change the subject to another essential operation with sequences: sorting.
+list.sort and the sorted Built-In Function
+The list.sort method sorts a list in place—that is, without making a copy. It returns None to remind us that it changes the target object, and does not create a new list. This is an important Python API convention: functions or methods that change an object in place should return None to make it clear to the caller that the object itself was changed, and no new object was created. The same behavior can be seen, for example, in the random.shuffle function.
+The convention of returning None to signal in-place changes has a drawback: you cannot cascade calls to those methods. In con‐ trast, methods that return new objects (e.g., all str methods) can be cascaded in the fluent interface style. See Wikipedia’s Wikipe‐ dia’s “Fluent interface” entry for further description of this topic.
+In contrast, the built-in function sorted creates a new list and returns it. In fact, it accepts any iterable object as an argument, including immutable sequences and gener‐ ators (see Chapter 14). Regardless of the type of iterable given to sorted, it always returns a newly created list. Both list.sort and sorted take two optional, keyword-only arguments: reverse
+If True, the items are returned in descending order (i.e., by reversing the comparison of the items). The default is False. key A one-argument function that will be applied to each item to produce its sorting key. For example, when sorting a list of strings, key=str.lower can be used to perform a case-insensitive sort, and key=len will sort the strings by character length. The default is the identity function (i.e., the items themselves are compared).
+42 | Chapter 2: An Array of Sequences
+
+The key optional keyword parameter can also be used with the min() and max() built-ins and with other functions from the stan‐ dard library (e.g., itertools.groupby() and heapq.nlargest()).
+Here are a few examples to clarify the use of these functions and keyword arguments6:
+>>> fruits = ['grape', 'raspberry', 'apple', 'banana'] >>> sorted(fruits) ['apple', 'banana', 'grape', 'raspberry'] >>> fruits ['grape', 'raspberry', 'apple', 'banana'] >>> sorted(fruits, reverse=True) ['raspberry', 'grape', 'banana', 'apple'] >>> sorted(fruits, key=len) ['grape', 'apple', 'banana', 'raspberry'] >>> sorted(fruits, key=len, reverse=True) ['raspberry', 'banana', 'grape', 'apple'] >>> fruits ['grape', 'raspberry', 'apple', 'banana'] >>> fruits.sort() >>> fruits ['apple', 'banana', 'grape', 'raspberry']
+This produces a new list of strings sorted alphabetically. Inspecting the original list, we see it is unchanged. This is simply reverse alphabetical ordering. A new list of strings, now sorted by length. Because the sorting algorithm is stable, “grape” and “apple,” both of length 5, are in the original order. These are the strings sorted in descending order of length. It is not the reverse of the previous result because the sorting is stable, so again “grape” appears before “apple.” So far, the ordering of the original fruits list has not changed. This sorts the list in place, and returns None (which the console omits). Now fruits is sorted.
+Once your sequences are sorted, they can be very efficiently searched. Fortunately, the standard binary search algorithm is already provided in the bisect module of the Python standard library. We discuss its essential features next, including the convenient
+6. The examples also demonstrate that Timsort—the sorting algorithm used in Python—is stable (i.e., it pre‐ serves the relative ordering of items that compare equal). Timsort is discussed further in the “Soapbox” sidebar at the end of this chapter.
+list.sort and the sorted Built-In Function | 43
+
+bisect.insort function, which you can use to make sure that your sorted sequences stay sorted.
+Managing Ordered Sequences with bisect
+The bisect module offers two main functions—bisect and insort—that use the bi‐ nary search algorithm to quickly find and insert items in any sorted sequence.
+Searching with bisect
+bisect(haystack, needle) does a binary search for needle in haystack—which must be a sorted sequence—to locate the position where needle can be inserted while main‐ taining haystack in ascending order. In other words, all items appearing up to that position are less than or equal to needle. You could use the result of bisect(haystack, needle) as the index argument to haystack.insert(index, needle)—however, using insort does both steps, and is faster.
+Raymond Hettinger—a prolific Python contributor—has a Sorted Collection recipe that leverages the bisect module but is easier to use than these standalone functions.
+Example 2-17 uses a carefully chosen set of “needles” to demonstrate the insert positions returned by bisect. Its output is in Figure 2-4. Example 2-17. bisect finds insertion points for items in a sorted sequence
+import bisect import sys
+HAYSTACK = [1, 4, 5, 6, 8, 12, 15, 20, 21, 23, 23, 26, 29, 30] NEEDLES = [0, 1, 2, 5, 8, 10, 22, 23, 29, 30, 31]
+ROW_FMT = '{0:2d} @ {1:2d} {2}{0:<2d}'
+def demo(bisect_fn): for needle in reversed(NEEDLES): position = bisect_fn(HAYSTACK, needle) offset = position * ' |' print(ROW_FMT.format(needle, position, offset))
+if __name__ == '__main__':
+if sys.argv[-1] == 'left': bisect_fn = bisect.bisect_left
+else:
+44 | Chapter 2: An Array of Sequences
+
+bisect_fn = bisect.bisect print('DEMO:', bisect_fn.__name__) print('haystack ->', ' '.join('%2d' % n for n in HAYSTACK)) demo(bisect_fn)
+Use the chosen bisect function to get the insertion point. Build a pattern of vertical bars proportional to the offset. Print formatted row showing needle and insertion point. Choose the bisect function to use according to the last command-line argument. Print header with name of function selected.
+Figure 2-4. Output of Example 2-17 with bisect in use—each row starts with the nota‐ tion needle @ position and the needle value appears again below its insertion point in the haystack The behavior of bisect can be fine-tuned in two ways. First, a pair of optional arguments, lo and hi, allow narrowing the region in the sequence to be searched when inserting. lo defaults to 0 and hi to the len() of the sequence. Second, bisect is actually an alias for bisect_right, and there is a sister function called bisect_left. Their difference is apparent only when the needle compares equal to an item in the list: bisect_right returns an insertion point after the existing item, and bisect_left returns the position of the existing item, so insertion would occur before
+Managing Ordered Sequences with bisect | 45
+
+it. With simple types like int this makes no difference, but if the sequence contains objects that are distinct yet compare equal, then it may be relevant. For example, 1 and 1.0 are distinct, but 1 == 1.0 is True. Figure 2-5 shows the result of using bisect_left.
+Figure 2-5. Output of Example 2-17 with bisect_left in use (compare with Figure 2-4 and note the insertion points for the values 1, 8, 23, 29, and 30 to the left of the same numbers in the haystack). An interesting application of bisect is to perform table lookups by numeric values— for example, to convert test scores to letter grades, as in Example 2-18. Example 2-18. Given a test score, grade returns the corresponding letter grade
+>>> def grade(score, breakpoints=[60, 70, 80, 90], grades='FDCBA'): ... i = bisect.bisect(breakpoints, score) ... return grades[i] ... >>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]] ['F', 'A', 'C', 'C', 'B', 'A', 'A']
+The code in Example 2-18 is from the bisect module documentation, which also lists functions to use bisect as a faster replacement for the index method when searching through long ordered sequences of numbers. These functions are not only used for searching, but also for inserting items in sorted sequences, as the following section shows.
+46 | Chapter 2: An Array of Sequences
+
+Inserting with bisect.insort
+Sorting is expensive, so once you have a sorted sequence, it’s good to keep it that way. That is why bisect.insort was created. insort(seq, item) inserts item into seq so as to keep seq in ascending order. See Example 2-19 and its output in Figure 2-6. Example 2-19. Insort keeps a sorted sequence always sorted
+import bisect import random SIZE = 7 random.seed(1729) my_list = [] for i in range(SIZE):
+new_item = random.randrange(SIZE*2) bisect.insort(my_list, new_item) print('%2d ->' % new_item, my_list)
+Figure 2-6. Output of Example 2-19 Like bisect, insort takes optional lo, hi arguments to limit the search to a subsequence. There is also an insort_left variation that uses bisect_left to find inser‐ tion points. Much of what we have seen so far in this chapter applies to sequences in general, not just lists or tuples. Python programmers sometimes overuse the list type because it is so handy—I know I’ve done it. If you are handling lists of numbers, arrays are the way to go. The remainder of the chapter is devoted to them.
+Managing Ordered Sequences with bisect | 47
+
+When a List Is Not the Answer
+The list type is flexible and easy to use, but depending on specific requirements, there are better options. For example, if you need to store 10 million floating-point values, an array is much more efficient, because an array does not actually hold full-fledged float objects, but only the packed bytes representing their machine values—just like an array in the C language. On the other hand, if you are constantly adding and removing items from the ends of a list as a FIFO or LIFO data structure, a deque (double-ended queue) works faster.
+If your code does a lot of containment checks (e.g., item in my_collection), consider using a set for my_collection, espe‐ cially if it holds a large number of items. Sets are optimized for fast membership checking. But they are not sequences (their content is unordered). We cover them in Chapter 3.
+For the remainder of this chapter, we discuss mutable sequence types that can replace lists in many cases, starting with arrays.
+Arrays
+If the list will only contain numbers, an array.array is more efficient than a list: it supports all mutable sequence operations (including .pop, .insert, and .extend), and additional methods for fast loading and saving such as .frombytes and .tofile. A Python array is as lean as a C array. When creating an array, you provide a typecode, a letter to determine the underlying C type used to store each item in the array. For example, b is the typecode for signed char. If you create an array('b'), then each item will be stored in a single byte and interpreted as an integer from –128 to 127. For large sequences of numbers, this saves a lot of memory. And Python will not let you put any number that does not match the type for the array. Example 2-20 shows creating, saving, and loading an array of 10 million floating-point random numbers.
+Example 2-20. Creating, saving, and loading a large array of floats
+>>> from array import array >>> from random import random >>> floats = array('d', (random() for i in range(10**7))) >>> floats[-1] 0.07802343889111107 >>> fp = open('floats.bin', 'wb') >>> floats.tofile(fp) >>> fp.close() >>> floats2 = array('d')
+48 | Chapter 2: An Array of Sequences
+
+>>> fp = open('floats.bin', 'rb') >>> floats2.fromfile(fp, 10**7) >>> fp.close() >>> floats2[-1] 0.07802343889111107 >>> floats2 == floats True
+Import the array type. Create an array of double-precision floats (typecode 'd') from any iterable object—in this case, a generator expression. Inspect the last number in the array. Save the array to a binary file. Create an empty array of doubles. Read 10 million numbers from the binary file. Inspect the last number in the array. Verify that the contents of the arrays match.
+As you can see, array.tofile and array.fromfile are easy to use. If you try the ex‐ ample, you’ll notice they are also very fast. A quick experiment show that it takes about 0.1s for array.fromfile to load 10 million double-precision floats from a binary file created with array.tofile. That is nearly 60 times faster than reading the numbers from a text file, which also involves parsing each line with the float built-in. Saving with array.tofile is about 7 times faster than writing one float per line in a text file. In addition, the size of the binary file with 10 million doubles is 80,000,000 bytes (8 bytes per double, zero overhead), while the text file has 181,515,739 bytes, for the same data.
+Another fast and more flexible way of saving numeric data is the pickle module for object serialization. Saving an array of floats with pickle.dump is almost as fast as with array.tofile—how‐ ever, pickle handles almost all built-in types, including complex numbers, nested collections, and even instances of user-defined classes automatically (if they are not too tricky in their implemen‐ tation).
+For the specific case of numeric arrays representing binary data, such as raster images, Python has the bytes and bytearray types discussed in Chapter 4.
+We wrap up this section on arrays with Table 2-2, comparing the features of list and array.array.
+When a List Is Not the Answer | 49
+
+Table 2-2. Methods and attributes found in list or array (deprecated array methods and those also implemented by object were omitted for brevity)
+
+list array
+
+s.__add__(s2)
+
+● ● s + s2—concatenation
+
+s.__iadd__(s2)
+
+● ● s += s2—in-place concatenation
+
+s.append(e)
+
+● ● Append one element after last
+
+s.byteswap()
+
+● Swap bytes of all items in array for endianess conversion
+
+s.clear()
+
+●
+
+Delete all items
+
+s.__contains__(e)
+
+● ● e in s
+
+s.copy()
+
+●
+
+Shallow copy of the list
+
+s.__copy__()
+
+● Support for copy.copy
+
+s.count(e)
+
+● ● Count occurrences of an element
+
+s.__deepcopy__()
+
+● Optimized support for copy.deepcopy
+
+s.__delitem__(p)
+
+● ● Remove item at position p
+
+s.extend(it)
+
+● ● Append items from iterable it
+
+s.frombytes(b)
+
+● Append items from byte sequence interpreted as packed machine values
+
+s.fromfile(f, n)
+
+● Append n items from binary file f interpreted as packed machine values
+
+s.fromlist(l)
+
+● Append items from list; if one causes TypeError, none are appended
+
+s.__getitem__(p)
+
+● ● s[p]—get item at position
+
+s.index(e)
+
+● ● Find position of first occurrence of e
+
+s.insert(p, e)
+
+● ● Insert element e before the item at position p
+
+s.itemsize
+
+● Length in bytes of each array item
+
+s.__iter__()
+
+● ● Get iterator
+
+s.__len__()
+
+● ● len(s)—number of items
+
+s.__mul__(n)
+
+● ● s * n—repeated concatenation
+
+s.__imul__(n)
+
+● ● s *= n—in-place repeated concatenation
+
+s.__rmul__(n)
+
+● ● n * s—reversed repeated concatenationa
+
+s.pop([p])
+
+● ● Remove and return item at position p (default: last)
+
+s.remove(e)
+
+● ● Remove first occurrence of element e by value
+
+s.reverse()
+
+● ● Reverse the order of the items in place
+
+s.__reversed__()
+
+●
+
+Get iterator to scan items from last to first
+
+s.__setitem__(p, e)
+
+● ● s[p] = e—put e in position p, overwriting existing item
+
+s.sort([key], [reverse]) ●
+
+Sort items in place with optional keyword arguments key and reverse
+
+s.tobytes()
+
+● Return items as packed machine values in a bytes object
+
+s.tofile(f)
+
+● Save items as packed machine values to binary file f
+
+s.tolist()
+
+● Return items as numeric objects in a list
+
+50 | Chapter 2: An Array of Sequences
+
+list array
+
+s.typecode
+
+● One-character string identifying the C type of the items
+
+a Reversed operators are explained in Chapter 13.
+
+As of Python 3.4, the array type does not have an in-place sort method like list.sort(). If you need to sort an array, use the sorted function to rebuild it sorted:
+a = array.array(a.typecode, sorted(a))
+To keep a sorted array sorted while adding items to it, use the bisect.insort function (as seen in “Inserting with bisect.insort” on page 47).
+
+If you do a lot of work with arrays and don’t know about memoryview, you’re missing out. See the next topic.
+Memory Views
+The built-in memorview class is a shared-memory sequence type that lets you handle slices of arrays without copying bytes. It was inspired by the NumPy library (which we’ll discuss shortly in “NumPy and SciPy” on page 52). Travis Oliphant, lead author of Num‐ Py, answers When should a memoryview be used? like this:
+A memoryview is essentially a generalized NumPy array structure in Python itself (without the math). It allows you to share memory between data-structures (things like PIL images, SQLlite databases, NumPy arrays, etc.) without first copying. This is very important for large data sets.
+Using notation similar to the array module, the memoryview.cast method lets you change the way multiple bytes are read or written as units without moving bits around (just like the C cast operator). memoryview.cast returns yet another memoryview object, always sharing the same memory.
+See Example 2-21 for an example of changing a single byte of an array of 16-bit integers.
+Example 2-21. Changing the value of an array item by poking one of its bytes
+>>> numbers = array.array('h', [-2, -1, 0, 1, 2]) >>> memv = memoryview(numbers) >>> len(memv) 5 >>> memv[0] -2 >>> memv_oct = memv.cast('B') >>> memv_oct.tolist() [254, 255, 255, 255, 0, 0, 1, 0, 2, 0] >>> memv_oct[5] = 4
+
+When a List Is Not the Answer | 51
+
+>>> numbers array('h', [-2, -1, 1024, 1, 2])
+Build memoryview from array of 5 short signed integers (typecode 'h'). memv sees the same 5 items in the array. Create memv_oct by casting the elements of memv to typecode 'B' (unsigned char). Export elements of memv_oct as a list, for inspection. Assign value 4 to byte offset 5. Note change to numbers: a 4 in the most significant byte of a 2-byte unsigned integer is 1024.
+We’ll see another short example with memoryview in the context of binary sequence manipulations with struct (Chapter 4, Example 4-4). Meanwhile, if you are doing advanced numeric processing in arrays, you should be using the NumPy and SciPy libraries. We’ll take a brief look at them right away.
+NumPy and SciPy
+Throughout this book, I make a point of highlighting what is already in the Python standard library so you can make the most of it. But NumPy and SciPy are so awesome that a detour is warranted. For advanced array and matrix operations, NumPy and SciPy are the reason why Python became mainstream in scientific computing applications. NumPy implements multidimensional, homogeneous arrays and matrix types that hold not only numbers but also user-defined records, and provides efficient elementwise operations. SciPy is a library, written on top of NumPy, offering many scientific computing algo‐ rithms from linear algebra, numerical calculus, and statistics. SciPy is fast and reliable because it leverages the widely used C and Fortran code base from the Netlib Reposi‐ tory. In other words, SciPy gives scientists the best of both worlds: an interactive prompt and high-level Python APIs, together with industrial-strength number-crunching func‐ tions optimized in C and Fortran. As a very brief demo, Example 2-22 shows some basic operations with two-dimensional arrays in NumPy. Example 2-22. Basic operations with rows and columns in a numpy.ndarray
+>>> import numpy >>> a = numpy.arange(12) >>> a array([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+52 | Chapter 2: An Array of Sequences
+
+>>> type(a) <class 'numpy.ndarray'> >>> a.shape (12,) >>> a.shape = 3, 4 >>> a array([[ 0, 1, 2, 3],
+[ 4, 5, 6, 7], [ 8, 9, 10, 11]]) >>> a[2] array([ 8, 9, 10, 11]) >>> a[2, 1] 9 >>> a[:, 1] array([1, 5, 9]) >>> a.transpose() array([[ 0, 4, 8], [ 1, 5, 9], [ 2, 6, 10], [ 3, 7, 11]])
+Import Numpy, after installing (it’s not in the Python standard library). Build and inspect a numpy.ndarray with integers 0 to 11. Inspect the dimensions of the array: this is a one-dimensional, 12-element array. Change the shape of the array, adding one dimension, then inspecting the result. Get row at index 2. Get element at index 2, 1. Get column at index 1. Create a new array by transposing (swapping columns with rows).
+NumPy also supports high-level operations for loading, saving, and operating on all elements of a numpy.ndarray:
+>>> import numpy >>> floats = numpy.loadtxt('floats-10M-lines.txt') >>> floats[-3:] array([ 3016362.69195522, 535281.10514262, 4566560.44373946]) >>> floats *= .5 >>> floats[-3:] array([ 1508181.34597761, 267640.55257131, 2283280.22186973]) >>> from time import perf_counter as pc >>> t0 = pc(); floats /= 3; pc() - t0 0.03690556302899495 >>> numpy.save('floats-10M', floats) >>> floats2 = numpy.load('floats-10M.npy', 'r+') >>> floats2 *= 6
+When a List Is Not the Answer | 53
+
+>>> floats2[-3:] memmap([ 3016362.69195522, 535281.10514262, 4566560.44373946])
+Load 10 million floating-point numbers from a text file. Use sequence slicing notation to inspect the last three numbers. Multiply every element in the floats array by .5 and inspect the last three elements again. Import the high-resolution performance measurement timer (available since Python 3.3). Divide every element by 3; the elapsed time for 10 million floats is less than 40 milliseconds. Save the array in a .npy binary file. Load the data as a memory-mapped file into another array; this allows efficient processing of slices of the array even if it does not fit entirely in memory. Inspect the last three elements after multiplying every element by 6.
+Installing NumPy and SciPy from source is not a breeze. The In‐ stalling the SciPy Stack page on SciPy.org recommends using spe‐ cial scientific Python distributions such as Anaconda, Enthought Canopy, and WinPython, among others. These are large down‐ loads, but come ready to use. Users of popular GNU/Linux distri‐ butions can usually find NumPy and SciPy in the standard pack‐ age repositories. For example, installing them on Debian or Ubun‐ tu is as easy as:
+$ sudo apt-get install python-numpy python-scipy
+This was just an appetizer. NumPy and SciPy are formidable libraries, and are the foun‐ dation of other awesome tools such as the Pandas and Blaze data analysis libraries, which provide efficient array types that can hold nonnumeric data as well as import/export functions compatible with many different formats (e.g., .csv, .xls, SQL dumps, HDF5, etc.). These packages deserve entire books about them. This is not one of those books. But no overview of Python sequences would be complete without at least a quick look at NumPy arrays. Having looked at flat sequences—standard arrays and NumPy arrays—we now turn to a completely different set of replacements for the plain old list: queues.
+54 | Chapter 2: An Array of Sequences
+
+Deques and Other Queues
+The .append and .pop methods make a list usable as a stack or a queue (if you use .append and .pop(0), you get LIFO behavior). But inserting and removing from the left of a list (the 0-index end) is costly because the entire list must be shifted.
+The class collections.deque is a thread-safe double-ended queue designed for fast inserting and removing from both ends. It is also the way to go if you need to keep a list of “last seen items” or something like that, because a deque can be bounded—i.e., created with a maximum length—and then, when it is full, it discards items from the opposite end when you append new ones. Example 2-23 shows some typical operations per‐ formed on a deque.
+Example 2-23. Working with a deque
+>>> from collections import deque >>> dq = deque(range(10), maxlen=10) >>> dq deque([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], maxlen=10) >>> dq.rotate(3) >>> dq deque([7, 8, 9, 0, 1, 2, 3, 4, 5, 6], maxlen=10) >>> dq.rotate(-4) >>> dq deque([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], maxlen=10) >>> dq.appendleft(-1) >>> dq deque([-1, 1, 2, 3, 4, 5, 6, 7, 8, 9], maxlen=10) >>> dq.extend([11, 22, 33]) >>> dq deque([3, 4, 5, 6, 7, 8, 9, 11, 22, 33], maxlen=10) >>> dq.extendleft([10, 20, 30, 40]) >>> dq deque([40, 30, 20, 10, 3, 4, 5, 6, 7, 8], maxlen=10)
+The optional maxlen argument sets the maximum number of items allowed in this instance of deque; this sets a read-only maxlen instance attribute. Rotating with n > 0 takes items from the right end and prepends them to the left; when n < 0 items are taken from left and appended to the right. Appending to a deque that is full (len(d) == d.maxlen) discards items from the other end; note in the next line that the 0 is dropped. Adding three items to the right pushes out the leftmost -1, 1, and 2. Note that extendleft(iter) works by appending each successive item of the iter argument to the left of the deque, therefore the final position of the items is reversed.
+When a List Is Not the Answer | 55
+
+Table 2-3 compares the methods that are specific to list and deque (removing those that also appear in object).
+
+Note that deque implements most of the list methods, and adds a few specific to its design, like popleft and rotate. But there is a hidden cost: removing items from the middle of a deque is not as fast. It is really optimized for appending and popping from the ends.
+
+The append and popleft operations are atomic, so deque is safe to use as a LIFO queue in multithreaded applications without the need for using locks.
+
+Table 2-3. Methods implemented in list or deque (those that are also implemented by object were omitted for brevity)
+
+s.__add__(s2) s.__iadd__(s2) s.append(e) s.appendleft(e) s.clear() s.__contains__(e) s.copy() s.__copy__() s.count(e) s.__delitem__(p) s.extend(i) s.extendleft(i) s.__getitem__(p) s.index(e) s.insert(p, e) s.__iter__() s.__len__() s.__mul__(n) s.__imul__(n) s.__rmul__(n) s.pop() s.popleft() s.remove(e) s.reverse() s.__reversed__()
+
+list deque
+
+●
+
+s + s2—concatenation
+
+● ● s += s2—in-place concatenation
+
+● ● Append one element to the right (after last)
+
+● Append one element to the left (before first)
+
+● ● Delete all items
+
+●
+
+e in s
+
+●
+
+Shallow copy of the list
+
+● Support for copy.copy (shallow copy)
+
+● ● Count occurrences of an element
+
+● ● Remove item at position p
+
+● ● Append items from iterable i to the right
+
+● Append items from iterable i to the left
+
+● ● s[p]—get item at position
+
+●
+
+Find position of first occurrence of e
+
+●
+
+Insert element e before the item at position p
+
+● ● Get iterator
+
+● ● len(s)—number of items
+
+●
+
+s * n—repeated concatenation
+
+●
+
+s *= n—in-place repeated concatenation
+
+●
+
+n * s—reversed repeated concatenationa
+
+● ● Remove and return last itemb
+
+● Remove and return first item
+
+● ● Remove first occurrence of element e by value
+
+● ● Reverse the order of the items in place
+
+● ● Get iterator to scan items from last to first
+
+56 | Chapter 2: An Array of Sequences
+
+list deque
+
+s.rotate(n)
+
+● Move n items from one end to the other
+
+s.__setitem__(p, e)
+
+● ● s[p] = e—put e in position p, overwriting existing item
+
+s.sort([key], [reverse]) ●
+
+Sort items in place with optional keyword arguments key and reverse
+
+a Reversed operators are explained in Chapter 13. b a_list.pop(p) allows removing from position p but deque does not support that option.
+
+Besides deque, other Python standard library packages implement queues:
+queue This provides the synchronized (i.e., thread-safe) classes Queue, LifoQueue, and PriorityQueue. These are used for safe communication between threads. All three classes can be bounded by providing a maxsize argument greater than 0 to the constructor. However, they don’t discard items to make room as deque does. In‐ stead, when the queue is full the insertion of a new item blocks—i.e., it waits until some other thread makes room by taking an item from the queue, which is useful to throttle the number of live threads.
+multiprocessing Implements its own bounded Queue, very similar to queue.Queue but designed for interprocess communication. A specialized multiprocessing.JoinableQueue is also available for easier task management.
+asyncio Newly added to Python 3.4, asyncio provides Queue, LifoQueue, PriorityQueue, and JoinableQueue with APIs inspired by the classes contained in the queue and multiprocessing modules, but adapted for managing tasks in asynchronous pro‐ gramming.
+heapq In contrast to the previous three modules, heapq does not implement a queue class, but provides functions like heappush and heappop that let you use a mutable se‐ quence as a heap queue or priority queue.
+This ends our overview of alternatives to the list type, and also our exploration of sequence types in general—except for the particulars of str and binary sequences, which have their own chapter (Chapter 4).
+
+Chapter Summary
+Mastering the standard library sequence types is a prerequisite for writing concise, effective, and idiomatic Python code.
+
+Chapter Summary | 57
+
+Python sequences are often categorized as mutable or immutable, but it is also useful to consider a different axis: flat sequences and container sequences. The former are more compact, faster, and easier to use, but are limited to storing atomic data such as numbers, characters, and bytes. Container sequences are more flexible, but may surprise you when they hold mutable objects, so you need to be careful to use them correctly with nested data structures.
+List comprehensions and generator expressions are powerful notations to build and initialize sequences. If you are not yet comfortable with them, take the time to master their basic usage. It is not hard, and soon you will be hooked.
+Tuples in Python play two roles: as records with unnamed fields and as immutable lists. When a tuple is used as a record, tuple unpacking is the safest, most readable way of getting at the fields. The new * syntax makes tuple unpacking even better by making it easier to ignore some fields and to deal with optional fields. Named tuples are not so new, but deserve more attention: like tuples, they have very little overhead per instance, yet provide convenient access to the fields by name and a handy ._asdict() to export the record as an OrderedDict.
+Sequence slicing is a favorite Python syntax feature, and it is even more powerful than many realize. Multidimensional slicing and ellipsis (...) notation, as used in NumPy, may also be supported by user-defined sequences. Assigning to slices is a very expressive way of editing mutable sequences.
+Repeated concatenation as in seq * n is convenient and, with care, can be used to initialize lists of lists containing immutable items. Augmented assignment with += and *= behaves differently for mutable and immutable sequences. In the latter case, these operators necessarily build new sequences. But if the target sequence is mutable, it is usually changed in place—but not always, depending on how the sequence is imple‐ mented.
+The sort method and the sorted built-in function are easy to use and flexible, thanks to the key optional argument they accept, with a function to calculate the ordering criterion. By the way, key can also be used with the min and max built-in functions. To keep a sorted sequence in order, always insert items into it using bisect.insort; to search it efficiently, use bisect.bisect.
+Beyond lists and tuples, the Python standard library provides array.array. Although NumPy and SciPy are not part of the standard library, if you do any kind of numerical processing on large sets of data, studying even a small part of these libraries can take you a long way.
+We closed by visiting the versatile and thread-safe collections.deque, comparing its API with that of list in Table 2-3 and mentioning other queue implementations in the standard library.
+58 | Chapter 2: An Array of Sequences
+
+Further Reading
+Chapter 1, “Data Structures” of Python Cookbook, 3rd Edition (O’Reilly) by David Beazley and Brian K. Jones has many recipes focusing on sequences, including “Recipe 1.11. Naming a Slice,” from which I learned the trick of assigning slices to variables to improve readability, illustrated in our Example 2-11. The second edition of Python Cookbook was written for Python 2.4, but much of its code works with Python 3, and a lot of the recipes in Chapters 5 and 6 deal with se‐ quences. The book was edited by Alex Martelli, Anna Martelli Ravenscroft, and David Ascher, and it includes contributions by dozens of Pythonistas. The third edition was rewritten from scratch, and focuses more on the semantics of the language—particularly what has changed in Python 3—while the older volume emphasizes pragmatics (i.e., how to apply the language to real-world problems). Even though some of the second edition solutions are no longer the best approach, I honestly think it is worthwhile to have both editions of Python Cookbook on hand. The official Python Sorting HOW TO has several examples of advanced tricks for using sorted and list.sort. PEP 3132 — Extended Iterable Unpacking is the canonical source to read about the new use of *extra as a target in parallel assignments. If you’d like a glimpse of Python evolv‐ ing, Missing *-unpacking generalizations is a bug tracker issue proposing even wider use of iterable unpacking notation. PEP 448 — Additional Unpacking Generalizations resulted from the discussions in that issue. At the time of this writing, it seems likely the proposed changes will be merged to Python, perhaps in version 3.5. Eli Bendersky’s blog post “Less Copies in Python with the Buffer Protocol and memo‐ ryviews includes a short tutorial on memoryview. There are numerous books covering NumPy in the market, even some that don’t men‐ tion “NumPy” in the title. Wes McKinney’s Python for Data Analysis (O’Reilly) is one such title. Scientists love the combination of an interactive prompt with the power of NumPy and SciPy so much that they developed IPython, an incredibly powerful replacement for the Python console that also provides a GUI, integrated inline graph plotting, literate pro‐ gramming support (interleaving text with code), and rendering to PDF. Interactive, multimedia IPython sessions can even be shared over HTTP as IPython notebooks. See screenshots and video at The IPython Notebook. IPython is so hot that in 2012 its core developers, most of whom are researchers at UC Berkeley, received a $1.15 million grant from the Sloan Foundation for enhancements to be implemented over the 2013–2014 period. In The Python Standard Library, 8.3. collections — Container datatypes includes short examples and practical recipes using deque (and other collections).
+Further Reading | 59
+
+The best defense of the Python convention of excluding the last item in ranges and slices was written by Edsger W. Dijkstra himself, in a short memo titled “Why Numbering Should Start at Zero”. The subject of the memo is mathematical notation, but it’s relevant to Python because Prof. Dijkstra explains with rigor and humor why the sequence 2, 3, …, 12 should always be expressed as 2 ≤ i < 13. All other reasonable conventions are refuted, as is the idea of letting each user choose a convention. The title refers to zerobased indexing, but the memo is really about why it is desirable that 'ABCDE'[1:3] means 'BC' and not 'BCD' and why it makes perfect sense to write 2, 3, …, 12 as range(2, 13). (By the way, the memo is a handwritten note, but it’s beautiful and totally readable. Somebody should create a Dijkstra font—I’d buy it.)
+Soapbox
+The Nature of Tuples In 2012, I presented a poster about the ABC language at PyCon US. Before creating Python, Guido had worked on the ABC interpreter, so he came to see my poster. Among other things, we talked about the ABC compounds, which are clearly the predecessors of Python tuples. Compounds also support parallel assignment and are used as com‐ posite keys in dictionaries (or tables, in ABC parlance). However, compounds are not sequences. They are not iterable and you cannot retrieve a field by index, much less slice them. You either handle the compound as whole or extract the individual fields using parallel assignment, that’s all. I told Guido that these limitations make the main purpose of compounds very clear: they are just records without field names. His response: “Making tuples behave as se‐ quences was a hack.” This illustrates the pragmatic approach that makes Python so much better and more successful than ABC. From a language implementer perspective, making tuples behave as sequences costs little. As a result, tuples may not be as “conceptually pure” as com‐ pounds, but we have many more ways of using them. They can even be used as immut‐ able lists, of all things! It is really useful to have immutable lists in the language, even if their type is not called frozenlist but is really tuple behaving as a sequence. “Elegance Begets Simplicity” The use of the syntax *extra to assign multiple items to a parameter started with func‐ tion definitions a long time ago (I have a book about Python 1.4 from 1996 that covers that). Starting with Python 1.6, the form *extra can be used in the context of function calls to unpack an iterable into multiple arguments, a complementary operation. This is elegant, makes intuitive sense, and made the apply function redundant (it’s now gone). Now, with Python 3, the *extra notation also works on the left of parallel assignments to grab excess items, enhancing what was already a handy language feature.
+60 | Chapter 2: An Array of Sequences
+
+With each of these changes, the language became more flexible, more consistent, and simpler at the same time. “Elegance begets simplicity” is the motto on my favorite PyCon T-shirt from Chicago, 2009. It is decorated with a painting by Bruce Eckel depicting hexagram 22 from the I Ching, 賁 (bì), “Adorning,” sometimes translated as “Grace” or “Beauty.” Flat Versus Container Sequences To highlight the different memory models of the sequence types, I used the terms container sequence and flat sequence. The “container” word is from the Data Model documentation:
+Some objects contain references to other objects; these are called containers. I used the term “container sequence” to be specific, because there are containers in Python that are not sequences, like dict and set. Container sequences can be nested because they may contain objects of any type, including their own type. On the other hand, flat sequences are sequence types that cannot be nested because they only hold simple atomic types like integers, floats, or characters. I adopted the term flat sequence because I needed something to contrast with “container sequence.” I can’t cite a reference to support the use of flat sequence in this specific context: as the category of Python sequence types that are not containers. On Wikipedia, this usage would be tagged “original research.” I prefer to call it “our term,” hoping you’ll find it useful and adopt it too. Mixed Bag Lists Introductory Python texts emphasize that lists can contain objects of mixed types, but in practice that feature is not very useful: we put items in a list to process them later, which implies that all items should support at least some operation in common (i.e., they should all “quack” whether or not they are genetically 100% ducks). For example, you can’t sort a list in Python 3 unless the items in it are comparable:
+>>> l = [28, 14, '28', 5, '9', '1', 0, 6, '23', 19] >>> sorted(l) Traceback (most recent call last):
+File "<stdin>", line 1, in <module> TypeError: unorderable types: str() < int()
+Unlike lists, tuples often hold items of different types. That is natural, considering that each item in a tuple is really a field, and each field type is independent of the others. Key Is Brilliant The key optional argument of list.sort, sorted, max, and min is a great idea. Other languages force you to provide a two-argument comparison function like the deprecated cmp(a, b) function in Python 2. Using key is both simpler and more efficient. It’s simpler because you just define a one-argument function that retrieves or calculates whatever criterion you want to use to sort your objects; this is easier than writing a two-argument
+Further Reading | 61
+
+function to return –1, 0, 1. It is also more efficient because the key function is invoked only once per item, while the two-argument comparison is called every time the sorting algorithm needs to compare two items. Of course, Python also has to compare the keys while sorting, but that comparison is done in optimized C code and not in a Python function that you wrote. By the way, using key actually lets us sort a mixed bag of numbers and number-like strings. You just need to decide whether you want to treat all items as integers or strings:
+>>> l = [28, 14, '28', 5, '9', '1', 0, 6, '23', 19] >>> sorted(l, key=int) [0, '1', 5, 6, '9', 14, 19, '23', 28, '28'] >>> sorted(l, key=str) [0, '1', 14, 19, '23', 28, '28', 5, 6, '9']
+Oracle, Google, and the Timbot Conspiracy The sorting algorithm used in sorted and list.sort is Timsort, an adaptive algorithm that switches from insertion sort to merge sort strategies, depending on how ordered the data is. This is efficient because real-world data tends to have runs of sorted items. There is a Wikipedia article about it. Timsort was first deployed in CPython, in 2002. Since 2009, Timsort is also used to sort arrays in both standard Java and Android, a fact that became widely known when Oracle used some of the code related to Timsort as evidence of Google infringement of Sun’s intellectual property. See Oracle v. Google - Day 14 Filings. Timsort was invented by Tim Peters, a Python core developer so prolific that he is be‐ lieved to be an AI, the Timbot. You can read about that conspiracy theory in Python Humor. Tim also wrote The Zen of Python: import this.
+62 | Chapter 2: An Array of Sequences
+
+CHAPTER 3
+Dictionaries and Sets
+Any running Python program has many dictionaries active at the same time, even if the user’s program code doesn’t explicitly use a dictionary.
+— A. M. Kuchling Chapter 18, “Python’s Dictionary Implementation
+The dict type is not only widely used in our programs but also a fundamental part of the Python implementation. Module namespaces, class and instance attributes, and function keyword arguments are some of the fundamental constructs where dictionaries are deployed. The built-in functions live in __builtins__.__dict__. Because of their crucial role, Python dicts are highly optimized. Hash tables are the engines behind Python’s high-performance dicts. We also cover sets in this chapter because they are implemented with hash tables as well. Knowing how a hash table works is key to making the most of dictionaries and sets. Here is a brief outline of this chapter:
+• Common dictionary methods • Special handling for missing keys • Variations of dict in the standard library • The set and frozenset types • How hash tables work • Implications of hash tables (key type limitations, unpredictable ordering, etc.)
+63
+
+Generic Mapping Types
+The collections.abc module provides the Mapping and MutableMapping ABCs to formalize the interfaces of dict and similar types (in Python 2.6 to 3.2, these classes are imported from the collections module, and not from collections.abc). See Figure 3-1.
+Figure 3-1. UML class diagram for the MutableMapping and its superclasses from col‐ lections.abc (inheritance arrows point from subclasses to superclasses; names in italic are abstract classes and abstract methods) Implementations of specialized mappings often extend dict or collections.User Dict, instead of these ABCs. The main value of the ABCs is documenting and formal‐ izing the minimal interfaces for mappings, and serving as criteria for isinstance tests in code that needs to support mappings in a broad sense:
+>>> my_dict = {} >>> isinstance(my_dict, abc.Mapping) True
+Using isinstance is better than checking whether a function argument is of dict type, because then alternative mapping types can be used. All mapping types in the standard library use the basic dict in their implementation, so they share the limitation that the keys must be hashable (the values need not be hashable, only the keys).
+64 | Chapter 3: Dictionaries and Sets
+
+What Is Hashable?
+Here is part of the definition of hashable from the Python Glossary: An object is hashable if it has a hash value which never changes during its lifetime (it needs a __hash__() method), and can be compared to other objects (it needs an __eq__() method). Hashable objects which compare equal must have the same hash value. […]
+The atomic immutable types (str, bytes, numeric types) are all hashable. A frozen set is always hashable, because its elements must be hashable by definition. A tuple is hashable only if all its items are hashable. See tuples tt, tl, and tf:
+>>> tt = (1, 2, (30, 40)) >>> hash(tt) 8027212646858338501 >>> tl = (1, 2, [30, 40]) >>> hash(tl) Traceback (most recent call last):
+File "<stdin>", line 1, in <module> TypeError: unhashable type: 'list' >>> tf = (1, 2, frozenset([30, 40])) >>> hash(tf) -4118419923444501110
+At the time of this writing, the Python Glossary states: “All of Python’s immutable built-in objects are hashable” but that is inaccurate because a tuple is immutable, yet it may contain references to unhashable objects.
+User-defined types are hashable by default because their hash value is their id() and they all compare not equal. If an object implements a custom __eq__ that takes into account its internal state, it may be hashable only if all its attributes are immutable.
+Given these ground rules, you can build dictionaries in several ways. The Built-in Types page in the Library Reference has this example to show the various means of building a dict:
+>>> a = dict(one=1, two=2, three=3) >>> b = {'one': 1, 'two': 2, 'three': 3} >>> c = dict(zip(['one', 'two', 'three'], [1, 2, 3])) >>> d = dict([('two', 2), ('one', 1), ('three', 3)]) >>> e = dict({'three': 3, 'one': 1, 'two': 2}) >>> a == b == c == d == e True
+Generic Mapping Types | 65
+
+In addition to the literal syntax and the flexible dict constructor, we can use dict com‐ prehensions to build dictionaries. See the next section.
+
+dict Comprehensions
+
+Since Python 2.7, the syntax of listcomps and genexps was applied to dict comprehen‐ sions (and set comprehensions as well, which we’ll soon visit). A dictcomp builds a dict instance by producing key:value pair from any iterable. Example 3-1 shows the use of dict comprehensions to build two dictionaries from the same list of tuples.
+
+Example 3-1. Examples of dict comprehensions
+
+>>> DIAL_CODES = [
+
+...
+
+(86, 'China'),
+
+...
+
+(91, 'India'),
+
+...
+
+(1, 'United States'),
+
+...
+
+(62, 'Indonesia'),
+
+...
+
+(55, 'Brazil'),
+
+...
+
+(92, 'Pakistan'),
+
+...
+
+(880, 'Bangladesh'),
+
+...
+
+(234, 'Nigeria'),
+
+...
+
+(7, 'Russia'),
+
+...
+
+(81, 'Japan'),
+
+... ]
+
+>>> country_code = {country: code for code, country in DIAL_CODES}
+
+>>> country_code
+
+{'China': 86, 'India': 91, 'Bangladesh': 880, 'United States': 1,
+
+'Pakistan': 92, 'Japan': 81, 'Russia': 7, 'Brazil': 55, 'Nigeria':
+
+234, 'Indonesia': 62}
+
+>>> {code: country.upper() for country, code in country_code.items()
+
+... if code < 66}
+
+{1: 'UNITED STATES', 55: 'BRAZIL', 62: 'INDONESIA', 7: 'RUSSIA'}
+
+A list of pairs can be used directly with the dict constructor. Here the pairs are reversed: country is the key, and code is the value. Reversing the pairs again, values uppercased and items filtered by code < 66.
+
+If you’re used to liscomps, dictcomps are a natural next step. If you aren’t, the spread of the listcomp syntax means it’s now more profitable than ever to become fluent in it. We now move to a panoramic view of the API for mappings.
+
+Overview of Common Mapping Methods
+The basic API for mappings is quite rich. Table 3-1 shows the methods implemented by dict and two of its most useful variations: defaultdict and OrderedDict, both defined in the collections module.
+
+66 | Chapter 3: Dictionaries and Sets
+
+Table 3-1. Methods of the mapping types dict, collections.defaultdict, and collec‐ tions.OrderedDict (common object methods omitted for brevity); optional arguments are enclosed in […]
+
+dict defaultdict OrderedDict
+
+d.clear()
+
+●●
+
+●
+
+Remove all items
+
+d.__contains__(k)
+
+●●
+
+●
+
+k in d
+
+d.copy()
+
+●●
+
+●
+
+Shallow copy
+
+d.__copy__()
+
+●
+
+Support for copy.copy
+
+d.default_factory
+
+●
+
+Callable invoked by __missing__ to set missing valuesa
+
+d.__delitem__(k)
+
+●●
+
+●
+
+del d[k]—remove item with key k
+
+d.fromkeys(it, [initial]) ● ●
+
+●
+
+New mapping from keys in iterable, with optional initial value (defaults to None)
+
+d.get(k, [default])
+
+●●
+
+●
+
+Get item with key k, return default or None if missing
+
+d.__getitem__(k)
+
+●●
+
+●
+
+d[k]—get item with key k
+
+d.items()
+
+●●
+
+●
+
+Get view over items—(key, value) pairs
+
+d.__iter__()
+
+●●
+
+●
+
+Get iterator over keys
+
+d.keys()
+
+●●
+
+●
+
+Get view over keys
+
+d.__len__()
+
+●●
+
+●
+
+len(d)—number of items
+
+d.__missing__(k)
+
+●
+
+Called when __getitem__ cannot find the key
+
+d.move_to_end(k, [last])
+
+●
+
+Move k first or last position (last is True by
+
+default)
+
+d.pop(k, [default])
+
+●●
+
+●
+
+Remove and return value at k, or default or None if missing
+
+d.popitem()
+
+●●
+
+●
+
+Remove and return an arbitrary (key, val ue) itemb
+
+d.__reversed__()
+
+●
+
+Get iterator for keys from last to first inserted
+
+d.setdefault(k, [default]) ● ●
+
+●
+
+If k in d, return d[k]; else set d[k] = default and return it
+
+d.__setitem__(k, v)
+
+●●
+
+●
+
+d[k] = v—put v at k
+
+d.update(m, [**kargs])
+
+●●
+
+●
+
+Update d with items from mapping or iterable of (key, value) pairs
+
+d.values()
+
+●●
+
+●
+
+Get view over values
+
+a default_factory is not a method, but a callable instance attribute set by the end user when defaultdict is instantiated.
+b OrderedDict.popitem() removes the first item inserted (FIFO); an optional last argument, if set to True, pops the last item (LIFO).
+
+Overview of Common Mapping Methods | 67
+
+The way update handles its first argument m is a prime example of duck typing: it first checks whether m has a keys method and, if it does, assumes it is a mapping. Otherwise, update falls back to iterating over m, assuming its items are (key, value) pairs. The constructor for most Python mappings uses the logic of update internally, which means they can be initialized from other mappings or from any iterable object producing (key, value) pairs. A subtle mapping method is setdefault. We don’t always need it, but when we do, it provides a significant speedup by avoiding redundant key lookups. If you are not com‐ fortable using it, the following section explains how, through a practical example.
+Handling Missing Keys with setdefault
+In line with the fail-fast philosophy, dict access with d[k] raises an error when k is not an existing key. Every Pythonista knows that d.get(k, default) is an alternative to d[k] whenever a default value is more convenient than handling KeyError. However, when updating the value found (if it is mutable), using either __getitem__ or get is awkward and inefficient. Consider Example 3-2, a suboptimal script written just to show one case where dict.get is not the best way to handle a missing key. Example 3-2 is adapted from an example by Alex Martelli,1 which generates an index like that in Example 3-3.
+Example 3-2. index0.py uses dict.get to fetch and update a list of word occurrences from the index (a better solution is in Example 3-4)
+"""Build an index mapping word -> list of occurrences"""
+import sys import re
+WORD_RE = re.compile('\w+')
+index = {} with open(sys.argv[1], encoding='utf-8') as fp:
+for line_no, line in enumerate(fp, 1): for match in WORD_RE.finditer(line): word = match.group() column_no = match.start()+1 location = (line_no, column_no) # this is ugly; coded like this to make a point occurrences = index.get(word, []) occurrences.append(location) index[word] = occurrences
+1. The original script appears in slide 41 of Martelli’s “Re-learning Python” presentation. His script is actually a demonstration of dict.setdefault, as shown in our Example 3-4.
+68 | Chapter 3: Dictionaries and Sets
+
+# print in alphabetical order for word in sorted(index, key=str.upper):
+print(word, index[word])
+Get the list of occurrences for word, or [] if not found. Append new location to occurrences. Put changed occurrences into index dict; this entails a second search through the index. In the key= argument of sorted I am not calling str.upper, just passing a reference to that method so the sorted function can use it to normalize the words for sorting.2
+Example 3-3. Partial output from Example 3-2 processing the Zen of Python; each line shows a word and a list of occurrences coded as pairs: (line-number, column-number)
+$ python3 index0.py ../../data/zen.txt a [(19, 48), (20, 53)] Although [(11, 1), (16, 1), (18, 1)] ambiguity [(14, 16)] and [(15, 23)] are [(21, 12)] aren [(10, 15)] at [(16, 38)] bad [(19, 50)] be [(15, 14), (16, 27), (20, 50)] beats [(11, 23)] Beautiful [(3, 1)] better [(3, 14), (4, 13), (5, 11), (6, 12), (7, 9), (8, 11), (17, 8), (18, 25)] ...
+The three lines dealing with occurrences in Example 3-2 can be replaced by a single line using dict.setdefault. Example 3-4 is closer to Alex Martelli’s original example.
+Example 3-4. index.py uses dict.setdefault to fetch and update a list of word occurrences from the index in a single line; contrast with Example 3-2
+"""Build an index mapping word -> list of occurrences"""
+import sys import re
+WORD_RE = re.compile('\w+')
+index = {}
+2. This is an example of using a method as a first-class function, the subject of Chapter 5.
+Overview of Common Mapping Methods | 69
+
+with open(sys.argv[1], encoding='utf-8') as fp: for line_no, line in enumerate(fp, 1): for match in WORD_RE.finditer(line): word = match.group() column_no = match.start()+1 location = (line_no, column_no) index.setdefault(word, []).append(location)
+# print in alphabetical order for word in sorted(index, key=str.upper):
+print(word, index[word])
+Get the list of occurrences for word, or set it to [] if not found; setdefault returns the value, so it can be updated without requiring a second search.
+In other words, the end result of this line…
+my_dict.setdefault(key, []).append(new_value)
+…is the same as running…
+if key not in my_dict: my_dict[key] = []
+my_dict[key].append(new_value)
+…except that the latter code performs at least two searches for key—three if it’s not found—while setdefault does it all with a single lookup. A related issue, handling missing keys on any lookup (and not only when inserting), is the subject of the next section.
+Mappings with Flexible Key Lookup
+Sometimes it is convenient to have mappings that return some made-up value when a missing key is searched. There are two main approaches to this: one is to use a default dict instead of a plain dict. The other is to subclass dict or any other mapping type and add a __missing__ method. Both solutions are covered next.
+defaultdict: Another Take on Missing Keys
+Example 3-5 uses collections.defaultdict to provide another elegant solution to the problem in Example 3-4. A defaultdict is configured to create items on demand whenever a missing key is searched. Here is how it works: when instantiating a defaultdict, you provide a callable that is used to produce a default value whenever __getitem__ is passed a nonexistent key argument.
+70 | Chapter 3: Dictionaries and Sets
+
+For example, given an empty defaultdict created as dd = defaultdict(list), if 'new-key' is not in dd, the expression dd['new-key'] does the following steps:
+1. Calls list() to create a new list. 2. Inserts the list into dd using 'new-key' as key. 3. Returns a reference to that list. The callable that produces the default values is held in an instance attribute called default_factory. Example 3-5. index_default.py: using an instance of defaultdict instead of the setdefault method
+"""Build an index mapping word -> list of occurrences"""
+import sys import re import collections
+WORD_RE = re.compile('\w+')
+index = collections.defaultdict(list) with open(sys.argv[1], encoding='utf-8') as fp:
+for line_no, line in enumerate(fp, 1): for match in WORD_RE.finditer(line): word = match.group() column_no = match.start()+1 location = (line_no, column_no) index[word].append(location)
+# print in alphabetical order for word in sorted(index, key=str.upper):
+print(word, index[word])
+Create a defaultdict with the list constructor as default_factory. If word is not initially in the index, the default_factory is called to produce the missing value, which in this case is an empty list that is then assigned to index[word] and returned, so the .append(location) operation always succeeds.
+If no default_factory is provided, the usual KeyError is raised for missing keys.
+Mappings with Flexible Key Lookup | 71
+
+The default_factory of a defaultdict is only invoked to pro‐ vide default values for __getitem__ calls, and not for the other methods. For example, if dd is a defaultdict, and k is a missing key, dd[k] will call the default_factory to create a default val‐ ue, but dd.get(k) still returns None.
+The mechanism that makes defaultdict work by calling default_factory is actually the __missing__ special method, a feature supported by all standard mapping types that we discuss next.
+The __missing__ Method
+Underlying the way mappings deal with missing keys is the aptly named __missing__ method. This method is not defined in the base dict class, but dict is aware of it: if you subclass dict and provide a __missing__ method, the standard dict.__getitem__ will call it whenever a key is not found, instead of raising KeyError.
+The __missing__ method is just called by __getitem__ (i.e., for the d[k] operator). The presence of a __missing__ method has no effect on the behavior of other methods that look up keys, such as get or __contains__ (which implements the in operator). This is why the default_factory of defaultdict works only with __getitem__, as noted in the warning at the end of the previous section.
+Suppose you’d like a mapping where keys are converted to str when looked up. A concrete use case is the Pingo.io project, where a programmable board with GPIO pins (e.g., the Raspberry Pi or the Arduino) is represented by a board object with a board.pins attribute, which is a mapping of physical pin locations to pin objects, and the physical location may be just a number or a string like "A0" or "P9_12". For con‐ sistency, it is desirable that all keys in board.pins are strings, but it is also convenient that looking up my_arduino.pin[13] works as well, so beginners are not tripped when they want to blink the LED on pin 13 of their Arduinos. Example 3-6 shows how such a mapping would work.
+Example 3-6. When searching for a nonstring key, StrKeyDict0 converts it to str when it is not found
+Tests for item retrieval using `d[key]` notation::
+>>> d = StrKeyDict0([('2', 'two'), ('4', 'four')]) >>> d['2'] 'two'
+72 | Chapter 3: Dictionaries and Sets
+
+>>> d[4] 'four' >>> d[1] Traceback (most recent call last):
+... KeyError: '1'
+Tests for item retrieval using `d.get(key)` notation::
+>>> d.get('2') 'two' >>> d.get(4) 'four' >>> d.get(1, 'N/A') 'N/A'
+Tests for the `in` operator::
+>>> 2 in d True >>> 1 in d False
+Example 3-7 implements a class StrKeyDict0 that passes the preceding tests.
+A better way to create a user-defined mapping type is to sub‐ class collections.UserDict instead of dict (as we’ll do in Ex‐ ample 3-8). Here we subclass dict just to show that __miss ing__ is supported by the built-in dict.__getitem__ method.
+Example 3-7. StrKeyDict0 converts nonstring keys to str on lookup (see tests in Example 3-6)
+class StrKeyDict0(dict):
+def __missing__(self, key): if isinstance(key, str): raise KeyError(key) return self[str(key)]
+def get(self, key, default=None): try: return self[key] except KeyError: return default
+def __contains__(self, key): return key in self.keys() or str(key) in self.keys()
+Mappings with Flexible Key Lookup | 73
+
+StrKeyDict0 inherits from dict. Check whether key is already a str. If it is, and it’s missing, raise KeyError. Build str from key and look it up. The get method delegates to __getitem__ by using the self[key] notation; that gives the opportunity for our __missing__ to act. If a KeyError was raised, __missing__ already failed, so we return the default. Search for unmodified key (the instance may contain non-str keys), then for a str built from the key.
+Take a moment to consider why the test isinstance(key, str) is necessary in the __missing__ implementation.
+Without that test, our __missing__ method would work OK for any key k—str or not str—whenever str(k) produced an existing key. But if str(k) is not an existing key, we’d have an infinite recursion. The last line, self[str(key)] would call __geti tem__ passing that str key, which in turn would call __missing__ again.
+The __contains__ method is also needed for consistent behavior in this example, be‐ cause the operation k in d calls it, but the method inherited from dict does not fall back to invoking __missing__. There is a subtle detail in our implementation of __con tains__: we do not check for the key in the usual Pythonic way—k in my_dict—because str(key) in self would recursively call __contains__. We avoid this by explicitly looking up the key in self.keys().
+A search like k in my_dict.keys() is efficient in Python 3 even for very large mappings because dict.keys() returns a view, which is similar to a set, and containment checks in sets are as fast as in dictionaries. Details are documented in the “Dictio‐ nary” view objects section of the documentation. In Python 2, dict.keys() returns a list, so our solution also works there, but it is not efficient for large dictionaries, because k in my_list must scan the list.
+The check for the unmodified key—key in self.keys()—is necessary for correctness because StrKeyDict0 does not enforce that all keys in the dictionary must be of type str. Our only goal with this simple example is to make searching “friendlier” and not enforce types.
+So far we have covered the dict and defaultdict mapping types, but the standard library comes with other mapping implementations, which we discuss next.
+74 | Chapter 3: Dictionaries and Sets
+

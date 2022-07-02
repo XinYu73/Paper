@@ -1,0 +1,699 @@
+1. Foreword 2. Preface
+a. Who This Book Is For b. Who This Book Is Not For c. What You’ll Learn d. Python 3 e. Changes from Python 2.7 f. License g. How to Make an Attribution h. Errata and Feedback i. Conventions Used in This Book j. Using Code Examples k. O’Reilly Online Learning l. How to Contact Us m. Acknowledgments 3. 1. Understanding Performant Python a. The Fundamental Computer System
+i. Computing Units ii. Memory Units iii. Communications Layers b. Putting the Fundamental Elements Together
+
+i. Idealized Computing Versus the Python Virtual Machine
+c. So Why Use Python? d. How to Be a Highly Performant Programmer
+i. Good Working Practices ii. Some Thoughts on Good Notebook
+Practice iii. Getting the Joy Back into Your Work
+4. 2. Profiling to Find Bottlenecks
+a. Profiling Efficiently b. Introducing the Julia Set c. Calculating the Full Julia Set d. Simple Approaches to Timing—print and a
+Decorator e. Simple Timing Using the Unix time Command f. Using the cProfile Module g. Visualizing cProfile Output with SnakeViz h. Using line_profiler for Line-by-Line
+Measurements i. Using memory_profiler to Diagnose Memory
+Usage j. Introspecting an Existing Process with PySpy k. Bytecode: Under the Hood
+
+i. Using the dis Module to Examine CPython Bytecode
+ii. Different Approaches, Different Complexity
+l. Unit Testing During Optimization to Maintain Correctness i. No-op @profile Decorator
+m. Strategies to Profile Your Code Successfully n. Wrap-Up 5. 3. Lists and Tuples a. A More Efficient Search b. Lists Versus Tuples
+i. Lists as Dynamic Arrays ii. Tuples as Static Arrays c. Wrap-Up 6. 4. Dictionaries and Sets a. How Do Dictionaries and Sets Work? i. Inserting and Retrieving ii. Deletion iii. Resizing iv. Hash Functions and Entropy b. Dictionaries and Namespaces c. Wrap-Up
+
+7. 5. Iterators and Generators a. Iterators for Infinite Series b. Lazy Generator Evaluation c. Wrap-Up
+8. 6. Matrix and Vector Computation a. Introduction to the Problem b. Aren’t Python Lists Good Enough? i. Problems with Allocating Too Much c. Memory Fragmentation i. Understanding perf ii. Making Decisions with perf’s Output iii. Enter numpy d. Applying numpy to the Diffusion Problem i. Memory Allocations and In-Place Operations ii. Selective Optimizations: Finding What Needs to Be Fixed e. numexpr: Making In-Place Operations Faster and Easier f. A Cautionary Tale: Verify “Optimizations” (scipy) g. Lessons from Matrix Optimizations h. Pandas
+
+i. Pandas’s Internal Model ii. Applying a Function to Many Rows of
+Data iii. Building DataFrames and Series from
+Partial Results Rather than Concatenating iv. There’s More Than One (and Possibly a Faster) Way to Do a Job v. Advice for Effective Pandas Development
+i. Wrap-Up
+9. 7. Compiling to C
+a. What Sort of Speed Gains Are Possible? b. JIT Versus AOT Compilers c. Why Does Type Information Help the Code
+Run Faster? d. Using a C Compiler e. Reviewing the Julia Set Example f. Cython
+i. Compiling a Pure Python Version Using Cython
+g. pyximport
+i. Cython Annotations to Analyze a Block of Code
+ii. Adding Some Type Annotations
+
+h. Cython and numpy i. Parallelizing the Solution with OpenMP on One Machine
+i. Numba i. Numba to Compile NumPy for Pandas
+j. PyPy i. Garbage Collection Differences ii. Running PyPy and Installing Modules
+k. A Summary of Speed Improvements l. When to Use Each Technology
+i. Other Upcoming Projects m. Graphics Processing Units (GPUs)
+i. Dynamic Graphs: PyTorch ii. Basic GPU Profiling iii. Performance Considerations of GPUs iv. When to Use GPUs n. Foreign Function Interfaces i. ctypes ii. cffi iii. f2py iv. CPython Module o. Wrap-Up
+
+10. 8. Asynchronous I/O a. Introduction to Asynchronous Programming b. How Does async/await Work? i. Serial Crawler ii. Gevent iii. tornado iv. aiohttp c. Shared CPU–I/O Workload i. Serial ii. Batched Results iii. Full Async d. Wrap-Up
+11. 9. The multiprocessing Module a. An Overview of the multiprocessing Module b. Estimating Pi Using the Monte Carlo Method c. Estimating Pi Using Processes and Threads i. Using Python Objects ii. Replacing multiprocessing with Joblib iii. Random Numbers in Parallel Systems iv. Using numpy d. Finding Prime Numbers i. Queues of Work
+
+e. Verifying Primes Using Interprocess Communication i. Serial Solution ii. Naive Pool Solution iii. A Less Naive Pool Solution iv. Using Manager.Value as a Flag v. Using Redis as a Flag vi. Using RawValue as a Flag vii. Using mmap as a Flag viii. Using mmap as a Flag Redux
+f. Sharing numpy Data with multiprocessing g. Synchronizing File and Variable Access
+i. File Locking ii. Locking a Value h. Wrap-Up 12. 10. Clusters and Job Queues a. Benefits of Clustering b. Drawbacks of Clustering i. $462 Million Wall Street Loss Through
+Poor Cluster Upgrade Strategy ii. Skype’s 24-Hour Global Outage c. Common Cluster Designs d. How to Start a Clustered Solution
+
+e. Ways to Avoid Pain When Using Clusters f. Two Clustering Solutions
+i. Using IPython Parallel to Support Research
+ii. Parallel Pandas with Dask g. NSQ for Robust Production Clustering
+i. Queues ii. Pub/sub iii. Distributed Prime Calculation h. Other Clustering Tools to Look At i. Docker i. Docker’s Performance ii. Advantages of Docker j. Wrap-Up 13. 11. Using Less RAM a. Objects for Primitives Are Expensive i. The array Module Stores Many
+Primitive Objects Cheaply ii. Using Less RAM in NumPy with
+NumExpr b. Understanding the RAM Used in a Collection c. Bytes Versus Unicode d. Efficiently Storing Lots of Text in RAM
+
+i. Trying These Approaches on 11 Million Tokens
+e. Modeling More Text with Scikit-Learn’s FeatureHasher
+f. Introducing DictVectorizer and FeatureHasher
+i. Comparing DictVectorizer and FeatureHasher on a Real Problem
+g. SciPy’s Sparse Matrices h. Tips for Using Less RAM i. Probabilistic Data Structures
+i. Very Approximate Counting with a 1Byte Morris Counter
+ii. K-Minimum Values iii. Bloom Filters iv. LogLog Counter v. Real-World Example
+14. 12. Lessons from the Field
+a. Streamlining Feature Engineering Pipelines with Feature-engine
+i. Feature Engineering for Machine Learning
+ii. The Hard Task of Deploying Feature Engineering Pipelines
+iii. Leveraging the Power of Open Source Python Libraries
+
+iv. Feature-engine Smooths Building and Deployment of Feature Engineering Pipelines
+v. Helping with the Adoption of a New Open Source Package
+vi. Developing, Maintaining, and Encouraging Contribution to Open Source Libraries
+b. Highly Performant Data Science Teams
+i. How Long Will It Take? ii. Discovery and Planning iii. Managing Expectations and Delivery
+c. Numba
+i. A Simple Example ii. Best Practices and Recommendations iii. Getting Help
+d. Optimizing Versus Thinking e. Adaptive Lab’s Social Media Analytics (2014)
+i. Python at Adaptive Lab ii. SoMA’s Design iii. Our Development Methodology iv. Maintaining SoMA v. Advice for Fellow Engineers
+
+f. Making Deep Learning Fly with RadimRehurek.com (2014)
+i. The Sweet Spot ii. Lessons in Optimizing iii. Conclusion
+g. Large-Scale Productionized Machine Learning at Lyst.com (2014)
+i. Cluster Design ii. Code Evolution in a Fast-Moving Start-
+Up iii. Building the Recommendation Engine iv. Reporting and Monitoring v. Some Advice
+h. Large-Scale Social Media Analysis at Smesh (2014)
+i. Python’s Role at Smesh ii. The Platform iii. High Performance Real-Time String
+Matching iv. Reporting, Monitoring, Debugging, and
+Deployment
+i. PyPy for Successful Web and Data Processing Systems (2014)
+i. Prerequisites ii. The Database
+
+iii. The Web Application iv. OCR and Translation v. Task Distribution and Workers vi. Conclusion j. Task Queues at Lanyrd.com (2014) i. Python’s Role at Lanyrd ii. Making the Task Queue Performant iii. Reporting, Monitoring, Debugging, and
+Deployment iv. Advice to a Fellow Developer 15. Index
+
+High Performance Python
+SECOND EDITION
+Practical Performant Programming for Humans
+Micha Gorelick and Ian Ozsvald
+
+High Performance Python by Micha Gorelick and Ian Ozsvald
+Copyright © 2020 Micha Gorelick and Ian Ozsvald. All rights reserved.
+Printed in the United States of America.
+Published by O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
+O’Reilly books may be purchased for educational, business, or sales promotional use. Online editions are also available for most titles (http://oreilly.com). For more information, contact our corporate/institutional sales department: 800-998-9938 or corporate@oreilly.com.
+
+Acquisitions Editor: Tyler Ortman Development Editor: Sarah Grey Production Editor: Christopher Faucher Copyeditor: Arthur Johnson Proofreader: Sharon Wilkey
+
+Indexer: Potomac Indexing, LLC
+Interior Designer: David Futato
+Cover Designer: Karen Montgomery
+Illustrator: Rebecca Demarest
+
+September 2014: First Edition May 2020: Second Edition Revision History for the Second Edition
+
+2020-04-30: First release
+See http://oreilly.com/catalog/errata.csp?isbn=9781492055020 for release details.
+The O’Reilly logo is a registered trademark of O’Reilly Media, Inc. High Performance Python, the cover image, and related trade dress are trademarks of O’Reilly Media, Inc.
+The views expressed in this work are those of the authors, and do not represent the publisher’s views. While the publisher and the authors have used good faith efforts to ensure that the information and instructions contained in this work are accurate, the publisher and the authors disclaim all responsibility for errors or omissions, including without limitation responsibility for damages resulting from the use of or reliance on this work. Use of the information and instructions contained in this work is at your own risk. If any code samples or other technology this work contains or describes is subject to open source licenses or the intellectual property rights of others, it is your responsibility to ensure that your use thereof complies with such licenses and/or rights.
+High Performance Python is available under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 International License.
+978-1-492-05502-0
+[LSI]
+
+Foreword
+When you think about high performance computing, you might imagine giant clusters of machines modeling complex weather phenomena or trying to understand signals in data collected about far-off stars. It’s easy to assume that only people building specialized systems should worry about the performance characteristics of their code. By picking up this book, you’ve taken a step toward learning the theory and practices you’ll need to write highly performant code. Every programmer can benefit from understanding how to build performant systems.
+There are an obvious set of applications that are just on the edge of possible, and you won’t be able to approach them without writing optimally performant code. If that’s your practice, you’re in the right place. But there is a much broader set of applications that can benefit from performant code.
+We often think that new technical capabilities are what drives innovation, but I’m equally fond of capabilities that increase the accessibility of technology by orders of magnitude. When something becomes ten times cheaper in time or compute costs, suddenly the set of applications you can address is wider than you imagined.
+The first time this principle manifested in my own work was over a decade ago, when I was working at a social media company, and we ran an analysis over multiple terabytes of
+
+data to determine whether people clicked on more photos of cats or dogs on social media.
+It was dogs, of course. Cats just have better branding.
+This was an outstandingly frivolous use of compute time and infrastructure at the time! Gaining the ability to apply techniques that had previously been restricted to sufficiently high-value applications, such as fraud detection, to a seemingly trivial question opened up a new world of nowaccessible possibilities. We were able to take what we learned from these experiments and build a whole new set of products in search and content discovery.
+For an example that you might encounter today, consider a machine-learning system that recognizes unexpected animals or people in security video footage. A sufficiently performant system could allow you to embed that model into the camera itself, improving privacy or, even if running in the cloud, using significantly less compute and power—benefiting the environment and reducing your operating costs. This can free up resources for you to look at adjacent problems, potentially building a more valuable system.
+We all desire to create systems that are effective, easy to understand, and performant. Unfortunately, it often feels like we have to pick two (or one) out of the three! High Performance Python is a handbook for people who want to make things that are capable of all three.
+
+This book stands apart from other texts on the subject in three ways. First, it’s written for us—humans who write code. You’ll find all of the context you need to understand why you might make certain choices. Second, Gorelick and Ozsvald do a wonderful job of curating and explaining the necessary theory to support that context. Finally, in this updated edition, you’ll learn the specific quirks of the most useful libraries for implementing these approaches today.
+This is one of a rare class of programming books that will change the way you think about the practice of programming. I’ve given this book to many people who could benefit from the additional tools it provides. The ideas that you’ll explore in its pages will make you a better programmer, no matter what language or environment you choose to work in.
+Enjoy the adventure.
+Hilary Mason, Data Scientist in Residence at Accel
+
+Preface
+Python is easy to learn. You’re probably here because now that your code runs correctly, you need it to run faster. You like the fact that your code is easy to modify and you can iterate with ideas quickly. The trade-off between easy to develop and runs as quickly as I need is a well-understood and often-bemoaned phenomenon. There are solutions.
+Some people have serial processes that have to run faster. Others have problems that could take advantage of multicore architectures, clusters, or graphics processing units. Some need scalable systems that can process more or less as expediency and funds allow, without losing reliability. Others will realize that their coding techniques, often borrowed from other languages, perhaps aren’t as natural as examples they see from others.
+In this book we will cover all of these topics, giving practical guidance for understanding bottlenecks and producing faster and more scalable solutions. We also include some war stories from those who went ahead of you, who took the knocks so you don’t have to.
+Python is well suited for rapid development, production deployments, and scalable systems. The ecosystem is full of
+
+people who are working to make it scale on your behalf, leaving you more time to focus on the more challenging tasks around you.
+
+Who This Book Is For
+You’ve used Python for long enough to have an idea about why certain things are slow and to have seen technologies like Cython, numpy, and PyPy being discussed as possible solutions. You might also have programmed with other languages and so know that there’s more than one way to solve a performance problem.
+While this book is primarily aimed at people with CPU-bound problems, we also look at data transfer and memory-bound solutions. Typically, these problems are faced by scientists, engineers, quants, and academics.
+We also look at problems that a web developer might face, including the movement of data and the use of just-in-time (JIT) compilers like PyPy and asynchronous I/O for easy-win performance gains.
+It might help if you have a background in C (or C++, or maybe Java), but it isn’t a prerequisite. Python’s most common interpreter (CPython—the standard you normally get if you type python at the command line) is written in C, and so the hooks and libraries all expose the gory inner C machinery. There are lots of other techniques that we cover that don’t assume any knowledge of C.
+You might also have a lower-level knowledge of the CPU, memory architecture, and data buses, but again, that’s not
+
+strictly necessary.
+
+Who This Book Is Not For
+This book is meant for intermediate to advanced Python programmers. Motivated novice Python programmers may be able to follow along as well, but we recommend having a solid Python foundation.
+We don’t cover storage-system optimization. If you have a SQL or NoSQL bottleneck, then this book probably won’t help you.
+What You’ll Learn
+Your authors have been working with large volumes of data, a requirement for I want the answers faster! and a need for scalable architectures, for many years in both industry and academia. We’ll try to impart our hard-won experience to save you from making the mistakes that we’ve made.
+At the start of each chapter, we’ll list questions that the following text should answer. (If it doesn’t, tell us and we’ll fix it in the next revision!)
+We cover the following topics:
+Background on the machinery of a computer so you know what’s happening behind the scenes Lists and tuples—the subtle semantic and speed differences in these fundamental data structures Dictionaries and sets—memory allocation strategies and access algorithms in these important data
+
+structures
+Iterators—how to write in a more Pythonic way and open the door to infinite data streams using iteration
+Pure Python approaches—how to use Python and its modules effectively
+Matrices with numpy—how to use the beloved numpy library like a beast
+Compilation and just-in-time computing—processing faster by compiling down to machine code, making sure you’re guided by the results of profiling
+Concurrency—ways to move data efficiently
+multiprocessing—various ways to use the built-in multiprocessing library for parallel computing and to efficiently share numpy matrices, and some costs and benefits of interprocess communication (IPC)
+Cluster computing—convert your multiprocessing code to run on a local or remote cluster for both research and production systems
+Using less RAM—approaches to solving large problems without buying a humungous computer
+Lessons from the field—lessons encoded in war stories from those who took the blows so you don’t have to
+Python 3
+Python 3 is the standard version of Python as of 2020, with Python 2.7 deprecated after a 10-year migration process. If you’re still on Python 2.7, you’re doing it wrong—many libraries
+
+are no longer supported for your line of Python, and support will become more expensive over time. Please do the community a favor and migrate to Python 3, and make sure that all new projects use Python 3.
+In this book, we use 64-bit Python. Whilst 32-bit Python is supported, it is far less common for scientific work. We’d expect all the libraries to work as usual, but numeric precision, which depends on the number of bits available for counting, is likely to change. 64-bit is dominant in this field, along with *nix environments (often Linux or Mac). 64-bit lets you address larger amounts of RAM. *nix lets you build applications that can be deployed and configured in well-understood ways with wellunderstood behaviors.
+If you’re a Windows user, you’ll have to buckle up. Most of what we show will work just fine, but some things are OSspecific, and you’ll have to research a Windows solution. The biggest difficulty a Windows user might face is the installation of modules: research in sites like Stack Overflow should give you the solutions you need. If you’re on Windows, having a virtual machine (e.g., using VirtualBox) with a running Linux installation might help you to experiment more freely.
+Windows users should definitely look at a packaged solution like those available through Anaconda, Canopy, Python(x,y), or Sage. These same distributions will make the lives of Linux and Mac users far simpler too.
+
+Changes from Python 2.7
+If you’ve upgraded from Python 2.7, you might not be aware of a few relevant changes:
+/ meant integer division in Python 2.7, whereas it performs float division in Python 3. str and unicode were used to represent text data in Python 2.7; in Python 3, everything is a str, and these are always Unicode. For clarity, a bytes type is used if we’re using unencoded byte sequences.
+If you’re in the process of upgrading your code, two good guides are “Porting Python 2 Code to Python 3” and “Supporting Python 3: An in-depth guide”. With a distribution like Anaconda or Canopy, you can run both Python 2 and Python 3 simultaneously—this will simplify your porting.
+License
+This book is licensed under Creative Commons AttributionNonCommercial-NoDerivs 3.0.
+You’re welcome to use this book for noncommercial purposes, including for noncommercial teaching. The license allows only for complete reproductions; for partial reproductions, please contact O’Reilly (see “How to Contact Us”). Please attribute the book as noted in the following section.
+
+We negotiated that the book should have a Creative Commons license so the contents could spread further around the world. We’d be quite happy to receive a beer if this decision has helped you. We suspect that the O’Reilly staff would feel similarly about the beer.
+How to Make an Attribution
+The Creative Commons license requires that you attribute your use of a part of this book. Attribution just means that you should write something that someone else can follow to find this book. The following would be sensible: “High Performance Python, 2nd ed., by Micha Gorelick and Ian Ozsvald (O’Reilly). Copyright 2020 Micha Gorelick and Ian Ozsvald, 978-1-49205502-0.”
+Errata and Feedback
+We encourage you to review this book on public sites like Amazon—please help others understand if they would benefit from this book! You can also email us at feedback@highperformancepython.com.
+We’re particularly keen to hear about errors in the book, successful use cases where the book has helped you, and high performance techniques that we should cover in the next edition. You can access the web page for this book at https://oreil.ly/high-performance-python-2e.
+
+Complaints are welcomed through the instant-complainttransmission-service > /dev/null.
+Conventions Used in This Book
+The following typographical conventions are used in this book:
+Italic Indicates new terms, URLs, email addresses, filenames, and file extensions.
+Constant width Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, datatypes, environment variables, statements, and keywords.
+Constant width bold Shows commands or other text that should be typed literally by the user.
+Constant width italic Shows text that should be replaced with user-supplied values or by values determined by context.
+TIP
+This element signifies a tip, suggestion, or critical thinking question.
+
+NOTE
+This element signifies a general note.
+WARNING
+This element indicates a warning or caution.
+Using Code Examples
+Supplemental material (code examples, exercises, etc.) is available for download at https://github.com/mynameisfiber/high_performance_python_2 e.
+If you have a technical question or a problem using the code examples, please send email to bookquestions@oreilly.com.
+This book is here to help you get your job done. In general, if example code is offered with this book, you may use it in your programs and documentation. You do not need to contact us for permission unless you’re reproducing a significant portion of the code. For example, writing a program that uses several chunks of code from this book does not require permission. Selling or distributing examples from O’Reilly books does require permission. Answering a question by citing this book and quoting example code does not require permission. Incorporating a significant amount of example code from this
+
+book into your product’s documentation does require permission.
+If you feel your use of code examples falls outside fair use or the permission given above, feel free to contact us at permissions@oreilly.com.
+O’Reilly Online Learning
+NOTE
+For more than 40 years, O’Reilly Media has provided technology and business training, knowledge, and insight to help companies succeed.
+Our unique network of experts and innovators share their knowledge and expertise through books, articles, and our online learning platform. O’Reilly’s online learning platform gives you on-demand access to live training courses, in-depth learning paths, interactive coding environments, and a vast collection of text and video from O’Reilly and 200+ other publishers. For more information, visit http://oreilly.com.
+How to Contact Us
+Please address comments and questions concerning this book to the publisher:
+O’Reilly Media, Inc.
+
+1005 Gravenstein Highway North Sebastopol, CA 95472 800-998-9938 (in the United States or Canada) 707-829-0515 (international or local) 707-829-0104 (fax) Email bookquestions@oreilly.com to comment or ask technical questions about this book.
+For news and more information about our books and courses, see our website at http://oreilly.com.
+Find us on Facebook: http://facebook.com/oreilly
+Follow us on Twitter: http://twitter.com/oreillymedia
+Watch us on YouTube: http://youtube.com/oreillymedia
+Acknowledgments
+Hilary Mason wrote our foreword—thanks for composing such a wonderful opening narrative for our book. Giles Weaver and Dimitri Denisjonok provided invaluable technical feedback on this edition; great work, chaps.
+Thanks to Patrick Cooper, Kyran Dale, Dan Foreman-Mackey, Calvin Giles, Brian Granger, Jamie Matthews, John
+
+Montgomery, Christian Schou Oxvig, Matt “snakes” Reiferson, Balthazar Rouberol, Michael Skirpan, Luke Underwood, Jake Vanderplas, and William Winter for invaluable feedback and contributions.
+Ian thanks his wife, Emily, for letting him disappear for another eight months to write this second edition (thankfully, she’s terribly understanding). Ian apologizes to his dog for sitting and writing rather than walking in the woods quite as much as she’d have liked.
+Micha thanks Marion and the rest of his friends and family for being so patient while he learned to write.
+O’Reilly editors are rather lovely to work with; do strongly consider talking to them if you want to write your own book.
+Our contributors to the “Lessons from the Field” chapter very kindly shared their time and hard-won lessons. We give thanks to Soledad Galli, Linda Uruchurtu, Vanentin Haenel, and Vincent D. Warmerdam for this edition and to Ben Jackson, Radim Řehůřek, Sebastjan Trepca, Alex Kelly, Marko Tasic, and Andrew Godwin for their time and effort during the previous edition.
+
+Chapter 1. Understanding Performant Python
+QUESTIONS YOU’LL BE ABLE TO ANSWER AFTER THIS CHAPTER
+What are the elements of a computer’s architecture? What are some common alternate computer architectures? How does Python abstract the underlying computer architecture? What are some of the hurdles to making performant Python code? What strategies can help you become a highly performant programmer?
+Programming computers can be thought of as moving bits of data and transforming them in special ways to achieve a particular result. However, these actions have a time cost. Consequently, high performance programming can be thought of as the act of minimizing these operations either by reducing the overhead (i.e., writing more efficient code) or by changing the way that we do these operations to make each one more meaningful (i.e., finding a more suitable algorithm).
+Let’s focus on reducing the overhead in code in order to gain more insight into the actual hardware on which we are moving these bits. This may seem like a futile exercise, since Python works quite hard to abstract away direct interactions with the hardware. However, by understanding both the best way that
+
+bits can be moved in the real hardware and the ways that Python’s abstractions force your bits to move, you can make progress toward writing high performance programs in Python.
+The Fundamental Computer System
+The underlying components that make up a computer can be simplified into three basic parts: the computing units, the memory units, and the connections between them. In addition, each of these units has different properties that we can use to understand them. The computational unit has the property of how many computations it can do per second, the memory unit has the properties of how much data it can hold and how fast we can read from and write to it, and finally, the connections have the property of how fast they can move data from one place to another.
+Using these building blocks, we can talk about a standard workstation at multiple levels of sophistication. For example, the standard workstation can be thought of as having a central processing unit (CPU) as the computational unit, connected to both the random access memory (RAM) and the hard drive as two separate memory units (each having different capacities and read/write speeds), and finally a bus that provides the connections between all of these parts. However, we can also go into more detail and see that the CPU itself has several memory units in it: the L1, L2, and sometimes even the L3 and L4 cache, which have small capacities but very fast speeds (from several kilobytes to a dozen megabytes). Furthermore,
+
+new computer architectures generally come with new configurations (for example, Intel’s SkyLake CPUs replaced the frontside bus with the Intel Ultra Path Interconnect and restructured many connections). Finally, in both of these approximations of a workstation we have neglected the network connection, which is effectively a very slow connection to potentially many other computing and memory units!
+To help untangle these various intricacies, let’s go over a brief description of these fundamental blocks.
+Computing Units
+The computing unit of a computer is the centerpiece of its usefulness—it provides the ability to transform any bits it receives into other bits or to change the state of the current process. CPUs are the most commonly used computing unit; however, graphics processing units (GPUs) are gaining popularity as auxiliary computing units. They were originally used to speed up computer graphics but are becoming more applicable for numerical applications and are useful thanks to their intrinsically parallel nature, which allows many calculations to happen simultaneously. Regardless of its type, a computing unit takes in a series of bits (for example, bits representing numbers) and outputs another set of bits (for example, bits representing the sum of those numbers). In addition to the basic arithmetic operations on integers and real numbers and bitwise operations on binary numbers, some computing units also provide very specialized operations, such
+
+as the “fused multiply add” operation, which takes in three numbers, A, B, and C, and returns the value A * B + C.
+The main properties of interest in a computing unit are the number of operations it can do in one cycle and the number of cycles it can do in one second. The first value is measured by its instructions per cycle (IPC),1 while the latter value is measured by its clock speed. These two measures are always competing with each other when new computing units are being made. For example, the Intel Core series has a very high IPC but a lower clock speed, while the Pentium 4 chip has the reverse. GPUs, on the other hand, have a very high IPC and clock speed, but they suffer from other problems like the slow communications that we discuss in “Communications Layers”.
+Furthermore, although increasing clock speed almost immediately speeds up all programs running on that computational unit (because they are able to do more calculations per second), having a higher IPC can also drastically affect computing by changing the level of vectorization that is possible. Vectorization occurs when a CPU is provided with multiple pieces of data at a time and is able to operate on all of them at once. This sort of CPU instruction is known as single instruction, multiple data (SIMD).
+In general, computing units have advanced quite slowly over the past decade (see Figure 1-1). Clock speeds and IPC have both been stagnant because of the physical limitations of making transistors smaller and smaller. As a result, chip
+
+manufacturers have been relying on other methods to gain more speed, including simultaneous multithreading (where multiple threads can run at once), more clever out-of-order execution, and multicore architectures.
+Hyperthreading presents a virtual second CPU to the host operating system (OS), and clever hardware logic tries to interleave two threads of instructions into the execution units on a single CPU. When successful, gains of up to 30% over a single thread can be achieved. Typically, this works well when the units of work across both threads use different types of execution units—for example, one performs floating-point operations and the other performs integer operations.
+Out-of-order execution enables a compiler to spot that some parts of a linear program sequence do not depend on the results of a previous piece of work, and therefore that both pieces of work could occur in any order or at the same time. As long as sequential results are presented at the right time, the program continues to execute correctly, even though pieces of work are computed out of their programmed order. This enables some instructions to execute when others might be blocked (e.g., waiting for a memory access), allowing greater overall utilization of the available resources.
+Finally, and most important for the higher-level programmer, there is the prevalence of multicore architectures. These architectures include multiple CPUs within the same unit, which increases the total capability without running into barriers to
+
+making each individual unit faster. This is why it is currently hard to find any machine with fewer than two cores—in this case, the computer has two physical computing units that are connected to each other. While this increases the total number of operations that can be done per second, it can make writing code more difficult!
+Figure 1-1. Clock speed of CPUs over time (from CPU DB)
+Simply adding more cores to a CPU does not always speed up a program’s execution time. This is because of something known as Amdahl’s law. Simply stated, Amdahl’s law is this: if a program designed to run on multiple cores has some subroutines that must run on one core, this will be the limitation for the maximum speedup that can be achieved by allocating more cores.
+For example, if we had a survey we wanted one hundred people to fill out, and that survey took 1 minute to complete, we could complete this task in 100 minutes if we had one person asking the questions (i.e., this person goes to participant 1, asks the questions, waits for the responses, and then moves to participant 2). This method of having one person asking the questions and waiting for responses is similar to a serial process. In serial processes, we have operations being satisfied one at a time, each one waiting for the previous operation to complete.
+However, we could perform the survey in parallel if we had two people asking the questions, which would let us finish the
+
+process in only 50 minutes. This can be done because each individual person asking the questions does not need to know anything about the other person asking questions. As a result, the task can easily be split up without having any dependency between the question askers.
+Adding more people asking the questions will give us more speedups, until we have one hundred people asking questions. At this point, the process would take 1 minute and would be limited simply by the time it takes a participant to answer questions. Adding more people asking questions will not result in any further speedups, because these extra people will have no tasks to perform—all the participants are already being asked questions! At this point, the only way to reduce the overall time to run the survey is to reduce the amount of time it takes for an individual survey, the serial portion of the problem, to complete. Similarly, with CPUs, we can add more cores that can perform various chunks of the computation as necessary until we reach a point where the bottleneck is the time it takes for a specific core to finish its task. In other words, the bottleneck in any parallel calculation is always the smaller serial tasks that are being spread out.
+Furthermore, a major hurdle with utilizing multiple cores in Python is Python’s use of a global interpreter lock (GIL). The GIL makes sure that a Python process can run only one instruction at a time, regardless of the number of cores it is currently using. This means that even though some Python code has access to multiple cores at a time, only one core is
+
+running a Python instruction at any given time. Using the previous example of a survey, this would mean that even if we had 100 question askers, only one person could ask a question and listen to a response at a time. This effectively removes any sort of benefit from having multiple question askers! While this may seem like quite a hurdle, especially if the current trend in computing is to have multiple computing units rather than having faster ones, this problem can be avoided by using other standard library tools, like multiprocessing (Chapter 9), technologies like numpy or numexpr (Chapter 6), Cython (Chapter 7), or distributed models of computing (Chapter 10).
+NOTE
+Python 3.2 also saw a major rewrite of the GIL, which made the system much more nimble, alleviating many of the concerns around the system for single-thread performance. Although it still locks Python into running only one instruction at a time, the GIL now does better at switching between those instructions and doing so with less overhead.
+Memory Units
+Memory units in computers are used to store bits. These could be bits representing variables in your program or bits representing the pixels of an image. Thus, the abstraction of a memory unit applies to the registers in your motherboard as well as your RAM and hard drive. The one major difference between all of these types of memory units is the speed at which they can read/write data. To make things more
+
+complicated, the read/write speed is heavily dependent on the way that data is being read.
+For example, most memory units perform much better when they read one large chunk of data as opposed to many small chunks (this is referred to as sequential read versus random data). If the data in these memory units is thought of as pages in a large book, this means that most memory units have better read/write speeds when going through the book page by page rather than constantly flipping from one random page to another. While this fact is generally true across all memory units, the amount that this affects each type is drastically different.
+In addition to the read/write speeds, memory units also have latency, which can be characterized as the time it takes the device to find the data that is being used. For a spinning hard drive, this latency can be high because the disk needs to physically spin up to speed and the read head must move to the right position. On the other hand, for RAM, this latency can be quite small because everything is solid state. Here is a short description of the various memory units that are commonly found inside a standard workstation, in order of read/write speeds:2
+Spinning hard drive Long-term storage that persists even when the computer is shut down. Generally has slow read/write speeds because the disk must be physically spun and moved. Degraded
+
+performance with random access patterns but very large capacity (10 terabyte range).
+Solid-state hard drive Similar to a spinning hard drive, with faster read/write speeds but smaller capacity (1 terabyte range).
+RAM Used to store application code and data (such as any variables being used). Has fast read/write characteristics and performs well with random access patterns, but is generally limited in capacity (64 gigabyte range).
+L1/L2 cache Extremely fast read/write speeds. Data going to the CPU must go through here. Very small capacity (megabytes range).
+Figure 1-2 gives a graphic representation of the differences between these types of memory units by looking at the characteristics of currently available consumer hardware.
+A clearly visible trend is that read/write speeds and capacity are inversely proportional—as we try to increase speed, capacity gets reduced. Because of this, many systems implement a tiered approach to memory: data starts in its full state in the hard drive, part of it moves to RAM, and then a much smaller subset moves to the L1/L2 cache. This method of tiering enables programs to keep memory in different places depending on access speed requirements. When trying to optimize the memory patterns of a program, we are simply
+
+optimizing which data is placed where, how it is laid out (in order to increase the number of sequential reads), and how many times it is moved among the various locations. In addition, methods such as asynchronous I/O and preemptive caching provide ways to make sure that data is always where it needs to be without having to waste computing time—most of these processes can happen independently, while other calculations are being performed!
+
+Figure 1-2. Characteristic values for different types of memory units (values from February 2014)
+Communications Layers
+
+Finally, let’s look at how all of these fundamental blocks communicate with each other. Many modes of communication exist, but all are variants on a thing called a bus.
+The frontside bus, for example, is the connection between the RAM and the L1/L2 cache. It moves data that is ready to be transformed by the processor into the staging ground to get ready for calculation, and it moves finished calculations out. There are other buses, too, such as the external bus that acts as the main route from hardware devices (such as hard drives and networking cards) to the CPU and system memory. This external bus is generally slower than the frontside bus.
+In fact, many of the benefits of the L1/L2 cache are attributable to the faster bus. Being able to queue up data necessary for computation in large chunks on a slow bus (from RAM to cache) and then having it available at very fast speeds from the cache lines (from cache to CPU) enables the CPU to do more calculations without waiting such a long time.
+Similarly, many of the drawbacks of using a GPU come from the bus it is connected on: since the GPU is generally a peripheral device, it communicates through the PCI bus, which is much slower than the frontside bus. As a result, getting data into and out of the GPU can be quite a taxing operation. The advent of heterogeneous computing, or computing blocks that have both a CPU and a GPU on the frontside bus, aims at reducing the data transfer cost and making GPU computing
+
+more of an available option, even when a lot of data must be transferred.
+In addition to the communication blocks within the computer, the network can be thought of as yet another communication block. This block, though, is much more pliable than the ones discussed previously; a network device can be connected to a memory device, such as a network attached storage (NAS) device or another computing block, as in a computing node in a cluster. However, network communications are generally much slower than the other types of communications mentioned previously. While the frontside bus can transfer dozens of gigabits per second, the network is limited to the order of several dozen megabits.
+It is clear, then, that the main property of a bus is its speed: how much data it can move in a given amount of time. This property is given by combining two quantities: how much data can be moved in one transfer (bus width) and how many transfers the bus can do per second (bus frequency). It is important to note that the data moved in one transfer is always sequential: a chunk of data is read off of the memory and moved to a different place. Thus, the speed of a bus is broken into these two quantities because individually they can affect different aspects of computation: a large bus width can help vectorized code (or any code that sequentially reads through memory) by making it possible to move all the relevant data in one transfer, while, on the other hand, having a small bus width but a very high frequency of transfers can help code that must
+
+do many reads from random parts of memory. Interestingly, one of the ways that these properties are changed by computer designers is by the physical layout of the motherboard: when chips are placed close to one another, the length of the physical wires joining them is smaller, which can allow for faster transfer speeds. In addition, the number of wires itself dictates the width of the bus (giving real physical meaning to the term!).
+Since interfaces can be tuned to give the right performance for a specific application, it is no surprise that there are hundreds of types. Figure 1-3 shows the bitrates for a sampling of common interfaces. Note that this doesn’t speak at all about the latency of the connections, which dictates how long it takes for a data request to be responded to (although latency is very computer-dependent, some basic limitations are inherent to the interfaces being used).
+
+Figure 1-3. Connection speeds of various common interfaces3
+Putting the Fundamental Elements Together
+
+Understanding the basic components of a computer is not enough to fully understand the problems of high performance programming. The interplay of all of these components and how they work together to solve a problem introduces extra levels of complexity. In this section we will explore some toy problems, illustrating how the ideal solutions would work and how Python approaches them.
+A warning: this section may seem bleak—most of the remarks in this section seem to say that Python is natively incapable of dealing with the problems of performance. This is untrue, for two reasons. First, among all of the “components of performant computing,” we have neglected one very important component: the developer. What native Python may lack in performance, it gets back right away with speed of development. Furthermore, throughout the book we will introduce modules and philosophies that can help mitigate many of the problems described here with relative ease. With both of these aspects combined, we will keep the fast development mindset of Python while removing many of the performance constraints.
+Idealized Computing Versus the Python Virtual Machine
+To better understand the components of high performance programming, let’s look at a simple code sample that checks whether a number is prime:
+import math
+
+def check_prime(number): sqrt_number = math.sqrt(number) for i in range(2, int(sqrt_number) + 1): if (number / i).is_integer(): return False return True
+print(f"check_prime(10,000,000) = {check_prime(10_000_000)}") # check_prime(10,000,000) = False print(f"check_prime(10,000,019) = {check_prime(10_000_019)}") # check_prime(10,000,019) = True
+Let’s analyze this code using our abstract model of computation and then draw comparisons to what happens when Python runs this code. As with any abstraction, we will neglect many of the subtleties in both the idealized computer and the way that Python runs the code. However, this is generally a good exercise to perform before solving a problem: think about the general components of the algorithm and what would be the best way for the computing components to come together to find a solution. By understanding this ideal situation and having knowledge of what is actually happening under the hood in Python, we can iteratively bring our Python code closer to the optimal code.
+IDEALIZED COMPUTING
+When the code starts, we have the value of number stored in RAM. To calculate sqrt_number, we need to send the value of number to the CPU. Ideally, we could send the value once; it would get stored inside the CPU’s L1/L2 cache, and the CPU
+
+would do the calculations and then send the values back to RAM to get stored. This scenario is ideal because we have minimized the number of reads of the value of number from RAM, instead opting for reads from the L1/L2 cache, which are much faster. Furthermore, we have minimized the number of data transfers through the frontside bus, by using the L1/L2 cache which is connected directly to the CPU.
+TIP
+This theme of keeping data where it is needed and moving it as little as possible is very important when it comes to optimization. The concept of “heavy data” refers to the time and effort required to move data around, which is something we would like to avoid.
+For the loop in the code, rather than sending one value of i at a time to the CPU, we would like to send both number and several values of i to the CPU to check at the same time. This is possible because the CPU vectorizes operations with no additional time cost, meaning it can do multiple independent computations at the same time. So we want to send number to the CPU cache, in addition to as many values of i as the cache can hold. For each of the number/i pairs, we will divide them and check if the result is a whole number; then we will send a signal back indicating whether any of the values was indeed an integer. If so, the function ends. If not, we repeat. In this way, we need to communicate back only one result for many values of i, rather than depending on the slow bus for
+
+every value. This takes advantage of a CPU’s ability to vectorize a calculation, or run one instruction on multiple data in one clock cycle.
+This concept of vectorization is illustrated by the following code:
+import math
+def check_prime(number): sqrt_number = math.sqrt(number) numbers = range(2, int(sqrt_number)+1) for i in range(0, len(numbers), 5): # the following line is not valid Python code result = (number / numbers[i:(i + 5)]).is_integer() if any(result): return False return True
+Here, we set up the processing such that the division and the checking for integers are done on a set of five values of i at a time. If properly vectorized, the CPU can do this line in one step as opposed to doing a separate calculation for every i. Ideally, the any(result) operation would also happen in the CPU without having to transfer the results back to RAM. We will talk more about vectorization, how it works, and when it benefits your code in Chapter 6.
+PYTHON’S VIRTUAL MACHINE
+The Python interpreter does a lot of work to try to abstract away the underlying computing elements that are being used. At no point does a programmer need to worry about allocating
+
+memory for arrays, how to arrange that memory, or in what sequence it is being sent to the CPU. This is a benefit of Python, since it lets you focus on the algorithms that are being implemented. However, it comes at a huge performance cost.
+It is important to realize that at its core, Python is indeed running a set of very optimized instructions. The trick, however, is getting Python to perform them in the correct sequence to achieve better performance. For example, it is quite easy to see that, in the following example, search_fast will run faster than search_slow simply because it skips the unnecessary computations that result from not terminating the loop early, even though both solutions have runtime O(n). However, things can get complicated when dealing with derived types, special Python methods, or third-party modules. For example, can you immediately tell which function will be faster: search_unknown1 or search_unknown2?
+def search_fast(haystack, needle): for item in haystack: if item == needle: return True return False
+def search_slow(haystack, needle): return_value = False for item in haystack: if item == needle: return_value = True return return_value
+def search_unknown1(haystack, needle): return any((item == needle for item in haystack))
+
+def search_unknown2(haystack, needle): return any([item == needle for item in haystack])
+Identifying slow regions of code through profiling and finding more efficient ways of doing the same calculations is similar to finding these useless operations and removing them; the end result is the same, but the number of computations and data transfers is reduced drastically.
+One of the impacts of this abstraction layer is that vectorization is not immediately achievable. Our initial prime number routine will run one iteration of the loop per value of i instead of combining several iterations. However, looking at the abstracted vectorization example, we see that it is not valid Python code, since we cannot divide a float by a list. External libraries such as numpy will help with this situation by adding the ability to do vectorized mathematical operations.
+Furthermore, Python’s abstraction hurts any optimizations that rely on keeping the L1/L2 cache filled with the relevant data for the next computation. This comes from many factors, the first being that Python objects are not laid out in the most optimal way in memory. This is a consequence of Python being a garbage-collected language—memory is automatically allocated and freed when needed. This creates memory fragmentation that can hurt the transfers to the CPU caches. In addition, at no point is there an opportunity to change the layout of a data structure directly in memory, which means that one transfer on the bus may not contain all the relevant
+
+information for a computation, even though it might have all fit within the bus width.4
+A second, more fundamental problem comes from Python’s dynamic types and the language not being compiled. As many C programmers have learned throughout the years, the compiler is often smarter than you are. When compiling code that is static, the compiler can do many tricks to change the way things are laid out and how the CPU will run certain instructions in order to optimize them. Python, however, is not compiled: to make matters worse, it has dynamic types, which means that inferring any possible opportunities for optimizations algorithmically is drastically harder since code functionality can be changed during runtime. There are many ways to mitigate this problem, foremost being the use of Cython, which allows Python code to be compiled and allows the user to create “hints” to the compiler as to how dynamic the code actually is.
+Finally, the previously mentioned GIL can hurt performance if trying to parallelize this code. For example, let’s assume we change the code to use multiple CPU cores such that each core gets a chunk of the numbers from 2 to sqrtN. Each core can do its calculation for its chunk of numbers, and then, when the calculations are all done, the cores can compare their calculations. Although we lose the early termination of the loop since each core doesn’t know if a solution has been found, we can reduce the number of checks each core has to do (if we had M cores, each core would have to do sqrtN / M checks).
+
+However, because of the GIL, only one core can be used at a time. This means that we would effectively be running the same code as the unparalleled version, but we no longer have early termination. We can avoid this problem by using multiple processes (with the multiprocessing module) instead of multiple threads, or by using Cython or foreign functions.
+So Why Use Python?
+Python is highly expressive and easy to learn—new programmers quickly discover that they can do quite a lot in a short space of time. Many Python libraries wrap tools written in other languages to make it easy to call other systems; for example, the scikit-learn machine learning system wraps LIBLINEAR and LIBSVM (both of which are written in C), and the numpy library includes BLAS and other C and Fortran libraries. As a result, Python code that properly utilizes these modules can indeed be as fast as comparable C code.
+Python is described as “batteries included,” as many important tools and stable libraries are built in. These include the following:
+unicode and bytes Baked into the core language
+array Memory-efficient arrays for primitive types
+
+math Basic mathematical operations, including some simple statistics
+sqlite3 A wrapper around the prevalent SQL file-based storage engine SQLite3
+collections A wide variety of objects, including a deque, counter, and dictionary variants
+asyncio Concurrent support for I/O-bound tasks using async and await syntax
+A huge variety of libraries can be found outside the core language, including these:
+numpy A numerical Python library (a bedrock library for anything to do with matrices)
+scipy A very large collection of trusted scientific libraries, often wrapping highly respected C and Fortran libraries
+pandas A library for data analysis, similar to R’s data frames or an Excel spreadsheet, built on scipy and numpy
+
+scikit-learn Rapidly turning into the default machine learning library, built on scipy
+tornado A library that provides easy bindings for concurrency
+PyTorch and TensorFlow Deep learning frameworks from Facebook and Google with strong Python and GPU support
+NLTK, SpaCy, and Gensim Natural language-processing libraries with deep Python support
+Database bindings For communicating with virtually all databases, including Redis, MongoDB, HDF5, and SQL
+Web development frameworks Performant systems for creating websites, such as aiohttp, django, pyramid, flask, and tornado
+OpenCV Bindings for computer vision
+API bindings For easy access to popular web APIs such as Google, Twitter, and LinkedIn
+
+A large selection of managed environments and shells is available to fit various deployment scenarios, including the following:
+The standard distribution, available at http://python.org
+pipenv, pyenv, and virtualenv for simple, lightweight, and portable Python environments
+Docker for simple-to-start-and-reproduce environments for development or production
+Anaconda Inc.’s Anaconda, a scientifically focused environment
+Sage, a Matlab-like environment that includes an integrated development environment (IDE)
+IPython, an interactive Python shell heavily used by scientists and developers
+Jupyter Notebook, a browser-based extension to IPython, heavily used for teaching and demonstrations
+One of Python’s main strengths is that it enables fast prototyping of an idea. Because of the wide variety of supporting libraries, it is easy to test whether an idea is feasible, even if the first implementation might be rather flaky.
+If you want to make your mathematical routines faster, look to numpy. If you want to experiment with machine learning, try scikit-learn. If you are cleaning and manipulating data, then pandas is a good choice.
+
+In general, it is sensible to raise the question, “If our system runs faster, will we as a team run slower in the long run?” It is always possible to squeeze more performance out of a system if enough work-hours are invested, but this might lead to brittle and poorly understood optimizations that ultimately trip up the team.
+One example might be the introduction of Cython (see “Cython”), a compiler-based approach to annotating Python code with C-like types so the transformed code can be compiled using a C compiler. While the speed gains can be impressive (often achieving C-like speeds with relatively little effort), the cost of supporting this code will increase. In particular, it might be harder to support this new module, as team members will need a certain maturity in their programming ability to understand some of the trade-offs that have occurred when leaving the Python virtual machine that introduced the performance increase.
+How to Be a Highly Performant Programmer
+Writing high performance code is only one part of being highly performant with successful projects over the longer term. Overall team velocity is far more important than speedups and complicated solutions. Several factors are key to this—good structure, documentation, debuggability, and shared standards.
+
+Let’s say you create a prototype. You didn’t test it thoroughly, and it didn’t get reviewed by your team. It does seem to be “good enough,” and it gets pushed to production. Since it was never written in a structured way, it lacks tests and is undocumented. All of a sudden there’s an inertia-causing piece of code for someone else to support, and often management can’t quantify the cost to the team.
+As this solution is hard to maintain, it tends to stay unloved—it never gets restructured, it doesn’t get the tests that’d help the team refactor it, and nobody else likes to touch it, so it falls to one developer to keep it running. This can cause an awful bottleneck at times of stress and raises a significant risk: what would happen if that developer left the project?
+Typically, this development style occurs when the management team doesn’t understand the ongoing inertia that’s caused by hard-to-maintain code. Demonstrating that in the longer-term tests and documentation can help a team stay highly productive and can help convince managers to allocate time to “cleaning up” this prototype code.
+In a research environment, it is common to create many Jupyter Notebooks using poor coding practices while iterating through ideas and different datasets. The intention is always to “write it up properly” at a later stage, but that later stage never occurs. In the end, a working result is obtained, but the infrastructure to reproduce it, test it, and trust the result is
+
+missing. Once again the risk factors are high, and the trust in the result will be low.
+There’s a general approach that will serve you well:
+Make it work First you build a good-enough solution. It is very sensible to “build one to throw away” that acts as a prototype solution, enabling a better structure to be used for the second version. It is always sensible to do some up-front planning before coding; otherwise, you’ll come to reflect that “We saved an hour’s thinking by coding all afternoon.” In some fields this is better known as “Measure twice, cut once.”
+Make it right Next, you add a strong test suite backed by documentation and clear reproducibility instructions so that another team member can take it on.
+Make it fast Finally, we can focus on profiling and compiling or parallelization and using the existing test suite to confirm that the new, faster solution still works as expected.
+Good Working Practices
+There are a few “must haves”—documentation, good structure, and testing are key.
+Some project-level documentation will help you stick to a clean structure. It’ll also help you and your colleagues in the future.
+
+Nobody will thank you (yourself included) if you skip this part. Writing this up in a README file at the top level is a sensible starting point; it can always be expanded into a docs/ folder later if required.
+Explain the purpose of the project, what’s in the folders, where the data comes from, which files are critical, and how to run it all, including how to run the tests.
+Micha recommends also using Docker. A top-level Dockerfile will explain to your future-self exactly which libraries you need from the operating system to make this project run successfully. It also removes the difficulty of running this code on other machines or deploying it to a cloud environment.
+Add a tests/ folder and add some unit tests. We prefer pytest as a modern test runner, as it builds on Python’s built-in unittest module. Start with just a couple of tests and then build them up. Progress to using the coverage tool, which will report how many lines of your code are actually covered by the tests—it’ll help avoid nasty surprises.
+If you’re inheriting legacy code and it lacks tests, a high-value activity is to add some tests up front. Some “integration tests” that check the overall flow of the project and confirm that with certain input data you get specific output results will help your sanity as you subsequently make modifications.
+
+Every time something in the code bites you, add a test. There’s no value to being bitten twice by the same problem.
+Docstrings in your code for each function, class, and module will always help you. Aim to provide a useful description of what’s achieved by the function, and where possible include a short example to demonstrate the expected output. Look at the docstrings inside numpy and scikit-learn if you’d like inspiration.
+Whenever your code becomes too long—such as functions longer than one screen—be comfortable with refactoring the code to make it shorter. Shorter code is easier to test and easier to support.
+
+TIP
+When you’re developing your tests, think about following a test-driven development methodology. When you know exactly what you need to develop and you have testable examples at hand—this method becomes very efficient.
+You write your tests, run them, watch them fail, and then add the functions and the necessary minimum logic to support the tests that you’ve written. When your tests all work, you’re done. By figuring out the expected input and output of a function ahead of time, you’ll find implementing the logic of the function relatively straightforward.
+If you can’t define your tests ahead of time, it naturally raises the question, do you really understand what your function needs to do? If not, can you write it correctly in an efficient manner? This method doesn’t work so well if you’re in a creative process and researching data that you don’t yet understand well.
+Always use source control—you’ll only thank yourself when you overwrite something critical at an inconvenient moment. Get used to committing frequently (daily, or even every 10 minutes) and pushing to your repository every day.
+Keep to the standard PEP8 coding standard. Even better, adopt black (the opinionated code formatter) on a pre-commit source control hook so it just rewrites your code to the standard for you. Use flake8 to lint your code to avoid other mistakes.
+Creating environments that are isolated from the operating system will make your life easier. Ian prefers Anaconda, while
+
+Micha prefers pipenv coupled with Docker. Both are sensible solutions and are significantly better using the operating system’s global Python environment!
+Remember that automation is your friend. Doing less manual work means there’s less chance of errors creeping in. Automated build systems, continuous integration with automated test suite runners, and automated deployment systems turn tedious and error-prone tasks into standard processes that anyone can run and support.
+Finally, remember that readability is far more important than being clever. Short snippets of complex and hard-to-read code will be hard for you and your colleagues to maintain, so people will be scared of touching this code. Instead, write a longer, easier-to-read function and back it with useful documentation showing what it’ll return, and complement this with tests to confirm that it does work as you expect.
+
+Some Thoughts on Good Notebook Practice
+If you’re using Jupyter Notebooks, they’re great for visual communication, but they facilitate laziness. If you find yourself leaving long functions inside your Notebooks, be comfortable extracting them out to a Python module and then adding tests.
+Consider prototyping your code in IPython or the QTConsole; turn lines of code into functions in a Notebook and then promote them out of the Notebook and into a module complemented by tests. Finally, consider wrapping the code in a class if encapsulation and data hiding are useful.
+Liberally spread assert statements throughout a Notebook to check that your functions are behaving as expected. You can’t easily test code inside a Notebook, and until you’ve refactored your functions into separate modules, assert checks are a simple way to add some level of validation. You shouldn’t trust this code until you’ve extracted it to a module and written sensible unit tests.
+Using assert statements to check data in your code should be frowned upon. It is an easy way to assert that certain conditions are being met, but it isn’t idiomatic Python. To make your code easier to read by other developers, check your expected data state and then raise an appropriate exception if the check fails. A common exception would be ValueError if a function encounters an unexpected value. The Bulwark library is an example of a testing framework focused on
+
+Pandas to check that your data meets the specified constraints.
+You may also want to add some sanity checks at the end of your Notebook—a mixture of logic checks and raise and print statements that demonstrate that you’ve just generated exactly what you needed. When you return to this code in six months, you’ll thank yourself for making it easy to see that it worked correctly all the way through!
+One difficulty with Notebooks is sharing code with source control systems. nbdime is one of a growing set of new tools that let you diff your Notebooks. It is a lifesaver and enables collaboration with colleagues.
+Getting the Joy Back into Your Work
+Life can be complicated. In the five years since your authors wrote the first edition of this book, we’ve jointly experienced through friends and family a number of life situations, including depression, cancer, home relocations, successful business exits and failures, and career direction shifts. Inevitably, these external events will have an impact on anyone’s work and outlook on life.
+Remember to keep looking for the joy in new activities. There are always interesting details or requirements once you start poking around. You might ask, “why did they make that decision?” and “how would I do it differently?” and all of a
+
+sudden you’re ready to start a conversation about how things might be changed or improved.
+Keep a log of things that are worth celebrating. It is so easy to forget about accomplishments and to get caught up in the dayto-day. People get burned out because they’re always running to keep up, and they forget how much progress they’ve made.
+We suggest that you build a list of items worth celebrating and note how you celebrate them. Ian keeps such a list—he’s happily surprised when he goes to update the list and sees just how many cool things have happened (and might otherwise have been forgotten!) in the last year. These shouldn’t just be work milestones; include hobbies and sports, and celebrate the milestones you’ve achieved. Micha makes sure to prioritize his personal life and spend days away from the computer to work on nontechnical projects. It is critical to keep developing your skill set, but it is not necessary to burn out!
+Programming, particularly when performance focused, thrives on a sense of curiosity and a willingness to always delve deeper into the technical details. Unfortunately, this curiosity is the first thing to go when you burn out; so take your time and make sure you enjoy the journey, and keep the joy and the curiosity.
+1 Not to be confused with interprocess communication, which shares the same acronym—we’ll look at that topic in Chapter 9.
+2 Speeds in this section are from https://oreil.ly/pToi7.
+
+3 Data is from https://oreil.ly/7SC8d.
+4 In Chapter 6, we’ll see how we can regain this control and tune our code all the way down to the memory utilization patterns.
+
+Chapter 2. Profiling to Find Bottlenecks
+QUESTIONS YOU’LL BE ABLE TO ANSWER AFTER THIS CHAPTER
+How can I identify speed and RAM bottlenecks in my code? How do I profile CPU and memory usage? What depth of profiling should I use? How can I profile a long-running application? What’s happening under the hood with CPython? How do I keep my code correct while tuning performance?
+Profiling lets us find bottlenecks so we can do the least amount of work to get the biggest practical performance gain. While we’d like to get huge gains in speed and reductions in resource usage with little work, practically you’ll aim for your code to run “fast enough” and “lean enough” to fit your needs. Profiling will let you make the most pragmatic decisions for the least overall effort.
+Any measurable resource can be profiled (not just the CPU!). In this chapter we look at both CPU time and memory usage. You could apply similar techniques to measure network bandwidth and disk I/O too.
+If a program is running too slowly or using too much RAM, you’ll want to fix whichever parts of your code are responsible. You could, of course, skip profiling and fix what you believe might be the problem—but be wary, as you’ll often end up “fixing” the wrong
+
+thing. Rather than using your intuition, it is far more sensible to first profile, having defined a hypothesis, before making changes to the structure of your code.
+Sometimes it’s good to be lazy. By profiling first, you can quickly identify the bottlenecks that need to be solved, and then you can solve just enough of these to achieve the performance you need. If you avoid profiling and jump to optimization, you’ll quite likely do more work in the long run. Always be driven by the results of profiling.
+Profiling Efficiently
+The first aim of profiling is to test a representative system to identify what’s slow (or using too much RAM, or causing too much disk I/O or network I/O). Profiling typically adds an overhead (10× to 100× slowdowns can be typical), and you still want your code to be used in as similar to a real-world situation as possible. Extract a test case and isolate the piece of the system that you need to test. Preferably, it’ll have been written to be in its own set of modules already.
+The basic techniques that are introduced first in this chapter include the %timeit magic in IPython, time.time(), and a timing decorator. You can use these techniques to understand the behavior of statements and functions.
+Then we will cover cProfile (“Using the cProfile Module”), showing you how to use this built-in tool to understand which functions in your code take the longest to run. This will give you a
+
+high-level view of the problem so you can direct your attention to the critical functions.
+Next, we’ll look at line_profiler (“Using line_profiler for Lineby-Line Measurements”), which will profile your chosen functions on a line-by-line basis. The result will include a count of the number of times each line is called and the percentage of time spent on each line. This is exactly the information you need to understand what’s running slowly and why.
+Armed with the results of line_profiler, you’ll have the information you need to move on to using a compiler (Chapter 7).
+In Chapter 6, you’ll learn how to use perf stat to understand the number of instructions that are ultimately executed on a CPU and how efficiently the CPU’s caches are utilized. This allows for advanced-level tuning of matrix operations. You should take a look at Example 6-8 when you’re done with this chapter.
+After line_profiler, if you’re working with long-running systems, then you’ll be interested in py-spy to peek into alreadyrunning Python processes.
+To help you understand why your RAM usage is high, we’ll show you memory_profiler (“Using memory_profiler to Diagnose Memory Usage”). It is particularly useful for tracking RAM usage over time on a labeled chart, so you can explain to colleagues why certain functions use more RAM than expected.
+
+WARNING
+Whatever approach you take to profiling your code, you must remember to have adequate unit test coverage in your code. Unit tests help you to avoid silly mistakes and to keep your results reproducible. Avoid them at your peril.
+Always profile your code before compiling or rewriting your algorithms. You need evidence to determine the most efficient ways to make your code run faster.
+Next, we’ll give you an introduction to the Python bytecode inside CPython (“Using the dis Module to Examine CPython Bytecode”), so you can understand what’s happening “under the hood.” In particular, having an understanding of how Python’s stack-based virtual machine operates will help you understand why certain coding styles run more slowly than others.
+Before the end of the chapter, we’ll review how to integrate unit tests while profiling (“Unit Testing During Optimization to Maintain Correctness”) to preserve the correctness of your code while you make it run more efficiently.
+We’ll finish with a discussion of profiling strategies (“Strategies to Profile Your Code Successfully”) so you can reliably profile your code and gather the correct data to test your hypotheses. Here you’ll learn how dynamic CPU frequency scaling and features like Turbo Boost can skew your profiling results, and you’ll learn how they can be disabled.
+To walk through all of these steps, we need an easy-to-analyze function. The next section introduces the Julia set. It is a CPUbound function that’s a little hungry for RAM; it also exhibits
+
+nonlinear behavior (so we can’t easily predict the outcomes), which means we need to profile it at runtime rather than analyzing it offline.
+Introducing the Julia Set
+The Julia set is an interesting CPU-bound problem for us to begin with. It is a fractal sequence that generates a complex output image, named after Gaston Julia.
+The code that follows is a little longer than a version you might write yourself. It has a CPU-bound component and a very explicit set of inputs. This configuration allows us to profile both the CPU usage and the RAM usage so we can understand which parts of our code are consuming two of our scarce computing resources. This implementation is deliberately suboptimal, so we can identify memory-consuming operations and slow statements. Later in this chapter we’ll fix a slow logic statement and a memory-consuming statement, and in Chapter 7 we’ll significantly speed up the overall execution time of this function.
+We will analyze a block of code that produces both a false grayscale plot (Figure 2-1) and a pure grayscale variant of the Julia set (Figure 2-3), at the complex point c=-0.62772-0.42193j. A Julia set is produced by calculating each pixel in isolation; this is an “embarrassingly parallel problem,” as no data is shared between points.
+
+Figure 2-1. Julia set plot with a false gray scale to highlight detail
+If we chose a different c, we’d get a different image. The location we have chosen has regions that are quick to calculate and others that are slow to calculate; this is useful for our analysis.
+The problem is interesting because we calculate each pixel by applying a loop that could be applied an indeterminate number of
+
+times. On each iteration we test to see if this coordinate’s value escapes toward infinity, or if it seems to be held by an attractor. Coordinates that cause few iterations are colored darkly in Figure 2-1, and those that cause a high number of iterations are colored white. White regions are more complex to calculate and so take longer to generate.
+
+We define a set of z coordinates that we’ll test. The function that we calculate squares the complex number z and adds c:
+
+2
+f (z) = z + c
+We iterate on this function while testing to see if the escape condition holds using abs. If the escape function is False, we break out of the loop and record the number of iterations we performed at this coordinate. If the escape function is never False, we stop after maxiter iterations. We will later turn this z’s result into a colored pixel representing this complex location.
+
+In pseudocode, it might look like this:
+
+for z in coordinates:
+
+for iteration in range(maxiter): # limited iterations per
+
+point
+
+if abs(z) < 2.0: # has the escape condition been
+
+broken?
+
+z = z*z + c
+
+else:
+
+break # store the iteration count for each z and draw later
+
+To explain this function, let’s try two coordinates.
+
+We’ll use the coordinate that we draw in the top-left corner of the plot at -1.8-1.8j. We must test abs(z) < 2 before we can try the update rule:
+z = -1.8-1.8j print(abs(z))
+2.54558441227
+We can see that for the top-left coordinate, the abs(z) test will be False on the zeroth iteration as 2.54 >= 2.0, so we do not perform the update rule. The output value for this coordinate is 0.
+Now let’s jump to the center of the plot at z = 0 + 0j and try a few iterations:
+c = -0.62772-0.42193j z = 0+0j for n in range(9):
+z = z*z + c print(f"{n}: z={z: .5f}, abs(z)={abs(z):0.3f}, c={c: .5f}")
+0: z=-0.62772-0.42193j, abs(z)=0.756, c=-0.62772-0.42193j 1: z=-0.41171+0.10778j, abs(z)=0.426, c=-0.62772-0.42193j 2: z=-0.46983-0.51068j, abs(z)=0.694, c=-0.62772-0.42193j 3: z=-0.66777+0.05793j, abs(z)=0.670, c=-0.62772-0.42193j 4: z=-0.18516-0.49930j, abs(z)=0.533, c=-0.62772-0.42193j 5: z=-0.84274-0.23703j, abs(z)=0.875, c=-0.62772-0.42193j 6: z= 0.02630-0.02242j, abs(z)=0.035, c=-0.62772-0.42193j 7: z=-0.62753-0.42311j, abs(z)=0.757, c=-0.62772-0.42193j 8: z=-0.41295+0.10910j, abs(z)=0.427, c=-0.62772-0.42193j
+We can see that each update to z for these first iterations leaves it with a value where abs(z) < 2 is True. For this coordinate we can iterate 300 times, and still the test will be True. We cannot tell how many iterations we must perform before the condition becomes False, and this may be an infinite sequence. The
+
+maximum iteration (maxiter) break clause will stop us from iterating potentially forever.
+In Figure 2-2, we see the first 50 iterations of the preceding sequence. For 0+0j (the solid line with circle markers), the sequence appears to repeat every eighth iteration, but each sequence of seven calculations has a minor deviation from the previous sequence—we can’t tell if this point will iterate forever within the boundary condition, or for a long time, or maybe for just a few more iterations. The dashed cutoff line shows the boundary at +2.
+
+Figure 2-2. Two coordinate examples evolving for the Julia set
+For -0.82+0j (the dashed line with diamond markers), we can see that after the ninth update, the absolute result has exceeded the +2 cutoff, so we stop updating this value.
+
+Calculating the Full Julia Set
+In this section we break down the code that generates the Julia set. We’ll analyze it in various ways throughout this chapter. As shown in Example 2-1, at the start of our module we import the time module for our first profiling approach and define some coordinate constants.
+Example 2-1. Defining global constants for the coordinate space
+"""Julia set generator without optional PIL-based image drawing""" import time
+# area of complex space to investigate x1, x2, y1, y2 = -1.8, 1.8, -1.8, 1.8 c_real, c_imag = -0.62772, -.42193
+To generate the plot, we create two lists of input data. The first is zs (complex z coordinates), and the second is cs (a complex initial condition). Neither list varies, and we could optimize cs to a single c value as a constant. The rationale for building two input lists is so that we have some reasonable-looking data to profile when we profile RAM usage later in this chapter.
+To build the zs and cs lists, we need to know the coordinates for each z. In Example 2-2, we build up these coordinates using xcoord and ycoord and a specified x_step and y_step. The somewhat verbose nature of this setup is useful when porting the code to other tools (such as numpy) and to other Python environments, as it helps to have everything very clearly defined for debugging.
+Example 2-2. Establishing the coordinate lists as inputs to our calculation function
+
+def calc_pure_python(desired_width, max_iterations): """Create a list of complex coordinates (zs) and complex
+parameters (cs), build Julia set""" x_step = (x2 - x1) / desired_width y_step = (y1 - y2) / desired_width x = [] y = [] ycoord = y2 while ycoord > y1: y.append(ycoord) ycoord += y_step xcoord = x1 while xcoord < x2: x.append(xcoord) xcoord += x_step # build a list of coordinates and the initial condition for
+each cell. # Note that our initial condition is a constant and could
+easily be removed, # we use it to simulate a real-world scenario with several
+inputs to our # function zs = [] cs = [] for ycoord in y: for xcoord in x: zs.append(complex(xcoord, ycoord)) cs.append(complex(c_real, c_imag))
+print("Length of x:", len(x)) print("Total elements:", len(zs)) start_time = time.time() output = calculate_z_serial_purepython(max_iterations, zs, cs) end_time = time.time() secs = end_time - start_time print(calculate_z_serial_purepython.__name__ + " took", secs, "seconds")
+# This sum is expected for a 1000^2 grid with 300 iterations # It ensures that our code evolves exactly as we'd intended assert sum(output) == 33219980
+
+Having built the zs and cs lists, we output some information about the size of the lists and calculate the output list via calculate_z_serial_purepython. Finally, we sum the contents of output and assert that it matches the expected output value. Ian uses it here to confirm that no errors creep into the book.
+As the code is deterministic, we can verify that the function works as we expect by summing all the calculated values. This is useful as a sanity check—when we make changes to numerical code, it is very sensible to check that we haven’t broken the algorithm. Ideally, we would use unit tests and test more than one configuration of the problem.
+Next, in Example 2-3, we define the calculate_z_serial_purepython function, which expands on the algorithm we discussed earlier. Notably, we also define an output list at the start that has the same length as the input zs and cs lists.
+Example 2-3. Our CPU-bound calculation function
+def calculate_z_serial_purepython(maxiter, zs, cs): """Calculate output list using Julia update rule""" output = [0] * len(zs) for i in range(len(zs)): n = 0 z = zs[i] c = cs[i] while abs(z) < 2 and n < maxiter: z = z * z + c n += 1 output[i] = n return output
+
+Now we call the calculation routine in Example 2-4. By wrapping it in a __main__ check, we can safely import the module without starting the calculations for some of the profiling methods. Here, we’re not showing the method used to plot the output.
+Example 2-4. __main__ for our code
+if __name__ == "__main__": # Calculate the Julia set using a pure Python solution with # reasonable defaults for a laptop calc_pure_python(desired_width=1000, max_iterations=300)
+Once we run the code, we see some output about the complexity of the problem:
+# running the above produces: Length of x: 1000 Total elements: 1000000 calculate_z_serial_purepython took 8.087012767791748 seconds
+In the false-grayscale plot (Figure 2-1), the high-contrast color changes gave us an idea of where the cost of the function was slow changing or fast changing. Here, in Figure 2-3, we have a linear color map: black is quick to calculate, and white is expensive to calculate.
+By showing two representations of the same data, we can see that lots of detail is lost in the linear mapping. Sometimes it can be useful to have various representations in mind when investigating the cost of a function.
+
+Figure 2-3. Julia plot example using a pure gray scale
+Simple Approaches to Timing—print and a Decorator
+
+After Example 2-4, we saw the output generated by several print statements in our code. On Ian’s laptop, this code takes approximately 8 seconds to run using CPython 3.7. It is useful to note that execution time always varies. You must observe the normal variation when you’re timing your code, or you might incorrectly attribute an improvement in your code to what is simply a random variation in execution time.
+Your computer will be performing other tasks while running your code, such as accessing the network, disk, or RAM, and these factors can cause variations in the execution time of your program.
+Ian’s laptop is a Dell 9550 with an Intel Core I7 6700HQ (2.6 GHz, 6 MB cache, Quad Core with Hyperthreading) and 32 GB of RAM running Linux Mint 19.1 (Ubuntu 18.04).
+In calc_pure_python (Example 2-2), we can see several print statements. This is the simplest way to measure the execution time of a piece of code inside a function. It is a basic approach, but despite being quick and dirty, it can be very useful when you’re first looking at a piece of code.
+Using print statements is commonplace when debugging and profiling code. It quickly becomes unmanageable but is useful for short investigations. Try to tidy up the print statements when you’re done with them, or they will clutter your stdout.
+A slightly cleaner approach is to use a decorator—here, we add one line of code above the function that we care about. Our
+
+decorator can be very simple and just replicate the effect of the print statements. Later, we can make it more advanced.
+In Example 2-5, we define a new function, timefn, which takes a function as an argument: the inner function, measure_time, takes *args (a variable number of positional arguments) and **kwargs (a variable number of key/value arguments) and passes them through to fn for execution. Around the execution of fn, we capture time.time() and then print the result along with fn.__name__. The overhead of using this decorator is small, but if you’re calling fn millions of times, the overhead might become noticeable. We use @wraps(fn) to expose the function name and docstring to the caller of the decorated function (otherwise, we would see the function name and docstring for the decorator, not the function it decorates).
+Example 2-5. Defining a decorator to automate timing measurements
+from functools import wraps
+def timefn(fn): @wraps(fn) def measure_time(*args, **kwargs): t1 = time.time() result = fn(*args, **kwargs) t2 = time.time() print(f"@timefn: {fn.__name__} took {t2 - t1} seconds") return result return measure_time
+@timefn def calculate_z_serial_purepython(maxiter, zs, cs):
+...
+
+When we run this version (we keep the print statements from before), we can see that the execution time in the decorated version is ever-so-slightly quicker than the call from calc_pure_python. This is due to the overhead of calling a function (the difference is very tiny):
+Length of x: 1000 Total elements: 1000000 @timefn:calculate_z_serial_purepython took 8.00485110282898 seconds calculate_z_serial_purepython took 8.004898071289062 seconds
+NOTE
+The addition of profiling information will inevitably slow down your code— some profiling options are very informative and induce a heavy speed penalty. The trade-off between profiling detail and speed will be something you have to consider.
+We can use the timeit module as another way to get a coarse measurement of the execution speed of our CPU-bound function. More typically, you would use this when timing different types of simple expressions as you experiment with ways to solve a problem.
+WARNING
+The timeit module temporarily disables the garbage collector. This might impact the speed you’ll see with real-world operations if the garbage collector would normally be invoked by your operations. See the Python documentation for help on this.
+
+From the command line, you can run timeit as follows:
+python -m timeit -n 5 -r 1 -s "import julia1" \ "julia1.calc_pure_python(desired_width=1000,
+max_iterations=300)"
+Note that you have to import the module as a setup step using -s, as calc_pure_python is inside that module. timeit has some sensible defaults for short sections of code, but for longer-running functions it can be sensible to specify the number of loops (-n 5) and the number of repetitions (-r 5) to repeat the experiments. The best result of all the repetitions is given as the answer. Adding the verbose flag (-v) shows the cumulative time of all the loops by each repetition, which can help your variability in the results.
+By default, if we run timeit on this function without specifying -n and -r, it runs 10 loops with 5 repetitions, and this takes six minutes to complete. Overriding the defaults can make sense if you want to get your results a little faster.
+We’re interested only in the best-case results, as other results will probably have been impacted by other processes:
+5 loops, best of 1: 8.45 sec per loop
+Try running the benchmark several times to check if you get varying results—you may need more repetitions to settle on a stable fastest-result time. There is no “correct” configuration, so if you see a wide variation in your timing results, do more repetitions until your final result is stable.
+
+Our results show that the overall cost of calling calc_pure_python is 8.45 seconds (as the best case), while single calls to calculate_z_serial_purepython take 8.0 seconds as measured by the @timefn decorator. The difference is mainly the time taken to create the zs and cs lists.
+Inside IPython, we can use the magic %timeit in the same way. If you are developing your code interactively in IPython or in a Jupyter Notebook, you can use this:
+In [1]: import julia1 In [2]: %timeit julia1.calc_pure_python(desired_width=1000, max_iterations=300)
+WARNING
+Be aware that “best” is calculated differently by the timeit.py approach and the %timeit approach in Jupyter and IPython. timeit.py uses the minimum value seen. IPython in 2016 switched to using the mean and standard deviation. Both methods have their flaws, but generally they’re both “reasonably good”; you can’t compare between them, though. Use one method or the other; don’t mix them.
+It is worth considering the variation in load that you get on a normal computer. Many background tasks are running (e.g., Dropbox, backups) that could impact the CPU and disk resources at random. Scripts in web pages can also cause unpredictable resource usage. Figure 2-4 shows the single CPU being used at 100% for some of the timing steps we just performed; the other cores on this machine are each lightly working on other tasks.
+
+Figure 2-4. System Monitor on Ubuntu showing variation in background CPU usage while we time our function
+Occasionally, the System Monitor shows spikes of activity on this machine. It is sensible to watch your System Monitor to check that nothing else is interfering with your critical resources (CPU, disk, network).
+Simple Timing Using the Unix time Command
+We can step outside of Python for a moment to use a standard system utility on Unix-like systems. The following will record various views on the execution time of your program, and it won’t care about the internal structure of your code:
+$ /usr/bin/time -p python julia1_nopil.py Length of x: 1000 Total elements: 1000000 calculate_z_serial_purepython took 8.279886722564697 seconds real 8.84 user 8.73 sys 0.10
+Note that we specifically use /usr/bin/time rather than time so we get the system’s time and not the simpler (and less useful)
+
+version built into our shell. If you try time --verbose quick-anddirty get an error, you’re probably looking at the shell’s built-in time command and not the system command.
+Using the -p portability flag, we get three results:
+real records the wall clock or elapsed time. user records the amount of time the CPU spent on your task outside of kernel functions.
+sys records the time spent in kernel-level functions.
+By adding user and sys, you get a sense of how much time was spent in the CPU. The difference between this and real might tell you about the amount of time spent waiting for I/O; it might also suggest that your system is busy running other tasks that are distorting your measurements.
+time is useful because it isn’t specific to Python. It includes the time taken to start the python executable, which might be significant if you start lots of fresh processes (rather than having a long-running single process). If you often have short-running scripts where the startup time is a significant part of the overall runtime, then time can be a more useful measure.
+We can add the --verbose flag to get even more output:
+$ /usr/bin/time --verbose python julia1_nopil.py Length of x: 1000 Total elements: 1000000 calculate_z_serial_purepython took 8.477287530899048 seconds
+Command being timed: "python julia1_nopil.py" User time (seconds): 8.97 System time (seconds): 0.05 Percent of CPU this job got: 99%
+
+Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.03 Average shared text size (kbytes): 0 Average unshared data size (kbytes): 0 Average stack size (kbytes): 0 Average total size (kbytes): 0 Maximum resident set size (kbytes): 98620 Average resident set size (kbytes): 0 Major (requiring I/O) page faults: 0 Minor (reclaiming a frame) page faults: 26645 Voluntary context switches: 1 Involuntary context switches: 27 Swaps: 0 File system inputs: 0 File system outputs: 0 Socket messages sent: 0 Socket messages received: 0 Signals delivered: 0 Page size (bytes): 4096 Exit status: 0
+Probably the most useful indicator here is Major (requiring I/O) page faults, as this indicates whether the operating system is having to load pages of data from the disk because the data no longer resides in RAM. This will cause a speed penalty.
+In our example, the code and data requirements are small, so no page faults occur. If you have a memory-bound process, or several programs that use variable and large amounts of RAM, you might find that this gives you a clue as to which program is being slowed down by disk accesses at the operating system level because parts of it have been swapped out of RAM to disk.
+Using the cProfile Module
+cProfile is a built-in profiling tool in the standard library. It hooks into the virtual machine in CPython to measure the time taken to run every function that it sees. This introduces a greater overhead,
+
+but you get correspondingly more information. Sometimes the additional information can lead to surprising insights into your code.
+cProfile is one of two profilers in the standard library, alongside profile. profile is the original and slower pure Python profiler; cProfile has the same interface as profile and is written in C for a lower overhead. If you’re curious about the history of these libraries, see Armin Rigo’s 2005 request to include cProfile in the standard library.
+A good practice when profiling is to generate a hypothesis about the speed of parts of your code before you profile it. Ian likes to print out the code snippet in question and annotate it. Forming a hypothesis ahead of time means you can measure how wrong you are (and you will be!) and improve your intuition about certain coding styles.
+WARNING
+You should never avoid profiling in favor of a gut instinct (we warn you—you will get it wrong!). It is definitely worth forming a hypothesis ahead of profiling to help you learn to spot possible slow choices in your code, and you should always back up your choices with evidence.
+Always be driven by results that you have measured, and always start with some quick-and-dirty profiling to make sure you’re addressing the right area. There’s nothing more humbling than cleverly optimizing a section of code only to realize (hours or days later) that you missed the slowest part of the process and haven’t really addressed the underlying problem at all.
+
+Let’s hypothesize that calculate_z_serial_purepython is the slowest part of the code. In that function, we do a lot of dereferencing and make many calls to basic arithmetic operators and the abs function. These will probably show up as consumers of CPU resources.
+
+Here, we’ll use the cProfile module to run a variant of the code. The output is spartan but helps us figure out where to analyze further.
+
+The -s cumulative flag tells cProfile to sort by cumulative time spent inside each function; this gives us a view into the slowest parts of a section of code. The cProfile output is written to screen directly after our usual print results:
+
+$ python -m cProfile -s cumulative julia1_nopil.py ... Length of x: 1000
+Total elements: 1000000 calculate_z_serial_purepython took 11.498265266418457 seconds
+36221995 function calls in 12.234 seconds
+
+Ordered by: cumulative time
+
+ncalls tottime percall cumtime filename:lineno(function)
+1 0.000 0.000 12.234 builtins.exec}
+1 0.038 0.038 12.234 julia1_nopil.py:1(<module>)
+1 0.571 0.571 12.197
+1 8.369 8.369 11.498
+
+percall
+12.234 {built-in method
+12.234
+12.197 julia1_nopil.py:23 (calc_pure_python)
+11.498 julia1_nopil.py:9
+
+(calculate_z_serial_purepython) 34219980 3.129 0.000 3.129 builtins.abs}
+
+0.000 {built-in method
+
+2002000 0.121 'list' objects}
+1 0.006 builtins.sum}
+3 0.000 builtins.print}
+2 0.000 time.time}
+4 0.000 builtins.len}
+1 0.000 of
+objects}
+
+0.000 0.006 0.000 0.000 0.000 0.000
+
+0.121 0.006 0.000 0.000 0.000 0.000
+
+0.000 {method 'append' of 0.006 {built-in method 0.000 {built-in method 0.000 {built-in method 0.000 {built-in method 0.000 {method 'disable'
+'_lsprof.Profiler'
+
+Sorting by cumulative time gives us an idea about where the majority of execution time is spent. This result shows us that 36,221,995 function calls occurred in just over 12 seconds (this time includes the overhead of using cProfile). Previously, our code took around 8 seconds to execute—we’ve just added a 4second penalty by measuring how long each function takes to execute.
+
+We can see that the entry point to the code julia1_nopil.py on line 1 takes a total of 12 seconds. This is just the __main__ call to calc_pure_python. ncalls is 1, indicating that this line is executed only once.
+
+Inside calc_pure_python, the call to calculate_z_serial_purepython consumes 11 seconds. Both functions are called only once. We can derive that approximately 1 second is spent on lines of code inside calc_pure_python, separate to calling the CPU-intensive calculate_z_serial_purepython function. However, we can’t
+
+derive which lines take the time inside the function using cProfile.
+Inside calculate_z_serial_purepython, the time spent on lines of code (without calling other functions) is 8 seconds. This function makes 34,219,980 calls to abs, which take a total of 3 seconds, along with other calls that do not cost much time.
+What about the {abs} call? This line is measuring the individual calls to the abs function inside calculate_z_serial_purepython. While the per-call cost is negligible (it is recorded as 0.000 seconds), the total time for 34,219,980 calls is 3 seconds. We couldn’t predict in advance exactly how many calls would be made to abs, as the Julia function has unpredictable dynamics (that’s why it is so interesting to look at).
+At best we could have said that it will be called a minimum of 1 million times, as we’re calculating 1000*1000 pixels. At most it will be called 300 million times, as we calculate 1,000,000 pixels with a maximum of 300 iterations. So 34 million calls is roughly 10% of the worst case.
+If we look at the original grayscale image (Figure 2-3) and, in our mind’s eye, squash the white parts together and into a corner, we can estimate that the expensive white region accounts for roughly 10% of the rest of the image.
+The next line in the profiled output, {method 'append' of 'list' objects}, details the creation of 2,002,000 list items.
+

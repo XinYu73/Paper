@@ -1,0 +1,3045 @@
+Python Parallel Programming Cookbook Second Edition
+Over 70 recipes to solve challenges in multithreading and distributed system with Python 3
+Giancarlo Zaccone
+BIRMINGHAM - MUMBAI
+
+Python Parallel Programming Cookbook Second Edition
+Copyright © 2019 Packt Publishing
+All rights reserved. No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by any means, without the prior written permission of the publisher, except in the case of brief quotations embedded in critical articles or reviews.
+Every effort has been made in the preparation of this book to ensure the accuracy of the information presented. However, the information contained in this book is sold without warranty, either express or implied. Neither the author, nor Packt Publishing or its dealers and distributors, will be held liable for any damages caused or alleged to have been caused directly or indirectly by this book.
+Packt Publishing has endeavored to provide trademark information about all of the companies and products mentioned in this book by the appropriate use of capitals. However, Packt Publishing cannot guarantee the accuracy of this information.
+Commissioning Editor: Richa Tripathi Acquisition Editor: Chaitanya Nair Content Development Editor: Ruvika Rao Senior Editor: Afshaan Khan Technical Editor: Gaurav Gala Copy Editor: Safis Editing Project Coordinator: Prajakta Naik Proofreader: Safis Editing Indexer: Rekha Nair Production Designer: Joshua Misquitta
+First published: August 2015 Second edition: September 2019
+Production reference: 1050919
+Published by Packt Publishing Ltd. Livery Place 35 Livery Street Birmingham B3 2PB, UK.
+ISBN 978-1-78953-373-6
+www.packt.com
+
+To my family.
+
+Packt.com
+Subscribe to our online digital library for full access to over 7,000 books and videos, as well as industry leading tools to help you plan your personal development and advance your career. For more information, please visit our website.
+Why subscribe?
+Spend less time learning and more time coding with practical eBooks and Videos from over 4,000 industry professionals
+Improve your learning with Skill Plans built especially for you
+Get a free eBook or video every month
+Fully searchable for easy access to vital information
+Copy and paste, print, and bookmark content
+Did you know that Packt offers eBook versions of every book published, with PDF and ePub files available? You can upgrade to the eBook version at www.packt.com and as a print book customer, you are entitled to a discount on the eBook copy. Get in touch with us at customercare@packtpub.com for more details.
+At www.packt.com, you can also read a collection of free technical articles, sign up for a range of free newsletters, and receive exclusive discounts and offers on Packt books and eBooks.
+
+Contributors
+About the author
+Giancarlo Zaccone has over fifteen years' experience of managing research projects in the scientific and industrial domains. He is a software and systems engineer at the European Space Agency (ESTEC), where he mainly deals with the cybersecurity of satellite navigation systems.
+Giancarlo holds a master's degree in physics and an advanced master's degree in scientific computing.
+Giancarlo has already authored the following titles, available from Packt: Python Parallel Programming Cookbook (First Edition), Getting Started with TensorFlow, Deep Learning with TensorFlow (First Edition), and Deep Learning with TensorFlow (Second Edition).
+
+About the reviewer
+Dr. Michael Galloy is a software developer focusing on high-performance computing and visualization in scientific programming. He works mostly in IDL, but occasionally uses Python, C, and CUDA. Michael currently works for the National Center for Atmospheric Research (NCAR) at the Mauna Loa Solar Observatory. Previously, he worked for Tech-X Corporation, where he was the main developer of GPULib, a library of IDL bindings for GPU-accelerated computation routines. He is the creator and main developer for IDLdoc, mgunit, and rIDL, all of which are open source projects, as well as the author of Modern IDL.
+Richard Marsden has 25 years of professional software development experience. After starting in the field of geophysical surveying for the oil industry, he has spent the last 15 years running the Winwaed Software Technology LLC, an independent software vendor. Winwaed specializes in geospatial tools and applications including web applications and operates the Mapping-Tools website for tools and add-ins for geospatial applications such as Caliper Maptitude, Microsoft MapPoint, Android, and Ultra Mileage.
+Richard has been a technical reviewer for a number of Packt publications, including Python Geospatial Development and Python Geospatial Analysis Essentials, both by Erik Westra; and Python Geospatial Analysis Cookbook, by Michael Diener.
+Packt is searching for authors like you
+If you're interested in becoming an author for Packt, please visit authors.packtpub.com and apply today. We have worked with thousands of developers and tech professionals, just like you, to help them share their insight with the global tech community. You can make a general application, apply for a specific hot topic that we are recruiting an author for, or submit your own idea.
+
+Table of Contents
+
+Preface
+
+1
+
+Chapter 1: Getting Started with Parallel Computing and Python
+
+8
+
+Why do we need parallel computing?
+
+9
+
+Flynn's taxonomy
+
+10
+
+Single Instruction Single Data (SISD)
+
+10
+
+Multiple Instruction Single Data (MISD)
+
+13
+
+Single Instruction Multiple Data (SIMD)
+
+13
+
+Multiple Instruction Multiple Data (MIMD)
+
+14
+
+Memory organization
+
+15
+
+Shared memory
+
+16
+
+Distributed memory
+
+18
+
+Massively Parallel Processing (MPP)
+
+19
+
+Clusters of workstations
+
+20
+
+Heterogeneous architectures
+
+20
+
+Parallel programming models
+
+22
+
+Shared memory model
+
+22
+
+Multithread model
+
+23
+
+Message passing model
+
+23
+
+Data-parallel model
+
+24
+
+Designing a parallel program
+
+25
+
+Task decomposition
+
+26
+
+Task assignment
+
+26
+
+Agglomeration
+
+26
+
+Mapping
+
+27
+
+Dynamic mapping
+
+27
+
+Evaluating the performance of a parallel program
+
+28
+
+Speedup
+
+29
+
+Efficiency
+
+29
+
+Scaling
+
+30
+
+Amdahl's law
+
+30
+
+Gustafson's law
+
+31
+
+Introducing Python
+
+31
+
+Help functions
+
+32
+
+Syntax
+
+33
+
+Comments
+
+35
+
+Assignments
+
+35
+
+Data types
+
+35
+
+Strings
+
+37
+
+Flow control
+
+37
+
+Functions
+
+39
+
+Table of Contents
+
+Classes
+
+40
+
+Exceptions
+
+41
+
+Importing libraries
+
+42
+
+Managing files
+
+42
+
+List comprehensions
+
+43
+
+Running Python scripts
+
+43
+
+Installing Python packages using pip
+
+44
+
+Installing pip
+
+44
+
+Updating pip
+
+44
+
+Using pip
+
+44
+
+Introducing Python parallel programming
+
+45
+
+Processes and threads
+
+45
+
+Chapter 2: Thread-Based Parallelism
+
+50
+
+What is a thread?
+
+51
+
+Python threading module
+
+52
+
+Defining a thread
+
+53
+
+Getting ready
+
+53
+
+How to do it...
+
+54
+
+How it works...
+
+55
+
+There's more...
+
+55
+
+Determining the current thread
+
+55
+
+Getting ready
+
+55
+
+How to do it...
+
+56
+
+How it works...
+
+57
+
+Defining a thread subclass
+
+57
+
+Getting ready
+
+57
+
+How to do it...
+
+58
+
+How it works...
+
+59
+
+There's more...
+
+60
+
+Thread synchronization with a lock
+
+61
+
+Getting ready
+
+61
+
+How to do it...
+
+62
+
+How it works...
+
+63
+
+There's more...
+
+64
+
+Thread synchronization with RLock
+
+65
+
+Getting ready
+
+66
+
+How to do it...
+
+66
+
+How it works...
+
+68
+
+There's more...
+
+68
+
+Thread synchronization with semaphores
+
+69
+
+Getting ready
+
+69
+
+How to do it...
+
+69
+
+How it works...
+
+71
+
+There's more...
+
+72
+
+[ ii ]
+
+Table of Contents
+
+Thread synchronization with a condition
+
+73
+
+Getting ready
+
+73
+
+How to do it...
+
+73
+
+How it works...
+
+75
+
+There's more...
+
+77
+
+Thread synchronization with an event
+
+77
+
+Getting ready
+
+77
+
+How to do it...
+
+78
+
+How it works...
+
+80
+
+Thread synchronization with a barrier
+
+81
+
+Getting ready
+
+81
+
+How to do it...
+
+81
+
+How it works...
+
+82
+
+Thread communication using a queue
+
+83
+
+Getting ready
+
+83
+
+How to do it...
+
+83
+
+How it works...
+
+84
+
+There's more...
+
+86
+
+Chapter 3: Process-Based Parallelism
+
+87
+
+Understanding Python's multiprocessing module
+
+88
+
+Spawning a process
+
+88
+
+Getting ready
+
+88
+
+How to do it...
+
+89
+
+How it works...
+
+89
+
+There's more...
+
+90
+
+See also
+
+91
+
+Naming a process
+
+91
+
+Getting ready
+
+92
+
+How to do it...
+
+92
+
+How it works...
+
+93
+
+There's more...
+
+93
+
+See also
+
+93
+
+Running processes in the background
+
+93
+
+Getting ready
+
+94
+
+How to do it...
+
+94
+
+How it works...
+
+95
+
+See also
+
+96
+
+Killing a process
+
+96
+
+Getting ready
+
+97
+
+How to do it...
+
+97
+
+How it works...
+
+98
+
+See also
+
+98
+
+Defining processes in a subclass
+
+99
+
+Getting ready
+
+99
+
+[ iii ]
+
+Table of Contents
+
+How to do it...
+
+99
+
+How it works...
+
+100
+
+There's more...
+
+101
+
+See also
+
+101
+
+Using a queue to exchange data
+
+101
+
+Getting ready
+
+101
+
+How to do it...
+
+102
+
+How it works...
+
+103
+
+There's more...
+
+104
+
+See also
+
+105
+
+Using pipes to exchange objects
+
+105
+
+Getting ready
+
+105
+
+How to do it...
+
+105
+
+How it works...
+
+107
+
+There's more...
+
+108
+
+See also
+
+108
+
+Synchronizing processes
+
+108
+
+Getting ready
+
+109
+
+How to do it...
+
+109
+
+How it works...
+
+110
+
+There's more...
+
+111
+
+See also
+
+112
+
+Using a process pool
+
+112
+
+Getting ready
+
+112
+
+How to do it…
+
+113
+
+How it works…
+
+114
+
+There's more...
+
+114
+
+See also
+
+115
+
+Chapter 4: Message Passing
+
+116
+
+Technical requirements
+
+116
+
+Understanding the MPI structure
+
+117
+
+Using the mpi4py Python module
+
+119
+
+How to do it...
+
+120
+
+How it works...
+
+120
+
+There's more...
+
+121
+
+See also
+
+122
+
+Implementing point-to-point communication
+
+122
+
+How to do it...
+
+122
+
+How it works...
+
+124
+
+There's more...
+
+126
+
+See also
+
+126
+
+Avoiding deadlock problems
+
+126
+
+How to do it...
+
+127
+
+How it works...
+
+127
+
+[ iv ]
+
+Table of Contents
+
+There's more...
+
+130
+
+See also
+
+130
+
+Collective communication using a broadcast
+
+131
+
+Getting ready
+
+131
+
+How to do it...
+
+132
+
+How it works...
+
+132
+
+There's more...
+
+133
+
+See also
+
+134
+
+Collective communication using the scatter function
+
+134
+
+How to do it...
+
+135
+
+How it works...
+
+135
+
+There's more...
+
+137
+
+See also
+
+137
+
+Collective communication using the gather function
+
+137
+
+Getting ready
+
+137
+
+How to do it...
+
+138
+
+How it works...
+
+139
+
+There's more...
+
+140
+
+See also
+
+140
+
+Collective communication using Alltoall
+
+140
+
+How to do it...
+
+140
+
+How it works...
+
+141
+
+There's more...
+
+142
+
+See also
+
+142
+
+The reduction operation
+
+143
+
+Getting ready
+
+143
+
+How to do it...
+
+143
+
+How it works...
+
+144
+
+There's more...
+
+145
+
+See also
+
+146
+
+Optimizing communication
+
+146
+
+How to do it...
+
+147
+
+How it works...
+
+148
+
+There's more...
+
+150
+
+See also
+
+152
+
+Chapter 5: Asynchronous Programming
+
+153
+
+Using the concurrent.futures Python module
+
+154
+
+Getting ready
+
+155
+
+How to do it...
+
+155
+
+How it works...
+
+157
+
+There's more...
+
+159
+
+See also
+
+160
+
+Managing the event loop with asyncio
+
+160
+
+Understanding event loops
+
+160
+
+[ v ]
+
+Table of Contents
+
+How to do it...
+
+162
+
+How it works...
+
+164
+
+There's more...
+
+165
+
+See also
+
+166
+
+Handling coroutines with asyncio
+
+166
+
+Getting ready
+
+167
+
+How to do it...
+
+167
+
+How it works...
+
+171
+
+There's more...
+
+172
+
+See also
+
+172
+
+Manipulating tasks with asyncio
+
+173
+
+How to do it...
+
+174
+
+How it works...
+
+175
+
+There's more...
+
+176
+
+See also
+
+177
+
+Dealing with asyncio and futures
+
+177
+
+Getting ready
+
+177
+
+How to do it...
+
+177
+
+How it works...
+
+179
+
+There's more...
+
+181
+
+See also
+
+181
+
+Chapter 6: Distributed Python
+
+182
+
+Introducing distributed computing
+
+182
+
+Types of distributed applications
+
+183
+
+Client-server applications
+
+183
+
+Client-server architecture
+
+184
+
+Client-server communications
+
+185
+
+TCP/IP client-server architecture
+
+185
+
+Multi-level applications
+
+186
+
+Using the Python socket module
+
+187
+
+Getting ready
+
+187
+
+How to do it...
+
+188
+
+How it works...
+
+190
+
+There's more...
+
+191
+
+Types of sockets
+
+193
+
+Stream sockets
+
+193
+
+See also
+
+194
+
+Distributed task management with Celery
+
+194
+
+Getting ready
+
+196
+
+Windows setup
+
+197
+
+How to do it...
+
+197
+
+How it works...
+
+198
+
+There's more...
+
+200
+
+See also
+
+202
+
+RMI with Pyro4
+
+202
+
+[ vi ]
+
+Table of Contents
+
+Getting ready
+
+203
+
+How to do it...
+
+204
+
+How it works...
+
+205
+
+There's more...
+
+207
+
+Implementing chain topology
+
+208
+
+See also
+
+210
+
+Chapter 7: Cloud Computing
+
+211
+
+What is cloud computing?
+
+212
+
+Understanding the cloud computing architecture
+
+214
+
+Service models
+
+215
+
+SaaS
+
+215
+
+PaaS
+
+216
+
+IaaS
+
+216
+
+Distribution models
+
+216
+
+Public cloud
+
+217
+
+Private cloud
+
+217
+
+Cloud community
+
+217
+
+Hybrid cloud
+
+217
+
+Cloud computing platforms
+
+218
+
+Developing web applications with PythonAnywhere
+
+218
+
+Getting ready
+
+219
+
+How to do it...
+
+222
+
+How it works...
+
+226
+
+There's more...
+
+228
+
+See also
+
+229
+
+Dockerizing a Python application
+
+230
+
+Getting ready
+
+230
+
+Installing Docker for Windows
+
+231
+
+How to do it...
+
+232
+
+How it works...
+
+233
+
+There's more...
+
+234
+
+See also
+
+236
+
+Introducing serverless computing
+
+236
+
+Getting ready
+
+237
+
+How to do it...
+
+238
+
+How it works...
+
+246
+
+There's more...
+
+246
+
+What is a Lambda function?
+
+247
+
+Why serverless?
+
+247
+
+Possible problems and limitations
+
+248
+
+See also
+
+249
+
+Chapter 8: Heterogeneous Computing
+
+250
+
+Understanding heterogeneous computing
+
+251
+
+Understanding the GPU architecture
+
+251
+
+Understanding GPU programming
+
+252
+
+[ vii ]
+
+Table of Contents
+
+CUDA
+
+253
+
+OpenCL
+
+253
+
+Dealing with PyCUDA
+
+254
+
+Getting ready
+
+254
+
+How to do it...
+
+254
+
+How it works...
+
+255
+
+There's more...
+
+256
+
+See also
+
+257
+
+Heterogeneous programming with PyCUDA
+
+257
+
+How to do it...
+
+259
+
+How it works...
+
+260
+
+There's more...
+
+262
+
+See also
+
+263
+
+Implementing memory management with PyCUDA
+
+263
+
+Getting ready
+
+264
+
+How to do it...
+
+265
+
+How it works...
+
+268
+
+There's more...
+
+271
+
+See also
+
+272
+
+Introducing PyOpenCL
+
+272
+
+Getting ready
+
+272
+
+How to do it...
+
+273
+
+How it works...
+
+274
+
+There's more...
+
+275
+
+See also
+
+276
+
+Building applications with PyOpenCL
+
+276
+
+How to do it...
+
+278
+
+How it works...
+
+279
+
+There's more...
+
+282
+
+See also
+
+282
+
+Element-wise expressions with PyOpenCL
+
+283
+
+Getting started
+
+283
+
+How to do it...
+
+283
+
+How it works...
+
+284
+
+There's more...
+
+286
+
+See also
+
+287
+
+Evaluating PyOpenCL applications
+
+287
+
+Getting started
+
+287
+
+How to do it...
+
+287
+
+How it works...
+
+290
+
+There's more...
+
+292
+
+Pros of OpenCL and PyOpenCL
+
+292
+
+Cons of OpenCL and PyOpenCL
+
+292
+
+Pros of CUDA and PyCUDA
+
+293
+
+Cons of CUDA and PyCUDA
+
+293
+
+[ viii ]
+
+Table of Contents
+
+See also
+
+293
+
+GPU programming with Numba
+
+293
+
+Getting ready
+
+294
+
+How to do it...
+
+295
+
+How it works...
+
+297
+
+There's more...
+
+299
+
+See also
+
+301
+
+Chapter 9: Python Debugging and Testing
+
+302
+
+What is debugging?
+
+303
+
+What is software testing?
+
+305
+
+Debugging using Winpdb Reborn
+
+305
+
+Getting ready
+
+306
+
+How to do it...
+
+306
+
+How it works...
+
+312
+
+There's more...
+
+313
+
+See also
+
+314
+
+Interacting with pdb
+
+314
+
+Getting ready
+
+315
+
+Interacting with the command line
+
+315
+
+Using the Python interpreter
+
+316
+
+Inserting a directive in the code to debug
+
+316
+
+How to do it...
+
+317
+
+How it works...
+
+318
+
+There's more...
+
+318
+
+See also
+
+319
+
+Implementing rpdb for debugging
+
+319
+
+Getting ready
+
+319
+
+How to do it...
+
+321
+
+How it works...
+
+323
+
+There's more...
+
+324
+
+See also
+
+325
+
+Dealing with unittest
+
+326
+
+Getting ready
+
+326
+
+How to do it...
+
+327
+
+How it works...
+
+327
+
+There's more...
+
+329
+
+See also
+
+331
+
+Application testing using nose
+
+331
+
+Getting ready
+
+331
+
+How to do it...
+
+332
+
+How it works...
+
+333
+
+There's more...
+
+333
+
+See also
+
+334
+
+Other Books You May Enjoy
+
+335
+
+[ ix ]
+
+Table of Contents
+
+Index
+
+338
+
+[ x ]
+
+Preface
+The computing industry is characterized by the search for ever-increasing and efficient performance, from high-end applications in the sectors of networking, telecommunications, avionics, to low-power embedded systems in desktop computers, laptops, and video games. This development path has led to multicore systems, where two-, four-, and eightcore processors represent only the beginning of an upcoming expansion to an everincreasing number of computing cores.
+This expansion, however, creates a challenge, not only in the semiconductor industry but also in the development of applications that can be performed with parallel calculations.
+Parallel computing, in fact, represents the simultaneous use of multiple computing resources to solve a processing problem, so that it can be executed on multiple CPUs, breaking a problem into discrete parts that can be processed simultaneously, where each is further divided into a series of instructions that can be executed serially on different CPUs.
+Computing resources can include a single computer with multiple processors, an arbitrary number of computers connected via a network, or a combination of both approaches. Parallel computing has always been considered the extreme apex or future of computing, and up until a few years ago, it was motivated by numerical simulations of complex systems and situations concerning various sectors: weather and climate forecasts, chemical and nuclear reactions, human genome mapping, seismic and geological activity, the behavior of mechanical devices (from prostheses to space shuttles), electronic circuits, and manufacturing processes.
+Today, however, ever more commercial applications are increasingly demanding the development of ever-faster computers to support the processing of large amounts of data in sophisticated ways. Applications for this include data mining and parallel databases, oil exploration, web search engines, and services networked business, computer-aided medical diagnoses, the management of multinational companies, advanced graphics and virtual reality (especially in the video game industry), multimedia and video network technologies, and collaborative work environments.
+Last but not least, parallel computing represents an attempt to maximize that infinite, but at the same time, increasingly precious and scarce resource of time. This is why parallel computing is shifting from the world of very expensive supercomputers, reserved for a select few, to more economic and solutions based on multiple processors, Graphics Processing Units (GPUs), or a few interconnected computers that can overcome the constraints of serial computing and the limits of single CPUs.
+
+Preface
+To introduce the concepts of parallel programming, one of the most popular programming languages ​has been adopted—Python. Python's popularity is partly due to its flexibility since it is a language used regularly by web and desktop developers, sysadmin and code developers, and more recently, by data scientists and machine learning engineers.
+From a technological point of view, in Python, there is no separate compilation phase (as happens in C, for example) that generates an executable file starting from the source. The fact that it is pseudo-interpreted makes Python a portable language. Once a source is written, it can be interpreted and executed on most of the platforms currently used, whether they are from Apple (macOS X) or PC (Microsoft Windows and GNU/Linux).
+Another strength of Python is its ease of learning. Anyone can learn to use it over a couple of days and write their first application. In this context, the open structure of the language plays a fundamental role, without redundant declarations and thus extremely similar to a spoken language. Finally, Python is free software: not only are the Python interpreter and the use of Python in our applications available for free, but Python can also be freely modified and thus redistributed according to the rules of a fully open source license.
+Python Parallel Programming Cookbook, Second Edition, contains a wide variety of examples that offer to the reader the opportunity to solve real problems. It examines the principles of software design for parallel architectures, insisting on the importance of clarity of the programs, and avoids the use of complex terminology in favor of clear and direct examples.
+Each topic is presented as part of a complete, working Python program, always followed by the output of the program in question. The modular organization of the various chapters provides a proven path along which to move from the simplest arguments to the most advanced, but it is also suitable for those who want to learn only a few specific issues.
+Who this book is for
+Python Parallel Programming Cookbook, Second Edition, is intended for software developers who want to use parallel programming techniques to write powerful and efficient code. Reading this book will enable you to master both the basics and the advanced aspects of parallel computing.
+The Python programming language is easy to use and allows non-experts to tackle and understand the topics outlined in this book with ease.
+[ 2 ]
+
+Preface
+What this book covers
+Chapter 1, Getting Started with Parallel Computing and Python, provides an overview of parallel programming architectures and programming models. The chapter introduces the Python programming language, discussing how the characteristics of the language, its ease of learning and use, its extensibility, and the richness of the available software libraries and applications all make Python a valuable tool for any application, and especially, of course, for parallel computing.
+Chapter 2, Thread-Based Parallelism, discusses thread parallelism using the threading Python module. Readers will learn, through full programming examples, how to synchronize and manipulate threads to implement in their multithreading applications.
+Chapter 3, Process-Based Parallelism, guides the reader through the process-based approach to parallelizing a program. A complete set of examples will show readers how to use the multiprocessing Python module.
+Chapter 4, Message Passing, is focused on message-passing exchange communication systems. In particular, the mpi4py library will be described with a lot of application examples.
+Chapter 5, Asynchronous Programming, explains the asynchronous model for concurrent programming. In some ways, it is simpler than the threaded one because there is a single instruction stream, and tasks explicitly relinquish control instead of being suspended arbitrarily. The chapter shows readers how to use the asyncyio module to organize each task as a sequence of smaller steps that must be executed in an asynchronous manner.
+Chapter 6, Distributed Python, introduces the reader to distributed computing, which is the process of aggregating several computing units to collaboratively run a single computational task in a transparent and coherent way. In particular, the example applications provided in the chapter describe the use of the socket and Celery modules to manage distributed tasks.
+Chapter 7, Cloud Computing, provides an overview of the main cloud-computing technologies in relation to the Python programming language. The PythonAnywhere platform is very useful for deploying Python applications on the cloud, and will be examined in this chapter. This chapter also contains example applications demonstrating the use of containers and serverless technologies.
+[ 3 ]
+
+Preface
+Chapter 8, Heterogeneous Computing, looks at the modern GPUs that are providing breakthrough performance for numerical computing at the cost of increased programming complexity. In fact, the programming models for GPUs require that the coder manually manage the data transfer between the CPU and GPU. This chapter will teach the reader, using programming examples and use cases, how to exploit the computing power provided by GPU cards using the powerful Python modules of PyCUDA, Numba, and PyOpenCL.
+Chapter 9, Python Debugging and Testing, is the last chapter that introduces two important topics on software engineering: debugging and testing. In particular, the following Python frameworks will be described: winpdb-reborn for debugging, and unittest and nose for software testing.
+To get the most out of this book
+This book is self-contained: the only fundamental requirement before starting to read is a passion for programming and a curiosity for the topics covered in the book.
+Download the example code files
+You can download the example code files for this book from your account at www.packt.com. If you purchased this book elsewhere, you can visit www.packtpub.com/support and register to have the files emailed directly to you.
+You can download the code files by following these steps:
+1. Log in or register at www.packtpub.com. 2. Select the Support tab. 3. Click on Code Downloads. 4. Enter the name of the book in the Search box and follow the onscreen
+instructions.
+Once the file is downloaded, please make sure that you unzip or extract the folder using the latest version of:
+WinRAR/7-Zip for Windows Zipeg/iZip/UnRarX for Mac 7-Zip/PeaZip for Linux
+[ 4 ]
+
+Preface
+The code bundle for the book is also hosted on GitHub at https:/​/​github.​com/ PacktPublishing/​Python-​Parallel-​Programming-​Cookbook-​Second-​Edition. We also have other code bundles from our rich catalog of books and videos available at https:/​/ github.​com/​PacktPublishing/​. Check them out!
+Download the color images
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. You can download it here: https:/​/​static.​packt-​cdn.​com/​downloads/ 9781789533736_​ColorImages.​pdf.
+Conventions used
+There are a number of text conventions used throughout this book. CodeInText: Indicates code words in text, database table names, folder names, filenames, file extensions, pathnames, dummy URLs, user input, and Twitter handles. Here is an example: "It's possible to kill a process immediately by using the terminate method." A block of code is set as follows:
+import socket port=60000 s =socket.socket() host=socket.gethostname()
+When we wish to draw your attention to a particular part of a code block, the relevant lines or items are set in bold:
+p = multiprocessing.Process(target=foo) print ('Process before execution:', p, p.is_alive()) p.start()
+Any command-line input or output is written as follows:
+> python server.py
+[ 5 ]
+
+Preface Bold: Indicates a new term, an important word, or words that you see onscreen. For example, words in menus or dialog boxes appear in the text like this. Here is an example: "Go to System Properties | Environment Variables | User or System variables | New."
+Warnings or important notes appear like this.
+Tips and tricks appear like this.
+Sections
+In this book, you will find several headings that appear frequently (Getting ready, How to do it..., How it works..., There's more..., and See also). To give clear instructions on how to complete a recipe, use these sections as follows:
+Getting ready
+This section tells you what to expect in the recipe and describes how to set up any software or any preliminary settings required for the recipe.
+How to do it…
+This section contains the steps required to follow the recipe.
+How it works…
+This section usually consists of a detailed explanation of what happened in the previous section.
+There's more…
+This section consists of additional information about the recipe in order to make you more knowledgeable about the recipe.
+[ 6 ]
+
+Preface
+See also
+This section provides helpful links to other useful information for the recipe.
+Get in touch
+Feedback from our readers is always welcome. General feedback: Email feedback@packtpub.com and mention the book title in the subject of your message. If you have questions about any aspect of this book, please email us at questions@packtpub.com. Errata: Although we have taken every care to ensure the accuracy of our content, mistakes do happen. If you have found a mistake in this book, we would be grateful if you would report this to us. Please visit www.packtpub.com/support/errata, selecting your book, clicking on the Errata Submission Form link, and entering the details. Piracy: If you come across any illegal copies of our works in any form on the internet, we would be grateful if you would provide us with the location address or website name. Please contact us at copyright@packtpub.com with a link to the material. If you are interested in becoming an author: If there is a topic that you have expertise in and you are interested in either writing or contributing to a book, please visit authors.packtpub.com.
+Reviews
+Please leave a review. Once you have read and used this book, why not leave a review on the site that you purchased it from? Potential readers can then see and use your unbiased opinion to make purchase decisions, we at Packt can understand what you think about our products, and our authors can see your feedback on their book. Thank you! For more information about Packt, please visit packtpub.com.
+[ 7 ]
+
+1
+Getting Started with Parallel
+Computing and Python
+The parallel and distributed computing models are based on the simultaneous use of different processing units for program execution. Although the distinction between parallel and distributed computing is very thin, one of the possible definitions associates the parallel calculation model with the shared memory calculation model, and the distributed calculation model with the message passing model.
+From this point onward, we will use the term parallel computing to refer to both parallel and distributed calculation models.
+The next sections provide an overview of parallel programming architectures and programming models. These concepts are useful for inexperienced programmers who are approaching parallel programming techniques for the first time. Moreover, it can be a basic reference for experienced programmers. The dual characterization of parallel systems is also presented. The first characterization is based on the system architecture, while the second characterization is based on parallel programming paradigms.
+The chapter ends with a brief introduction to the Python programming language. The characteristics of the language, ease of use and learning, and the extensibility and richness of software libraries and applications make Python a valuable tool for any application, and also for parallel computing. The concepts of threads and processes are introduced in relation to their use in the language.
+
+Getting Started with Parallel Computing and Python
+In this chapter, we will cover the following recipes:
+Why do we need parallel computing? Flynn's taxonomy Memory organization Parallel programming models Evaluating performance Introducing Python Python and parallel programming Introducing processes and threads
+
+Chapter 1
+
+Why do we need parallel computing?
+The growth in computing power made available by modern computers has resulted in us facing computational problems of increasing complexity in relatively short time frames. Until the early 2000s, complexity was dealt with by increasing the number of transistors as well as the clock frequency of single-processor systems, which reached peaks of 3.5-4 GHz. However, the increase in the number of transistors causes the exponential increase of the power dissipated by the processors themselves. In essence, there is, therefore, a physical limitation that prevents further improvement in the performance of single-processor systems.
+For this reason, in recent years, microprocessor manufacturers have focused their attention on multi-core systems. These are based on a core of several physical processors that share the same memory, thus bypassing the problem of dissipated power described earlier. In recent years, quad-core and octa-core systems have also become standard on normal desktop and laptop configurations.
+On the other hand, such a significant change in hardware has also resulted in an evolution of software structure, which has always been designed to be executed sequentially on a single processor. To take advantage of the greater computational resources made available by increasing the number of processors, the existing software must be redesigned in a form appropriate to the parallel structure of the CPU, so as to obtain greater efficiency through the simultaneous execution of the single units of several parts of the same program.
+
+[ 9 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Flynn's taxonomy
+Flynn's taxonomy is a system for classifying computer architectures. It is based on two main concepts:
+Instruction flow: A system with n CPU has n program counters and, therefore, n instructions flows. This corresponds to a program counter. Data flow: A program that calculates a function on a list of data has a data flow. The program that calculates the same function on several different lists of data has more data flows. This is made up of a set of operands.
+As the instruction and data flows are independent, there are four categories of parallel machines: Single Instruction Single Data (SISD), Single Instruction Multiple Data (SIMD), Multiple Instruction Single Data (MISD), and Multiple Instruction Multiple Data (MIMD):
+
+Flynn's taxonomy
+Single Instruction Single Data (SISD)
+The SISD computing system is like the von Neumann machine, which is a uniprocessor machine. As you can see in Flynn's taxonomy diagram, it executes a single instruction that operates on a single data stream. In SISD, machine instructions are processed sequentially.
+[ 10 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+In a clock cycle, the CPU executes the following operations:
+Fetch: The CPU fetches the data and instructions from a memory area, which is called a register. Decode: The CPU decodes the instructions. Execute: The instruction is carried out on the data. The result of the operation is stored in another register.
+Once the execution stage is complete, the CPU sets itself to begin another CPU cycle:
+
+The fetch, decode, and execute cycle
+The algorithms that run on this type of computer are sequential (or serial) since they do not contain any parallelism. An example of a SISD computer is a hardware system with a single CPU.
+The main elements of these architectures (namely, von Neumann architectures) are as follows:
+Central memory unit: This is used to store both instructions and program data. CPU: This is used to get the instruction and/or data from the memory unit, which decodes the instructions and sequentially implements them. The I/O system: This refers to the input and output data of the program.
+
+[ 11 ]
+
+Getting Started with Parallel Computing and Python Conventional single-processor computers are classified as SISD systems:
+
+Chapter 1
+
+The SISD architecture schema
+The following diagram specifically shows which areas of a CPU are used in the stages of fetch, decode, and execute:
+
+CPU components in the fetch-decode-execute phase
+[ 12 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Multiple Instruction Single Data (MISD)
+In this model, n processors, each with their own control unit, share a single memory unit. In each clock cycle, the data received from the memory is processed by all processors simultaneously, each in accordance with the instructions received from its control unit.
+In this case, the parallelism (instruction-level parallelism) is obtained by performing several operations on the same piece of data. The types of problems that can be solved efficiently in these architectures are rather special, such as data encryption. For this reason, the MISD computer has not found space in the commercial sector. MISD computers are more of an intellectual exercise than a practical configuration.
+
+Single Instruction Multiple Data (SIMD)
+A SIMD computer consists of n identical processors, each with their own local memory, where it is possible to store data. All processors work under the control of a single instruction stream. In addition to this, there are n data streams, one for each processor. The processors work simultaneously on each step and execute the same instructions, but on different data elements. This is an example of data-level parallelism.
+The SIMD architectures are much more versatile than MISD architectures. Numerous problems covering a wide range of applications can be solved by parallel algorithms on SIMD computers. Another interesting feature is that the algorithms for these computers are relatively easy to design, analyze, and implement. The limitation is that only the problems that can be divided into a number of subproblems (which are all identical, each of which will then be solved simultaneously through the same set of instructions) can be addressed with the SIMD computer.
+With the supercomputer developed according to this paradigm, we must mention the Connection Machine (Thinking Machine, 1985) and MPP (NASA, 1983).
+As we will see in Chapter 6, Distributed Python, and Chapter 7, Cloud Computing, the advent of modern graphics cards (GPUs), built with many SIMD-embedded units, has led to the more widespread use of this computational paradigm.
+
+[ 13 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Multiple Instruction Multiple Data (MIMD)
+This class of parallel computers is the most general and most powerful class, according to Flynn's classification. This contains n processors, n instruction streams, and n data streams. Each processor has its own control unit and local memory, which makes MIMD architectures more computationally powerful than SIMD architectures.
+Each processor operates under the control of a flow of instructions issued by its own control unit. Therefore, the processors can potentially run different programs with different data, which allows them to solve subproblems that are different and can be a part of a single larger problem. In MIMD, the architecture is achieved with the help of the parallelism level with threads and/or processes. This also means that the processors usually operate asynchronously.
+Nowadays, this architecture is applied to many PCs, supercomputers, and computer networks. However, there is a counter that you need to consider: asynchronous algorithms are difficult to design, analyze, and implement:
+
+The SIMD architecture (A) and the MIMD architecture (B)
+Flynn's taxonomy can be extended by considering that SIMD machines can be divided into two subgroups:
+Numerical supercomputers Vectorial machines
+[ 14 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+On the other hand, MIMD can be divided into machines that have a shared memory and those that have a distributed memory.
+Indeed the next section focuses on this last aspect of the organization of the memory of MIMD machines.
+
+Memory organization
+Another aspect that we need to consider in order to evaluate parallel architectures is memory organization, or rather, the way in which data is accessed. No matter how fast the processing unit is, if memory cannot maintain and provide instructions and data at a sufficient speed, then there will be no improvement in performance.
+The main problem that we need to overcome to make the response time of memory compatible with the speed of the processor is the memory cycle time, which is defined as the time that has elapsed between two successive operations. The cycle time of the processor is typically much shorter than the cycle time of memory.
+When a processor initiates a transfer to or from memory, the processor's resources will remain occupied for the entire duration of the memory cycle; furthermore, during this period, no other device (for example, I/O controller, processor, or even the processor that made the request) will be able to use the memory due to the transfer in progress:
+
+Memory organization in the MIMD architecture
+Solutions to the problem of memory access have resulted in a dichotomy of MIMD architectures. The first type of system, known as the shared memory system, has high virtual memory and all processors have equal access to data and instructions in this memory. The other type of system is the distributed memory model, wherein each processor has local memory that is not accessible to other processors.
+[ 15 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+What distinguishes memory shared by distributed memory is the management of memory access, which is performed by the processing unit; this distinction is very important for programmers because it determines how different parts of a parallel program must communicate.
+In particular, a distributed memory machine must make copies of shared data in each local memory. These copies are created by sending a message containing the data to be shared from one processor to another. A drawback of this memory organization is that, sometimes, these messages can be very large and take a relatively long time to transfer, while in a shared memory system, there is no exchange of messages, and the main problem lies in synchronizing access to shared resources.
+
+Shared memory
+The schema of a shared memory multiprocessor system is shown in the following diagram. The physical connections here are quite simple:
+
+Shared memory architecture schema
+Here, the bus structure allows an arbitrary number of devices (CPU + Cache in the preceding diagram) that share the same channel (Main Memory, as shown in the preceding diagram). The bus protocols were originally designed to allow a single processor and one or more disks or tape controllers to communicate through the shared memory here.
+Each processor has been associated with cache memory, as it is assumed that the probability that a processor needs to have data or instructions present in the local memory is very high.
+[ 16 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The problem occurs when a processor modifies data stored in the memory system that is simultaneously used by other processors. The new value will pass from the processor cache that has been changed to the shared memory. Later, however, it must also be passed to all the other processors, so that they do not work with the obsolete value. This problem is known as the problem of cache coherency—a special case of the problem of memory consistency, which requires hardware implementations that can handle concurrency issues and synchronization, similar to that of thread programming.
+The main features of shared memory systems are as follows:
+The memory is the same for all processors. For example, all the processors associated with the same data structure will work with the same logical memory addresses, thus accessing the same memory locations. The synchronization is obtained by reading the tasks of various processors and allowing the shared memory. In fact, the processors can only access one memory at a time. A shared memory location must not be changed from a task while another task accesses it. Sharing data between tasks is fast. The time required to communicate is the time that one of them takes to read a single location (depending on the speed of memory access).
+The memory access in shared memory systems is as follows:
+Uniform Memory Access (UMA): The fundamental characteristic of this system is the access time to the memory that is constant for each processor and for any area of memory. For this reason, these systems are also called Symmetric Multiprocessors (SMPs). They are relatively simple to implement, but not very scalable. The coder is responsible for the management of the synchronization by inserting appropriate controls, semaphores, locks, and more in the program that manages resources. Non-Uniform Memory Access (NUMA): These architectures divide the memory into high-speed access area that is assigned to each processor, and also, a common area for the data exchange, with slower access. These systems are also called Distributed Shared Memory (DSM) systems. They are very scalable, but complex to develop. No Remote Memory Access (NoRMA): The memory is physically distributed among the processors (local memory). All local memories are private and can only access the local processor. The communication between the processors is through a communication protocol used for exchanging messages, which is known as the message-passing protocol.
+
+[ 17 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Cache-Only Memory Architecture (COMA): These systems are equipped with only cached memories. While analyzing NUMA architectures, it was noticed that this architecture kept the local copies of the data in the cache and that this data was stored as duplicates in the main memory. This architecture removes duplicates and keeps only the cached memories; the memory is physically distributed among the processors (local memory). All local memories are private and can only access the local processor. The communication between the processors is also through the message-passing protocol.
+
+Distributed memory
+In a system with distributed memory, the memory is associated with each processor and a processor is only able to address its own memory. Some authors refer to this type of system as a multicomputer, reflecting the fact that the elements of the system are, themselves, small and complete systems of a processor and memory, as you can see in the following diagram:
+
+The distributed memory architecture schema
+This kind of organization has several advantages:
+There are no conflicts at the level of the communication bus or switch. Each processor can use the full bandwidth of their own local memory without any interference from other processors. The lack of a common bus means that there is no intrinsic limit to the number of processors. The size of the system is only limited by the network used to connect the processors. There are no problems with cache coherency. Each processor is responsible for its own data and does not have to worry about upgrading any copies.
+[ 18 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The main disadvantage is that communication between processors is more difficult to implement. If a processor requires data in the memory of another processor, then the two processors should not necessarily exchange messages via the message-passing protocol. This introduces two sources of slowdown: to build and send a message from one processor to another takes time, and also, any processor should be stopped in order to manage the messages received from other processors. A program designed to work on a distributed memory machine must be organized as a set of independent tasks that communicate via messages:
+
+Basic message passing
+The main features of distributed memory systems are as follows:
+Memory is physically distributed between processors; each local memory is directly accessible only by its processor. Synchronization is achieved by moving data (even if it's just the message itself) between processors (communication). The subdivision of data in the local memories affects the performance of the machine—it is essential to make subdivisions accurate, so as to minimize the communication between the CPUs. In addition to this, the processor that coordinates these operations of decomposition and composition must effectively communicate with the processors that operate on the individual parts of data structures. The message-passing protocol is used so that the CPUs can communicate with each other through the exchange of data packets. The messages are discrete units of information, in the sense that they have a well-defined identity, so it is always possible to distinguish them from each other.
+[ 19 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Massively Parallel Processing (MPP)
+MPP machines are composed of hundreds of processors (which can be as large as hundreds of thousands of processors in some machines) that are connected by a communication network. The fastest computers in the world are based on these architectures; some examples of these architecture systems are Earth Simulator, Blue Gene, ASCI White, ASCI Red, and ASCI Purple and Red Storm.
+
+Clusters of workstations
+These processing systems are based on classical computers that are connected by communication networks. Computational clusters fall into this classification.
+In a cluster architecture, we define a node as a single computing unit that takes part in the cluster. For the user, the cluster is fully transparent—all the hardware and software complexity is masked and data and applications are made accessible as if they were all from a single node.
+Here, we've identified three types of clusters:
+Fail-over cluster: In this, the node's activity is continuously monitored, and when one stops working, another machine takes over the charge of those activities. The aim is to ensure a continuous service due to the redundancy of the architecture. Load balancing cluster: In this system, a job request is sent to the node that has less activity. This ensures that less time is taken to process the job. High-performance computing cluster: In this, each node is configured to provide extremely high performance. The process is also divided into multiple jobs on multiple nodes. The jobs are parallelized and will be distributed to different machines.
+
+Heterogeneous architectures
+The introduction of GPU accelerators in the homogeneous world of supercomputing has changed the nature of how supercomputers are both used and programmed now. Despite the high performance offered by GPUs, they cannot be considered as an autonomous processing unit as they should always be accompanied by a combination of CPUs. The programming paradigm, therefore, is very simple: the CPU takes control and computes in a serial manner, assigning tasks to the graphics accelerator that are, computationally, very expensive and have a high degree of parallelism.
+
+[ 20 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The communication between a CPU and a GPU can take place, not only through the use of a high-speed bus but also through the sharing of a single area of memory for both physical or virtual memory. In fact, in the case where both the devices are not equipped with their own memory areas, it is possible to refer to a common memory area using the software libraries provided by the various programming models, such as CUDA and OpenCL.
+These architectures are called heterogeneous architectures, wherein applications can create data structures in a single address space and send a job to the device hardware, which is appropriate for the resolution of the task. Several processing tasks can operate safely in the same regions to avoid data consistency problems, thanks to the atomic operations.
+So, despite the fact that the CPU and GPU do not seem to work efficiently together, with the use of this new architecture, we can optimize their interaction with, and the performance of, parallel applications:
+
+The heterogeneous architecture schema
+In the following section, we introduce the main parallel programming models.
+[ 21 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Parallel programming models
+Parallel programming models exist as an abstraction of hardware and memory architectures. In fact, these models are not specific and do not refer to any particular types of machines or memory architectures. They can be implemented (at least theoretically) on any kind of machines. Compared to the previous subdivisions, these programming models are made at a higher level and represent the way in which the software must be implemented to perform parallel computation. Each model has its own way of sharing information with other processors in order to access memory and divide the work.
+In absolute terms, no one model is better than the other. Therefore, the best solution to be applied will depend very much on the problem that a programmer should address and resolve. The most widely used models for parallel programming are as follows:
+Shared memory model Multithread model Distributed memory/message passing model Data-parallel model
+In this recipe, we will give you an overview of these models.
+
+Shared memory model
+In this model, tasks share a single memory area in which we can read and write asynchronously. There are mechanisms that allow the coder to control the access to the shared memory; for example, locks or semaphores. This model offers the advantage that the coder does not have to clarify the communication between tasks. An important disadvantage, in terms of performance, is that it becomes more difficult to understand and manage data locality. This refers to keeping data local to the processor that works on conserving memory access, cache refreshes, and bus traffic that occurs when multiple processors use the same data.
+
+[ 22 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Multithread model
+In this model, a process can have multiple flows of execution. For example, a sequential part is created and, subsequently, a series of tasks are created that can be executed in parallel. Usually, this type of model is used on shared memory architectures. So, it will be very important for us to manage the synchronization between threads, as they operate on shared memory, and the programmer must prevent multiple threads from updating the same locations at the same time.
+The current-generation CPUs are multithreaded in software and hardware. POSIX (short for Portable Operating System Interface) threads are classic examples of the implementation of multithreading on software. Intel's Hyper-Threading technology implements multithreading on hardware by switching between two threads when one is stalled or waiting on I/O. Parallelism can be achieved from this model, even if the data alignment is nonlinear.
+
+Message passing model
+The message passing model is usually applied in cases where each processor has its own memory (distributed memory system). More tasks can reside on the same physical machine or on an arbitrary number of machines. The coder is responsible for determining the parallelism and data exchange that occurs through the messages, and it is necessary to request and call a library of functions within the code.
+Some of the examples have been around since the 1980s, but only in the mid-1990s was a standardized model created, leading to a de facto standard called a Message Passing Interface (MPI).
+
+[ 23 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The MPI model is clearly designed with distributed memory, but being models of parallel programming, a multiplatform model can also be used with a shared memory machine:
+
+Message passing paradigm model
+Data-parallel model
+In this model, we have more tasks that operate on the same data structure, but each task operates on a different portion of data. In the shared memory architecture, all tasks have access to data through shared memory and distributed memory architectures, where the data structure is divided and resides in the local memory of each task.
+[ 24 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+To implement this model, a coder must develop a program that specifies the distribution and alignment of data; for example, the current-generation GPUs are highly operational only if data (Task 1, Task 2, Task 3) is aligned, as shown in the following diagram:
+
+The data-parallel paradigm model
+Designing a parallel program
+The design of algorithms that exploit parallelism is based on a series of operations, which must be carried out for the program to perform the job correctly without producing partial or erroneous results. The macro operations that must be carried out for a correct parallelization of an algorithm are as follows:
+Task decomposition Task assignment Agglomeration Mapping
+[ 25 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Task decomposition
+In this first phase, the software program is split into tasks or a set of instructions that can then be executed on different processors to implement parallelism. To perform this subdivision, two methods are used:
+Domain decomposition: Here, the data of the problems is decomposed. The application is common to all the processors that work on different portions of data. This methodology is used when we have a large amount of data that must be processed. Functional decomposition: In this case, the problem is split into tasks, where each task will perform a particular operation on all the available data.
+
+Task assignment
+In this step, the mechanism by which the tasks will be distributed among the various processes is specified. This phase is very important because it establishes the distribution of workload among the various processors. Load balancing is crucial here; in fact, all processors must work with continuity, avoiding being in an idle state for a long time.
+To perform this, the coder takes into account the possible heterogeneity of the system that tries to assign more tasks to better-performing processors. Finally, for greater efficiency of parallelization, it is necessary to limit communication as much as possible between processors, as they are often the source of slowdowns and consumption of resources.
+
+Agglomeration
+Agglomeration is the process of combining smaller tasks with larger ones in order to improve performance. If the previous two stages of the design process partitioned the problem into a number of tasks that greatly exceed the number of processors available, and if the computer is not specifically designed to handle a huge number of small tasks (some architectures, such as GPUs, handle this fine and indeed benefit from running millions, or even billions, of tasks), then the design can turn out to be highly inefficient.
+Commonly, this is because tasks have to be communicated to the processor or thread so that they compute the said task. Most communications have costs that are disproportionate to the amount of data transferred, but also incur a fixed cost for every communication operation (such as the latency, which is inherent in setting up a TCP connection). If the tasks are too small, then this fixed cost can easily make the design inefficient.
+
+[ 26 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Mapping
+In the mapping stage of the parallel algorithm design process, we specify where each task is to be executed. The goal is to minimize the total execution time. Here, you must often make trade-offs, as the two main strategies often conflict with each other:
+The tasks that communicate frequently should be placed in the same processor to increase locality. The tasks that can be executed concurrently should be placed in different processors to enhance concurrency.
+This is known as the mapping problem, and it is known to be NP-complete. As such, no polynomial-time solutions to the problem in the general case exist. For tasks of equal size and tasks with easily identified communication patterns, the mapping is straightforward (we can also perform agglomeration here to combine tasks that map to the same processor). However, if the tasks have communication patterns that are hard to predict or the amount of work varies per task, then it is hard to design an efficient mapping and agglomeration scheme.
+For these types of problems, load balancing algorithms can be used to identify agglomeration and mapping strategies during runtime. The hardest problems are those in which the amount of communication or the number of tasks changes during the execution of the program. For these kinds of problems, dynamic load balancing algorithms can be used, which run periodically during the execution.
+
+Dynamic mapping
+Numerous load balancing algorithms exist for a variety of problems:
+Global algorithms: These require global knowledge of the computation being performed, which often adds a lot of overhead. Local algorithms: These rely only on information that is local to the task in question, which reduces overhead compared to global algorithms, but they are usually worse at finding optimal agglomeration and mapping.
+However, the reduced overhead may reduce the execution time, even though the mapping is worse by itself. If the tasks rarely communicate other than at the start and end of the execution, then a task-scheduling algorithm is often used, which simply maps tasks to processors as they become idle. In a task-scheduling algorithm, a task pool is maintained. Tasks are placed in this pool and are taken from it by workers.
+
+[ 27 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+There are three common approaches in this model:
+Manager/worker: This is the basic dynamic mapping scheme in which all the workers connect to a centralized manager. The manager repeatedly sends tasks to the workers and collects the results. This strategy is probably the best for a relatively small number of processors. The basic strategy can be improved by fetching tasks in advance so that communication and computation overlap each other.
+Hierarchical manager/worker: This is the variant of a manager/worker that has a semi-distributed layout. Workers are split into groups, each with their own manager. These group managers communicate with the central manager (and possibly among themselves as well), while workers request tasks from the group managers. This spreads the load among several managers and can, as such, handle a larger number of processors if all workers request tasks from the same manager.
+Decentralize: In this scheme, everything is decentralized. Each processor maintains its own task pool and communicates with the other processors in order to request tasks. How the processors choose other processors to request tasks varies and is determined on the basis of the problem.
+
+Evaluating the performance of a parallel program
+The development of parallel programming created the need for performance metrics in order to decide whether its use is convenient or not. Indeed, the focus of parallel computing is to solve large problems in a relatively short period of time. The factors contributing to this objective are, for example, the type of hardware used, the degree of parallelism of the problem, and the parallel programming model adopted. To facilitate this, the analysis of basic concepts was introduced, which compares the parallel algorithm obtained from the original sequence.
+The performance is achieved by analyzing and quantifying the number of threads and/or the number of processes used. To analyze this, let's introduce a few performance indexes:
+Speedup Efficiency Scaling
+
+[ 28 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The limitations of parallel computation are introduced by Amdahl's law. To evaluate the degree of efficiency of the parallelization of a sequential algorithm, we have Gustafson's law.
+
+Speedup
+The speedup is the measure that displays the benefit of solving a problem in parallel. It is defined as the ratio of the time taken to solve a problem on a single processing element (Ts) to the time required to solve the same problem on p identical processing elements (Tp).
+We denote speedup as follows:
+
+We have a linear speedup, where if S=p, then it means that the speed of execution increases with the number of processors. Of course, this is an ideal case. While the speedup is absolute when Ts is the execution time of the best sequential algorithm, the speedup is relative when Ts is the execution time of the parallel algorithm for a single processor.
+Let's recap these conditions:
+S = p is a linear or ideal speedup. S < p is a real speedup. S > p is a superlinear speedup.
+Efficiency
+In an ideal world, a parallel system with p processing elements can give us a speedup that is equal to p. However, this is very rarely achieved. Usually, some time is wasted in either idling or communicating. Efficiency is a measure of how much of the execution time a processing element puts toward doing useful work, given as a fraction of the time spent.
+We denote it by E and can define it as follows:
+
+[ 29 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The algorithms with linear speedup have a value of E = 1. In other cases, they have the value of E is less than 1. The three cases are identified as follows:
+
+When E = 1, it is a linear case. When E < 1, it is a real case. When E << 1, it is a problem that is parallelizable with low efficiency.
+
+Scaling
+Scaling is defined as the ability to be efficient on a parallel machine. It identifies the computing power (speed of execution) in proportion to the number of processors. By increasing the size of the problem and, at the same time, the number of processors, there will be no loss in terms of performance.
+The scalable system, depending on the increments of the different factors, may maintain the same efficiency or improve it.
+
+Amdahl's law
+Amdahl's law is a widely used law that is used to design processors and parallel algorithms. It states that the maximum speedup that can be achieved is limited by the serial component of the program:
+
+1 – P denotes the serial component (not parallelized) of a program.
+This means that, for example, if a program in which 90% of the code can be made parallel, but 10% must remain serial, then the maximum achievable speedup is 9, even for an infinite number of processors.
+
+[ 30 ]
+
+Getting Started with Parallel Computing and Python
+Gustafson's law
+Gustafson's law states the following:
+
+Chapter 1
+
+Here, as we indicated in the equation the following applies:
+P is the number of processors. S is the speedup factor. α is the non-parallelizable fraction of any parallel process.
+Gustafson's law is in contrast to Amdahl's law, which, as we described, assumes that the overall workload of a program does not change with respect to the number of processors.
+In fact, Gustafson's law suggests that programmers first set the time allowed for solving a problem in parallel and then based on that (that is time) to size the problem. Therefore, the faster the parallel system is, the greater the problems that can be solved over the same period of time.
+The effect of Gustafson's law was to direct the objectives of computer research towards the selection or reformulation of problems in such a way that the solution of a larger problem would still be possible in the same amount of time. Furthermore, this law redefines the concept of efficiency as a need to reduce at least the sequential part of a program, despite the increase in workload.
+
+Introducing Python
+Python is a powerful, dynamic, and interpreted programming language that is used in a wide variety of applications. Some of its features are as follows:
+A clear and readable syntax. A very extensive standard library, where, through additional software modules, we can add data types, functions, and objects. Easy-to-learn rapid development and debugging. Developing Python code in Python can be up to 10 times faster than in C/C++ code. The code can also work as a prototype and then translated into C/C ++. Exception-based error handling. A strong introspection functionality. The richness of documentation and a software community.
+[ 31 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Python can be seen as a glue language. Using Python, better applications can be developed because different kinds of coders can work together on a project. For example, when building a scientific application, C/C++ programmers can implement efficient numerical algorithms, while scientists on the same project can write Python programs that test and use those algorithms. Scientists don't have to learn a low-level programming language and C/C++ programmers don't need to understand the science involved.
+You can read more about this from https:/​/​www.​python.​org/​doc/ essays/​omg-​darpa-​mcc-​position.
+
+Let's take a look at some examples of very basic code to get an idea of the features of Python.
+The following section can be a refresher for most of you. We will use these techniques practically in Chapter 2, Thread-Based Parallelism, and Chapter 3, Process-Based Parallelism.
+
+Help functions
+The Python interpreter already provides a valid help system. If you want to know how to use an object, then just type help(object).
+Let's see, for example, how to use the help function on integer 0:
+>>> help(0) Help on int object:
+class int(object) | int(x=0) -> integer | int(x, base=10) -> integer | | Convert a number or string to an integer, or return 0 if no | arguments are given. If x is a number, return x.__int__(). For | floating point numbers, this truncates towards zero. | | If x is not a number or if base is given, then x must be a string, | bytes, or bytearray instance representing an integer literal in the | given base. The literal can be preceded by '+' or '-' and be | surrounded by whitespace. The base defaults to 10. Valid bases are 0 | and 2-36. | Base 0 means to interpret the base from the string as an integer
+[ 32 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+| literal. >>> int('0b100', base=0)
+The description of the int object is followed by a list of methods that are applicable to it. The first five methods are as follows:
+| Methods defined here: | | __abs__(self, /) | abs(self) | | __add__(self, value, /) | Return self+value. | | __and__(self, value, /) | Return self&value. | | __bool__(self, /) | self != 0 | | __ceil__(...) | Ceiling of an Integral returns itself.
+Also useful is dir(object), which lists the methods available for an object:
+>>> dir(float) ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+Finally, the relevant documentation for an object is provided by the .__doc__ function, as shown in the following example:
+>>> abs.__doc__ 'Return the absolute value of the argument.'
+
+[ 33 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Syntax
+Python doesn't adopt statement terminators, and code blocks are specified through indentation. Statements that expect an indentation level must end in a colon (:). This leads to the following:
+The Python code is clearer and more readable. The program structure always coincides with that of the indentation. The style of indentation is uniform in any listing.
+Bad indentation can lead to errors.
+The following example shows how to use the if construct:
+print("first print") if condition:
+print(“second print”) print(“third print”)
+In this example, we can see the following:
+The following statements: print("first print"), if condition:, print("third print") have the same indentation level and are always executed. After the if statement, there is a block of code with a higher indentation level, which includes the print ("second print") statement. If the condition of if is true, then the print ("second print") statement is executed. If the condition of if is false, then the print ("second print") statement is not executed.
+It is, therefore, very important to pay attention to indentation because it is always evaluated in the program parsing process.
+
+[ 34 ]
+
+Getting Started with Parallel Computing and Python
+Comments
+Comments start with the hash sign (#) and are on a single line:
+# single line comment
+Multi-line strings are used for multi-line comments:
+""" first line of a multi-line comment second line of a multi-line comment."""
+
+Chapter 1
+
+Assignments
+Assignments are made with the equals symbol (=). For equality tests, the same amount (==) is used. You can increase and decrease a value using the += and -= operators, followed by an addendum. This works with many types of data, including strings. You can assign and use multiple variables on the same line.
+Some examples are as follows:
+>>> variable = 3 >>> variable += 2 >>> variable 5 >>> variable -= 1 >>> variable 4
+>>> _string_ = "Hello" >>> _string_ += " Parallel Programming CookBook Second Edition!" >>> print (_string_) Hello Parallel Programming CookBook Second Edition!
+
+Data types
+The most significant structures in Python are lists, tuples, and dictionaries. Sets have been integrated into Python since version 2.5 (the previous versions are available in the sets library):
+Lists: These are similar to one-dimensional arrays, but you can create lists that contain other lists. Dictionaries: These are arrays that contain key pairs and values (hash tables). Tuples: These are immutable mono-dimensional objects.
+[ 35 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Arrays can be of any type, so you can mix variables such as integers and strings into your lists, dictionaries and tuples.
+The index of the first object in any type of array is always zero. Negative indexes are allowed and count from the end of the array; -1 indicates the last element of the array:
+#let's play with lists list_1 = [1, ["item_1", "item_1"], ("a", "tuple")] list_2 = ["item_1", -10000, 5.01]
+>>> list_1 [1, ['item_1', 'item_1'], ('a', 'tuple')]
+>>> list_2 ['item_1', -10000, 5.01]
+>>> list_1[2] ('a', 'tuple')
+>>>list_1[1][0] ['item_1', 'item_1']
+>>> list_2[0] item_1
+>>> list_2[-1] 5.01
+#build a dictionary dictionary = {"Key 1": "item A", "Key 2": "item B", 3: 1000} >>> dictionary {'Key 1': 'item A', 'Key 2': 'item B', 3: 1000}
+>>> dictionary["Key 1"] item A
+>>> dictionary["Key 2"] -1
+>>> dictionary[3] 1000
+
+[ 36 ]
+
+Getting Started with Parallel Computing and Python
+You can get an array range using the colon (:):
+list_3 = ["Hello", "Ruvika", "how" , "are" , "you?"] >>> list_3[0:6] ['Hello', 'Ruvika', 'how', 'are', 'you?']
+>>> list_3[0:1] ['Hello']
+>>> list_3[2:6] ['how', 'are', 'you?']
+
+Chapter 1
+
+Strings
+Python strings are indicated using either the single (') or double (") quotation mark and they are allowed to use one notation within a string delimited by the other:
+>>> example = "she loves ' giancarlo" >>> example "she loves ' giancarlo"
+On multiple lines, they are enclosed in triple (or three single) quotation marks (''' multiline string '''):
+>>> _string_='''I am a multi-line string''' >>> _string_ 'I am a \nmulti-line\nstring'
+Python also supports Unicode; just use the u "This is a unicode string" syntax :
+>>> ustring = u"I am unicode string" >>> ustring 'I am unicode string'
+To enter values in a string, type the % operator and a tuple. Then, each % operator is replaced by a tuple element, from left to right:
+>>> print ("My name is %s !" % ('Mr. Wolf')) My name is Mr. Wolf!
+
+[ 37 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Flow control
+Flow control instructions are if, for, and while.
+In the next example, we check whether the number is positive, negative, or zero and display the result:
+num = 1
+if num > 0: print("Positive number")
+elif num == 0: print("Zero")
+else: print("Negative number")
+The following code block finds the sum of all the numbers stored in a list, using a for loop:
+numbers = [6, 6, 3, 8, -3, 2, 5, 44, 12] sum = 0 for val in numbers:
+sum = sum+val print("The sum is", sum)
+We will execute the while loop to iterate the code until the condition result is true. We will use this loop over the for loop since we are unaware of the number of iterations that will result in the code. In this example, we use while to add natural numbers up to sum = 1+2+3+...+n:
+n = 10 # initialize sum and counter sum = 0 i = 1 while i <= n:
+sum = sum + i i = i+1 # update counter
+# print the sum print("The sum is", sum)
+The outputs for the preceding three examples are as follows:
+Positive number The sum is 83 The sum is 55 >>>
+
+[ 38 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Functions
+Python functions are declared with the def keyword:
+def my_function(): print("this is a function")
+To run a function, use the function name, followed by parentheses, as follows:
+>>> my_function() this is a function
+Parameters must be specified after the function name, inside the parentheses:
+def my_function(x): print(x * 1234)
+>>> my_function(7) 8638
+Multiple parameters must be separated with a comma:
+def my_function(x,y): print(x*5+ 2*y)
+>>> my_function(7,9) 53
+Use the equals sign to define a default parameter. If you call the function without the parameter, then the default value will be used:
+def my_function(x,y=10): print(x*5+ 2*y)
+>>> my_function(1) 25
+>>> my_function(1,100) 205
+The parameters of a function can be of any type of data (such as string, number, list, and dictionary). Here, the following list, lcities, is used as a parameter for my_function:
+def my_function(cities): for x in cities: print(x)
+>>> lcities=["Napoli","Mumbai","Amsterdam"]
+
+[ 39 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+>>> my_function(lcities) Napoli Mumbai Amsterdam
+Use the return statement to return a value from a function:
+def my_function(x,y): return x*y
+>>> my_function(6,29) 174
+Python supports an interesting syntax that allows you to define small, single-line functions on the fly. Derived from the Lisp programming language, these lambda functions can be used wherever a function is required.
+An example of a lambda function, functionvar, is shown as follows:
+# lambda definition equivalent to def f(x): return x + 1
+functionvar = lambda x: x * 5 >>> print(functionvar(10)) 50
+
+Classes
+Python supports multiple inheritances of classes. Conventionally (not a language rule), private variables and methods are declared by being preceded with two underscores (__). We can assign arbitrary attributes (properties) to the instances of a class, as shown in the following example:
+class FirstClass: common_value = 10 def __init__ (self): self.my_value = 100 def my_func (self, arg1, arg2): return self.my_value*arg1*arg2
+# Build a first instance >>> first_instance = FirstClass() >>> first_instance.my_func(1, 2) 200
+# Build a second instance of FirstClass >>> second_instance = FirstClass()
+[ 40 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+#check the common values for both the instances >>> first_instance.common_value 10
+>>> second_instance.common_value 10
+#Change common_value for the first_instance >>> first_instance.common_value = 1500 >>> first_instance.common_value 1500
+#As you can note the common_value for second_instance is not changed >>> second_instance.common_value 10
+
+# SecondClass inherits from FirstClass. # multiple inheritance is declared as follows: # class SecondClass (FirstClass1, FirstClass2, FirstClassN)
+class SecondClass (FirstClass): # The "self" argument is passed automatically # and refers to the class's instance def __init__ (self, arg1): self.my_value = 764 print (arg1)
+>>> first_instance = SecondClass ("hello PACKT!!!!") hello PACKT!!!!
+>>> first_instance.my_func (1, 2) 1528
+
+Exceptions
+Exceptions in Python are managed with try-except blocks (exception_name):
+def one_function(): try: # Division by zero causes one exception 10/0 except ZeroDivisionError: print("Oops, error.") else: # There was no exception, we can continue.
+[ 41 ]
+
+Getting Started with Parallel Computing and Python
+pass finally:
+# This code is executed when the block # try..except is already executed and all exceptions # have been managed, even if a new one occurs # exception directly in the block. print("We finished.")
+>>> one_function() Oops, error. We finished
+
+Chapter 1
+
+Importing libraries
+External libraries are imported with import [library name]. Alternatively, you can use the from [library name] import [function name] syntax to import a specific function. Here is an example:
+import random randomint = random.randint(1, 101)
+>>> print(randomint) 65
+from random import randint randomint = random.randint(1, 102)
+>>> print(randomint) 46
+
+Managing files
+To allow us to interact with the filesystem, Python provides us with the builtin open function. This function can be invoked to open a file and return an object file. The latter allows us to perform various operations on the file, such as reading and writing. When we have finished interacting with the file, we must finally remember to close it by using the file.close method:
+>>> f = open ('test.txt', 'w') # open the file for writing >>> f.write ('first line of file \ n') # write a line in file >>> f.write ('second line of file \ n') # write another line in file >>> f.close () # we close the file >>> f = open ('test.txt') # reopen the file for reading >>> content = f.read () # read all the contents of the file
+[ 42 ]
+
+Getting Started with Parallel Computing and Python
+>>> print (content) first line of the file second line of the file >>> f.close () # close the file
+
+Chapter 1
+
+List comprehensions
+List comprehensions are a powerful tool for creating and manipulating lists. They consist of an expression that is followed by a for clause and then followed by zero, or more, if clauses. The syntax for list comprehensions is simply the following:
+[expression for item in list]
+Then, perform the following:
+#list comprehensions using strings >>> list_comprehension_1 = [ x for x in 'python parallel programming cookbook!' ] >>> print( list_comprehension_1)
+['p', 'y', 't', 'h', 'o', 'n', ' ', 'p', 'a', 'r', 'a', 'l', 'l', 'e', 'l', ' ', 'p', 'r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g', ' ', 'c', 'o', 'o', 'k', 'b', 'o', 'o', 'k', '!']
+#list comprehensions using numbers >>> l1 = [1,2,3,4,5,6,7,8,9,10] >>> list_comprehension_2 = [ x*10 for x in l1 ] >>> print( list_comprehension_2)
+[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+Running Python scripts
+To execute a Python script, simply invoke the Python interpreter followed by the script name, in this case, my_pythonscript.py. Or, if we are in a different working directory, then use its full address:
+> python my_pythonscript.py
+
+[ 43 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+From now on, for every invocation of a Python script, we will use the preceding notation; that is, python, followed by script_name.py, assuming that the directory from which the Python interpreter is launched is the one where the script to be executed resides.
+
+Installing Python packages using pip
+pip is a tool that allows us to search, download, and install Python packages found on the Python Package Index, which is a repository that contains tens of thousands of packages written in Python. This also allows us to manage the packages we have already downloaded, allowing us to update or remove them.
+Installing pip
+pip is already included in Python versions ≥ 3.4 and ≥ 2.7.9. To check whether this tool is already installed, we can run the following command:
+C:\>pip
+If pip is already installed, then this command will show us the installed version.
+Updating pip
+It is also recommended to check that the pip version you are using is always up to date. To update it, we can use the following command:
+C:\>pip install -U pip
+Using pip
+pip supports a series of commands that allow us, among other things, to search, download, install, update, and remove packages. To install PACKAGE, just run the following command:
+C:\>pip install PACKAGE
+
+[ 44 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Introducing Python parallel programming
+Python provides many libraries and frameworks that facilitate high-performance computations. However, doing parallel programming with Python can be quite insidious due to the Global Interpreter Lock (GIL).
+In fact, the most widespread and widely used Python interpreter, CPython, is developed in the C programming language. The CPython interpreter needs GIL for thread-safe operations. The use of GIL implies that you will encounter a global lock when you attempt to access any Python objects contained within threads. And only one thread at a time can acquire the lock for a Python object or C API.
+Fortunately, things are not so serious, because, outside the realm of GIL, we can freely use parallelism. This category includes all the topics that we will discuss in the next chapters, including multiprocessing, distributed computing, and GPU computing.
+So, Python is not really multithreaded. But what is a thread? What is a process? In the following sections, we will introduce these two fundamental concepts and how they are addressed by the Python programming language.
+
+Processes and threads
+Threads can be compared to light processes, in the sense that they offer advantages similar to those of processes, without, however, requiring the typical communication techniques of processes. Threads allow you to divide the main control flow of a program into multiple concurrently running control streams. Processes, by contrast, have their own addressing space and their own resources. It follows that communication between parts of code running on different processes can only take place through appropriate management mechanisms, including pipes, code FIFO, mailboxes, shared memory areas, and message passing. Threads, on the other hand, allow the creation of concurrent parts of the program, in which each part can access the same address space, variables, and constants.
+
+[ 45 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The following table summarizes the main differences between threads and processes:
+
+Threads
+Share memory.
+Start/change are computationally less expensive. Require fewer resources (light processes). Need synchronization mechanisms to handle data correctly.
+
+Processes Do not share memory. Start/change are computationally expensive.
+Require more computational resources.
+No memory synchronization is required.
+
+After this brief introduction, we can finally show how processes and threads operate.
+In particular, we want to compare the serial, multithread, and multiprocess execution times of the following function, do_something, which performs some basic calculations, including building a list of integers selected randomly (a do_something.py file):
+
+import random
+
+def do_something(count, out_list): for i in range(count): out_list.append(random.random())
+
+Next, there is the serial (serial_test.py) implementation. Let's start with the relevant imports:
+from do_something import * import time
+
+Note the importing of the module time, which will be used to evaluate the execution time, in this instance, and the serial implementation of the do_something function. size of the list to build is equal to 10000000, while the do_something function will be executed 10 times:
+if __name__ == "__main__": start_time = time.time() size = 10000000 n_exec = 10 for i in range(0, exec): out_list = list() do_something(size, out_list) print ("List processing complete.") end_time = time.time() print("serial time=", end_time - start_time)
+
+[ 46 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+Next, we have the multithreaded implementation (multithreading_test.py).
+Import the relevant libraries:
+from do_something import * import time import threading
+Note the import of the threading module in order to operate with the multithreading capabilities of Python.
+Here, there is the multithreading execution of the do_something function. We will not comment in-depth on the instructions in the following code, as they will be discussed in more detail in Chapter 2, Thread-Based Parallelism.
+However, it should be noted in this case, too, that the length of the list is obviously the same as in the serial case, size = 10000000, while the number of threads defined is 10, threads = 10, which is also the number of times the do_something function must be executed:
+if __name__ == "__main__": start_time = time.time() size = 10000000 threads = 10 jobs = [] for i in range(0, threads):
+Note also the construction of the single thread, through the threading.Thread method:
+out_list = list() thread = threading.Thread(target=list_append(size,out_list)) jobs.append(thread)
+The sequence of cycles in which we start executing threads and then stop them immediately afterwards is as follows:
+for j in jobs: j.start()
+for j in jobs: j.join()
+print ("List processing complete.") end_time = time.time() print("multithreading time=", end_time - start_time)
+Finally, there is the multiprocessing implementation (multiprocessing_test.py).
+
+[ 47 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+We start by importing the necessary modules and, in particular, the multiprocessing library, whose features will be explained in-depth in Chapter 3, Process-Based Parallelism:
+from do_something import * import time import multiprocessing
+As in the previous cases, the length of the list to build, the size, and the execution number of the do_something function remain the same (procs = 10):
+if __name__ == "__main__": start_time = time.time() size = 10000000 procs = 10 jobs = [] for i in range(0, procs): out_list = list()
+Here, the implementation of a single process through the multiprocessing.Process method call is affected as follows:
+process = multiprocessing.Process\ (target=do_something,args=(size,out_list))
+jobs.append(process)
+Next, the sequence of cycles in which we start executing processes and then stop them immediately afterwards is executed as follows:
+for j in jobs: j.start()
+for j in jobs: j.join()
+print ("List processing complete.") end_time = time.time() print("multiprocesses time=", end_time - start_time)
+Then, we open the command shell and run the three functions described previously.
+Go to the folder where the functions have been copied and then type the following:
+> python serial_test.py
+
+[ 48 ]
+
+Getting Started with Parallel Computing and Python
+
+Chapter 1
+
+The result, obtained on a machine with the following features—CPU Intel i7/8 GB of RAM, is as follows:
+List processing complete. serial time= 25.428767204284668
+In the case of the multithreading implementation, we have the following:
+> python multithreading_test.py
+The output is as follows:
+List processing complete. multithreading time= 26.168917179107666
+Finally, there is the multiprocessing implementation:
+> python multiprocessing_test.py
+Its result is as follows:
+List processing complete. multiprocesses time= 18.929869890213013
+
+As can be seen, the results of the serial implementation (that is, using serial_test.py) are similar to those obtained with the implementation of multithreading (using multithreading_test.py) where the threads are essentially launched one after the other, giving precedence to the one over the other until the end, while we have benefits in terms of execution times using the Python multiprocessing capability (using multiprocessing_test.py).
+
+[ 49 ]
+
+2
+Thread-Based Parallelism
+Currently, the most widely used programming paradigm for the management of concurrency in software applications is based on multithreading. Generally, an application is made by a single process that is divided into multiple independent threads, which represent activities of different types that run in parallel and compete with each other.
+Nowadays, modern applications that use multithreading have been adopted on a massive scale. In fact, all current processors are multicore, just so they can perform parallel operations and exploit the computer's computational resources.
+Hence, multithreaded programming is definitely a good way to achieve concurrent applications. However, multithreaded programming often hides some non-trivial difficulties, which must be managed appropriately to avoid errors such as deadlocks or synchronization issues.
+We will first define the concepts of thread-based and multithreaded programming and then introduce the multithreading library. We will learn about the main directives for thread definition, management, and communication.
+Through the multithreading library, we will see how to solve problems through different techniques, such as lock, RLock, semaphores, condition, event, barrier, and queue.
+In this chapter, we will cover the following recipes:
+What is a thread? How to define a thread How to determine the current thread How to use a thread in a subclass Thread synchronization with a lock Thread synchronization with an RLock
+
+Thread-Based Parallelism
+
+Chapter 2
+
+Thread synchronization with semaphores Thread synchronization with a condition Thread synchronization with an event Thread synchronization with a barrier Thread communication using a queue
+We will also explore the main options offered by Python to program with threads. To do this, we will focus on using the threading module.
+
+What is a thread?
+A thread is an independent execution flow that can be executed in parallel and concurrently with other threads in the system.
+Multiple threads can share data and resources, taking advantage of the so-called space of shared information. The specific implementation of threads and processes depends on the OS on which you plan to run the application, but, in general, it can be stated that a thread is contained inside a process and that different threads in the same process conditions share some resources. In contrast to this, different processes do not share their own resources with other processes.
+A thread is composed of three elements: program counters, registers, and stack. Shared resources with other threads of the same process essentially include data and OS resources. Moreover, threads have their own state of execution, namely, thread state, and can be synchronized with other threads.
+A thread state can be ready, running, or blocked:
+When a thread is created, it enters the Ready state. A thread is scheduled for execution by the OS (or by the runtime support system) and, when its turn arrives, it begins execution by going into the Running state. The thread can wait for a condition to occur, passing from the Running state to the Blocked state. Once the locked condition is terminated, the Blocked thread returns to the Ready state:
+
+[ 51 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+Thread life cycle
+The main advantage of multithreading programming lies in performances, as the context switch between processes turns out to be much heavier than the switch context between threads that belong to the same process.
+In the next recipes, until the end of the chapter, we will examine the Python threading module, introducing its main functions through programming examples.
+Python threading module
+Python manages threads with the threading module provided by the Python standard library. This module provides some very interesting features that make the threading-based approach a whole lot easier; in fact, the threading module provides several synchronization mechanisms that are very simple to implement.
+The major components of the threading module are as follows:
+The thread object The lock object The RLock object The semaphore object The condition object The event object
+[ 52 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+In the following recipes, we examine the features offered by the threading library with different application examples. For the examples that follow, we will refer to the Python 3.5.0 distribution (https:/​/​www.​python.​org/​downloads/​release/​python-​350/​).
+
+Defining a thread
+The simplest way to use a thread is to instantiate it with a target function and then call the start method to let it begin the job.
+Getting ready
+The Python threading module provides a Thread class that is used to run processes and functions in a different thread:
+class threading.Thread(group=None, target=None, name=None, args=(), kwargs={})
+Here are the parameters of the Thread class:
+group: This is the group value, which should be None; this is reserved for future implementations. target: This is the function that is to be executed when you start a thread activity. name: This is the name of the thread; by default, a unique name of the form of Thread-N is assigned to it. args: This is the tuple of arguments that are to be passed to a target. kwargs: This is the dictionary of keyword arguments that are to be used for the target function.
+In the next section, let's learn about how to define a thread.
+
+[ 53 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How to do it...
+We'll define a thread by passing it a number, which represents the thread number, and finally, the result will be printed out:
+1. Import the threading module by using the following Python command:
+import threading
+2. In the main program, a Thread object is instantiated with a target function called my_func. Then, an argument to the function that will be included in the output message is passed:
+t = threading.Thread(target=function , args=(i,))
+3. The thread does not start running until the start method is called, and the join method makes the calling thread and waits until the thread has finished the execution, as follows:
+import threading
+def my_func(thread_number): return print('my_func called by thread N°\ {}'.format(thread_number))
+
+def main(): threads = [] for i in range(10): t = threading.Thread(target=my_func, args=(i,)) threads.append(t) t.start() t.join()
+if __name__ == "__main__": main()
+
+[ 54 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How it works...
+In the main program, we initialize the thread's list, to which we add the instance of each thread that is created. The total number of threads created is 10, while the i-index for the ith thread is passed as an argument to the ith thread:
+my_func called by thread N°0 my_func called by thread N°1 my_func called by thread N°2 my_func called by thread N°3 my_func called by thread N°4 my_func called by thread N°5 my_func called by thread N°6 my_func called by thread N°7 my_func called by thread N°8 my_func called by thread N°9
+
+There's more...
+All current processors are multicore, thus offering the possibility of performing multiple parallel operations and making the most of the computer's computational resources. Although this is true, multithread programming hides a number of non-trivial difficulties, which must be managed appropriately to avoid errors such as deadlocks or synchronization problems.
+
+Determining the current thread
+Using arguments to identify or name the thread is cumbersome and unnecessary. Each Thread instance has a name with a default value that can be changed as the thread is created.
+Naming threads is useful in server processes with multiple service threads that handle different operations.
+Getting ready
+This threading module provides the currentThread().getName() method, which returns the name of the current thread.
+
+[ 55 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+The following section shows us how to use this function to determine which thread is running.
+
+How to do it...
+Let's have a look at the following steps:
+1. To determine which thread is running, we create three target functions and import the time module to introduce a suspended execution of two seconds:
+import threading import time
+def function_A(): print (threading.currentThread().getName()+str('-->\ starting \n')) time.sleep(2) print (threading.currentThread().getName()+str( '-->\ exiting \n'))
+def function_B(): print (threading.currentThread().getName()+str('-->\ starting \n')) time.sleep(2) print (threading.currentThread().getName()+str( '-->\ exiting \n'))
+def function_C(): print (threading.currentThread().getName()+str('-->\ starting \n')) time.sleep(2) print (threading.currentThread().getName()+str( '-->\ exiting \n'))
+2. Three threads are instantiated with a target function. Then, we pass the name that is to be printed and, if it is not defined, then the default name will be used. Then, the start() and join() methods are called for each thread:
+if __name__ == "__main__":
+t1 = threading.Thread(name='function_A', target=function_A) t2 = threading.Thread(name='function_B', target=function_B) t3 = threading.Thread(name='function_C',target=function_C)
+t1.start() t2.start() t3.start()
+[ 56 ]
+
+Thread-Based Parallelism
+t1.join() t2.join() t3.join()
+
+Chapter 2
+
+How it works...
+We are going to set up three threads, each of which is assigned a target function. When the target function is executed and terminated, the function name is appropriately printed out.
+For this example, the output should look like this (even if the order shown cannot be the same):
+function_A--> starting function_B--> starting function_C--> starting
+function_A--> exiting function_B--> exiting function_C--> exiting
+
+Defining a thread subclass
+Creating a thread can require the definition of a subclass, which inherits from the Thread class. The latter, as explained in Defining a thread section, is included in the threading module, which must then be imported.
+Getting ready
+The class that we will define in the next section, which represents our thread, respects a precise structure: we will first have to define the __init__ method, but, above all, we will have to override the run method.
+
+[ 57 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How to do it...
+The steps involved are as follows:
+1. We defined the MyThreadClass class, which we can use to create all the threads we want. Each thread of this type will be characterized by the operations defined in the run method, which, in this simple example, limits itself to printing a string at the beginning and at the end of its execution:
+import time import os from random import randint from threading import Thread
+class MyThreadClass (Thread):
+2. Furthermore, in the __init__ method, we have specified two initialization parameters, respectively, name and duration, that will be used in the run method:
+def __init__(self, name, duration): Thread.__init__(self) self.name = name self.duration = duration
+def run(self): print ("---> " + self.name +\ " running, belonging to process ID "\ + str(os.getpid()) + "\n") time.sleep(self.duration) print ("---> " + self.name + " over\n")
+3. These parameters will then be set during the creation of the thread. In particular, the duration parameter is computed using the randint function that outputs a random integer between 1 and 10. Starting from the definition of MyThreadClass, let's see how to instantiate more threads, as follows:
+def main():
+start_time = time.time()
+# Thread Creation thread1 = MyThreadClass("Thread#1 ", randint(1,10)) thread2 = MyThreadClass("Thread#2 ", randint(1,10)) thread3 = MyThreadClass("Thread#3 ", randint(1,10)) thread4 = MyThreadClass("Thread#4 ", randint(1,10))
+
+[ 58 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+thread5 = MyThreadClass("Thread#5 ", randint(1,10)) thread6 = MyThreadClass("Thread#6 ", randint(1,10)) thread7 = MyThreadClass("Thread#7 ", randint(1,10)) thread8 = MyThreadClass("Thread#8 ", randint(1,10)) thread9 = MyThreadClass("Thread#9 ", randint(1,10))
+# Thread Running thread1.start() thread2.start() thread3.start() thread4.start() thread5.start() thread6.start() thread7.start() thread8.start() thread9.start()
+# Thread joining thread1.join() thread2.join() thread3.join() thread4.join() thread5.join() thread6.join() thread7.join() thread8.join() thread9.join()
+# End print("End")
+#Execution Time print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == "__main__": main()
+
+How it works...
+In this example, we created nine threads, each with their own name and duration property, according to the definition of the __init__ method.
+We then run them using the start method, which is limited to executing the contents of the previously defined run method. Note that the process ID for each thread is the same, meaning that we are in a multithreaded process.
+[ 59 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+Also, note that the start method is not blocking: when it is executed, the control immediately goes to the next line, while the thread is started in the background. In fact, as you can see, the creation of threads does not take place in the order specified by the code. Likewise, thread termination is constrained to the value of the duration parameter, evaluated using the randint function, and passed by the parameter for each thread creation instance. To wait for a thread to finish, a join operation must be performed.
+The output looks like this:
+---> Thread#1 running, belonging to process ID 13084 ---> Thread#5 running, belonging to process ID 13084 ---> Thread#2 running, belonging to process ID 13084 ---> Thread#6 running, belonging to process ID 13084 ---> Thread#7 running, belonging to process ID 13084 ---> Thread#3 running, belonging to process ID 13084 ---> Thread#4 running, belonging to process ID 13084 ---> Thread#8 running, belonging to process ID 13084 ---> Thread#9 running, belonging to process ID 13084
+---> Thread#6 over ---> Thread#9 over ---> Thread#5 over ---> Thread#2 over ---> Thread#7 over ---> Thread#4 over ---> Thread#3 over ---> Thread#8 over ---> Thread#1 over
+End
+--- 9.117518663406372 seconds ---
+
+There's more...
+The feature that is most frequently associated with OOP is inheritance, which is the ability to define a new class as a modified version of an already existing class. The main advantage of inheritance is that you can add new methods to a class without having to change the original definition.
+
+[ 60 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+The original class is often referred to as the parent class and the derived class, subclass. Inheritance is a powerful feature, and some programs can be written much more easily and concisely, providing the possibility to customize the behavior of a class without modifying the original class. The very fact that the inheritance structure can reflect that of the problem can, in some cases, make the program easier to understand.
+However (to put the user on guard!), inheritance can make it more difficult to read the program. This is because, when invoking a method, it is not always clear where this has been defined within the code that must be traced within multiple modules, instead of being in a single well-defined place.
+Many of the things that can be done with inheritance can usually be managed elegantly even without it, so it is appropriate to only use inheritance if the structure of the problem requires it. If used at the wrong time, then the harm inheritance can cause can outweigh the benefits of using it.
+
+Thread synchronization with a lock
+The threading module also includes a simple lock mechanism, which allows us to implement synchronization between threads.
+Getting ready
+A lock is nothing more than an object that is typically accessible by multiple threads, which a thread must possess before it can proceed to the execution of a protected section of a program. These locks are created by executing the Lock() method, which is defined in the threading module.
+Once the lock has been created, we can use two methods that allow us to synchronize the execution of two (or more) threads: the acquire() method to acquire the lock control, and the release() method to release it.
+The acquire() method accepts an optional parameter that, if not specified or set to True, forces the thread to suspend its execution until the lock is released and can then be acquired. If, on the other hand, the acquire() method is executed with an argument equal to False, then it immediately returns a Boolean result, which is True if the lock has been acquired, or False otherwise.
+In the following example, we show the lock mechanism by modifying the code introduced in the previous recipe, Defining a thread subclass.
+[ 61 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How to do it...
+The steps involved are as follows:
+1. As shown in the following code block, the MyThreadClass class has been modified, introducing the acquire() and release() methods within the run method, while the Lock() definition is outside the definition of the class itself:
+import threading import time import os from threading import Thread from random import randint
+# Lock Definition threadLock = threading.Lock()
+class MyThreadClass (Thread): def __init__(self, name, duration): Thread.__init__(self) self.name = name self.duration = duration def run(self): #Acquire the Lock threadLock.acquire() print ("---> " + self.name + \ " running, belonging to process ID "\ + str(os.getpid()) + "\n") time.sleep(self.duration) print ("---> " + self.name + " over\n") #Release the Lock threadLock.release()
+2. The main() function has not changed with respect to the previous code sample:
+def main(): start_time = time.time() # Thread Creation thread1 = MyThreadClass("Thread#1 ", randint(1,10)) thread2 = MyThreadClass("Thread#2 ", randint(1,10)) thread3 = MyThreadClass("Thread#3 ", randint(1,10)) thread4 = MyThreadClass("Thread#4 ", randint(1,10)) thread5 = MyThreadClass("Thread#5 ", randint(1,10)) thread6 = MyThreadClass("Thread#6 ", randint(1,10)) thread7 = MyThreadClass("Thread#7 ", randint(1,10)) thread8 = MyThreadClass("Thread#8 ", randint(1,10)) thread9 = MyThreadClass("Thread#9 ", randint(1,10))
+
+[ 62 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+# Thread Running thread1.start() thread2.start() thread3.start() thread4.start() thread5.start() thread6.start() thread7.start() thread8.start() thread9.start()
+# Thread joining thread1.join() thread2.join() thread3.join() thread4.join() thread5.join() thread6.join() thread7.join() thread8.join() thread9.join()
+# End print("End") #Execution Time print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == "__main__": main()
+
+How it works...
+We have modified the code of the previous section by using a lock so that the threads will be executed in sequence.
+The first thread acquires the lock and performs its task while the other eight remain on hold. At the end of the execution of the first thread, that is, when the release() method is executed, the second one will get the lock and the threads from three to eight will still be waiting until the end of the execution (that is, once again, only after running the release() method).
+
+[ 63 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+The lock-acquire and lock-release execution are repeated until the ninth thread, with the final result that as a result of the lock mechanism, this execution takes place in a sequential mode, as can be seen in the following output:
+---> Thread#1 running, belonging to process ID 10632 ---> Thread#1 over ---> Thread#2 running, belonging to process ID 10632 ---> Thread#2 over ---> Thread#3 running, belonging to process ID 10632 ---> Thread#3 over ---> Thread#4 running, belonging to process ID 10632 ---> Thread#4 over ---> Thread#5 running, belonging to process ID 10632 ---> Thread#5 over ---> Thread#6 running, belonging to process ID 10632 ---> Thread#6 over ---> Thread#7 running, belonging to process ID 10632 ---> Thread#7 over ---> Thread#8 running, belonging to process ID 10632 ---> Thread#8 over ---> Thread#9 running, belonging to process ID 10632 ---> Thread#9 over
+End
+--- 47.3672661781311 seconds ---
+
+There's more...
+The insertion points of the acquire() and release() methods determine the entire execution of the code. For this reason, it is very important that you take the time to analyze what threads you want to use and how you want to synchronize them.
+For example, we can change the insertion point of the release() method in the MyThreadClass class like so:
+import threading import time import os from threading import Thread from random import randint
+# Lock Definition threadLock = threading.Lock()
+
+[ 64 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+class MyThreadClass (Thread): def __init__(self, name, duration): Thread.__init__(self) self.name = name self.duration = duration def run(self): #Acquire the Lock threadLock.acquire() print ("---> " + self.name + \ " running, belonging to process ID "\ + str(os.getpid()) + "\n") #Release the Lock in this new point threadLock.release() time.sleep(self.duration) print ("---> " + self.name + " over\n")
+In this case, the output changes quite significantly:
+---> Thread#1 running, belonging to process ID 11228 ---> Thread#2 running, belonging to process ID 11228 ---> Thread#3 running, belonging to process ID 11228 ---> Thread#4 running, belonging to process ID 11228 ---> Thread#5 running, belonging to process ID 11228 ---> Thread#6 running, belonging to process ID 11228 ---> Thread#7 running, belonging to process ID 11228 ---> Thread#8 running, belonging to process ID 11228 ---> Thread#9 running, belonging to process ID 11228
+---> Thread#2 over ---> Thread#4 over ---> Thread#6 over ---> Thread#5 over ---> Thread#1 over ---> Thread#3 over ---> Thread#9 over ---> Thread#7 over ---> Thread#8 over
+End --- 6.11468243598938 seconds ---
+As you can see, only the thread creation happens in sequential mode. Once thread creation is complete, the new thread acquires the lock, while the previous one continues the computation in the background.
+
+[ 65 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+Thread synchronization with RLock
+A reentrant lock, or simply an RLock, is a synchronization primitive that can be acquired multiple times by the same thread.
+It uses the concept of the proprietary thread. This means that in the locked state, some threads own the lock, while in the unlocked state, the lock is not owned by any thread.
+The next example demonstrates how to manage threads through the RLock() mechanism.
+
+Getting ready
+An RLock is implemented through the threading.RLock() class. It provides the acquire() and release() methods that have the same syntax as the threading.Lock() class.
+An RLock block can be acquired multiple times by the same thread. Other threads will not be able to acquire the RLock block until the thread that owns it has made a release() call for every previous acquire() call. Indeed, the RLock block must be released, but only by the thread that acquired it.
+
+How to do it...
+The steps involved are as follows:
+1. We introduced the Box class, which provides the add() and remove() methods that access the execute() method in order to perform the action to add or delete an item, respectively. Access to the execute() method is regulated by RLock():
+import threading import time import random
+class Box: def __init__(self): self.lock = threading.RLock() self.total_items = 0
+def execute(self, value): with self.lock: self.total_items += value
+
+[ 66 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+def add(self): with self.lock: self.execute(1)
+def remove(self): with self.lock: self.execute(-1)
+2. The following functions are called by the two threads. They have the box class and the total number of items to add or to remove as parameters:
+def adder(box, items): print("N° {} items to ADD \n".format(items)) while items: box.add() time.sleep(1) items -= 1 print("ADDED one item -->{} item to ADD \n".format(items))
+def remover(box, items): print("N° {} items to REMOVE\n".format(items)) while items: box.remove() time.sleep(1) items -= 1 print("REMOVED one item -->{} item to REMOVE\ \n".format(items))
+3. Here, the total number of items to add or to remove from the box is set. As you can see, these two numbers will be different. The execution ends when both the adder and remover methods accomplish their tasks:
+def main(): items = 10 box = Box()
+t1 = threading.Thread(target=adder, \ args=(box, random.randint(10,20)))
+t2 = threading.Thread(target=remover, \ args=(box, random.randint(1,10)))
+t1.start() t2.start()
+t1.join() t2.join() if __name__ == "__main__": main()
+
+[ 67 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How it works...
+In the main program, the two threads of t1 and t2 have been associated with the adder() and remover() functions. The functions are active if the number of items is greater than zero.
+The call to RLock() is carried out inside the __init__ method of the Box class:
+class Box: def __init__(self): self.lock = threading.RLock() self.total_items = 0
+The two adder() and remover() functions interact with the items of the Box class, respectively, and call the Box class methods of add() and remove().
+In each method call, a resource is captured and then released using the lock parameter that is set in the _init_ method.
+Here is the output:
+N° 16 items to ADD N° 1 items to REMOVE
+
+ADDED one item -->15 item to ADD REMOVED one item -->0 item to REMOVE
+
+ADDED one item -->14 item to ADD ADDED one item -->13 item to ADD ADDED one item -->12 item to ADD ADDED one item -->11 item to ADD ADDED one item -->10 item to ADD ADDED one item -->9 item to ADD ADDED one item -->8 item to ADD ADDED one item -->7 item to ADD ADDED one item -->6 item to ADD ADDED one item -->5 item to ADD ADDED one item -->4 item to ADD ADDED one item -->3 item to ADD ADDED one item -->2 item to ADD ADDED one item -->1 item to ADD ADDED one item -->0 item to ADD >>>
+
+[ 68 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+There's more...
+The differences between lock and RLock are as follows:
+A lock can only be acquired once before it must be released. However, RLock can be acquired multiple times from the same thread; it must be released the same number of times in order to be released. Another difference is that an acquired lock can be released by any thread, whereas an acquired RLock can only be released by the thread that acquired it.
+
+Thread synchronization with semaphores
+A semaphore is an abstract data type managed by the OS to synchronize access by multiple threads to shared resources and data. It consists of an internal variable that identifies the amount of concurrent access to a resource with which it is associated.
+Getting ready
+The operation of a semaphore is based on two functions: acquire() and release(), as explained here:
+Whenever a thread wants to access a given or a resource that is associated with a semaphore, it must invoke the acquire() operation, which decreases the internal variable of the semaphore and allows access to the resource if the value of this variable appears to be non-negative. If the value is negative, then the thread will be suspended and the release of the resource by another thread will be placed on hold. Having finished using shared resources, the thread frees resources through the release() instruction. In this way, the internal variable of the semaphore is increased, allowing, for a waiting thread (if any), the opportunity to access the newly freed resource.
+The semaphore is one of the oldest synchronization primitives in the history of computer science, invented by the early Dutch computer scientist Edsger W. Dijkstra.
+The following example shows how to synchronize threads through a semaphore.
+
+[ 69 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How to do it...
+The following code describes a problem where we have two threads, producer() and consumer(), that share a common resource, which is the item. The task of producer() is to generate the item while the consumer() thread's task is to use the item that has been produced.
+If the item has not yet produced the consumer() thread, then it has to wait. As soon as the item is produced, the producer() thread notifies the consumer that the resource should be used:
+1. By initializing a semaphore to 0, we obtain a so-called semaphore event whose sole purpose is to synchronize the computation of two or more threads. Here, a thread must make use of data or common resources simultaneously:
+semaphore = threading.Semaphore(0)
+2. This operation is very similar to that described in the lock mechanism of the lock. The producer() thread creates the item and, after that, it frees the resource by calling the release() method:
+semaphore.release()
+3. Similarly, the consumer() thread acquires the data by the acquire() method. If the semaphore's counter is equal to 0, then it blocks the condition's acquire() method until it gets notified by a different thread. If the semaphore's counter is greater than 0, then it decrements the value. When the producer creates an item, it releases the semaphore, and then the consumer acquires it and consumes the shared resource:
+semaphore.acquire()
+4. The synchronization process that is done via the semaphores is shown in the following code block:
+import logging import threading import time import random
+LOG_FORMAT = '%(asctime)s %(threadName)-17s %(levelname)-8s %\ (message)s'
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+semaphore = threading.Semaphore(0)
+
+[ 70 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+item = 0
+def consumer(): logging.info('Consumer is waiting') semaphore.acquire() logging.info('Consumer notify: item number {}'.format(item))
+def producer(): global item time.sleep(3) item = random.randint(0, 1000) logging.info('Producer notify: item number {}'.format(item)) semaphore.release()
+#Main program def main():
+for i in range(10): t1 = threading.Thread(target=consumer) t2 = threading.Thread(target=producer)
+t1.start() t2.start()
+t1.join() t2.join()
+if __name__ == "__main__": main()
+
+How it works...
+The data acquired is then printed on the standard output:
+print ("Consumer notify : consumed item number %s " %item)
+This is the result that we get after 10 runs:
+2019-01-27 19:21:19,354 Thread-1 INFO Consumer is waiting 2019-01-27 19:21:22,360 Thread-2 INFO Producer notify: item number 388 2019-01-27 19:21:22,385 Thread-1 INFO Consumer notify: item number 388 2019-01-27 19:21:22,395 Thread-3 INFO Consumer is waiting 2019-01-27 19:21:25,398 Thread-4 INFO Producer notify: item number 939 2019-01-27 19:21:25,450 Thread-3 INFO Consumer notify: item number 939 2019-01-27 19:21:25,453 Thread-5 INFO Consumer is waiting 2019-01-27 19:21:28,459 Thread-6 INFO Producer notify: item number 388 2019-01-27 19:21:28,468 Thread-5 INFO Consumer notify: item number 388 2019-01-27 19:21:28,476 Thread-7 INFO Consumer is waiting
+[ 71 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+2019-01-27 19:21:31,478 Thread-8 INFO Producer notify: item number 700 2019-01-27 19:21:31,529 Thread-7 INFO Consumer notify: item number 700 2019-01-27 19:21:31,538 Thread-9 INFO Consumer is waiting 2019-01-27 19:21:34,539 Thread-10 INFO Producer notify: item number 685 2019-01-27 19:21:34,593 Thread-9 INFO Consumer notify: item number 685 2019-01-27 19:21:34,603 Thread-11 INFO Consumer is waiting 2019-01-27 19:21:37,604 Thread-12 INFO Producer notify: item number 503 2019-01-27 19:21:37,658 Thread-11 INFO Consumer notify: item number 503 2019-01-27 19:21:37,668 Thread-13 INFO Consumer is waiting 2019-01-27 19:21:40,670 Thread-14 INFO Producer notify: item number 690 2019-01-27 19:21:40,719 Thread-13 INFO Consumer notify: item number 690 2019-01-27 19:21:40,729 Thread-15 INFO Consumer is waiting 2019-01-27 19:21:43,731 Thread-16 INFO Producer notify: item number 873 2019-01-27 19:21:43,788 Thread-15 INFO Consumer notify: item number 873 2019-01-27 19:21:43,802 Thread-17 INFO Consumer is waiting 2019-01-27 19:21:46,807 Thread-18 INFO Producer notify: item number 691 2019-01-27 19:21:46,861 Thread-17 INFO Consumer notify: item number 691 2019-01-27 19:21:46,874 Thread-19 INFO Consumer is waiting 2019-01-27 19:21:49,876 Thread-20 INFO Producer notify: item number 138 2019-01-27 19:21:49,924 Thread-19 INFO Consumer notify: item number 138 >>>
+
+There's more...
+A particular use of semaphores is the mutex. A mutex is nothing but a semaphore with an internal variable initialized to the value of 1, which allows the realization of mutual exclusion in access to data and resources.
+Semaphores are still commonly used in programming languages that are multithreaded; however, they have two major problems, which we have discussed, as follows:
+They do not prevent the possibility of a thread performing more wait operations on the same semaphore. It is very easy to forget to do all the necessary signals in relation to the number of waits performed. You can run into situations of deadlock. For example, a deadlock situation is created when the t1 thread executes a wait on the s1 semaphore, while the t2 thread executes a wait on the thread t1, executes a wait on s2 and t2, and then executes a wait on s1.
+
+[ 72 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+Thread synchronization with a condition
+A condition identifies a change of state in the application. It is a synchronization mechanism where a thread waits for a specific condition and another thread notifies that this condition has taken place.
+Once the condition takes place, the thread acquires the lock in order to get exclusive access to the shared resource.
+
+Getting ready
+A good way to illustrate this mechanism is by looking again at a producer/consumer problem. The class producer writes to a buffer if it is not full, and the class consumer takes the data from the buffer (eliminating them from the latter) if the buffer is full. The class producer will notify the consumer that the buffer is not empty, while the consumer will report to the producer that the buffer is not full.
+
+How to do it...
+The steps involved are as follows:
+1. The class consumer acquires the shared resource that is modelled through the items[] list:
+condition.acquire()
+2. If the length of the list is equal to 0, then the consumer is placed in a waiting state:
+if len(items) == 0: condition.wait()
+3. Then it makes a pop operation from the items list:
+items.pop()
+4. So, the consumer's state is notified to the producer and the shared resource is released:
+condition.notify()
+
+[ 73 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+5. The class producer acquires the shared resource and then it verifies that the list is completely full (in our example, we place the maximum number of items, 10, that can be contained in the items list). If the list is full, then the producer is placed in the wait state until the list is consumed:
+condition.acquire() if len(items) == 10:
+condition.wait()
+6. If the list is not full, then a single item is added. The state is notified and the resource is released:
+condition.notify() condition.release()
+7. To show you the condition mechanism, we will use the consumer/producer model again:
+import logging import threading import time
+LOG_FORMAT = '%(asctime)s %(threadName)-17s %(levelname)-8s %\ (message)s'
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+items = [] condition = threading.Condition()
+
+class Consumer(threading.Thread): def __init__(self, *args, **kwargs): super().__init__(*args, **kwargs)
+def consume(self):
+with condition:
+if len(items) == 0: logging.info('no items to consume') condition.wait()
+items.pop() logging.info('consumed 1 item')
+condition.notify()
+
+[ 74 ]
+
+Thread-Based Parallelism
+def run(self): for i in range(20): time.sleep(2) self.consume()
+
+Chapter 2
+
+class Producer(threading.Thread): def __init__(self, *args, **kwargs): super().__init__(*args, **kwargs)
+def produce(self):
+with condition:
+if len(items) == 10: logging.info('items produced {}.\ Stopped'.format(len(items))) condition.wait()
+items.append(1) logging.info('total items {}'.format(len(items)))
+condition.notify()
+def run(self): for i in range(20): time.sleep(0.5) self.produce()
+
+How it works...
+producer generates the item and stores it in the buffer continuously. At the same time, consumer uses the data produced, removing it from the buffer from time to time.
+As soon as consumer has picked up an object from the buffer, it will wake up producer, who will start to fill the buffer again.
+Similarly, consumer will suspend if the buffer is empty. As soon as producer has downloaded the data into the buffer, consumer will wake up.
+
+[ 75 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+As you can see, even in this case, the use of the condition directive allows the threads to be properly synchronized.
+The result that we get after a single run is as follows:
+2019-08-05 14:33:44,285 Producer INFO total items 1 2019-08-05 14:33:44,786 Producer INFO total items 2 2019-08-05 14:33:45,286 Producer INFO total items 3 2019-08-05 14:33:45,786 Consumer INFO consumed 1 item 2019-08-05 14:33:45,787 Producer INFO total items 3 2019-08-05 14:33:46,287 Producer INFO total items 4 2019-08-05 14:33:46,788 Producer INFO total items 5 2019-08-05 14:33:47,289 Producer INFO total items 6 2019-08-05 14:33:47,787 Consumer INFO consumed 1 item 2019-08-05 14:33:47,790 Producer INFO total items 6 2019-08-05 14:33:48,291 Producer INFO total items 7 2019-08-05 14:33:48,792 Producer INFO total items 8 2019-08-05 14:33:49,293 Producer INFO total items 9 2019-08-05 14:33:49,788 Consumer INFO consumed 1 item 2019-08-05 14:33:49,794 Producer INFO total items 9 2019-08-05 14:33:50,294 Producer INFO total items 10 2019-08-05 14:33:50,795 Producer INFO items produced 10. Stopped 2019-08-05 14:33:51,789 Consumer INFO consumed 1 item 2019-08-05 14:33:51,790 Producer INFO total items 10 2019-08-05 14:33:52,290 Producer INFO items produced 10. Stopped 2019-08-05 14:33:53,790 Consumer INFO consumed 1 item 2019-08-05 14:33:53,790 Producer INFO total items 10 2019-08-05 14:33:54,291 Producer INFO items produced 10. Stopped 2019-08-05 14:33:55,790 Consumer INFO consumed 1 item 2019-08-05 14:33:55,791 Producer INFO total items 10 2019-08-05 14:33:56,291 Producer INFO items produced 10. Stopped 2019-08-05 14:33:57,791 Consumer INFO consumed 1 item 2019-08-05 14:33:57,791 Producer INFO total items 10 2019-08-05 14:33:58,292 Producer INFO items produced 10. Stopped 2019-08-05 14:33:59,791 Consumer INFO consumed 1 item 2019-08-05 14:33:59,791 Producer INFO total items 10 2019-08-05 14:34:00,292 Producer INFO items produced 10. Stopped 2019-08-05 14:34:01,791 Consumer INFO consumed 1 item 2019-08-05 14:34:01,791 Producer INFO total items 10 2019-08-05 14:34:02,291 Producer INFO items produced 10. Stopped 2019-08-05 14:34:03,791 Consumer INFO consumed 1 item 2019-08-05 14:34:03,792 Producer INFO total items 10 2019-08-05 14:34:05,792 Consumer INFO consumed 1 item 2019-08-05 14:34:07,793 Consumer INFO consumed 1 item 2019-08-05 14:34:09,794 Consumer INFO consumed 1 item 2019-08-05 14:34:11,795 Consumer INFO consumed 1 item 2019-08-05 14:34:13,795 Consumer INFO consumed 1 item 2019-08-05 14:34:15,833 Consumer INFO consumed 1 item
+
+[ 76 ]
+
+Thread-Based Parallelism
+2019-08-05 14:34:17,833 Consumer INFO consumed 1 item 2019-08-05 14:34:19,833 Consumer INFO consumed 1 item 2019-08-05 14:34:21,834 Consumer INFO consumed 1 item 2019-08-05 14:34:23,835 Consumer INFO consumed 1 item
+
+Chapter 2
+
+There's more...
+It's interesting to see the Python internals for the condition synchronization mechanism. The internal class _Condition creates an RLock() object if no existing lock has been passed to the class's constructor. Also, the lock will be managed when acquire() and released() are called:
+class _Condition(_Verbose): def __init__(self, lock=None, verbose=None): _Verbose.__init__(self, verbose) if lock is None: lock = RLock() self.__lock = lock
+
+Thread synchronization with an event
+An event is an object that is used for communication between threads. A thread waits for a signal while another thread outputs it. Basically, an event object manages an internal flag that can be set to false with clear(), set to true with set(), and tested with is_set().
+A thread can hold a signal by means of the wait() method, which sends the call with the set() method.
+Getting ready
+To understand thread synchronization through the event object, let's take a look at the producer/consumer problem.
+
+[ 77 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How to do it...
+Again, to explain how to synchronize threads through events, we will refer to the producer/consumer problem. The problem describes two processes, a producer and a consumer, who share a common buffer of a fixed size. The producer's task is to generate items and deposit them in the continuous buffer. At the same time, the consumer will use the items produced, removing them from the buffer from time to time.
+The problem is to ensure that the producer does not process new data if the buffer is full and that the consumer does not look for data if the buffer is empty.
+Now, let's see how to implement the consumer/producer problem by using thread synchronization with an event statement:
+1. Here, the relevant libraries are imported as follows:
+import logging import threading import time import random
+2. Then, we define the log output format. It is useful to clearly visualize what's happening:
+LOG_FORMAT = '%(asctime)s %(threadName)-17s %(levelname)-8s %\ (message)s'
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+3. Set the items list. This parameter will be used by the Consumer and Producer classes:
+items = []
+4. The event parameter is defined as follows. This parameter will be used to synchronize the communication between threads:
+event = threading.Event()
+5. The Consumer class is initialized with the list of items and the Event() function. In the run method, the consumer waits for a new item to consume. When the item arrives, it is popped from the item list:
+class Consumer(threading.Thread): def __init__(self, *args, **kwargs): super().__init__(*args, **kwargs)
+
+[ 78 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+def run(self): while True: time.sleep(2) event.wait() item = items.pop() logging.info('Consumer notify: {} popped by {}'\ .format(item, self.name))
+6. The Producer class is initialized with the list of items and the Event() function. Unlike the example with condition objects, the item list is not global, but it is passed as a parameter:
+class Producer(threading.Thread): def __init__(self, *args, **kwargs): super().__init__(*args, **kwargs)
+7. In the run method for each item that is created, the Producer class appends it to the list of items and then notifies the event:
+def run(self): for i in range(5): time.sleep(2) item = random.randint(0, 100) items.append(item) logging.info('Producer notify: item {} appended by\ {}'\.format(item, self.name))
+8. There are two steps that you need to take for this and the first step, which are as follows:
+event.set() event.clear()
+9. The t1 thread appends a value to the list and then sets the event to notify the consumer. The consumer's call to wait() stops blocking and the integer is retrieved from the list:
+if __name__ == "__main__": t1 = Producer() t2 = Consumer()
+t1.start() t2.start()
+t1.join() t2.join()
+
+[ 79 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+How it works...
+All the operations between the Producer and the Consumer classes can be easily resumed with the help of the following schema:
+
+Thread synchronization with event objects
+In particular, the Producer and the Consumer classes have the following behavior:
+Producer acquires a lock, adds an item to the queue, and notifies this event to Consumer (set event). It then sleeps until it receives a new item to add. Consumer acquires a block and then begins to listen to the elements in a continuous cycle. The moment the event arrives, the consumer abandons the block, thus allowing other producers/consumers to enter and acquire the block. If Consumer is reactivated, then it reacquires the lock by safely processing new items from the queue:
+2019-02-02 18:23:35,125 Thread-1 INFO Producer notify: item 68 appended by Thread-1 2019-02-02 18:23:35,133 Thread-2 INFO Consumer notify: 68 popped by Thread-2 2019-02-02 18:23:37,138 Thread-1 INFO Producer notify: item 45 appended by Thread-1 2019-02-02 18:23:37,143 Thread-2 INFO Consumer notify: 45 popped by Thread-2 2019-02-02 18:23:39,148 Thread-1 INFO Producer notify: item 78 appended by Thread-1
+[ 80 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+2019-02-02 18:23:39,153 Thread-2 INFO Consumer notify: 78 popped by Thread-2 2019-02-02 18:23:41,158 Thread-1 INFO Producer notify: item 22 appended by Thread-1 2019-02-02 18:23:43,173 Thread-1 INFO Producer notify: item 48 appended by Thread-1 2019-02-02 18:23:43,178 Thread-2 INFO Consumer notify: 48 popped by Thread-2
+
+Thread synchronization with a barrier
+Sometimes, an application can be divided into phases with the rule that no process can continue if first, all threads of the process have completed their own task. A barrier implements this concept: a thread that has finished its phase calls a primitive barrier and stops. When all the threads involved have finished their stage of execution and have also invoked the primitive barrier, the system unlocks them all, allowing threads to move to a later stage.
+Getting ready
+Python's threading module implements barriers through the Barrier class. In the next section, let's learn about how to use this synchronization mechanism in a very simple example.
+How to do it...
+In this example, we simulate a run with three participants, Huey, Dewey, and Louie, in which a barrier is assimilated to that of a finish line.
+Moreover, the race can end on its own when all three participants cross the finish line.
+The barrier is implemented through the Barrier class, in which the number of threads to be completed must be specified as an argument to move to the next stage:
+from random import randrange from threading import Barrier, Thread from time import ctime, sleep
+num_runners = 3 finish_line = Barrier(num_runners) runners = ['Huey', 'Dewey', 'Louie']
+[ 81 ]
+
+Thread-Based Parallelism
+def runner(): name = runners.pop() sleep(randrange(2, 5)) print('%s reached the barrier at: %s \n' % (name, ctime())) finish_line.wait()
+def main(): threads = [] print('START RACE!!!!') for i in range(num_runners): threads.append(Thread(target=runner)) threads[-1].start() for thread in threads: thread.join() print('Race over!')
+if __name__ == "__main__": main()
+
+Chapter 2
+
+How it works...
+First, we set the number of runners to num_runners = 3 in order to set the final goal on the next line through the Barrier directive. The runners are set in the runners' list; each of them will have an arrival time that is determined in the runner function, using the randrange directive.
+When a runner arrives at the finish line, call the wait method, which will block all the runners (the threads) that have made that call. The output for this is as follows:
+START RACE!!!! Dewey reached the barrier at: Sat Feb 2 21:44:48 2019
+Huey reached the barrier at: Sat Feb 2 21:44:49 2019
+Louie reached the barrier at: Sat Feb 2 21:44:50 2019
+Race over!
+In this case, Dewey won the race.
+
+[ 82 ]
+
+Thread-Based Parallelism
+
+Chapter 2
+
+Thread communication using a queue
+Multithreading can be complicated when threads need to share data or resources. Luckily, the threading module provides many synchronization primitives, including semaphores, condition variables, events, and locks.
+However, it is considered a best practice to use the queue module. In fact, a queue is much easier to deal with and makes threaded programming considerably safer, as it effectively funnels all access to a resource of a single thread and allows for a cleaner and more readable design pattern.
+
+Getting ready
+We will simply consider these queue methods:
+put(): Puts an item in the queue get(): Removes and returns an item from the queue task_done(): Needs to be called each time an item has been processed join(): Blocks until all items have been processed
+
+How to do it...
+In this example, we will see how to use the threading module with the queue module. Also, we have two entities here that try to share a common resource, a queue. The code is as follows:
+from threading import Thread from queue import Queue import time import random
+class Producer(Thread): def __init__(self, queue): Thread.__init__(self) self.queue = queue def run(self): for i in range(5): item = random.randint(0, 256) self.queue.put(item) print('Producer notify : item N°%d appended to queue by\ %s\n'\
+[ 83 ]
+

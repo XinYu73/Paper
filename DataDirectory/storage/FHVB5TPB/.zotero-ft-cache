@@ -1,0 +1,10944 @@
+Instructor’s Manual
+Containing Solutions to Over 280 Problems Selected from
+Statistical Mechanics
+Third Edition
+By
+R. K. Pathria and Paul D. Beale
+AMSTERDAM · BOSTON · HEIDELBERG · LONDON NEW YORK · OXFORD · PARIS · SAN DIEGO
+SAN FRANCISCO · SINGAPORE · SYDNEY · TOKYO Academic Press is an imprint of Elsevier
+
+Academic Press is an imprint of Elsevier 225 Wyman Street, Waltham, MA 02451, USA The Boulevard, Langford Lane, Kidlington, Oxford, OX5 1GB, UK
+c 2011 Elsevier Ltd. All rights reserved.
+No part of this publication may be reproduced or transmitted in any form or by any means, electronic or mechanical, including photocopying, recording, or any information storage and retrieval system, without permission in writing from the publisher. Details on how to seek permission, further information about the Publisher’s permissions policies and our arrangements with organizations such as the Copyright Clearance Center and the Copyright Licensing Agency, can be found at our website: www.elsevier.com/permissions
+This book and the individual contributions contained in it are protected under copyright by the Publisher (other than as may be noted herein).
+Notices
+Knowledge and best practice in this ﬁeld are constantly changing. As new research and experience broaden our understanding, changes in research methods, professional practices, or medical treatment may become necessary.
+Practitioners and researchers must always rely on their own experience and knowledge in evaluating and using any information, methods, compounds, or experiments described herein. In using such information or methods they should be mindful of their own safety and the safety of others, including parties for whom they have a professional responsibility.
+To the fullest extent of the law, neither the Publisher nor the authors, contributors, or editors, assume any liability for any injury and/or damage to persons or property as a matter of products liability, negligence or otherwise, or from any use or operation of any methods, products, instructions, or ideas contained in the material herein.
+ISBN: 978-0-12-416010-1
+For information on all Academic Press publications, visit our website: www.elsevierdirect.com
+
+Preface
+This instructor’s manual for the third edition of Statistical Mechanics is based on RKP’s instructor’s manual for the second edition. Most of the solutions here were retypeset into TeX from that manual. PDB is responsible for the solutions of the new problems added in the third edition. The result is a manual containing solutions to some 280 problems selected from the third edition.
+The original idea of producing an instructor’s manual ﬁrst came from RKP’s friend and colleague Wing-Ki Liu in the 1990’s when RKP had just embarked on the task of preparing the second edition of Statistical Mechanics.
+This should provide several beneﬁts to the statistical mechanics instructor. First of all, there is the obvious advantage of saving time that one would otherwise spend on solving these problems oneself. Secondly, before one selects problems either for homework or for an exam, one can consult the manual to determine the level of diﬃculty of the various problems and make one’s selection accordingly. Thirdly, one may even use some of these solved problems, especially the ones appearing in later chapters, as lecture material, thereby supplementing the text. We hope that this manual will enhance the usefulness of the text – both for the instructors and (indirectly) for the students.
+We implore that instructors not share copies of any of the material in this manual with students or post any part of this manual on the web. Students learn best when they work together and struggle over diﬃcult problems. Readily available solutions interfere with this crucial aspect of graduate physics training.
+R.K.P. San Diego, CA P.D.B. Boulder, CO
+iii
+
+Chapter 1
+
+1.1. (a) We expand the quantity ln Ω(0)(E1) as a Taylor series in the variable (E1 − E¯1) and get
+
+ln Ω(0)(E1) ≡ lnΩ1(E1) + ln Ω2(E2) = {ln Ω1(E¯1) + ln Ω2(E¯2)}+
+
+∂ ln Ω1(E1) + ∂ ln Ω2(E2) ∂E2
+
+∂E1
+
+∂E2 ∂E1
+
+1 2
+
+∂2
+
+ln Ω1(E1) ∂E12
+
++
+
+∂2
+
+ln Ω2(E2) ∂E22
+
+(E2 = E(0) − E1)
+
+(E1 − E¯1)+
+E1 =E¯1
+
+∂E2 ∂E1
+
+2
+
+(E1 − E¯1)2 + · · · .
+E1 =E¯1
+
+The ﬁrst term of this expansion is a constant, the second term vanishes as a result of equilibrium (β1 = β2), while the third term may be written as
+
+1 2
+
+∂β1 + ∂B2 ∂E1 ∂E2
+
+eq.
+
+E1 − E¯1
+
+2
+
+=
+
+1 −
+
+2
+
+1
+
+1
+
+kT12(Cv)1 + kT22(Cv)2
+
+(E1−E¯1)2,
+
+with T1 = T2. Ignoring the subsequent terms (which is justiﬁed if the systems involved are large) and taking the exponentials, we readily see that the function Ω0(E1) is a Gaussian in the variable (E1 − E¯1), with variance kT 2(Cv)1(Cv)2/{(Cv)1 + (Cv)2}. Note that if (Cv)2 (Cv)1 — corresponding to system 1 being in thermal contact with a very large reservoir — then the variance becomes simply kT 2(Cv)1, regardless of the nature of the reservoir; cf. eqn. (3.6.3).
+
+(b)
+
+If
+
+the
+
+systems
+
+involved
+
+are
+
+ideal
+
+classical
+
+gases,
+
+then
+
+(Cv)1
+
+=
+
+3 2
+
+N1k
+
+and
+
+(Cv)2
+
+=
+
+3 2
+
+N2k;
+
+the
+
+variance
+
+then
+
+becomes
+
+3 2
+
+k2
+
+T
+
+2
+
+· N1N2/(N1
+
++
+
+N2). Again, if N2
+
+N1,
+
+we
+
+obtain
+
+the
+
+simpliﬁed
+
+expression
+
+3 2
+
+N1k2
+
+T
+
+2;
+
+cf. Problem 3.18.
+
+1.2. Since S is additive and Ω multiplicative, the function f (Ω) must satisfy
+
+the condition
+
+f (Ω1Ω2) = f (Ω1) + f (Ω2).
+
+(1)
+
+1
+
+2
+
+Diﬀerentiating (1) with respect to Ω1 (and with respect to Ω2), we get
+
+Ω2f (Ω1Ω2) = f (Ω1) and Ω1f (Ω1Ω2) = f (Ω2),
+
+so that
+
+Ω1f (Ω1) = Ω2f (Ω2).
+
+(2)
+
+Since the left-hand side of (2) is independent of Ω2 and the right-hand side is independent of Ω1, each side must be equal to a constant, k, independent of both Ω1 and Ω2. It follows that f (Ω) = k/Ω and hence
+
+f (Ω) = k ln Ω + const.
+
+(3)
+
+Substituting (3) into (1), we ﬁnd that the constant of integration is zero.
+
+1.4. Instead of eqn. (1.4.1), we now have
+
+Ω ∝ V (V − v0)(V − 2v0) . . . (V − N − 1v0),
+
+so that
+
+ln Ω = C + ln V + ln (V − v0) + ln (V − 2v0) + . . . + ln (V − N − 1v0),
+
+where C is independent of V . The expression on the right may be written as
+
+N −1
+C+N ln V + ln
+
+1 − jv0
+
+V
+
+j=1
+
+N −1
+C+N ln V +
+
+− jv0
+
+V
+
+j=1
+
+C+N ln V − N 2v0 . 2V
+
+Equation (1.4.2) is then replaced by
+
+P kT
+
+=
+
+N V
+
++
+
+N 2v0 2V 2
+
+=
+
+N V
+
+1 + N v0 2V
+
+PV
+
+1 + N v0
+
+−1
+= NkT .
+
+2V
+
+, i.e.
+
+Since N v0 V, (1 + N v0/2V )−1 1 − N v0/2V . Our last result then
+
+takes
+
+the
+
+form:
+
+P (V
+
+− b)
+
+=
+
+NkT ,
+
+where
+
+b
+
+=
+
+1 2
+
+N
+
+v0
+
+.
+
+A little reﬂection shows that v0 = (4π/3)σ3, with the result that
+
+b
+
+=
+
+1 N
+
+·
+
+4π σ3
+
+=
+
+4N
+
+·
+
+4π
+
+13 σ.
+
+23
+
+32
+
+1.5. This problem is essentially solved in Appendix A; all that remains to be done is to substitute from eqn. (B.12) into (B.11), to get
+
+Σ1(ε∗)
+
+=
+
+(πε∗1/2/L)3 6π2 V
+
+∓
+
+(πε∗1/2/L)2 S.
+16π
+
+3
+
+Substituting V = L3 and S = 6L2, we obtain eqns. (1.4.15 and 16). The expression for T now follows straightforwardly; we get
+
+1
+
+∂ ln Ω
+
+k ∂ ln Ω
+
+k R+N
+
+k
+
+Nh ν
+
+=k
+
+=
+
+= ln
+
+= ln 1 +
+
+,
+
+T
+
+∂E N hν ∂R N hν
+
+R
+
+hν
+
+E
+
+so that
+
+hν
+
+Nh ν
+
+T=
+
+ln 1 +
+
+.
+
+k
+
+E
+
+For E Nhν, we recover the classical result: T = E/Nk .
+
+1.9. Since the function S(N,V,E) of a given thermodynamic system is an extensive quantity, we may write
+
+VE S(N, V, E) = Nf , = Nf (v, ε)
+NN
+
+V
+
+E
+
+v = ,ε = .
+
+NN
+
+It follows that
+
+∂S
+
+∂f −V
+
+∂f −E
+
+N
+
+=N f +N ∂N V,E
+
+∂v
+
+·
+ε
+
+N2
+
++N
+
+∂ε
+
+·
+v
+
+N2
+
+,
+
+∂S V
+
+∂f = VN
+
+1 ·
+
+and E ∂S.
+
+∂f 1
+
+= EN
+
+·.
+
+∂V N,E
+
+∂v ε N
+
+∂E N,V
+
+∂ε v N
+
+Adding these expressions, we obtain the desired result.
+
+1.11. Clearly, the initial temperatures and the initial particle densities of the two gases (and hence of the mixture) are the same. The entropy of mixing may, therefore, be obtained from eqn. (1.5.4), with N1 = 4NA and N2 = NA. We get
+(∆S)∗ = k[4NA ln(5/4) + NA ln 5] = R[4 ln(5/4) + ln 5] = 2.502 R,
+
+which is equivalent to about 0.5 R per mole of the mixture.
+
+1.12. (a) The expression in question is given by eqn. (1.5.3a). Without loss of generality, we may keep N1, N2 and V1 ﬁxed and vary only V2 . The ﬁrst and second derivatives of this expression are then given by
+
+k N1 + N2 − N2 V1 + V2 V2
+
+and
+
+k
+
+−
+
+N1 (V1
+
++ N2 + V2)2
+
++
+
+N2 V22
+
+(1a,b)
+
+respectively. Equating (1a) to zero gives the desired condition, viz. N1V2 = N2V1, i.e. N1/V1 = N2/V2 = n, say. Expression (1b) then reduces to
+
+n
+
+n
+
+k−
+
++=
+
+kn V1
+
+> 0.
+
+V1 + V2 V2 V2(V1 + V2)
+
+Clearly, (∆S)1≡2 is at its minimum when N1/V1 = N2/V2, and it is straightforward to check that the value at the minimum is zero.
+
+4
+
+(b) The expression now in question is given by eqn. (1.5.4). With N1 = αN and N2 = (1 − α)N , where N = N1 + N2 (which is ﬁxed), the expression for (∆S)∗/k takes the form
+−αN ln α − (1 − α)N ln (1 − α).
+
+The ﬁrst and second derivatives of this expression with respect to α are
+
+NN [−N ln α + N ln(1 − α)] and − −
+α 1−α
+
+(2a,b)
+
+respectively. Equating (2a) to zero gives the condition α = 1/2, which reduces (2b) to −4N . Clearly, (∆S)∗/k is at its maximum when N1 = N2 = (1/2)N , and it is straightforward to check that the value at the maximum is N ln 2.
+
+1.13. Proceeding with eqn. (1.5.1), with T replaced by Ti, it is straightforward to see that the extra contribution to ∆S, owing to the fact that T1 = T2, is given by the expression
+
+3
+
+3
+
+2 N1k ln (Tf /T1) + 2 N2k ln(Tf /T2),
+
+where Tf = (N1T1 + N2T2)/(N1 + N2). It is worth checking that this expression is always greater than or equal to zero, the equality holding if and only if T1 = T2. Furthermore, the result quoted here does not depend on whether the two gases were diﬀerent or identical.
+
+1.14. By eqn. (1.5.1a), given on page 19 of the text, we get
+
+3
+
+(∆S)v
+
+=
+
+Nk 2
+
+ln(Tf /Ti).
+
+Now, since PV = NkT , the same equation may also be written as
+
+kT 3 5
+
+2πmkT
+
+S = Nk ln
+
++ Nk + ln
+
+P 23
+
+h2
+
+.
+
+(1b)
+
+It follows that
+
+5
+
+5
+
+(∆S)P
+
+=
+
+Nk 2
+
+ln(Tf
+
+/ Ti) = 3 (∆S)V.
+
+A numerical veriﬁcation of this result is straightforward.
+
+It should be noted that, quite generally,
+
+(∆S)P = T (∂S / ∂T )P = CP = γ (∆S)V T (∂S / ∂T )V CV
+
+which, in the present case, happens to be 5/3.
+
+5
+
+1.15. For an ideal gas, CP − CV = nR, where n is the number of moles of the gas. With CP /CV = γ, one gets
+
+CP = γnR / (γ − 1) and CV = nR / (γ − 1). For a mixture of two ideal gases,
+
+CV
+
+=
+
+n1R γ1 − 1
+
++
+
+n2R γ2 − 1
+
+=
+
+f1 + f2 γ1 − 1 γ2 − 1
+
+(n1 + n2)R.
+
+Equating this to the conventional expression (n1 + n2)R/(γ − 1), we get the desired result.
+
+1.16. In view of eqn. (1.3.15), E − TS + PV = µN . It follows that
+
+dE − TdS − SdT + PdV + VdP = µdN + Nd µ. Combining this with eqn. (1.3.4), we get
+−SdT + VdP = Nd µ, i.e. dP = (N / V )dµ + (S / V )dT . Clearly, then,
+(∂P / ∂µ)T = N / V and (∂P / ∂T )µ = S / V.
+
+Now, for the ideal gas
+
+NkT
+
+N
+
+h2
+
+3/2
+
+P=
+
+and µ = kT ln
+
+;
+
+V
+
+V 2πmkT
+
+see eqn. (1.5.7). Eliminating (N/V ), we get
+
+P = kT
+
+2πmkT h2
+
+3/2
+eµ/kT ,
+
+which is the desired expression. It follows quite readily now that for this
+
+system
+
+∂P
+
+1
+
+= P.
+
+∂µ T kT
+
+which is indeed equal to N/V , whereas
+
+∂P
+
+5
+
+µ
+
+5
+
+N
+
+h2
+
+3/2 Nk
+
+∂T
+
+µ = 2T P − kT 2 P =
+
+− ln 2
+
+V
+
+2πmkT
+
+V
+
+which, by eqn. (1.5.1a), is precisely equal to S/V .
+
+Chapter 2
+
+2.3. The rotator in this problem may be regarded as conﬁned to the (z = 0)-
+plane and its position at time t may be denoted by the azimuthal angle ϕ. The conjugate variable pϕ is then mρ2ϕ˙ , where the various symbols have their usual meanings. The energy of rotation is given by
+
+E
+
+=
+
+1 m(ρϕ˙ )2 2
+
+=
+
+p2ϕ
+
+/
+
+2mρ2.
+
+Lines of constant energy in the (ϕ, pϕ)-plane are “straight lines, running parallel to the ϕ-axis from ϕ = 0 to ϕ = 2π”. The basic cell of area h in this plane is a “rectangle with sides ∆ϕ = 2π and ∆pϕ = h/2π”. Clearly, the eigenvalues of pϕ, starting with pϕ = 0, are n and those of E are n2 2/2I, where I = mρ2 and n = 0, ±1, ±2, . . .
+The eigenvalues of E obtained here are precisely the ones given by quantum mechanics for the energy “associated with the z-component of the rotational motion”.
+2.4. The rigid rotator is a model for a diatomic molecule whose internuclear distance r may be regarded as ﬁxed. The orientation of the molecule in
+6
+
+7
+
+space may be denoted by the angles θ and ϕ, the conjugate variables being pθ = mr 2θ˙ and pϕ = mr 2 sin2 θϕ˙ . The energy of rotation is given by
+
+E=
+
+1 m(rθ˙)2 + 2
+
+1 m(r sin
+2
+
+θϕ˙ )2 =
+
+p2θ 2mr 2
+
++
+
+p2ϕ 2mr 2 sin2 θ
+
+=
+
+M2 ,
+2I
+
+where I = mr 2 and M 2 = p2θ + p2ϕ/ sin2 θ .
+The “volume” of the relevant region of the phase space is given by the integral dpθdpϕdθ dϕ, where the region of integration is constrained by the value of M . A little reﬂection shows that in the subspace of pθ and pϕ we are restricted by an elliptical boundary with semi-axes M and M sin θ, the enclosed area being πM 2 sin θ. The “volume” of the relevant region, therefore, is
+
+π
+
+2π
+
+(πM 2 sin θ)dθ dϕ = 4π2M 2.
+
+θ=0 ϕ=0
+
+The number of microstates available to the rotator is then given by 4π2M 2/h2, which is precisely (M/ )2. At the same time, the number of microstates associated with the quantized value Mj2 = j(j + 1) 2 may be estimated as
+
+1
+2
+
+Mj2+
+
+1 2
+
+−
+
+Mj2−
+
+1 2
+
+=
+
+1 j+
+2
+
+3
+
+1
+
+j+ − j−
+
+2
+
+2
+
+1 j + = 2j + 1.
+2
+
+This is precisely the degeneracy arising from the eigenvalues that the azimuthal quantum number m has, viz. j, j − 1, . . . , −j + 1, −j.
+2.6. In terms of the variables θ and L(= m 2θ), the state of the simple pendulum is given by, see eqns. (2.4.9),
+
+θ = (A/ ) cos(ωt + ϕ), L = −m ωA sin(ωt + ϕ),
+
+with E
+
+=
+
+1 2
+
+mω2A2
+
+and τ
+
+= 2π/ω.
+
+The trajectory in the (θ, L)-plane is
+
+given by the equation
+
+θ2
+
+L2
+
+(A/ )2 + (m ωA)2 = 1,
+
+which is an ellipse — just like in Fig. 2.2. The enclosed area turns out to be πmωA2, which is precisely equal to the product Eτ .
+
+2.7. Following the argument developed on page 68–69 of the text, the number of microstates for a given energy E turns out to be
+
+1 Ω(E) = (R + N − 1)!/ R!(N − 1)!, R = E − N ω / ω. (1)
+2
+
+8
+
+For R N , we obtain the asymptotic result Ω(E) ≈ RN−1 / (N − 1)!, where R ≈ E / ω.
+
+(3.8.25a)
+
+The corresponding expression for Γ(E; ∆) would be
+
+(E / ω)N−1 ∆
+
+E N −1 ∆
+
+Γ(E; ∆) ≈ (N − 1)! · ω = (N − 1)!( ω)N .
+
+(1)
+
+The “volume” of the relevant region of the phase space may be derived from the integral
+
+N
+
+N
+
+(dqidpi), with
+
+1 2
+
+kq
+
+2 i
+
++
+
+1 2m
+
+p2i
+
+≤ E.
+
+i=1
+
+i=1
+
+This is equal to, see eqn. (7a) of Appendix C,
+
+2
+
+1 2
+
+N
+
+(2m)
+
+1 2
+
+N
+
+·
+
+πN
+
+EN
+
+=
+
+2π N EN ,
+
+k
+
+N!
+
+ω N!
+
+where ω = k/m. The “volume” of the shell in question is then given by
+
+2π N NE N−1
+
+2π N EN−1∆
+
+·∆=
+
+.
+
+(2)
+
+ω
+
+N!
+
+ω (N − 1)!
+
+Dividing (2) by (1), we see that the conversion factor ω0 is precisely hN .
+2.8. We write V3N = AR3N , so that dV 3N = A · 3NR3N−1dR. At the same time, we have
+
+∞
+...
+
+∞
+
+N
+
+− ri
+e i=1
+
+N
+
+ri2dr i =
+
+N
+
+∞
+e−ri ri2dr i = 2N .
+
+(1)
+
+0
+
+0
+
+i=1
+
+i=1 0
+
+The integral on the left may be written as
+
+∞
+
+∞
+
+e−R(4π)−N dV 3N = e−R(4π)−N A·3NR3N−1 dR = (4π)−N A·3N Γ(3N ).
+
+0
+
+0
+
+(2)
+
+Equating (1) and (2), we get: A = (8π)N /(3N )!, which yields the desired
+
+result for V3N .
+
+The “volume” of the relevant region of the phase space is given by
+
+3N
+dqidpi = V N
+i=1
+
+N
+4πp2i dpi = V N (8π E3 / c3)N / (3N )!,
+i=1
+
+9
+
+so that
+
+Σ(n, V, E) = V N (8π E3 / h3 c3)N / (3N )!,
+
+which is a function of N and VE 3. An isentropic process then implies that VE 3 = const.
+
+The temperature of the system is given by
+
+1 ∂(k ln Σ)
+
+3Nk
+
+=
+
+= , i.e. E = 3NkT .
+
+T
+
+∂E
+
+N,V
+
+E
+
+The equation for the isentropic process then becomes VT 3 = const., i.e. T ∝ V −1/3; this implies that γ = 4/3. The rest of the thermodynamics
+follows straightforwardly. See also Problems 1.7 and 3.15.
+
+Chapter 3
+
+3.4. For the ﬁrst part, we use eqn. (3.2.31) with all ωr = 1. We get
+
+k ln Γ = k ln
+N
+
+e−βEr + kβU,
+r
+
+which is indeed equal to −(A/T ) + (U/T ) = S. For the second part, we use eqn. (3.2.5), with the result that
+
+k N
+
+ln
+
+W
+
+{n∗r} =
+
+k N
+
+N ln N −
+
+n∗r ln n∗r
+
+r
+
+= −k
+
+n∗r ln n∗r = −k ln n∗r .
+
+rN N
+
+N
+
+Substituting for n∗r from eqn. (3.2.10), we get
+
+k N
+
+ln
+
+W {n∗r} = kβ Er
+
++k
+
+ln
+
+e−βEr ,
+r
+
+which is precisely the result obtained in the ﬁrst part.
+
+3.5. Since the function A(N, V, T ) of a given thermodynamic system is an extensive quantity, we may write
+
+A(N, V, T ) = Nf (v, T ) (v = V / N ).
+
+It follows that
+
+∂A
+
+∂f −V
+
+∂A
+
+∂f 1
+
+N
+
+=N f +N ∂N V,T
+
+∂v T · N 2 , and V
+
+∂V
+
+= VN
+N,T
+
+·. ∂v T N
+
+Adding these expressions, we obtain the desired result.
+
+3.6. Let’s go to part (c) right away. Our problem here is to maximize the
+
+expression S/k = − Pr,s ln Pr,s, subject to the constraints Pr,s =
+
+r,s
+
+r,s
+
+10
+
+11
+
+1, EsPr,s = E and NrPr,s = N . Varying P ’s and using the method
+
+r,s
+
+r,s
+
+of Lagrange’s undetermined multipliers, we are led to the condition
+
+{−(1 + ln Pr,s) − γ − βEs − αNr} δPr,s = 0.
+r,s
+In view of the arbitrariness of the δP ’s in this expression, we require that
+
+−(1 + ln Pr,s) − γ − βEs − αNr = 0 for all r and s. It follows that
+
+Pr,s ∝ exp(−βEs − αNr).
+The parameters α and β are to be determined by the given values of N¯ and E¯. In the absence of the constraint imposed by N¯ , the parameter α does not even ﬁgure in the calculation, and we obtain
+
+Pr ∝ exp(−βEr),
+as desired in part (b). And if the constraint imposed by E¯ is also absent, we obtain
+Pr = const., as desired in part (a).
+3.7. From thermodynamics,
+
+CP − CV = T From Sec. 3.3,
+
+∂P ∂T V
+
+∂V = −T
+∂T P
+
+∂P 2 ∂T V
+
+∂P > 0. (1)
+∂V T
+
+∂A
+
+∂ ln Q
+
+P =−
+
+= kT
+
+.
+
+(2)
+
+∂V N,T
+
+∂V N,T
+
+Substituting (2) into (1), we obtain the desired result.
+For the ideal gas, Q ∝ V N T 3N/2. Therefore, (∂ ln Q/∂V )T = N/V . We then get
+(N/V )2 CP − CV = −k −N/V 2 = Nk .
+
+3.8. For an ideal gas,
+
+(2πmkT )3/2 NkT (2πmkT )3/2
+
+Q1 = V
+
+h3
+
+= P
+
+h3
+
+.
+
+12
+
+It follows that T (∂ ln Q1/∂T )P = 5/2; the expression on the right-hand side of the given equation then is
+
+V (2πmkT )3/2 5
+
+ln N
+
+h3
+
++ 2
+
+which, by eqn. (3.5.13), is indeed equal to the quantity S/Nk.
+
+3.12. We start with eqn. (3.5.5), substitute H(q,p) = p2i /2m + U (q) and
+i
+integrate over the pi s, to get
+
+1 2πmkT 3N/2
+
+QN (V, T ) = N !
+
+h2
+
+ZN (V, T ), where ZN (V, T ) =
+
+e−U(q)/kT d3N q.
+
+It follows that, for N 1,
+
+h2
+
+3/2
+
+A = NkT ln N
+
+− 1 − kT ln Z, whence
+
+2πmkT
+
+1 2πmkT 3/2
+
+5
+
+∂ ln Z
+
+S = Nk ln N
+
+h2
+
++ + k ln Z + kT
+
+.
+
+2
+
+∂T N,V
+
+Now
+
+∂ ln Z
+
+kT e−U/kT (U/kT 2)d3N q U¯
+
+kT
+
+=
+
+∂T N,V
+
+e−U/kT d3N q
+
+= , while T
+
+k ln Z = k ln V¯ N e−U¯/kT = Nk ln V¯ − U¯ . T
+
+Substituting these results into the above expression for S, we obtain the
+
+desired result for S. In passing, we note that
+
+H
+
+≡
+
+A + TS
+
+=
+
+3 2
+
+NkT
+
++ U¯ .
+
+For the second part of the question, we write U (q) = u(rij ), so that
+i<j
+
+e−βU(q) = e−βu(rij ) = (1 + fij ) ,
+
+i<j
+
+i<j
+
+and follow Problems 3.23 and 1.4. The quantity V¯ then appears to be in the nature of a “free volume” for the molecules of the system.
+
+3.14. a) The Lagrangian is given by
+
+L =K−V =
+
+1 2
+
+mr˙i2α
+
+−
+
+u(rij) −
+
+[uw (riα) + uw (L − riα)],
+
+iα
+
+i<j
+
+iα
+
+where i = 1, · · · , N denotes the particle number, α = x, y, z denotes the cartesian directions, and ri2j = α (riα − rjα)2. The canonical momenta are
+∂L piα = ∂r˙iα = mr˙iα.
+
+13
+
+The Hamiltonian is given by
+
+H = piαr˙iα − L
+
+iα
+
+=
+
+p2iα + 2m
+
+u(rij) + [uw (riα) + uw (L − riα)].
+
+iα
+
+i<j
+
+iα
+
+The canonical pressure can be written
+
+∂H
+
+1 ∂H
+
+1
+
+1
+
+P =− ∂V
+
+= − 3L2 ∂L
+
+= − 3L2
+
+uw(L − riα) = 3L2 (Fx + Fy + Fz) .
+
+iα
+
+This is clearly the instantaneous force per unit area on the right, back, and top walls.
+
+b) The cartesian coordinates for the scaled position inside the box are siα = riα/L so the Lagrangian becomes
+
+L=
+
+1 2
+
+mL2s˙2iα
+
+−
+
+u(Lsij) −
+
+[uw (Lsiα) + uw (L − Lsiα)].
+
+iα
+
+i<j
+
+iα
+
+In this case the canonical momenta are
+
+p˜iα
+
+=
+
+∂L ∂s˙iα
+
+=
+
+mL2s˙iα.
+
+This leads to a Hamiltonian of the form
+
+H=
+
+p˜2iα 2mL2
+
++
+
+u(Lsij) + [uw (Lsiα) + uw (L − Lsiα)],
+
+iα
+
+i<j
+
+iα
+
+with canonical pressure is
+
+1 P = + 3L2
+
+p˜2iα mL3
+
+iα
+
+1 − 3L2 u (Lsij )sij
+i<j
+
+1 − 3L2 [uw(Lsiα)siα + uw(L − Lsiα)(1 − siα)].
+iα
+
+Converting back to normal cartesian coordinates and momenta gives
+
+2 P =+
+
+p2iα
+
+3V 2m
+
+iα
+
+1
+
+− 3V
+
+u (rij )rij
+
+i<j
+
+1
+
+− 3V
+
+[uw(riα)riα + uw(L − riα)(L − riα)].
+
+iα
+
+14
+
+The ﬁrst term is (2/3)(N/V ) times the kinetic energy per particle so is O(N ). The second term is (1/3)(N/V ) times the virial per particle so is also O(N ). On the other hand, third term is proportional to the force on the walls divided by the volume so is O(N 2/3) which is negligible in the thermodynamic limit.
+Comparing to equation (3.7.15) for the average pressure we see that
+
+P
+
+1
+
+=1−
+
+nkT
+
+3N kT
+
+uw(rij )rij .
+
+i<j
+
+3.15. Here, QN (V, T ) = (1/N !)QN1 (V, T ), while
+
+∞
+
+Q1(V, T ) =
+
+e−βpc V
+
+· 4πp2dp h3
+
+=
+
+8πV h3
+
+1 β3c3 ,
+
+0
+
+which yields the desired result for QN . The thermodynamics of the system now follows straightforwardly.
+As regards the density of states, the expression
+
+∞
+
+Q1(V, T ) =
+
+e−βεg(ε)dε =
+
+8πV h3
+
+1 β3c3
+
+0
+
+leads to
+
+g(ε)
+
+=
+
+4πV h3c3
+
+ε2
+
+for a single particle, while the expression for QN (V, T ) leads to
+
+1 8πV N E3N−1
+
+g(E) = N!
+
+h3c3
+
+Γ(3N )
+
+for the N -particle system; cf. the expression for Σ(E) derived in Problem 2.8.
+
+3.17. Diﬀerentiate the stated result with respect to β, to get
+
+∂U − H(U − H)
+
+e−βH dω = 0.
+
+∂β
+
+This means that
+
+∂U − HU + H2 = 0, ∂β
+
+which amounts to the desired result: H2 − H 2 = −(∂U/∂β).
+
+15
+
+3.18. We start with eqn. (3.6.2), viz.
+
+∂U = − r ∂β
+
+Er2e−βEr e−βEr + U 2,
+
+(1)
+
+r
+
+and diﬀerentiate it with respect to β, keeping the Er ﬁxed. We get
+
+∂2U ∂β2 =
+
+E3
+
+− E2
+
+E
+
+∂U + 2U .
+∂β
+
+Substituting for (∂U/∂β) from eqn. (1), we get
+
+∂2U ∂β2
+
+=
+
+E3
+
+− 3 E2 U + 2U 3,
+
+which is precisely equal to (E −U )3 . As for ∂2U/∂β2, we note that, since
+
+∂U ∂β
+
+= −kT 2
+Er
+
+∂U ∂T
+
+= −kT 2CV,
+V
+
+∂2U ∂β2
+
+= −kT 2
+Er
+
+∂ ∂T
+
+−kT 2CV
+
+= k2T 2 2TC V + T 2
+V
+
+∂CV ∂T
+
+.
+V
+
+Hence the desired result.
+
+For
+
+the
+
+ideal
+
+classical
+
+gas,
+
+U
+
+=
+
+3 2
+
+NkT
+
+and
+
+CV
+
+=
+
+3 2
+
+Nk
+
+,
+
+which
+
+readily
+
+yield
+
+the stated results.
+
+3.19. Since G = qipi, G˙ = (q˙ipi + qip˙i). Averaging over a time interval τ ,
+
+i
+
+i
+
+we get
+
+t+τ
+
+t+τ
+
+1 τ
+
+1 (q˙ipi + qip˙i)dt = τ
+
+G˙ dt
+
+=
+
+G(t
+
++
+
+τ ) − G(t) .
+
+τ
+
+(1)
+
+ti
+
+t
+
+For a ﬁnite V and ﬁnite E, the quantity G is bounded ; therefore, in the limit τ → ∞, the right-hand side of (1) vanishes. The left-hand side then gives
+
+(q˙ipi + qip˙i) = 0.
+i
+which leads to the desired result.
+
+3.20. The virial of the noninteracting system, by eqn. (3.7.12), is −3PV . The contribution from interparticle interactions, by eqn. (3.7.15), is given by the “expectation value of the sum of the quantity −r(∂u/∂r) over all pairs of particles in the system”. If u(r) is a homogeneous function (of degree n) of the particle coordinates, this contribution will be −nU , where U is
+
+16
+
+the mean potential energy (not the internal energy) of the system. The total virial is then given by
+
+V = −3PV − nU .
+
+The relation K
+
+=
+
+−
+
+1 2
+
+V
+
+still holds, and the rest of the results follow
+
+straightforwardly.
+
+3.21. All systems considered here are localized. The pressure term, therefore, drops out, and we are left with the result
+
+n
+
+n
+
+K= U=
+
+E.
+
+2 n+2
+
+Example (a) pertains to n = 2, while examples (b) and (c) pertain to
+
+n
+
+=
+
+−1.
+
+In
+
+the
+
+former
+
+case,
+
+K
+
+=
+
+U
+
+=
+
+1 2
+
+E
+
+;
+
+in
+
+the
+
+latter,
+
+K
+
+=
+
+−
+
+1 2
+
+U
+
+=
+
+−E.
+
+The next problem pertains to n = 4.
+
+3.22. Note that a force proportional to q3 implies a potential energy proportional to q4. Thus
+
+It follows that
+
+H = 1 p2 + cq4 2m
+
+(c > 0).
+
+1 p2 2m
+
+∞
+e−βp2/2m(p2/2m)dp
+
+= −∞ ∞ e−βp2/2m dp
+
+1 =;
+2β
+
+−∞
+
+for the values of these integrals, see eqns. (13a) of Appendix B. Next,
+
+∞
+
+e−βcq4 (cq 4)dq
+
+cq 4
+
+=
+
+−∞ ∞
+
+e−βcq4 dq
+
+∂ = − ln I(B),
+∂β
+
+−∞
+
+where I(β) denotes the integral in the denominator. It is straightforward to see that I(β) is proportional to β−1/4, whence cq4 = 1/4β, which
+proves the desired result.
+
+3.23. The key to this derivation is writing the partition function in terms of
+position integrals over scaled coordinates. Assume a cubic box of size L and volume V = L3. The scaled position for particle i is si = ri/L. The
+
+17
+
+partition function is 1
+QN (V, T ) = λ3N N ! VN
+= λ3N N !
+
+
+
+
+
+exp −β u(rij) dN r
+i<j
+
+
+
+
+
+exp −β u(V 1/dsij) dN s.
+i<j
+
+Now the pressure is
+
+∂A P =−
+∂V N,T
+
+
+
+=
+
+kT QN
+
+N QN 
+V
+
+−
+
+βV N dV λ3N N !
+
+
+
+
+
+
+
+ V 1/dsij u (V 1/dsij ) exp −β u(V 1/dsij ) dN s .
+
+i<j
+
+i<j
+
+This can be simpliﬁed by going back to integrals over the normal position variables to give equation (3.7.15).
+
+3.24. By eqn. (3.7.5), we have, for a single particle,
+
+3
+
+piq˙i = 3kT .
+
+(1)
+
+i=1
+
+The left-hand side of (1) is the expectation value of the quantity p · u, i.e. pu which, for a relativistic particle, is equal to m0u2(1 − u2/c2)−1/2. The desired result follows readily.
+
+In the non-relativistic limit (u
+
+c), one obtains:
+
+1 2
+
+m0
+
+u2
+
+≈
+
+3 2
+
+kT
+
+;
+
+in
+
+the
+
+extreme relativistic limit (u → c), one obtains: mc2 ≈ 3kT . Note that,
+
+in the latter case, m0c2 is negligible in comparison with mc2, so there is no signiﬁcant diﬀerence between the kinetic energy and the total energy
+
+of the particle.
+
+3.25. For the ﬁrst part of this problem, see Sec. 6.4 — especially the derivation of the formula (6.4.9). For the second part, equate the result obtained in the ﬁrst part with the one stated in eqn. (3.7.5).
+
+3.26. The multiplicity w(j){= (j + s − 1)!/j!(s − 1)!} arises from the variety
+
+of ways in which j indistinguishable quanta can be divided among the
+
+s dimensions of the oscillator: j = j1 + . . . + js; this is similar to the calculation done on page 68–69 of the text.
+
+As for the partition function, QN(s)(β) =
+
+Q(1s)(β)
+
+N
+,
+
+where
+
+Q(1s)(β) =
+
+∞
+
+(j + s − 1)! j!(s − 1)!
+
+e−β(j
+
++
+
+1 2
+
+s)
+
+ω
+
+j=0
+
+=
+
+e−
+
+1 2
+
+sβ
+
+ω
+
+(1 − e−β
+
+ω )−s .
+
+18
+
+Calculation of the various thermodynamic quantities is now straightforward. The results are found to be essentially the same as for a system of sN one-dimensional oscillators. However, since
+
+Q(Ns) (β) = Q(N1s) (β),
+
+the chemical potential µs will turn out to be s times µ1.
+
+3.28.
+
+(a) When one of the oscillators is in the quantum state n, the energy left
+
+for the remaining (N − 1) oscillators is E −
+
+n
+
++
+
+1 2
+
+ω; the corre-
+
+sponding number of quanta to be distributed among these oscillators
+
+is R−n; see eqn. (3.8.24). The relevant number of microstates is then
+
+given by the expression (R − n + N − 2)!/(R − n)!(N − 2)!. Combined
+
+with expression (3.8.25), this gives
+
+(R − n + N − 2)! (R + N − 1)!
+
+pn = (R − n)!(N − 2)! ÷
+
+. R!(N − 1)!
+
+(1)
+
+It follows that
+
+pn+1 =
+
+R−n
+
+pn R − n + N − 2
+
+By iteration, pn = p0{n¯/(n¯ + 1)}n. Going back to eqn. (1), we note that
+
+R
+
+n¯
+
+=
+
+.
+
+R + N n¯ + 1
+
+N −1
+
+N
+
+1
+
+p0 = R + N − 1
+
+=− , R + N n¯ + 1
+
+which completes the desired calculation.
+
+(b) The probability in question is proportional to gN−1(E − ε), i.e. to
+
+(E
+
+−
+
+ε)
+
+3 2
+
+(N
+
+−1)−1
+
+.
+
+For 1
+
+N , this is essentially proportional to
+
+(1
+
+−
+
+ε/E
+
+)
+
+3 2
+
+N
+
+and,
+
+for
+
+ε
+
+−E, to e−3Nε/2E .
+
+3.29. The partition function of the anharmonic oscillator is given by
+
+∞∞
+
+1 Q1(β) = h
+
+e−βH dq dq
+
+−∞ −∞
+
+H = p2 + cq2 − gq3 − fq4 . 2m
+
+The integration over p gives a factor of 2πm/β. For integration over q, we write
+e−βcq2 eβ(gq3+fq4) = e−βcq2 1 + β(gq 3 + fq 4) + 1 β2(gq 3 + fq 4)2 + . . . ; 2
+
+the integration then gives
+
+π
+
+3
+
++ βf ·
+
+βc
+
+4
+
+π β5c5
+
++
+
+1 β2 2
+
+g2
+
+·
+
+15 8
+
+π β7c7 + . . . .
+
+19
+
+It follows that
+
+π 2m
+
+3f 15g2
+
+Q1(β) = βh c 1 + 4βc2 + 16βc3 + . . . ,
+
+so that whence and
+
+3f 15g2 ln Q1(β) = const. − ln β + 4βc2 + 16βc3 + . . . ,
+
+1 3f
+
+15g2
+
+U (β) = β + 4β2c2 + 16β2c3 + . . .
+
+3f k2T 15g2 k2T C(β) = k + 2c2 + 8c3 + . . . .
+
+Next, the mean value of the displacement q is given by
+
+∞∞
+
+∞∞
+
+q=
+
+exp(−βH)q dp dq /
+
+exp(−β H )dpdq .
+
+−∞ −∞
+
+−∞ −∞
+
+In the desired approximation, we get
+
+∞
+q βg e−βcq2 q4 dq
+
+∞
+e−βcq2 dq
+
+−∞
+3 = βg ·
+4
+
+π β5c5 /
+
+−∞
+π 3g βc = 4βc2 .
+
+3.30. The single-oscillator partition function is now given by
+
+For x
+
+∞
+
+Q1(β) =
+
+e−β(n+
+
+1 2
+
+)
+
+ω+β
+
+x(n+
+
+1 2
+
+)2
+
+ω.
+
+n=0
+
+1, we may write
+
+∞
+
+Q1(β) =
+
+e−β(n+
+
+1 2
+
+)
+
+ω
+
+1 + βx
+
+1 n+
+2
+
+2
+
+ω + ...
+
+.
+
+n=0
+
+With u = β ω, the sums involved are
+
+∞
+
+S1(u) =
+
+e−u(n+
+
+1 2
+
+)
+
+=
+
+2 sinh
+
+1 u
+2
+
+n=0
+
+−1
+, and
+
+∞
+
+S2(u) =
+
+e−u(n+
+
+1 2
+
+)
+
+n=0
+
+1 n+
+2
+
+2 d2 = du2 S1(u) = 4 sinh
+
+1 u
+2
+
+−1
+coth2
+
+1
+
+1
+
+u− .
+
+2
+
+2
+
+20
+
+It follows that
+
+ln Q1 = ln[S1 + xuS2 + . . .] ln S1 + xu(S2/S1)
+
+1 = − ln 2 sinh u
+
+1 + xu
+
+coth2
+
+1 u
+
+1 −
+
+.
+
+2
+
+2
+
+2
+
+2
+
+The ﬁrst part of this expression leads to the standard results (3.8.20 and
+
+21). The second part may, for simpliﬁcation, be expressed as a power
+
+series in u, viz.
+
+2 u u3 x + + +... .
+u 12 120
+
+The resulting contribution to the internal energy per oscillator turns out
+
+to be
+
+2 1 u2 x ω u2 − 12 − 40 − . . .
+
+and the corresponding contribution to the speciﬁc heat is given by
+
+4 u3 xk + + . . . .
+u 20
+
+3.31. This problem is essentially the same as Problem 3.32, with g1 = g2 = 1, ε1 = 0 and ε2 = ε.
+
+3.32. We use formula (3.3.13), with Pr = p1/g1 for each of the states in group 1 and p2/g2 for each of the states in group 2. We get
+
+S = −k g1
+
+p1 ln p1 g1 g1
+
++ g2
+
+p2 ln p2 g2 g2
+
+.
+
+(1)
+
+(a) In thermal equilibrium,
+
+pi =
+
+gie−βεi
+gie−βεi
+i
+
+(i = 1, 2).
+
+With x = β(ε2 − ε1), we have: p1 = g1/(g1 + g2e−x) and p2 = g2/(g1ex + g2). Substituting these results into (1), we obtain
+
+S=k
+
+g1
+
+g1 + g2e−x
+
+ln
+
+g1 + g2e−x
+
++
+
+g2 g1ex +
+
+g2
+
+ln
+
+(g1ex
+
++
+
+g2)
+
+.
+
+Writing the ﬁrst log as ln g1 + ln{1 + (g2/g1)e−x} and the second log as ln g1 + x + ln{1 + (g2/g1)e−x}, we obtain the stated expression for S.
+(b) With Q = g1e−βε1 + g2e−βε2 , it is straightforward to see that
+
+A = −kT ln{g1e−βε1 + g2e−βε2 } and U = {g1ε1e−βε1 + g2ε2e−βε2 }/{g1e−βε1 + g2e−βε2 }.
+
+The formula S = (U − A)/T then leads to the desired result.
+
+21
+
+(c) As T → 0, x → ∞ and S indeed tends to the value k ln g1. This corresponds to the fact that the probabilities p1 and p2 in this limit tend to the values 1 and 0, respectively.
+
+3.35. The partition function of the system is given by
+
+QN
+
+=
+
+1 N
+
+!
+
+QN1
+
+,
+
+where
+
+Q1
+
+=
+
+V λ3
+
+· Z,
+
+Z being the factor that arises from the rotational/orientational degrees of freedom of the molecule:
+
+Z=
+
+exp −β
+
+p2θ 2I
+
++ 2I
+
+p2ϕ sin2
+
+− µE θ
+
+cos θ
+
+dp θ dp ϕ dθdϕ h2
+
+π 2πI 1/2 2πI sin2 θ
+
+=
+
+β
+
+β
+
+0
+
+I 2 sinh(βµE)
+
+= β
+
+2·
+
+βµE
+
+.
+
+1/2
+
+eβµE
+
+cos
+
+θ 2πdθ h2
+
+The study of the various thermodynamical quantities of the system is now straightforward.
+Concentrating on the electrical quantities alone, we obtain for the net dipole moment of the system
+
+N ∂ ln Z
+
+1
+
+Mz = N µ cos θ = β
+
+∂E
+
+= N µ coth (βµE) −
+
+;
+
+βµE
+
+cf. eqns. (3.9.4 and 6). For βµE 1,
+
+1
+
+Mz
+
+≈
+
+Nµ
+
+·
+
+βµE. 3
+
+The polarization P , per unit volume, of the system is then given by
+
+P ≈ nµ2 E / 3kT (n = N/V ),
+
+and the dielectric constant ε by
+
+E + 4πP
+
+4πnµ2
+
+ε=
+
+≈1+
+
+.
+
+E
+
+3kT
+
+The numerical part of the problem is straightforward.
+
+3.36. The mean force F between the two dipoles is given by
+
+∂U
+
+e−βU (−∂U / ∂R) sin θd θdϕ · sin θ dθ dϕ
+
+F= −
+
+=
+
+∂R
+
+e−βU sin θdθdϕ · sin θ dθ dϕ
+
+(1)
+
+1∂
+
+=
+
+ln Z .
+
+(2)
+
+β ∂R
+
+22
+
+where Z denotes the integral in the denominator of (1). At high temperatures, we may write
+
+Z = 1 − βU + 1 β2U 2 − . . . sin θ dθdϕ · sin θ dθ dϕ . 2
+
+The linear term vanishes on integration and we are left with
+
+Z=
+
+1
+
++
+
+1 2
+
+β
+
+2
+
+(µµ )2 R6
+
+{2
+
+cos
+
+θ
+
+cos
+
+θ
+
+− sin θ sin θ
+
+cos(ϕ − ϕ )}2 − . . .
+
+sin θd θd ϕ · sin θ dθ dϕ
+
+= 16π2
+
+1
+
++
+
+1 β2 2
+
+(µµ )2 R6
+
+11
+
+221
+
+4· · −0+ · ·
+
+33
+
+332
+
+−... .
+
+It follows that
+
+ln Z
+
+=
+
+const .
+
++
+
+1 3
+
+β2
+
+(µµ )2 R6
+
+−...
+
+and hence, at high temperatures,
+
+F
+
+≈
+
+−2β
+
+(µµ )2 R7
+
+Rˆ .
+
+3.37. By eqns. (3.9.17 and 18), we have, for a single dipole,
+
+J
+
+(gµBm) exp(βgµBmH )
+
+µ¯z = m=−J J
+
+.
+
+exp(βgµBmH )
+
+m=−J
+
+At high temperatures, the exponential may be approximated by (1 + βgµBmH ) which yields, to the leading order in H,
+
+µ¯z = βg2 µ2BHm2.
+
+One readily obtains for the Curie constant (per unit volume) of the system
+
+CJ = N0 g2 µ2B / k m2.
+
+Writing m = J cos θ, one obtains the desired result. For the second part, we simply note that, for a given J,
+
+J
+
+m2
+
+m2 = m=−J
+
+J(J + 1)(2J + 1)/3 1
+
+=
+
+= J(J + 1).
+
+2J + 1
+
+2J + 1
+
+3
+
+23
+
+3.38. Treating m as a continuous variable, the partition function of a magnetic dipole assumes the form
+
+Q1(β) =
+
+J −J
+
+eβgµB Hm
+
+dm
+
+=
+
+2 β gµB H
+
+sin h
+
+(βgµBJH );
+
+cf. eqn. (3.9.5). It is clear that this approximation will lead essentially to the same results as the ones following from the Langevin theory — except for the fact that the role of µ will be played by gµBJ, which should be contrasted with the expression (3.9.16) of the quantum theory.
+
+3.40. (a) By deﬁnition, CH = T (∂S/∂T )H and CM = T (∂S/∂T )M . Now
+
+∂S
+
+∂S
+
+∂S
+
+∂M
+
+=
+
++
+
+;
+
+(1)
+
+∂T H
+
+∂T M
+
+∂M T ∂T H
+
+at the same time, dA ≡ dU − TdS − SdT = HdM − SdT , with the result that (∂H/∂T )M = −(∂S/∂M )T . Equation (1) then becomes
+
+∂S
+
+∂S
+
+∂H
+
+∂M
+
+=
+
+−
+
+.
+
+(2)
+
+∂T H
+
+∂T M
+
+∂T M ∂T H
+
+Multiplying (2) by T , we obtain the desired result for CH − CM .
+(b) The Curie law implies that M = CH /T . This means that (∂H/∂T )M = H/T , while (∂M/∂T )H = −CH /T 2. It follows that CH − CM = CH 2/T 2.
+
+3.42. Let N1(N2) be the number of dipoles aligned parallel (opposite) to the ﬁeld. Then N1 + N2 = N, while − N1ε + N2ε = E.
+
+It follows that
+
+1
+
+1
+
+N1
+
+=
+
+(N 2
+
+− E/ε),
+
+N2
+
+=
+
+(N 2
+
++ E/ε).
+
+The number of microstates associated with this macrostate is given by
+
+N!
+
+Ω(N, E) =
+
+1 2
+
+(N
+
+−
+
+E/ε)
+
+!
+
+1 2
+
+(N
+
++
+
+E/ε)
+
+!
+
+The entropy of the system is then given by the expression
+
+1
+
+E
+
+S = k ln Ω ≈ k N ln N − N −
+
+2
+
+ε
+
+1
+
+E
+
+1
+
+E
+
+− N + ln N +
+
+2
+
+ε
+
+2
+
+ε
+
+1 ln
+2 ,
+
+E N−
+ε
+
+which is essentially the same as eqn. (3.10.9).
+
+24
+
+For the temperature of the system, we get
+
+1 ∂S
+
+k N − E/ε
+
+=
+
+= ln
+
+,
+
+T
+
+∂E N 2ε N + E/ε
+
+which agrees with eqn. (3.10.8).
+
+3.43. The partition function of this system is given by the usual expression (3.5.5), except for the fact that the Hamiltonian of the system is now a function of the quantities pj + (ej / c)A(rj), and not of the pj as such. However, on integration over any √component of pj, from −∞ to +∞, we obtain the same standard factor 2πmkT — regardless of the value of the corresponding component of A. The partition function is, therefore, independent of the applied ﬁeld and hence the net magnetization of the system is zero.
+
+3.44. The Shannon information for a single message is given by I1 = − r Pr ln Pr where Pr is the a priori probability of message r from among all Ω possible messages. The maximum information is obtained from varying the
+probabilities, using a Lagrange multiplier µ to maintain the normalization
+r Pr = 1, and demanding the solution is stationary.
+
+0 = δI1 − µδ
+
+Pr = − δPr [ln pr − 1 − µ].
+
+r
+
+r
+
+This implies the Pr = const, i.e. all messages are equally likely. Therefore Pr = 1/Ω , which gives I1 = ln Ω. Any other set of probabilities gives smaller information per message.
+Keeping to the general cases in which probabilities of individual messages messages do not need to be equal, consider a sequence of two messages. The a priori probability of message r followed by message r is Prr = PrPr Grr . The quantity Grr is the correlation between the two messages. A value of Grr greater than unit implies that the ﬁrst message r increases the probability of ﬁnding the second message r above Pr . The two message probabilities have the following properties: r Prr = Pr and r Prr = Pr, i.e. r PrGrr = 1 and r Pr Grr = 1. The information contained in two messages is given by
+
+I2 = Prr ln Prr = PrPr Grr ln (PrPr Grr ).
+
+rr
+
+rr
+
+Expanding the logarithm and using the above summation properties gives
+
+1
+
+I2 = 2I1 − PrPr Grr ln Grr = 2I1 + PrPr Grr ln
+
+rr
+
+rr
+
+Grr
+
+.
+
+25
+Now, using ln x ≤ x − 1 for all x > 0, we get
+I2 ≤ 2I1 + PrPr [1 − Grr ] = 2I1.
+rr
+The information contained in two correlated messages is reduced compared to sum of the information contained in two uncorrelated messages. Analysis of the ﬁrst 65536 digits of π results in an information per character of I1 ≈ 2.3 = ln 10. That makes sense because the characters 0, · · · , 9 are evenly distributed in the digital representation of π. Furthermore, since the digits of π are uncorrelated, the information per pair of characters is I2 ≈ 4.6 = 2I1. Analysis of the ﬁrst 15, 000 characters of A Chrismas Carol by Charles Dickens gives I1 ≈ 3.08 ≈ ln 21.75. This value is reasonable since most of the characters are lower case letters of the alphabet and blanks. The nonuniformity of the distribution of letters reduces the information below ln 27 . When analyzed two characters at a time, the information is I2 ≈ 5.45 ≈ 2 ln 15.25. The strong correlations between characters in English text reduces the information well below 2I1.
+
+Chapter 4
+
+4.1. By eqns. (4.1.9), (4.3.10) and (4.1.8), we get
+
+Pr,s ln Pr,s ≡ ln Pr,s = −αN¯ − βE¯ − βPV
+
+r,s
+
+= (µN¯ − U − PV )/kT .
+
+(1)
+
+Since µN¯ = G = U + PV − TS , the right-hand side of (1) equals −S/k. Hence the result.
+
+4.2. According to the grand canonical ensemble theory,
+
+PV = kT ln
+
+zNr QNr (V, T ) .
+
+(1)
+
+Nr
+
+Now, the largest term in the sum pertains to the value N ∗, of Nr, which is determined by the condition
+
+∂ ∂Nr {Nr ln z − ln QNr }Nr=N∗ = 0.
+
+By Sec. 3.3, this is equivalent to the statement: z = exp(µ∗/kT ), where
+
+µ∗ is the chemical potential of the given system in a canonical ensemble
+
+(with N = N ∗). If we replace the sum in (1) by its largest term, we
+
+would get
+
+PV ≈ N ∗µ∗ − A∗ = P ∗V,
+
+where P ∗ is the pressure of the system in the canonical ensemble (with N = N ∗). How diﬀerent would P be from P ∗ depends essentially on how diﬀerent the particle density n¯ is from n∗ — a question thoroughly
+discussed in Sec. 4.5.
+
+4.3. The probability distribution in question is the binomial distribution
+
+P (N, V ) =
+
+N (0)!
+
+pN qN (0)−N
+
+N !(N (0) − N )!
+
+V
+
+V
+
+p = V (0) , q = 1 − V (0) .
+
+26
+
+27
+
+We note that
+
+N (0)
+P (N, V ) = (q + p)N(0) = 1.
+N =0
+
+For part (i), we have
+
+N (0)
+
+N¯ =
+
+N P (N, V ) = N (0)p(q + p)N(0)−1 = N (0)p, while
+
+N =0
+
+N (0)
+N (N − 1) = N (N − 1)P (N, V ) = N (0)(N (0) − 1)p2(q + p)N (0)−2 = N (0)(N (0) − 1)p2.
+
+N =0
+
+It follows that
+
+N 2 =N (N − 1) + N¯ = (N (0)p)2 − N (0)p2 + N (0)p, whence (∆N )2 ≡ N 2 − N¯ 2 = N (0)p(1 − p), etc.
+
+For part (ii), we shift the origin to N = N (0)p, write N = N (0)p + x, N (0) − N = N (0)q − x
+
+and examine the function ln P (x) = ln N (0)!−ln(N (0)p+x)!−ln(N (0)q−x)!+(N (0)p+x) ln p+(N (0)q−x) ln q.
+
+Since N (0)p and N (0)q are both 1, we apply Stirling’s formula, ln v ! ≈ v ln v − v, and get (after some reduction)
+
+ln P (x) ≈ −(N (0)p + x) ln 1 + x − (N (0)q − x) ln 1 − x .
+
+N (0)p
+
+N (0)q
+
+For x N (0)p and N (0)q, we expand this expression in powers of x, with the result that ln P (x) ≈ −x2/2N (0)pq. It follows that the distribution P (x), under the stated conditions, is a Gaussian, with (∆N )2 = N (0)pq.
+For part (iii), we write
+
+P (N ) = N (0)(N (0) − 1) . . . (N (0) − N + 1) pN (1 − p)N(0)−N . N!
+
+Now, if p 1 and N N (0), we obtain the Poisson distribution
+
+P (N ) ≈ [N (0)]N pN e−N(0)p = (N¯ )N e−N¯ ,
+
+N!
+
+N!
+
+with (∆N )2 = N¯ .
+
+28
+
+4.4. For obvious reasons,
+
+P (Nr) =
+
+Pr,s
+
+=
+
+e−αNr e−βEs
+s
+Q(α, β, V )
+
+=
+
+zNr QNr (V, T ) . Q(z, V, T )
+
+(1)
+
+s
+
+For an ideal classical gas, see Sec. 4.4,
+
+N¯ λ3
+
+1
+
+z = V , QN = N !
+
+V λ3
+
+N
+, Q ≡ ePV /kT = eN¯ .
+
+(2)
+
+Substituting (2) into (1), we get
+
+P (N ) = (N¯ )N e−N¯ , N!
+
+which is a Poisson distribution, with (∆N )2 = N¯ .
+We note that the variance of N , calculated from the general formula (4.5.3), also turns out to be the same:
+
+(∆N )2 = −
+
+∂N¯ =z
+∂α T,V
+
+∂N¯
+
+∂
+
+=z
+
+∂z T,V
+
+∂z
+
+zV λ3
+
+T ,V
+
+V = z λ3
+
+= N¯ .
+
+4.5. The ﬁrst term on the right-hand side of (4.3.20) may be written as
+
+∂q
+
+kT
+
+= kT
+
+∂T z,V
+
+∂q
+
+∂q
+
+∂µ
+
++
+
+∂T µ,V
+
+∂µ T,V ∂T z,V
+
+∂q
+
+N¯
+
+= kT
+
++ kT · · k ln z
+
+∂T µ,V
+
+kT
+
+(for µ = kT ln z ).
+
+Equation (4.3.20) then reduces to
+
+∂q
+
+∂
+
+S = kT
+
++ kq = k (Tq) .
+
+∂T µ,V
+
+∂T
+
+µ,V
+
+Note that this result is directly related to the formula, see Problem 1.16,
+
+d(PV ) = PdV + Nd µ + SdT ,
+
+whence
+
+∂
+
+S = (PV ) .
+
+∂T
+
+µ,V
+
+4.6. The Gibbs free energy is
+
+G(N, P, T ) = −kT ln (YN (P, T )) .
+
+29
+
+For example
+
+∂G
+
+1
+
+=
+
+∞
+V Q(N, V, T )e−βP V = V .
+
+∂P N,T YN (P, T ) 0
+
+The ideal gas gives
+
+1 YN (P, T ) = (βP λ3)N+1 , G(N, P, T ) ≈ N kT ln βP λ3 ,
+
+∂G
+
+N kT
+
+V=
+
+=
+
+.
+
+∂P N,T
+
+P
+
+4.10. The partition function of the adsorbed molecules, assumed noninteracting, is given by
+
+QN (N0, T )
+
+=
+
+g(N )aN
+
+=
+
+N0!
+
+aN
+
+N !(N0 − N )!
+
+[a = a(T )].
+
+(1)
+
+Using Stirling’s formula (B.29), we get
+
+ln QN ≈ N0 ln N0 − N ln N − (N0 − N ) ln(N0 − N ) + N ln a,
+
+with the result that
+
+µ = −kT ∂ ln QN = kT ln N .
+
+(2)
+
+∂N
+
+(N0 − N )a
+
+Alternatively, the grand partition function of the system consisting of all N0 sites (of which some are empty while others are occupied by a single molecule) is given by
+
+Q(z, N0, T ) = [Q(z, 1, T )]N0 = [1 + za(T )]N0 ;
+
+(3)
+
+see eqn. (4.4.15), with Nr = 0 or 1. Note that expression (3) could also be
+N0
+obtained by using the standard deﬁnition Q(z, N0, T ) = zN QN (N0, T )
+N =0
+and employing expression (1) for QN . The mean value of N now turns
+out to be
+
+N¯
+
+=
+
+∂ z
+∂z
+
+ln Q
+
+=
+
+N0 1
+
+za + za
+
+, whence
+
+z
+
+=
+
+1 a
+
+N¯ N0 −
+
+N¯
+
+,
+
+(4)
+
+which agrees with (2).
+
+4.11. By eqn. (4) of the preceding problem, the fraction θ of the adsorption sites that are occupied is given by
+
+N¯
+
+za
+
+1θ
+
+θ= =
+
+, whence z =
+
+.
+
+(1)
+
+N0 1 + za
+
+a1−θ
+
+30
+
+Now, if the molecules in the adsorbed phase are in equilibrium with those
+
+in the gaseous phase, then their fugacity z would be equal to the fugacity
+
+zg of the gaseous phase. The latter is given by eqns. (4.4.5 and 29),
+
+whereby
+
+zg
+
+=
+
+Pg kT
+
+h3 (2πmkT )3/2 .
+
+(2)
+
+Equating (1) and (2), we obtain the desired result
+
+θ
+
+1
+
+(2πmkT )3/2
+
+Pg
+
+=
+
+1−θ
+
+×
+
+kT a(T )
+
+h3
+
+.
+
+4.12. From eqn. (4.5.1), we get
+
+∂N¯
+
+= −NE + N¯ E¯.
+
+∂β α,V
+
+The left-hand side here is equal to, see eqns. (4.5.3 and 12),
+
+−kT 2
+
+∂N¯
+
+∂U
+
+= −kT
+
+= −kT
+
+∂T z,V
+
+∂µ T,V
+
+=−
+
+∂U ∂N¯
+
+(∆N )2.
+T ,V
+
+∂U ∂N¯ T,V
+
+∂N¯ ∂µ T,V
+
+Hence the result.
+
+4.13. With µ ﬁxed (as it is in the grand canonical ensemble),
+
+(∆J )2 = (∆E)2 − 2µ(∆E)(∆N ) + µ2(∆N )2.
+
+Substituting from eqn. (4.5.14) and from the previous problem, we get
+
+(∆J )2 = (∆E)2 can +
+
+∂U ∂N¯
+
+2
+− 2µ
+T ,V
+
+∂U ∂N¯
+
++ µ2
+T ,V
+
+(∆N )2,
+
+which is the desired result.
+
+4.14. The Clausius–Clapeyron equation (4.7.7) can be integrated to give
+
+L1 1
+
+Pσ(T ) = Pσ(T0) exp k
+
+− T0 T
+
+,
+
+where T0 = 373 K, Pσ(T0) = 1 atm and
+
+L
+
+(2260 kJ/kg)(18 kg/kmol)
+
+k = (6.02 × 1026 kmol−1)(1.38 × 10−23 J/K) = 4890 K.
+
+31
+This gives Pσ(273 K) 0.0082 atm and Pσ(473 K) 16 atm. The experimental values are 0.006 atm and 15.3 atm respectively.
+
+4.15. The correct value for the latent heat of sublimation near the triple point is 2833 kJ/kg. Following the solution to problem 4.14,
+
+L1 1
+
+Pσ(T ) = Pσ(T0) exp k
+
+− T0 T
+
+,
+
+where T0 = 273 K, Pσ(T0) = 612 Pa and
+
+L
+
+(2833 kJ/kg)(18 kg/kmol)
+
+k = (6.02 × 1026 kmol−1)(1.38 × 10−23 J/K) = 6138 K.
+
+This gives Pσ(193 K) 0.055 Pa which corresponds nearly exactly with the experimental value.
+
+4.16. The slope of the melting line is
+
+dPm = Lm dT T (∆v)
+
+(80 cal/g)(4.18 J/cal)(106 cm3/m3) (273 K)(−0.09 cm3/g)
+
+This gives Tm(100 atm) = −0.77◦C.
+
+4.17. The slopes at the triple point are of the form
+
+−1.3 × 107 Pa/K.
+
+so the vectors
+
+dPσ
+
+=
+
+si − sj
+
+=
+
+∆y ,
+
+dT ij vi − vj ∆x
+
+[(v1 − v2)xˆ + (s1 − s2)yˆ] + [(v2 − v3)xˆ + (s2 − s3)yˆ] + [(v3 − v1)xˆ + (s3 − s1)yˆ] = 0
+
+sum to zero. This makes the third vector the negative of the sum of the ﬁrst two vectors in each case, guaranteeing the stated geometry.
+
+32
+4.18. The liquid–vapor lines will appear much like in ﬁgure 6.2 but the liquid branch will extend to P = 0. The upper end of the solid–liquid lines will appear as in ﬁgure 6.2 but the lines will end at Ps.
+
+4.19. Since p1(µσ(T ), T ) = p2(µσ(T ), T ) on the coexistence line
+
+∂p1 dµσ + ∂p1 = ∂p2 dµσ + ∂p2 ,
+
+∂µ T dT
+
+∂T µ
+
+∂µ T dT
+
+∂T µ
+
+which gives
+
+dµσ = − s1 − s2
+
+=
+
+−L .
+
+dT
+
+n1 − n2 T ∆n
+
+4.20. The liquid–vapor lines will appear much like in ﬁgure 6.2 but with the liquid branch ending abruptly at Pt. The liquid side of solid–liquid lines will start at Pt and extend upward as in ﬁgure 6.2 but the solid side of the solid–liquid transition will be to the right of the liquid line (since the solid has lower density) and will extend to P = 0.
+
+Chapter 5
+
+5.1. On transformation, a given operator Aˆ would become
+
+√
+
+√
+
+Aˆ = Uˆ AˆUˆ −1 = 1/ √2 1/√2
+
+−1/ 2 1/ 2
+
+a11 a12 a21 a22
+
+√
+
+√
+
+1/√2 −1/√ 2 .
+
+1/ 2 1/ 2
+
+Equations (2), (3) and (4) of Sec. 5.3 would then be replaced by
+
+σˆx =
+
+1 0
+
+0 −1
+
+, σˆy =
+
+0 i
+
+−i 0
+
+, σˆz =
+
+0 −1
+
+−1 0
+
+,
+
+1 ρˆ = eβµBB + e−βµBB
+
+cosh(β µB B ) − sinh(βµBB)
+
+− sinh(βµBB) cosh(β µB B )
+
+and 1
+σz = Tr (ρˆ σˆz) = eβµBB + e−βµBB · 2 sinh(βµBB) = tanh(βµBB),
+
+with no change in the ﬁnal result.
+
+5.2. For a formal solution to this problem, see Kubo (1965), problem 2.32, pp. 178–80.
+
+5.4. If we use the unsymmetrized wave function (5.4.3), rather than the symmetrized wave function (5.5.7), the density matrix of the system turns out to be, cf. eqn. (5.5.11),
+
+1, . . . , N |e−βHˆ |1 , . . . , N = e−β 2K2/2m{uk1 (1) . . . ukN (N )} u∗k1 (1 ) . . . u∗kN (N )
+K
+
+=
+
+e−β 2(k12+...+kN 2 )/2m
+
+k1 ,...,kN
+
+uk1 (1)u∗k1 (1 ) . . . ukN (N )u∗kN (N )
+
+
+N
+=
+
+e−β 2kj2/2m
+
+j=1 kj
+
+ ukj (j)u∗kj (j )  .
+
+33
+
+34
+
+Replacing the summation over kj by an integration, one gets [see the corresponding passage from eqn. (5.5.12) to (5.5.14)]
+
+1, . . . , N |e−βHˆ |1 , . . . , N
+
+=
+
+m 2πβ 2
+
+3N/2
+exp
+
+m
+
+− 2β
+
+2
+
+ξ12 + . . . + ξN2
+
+,
+
+(1)
+
+where ξj = rj − rj . The diagonal elements of the density matrix then are
+
+1, . . . , N |e−βHˆ |1, . . . , N = (m/2πβ 2)3N/2 = 1/λ3N ,
+
+(2)
+
+where λ is the mean thermal wavelength of the particles. The structure of expressions (1) and (2) shows that there is no spatial correlation among the particles of this system.
+
+The partition function now turns out to be
+
+QN (V, T ) ≡ Tr (e−βHˆ ) =
+
+1 λ3N
+
+d3N r
+
+=
+
+vN λ3N
+
+,
+
+with no Gibbs’ correction factor.
+
+5.5. By eqn. (5.5.17), we have
+
+where
+
+QN (V, T ) ≡ Tr
+
+e−βHˆ
+
+1 = N !λ3N ZN (V, T ),
+
+ZN (V, T ) =
+
+{. . .}d3N r.
+
+(1)
+
+P
+
+In the zeroth approximation, = 1; see eqn. (5.5.19). So, ZN (V, T ) =
+P
+V N . In the ﬁrst approximation,
+
+=1±
+
+fij fji = 1 ±
+
+e−2πri2j /λ2 .
+
+(2)
+
+P
+
+i<j
+
+i<j
+
+If λ is much smaller than the mean interparticle distance, we may write
+
+≈
+
+1 ± e−2πri2j /λ2
+
+P
+
+i<j
+
+
+
+
+
+
+
+
+
+= e−βvs(rij ) = exp −β vs(rij ) ,
+
+i<j
+
+ i<j
+
+
+
+which leads to the desired result.
+
+For the second part, we substitute (2) into (1) and integrate over the position coordinates of the particles. We obtain, on assembling contributions from all pairs of particles,
+
+ZN (V,
+
+T)
+
+=
+
+V
+
+N
+
+±
+
+N (N − 2
+
+1)
+
+·
+
+V
+
+N −2
+
+V · λ3 23/2
+
+.
+
+35
+
+The case N = 2 corresponds to eqn. (5.5.25) for Q2(V, T ). For N 1 and N λ3 V , we may write
+
+ZN (V, T ) = V N
+
+1
+
+±
+
+N
+
+2
+
+λ3 25/2V
+
+≈VN
+
+N λ3 1 ± 25/2V
+
+N
+.
+
+It follows that
+
+V
+
+N λ3
+
+ln QN (V, T ) ≈ −N ln N + N + N ln λ3 + N ± 25/2V ,
+
+whence
+
+P ≡
+kT
+
+∂ ln QN ∂V
+
+N N 2λ3 1 1 λ3
+
+≈ N,T V
+
+∓ 25/2V 2 = v ∓ 25/2 v2 ,
+
+where v = V /N ; cf. eqns. (7.1.13) and (8.1.17).
+
+5.7 and 8. For solutions to these problems, consult the references cited in Notes 10 and 11.
+
+Chapter 6
+
+6.1. We start with eqn. (6.1.19) and write it in the form
+
+S=k
+i
+
+n∗i ln
+
+gi n∗i
+
++
+
+n∗i
+
+−
+
+gi a
+
+ln
+
+1 − a n∗i gi
+
+.
+
+(1)
+
+Now, setting all gi = 1 and identifying (n∗i /gi) with nε , see eqns. (6.1.18a) and (6.2.22), we get
+
+1
+
+S=k
+
+− nε ln nε +
+
+nε
+
+− a
+
+ln(1 − a nε ) .
+
+(2)
+
+ε
+
+Choosing a = −1 or +1, we obtain the desired results. Next we have to verify that
+
+S = −k
+
+pε(n) ln pε(n) = −k ln pε(n) .
+
+(3)
+
+ε
+
+n
+
+ε
+
+Substituting for pε(n) from eqn. (6.3.10) into (3) leads to the desired result (2), with a = −1; substituting from eqn. (6.3.11) instead leads to the desired result (2), with a = +1.
+
+6.2. In the B.E. case, see eqn. (6.3.10),
+
+pε(n) = (1 − r)rn [r = nε /( nε + 1); n = 0, 1, 2, . . .].
+
+It follows that
+
+∞
+
+nε = (1 − r) nr n = r/(1 − r),
+
+n=0
+
+∞
+n2ε = (1 − r) n2rn = r(1 + r)/(1 − r)2, so that
+
+n=0
+
+n2ε − nε 2 = r/(1 − r)2 = nε + nε 2.
+
+(1)
+
+36
+
+37
+
+In the F.D. case, see eqn. (6.3.11),
+
+1
+
+n2ε = n2pε(n) = pε(1) = nε , so that
+
+n=0
+
+n2ε − nε 2 = nε − nε 2
+
+(2)
+
+In the M.B. case, see eqn. (6.3.12), one can readily see that
+
+nε(nε − 1) =
+
+n(n − 1)
+
+nε
+
+n
+e− nε
+
+n!
+
+=
+
+nε 2
+
+nε
+
+n−2
+e−
+
+nε
+
+(n − 2)!
+
+=
+
+nε 2, so that
+
+n
+
+n
+
+n2ε − nε 2 = nε .
+
+(3)
+
+For the second part, we note, from eqn. 6.2.22, that nε −1 = e(ε−µ)/kT + a.
+
+Diﬀerentiating this result with respect to µ, we get
+
+− nε −2
+
+∂ nε ∂µ
+
+T
+
+=
+
+− 1 e(ε−µ)/kT kT
+
+=
+
+1 −[
+kT
+
+nε
+
+−1
+
+− a].
+
+It follows that
+
+kT
+
+∂ nε ∂µ
+
+= nε − a nε 2.
+T
+
+(4)
+
+Comparing (4) with our previous results (1)–(3), and with formula (6.3.9),
+
+we infer that, quite generally,
+
+n2ε − nε 2 = kT [∂ nε /∂µ]T .
+
+6.3. Starting with eqn. (6.2.15), we now have
+
+Q(z, V, T ) =
+ε
+so that
+
+(ze−βε)nε =
+
+nε =0
+
+ε
+
+1 − (ze−βε) +1
+
+1 − ze−βε
+
+,
+
+q(z, V, T ) = [ln{1 − (ze−βε) +1} − ln{1 − ze−βε}];
+ε
+cf. eqn. (6.2.17). It follows that
+
+1 ∂q
+
+nε
+
+=− β
+
+∂ε z,T,all other ε
+
+( + 1)(ze−βε) (ze−βε)
+
+ze −βε
+
+= − 1 − (ze−βε) +1
+
++ 1 − ze−βε
+
+1
+
++1
+
+= z−1eβε − 1 − (z−1eβε) +1 − 1
+
+For = 1, we obtain the Fermi-Dirac result; for → ∞ and z−1eβε > 1 [see eqn. (6.2.16a)], we obtain the Bose-Einstein result.
+
+38
+
+6.4. To determine the state of equilibrium of the given system, we minimize its free energy, U − TS , under the constraint that the total number of particles, N , is ﬁxed. For this, we vary the particle distribution from n(r) to n(r) + δn(r) and require that the resulting variation
+
+e2 δ(U − TS ) =
+2
+
+n(r)δn(r ) + n(r )δn(r)
+
+|r − r |
+
+drdr + e δn(r)ϕext (r)dr
+
++ kT [1 + ln n(r)]δn(r)dr = 0,
+
+while δN = δn(r)dr is, of necessity, zero. Introducing the Lagrange multiplier λ, our requirement takes the form
+
+e2
+
+n(r )
+
+dr |r − r |
+
++ eϕext (r) + kT [1 + ln
+
+n(r)] − λ
+
+δn(r)dr = 0.
+
+Since the variation δn(r) in this expression is arbitrary, the condition for equilibrium turns out to be
+
+e2
+
+n(r ) |r − r| dr + eϕext (r) + kT ln n(r) − µ = 0,
+
+(1)
+
+where µ = λ − kT . Introducing the total potential ϕ(r), viz.
+
+n(r)
+
+ϕ(r) = ϕext (r) + e
+
+dr , |r − r |
+
+(2)
+
+condition (1) takes the Boltzmannian form
+
+n(r) = exp[{µ − eϕ(r)}/kT ].
+
+(3)
+
+Choosing n(r) to be n0 at the point where ϕ(r) = 0, eqn. (3) may be written as
+
+n(r) = n0 exp[−eϕ(r)/kT ].
+
+(4)
+
+With ϕext (r) given, the coupled equations (2) and (4) together determine the desired functions n(r) and ϕ(r).
+
+6.5. The (un-normalized) distribution function for the variable ε in this prob-
+
+lem is given by
+
+f (ε)dε ∼ e−βεε1/2dε,
+
+where use has been made of expression (2.4.7) for the density of states of a free particle. It is now straightforward to show that
+
+ε¯ =
+
+β−5/2Γ(5/2) β−3/2Γ(3/2)
+
+=
+
+3 2β
+
+and ε2
+
+=
+
+β−7/2Γ(7/2) β−3/2Γ(3/2)
+
+=
+
+15 4β2 .
+
+39
+
+It follows that
+
+(∆ε)r.m.s. ≡
+
+(ε2 − ε¯2) =
+
+(3/2β2) =
+
+(2/3).
+
+ε¯
+
+ε¯
+
+(3/2β)
+
+6.6. We have to show that, for any law of distribution of molecular speeds [say, F (u)du],
+
+∞
+
+∞
+
+u F (u)du u−1 F (u)du
+
+0 ∞
+
+·0 ∞
+
+≥ 1, i.e.
+
+F (u)du
+
+F (u)du
+
+0
+
+0
+
+∞
+
+∞
+
+∞
+
+2
+
+u F (u)du · u−1 F (u)du ≥  F (u)du .
+
+0
+
+0
+
+0
+
+For this, we employ Schwarz’s inequality (see Abramowitz and Stegun,
+
+1964),
+
+b
+
+2 b
+
+b
+
+ f (x)g(x)dx  ≤ [f (x)]2dx · [g(x)]2dx ,
+
+a
+
+a
+
+a
+
+which holds for arbitrary functions f (x) and g(x) — so long as the integrals exist; the equality holds if and only if f (x) = c g(x), where c is a constant. Now, with f (u) = uF (u) and g(u) = u−1F (u), we obtain the desired result.
+
+For the Maxwellian distribution,
+
+F (u)du
+
+∼
+
+e−
+
+1 2
+
+β
+
+mu
+
+2
+
+u2
+
+du
+
+.
+
+It is then straightforward to see, with the help of the formulae (B.13), that
+
+u = I3 =
+
+8
+
+1/2
+and
+
+u−1
+
+= I1 =
+
+2βm 1/2 ,
+
+I2 πβm
+
+I2
+
+π
+
+whence u u−1 = 4/π, in conformity with the inequality stated.
+
+6.7. For light emitted in the x-direction, only the x-component of the molecular
+
+velocity u will contribute to the Doppler eﬀect. Moreover, for ux
+
+c, (ν − ν0)/ν0 ux/c, which means that (λ − λ0)/λ0 −ux/c. Now,
+
+the distribution of ux among the molecules of the gas is governed by
+
+the Boltzmann factor exp
+
+−
+
+1 2
+
+mu
+
+2x/kT
+
+; the distribution of λ in the light
+
+emerging from the window will, therefore, be determined by the factor
+
+exp
+
+−
+
+1 2
+
+mc2(λ
+
+−
+
+λ0)2/λ20kT
+
+.
+
+40
+
+6.8. The partition function QN (β) = (1/N !)QN1 (β), where Q1(β) is given by
+
+1
+
+p2
+
+Q1(β) = h3
+
+exp −β
+
++ mgz
+
+2m
+
+dp x dp y dp z dxdydz
+
+2πm 3/2 1 − e−βmgL
+
+= βh2
+
+·A
+
+,
+
+βmg
+
+(1)
+
+A being the area of cross-section of the cylinder. In the limit L → ∞,
+
+Q1(β) =
+
+2πm βh2
+
+3/2
+
+A ∝ T 5/2. βmg
+
+(2)
+
+The thermodynamic properties of the system now follow straightforwardly.
+
+In
+
+particular,
+
+U
+
+turns
+
+out
+
+to
+
+be
+
+5 2
+
+NkT
+
+and
+
+hence
+
+Cv
+
+=
+
+5 2
+
+Nk
+
+.
+
+The
+
+extra
+
+contribution comes from the potential energy of the system, which also
+
+rises with T . Note, from eqns. (1) and (2), that the eﬀective height of the
+
+gas molecules is (1 − e−βmgL)/βmg which for small heights is essentially
+
+L itself but for large heights is essentially kT/mg — making the total
+
+potential energy of the gas equal to NkT.
+
+6.9. Correction to the ﬁrst printing of third edition: the correct Hamiltonian is
+
+H
+
+(pr, pθ, pz, r, θ, z)
+
+=
+
+p2r 2m
+
++
+
+(p2θ
+
+− mr2ω)2 2mr2
+
++
+
+p2z 2m
+
+−
+
+mr2ω2 2
+
+.
+
+This gives for the partition function
+
+2πH R
+
+βmr2ω2
+
+2πH kT
+
+βmR2ω2
+
+Q1(V, T ) = λ3
+
+exp
+0
+
+2
+
+rdr = λ3mω2 exp
+
+2
+
+−1
+
+In the limit of small rotation rate, this becomes Q1 = πHR2/λ3 = V /λ3 as expected.
+The density is determined from δ(z − z1)δ(θ − θ1)δ(r − r1)/r . This gives
+
+βmω2r2
+
+n(r) = n(0) exp
+
+.
+
+2
+
+Since the 238UF6 molecules are heaver, their concentration is enhanced at r = R, while the concentration of the 235UF6 is enhanced near r = 0. The
+ratio at r = 0 is given by
+
+n235(0) = m235N235 n238(0) m238N238
+
+exp
+
+1 2
+
+β
+
+m238ω2
+
+R2
+
+−1
+
+exp
+
+1 2
+
+β
+
+m235ω2
+
+R2
+
+−1
+
+≈ m235N235 exp m238N238
+
+1 2
+
+β
+
+(m238
+
+−
+
+m235)
+
+ω2R2
+
+.
+
+41
+
+A value of ωR = 500 m/s gives a 16% enhancement compared to the input fraction. Drawing the uranium hexaﬂuoride gas from near the center of the cylinder results in a sample that is isotopically enhanced with 235U compared to the input concentration. This process may be repeated as often as needed to achieve the isotopic fraction needed.
+
+6.10. Consider a layer of the gas conﬁned between heights z and z + dz . For hydrostatic equilibrium, we must have
+
+P (z + dz ) + ρgdz = P (z),
+
+where ρ is the mass density of the gas. In diﬀerential form, one gets
+
+dP /dz = −ρg = (−mg/kT )P.
+
+(1)
+
+(a) If T is uniform, eqn. (1) can be readily integrated, with the result
+
+ln P = −(mg/kT )z + const.,
+
+(2)
+
+which yields the desired formula: P (z) = P (0) exp(−mgz /kT ).
+
+(b) If, on the other hand, the equilibrium is attained adiabatically, then T is related to P ; in fact, T ∝ P (γ−1)/γ. We now get
+
+dT γ − 1 dP γ − 1 mg
+
+=
+
+=−
+
+dz .
+
+(3)
+
+T
+
+γP
+
+γ kT
+
+This means that T now decreases essentially linearly with height.
+The pressure P and the density ρ go hand in hand with T — varying as T γ/γ−1 and T 1/γ−1, respectively.
+
+6.11. (a) For the given system,
+
+f (p)dp = const .e−βε(p)(4πp2dp) = C e−βc(p2+m20c2)1/2 p2dp.
+
+The normalization constant C is determined by the condition
+
+∞
+f (p)dp = C e−βc(p2+m20c2)1/2 p2 dp = 1.
+
+0
+
+Substituting p = m0c sinh θ, we get for the left-hand side of this equation
+
+∞
+C e−βm0c2 cosh θm30c3 sinh2 θ cosh θ dθ
+
+0
+
+
+
+=
+
+C
+
+m30c3
+
+e−βm0c2 cosh θ  −βm0c2
+
+sinh θ cosh θ|∞ 0
+
++
+
+∞ e−βm0c2 cosh θ
+
+
+
+βm0c3 cosh(2θ)dθ
+
+0
+
+= Cm30c3 · (βm0c2)−1K2(βm0c2).
+
+Equating this result with 1, we obtain the desired expression for C.
+
+42
+
+(b) Using the limiting forms
+
+(π/2x)1/2e−x (x 1)
+
+K2(x) ≈ 2/x2
+
+, (x 1)
+
+we obtain, rather straightforwardly, the nonrelativistic and the extreme relativistic limits of the distribution.
+(c) Since
+
+u = dε = m0c2d(cosh θ) = c tanh θ, dp m0cd (sinh θ)
+∞
+pu = C {m0c2 sinh θ tanh θ} e−βm0c2 cosh θm30c3 sinh2 θ cosh θ dθ
+0 ∞
+= C m40c5 e−βm0c2 cosh θ sinh4 θ dθ.
+0
+
+Once again, integrating by parts (this time twice), we obtain
+
+pu = C m40c5 · 3(βm0c2)−2K2(βm0c2).
+
+Substituting for C, we obtain: pu = 3/β — regardless of the severity of the relativistic eﬀects and in conformity with the results of Secs. 3.7 and 6.4.
+
+6.12. Ordinarily, when a molecule is reﬂected from a stationary wall that is
+perpendicular to the z-direction, the z-component of its velocity u simply
+changes sign, i.e. uz = −uz. If the wall is receding at velocity v in the direction of its normal, the above result changes to (uz − v) = −(uz − v), so that uz = −(uz − 2v). This results in a change in the translational energy of the molecule which, for small v, is given by
+
+∆ε
+
+=
+
+1 2
+
+mu
+
+2 z
+
+−
+
+1 2
+
+mu
+
+2 z
+
+−2mu z v.
+
+If A is the area of the wall, the net change in the energy of the gas, in
+
+43
+
+time δt, is then given by, cf. eqn. (6.4.10),
+
+∞
+
+∞
+
+∞
+
+δE = Aδt · n
+
+(−2muzv)uzf (u)duxduyduz
+
+ux=−∞ uy =−∞ uz =−∞
+
+2π π/2 ∞
+
+= −Avδt · n
+
+{2mu2 cos2 θf (u)}(u2 sin θ du dθ dφ)
+
+φ=0 θ=0 u=0
+
+∞
+
+1 = −δV · n
+
+{mu2 f (u)}(4π u2 du)
+
+3
+
+0
+
+=
+
+−δV
+
+·
+
+2 3 nε¯k
+
+=
+
+−δV
+
+·
+
+2 Ek , 3V
+
+(1)
+
+where Ek is the total kinetic energy of the gas. Note that, since the gas continues to be in a state of (quasi-static) equilibrium, the change δE (even
+
+though it originates in the translational motion of the molecules) becomes
+
+eventually a change in the internal energy U of the gas (which may well
+
+have contributions from degrees of freedom other than translational). If
+
+U = aE k, we may write
+
+1
+
+2 δV
+
+δEk =
+
+δU a
+
+=
+
+− 3a Ek
+
+V
+
+.
+
+(2)
+
+Next, since PV = (2/3)Ek, we get
+
+δP
+
+δV +
+
+= δEk
+
+2 =−
+
+δV .
+
+(3)
+
+P V Ek
+
+3a V
+
+Re-arranging (3) and integrating it, we obtain the desired result.
+
+In the extreme relativistic case, the factor 2/3 is replaced throughout by 1/3, leading to the alternate value of γ.
+
+6.13. We refer to expression (6.4.11) of the text. For part (a) of the question, we integrate only over u and ϕ, to get
+
+1
+
+dRθ
+
+=
+
+n(u¯/4π) ·
+
+2π sin θ cos θdθ
+
+=
+
+nu¯ sin θ cos θdθ. 2
+
+For part (b), we integrate only over θ and ϕ, to get
+
+dRu = nπ · f (u)u3du, where f (u)|M.B. =
+
+m 2πkT
+
+3/2 e−mu2/2kT .
+
+For part (c), we refer to expression (6.4.10) instead and get
+
+RE = n =n
+
+m 2πkT
+
+∞
+
+∞
+
+∞
+
+3/2
+
+ux =−∞
+
+uy =−∞
+
+√
+uz = 2E/m
+
+e−m(u2x+u2y+u2z)/2kT uz du xdu ydu z
+
+kT
+
+1/2
+e−E/kT .
+
+2πm
+
+44
+
+It follows that
+
+RE(T2) =
+
+T2
+
+1/2
+exp
+
+−E
+
+11 −
+
+.
+
+RE (T1 )
+
+T1
+
+k T2 T1
+
+With T1 = 300 K, T2 = 310 K and E = 10−19 J, this ratio turns out to be about 2.2.
+
+6.14. (a) We start by calculating the kinetic energy associated with the zcomponent of the motion of the eﬀused molecules. Proceeding as Section 6.4 of the text, we get [see eqn. (6.4.11)]
+
+1 2
+
+mu
+
+2 z
+
+π/2 ∞
+
+(u3 cos3 θ)f (u)u2 sin θdudθ
+
+1 =m
+
+u2
+
+cos2
+
+θ
+
+=
+
+1 m
+
+0
+
+0
+
+2
+
+2 π/2 ∞
+
+(u cos θ)f (u)u2 sin θdudθ
+
+00
+
+1 u3 =m ;
+4u
+
+note that the averages on the right-hand side are taken over the gas inside the vessel. It is not diﬃcult to show, see the corresponding calculation in Problem 6.6 and the formulae (B.13b), that
+
+u3
+
+= I5 =
+
+4 ,
+
+u I3 βm
+
+so that
+
+1 2
+
+mu
+
+2 z
+
+,
+
+for the eﬀused molecules, = 1/β
+
+= kT .
+
+The
+
+kinetic
+
+energy associated with the x- and y-components of the molecular
+
+motion will be the same as inside the vessel, viz.
+
+1 2
+
+kT
+
+each.
+
+It
+
+follows that the mean energy ε of an eﬀused molecule is 2 kT.
+
+(b) Assuming quasi-static equilibrium, the relations E = (3/2)NkT and P = NkT /V will continue to hold for the gas inside the vessel. However, in view of the result obtained in part (a), we shall also have
+
+dE d 3
+
+dN
+
+≡
+
+NkT = 2kT .
+
+dt dt 2
+
+dt
+
+It follows that
+
+dT
+
+1 dN =
+
+and hence T ∝ N 1/3;
+
+T 3N
+
+it further follows that P ∝ N 4/3.
+
+As for explicit variations with t, we make use of eqn. (6.4.13) and write
+
+dN 1
+
+1 aN 8kT 1/2
+
+= − an u = −
+
+.
+
+dt
+
+4
+
+4 V πm
+
+45
+
+Combining the last two results, we get
+
+dT
+
+1 a kT 1/2
+
+=−
+
+dt ,
+
+T
+
+3 V 2πm
+
+so that T = T0(1+ct)−2, where c = (a/6V )(kT 0/2πm)1/2. The variations of N and P with t follow straightforwardly.
+
+6.15. If nH is the number of holes per unit area of the surface of the balloon (of radius r), a the area of each hole and t the duration of the leak, then the total number of molecules leaking is given by
+
+∆N
+
+=
+
+1 nu¯ ·
+4
+
+nH (4πr2)at
+
+u¯ = (8kT /πm)1/2 .
+
+The fraction of the molecules leaking is thus given by
+
+∆N 1 =
+N 4V
+
+8kT πm
+
+1/2
+· nH (4πr2)at.
+
+Since V = (4π/3)r3, we get
+
+∆N r 2πm 1/2
+
+nH =
+
+N
+
+· 3at
+
+kT
+
+.
+
+Substituting the data given, we obtain: nH 187 holes/m2.
+
+6.16. The rate of eﬀusion of molecules from side A to side B, through a hole of cross-section S, is given by the expression
+
+1 RA→B = 4 nA
+
+8kT A S = √ PA
+
+S;
+
+πmA
+
+2πmAkT A
+
+the same from side B to side A is given by
+
+1 RB→A = 4 nB
+
+8kT B S = √ PB
+
+S.
+
+πmB
+
+2πmBkT B
+
+In the stationary state, these two expressions will be equal — which leads to the condition of dynamic equilibrium
+
+PA/PB = (mATA/mBTB)1/2.
+
+If the two gases are samples of the same gas, the condition simpliﬁes to
+
+PA/PB = (TA/TB)1/2.
+
+46
+
+6.18. The (un-normalized) velocity distribution for a pair of molecules is given by
+
+F (u1, u2)d3u1d3u2
+
+∼
+
+e−
+
+1 2
+
+βm(u21
+
++u22
+
+)
+
+d3
+
+u1
+
+d3u2.
+
+We deﬁne the relative velocity, v, and the velocity of the centre-of-mass, V, in the usual manner, viz.
+
+1 v = u2 − u1, V = 2 (u1 + u2).
+
+This results in a new distribution for the variables v and V:
+
+F (v,V)d3vd 3V
+
+∼
+
+e−
+
+1 4
+
+β
+
+mv2
+
+d3v · e−βmV2
+
+d3V.
+
+√ It is now straightforward to show that v = (16/πβm)1/2 = 2√u , while v2 = (6/βm) = 2 u2 . The latter result implies that vr.m.s. = 2 ur.m.s..
+
+We note that, since
+
+v2 = u21 + u22 + u22 − 2u1 · u2,
+v2 = 2 u2 , regardless of the law of distribution of velocities — so long as it is isotropic, making u1 · u2 = 0.
+6.19. The (un-normalized) joint distribution for the molecular energies ε1 and ε2 is
+
+f (ε1, ε2)dε1dε2 ∼ e−β(ε1+ε2) ε11/2ε12/2dε1dε2.
+To obtain the desired distribution, we set ε2 = E − ε1 and integrate over all relevant values of ε1, with the result that
+E
+P (E)dE ∼ e−βE {ε1(E − ε1)}1/2dε1dE
+0
+∼ e−βE E2 dE ;
+
+cf. eqns. (3.4.3) and (3.5.16), with N = 2. It is now straightforward to
+
+check that
+
+β−4Γ(4) 3
+
+E
+
+=
+
+β−3Γ(3)
+
+=
+
+. β
+
+6.20. The relative fraction of the excited atoms in the given sample of the helium gas would be 3e−βε1 , where
+
+hc βε1 = kT λ1 38.22.
+
+The desired fraction turns out to be extremely small — about 7 × 10−17.
+
+47
+
+6.21. We extend the treatment of Problem 3.14 to the reaction AB + CD ↔ AD + CB and obtain, in equilibrium,
+
+nAD nCB = fAD fCB = K(T ). nAB nCD fAB nCD
+
+For the given reaction,
+
+K(T ) = fH2 D , fHH fDD
+
+where each f is a product of three factors — the translational, the rotational and the vibrational.
+
+Now, for a heteronuclear molecule like HD we have, at high temperatures,
+
+fHD ≈ V
+
+mHD kT 2π 2
+
+3/2
+·
+
+2IHD kT
+2
+
+·
+
+kT ,
+ωHD
+
+while for a homonuclear molecule like HH we have instead
+
+fHH ≈ V
+
+mHH kT 2π 2
+
+3/2
+
+·
+
+IHH kT
+2
+
+·
+
+kT ;
+ωHH
+
+see Note 11 of the text. It follows that, at high temperatures,
+
+K (T
+
+)
+
+≈
+
+4
+
+m3HD m3H/H2 m3D/D2
+
+·
+
+IH2 D IHH IDD
+
+·
+
+IH2 D IHH IDD
+
+·
+
+ωHH ωDD ωH2 D
+
+.
+
+(1)
+
+Assuming the internuclear distances to be the same, the I’s here will be proportional to the reduced masses of the molecules; the ω’s, on the other hand, are inversely proportional to the square roots of the reduced masses. Accordingly,
+
+IH2 D IHH IDD
+
+·
+
+ωHH ωDD ωH2 D
+
+=
+
+µ3HD µ3H/H2 µ3D/D2
+
+=
+
+{mH mD/(mH + mD)}3 .
+
+1 2
+
+mH
+
+3/2
+
+1 2
+
+mD
+
+3/2
+
+(2)
+
+At the same time,
+
+m3HD = (mH + mD)3 .
+
+(3)
+
+m3H/H2 m3D/D2 (2mH )3/2(2mD)3/2
+
+Substituting (2) and (3) into (1), we see that K(T ) ≈ 4.
+
+6.23. The potential V (r) is minimum at r = r0, which determines the equilib-
+
+rium value of r. Accordingly, the quantum of the rotational motion of
+
+the molecule is 2/2I, where I = µr02. This gives for Θr the expression
+
+2/2µr02k =
+
+2/mr
+
+2 0
+
+k
+
+because
+
+the
+
+reduced
+
+mass
+
+µ
+
+in
+
+this
+
+case
+
+is
+
+equal
+
+to
+
+m/2. Substituting the given data, Θr turns out to be about 75 K. This
+
+gives a fairly clear idea of the “temperature range” where the rotational
+
+48
+
+motion of the hydrogen molecules begins to contribute towards the speciﬁc heat of the gas.
+Next we expand V (r) in the neighborhood of r = r0 and write
+
+V (r) = −V0 + (V0/a2)(r − r0)2 + . . . .
+
+This gives an ω equal to (2 V0/µa2)1/2 = (4V0/ma2)1/2 and hence a Θv equal to (4V0/ma2)1/2/k. Substituting the given data, Θv turns out to be about 6260 K. Again, this gives a fairly clear idea of the “temperature
+range” where the vibrational motion of the hydrogen molecules begins to
+contribute towards the speciﬁc heat of the gas.
+
+6.24. The eﬀective potential of a diatomic molecule (including both rotation and vibration) is given by
+
+V
+
+(r)
+
+=
+
+−V0
+
++
+
+1 µω2(r 2
+
+−
+
+r0)2
+
++
+
+2
+2µr2
+
+J (J
+
++
+
+1).
+
+The equilibrium value of r is obtained by minimizing V (r), with the result
+
+2
+(req − r0) = µ2ω2re3q J (J + 1)
+
+2
+µ2ω2r03 J (J + 1).
+
+It follows that
+∆r0 r0
+
+2
+µ2ω2r04 J (J + 1) = 4
+
+Θr Θv
+
+2
+J(J + 1).
+
+Using data from the preceding problem, we ﬁnd that for a hydrogen molecule the fractional change in r0 is O(10−3).
+
+6.25. The occupation number NJ is proportional to (2J + 1) e−εJ /kT . It fol-
+
+lows that
+
+N0 = 1 e−(ε0−ε2)/kT , N1 = 3 e−(ε1−ε2)/kT .
+
+N2 5
+
+N2 5
+
+Substituting the given data, we get
+
+N0 = 1 e−1.086 N2 5 in other words,
+
+0.0675, N1 = 3 e−0.760 N2 5
+
+0.2806;
+
+N0 : N1 : N2 :: 0.050 : 0.208 : 0.742.
+
+6.29. The various contributions to the molar speciﬁc heat of the gas at 300 K are: (i) translational — the amount being (3/2)R.
+
+49
+
+(ii) rotational — since the characteristic values of the parameter Θr in this case are of the order of 10 K, these degrees of freedom may be treated classically, which yields a contribution of (3/2)R; see eqn. (6.5.42).
+(iii) vibrational — here, the parameters Θv are such that the various contributions have to be calculated quantum-mechanically, using formula (6.5.44). We ﬁnd that
+
+Θ1,2 16.00, Θ3,4 4.56, Θ5 16.37, Θ6 7.80,
+
+T
+
+T
+
+T
+
+T
+
+with the result that only modes 3 and 4 make appreciable contributions to the speciﬁc heat of the gas; it turns out that each of these contributions is about 0.22R. The contribution from mode 6 is about 0.02R, while those from modes 1,2 and 5 are entirely negligible.
+The net result is: 3.46R.
+
+6.30. Equation (6.6.3) can be written α ναµα = 0 where the stioichiometric coeﬃcients are understood to be positive if they appear on the right hand
+side of equation (6.6.1) and negative if on the left. Using equation (6.6.5)
+gives
+
+which gives
+
+να α + kT ln nαλ3α − kT ln jα = 0,
+α
+
+να
+α
+
+α + kT ln n0λ3α − kT ln jα + kT ln
+
+nα n0
+
+= 0.
+
+Rearranging gives
+
+να ln
+α
+
+nα n0
+
+= −β να
+α
+
+α + kT ln n0λ3α − kT ln jα
+
+= −β ναµ(α0),
+α
+
+where µ(α0) is the chemical potential of species α at temperature T and standard density n0. Equation (6.6.6) follows from exponentiating both sides.
+
+6.31. Equation (6.6.11) gives
+
+[CO]
+
+1
+
+=
+
+[CO2]
+
+K(T ) [O2]
+
+50
+
+where
+
+K(T ) = exp −2βµ(C0O) 2 + 2βµ(C0O) + βµ(O02) .
+
+For the parameters given in the problem K(1500 K) = 4 × 1010 which yields [CO] / [CO2] 5 × 10−5 = 50 ppm, while K(600 K) = 1.7 × 1040 which yields [CO] / [CO2] 7 × 10−20 which yields a negligible [CO] con-
+centration.
+
+6.32. The equilibrium constant for N2 + O2 → 2NO is
+
+[NO]2 [N2] [O2]
+
+=
+
+K(T )
+
+=
+
+e−β∆ε jN2 O jN2 jO2
+
+λ3N2 λ3O2 λ6NO
+
+.
+
+The internal partition functions are of the form
+
+
+
+T
+
+ j=
+
+Θr
+
+for kT ω
+
+T
+ Θr
+
+kT ω
+
+for kT
+
+ω
+
+which leads to
+
+
+ e−β∆ε K(T ) =
+ e−β∆ε
+
+ΘN2 ΘO2 Θ2NO
+ΘN2 ΘO2 Θ2NO
+
+303 283/2 323/2
+303 283/2 323/2
+
+ωN2 ωO2 ωN2 O
+
+for kT for kT
+
+ω ω
+
+6.33. The equilibrium relation is
+
+[CO2]H2O]2 [CH4][O2]2
+
+=
+
+K
+
+Let [excess] be the initial excess amount of O2 above stoichiometry, and [unburned] be the unburned amount of CH4. Then
+
+[CO2]H2O]2 [CH4][O2]2
+
+=
+
+4 ([CH4]0 − [unburned])3 [unburned] ([excess] + 2[unburned])2
+
+=
+
+K
+
+Since K 1, at the stoichiometric point [excess] = 0 so
+
+[unburned] ≈ [CH4]0 . K 1/3
+On the lean side of the stoichiometric point [excess] > 0 so
+
+[unburned] ≈ 4[CH4]20 . [excess]K
+
+Finally, on the rich side of the stoichiometric point [excess] < 0 so
+
+[excess]
+
+[unburned] ≈ −
+
+.
+
+2
+
+51
+
+6.34. Equation (6.6.3) gives µNa = µNa+ + µe where
+µNa = −εb − kT ln 2 + kT ln nNaλ3Na , µNa+ = kT ln nNa+ λ3Na , µe = −kT ln 2 + kT ln neλ3e ,
+
+where b is the ionization energy of Na. These lead to
+
+nNa nNa+ ne
+
+= eβ
+
+b λ3e.
+
+If the total density is n0 = nNa + nNa+ , the ionized fraction f = nNa+ /n0, and the system is charge neutral, then
+
+1−f f2
+
+= eβ
+
+b n0λ3e
+
+= s,
+
+which has solution
+
+√
+
+1 + 4s − 1
+
+f=
+
+.
+
+2s
+
+Chapter 7
+
+7.2. With N0 N , eqn. (7.1.8) reads
+
+nλ3 = g3/2(z) = z + 2−3/2z2 + 3−3/2z3 + 4−3/2z4 + . . . ,
+
+(1)
+
+where n is the particle density. To invert this series, we write
+
+z = c1(nλ3) + c2(nλ3)2 + c3(nλ3)3 + c4(nλ3)4 + . . .
+
+(2)
+
+and substitute into (1). Equating coeﬃcients of like powers of (nλ3) on the two sides of the resulting equation, we get
+
+1 = c1, 0 = c2 + 2−3/2c21, 0 = c3 + 2−3/2 · 2c1c2 + 3−3/2c31, 0 = c4 + 2−3/2 c22 + 2c1c3 + 3−3/2 · 3c21c2 + 4−3/2c41, . . . .
+
+It follows that
+
+c1 = 1, c2 = −2−3/2, c3 = (1/4) − 3−3/2, c4 = 5.6−3/2 − 5.2−9/2 − (1/8), . . .
+
+We now write eqn. (7.1.7) in the form
+
+PV NkT
+
+=
+
+1 nλ3
+
+(z
+
++
+
+2−5/2z2
+
++
+
+3−5/2z3
+
++
+
+4−5/2z4
+
++
+
+.
+
+.
+
+.)
+
+and substitute expression (2) into it. This leads to the desired result (7.1.13), with
+
+a1 = c1 = 1, a2 = c2 + 2−5/2c21 = −2−5/2, a3 = c3 + 2−5/2 · 2c1c2 + 3−5/2c31 = (1/8) − 2.3−5/2, a4 = c4 + 2−5/2 c22 + 2c1c3 + 3−5/2 · 3c21c2 + 4−5/2c41
+= 3.6−3/2 − 5.2−11/2 − (3/32),
+
+in agreement with the values quoted in expressions (7.1.14).
+
+52
+
+53
+
+7.3. By eqns. (7.1.24) and (7.1.26), nλ3 = g3/2(z) while nλ3c = ζ(3/2). It follows that
+
+T ≡
+
+λ
+
+−2
+=
+
+g3/2(z)
+
+−2/3
+.
+
+Tc
+
+λc
+
+ζ (3/2)
+
+The right-hand side of this equation may be approximated with the help
+
+of formula (D.9), with the result that
+
+T
+
+ζ(3/2) − 2π1/2α1/2 + . . . −2/3
+
+4π1/2α1/2
+
+=
+
+≈1+
+
+,
+
+Tc
+
+ζ (3/2)
+
+3ζ (3/2)
+
+valid for α 1 and hence for T Tc. The desired result now follows readily.
+7.4. By eqn. (7.1.7), P = cT 5/2g5/2(z), where c is a constant. Diﬀerentiating this result with respect to T at constant P, we get
+
+0
+
+=
+
+5 2
+
+cT
+
+3/2g5/2(z
+
+)
+
++
+
+cT 5/2 ∂g5/2(z) ∂z
+
+∂z ∂T
+
+,
+P
+
+so that
+
+∂z
+
+5
+
+=−
+
+g5/2(z) .
+
+∂T P
+
+2T {∂g5/2(z)/∂z}
+
+Using the recurrence relation (D.10), we get the desired result
+
+1 ∂z = − 5 g5/2(z) .
+
+(1)
+
+z ∂T P
+
+2T g3/2(z)
+
+Now, CP = T (∂S/∂T )P,N and CV = T (∂S/∂T )V,N . In view of the fact that S, at constant N, is a function of z only, see eqn. (7.1.44a), we may write
+
+∂S
+
+∂z
+
+∂S
+
+∂z
+
+CP = T
+
+∂z N
+
+∂T
+
+and CV = T
+P
+
+∂z N
+
+. ∂T v
+
+It follows that
+
+γ = CP = (∂z/∂T )P . CV (∂z/∂T )v
+
+Substituting from eqn. (1) above and from eqn. (7.1.36), we obtain the desired result
+
+CP /CV = (5/3) g5/2(z)g1/2(z)/{g3/2(z)}2 .
+
+For T Tc, which implies z 1, we recover the classical result: γ = 5/3. As T → Tc, z → 1 and the function g1/2(z) diverges as α−1/2; see eqn. (D.8). Along with it, both γ and CP diverge as (T − Tc)−1; see the
+relation established in Problem 7.3.
+
+54
+
+7.5. (a) We have to evaluate the quantities
+
+1 ∂n
+
+1 ∂n
+
+κT = n
+
+∂P
+
+T and κS = n
+
+∂P
+
+,
+z
+
+where n = N/V . For N0 N, n(T, z) = aT 3/2g3/2(z), where a is a constant; see eqn. (7.1.8). It follows that
+
+dn
+
+=
+
+3 2
+
+aT
+
+1/2g3/2
+
+(z)dT
+
++ aT 3/2
+
+1 z g1/2(z)
+
+dz .
+
+Similarly, since P = cT 5/2g5/2(z), where c is a constant,
+
+dP
+
+=
+
+5 2
+
+cT
+
+3/2g5/2
+
+(z)dT
+
++
+
+cT 5/2
+
+1 z g3/2(z)
+
+dz .
+
+The quantities κT and κS are then given by
+
+κT
+
+=
+
+1a n cT
+
+g1/2(z) g3/2(z)
+
+and
+
+κS
+
+=
+
+1 n
+
+3a 5cT
+
+g3/2(z) . g5/2(z)
+
+Since c = ak , the desired results follow readily. Note that, as z → 1, κT diverges in the same manner as γ and CP . (b) Since P = 2U/3V, (∂P/∂T )V = 2CV/3V . It follows that
+
+CP
+
+− CV
+
+=
+
+TV
+
+·
+
+1 nkT
+
+g1/2(z) g3/2(z)
+
+·
+
+4CV2 9V 2
+
+=
+
+4CV2 9Nk
+
+g1/2(z) , g3/2(z)
+
+in agreement with eqn. (7.1.48a). The other result follows straightforwardly.
+
+7.6. For T > Tc, we employ expression (7.1.37) and write
+
+1 ∂CV
+
+∂ =
+
+CV · ∂ ln z .
+
+Nk ∂T V ∂ ln z Nk
+
+∂T v
+
+The ﬁrst factor turns out to be
+
+15 4
+
+g3/2(z)g3/2(z) − g5/2(z)g1/2(z) {g3/2(z)}2
+
+−
+
+9 4
+
+g1/2(z)g1/2(z) − g3/2(z)g−1/2(z) {g1/2(z)}2
+
+=
+
+3 2
+
+−
+
+15 4
+
+g5/2(z)g1/2(z) {g3/2(z)}2
+
++
+
+9 4
+
+g3/2(z)g−1/2(z) {g1/2(z)}2
+
+.
+
+The second factor is given by eqn. (7.1.36). Multiplying the two, we obtain the desired result.
+For T < Tc, we employ expression (7.1.31) instead. Since CV is now proportional to T 3/2,
+
+1 ∂CV = 3 CV , Nk ∂T V 2T Nk
+
+55
+
+which leads to the result quoted in the problem.
+
+As T → Tc from above, the quantity under study approaches the limiting
+
+value
+
+1 45 ζ(5/2)
+
+27 {ζ(3/2)}2 · Γ(3/2)α−3/2
+
+−0−
+
+;
+
+Tc 8 ζ(3/2)
+
+8 {Γ(1/2)α−1/2}3
+
+on the other hand, as T → Tc from below, we obtain simply
+
+1 45 ζ(5/2)
+
+·
+
+.
+
+Tc 8 ζ(3/2)
+
+The discontinuity in the slope of the speciﬁc heat curve at T = Tc is, therefore, given by
+
+Nk 27
+
+3 2 (π1/2/2) 27Nk
+
+32
+
+·ζ
+
+·
+
+=
+
+ζ
+
+.
+
+Tc 8
+
+2
+
+π3/2
+
+16πTc
+
+2
+
+7.7. Since P = 2U/3V, (∂2P/∂T 2)v = (2/3V )(∂CV/∂T )V. An explicit expression for this quantity can be written down using the result quoted in Problem 7.6.
+Next, since µ = kT ln z, we obtain using eqn. (7.1.36)
+
+∂µ
+
+kT ∂z = k ln z + ·
+
+=k
+
+ln
+
+z
+
+−
+
+3 k
+
+g3/2(z) ,
+
+∂T v
+
+z ∂T v
+
+2 g1/2(z)
+
+∂2µ ∂T 2
+
+=
+v
+
+k
+
+−
+
+3 2
+
+k
+
+g1/2(z)g1/2(z) − g3/2(z {g1/2(z)}2
+
+)g−1/2(z)
+
+∂ ln z ∂T v
+
+=
+
+3k 4T
+
+g3/2(z) g1/2(z)
+
+−
+
+9k 4T
+
+{g3/2(z)}2g−1/2(z) {g1/2(z)}3
+
+Similarly, using a result from Problem 7.4, we obtain
+
+∂2µ ∂T 2
+
+P
+
+=
+
+15k 4T
+
+g5/2(z) g3/2(z)
+
+−
+
+25k 4T
+
+{g5/2(z)}2g1/2(z) {g3/2(z)}3
+
+.
+
+We also note, see eqns. (7.1.37) and (7.1.48b), that
+
+CP Nk
+
+=
+
+25 4
+
+{g5/2(z)}2g1/2(z) {g3/2(z)}3
+
+−
+
+15 4
+
+g5/2(z) . g3/2(z)
+
+It is now straightforward to see that the stated thermodynamic relations are indeed satisﬁed. The critical behavior of these quantities is also straightforward to check.
+
+7.8. One readily sees that
+
+w2 = ∂P
+
+1
+
+=
+
+,
+
+∂(nm) S mnκS
+
+56
+
+where κS is the adiabatic compressibility of the ﬂuid. Using a result from Problem 7.5, we get for the ideal Bose gas
+
+w2 = 5kT g5/2(z) . 3m g3/2(z)
+
+Next,
+
+u2 = 2ε = 2 U = 3kT g5/2(z) ;
+
+m
+
+mN
+
+m g3/2(z)
+
+see eqns. (7.1.8) and (7.1.11). Clearly, w2 = (5/9) < u2 >.
+
+7.9. We start by calculating the expectation values of the quantities ε1/2 and ε−1/2:
+
+∞
+
+nε ε1/2a(ε)dε
+
+ε1/2 = 0 ∞
+
+,
+
+nε a(ε)dε
+
+0
+
+ε−1/2
+
+∞
+
+nε ε−1/2a(ε)dε
+
+=0 ∞
+
+.
+
+nε a(ε)dε
+
+0
+
+The integral in the denominator has been evaluated in Section 7.1; those in the numerator can be evaluated like-wise, with the results
+
+ε1/2 = (kT )1/2 Γ(2)g2(z) , ε−1/2 = (kT )−1/2 Γ(1)g1(z) .
+
+Γ(3/2)g3/2(z)
+
+Γ(3/2)g3/2(z)
+
+It follows that
+
+u = 2 ε1/2 = 8kT g2(z) , while
+
+m
+
+πm g3/2(z)
+
+u−1 = m ε−1/2 = 2m g1(z) .
+
+2
+
+πkT g3/2(z)
+
+Multiplying the last two expressions, we obtain the desired result.
+For z → 0, we recover the classical result stated in Problem 6.6. For z → 1, we encounter divergence of the quantity u−1 , which arises from the contribution made by the particles in the condensate (for which u = 0).
+
+7.11. Under the conditions of this problem, the summation in eqn. (7.1.2) has to be carried out over the states of the internal spectrum as well as over the translational states. Expression (7.1.16) is then replaced by
+
+V
+
+µ
+
+Ne = (Ne)0 + (Ne)1 = λ3 g3/2 exp kT
+
+V + λ3 g3/2
+
+exp
+
+µ − ε1 kT
+
+.
+
+The critical temperature Tc is then determined by the condition
+
+V λ3c g3/2(1) +
+
+V λ3c g3/2(x) = N,
+
+where x = e−ε1/kT c .
+
+(1)
+
+57
+
+For x 1, g3/2(x) x and eqn. (1) gives
+
+λ3c (V /N )[ζ(3/2) + x]. Comparing this with the standard result λ0c 3 = (V /N )ζ(3/2), we get
+
+Tc Tc0
+
+≡
+
+λ0c 2 λc
+
+x 1+
+
+−2/3
+
+2/3
+
+1−
+
+x
+
+1−
+
+2/3
+
+e−ε1
+
+/kT
+
+0 c
+
+.
+
+ζ (3/2)
+
+ζ (3/2)
+
+ζ (3/2)
+
+For x 1, on the other hand, g3/2(x) ζ(3/2)−2π1/2(− ln x)1/2; eqn. (1) now gives
+
+λ3c (2V /N )[ζ(3/2) − π1/2(ε1/kT c)1/2], whence
+
+Tc Tc0
+
+π1/2 2 1−
+
+ε1 1/2
+
+ζ(3/2) kT c
+
+−2/3
+
+2−2/3
+
+2 1+
+
+π1/2 21/3
+
+3 ζ(3/2)
+
+ε1
+
+kT
+
+0 c
+
+1/2
+.
+
+7.12. The relative mean-square ﬂuctuation in N is given by the general for-
+
+mula (4.5.7),
+
+(∆N )2 kT
+
+N¯ 2 = V κT ,
+
+(1)
+
+while κT for the ideal Bose gas is given in Problem 7.5. As T → Tc from above, the function g1/2(z) and, along with it, both κT and the relative ﬂuctuation in N diverge!
+
+The mean-square ﬂuctuation in E is given by the general formula (4.5.14),
+
+viz.
+
+(∆E)2 = kT 2CV + {(∂U/∂N )T,V}2(∆N )2.
+
+(2)
+
+The ﬁrst term in (2), for the ideal Bose gas, is determined by eqn. (7.1.37) and stays ﬁnite at all T. The second term can be evaluated with the help of eqns. (7.1.8 and 11), whereby
+
+∂U
+
+= ∂g5/2(z)
+
+= g3/2(z) .
+
+(3)
+
+∂N T,V
+
+∂g3/2(z) T,V g3/2(z)
+
+The second term in (2) is, therefore, inversely proportional to g1/2(z) and hence vanishes as T → Tc; this happens because the energy associated with the Bose condensate (which is, in fact, the component responsible for the dramatic rise in the ﬂuctuation of N ) is zero. Thus, all in all, the relative ﬂuctuation in E is negligible at all T.
+
+7.13. It is straightforward to see that for a Bose gas in two dimensions
+
+∞
+
+∞
+
+1 A · 2πp dp A · 2πmkT
+
+dx
+
+A2
+
+Ne = z−1eβε−1
+
+h2
+
+=
+
+h2
+
+z−1ex − 1 = λ g1(z),
+
+0
+
+0
+
+58
+
+while
+
+z
+
+N0
+
+=
+
+. 1−z
+
+Since Bose-Einstein condensation requires that z → 1, the critical tem-
+
+perature Tc, by the usual argument, is given by
+
+N A
+
+λ2c = g1(1) = ∞
+
+[for g1(z) = − ln(1 − z)].
+
+It follows that Tc = 0.
+
+More accurately, the phenomenon of condensation requires that both Ne
+
+and N0 be of order N . This means that, while z 1, (1 − z) be of order N −1 and hence λ2 be of order (A ln N /N ). Since the ratio (A/N ) ∼
+
+2, the condition for condensation takes the form (λ2/ 2) = O(ln N ). It
+
+follows that
+
+h2
+
+h2 1
+
+T ≡ 2πmk λ2 ∼ mk 2 ln N .
+
+7.14. With energy spectrum ε = Aps, the density of states in the system is given by, see formula (C.7b),
+
+a(ε)dε
+
+=
+
+V hn
+
+2πn/2 pn−1dp Γ(n − 2)
+
+=
+
+V hn
+
+2πn/2 sAn/s Γ(n/2)
+
+ε(n/s)−1dε.
+
+(1)
+
+This leads to the expression
+
+∞
+
+V
+
+2πn/2
+
+ε(n/2)−1
+
+N − N0 = hn sAn/sΓ(n/2) z−1eβε − 1 dε
+
+0
+
+=
+
+V hn
+
+2πn/2 sAn/s
+
+Γ(n/s) Γ(n/2)
+
+(kT
+
+)n/sgn/s(z),
+
+(2)
+
+while N0 = z/(1 − z). Similarly,
+
+P
+
+=
+
+1 hn
+
+2πn/2Γ(n/s) sAn/sΓ(n/2)
+
+(kT
+
+)(n/s)+1
+
+g(n+s)+1(z).
+
+(3)
+
+Next, following the derivation of eqn. (7.1.11), we get
+
+U = kT 2 ∂ PV
+
+n = PV ,
+
+(4)
+
+∂T kT z,v s
+
+so that P = sU /nV .
+
+The onset of Bose-Einstein condensation requires that z → 1 at a ﬁnite
+
+temperature Tc. A glance at eqn. (2) tells us that this will happen only
+
+if n > s and that the critical temperature Tc will then be determined by the equation
+
+N
+
+=
+
+V hn
+
+2πn/2Γ(n/s) sAn/sΓ(n/2)
+
+(kT
+
+c)n/s
+
+ζ
+
+n s
+
+.
+
+(5)
+
+59
+
+For T < Tc, Ne will be equal to N (T /Tc)n/s while N0 will be given by the balance (N − Ne).
+
+To study the speciﬁc heats we ﬁrst observe, from eqns. (2)–(4), that for T > Tc (when N0 N )
+
+n
+
+U
+
+=
+
+NkT s
+
+· g(n/s)+1(z)/gn/s(z)
+
+(6)
+
+Next, using eqns. (2) and (3), and the recurrence relation (D.10), we get
+
+1 ∂z
+
+n1 =−
+
+gn/s(z)
+
+1 ∂z and
+
+=−
+
+n +1
+
+1 g(n/s)+1(z) .
+
+2 ∂T v
+
+s T g(n/s)−1(z)
+
+z ∂T P
+
+s
+
+T gn/s(z)
+
+(7)
+
+It is now straightforward to show that
+
+Cv = n
+
+n +1
+
+g(n/s)+1(z) −
+
+n2
+
+gn/s(z)
+
+(8)
+
+Nk s s
+
+gn/s(z)
+
+s g(n/s)−1(z)
+
+and CP = Nk
+
+n +1
+s
+
+2
+
+{g(n/s)+1(z)}2g(n/s−1)(z) {gn/s(z)}3
+
+−
+
+n s
+
+n +1
+s
+
+g(n/s)+1(z) . (9) gn/s(z)
+
+The limiting cases suggested in the problem follow quite easily.
+
+7.15. The position and momentum representations of the Schrodinger equation after the potential is turned oﬀ at time t = 0 is
+
+2 ∂2ψ
+
+∂ψ
+
+− 2m ∂x2 = i
+
+, ∂t
+
+p2 ψˆ = i
+
+∂ψˆ .
+
+2m
+
+∂t
+
+The momentum representation is easily solved
+
+ψˆ(p, t) = exp p2t ψˆ(p, 0), 2i m
+
+where
+
+ψˆ(p, 0) = √ 1 2π
+
+eipx/ ψ(x, 0)dx.
+
+This leads to (suppressing the normalization factor)
+
+ψˆ(p, t) ∼ exp
+
+p2
+
+− 2
+
+2
+
+a2 + i t m
+
+.
+
+Inverse Fourier transforming gives
+
+√ a
+
+1 x2
+
+ψ(x, t) = π1/4
+
+exp a2 + i t/m
+
+− 2 a2 + i t/m
+
+.
+
+60
+
+This solves the Schrodinger equation and leads to the one-dimensional density
+
+|ψ(x, t)|2 = 1 π1/2a
+
+1
+
+x2
+
+exp 1 + ( t/ma2)2
+
+− a2(1 + ( t/ma2)2)
+
+.
+
+This gives the spatial distribution for one cartesian direction once you note that /ma2 = ω0. At long-time, the width of the distribution grows linearly in time.
+
+7.16. The one-dimensional normalized joint momentum–position density at time t = 0 is given by
+
+ω
+
+βp2 βmω2x2
+
+f (p, x, 0) =
+
+exp − −
+
+.
+
+2πkT
+
+2m
+
+2
+
+After the potential is turned oﬀ at t = 0, the particles move ballistically so the density becomes
+
+ω
+
+βp2 βmω2(x + pt/m)2
+
+f (p, x, t) = f (p, x + pt/m, 0) =
+
+exp − −
+
+.
+
+2πkT
+
+2m
+
+2
+
+The spatial density is then given by
+
+ω 2πmkT
+
+1 βmω2x2
+
+n(x, t) =
+
+f (p, x + pt/m, 0)dp = 2πkT
+
+1 + ω2t2 exp − 2 1 + ω2t2 .
+
+The high-temperature limit of equation (7.2.15) is given by the ﬁrst term in the series since at high temperature the chemical potential is large and negative.
+
+7.17. The ground state density at the center of the trap is N0/(π3/2a3); see problem 7.15. Using N0/N = 1−(T /Tc)3, a = /(mω), and kTc/( ω) = (N/ζ(3)1/3), we get
+
+n(0)λ3 = 7ζ(3)1/2N 1/2 1.
+
+7.18. Integrating equation (7.2.15) gives
+
+1 ∞ eβµj (kT )3/2
+
+nex(r)dr = λ3
+j=1
+
+j 3 m3/2 ω03
+
+=
+
+kT 3 ∞ eβµj
+
+ω0
+
+j3 .
+j=1
+
+The excited particles can be counted using the density of states and the Bose-Einstein factor,
+
+Nex =
+
+1
+
+(kT )3
+
+a(ε)
+
+dε =
+
+eβ(ε−µ) − 1
+
+2(
+
+ω)3
+
+∞
+x2 e−xeβµj dx =
+j=1
+
+kT 3 ∞ eβµj
+
+ω0
+
+j3 .
+j=1
+
+Above Tc when µ < 0 this counts all of the particles. Below Tc when µ = 0, this counts the particles that are not in the ground state.
+
+61
+
+7.19. The density of states for a two-dimensional harmonic oscillator is a(ε) = ε/( ω0)2 so the number particles in the trap is given by
+
+ε
+
+1
+
+N (T, µ) =
+
+dε (
+
+ω)2 eβ(ε−µ) − 1 .
+
+As T → Tc, µ → 0 so
+
+N=
+
+ε dε
+
+1
+
+= kTc 2
+
+( ω)2 eβc(ε) − 1
+
+ω0
+
+xdx ex − 1 = ζ(2)
+
+kTc
+
+2 π2 =
+
+ω0
+
+6
+
+kTc
+
+2
+.
+
+ω0
+
+so kTc = ω 6N/π2. The condensate fraction for T ≤ Tc is
+
+N0/N = 1 − (T /Tc)2. For this two-dimensional theory to be valid, the
+
+occupancy of √the ﬁrst excited z-√state must be negligible which requires
+
+ωz kTc ∼ N ω0, i.e. ωz
+
+N ω0.
+
+7.20. By eqn. (3.8.14),
+
+−kT ln Q1 = kT ln(eβ ω/2 − e−β ω/2) =
+
+ω + kT ln(1 − e−β ω). 2
+
+Now, concentrating on the thermal part alone and utilizing eqn. (7.3.2), we get
+
+∞
+
+VkT A(V, T ) ≡ −kT ln Q(V, T ) = π2c3
+
+ln(1 − e−β ω)ω2dω.
+
+0
+
+After an integration by parts, we obtain
+
+∞
+
+V
+
+ω3dω
+
+π2Vk 4T 4
+
+A(V, T ) = − 3π2c3 eβ ω−1 = − 45 3c3 ;
+
+0
+
+cf. eqns. (7.3.17 and 18). We also get
+
+∂A
+
+4A
+
+S=−
+
+= − and U = A + TS = −3A = 3PV .
+
+∂T V
+
+T
+
+Other results of Sec. 7.3 follow straightforwardly.
+
+7.21. Using expressions (7.3.12) and (7.3.23), we readily get
+
+U
+
+π4
+
+N¯
+
+=
+
+kT 30ζ (3)
+
+2.7 kT .
+
+Note that the numerical factor appearing here is actually Γ(4)ζ(4)/Γ(3)ζ(3).
+
+62
+
+7.22. Since ω = 2πc/λ, the characteristic frequencies of the vibrational modes of a radiation cavity (and hence the energy eigenvalues of these modes) are proportional to L−1, i.e. to V −1/3. Just as in Problem 1.7, we infer that the entropy of this system is a function of the combination (V 1/3U ). It then follows that during an isentropic process the quantity (V 1/3U ) stays constant, i.e. 1 V −2/3dV U + V 1/3dU = 0. 3
+Consequently, the pressure of the system is given by
+
+∂U
+
+1U
+
+P ≡−
+
+=.
+
+∂V S 3 V
+
+7.24. The number density of photons in the cosmic microwave background (CMB) follows from equation (7.3.23)
+
+2ζ(3) kT 3
+
+n = π2
+
+c
+
+4.10 × 108 m−3
+
+410. cm−3
+
+The energy density is
+
+π2 (kT )4 u = 15 ( c)3
+
+4.17 × 10−14 J/m3.
+
+The entropy density is
+
+4π2k kT 3 s=
+
+1.48 × 109k m−3
+
+2.04 × 10−14 J/m3K.
+
+45 c
+
+7.25. According to Sec. 7.4,
+
+∂
+
+ω
+
+CV(T ) = ∂T e ω/kT − 1 g(ω)dω, while CV(∞) = kg(ω)dω.
+
+ω
+
+ω
+
+It follows that
+
+∞
+
+{CV(∞) − CV(T )}dT =
+
+0
+
+ω
+
+ω
+
+∞
+
+kT − e
+
+ω/kT − 1
+
+0
+
+g(ω)dω.
+
+It is easy to show that
+
+ω
+
+1
+
+lim
+
+≈ kT − ω;
+
+T →∞ e ω/kT − 1
+
+2
+
+see Section 3.8 as well as Fig. 3.4 of the text. The integral on the righthand side then becomes
+1 ω · g(ω)dω,
+2
+ω
+
+63
+
+which is indeed equal to the zero-point energy of the solid.
+The physical interpretation of this result lies in noting that the actual amount of heat required to raise the temperature of a solid is less than the value predicted classically because the solid already possesses a ﬁnite amount of energy even at T = 0K.
+
+7.26. Using the Debye spectrum (7.4.15), we have for the zero-point energy of
+
+the solid
+
+ωD
+
+1 2
+
+ω
+
+·
+
+9N ωD3
+
+ω2dω
+
+=
+
+9 N
+8
+
+9 ωD = 8 Nk ΘD.
+
+0
+
+Indeed,
+
+ωD
+
+ω · ω2dω
+
+ω¯ =
+
+0 ωD
+
+ω2dω
+
+3 = 4 ωD
+
+0
+
+and
+
+hence
+
+the
+
+mean
+
+energy
+
+per
+
+mode
+
+is
+
+equal
+
+to
+
+1 2
+
+ω¯
+
+=
+
+3 8
+
+ωD
+
+=
+
+3 8
+
+kΘD
+
+.
+
+7.27. We’ll show that if the entropy of a system is given by S = aVT n, where a
+is a constant, then the quantity (CP − CV) of that system is proportional to T 2n+1. For the Debye solid, at T ΘD, this indeed is the case, the parameter n being equal to 3. Hence the stated result.
+
+We know that
+
+∂P
+
+∂V
+
+∂V
+
+∂P 2
+
+CP − CV = T
+
+∂T V
+
+= −T ∂T P
+
+∂P T
+
+∂T
+
+.
+V
+
+Since we must have
+
+∂A S≡−
+
+= aVT n,
+
+∂T V
+
+A = −aVT n+1/(n + 1) + f (V ),
+
+where f (V ) is a function of V alone. It follows that
+
+∂A
+
+T n+1
+
+P ≡−
+
+=a
+
+− f (V ),
+
+∂V T n + 1
+
+so that
+
+∂P = −f (V ),
+∂V T
+
+∂P = aT n; ∂T V
+
+clearly, f (V ) must be non-negative. We thus get
+
+CP
+
+− CV
+
+=
+
+−T
+
+·
+
+f
+
+−1 (aT n)2 (V )
+
+=
+
+a2 T 2n+1. f (V )
+
+64
+
+7.33. The speciﬁc heat of the system is given by the general expression (7.4.8), which may in the present case be written as
+
+ωD
+(
+
+ω/kT )2e
+
+ω/kT
+
+CV(T ) = k
+
+g(ω)dω. (e ω/kT − 1)2
+
+(1)
+
+0
+
+The mode density, g(ω), is given by the relation
+
+g(ω)dω = 3 · V (4πp2dp)/h3,
+
+where p = k = (A−1ω)1/s. It follows that
+
+g(ω)dω = Cω(3/s)−1)dω [C = 3V /(2sπ2A3/s)].
+
+(2)
+
+Substituting (2) into (1) and introducing the variable x = ω/kT , we get
+
+CV(T ) ∼ T 3/s
+
+x0 x(3/s)+1ex 0 (ex − 1)2 dx
+
+x0 =
+
+ωD kT
+
+.
+
+At low temperatures, the upper limit of this integral may be replaced by inﬁnity — making the integral essentially T -independent; this leads to the desired result CV ∼ T 3/s.
+7.34. The mode density in this case is given by, see eqn. (C.7b),
+g(ω)dω ∼ kn−1dk ∼ ωn−1dω.
+
+The rest of the argument is similar to the one made in the previous problem; the net result is that the speciﬁc heat of the given system, at low temperatures, is proportional to T n.
+It is not diﬃcult to see that if the dispersion relation were ω ∼ ks and the dimensionality of the system were n, then the low-temperature speciﬁc heat of the system would be proportional to T n/s.
+
+7.35. The Hamiltonian of this system is given by eqn. (7.4.6); the partition function then turns out to be, see eqn. (3.8.14),
+
+Q = e−βΦ0
+
+1
+
+−1
+
+2 sinh
+
+β 2
+
+ωi
+
+,
+
+i
+
+with the result that
+
+A = −kT ln Q = Φ0 + kT ln{2 sinh( ωi/2kT )}, and hence
+
+i
+
+∂A P =−
+
+= − ∂Φ0 − 1
+
+coth ωi · ∂ωi .
+
+∂V T
+
+∂V 2
+i
+
+2kT ∂V
+
+65
+
+Recognizing that (i) the total vibrational energy U of this system is given
+
+by the expression
+
+1 2
+
+ωi
+
+coth(
+
+ωi/2kT ), see eqn. (3.8.20), and (ii) the
+
+i
+
+coeﬃcient ∂ωi/∂V = −γωi/V , the expression for P may be written as
+
+P
+
+=
+
+∂Φ0
+
+U +γ
+
+∂V V
+
+(U = U − Φ0);
+
+(1)
+
+see eqn. (7.4.7). With Φ0(V ) = (V − V0)2/2κ0V0, eqn. (1) takes the form
+
+P
+
+V =−
+
+− V0
+
+U +γ
+
+.
+
+(2)
+
+κ0V0
+
+V
+
+Now, the coeﬃcient of thermal expansion of any thermodynamic system is given by
+
+1 ∂V
+
+1 ∂V
+
+∂P
+
+∂P
+
+α≡ V
+
+=−
+
+∂T P
+
+V
+
+∂P T
+
+∂T
+
+= κT
+V
+
+, ∂T V
+
+(3)
+
+where κT is the isothermal compressibility. In the present case, eqn. (2)
+
+gives
+
+κ−T 1 ≡ −V
+
+∂P
+
+V
+
+U
+
+=
+
++γ −γ
+
+∂V T κ0V0
+
+V
+
+∂U ∂V
+
+;
+T
+
+using the thermodynamic formula (∂U/∂V )T = T (∂P/∂T )v − P , where U = Φ0 + U , we get
+
+κ−T 1
+
+=
+
+V κ0V0
+
++
+
+U γ
+V
+
+− γT
+
+∂P ∂T
+
++ γP + γ ∂Φ0 .
+
+V
+
+∂V
+
+Next, since
+
+∂P = γ CV ,
+
+(4)
+
+∂V V
+
+V
+
+we get
+
+κ−T 1
+
+=
+
+V κ0V0
+
++ (1 + γ)
+
+P + V − V0 κ0V0
+
+− γ2TC V V
+
+(5)
+
+Under the conditions of the problem, all terms on the right-hand side of
+(5), except the ﬁrst one, can be neglected; the term retained may also be approximated by κ−0 1 — with the result that κT ≈ κ0. Equations (3) and (4) then lead to the desired result for α.
+
+Finally, the quantity (CP − CV) is given by
+
+CP − CV = T
+
+∂P ∂T V
+
+∂V ∂T
+
+=T
+P
+
+∂P ∂T
+
+· αV
+
+≈
+
+γ2κ0TC
+
+2 V
+
+.
+
+V
+
+V0
+
+Note that, at low temperatures, (Cp − Cv) ∼ T 7 — as in Problem 7.27.
+
+66
+
+7.36. For rotons, ε = ∆ + (p − p0)2/2µ. Therefore, u ≡ dε/dp = (p − p0)/µ. Consequently,
+
+1
+
+P
+
+=
+
+n 3
+
+p(p
+
+− p0)/µ
+
+1 =n
+3
+
+e−(p−p0)2/2µkT {p(p − e−(p−p0 )2 /2µkT
+
+p0)/µ}p2 p2dp
+
+dp
+
+.
+
+√ Substituting p = p0 + 2µkT x, we get
+
+1 P= n
+3
+
+e−x2
+
+p0
+
+√ + 2µkT
+
+x
+
+3 (2kT /µ)1/2
+
+e−x2
+
+√ p0 + 2µkT
+
+x
+
+2
+
+dx
+
+x dx
+
+.
+
+As explained in Section 7.6, these integrals are well-approximated by
+
+√letting the range of x extend from −∞ to +∞; also remembering that 2µkT p0, we get
+
+P
+
+1 n
+3
+
+2kT µ
+
+1/2 3p20√2pµ20kT· √·π(√π/2)
+
+= nkT .
+
+7.37. Following Secs. 7.5 and 7.6, the free energy A(v) of a roton gas in mass motion is given by
+
+A(v)
+
+=
+
+−N¯ kT
+
+=
+
+−kT
+
+·
+
+V h3
+
+n(ε − v · p)2πp2 · sin θdpd θ.
+
+As explained in Section 7.6, though rotons obey Bose-Einstein statistics, their distribution function is practically Boltzmannian; see eqns. (7.6.6 and 7). We may, therefore, write
+
+V A(v) = −kT · h3
+
+e−βε+βvp cos θ2πp2 sin θ dpd θ.
+
+Integrating over θ, we get
+
+∞
+
+V A(v) = −kT · h3
+
+e−βε sinh(βvp) 4πp2 dp. βvp
+
+0
+
+Integration over p is now carried out the same way as in eqn. (7.6.9); with appropriate approximation, we end up with the result
+
+A(v) = A(0) sinh(βvp0)/(βvp0).
+
+Next, the inertial density of the roton gas is given by
+
+11 ρ(v) = v · h3
+
+n(ε − v · p)p cos θ 2πp2 sin θdpd θ
+
+1 vh3
+
+e−βε+βvp cos θ2πp3 cos θ sin θdpd θ
+
+67
+
+Integration over θ now gives
+
+∞
+
+1 ρ(v) = vh3
+
+e−βε
+
+cosh(βvp) sinh(βvp) βvp − (βvp)2
+
+4πp3 dp
+
+0
+
+∞
+
+β = h3
+
+e−βε
+
+(β
+
+vp)
+
+cosh(βvp) − (βvp)3
+
+sinh(β
+
+vp)
+
+4πp4dp
+
+.
+
+0
+
+Finally, integrating over p (under appropriate approximation) and comparing the resulting expression with eqn. (7.6.19), we obtain
+
+ρ(v)
+
+=
+
+ρ(0)
+
+3{(βvp0)
+
+cosh(βvp0) (βvp0)3
+
+−
+
+sin(βvp0)}
+
+.
+
+7.38. We write eqn. (7.6.17) in the form
+
+∞
+
+4π ρ0 = − 3h3
+
+∂n(p) p4 dp dp
+
+∂p
+
+dε
+
+0
+
+and integrate it by parts, to get
+
+ρ0
+
+4π = − 3h3
+
+  n(p)p4 dp
+dε
+
+∞
+−
+0
+
+∞
+d n(p)
+dp
+
+0
+
+p4 dp dε
+
+ dp .
+
+The integrated part vanishes at both limits, and we are left with
+
+∞
+
+4π ρ0 = 3h3
+
+d n(p)
+
+p4 dp dp.
+
+dp dε
+
+0
+
+Comparing this with the standard result for the equilibrium number of excitations in the system, viz.
+
+∞
+
+N¯
+
+=
+
+4πV h3
+
+n(p)p2 dp,
+
+0
+
+we obtain for the eﬀective mass of an excitation
+
+meﬀ
+
+=
+
+ρ0V N¯
+
+1 =
+3
+
+1d p2 dp
+
+p4 dp dε
+
+.
+
+For ideal-gas particles, ε = p2/2m; the eﬀective mass then turns out to be precisely equal to m. For phonons, ε = pc; we then get
+(meﬀ )ph = 4 < ε > /3c2,
+in agreement with eqn. (7.5.15). Unfortunately, in the case of rotons this expression presents certain problems of analyticity at the point p = p0; we then resort to direct calculation — leading to eqn. (7.6.19), whereby (meﬀ )rot p20/3kT .
+
+Chapter 8
+
+8.1. Referring to Fig. 8.11 and noting that the slope of the tangent at the point x = ξ is −1/4, the approximate distribution is given by
+
+
+
+1
+
+0 ≤ x ≤ (ξ − 2)
+
+
+
+f (x) = (ξ + 2 − x)/4 (ξ − 2) ≤ x ≤ (ξ + 2)
+
+0
+
+(ξ + 0) ≤ x,
+
+where x = ε/kT and ξ = µ/kT . Accordingly,
+
+∞
+
+∞
+
+N
+
+=
+
+g
+
+·
+
+2πV h3
+
+(2m)3/2
+
+n(ε)ε1/2dε = C
+
+f (x)x1/2dx ,
+
+0
+
+0
+
+where C = g(2πV /h3)(2mkT )3/2. After some algebra, one gets
+
+N = 1 C{(ξ +2)5/2 −(ξ −2)5/2} = 2 Cξ3/2 1 + 1 ξ−2 + . . .
+
+5
+
+3
+
+2
+
+Comparing (1) with eqn. (8.1.24), which may be written as
+
+(ξ 1). (1)
+
+2 N= C
+
+εF
+
+3/2
+,
+
+3 kT
+
+we get
+
+ξ = εF
+
+1 kT 2
+
+1−
+
++... .
+
+(2)
+
+kT
+
+3 εF
+
+Similarly,
+
+∞
+U = CkT f (x)x3/2dx = 1 CkT {(ξ + 2)7/2 − (ξ − 2)7/2} 35
+0
+
+= 2 CkT ξ5/2 1 + 5 ξ−2 + . . . .
+
+(3)
+
+5
+
+2
+
+Combining (1) and (3), and then making use of (2), we get
+
+3 U = NkT ξ
+5
+
+1 + 2ξ−2 + . . .
+
+3 = 5 N εF
+
+1
+
++
+
+5 3 (kT /εF
+
+)2
+
++
+
+.
+
+.
+
+.
+
+.
+
+68
+
+69
+
+It follows that, at temperatures much less than εF /k,
+CV = 2Nk (kT /εF ),
+which is “correct” insofar as the dependence on T is concerned but is numerically less than the true value, given by eqn. (8.1.39), by a factor of 4/π2.
+The reason for the numerical discrepancy lies in the fact that the present approximation takes into account only a fraction of the particles that are thermally excited; see Fig. 8.11. In fact, the ones that are not taken into account have a higher ∆ε than the ones that are, which explains why the magnitude of the discrepancy is so large.
+
+8.2. By eqns. (8.1.4) and (8.1.5), the temperature T0 is given by
+
+N
+
+2/3
+
+h2
+
+T0 = gV f3/2(1)
+
+. 2πmk
+
+(1)
+
+At the same time, the Fermi temperature TF is given by, see eqn. (8.1.24),
+
+TF
+
+≡
+
+εF k
+
+=
+
+3N 4πgV
+
+2/3 h2 .
+2mk
+
+(2)
+
+It follows that
+
+T0 =
+
+4π
+
+2/3 1
+
+.
+
+TF
+
+3 f3/2(1)
+
+π
+
+Now, by eqn. (E. 16), f3/2(1) = (1–2−1/2)ζ(3/2) this into (3), we get: T0/TF 0.989.
+
+(3) 0.765. Substituting
+
+8.3. This problem is similar to Problem 7.4 of the Bose gas and can be done the same way — only the functions gv(z) get replaced by fv(z).
+To obtain the low-temperature expression for γ, we make use of expansions (8.1.30–32), with the result
+
+γ = 1 + 5π2 (ln z)−2 + . . . 1 − π2 (ln z)−2 + . . .
+
+8
+
+24
+
+= 1 + π2 (ln z)−2 + . . .
+
+π2 1+
+
+kT 2 .
+
+3
+
+3 εF
+
+1 + π2 (ln z)−2 + . . . −2 8
+
+8.4. This problem is similar to Problem 7.5 of the Bose gas and can be done the same way. To obtain the various low-temperature expressions, we make use of expansions (8.1.30–32). Thus
+
+3
+
+κT
+
+= 2n(kT
+
+ln z)
+
+3 =
+2n(kT ln z)
+
+1 − π2 (ln z)−2 + . . . 24
+1 − π2 (ln z)−2 + . . . 6
+
+1 + π2 (ln z)−2 + . . . −1 8
+.
+
+70
+
+We now employ eqn. (8.1.35) and get
+
+3
+
+π2 kT 2
+
+−1
+
+π2 kT 2
+
+κT = 2nεF
+
+1− 12
+
+εF
+
++...
+
+1−
+
++...
+
+6 εF
+
+3
+
+π2 kT 2
+
+1−
+
+,
+
+(1)
+
+2nεF
+
+12 εF
+
+which is the desired result.
+
+Similarly, using appropriate expansions, we get
+
+3 κs = 2n(kT ln z)
+
+1 − π2 (ln z)−2 + . . . 2
+
+3
+
+5π2 kT 2
+
+1−
+
+.
+
+(2)
+
+2nεF
+
+12 εF
+
+Dividing (1) by (2), we obtain the low-temperature expression for γ, the same as the one quoted in the previous problem; this also yields the desired result for (CP − CV)/CV, which is simply (γ − 1).
+8.6. This problem is similar to Problem 7.8 of the Bose gas and can be done the same way. In the limit z → ∞, which corresponds to T → 0K,
+w2 ≈ 2kT ln z/3m,
+
+which tends to the limiting value 2εF /3m. Thus w0 = (2εF /3m)1/2.
+
+For comp√arison, the Fermi velocity uF = (2εF /m)1/2. It follows that w0 = uF / 3.
+
+8.7. This problem is similar to Problem 7.9 of the Bose gas and can be done the same way. At low temperatures, using formula (E. 17), we get
+
+u
+
+u−1
+
+9 =
+
+8
+
+9 =
+8
+
+1
+
++
+
+π2 (ln
+
+z)−2
+
++
+
+.
+
+.
+
+.
+
+3
+
+1
+
++
+
+π2 (ln
+
+z)−2
+
++
+
+.
+
+.
+
+.
+
+12
+
+1 + π2 (ln z)−2 + . . . −2 8
+
+9
+
+π2 kT 2
+
+1+
+
+;
+
+8
+
+12 εF
+
+cf. Problem 6.6.
+
+8.8. (i) Refer to eqns. (8.3.1 and 2) of the text and note that for silver ne = 1, na = 4, a = 4.09 ˚A, while m = me — giving εF = 5.49 eV and TF = 6.37 × 104 K. For lead, ne = 4, na = 4, a = 4.95 ˚A, while m = 2.1 me — giving εF = 9.45 eV and TF = 10.96 × 104 K. For aluminum, ne = 3, na = 4, a = 4.05 ˚A, while m = 1.6 me — giving εF = 11.63 eV and TF = 13.50 × 104 K.
+
+71
+
+(ii) The nuclear radius for 80Hg200 is about 8.4 × 10−13 cm. Taking all the nucleons together, this gives a particle density of about 8.06 × 1037 cm−3. Substituting this into eqn. (8.1.34), we get: εF = 3.7 × 107 eV and TF = 4.3 × 1011 K.
+(iii) For liquid He3, the particle density is about 1.59 × 1022 cm−3. This yields an εF of about 4.1 × 10−4 eV and a TF of about 4.8 K.
+
+8.9. By eqns. (8.1.4, 5 and 24), the Fermi energy εF is given by
+
+3
+
+2/3 h2
+
+3π1/2
+
+2/3
+
+εF = 4π f3/2(z)
+
+2mλ2 =
+
+4 f3/2(z)
+
+kT .
+
+With the help of Sommerfeld’s lemma (E.17), this becomes
+
+εF = kT ln z
+
+1 + π2 (ln z)−2 + 7π4 (ln z)−4 + . . .
+
+8
+
+640
+
+2/3
+
+= kT ln z 1 + π2 (ln z)−2 + π4 (ln z)−4 + . . . .
+
+(1)
+
+12
+
+180
+
+To invert this series, we write
+
+kT 2
+
+kT 4
+
+kT ln z ≡ µ = εF 1 + a2 εF + a4 εF + . . .
+
+(2)
+
+and substitute into (1), to get
+
+1−a2
+
+kT εF
+
+2
++ a22 − a4
+
+kT 4
+
+π2 kT 2 π4 π2
+
+εF
+
++. . . = 1+ 12 εF
+
++
+
+− 180
+
+6 a2
+
+kT 4 +. . . .
+εF
+
+Equating coeﬃcients on the two sides of this equality, we get: a2 = −π2/12, a4 = −π4/80, . . .. Equation (2) then gives the desired result (8.1.35a).
+Next, we have from eqns. (8.1.7) and (E.17)
+
+U3 = kT ln z
+
+1 + 5π2 (ln z)−2 − 7π4 (ln z)−4 + . . .
+
+N5
+
+8
+
+384
+
+1 + π2 (ln z)−2 + 7π4 (ln z)−4 + . . . −1
+
+8
+
+640
+
+3 = kT ln z
+
+1 + π2 (ln z)−2 − 11π4 (ln z)−4 + . . .
+
+.
+
+(3)
+
+5
+
+2
+
+120
+
+72
+
+Substituting from eqn. (8.1.35a) into (3), we get
+
+U3
+
+π2 kT 2 π4 kT 4
+
+N = 5 εF
+
+1− 12
+
+εF
+
+− 80 εF
+
++...+
+
+π2 kT 2 π4 kT 4
+
+1+
+
+−
+
++...
+
+2 εF
+
+120 εF
+
+3
+
+5π2 kT 2 π4 kT 4
+
+= 5 εF
+
+1+ 12
+
+εF
+
+− 16 εF
+
++... .
+
+(4)
+
+The speciﬁc heat of the gas is then given by
+
+CV = π2 kT − 3π4
+
+kT 3 +....
+
+(5)
+
+Nk 2 εF 20 εF
+
+We note that the ratio of the T 3-term here to the Debye expression (7.3.23) is (1/16)(ΘD/TF )3. For a typical metal, this is O(10−8–10−9).
+
+8.10. This problem is similar to Problem 7.14 of the Bose gas and can be done the same way.
+Parts (i) and (ii) are straightforward. For part (iii), we have to show that
+
+CP = 1 + CV
+
+s 2 CV f(n/s)−1(z) = n Nk fn/s(z)
+
+s 1+
+n
+
+f(n/s)+1(z)f(n/s)−1 {fn/s(z)}2
+
+(z)
+
+,
+
+(1)
+
+which can be done quite easily; see eqns. (7)–(9) of the solution to Problem 7.14. For part (iv), we observe that, since the quantity S/N is a function of z only, an isentropic process implies that z = const. Accordingly, for such a process,
+VT n/s = const . and P/T (n/s)+1 = const .;
+
+see eqns. (2) and (3) of the solution to Problem 7.14. Eliminating T among these relations, we obtain the desired equation of an adiabat. For part (v), we proceed as follows.
+In this limit z → 0, eqn. (1) gives
+
+CP /CV → 1 + (s/n).
+
+(1a)
+
+For z 1, on the other hand, we obtain [see formula (E.17)]
+
+CP = CV
+×
+
+1+
+
+n +1
+
+n π2 (ln z)−2 + . . .
+
+s
+
+s6
+
+n 1+
+
+n −1
+
+π2 (ln z)−2 + . . .
+
+ss
+
+6
+
+1+
+−2
+
+n −1
+s
+
+= 1 + π2 (ln z)−2 + . . . 3
+
+1
+
++
+
+π2 3 (kT /εF
+
+)2,
+
+regardless of the values of s and n.
+
+n −2
+
+π2 (ln z)−2 + . . .
+
+s
+
+6
+
+73
+
+8.11. For T
+
+TF , we get
+
+CV
+
+n ,
+
+CP − CV
+
+Nk s Nk
+
+1, so that CP Nk
+
+n +1 .
+s
+
+For T TF , we obtain [see formula (E.17)]
+
+CV = n ln z
+
+1 + n π2 (ln z)−2 + . . .
+
+n − ln z
+
+1+
+
+n −1
+
+π2 (ln z)−2 + . . .
+
+Nk s
+
+s3
+
+s
+
+s
+
+3
+
+=
+
+n
+
+π2 (ln
+
+z)−1
+
++
+
+...
+
+n π2 kT .
+
+s3
+
+s 3 εF
+
+To this order of accuracy, the quantity CP /Nk has the same value as Cv/Nk . As for the diﬀerence between the two, we obtain
+
+CP − CV Nk
+
+n π4 kT 3 ,
+s 9 εF
+
+consistent with the corresponding value of γ quoted in the previous problem. The non-relativistic case pertains to s = 2 while the extreme relativistic one pertains to s = 1.
+
+8.12. For a Fermi gas conﬁned to a two-dimensional region of area A,
+
+A
+
+A
+
+AkT
+
+N = λ2 f1(zF ) = λ2 ln(1 + zF ), EF = λ2 f2(zF ),
+
+while the corresponding results for the Bose gas are
+
+(1a,b)
+
+A
+
+A
+
+AkT
+
+N = λ2 g1(zB) = λ2 ln(1 − zB), EB = λ2 g2(zB).
+
+Equating (la) and (2a), we get
+
+(2a,b)
+
+1 + zF
+
+=
+
+1 ,
+1 − zB
+
+i.e.
+
+zF
+
+=
+
+zB 1 − zB
+
+or zB
+
+=
+
+zF . 1 + zF
+
+Next, since z∂f2(z)/∂z = f1(z),
+
+zF 1
+
+zF
+
+1
+
+1
+
+f2(zF ) =
+0
+
+ln(1 + z)dz =
+
+z
+
+0
+
++
+
+ln(1 + z)dz .
+
+1 + z z(1 + z)
+
+The ﬁrst part of this integral is readily evaluated; in the second part, we substitute z = z /(1 − z ), to get
+
+f2(zF )
+
+=
+
+1 2
+
+ln2(1+zF )−
+
+zF /(1+zF ) 1
+
+ln(1−z )dz
+
+0
+
+z
+
+=
+
+1 2
+
+ln2(1+zF )+g2(zB).
+
+Equations (1b) and (2b) then yield the desired result, viz.
+
+N 2h2 EF (N, T ) = 4πmA + EB(N, T ), whence {CV(N, T )}F = {CV(N, T )}B.
+
+74
+
+Letting T → 0, we recognize that the constant appearing in the above
+result must be equal to EF (N, 0). To verify this, we note that, since the Fermi momentum of the gas in two dimensions is given by the equation N = A · πp2F /h2, the Fermi energy is given by εF = p2F /2m = Nh2/2πmA. The ground-state energy of the gas then follows readily:
+
+EF (N, 0) =
+
+pF 0
+
+p2 A · 2πpdp 2m h2
+
+=
+
+A · πp4F 4mh 2
+
+=
+
+N 2h2 4πmA
+
+=
+
+1 2 N εF .
+
+8.13. The Fermi energy of the gas is given by the obvious relation
+
+εF
+
+N = a(ε)dε.
+
+(1)
+
+0
+
+At the same time, the quantities N and U , as functions of µ and T , are given by the standard integrals
+
+∞ a(ε)dε
+
+∞ εa(ε)dε
+
+N=
+
+and U =
+
+.
+
+0 eβ(ε−µ) + 1
+
+0 eβ(ε−µ) + 1
+
+At low temperatures we employ formula (E.18), with x = βε and ξ = βµ, to obtain
+
+N = µ a(ε)dε + π2 (kT )2 da(ε)
+
++...
+
+0
+
+6
+
+dε ε=µ
+
+εF 0
+
+a(ε)dε
+
++
+
+(µ
+
+−
+
+εF )a(εF
+
+)
+
++
+
+π2 6
+
+(kT )2
+
+da (ε) ,
+dε ε=εF
+
+(2)
+
+U=
+
+µ εa(ε)dε + π2 (kT )2
+
+da (ε) a(ε) + ε
+
++...
+
+0
+
+6
+
+dε ε=µ
+
+εF 0
+
+εa(ε)dε
+
++
+
+(µ
+
+−
+
+εF
+
+)εF
+
+a(εF )
+
++
+
+π2 6
+
+(kT )2
+
+a(εF ) + εF
+
+da (ε) dε ε=εF
+
+.
+
+(3)
+
+Comparing (1) and (2), we obtain for the chemical potential of the gas
+
+π2 (kT )2 da(ε)
+
+µ εF − 6 a(εF )
+
+, dε ε=εF
+
+(4)
+
+which leads to the desired result for µ.
+
+Next, substituting (4) into (3), we obtain the remarkably simple expression
+
+U U0 + (π2/6)k2T 2a(εF ),
+
+whence
+
+CV (π2/3)k2T a(εF ).
+
+(5)
+
+75
+
+It follows that
+
+S = T CVdT 0T
+
+(π2/3)k2T a(εF ).
+
+(6)
+
+For a gas with energy spectrum ε ∝ ps, conﬁned to a space of n dimensions,
+
+a(ε)dε ∼ pn−1dp ∼ ε(n/s)−1dε.
+
+By eqn. (1), the Fermi energy of the gas is given by
+
+N=
+
+εF 0
+
+Aε(n/s)−1dε
+
+=
+
+sA n
+
+εnF/s
+
+=
+
+sεF n
+
+a(εF ).
+
+Substituting this result into (5), we get
+
+CV
+
+n π2 kT
+
+·
+
+;
+
+(7)
+
+Nk s 3 εF
+
+cf. eqn. (8.1.39), which pertains to the case n = 3, s = 2. See also Problem 8.11.
+
+8.14. In the notation of Sec. 3.9, the potential energy of a magnetic dipole in
+the presence of a magnetic ﬁeld B = (0 , 0 , B) is given by the expression
+−(gµBm)B, where m = −J, . . . , +J. The total energy ε of the dipole is then given by ε = (p2/2m ) − gµBmB , m being the (eﬀective) mass of the particle; the momentum of the particle may then be written as
+
+p = {2m (ε + gµBmB )}1/2.
+
+At T = 0, the number of such particles in the gas will be
+
+Nm
+
+=
+
+4πV 3h3
+
+{2m
+
+(εF
+
++
+
+gµBmB )}3/2
+
+and hence the net magnetic moment of the gas will be given by
+
+M=
+
+(gµB m)Nm
+
+=
+
+4πgµB V 3h3
+
+(2m
+
+)3/2
+
+m(εF + gµBmB )3/2.
+
+m
+
+m
+
+We thus obtain for the low-ﬁeld susceptibility (per unit volume) of the system
+
+M
+
+χ0 = Lim
+B→0
+
+VB
+
+=
+
+4πgµB 3h3
+
+(2m
+
+)3/2
+
+·
+
+3 2
+
+gµB
+
+ε1F/2
+
+J
+
+m2
+
+m=−J
+
+=
+
+2πg2µ2B 3h3
+
+(2m
+
+)3/2ε1F/2J (J
+
++
+
+1)(2J
+
++
+
+1).
+
+(1)
+
+By eqn. (8.1.24),
+
+ε3F/2
+
+=
+
+3n 4π(2J +
+
+1)
+
+h3 (2m )3/2
+
+N n= .
+V
+
+(2)
+
+76
+
+Substituting (2) into (1), we obtain the desired result
+
+χ0
+
+=
+
+1 2
+
+nµ∗2
+
+/εF
+
+µ∗2 = g2µ2BJ (J + 1) .
+
+With g = 2 and J = 1/2, we obtain: χ0 = (3/2)nµ2B/εF , in agreement with eqn. (8.2.6).
+The corresponding result in the limit T → ∞ is given by
+
+χ∞
+
+=
+
+1 nµ∗2/kT ; 2
+
+see eqn. (3.9.26). We note that the ratio χ0/χ∞ = 3kT /2εF , valid for all J.
+
+8.15. We note that the symbol µ0(xN ) denotes the chemical potential (≡ kT ln z) of an ideal gas of xN “spinless” (g = 1) fermions. The corresponding fugacity z is determined by the equation
+
+f3/2(z) = xN λ3/V.
+
+(1)
+
+Diﬀerentiating (1) with respect to x, we get
+
+∂f3/2(z) ∂ ln z ∂ ln z ∂x
+
+=
+
+N λ3 V
+
+=
+
+1 x f3/2(z).
+
+It follows that
+
+∂µ0 = kT f3/2(z) . ∂x x f1/2(z)
+
+Equation (8.2.20) then assumes the form stated in the problem.
+
+At low temperatures, we get
+
+nµ∗2 3
+
+χ=
+
+·
+
+1 − π2 (ln z)−2 + . . .
+
+kT 2 ln z
+
+6
+
+3nµ∗2
+
+π2 kT 2
+
+−1
+π2
+
+=
+
+1−
+
++...
+
+1−
+
+2εF
+
+12 εF
+
+6
+
+π2 kT 2
+
+χ0
+
+1− 12
+
+εF
+
+.
+
+kT 2 +...
+εF (8.2.24)
+
+At high temperatures, on the other hand,
+
+χ
+
+=
+
+nµ∗2 kT
+
+z z
+
+− −
+
+2−1/2z2 2−3/2z2
+
++ +
+
+... ...
+
+=
+
+nµ∗2 (1
+kT
+
+−
+
+2−3/2z
+
++
+
+. . .)
+
+χ∞(1 − 2−5/2nλ3),
+
+(8.2.27)
+
+where use has been made of eqn. (1), with f3/2(z) z and x = 1/2.
+
+77
+
+8.18. The ground-state energy of a relativistic gas of electrons is given by
+
+8πV E0 = h3
+
+pF
+mc2[{1 + (p/mc)2}1/2 − 1]p2 dp.
+0
+
+Making the substitution (8.5.9), we get
+
+8πm4c5V
+
+E0 =
+
+h3
+
+θF
+(cosh θ − 1) sinh2 θ cosh θ dθ.
+0
+
+(1)
+
+Now the integral
+
+θF
+sinh2 θ cosh2 θ dθ =
+
+1 sinh3 θ cosh θ
+
+θF 1 −
+
+θF
+sinh4 θ dθ.
+
+(2)
+
+0
+
+3
+
+0
+
+30
+
+Substituting (2) into (1) and making use of eqn. (8.5.12), we get
+
+E0 =
+
+8πm4c5V 3h3
+
+sinh3 θF cosh θF
+
+− P0V
+
+−
+
+8πm4c5V 3h3
+
+sinh3
+
+θF ;
+
+(3)
+
+note that the last term is simply Nmc2. Finally, using the deﬁnition x = sinh θF , we obtain the desired result.
+We observe that eqn. (3) can also be written as
+
+E0 + P0V = Nmc2(cosh θF − 1) = N εF ≡ N µ0.
+
+To verify that the derivative (∂E0/∂V )N is equal to −P0, we have to show that
+[∂{VB (x)}/∂V ](Vx3) = −A(x), i.e. ∂{x−3B(x)}/∂x−3 = −A(x), i.e. x4 ∂ [8{(x2 + 1)1/2 − 1} − x−3A(x)] = 3A(x), i.e.
+∂x ∂A(x)/∂x = 8x4(x2 + 1)−1/2,
+
+which can be readily veriﬁed with the help of expression (8.5.13).
+
+8.19. Utilizing the result obtained in Problem 8.13, we have for a Fermi gas at
+
+low temperatures
+
+CV = π2 a(εF ) kT .
+
+(1)
+
+Nk 3 N
+
+Now, the density of states for the relativistic gas is given by, see eqn. (8.5.7),
+
+a(ε)
+
+=
+
+8πV h3
+
+p2 dp dε
+
+=
+
+8πmV h3
+
+p
+
+1+
+
+p mc
+
+2
+
+1/2
+,
+
+where p = p(ε). Substituting this result into (1) and making use of eqn. (8.5.4), we get
+
+CV Nk
+
+=
+
+π2m p2F
+
+1+
+
+pF mc
+
+1/2
+kT ,
+
+78
+
+which leads to the desired result.
+
+In the non-relativistic case pF mc and εF = p2F /2m , we obtain the familiar expression (8.1.39); in the extreme relativistic case (pF mc and ε =
+
+pc), we obtain
+
+CV = π2 kT ,
+
+Nk
+
+εF
+
+consistent with expression (7) of the solution to Problem 8.13.
+
+8.22. The number of fermions in the trap is
+
+N (T, µ) =
+
+dε ε2
+
+1
+
+2( ω)3 eβ(ε−µ) − 1 =
+
+εF 0
+
+dε ε2 2( ω)3
+
+=
+
+ε3F 6( ω)3
+
+.
+
+Using kTF = εF this gives the following relation for the fugacity z = e−βµ,
+
+T3 3
+TF
+
+x2dx exe−βµ + 1 = 1.
+
+The internal energy is
+
+U (T, µ) =
+
+dε ε3
+
+1
+
+(kT )4
+
+2( ω)3 eβ(ε−µ) − 1 = 2( ω)3
+
+x3 exe−βµ − 1 .
+
+When compared to the ground state energy U0 = (kTF )4/[8( ω)3], we get
+
+U
+
+T4
+
+=4
+
+U0
+
+TF
+
+x3 exe−βµ − 1 .
+
+Chapter 9
+
+9.1. Using the Friedmann equation (9.1.1)
+
+da 8πGu
+
+= dt
+
+3c2 a,
+
+and the connection between scale factor a and blackbody temperature T , T a = T0a0, along with (9.3.4b) we get
+
+dT =−
+dt
+
+8πGu 3c2 T = −
+
+8π3Ggk4 45 3c5
+
+T
+
+3,
+
+where g = 43/8 is the eﬀective number of relativistic species from equation (9.3.6b). The solution of the diﬀerential equation is
+
+where
+
+T (t) = T0
+
+t0 , T
+
+1
+
+45 3c5
+
+t0 = 2 8π3Gg(kT0)4 0.99 s
+
+for the case of T0 = 1010 K.
+9.2. Just use equations (9.3.4) and (9.3.6) with T = 1010 K. The pressure and energy density are of order 1025 J/m3, and the number density and entropy divided by k are of order 1038 m−3.
+
+9.3. The average kinetic energy per relativistic electron/positron is of the order
+of ue/ne ∼ kT . The Coulomb energy per electron/positron is of the order of uc ≈ e2/(4π 0a) where a ≈ (1/ne)1/3 is of the order of the average distance between the charged particles. Using ne ∼ (kT / c)3 we get uc/ue ∼ e2/(4π 0 c) ≈ 1/137. This is the justiﬁcation for treating the
+relativistic electrons and positrons as noninteracting.
+
+9.4. Correction to the ﬁrst printing of third edition: The exponent in the result should be −3/2. For βmc2 1 but before the time when the
+
+79
+
+80
+
+electron density approaches the protron density, the density of electrons and positrons are almost identical so µ ≈ 0. Equation (9.5.6) gives
+
+n− ≈ n+ ≈ 1 nγ nγ ζ(3)
+
+∞x
+βmc2
+
+x + βmc2 x − βmc2dx ex + 1
+
+e−βmc2 βmc2 3/2 ≈
+
+∞ √ye−ydy.
+
+2ζ (3)
+
+0
+
+9.5. Correction to the ﬁrst printing of third edition: The exponent in the result should be −3/2. After the density of electrons levels oﬀ at the nearly the proton density, you can use equation (9.5.8) to show that the chemical potential µ− ≈ mc2. Then the positron number density is given by equation (9.5.7),
+
+n+ ≈ 1 nγ ζ(3)
+
+∞x
+βmc2
+
+x + βmc2 x − βmc2dx ex+βmc2 + 1
+
+e−2βmc2 βmc2 3/2 ≈
+
+∞ √ye−ydy
+
+2ζ (3)
+
+0
+
+e−2βmc2
+
+βmc2
+
+3/2
+
+√ π
+
+≈
+
+.
+
+4ζ (3)
+
+9.6. Correction to the ﬁrst printing of third edition: the energy density in the statement of the problem should read
+utotal = (1 + (21/8)(4/11)4/3)uγ .
+After the electron–positron annihilation, the only relativistic species left are the photons and the neutrinos. The factor 21/8 = (3)(1)(7/8) in the energy is because there are three families of neutrinos, the spin degeneracy factor is 1 (all left handed), and 7/8 is the Fermi-Dirac factor. The factor (4/11)4/3 is due to the lower temperature of the neutrinos compared to the photons; see equation (9.6.4). Following the solution to problem 9.1, we get
+
+1 t0 = 2
+
+45 3c5
+
+8π3G
+
+1+
+
+21 8
+
+4 4/3 11
+
+(kT0)4
+
+1.79 s.
+
+9.7. If the current CMB temperature was 27K rather than 2.7K, the baryonto-photon ratio would be 103 times smaller. Equation (9.7.8) implies that the nucleosynthesis temperature would have been about 20% lower which would have delayed the nucleosynthesis by an extra two minutes. This would have given the neutrons a longer time to decay leading to q ≈ 0.10 rather than 0.12, leading to a helium content in the universe of about 20%
+
+81
+
+by weight. If the current CMB temperature were 0.27K, that would have increased the baryon-to-photon ratio by a factor of 103. Fewer photons per baryon would have led to an earlier nucleosynthesis, less time for neutrons to decay and an increase of the neutron fraction to q ≈ 0.135 leading to about 27% helium content.
+
+9.8. The strong interaction exhibits asymptotic freedom at high energies justifying treating the quarks an gluons as noninteracting. The eﬀective number of species in equilibrium in these tiny quark–gluon plasmas is accounted for using only the up and down quarks and the gluons. Photons, and leptons, for example, easily escape without interacting with the plasma.
+
+uu = 2
+
+7 8
+
+uγ 2
+
+ud = 2
+
+7 8
+
+uγ 2
+
+ug
+
+=
+
+(8)2 uγ 2
+
+uu¯ = 2
+
+7 8
+
+uγ 2
+
+up quarks and antiquarks
+
+ud¯ = 2
+
+7 8
+
+uγ 2
+
+down quarks and antiquarks
+
+gluons
+
+Therefore, the eﬀective number of species is g = 8 + 28/8 = 23/2 and uQGP = guγ. The energy density is 4 GeV/fm3 = 6.4 × 1035 J/m3, so
+
+kT
+
+15( c)3 GeV gπ2 4 fm3
+
+1/4
+
+4 × 10−11 J
+
+250 MeV,
+
+and T 3 × 1012 K. This is the record hottest temperature for matter created in the laboratory.
+
+9.9. The strong interaction exhibits asymptotic freedom at high energies justifying treating the quarks an gluons as noninteracting. The eﬀective number of species is much larger than during the time near t = 1s due to
+
+82
+
+the muons, quarks and gluons.
+
+uγ
+
+=
+
+2 uγ 2
+
+ue− = 2
+
+7 8
+
+uγ 2
+
+uνe =
+
+7 8
+
+uγ 2
+
+uνµ =
+
+7 8
+
+uγ 2
+
+uντ =
+
+7 8
+
+uγ 2
+
+uµ− = 2
+
+7 8
+
+uγ 2
+
+uu = 2
+
+7 8
+
+uγ 2
+
+ud = 2
+
+7 8
+
+uγ 2
+
+ug
+
+=
+
+(8)2 uγ 2
+
+photons
+
+ue+ = 2
+
+7 8
+
+uγ 2
+
+electrons/positrons
+
+uν¯e =
+
+7 8
+
+uγ 2
+
+electron neutrinos/antineutrinos
+
+uν¯µ =
+
+7 8
+
+uγ 2
+
+muon neutrinos/antineutrinos
+
+uν¯τ =
+
+7 8
+
+uγ 2
+
+tau neutrinos/antineutrinos
+
+uµ+ = 2
+
+7 8
+
+uγ 2
+
+muons/antimuons
+
+uu¯ = 2
+
+7 8
+
+uγ 2
+
+up quarks/antiquarks
+
+ud¯ = 2
+
+7 8
+
+uγ 2
+
+down quarks/antiquarks
+
+gluons
+
+The result is u = (149/8)uγ. Proceeding as in problem 9.1 we get
+
+T (t) = 1010 K
+
+0.53 s .
+
+T
+
+Therefore at kT = 300 MeV (T 3.5 × 1012 K), the age of the universe was about 4 × 10−6 s.
+
+Chapter 10
+
+10.1. By eqn. (10.2.3), the second virial coeﬃcient of the gas with the given interparticle interaction would be
+
+2π a2 = − λ3
+
+D
+
+∞
+
+−1 · r2dr +
+
+{eε(σ/r)6/kT − 1}r2dr
+
+0
+
+D
+
+
+
+=
+
+2π λ3
+
+
+
+1 3
+
+D3
+
+−
+
+∞∞ 1
+
+r0
+
+j!
+j=1
+
+
+
+εσ6 kT r6
+
+j
+r2dr 
+
+
+
+
+
+2πD3
+
+∞
+
+1
+
+εσ6 j
+
+= 3λ3 1 − (2j − 1)j! kT D6  ;
+
+j=1
+
+cf. eqn. (10.3.6). For the rest of the question, follow the solution to Problem 10.7.
+
+10.2. For this problem, we integrate (10.2.3) by parts and write
+
+a2λ3
+
+=
+
+2π −
+3kT
+
+∞ e−u(r)/kT ∂u(r) r3 dr ;
+
+0
+
+∂r
+
+cf. eqn. (3.7.17) and Problem 3.23. With the given u(r), we get
+
+a2λ3
+
+=
+
+2π 3kT
+
+∞
+e−A/kT rm eB/kT rn
+0
+
+mA nB rm−2 − rn−2
+
+dr
+
+2π =
+3kT
+
+∞
+e−A/kT rm
+
+∞
+
+1
+
+0
+
+j!
+j=0
+
+Bj kT
+
+mA
+
+nB
+
+rm−2+nj − rn−2+nj
+
+dr
+
+2π ∞ 1 B j =
+3kT j! kT
+j=0
+
+m − 3 + nj AΓ
+m
+
+kT (m−3+nj )/m n
+
+− BΓ
+
+A
+
+m
+
+n − 3 + nj m
+
+From the ﬁrst sum we take the (j = 0)-term out and combine the remaining terms with the second sum (in which the index j is changed to j − 1);
+
+kT (n−3+nj )/m .
+A
+
+83
+
+84
+
+after considerable simpliﬁcation, we get
+
+
+
+a2λ3
+
+=
+
+2π 3
+
+A kT
+
+3/m
+ Γ
+
+
+m−3 m
+
+3 ∞1
+
+−
+
+Γ
+
+m j!
+
+j=1
+
+nj − 3 m
+
+B
+
+kT
+
+n/m j  
+
+.
+
+kT A
+
+
+
+(1)
+
+For comparison with other cases, we set A = A r0m and B = B r0n (so that A and B become direct measures of the energy of interaction).
+
+Expression (1) then becomes
+
+
+
+a2λ3
+
+=
+
+2π 3
+
+r03
+
+A kT
+
+3/m
+ Γ
+
+
+m−3 m
+
+3 ∞1
+
+−
+
+Γ
+
+m j!
+
+j=1
+
+nj − 3 m
+
+B
+
+kT
+
+n/m j  
+
+.
+
+kT A
+
+
+
+(2)
+
+Now, to simulate a hard-core repulsive interaction, we let m → ∞, with
+
+the result that
+
+
+
+
+
+a2λ3
+
+=
+
+2π 3
+
+r03
+
+ 1
+
+
+−
+
+3
+
+∞ j=1
+
+(nj
+
+1 −
+
+3)j!
+
+B kT
+
+j
+ .
+
+
+(2a)
+
+With n = 6, expression (2a) reduces to the one derived in the preceding problem. Furthermore, if terms with j > 1 are neglected, we recover the van der Waals approximation (10.3.8).
+For further comparison, we look at the behavior of the coeﬃcient B2(≡ a2λ3) at high temperatures. While the hard-core expression (2a) predicts a constant B2 as T → ∞, the soft-core expression (2) predicts a B2 that ultimately vanishes, as T −3/m, which agrees qualitatively with the data shown in Fig. 10.2.
+
+10.3. (a) Using the thermodynamic relation
+
+CP − CV = T (∂P/∂T )V(∂V /∂T )P = −T (∂P/∂T )2V/(∂P/∂V )T
+
+and the equation of state (10.3.9), we get
+
+CP − CV Nk
+
+=
+
+− T (∂P/∂T )2v k(∂ P /∂ v)T
+
+=
+
+T {k/(v − b)}2 − k{−kT /(v − b2) + 2a/v3}
+
+=
+
+1 1 − 2a(v − b)2/kT v3 .
+
+(b) In view of the thermodynamic relation
+
+TdS = CVdT + T (∂P/∂T )VdV
+
+and the equation of state (10.3.9), an adiabatic process is characterized by the fact that
+CVdT + NkT (v − b)−1dv = 0.
+
+Integrating this result, under the assumption that CV = const., we
+get T CV/Nk (v − b) = const .
+
+85
+
+(c) For this process we evaluate the Joule coeﬃcient
+
+∂T ∂V
+
+U
+
+=
+
+(∂U/∂V )T (∂U/∂T )V
+
+= − T (∂P/∂T )V − P CV
+
+a/v2 =−
+CV
+
+N2a = − CVV 2 .
+
+Now integrating from state 1 to state 2, we readily obtain the desired result.
+
+10.4. Since, by deﬁnition,
+
+α = v−1(∂v/∂T )P and B−1 ≡ κT = −v−1(∂v/∂P )T ,
+
+we must have:
+
+[∂(αv)/∂P ]T = −[∂(vB−1)/∂T ]P .
+
+(1)
+
+Using the given empirical expressions, we obtain for the left-hand side of
+
+(1)
+
+∂(αv)
+
+1 ∂v
+
+vB−1
+
+1
+
+a
+
+∂P
+
+=
+
+=−
+
+T T ∂P T
+
+T
+
+=− PT
+
+v+ T2
+
+and for the right-hand side
+
+∂(vB−1)
+
+1
+
+−
+
+=−
+
+∂T
+
+P
+
+P
+
+∂v
+
+2a
+
+1
+
+2a
+
+1v a
+
+∂T
+
+P − T3
+
+=− P
+
+αv − T 3
+
+=− P
+
+T + T3 .
+
+The compatibility of the given expressions is thus established.
+
+To determine the equation of state of the gas, we note from the given expression for α that
+
+∂v
+
+v 3a
+
+∂v
+
+3a
+
+∂T P = T + T 3 , i.e. ∂T T P = T 4 ,
+
+whence
+
+va
+
+a
+
+T = − T 3 + f (P ), i.e. v = − T 2 + Tf (P ),
+
+(2)
+
+where f is a function of P only. We then obtain for B
+
+vB−1 = −Tf (P ).
+
+(3)
+
+Combining (2) and (3), we get
+
+f (P )
+
+vB−1
+
+1
+
+f (P )
+
+= − (v + a /T )2
+
+=− . P
+
+It follows that f (P ) is proportional to 1 /P and hence, by (2), P = const. T (v + a /T 2)−1.
+
+86
+
+10.5. The Joule-Thomson coeﬃcient of a gas is given by
+
+∂T
+
+= − (∂H/∂P )T = 1 T ∂V
+
+N −V =
+
+∂P H
+
+(∂H/∂T )P CP
+
+∂T P
+
+CP
+
+By eqn. (10.2.1),
+
+∂v −v .
+∂T P
+
+P v = 1 + a2λ3 + . . . , so that
+
+kT
+
+v
+
+kT v=
+P
+
+1 + a2λ3P + . . . kT
+
+=
+
+kT P
+
++ a2λ3 + . . . .
+
+It follows that
+
+T
+
+∂v ∂T
+
+−v=
+P
+
+T
+
+∂(a2λ3) ∂T
+
+−
+
+a2λ3
+
++...
+
+and hence the quoted result for (∂T /∂P )H . With the given interparticle interaction, eqn. (10.2.3) gives
+
+a2λ3 = −2π
+
+D
+
+r1
+
+−1 · r2dr + (eu0/kT − 1)r2dr
+
+0
+
+D
+
+2π =
+3
+
+D3 −
+
+r13 − D3
+
+eu0/kT
+
+,
+
+whence
+
+T
+
+∂(a2λ3) ∂T
+
+−
+
+a2λ3
+
+=
+
+2π 3
+
+r13 − D3
+
+1 + u0 kT
+
+eu0/kT − r13 .
+
+The desired result for (∂T /∂P )H now follows readily.
+We note that the Joule-Thomson coeﬃcient obtained here vanishes at a temperature T0, known as the temperature of inversion, given by the implicit relationship
+
+1 + u0 kT 0
+
+eu0/kT 0
+
+=
+
+r13
+
+r13 − D3
+
+.
+
+For T < T0, (∂T /∂P )H > 0, which means that the Joule-Thomson expansion causes a cooling of the gas. For T > T0, (∂T /∂P )H < 0; the expansion now causes a heating instead.
+
+10.7. To the desired approximation,
+
+P kT
+
+≡
+
+1 V
+
+ln Q =
+
+1 λ3
+
+(z
+
+−
+
+a2z2),
+
+n=
+
+N V
+
+=
+
+1 λ3
+
+(z
+
+−
+
+2a2z
+
+2),
+
+(1a,b)
+
+where a2 is the second virial coeﬃcient of the gas. It follows that
+
+z = nλ3(1 + 2a2 · nλ3), whence P = nkT (1 + a2 · nλ3).
+
+(2a,b)
+
+87
+
+Next
+
+A = NkT ln z − PV = NkT {ln(nλ3) − 1 + a2 · nλ3},
+
+G = NkT ln z = NkT {ln(nλ3) + 2a2 · nλ3},
+
+S=−
+
+∂A = Nk
+∂T N,V
+
+5 2
+
+−
+
+ln(nλ3)
+
+−
+
+∂ n
+∂T
+
+(Ta 2 λ3 )
+
+;
+
+remember that the coeﬃcient a2 is a function of T . Furthermore,
+
+U = A + TS = NkT
+
+3 2
+
+−
+
+nT
+
+∂ ∂T
+
+(a2λ3)
+
+,
+
+H = U + PV = NkT 5 − nT 2 ∂ a2λ3 ,
+
+2
+
+∂T T
+
+CV =
+
+∂U = Nk
+∂T N,V
+
+3∂ −n
+2 ∂T
+
+T
+
+2
+
+∂ ∂T
+
+(a2λ3)
+
+CP
+
+− CV
+
+= −T (∂P/∂T )2N,V (∂P/∂V )N,T
+
+= Nk
+
+1
+
++
+
+2nT
+
+∂ ∂T
+
+(a2λ3
+
+)
+
+, and .
+
+For the second part, use the expression for a2λ3 derived in Problem 10.5 and examine the temperature dependence of the various thermodynamic quantities.
+
+10.8. We consider a volume element dx 1dy1dz 1 around the point P (x1, 0, 0) in solid 1 and a volume element dx 2dy2dz 2 around the point Q(x2, y2, z2) in solid 2. The force of attraction between these elements will be
+5
+−α(n dx 1dy1dz 1)(n dx 2dy2dz 2) {(x2 − x1)2 + y22 + z22}5/2 ,
+directed along the line joining the points P and Q. The normal component of this force will be
+
+−αn2(dy1dz 1)
+
+5
+
+{(x2
+
+−
+
+(x2 − x1) x1)2 + y22
+
++
+
+z22}3
+
+dx 1dx 2dy2dz 2.
+
+The net force (per unit area) experienced by solid 1, because of attraction by all the molecules of solid 2, will thus be
+
+− αn2 5
+
+0 x1 =−∞
+
+∞ x2 =d
+
+∞ ρ=0
+
+{(x2
+
+(x2 − x1) − x1)2 + ρ2}3
+
+dx 1dx 2
+
+·
+
+2πρdρ
+
+παn2 5 0
+
+∞
+
+1
+
+παn2 5
+
+=− 2
+
+x1=−∞ x2=d (x2 − x1)3 dx 1dx 2 =
+
+, 4d
+
+i.e. inversely proportional to d.
+
+88
+
+10.9. For x 1, the spherical Bessel function j (x) behaves like x /1.3 . . . (2 + 1) while the spherical Neumann function behaves like −1.3 . . . (2 −1)/x +1; see Abramowitz and Stegun (1964). Substituting these results into eqn. (10.5.31), we readily obtain the desired result.
+
+10.10. The symmetrized wave functions for a pair of non-interacting bosons/fermions are given by
+
+1 Ψα(r1, r2) = √
+
+(eik1·r1 eik2·r2 ± eik1·r2 eik2·r1 ).
+
+2V
+
+The probability density operator Wˆ 2 of the pair is then given through the matrix elements
+
+1 , 2 |Wˆ 2|1, 2
+
+= 2λ6 λ6
+= V2
+
+Ψα(1 , 2 )Ψ∗α(1, 2)e−βEα
+α
+(eik1·r1 eik2·r2 ± eik1·r2 eik2·r1 )×
+α
+(e−ik1·r1 e−ik2·r2 ± e−ik1·r2 e−ik2·r1 )e−β 2(k12+k22)/2m
+
+λ6 =
+2V 2
+k1 k2
+
+eik1·(r1−r1)eik2·(r2−r2) + eik1·(r2−r2)eik2·(r1−r1)± eik1·(r2−r1)eik2·(r1−r2) ± eik1·(r1−r2)eik2·(r2−r1)
+
+e−β 2k12/2me−β 2k22 /2m
+
+=
+
+1 [
+2
+
+1
+
+|Wˆ 1|1
+
+2 |Wˆ 1|2
+
++ 2 |Wˆ 1|2
+
+1 |Wˆ 1|1 ±
+
+2 |Wˆ 1|1 1 |Wˆ 1|2 ± 1 |Wˆ 1|2 2 |Wˆ 1|1 ]
+
+= 1 |Wˆ 1|1 2 |Wˆ 1|2 ± 2 |Wˆ 1|1 1 |Wˆ 1|2 .
+
+Comparing this with eqn. (10.6.18), we obtain the desired result.
+10.11. A particle with spin J can be in any one of the (2J + 1) spin states characterized by the spin functions χm(m = −J, . . . , J). For a pair of such particles, we will have (2J + 1)2 spin states characterized by the symmetrized spin functions
+
+χm1 (1)χm2 (2) ± χm1 (2)χm2 (1) (m1,2 = −J, . . . , J ).
+Of these, (2J + 1) functions, for which m1 = m2, can only be symmetric, for the corresponding antisymmetric combinations vanish identically. The remaining 2J(2J + 1) functions, for which m1 = m2, can be symmetric or antisymmetric; however, only half of them are linearly independent functions (because an interchange of the suﬃces m1 and m2 does not produce anything new). Thus, in all, we have J(2J + 1) antisymmetric spin functions, and (J + 1)(2J + 1) symmetric spin functions, that are linearly independent.
+
+89
+
+Now the total wave function of the pair will be the product of a symmetrized space function (like the ones considered in the previous problem) and a symmetrized spin function (like the ones discussed above). For the total wave function to be symmetric, as required for a pair of bosons, we may associate any of the (J + 1)(2J + 1) symmetric spin functions with a symmetric space function or any of the J(2J + 1) antisymmetric spin functions with an antisymmetric space function. This will lead to the quoted expression for the coeﬃcient bs2. On the other hand, for the total wave function to be antisymmetric, as required for a pair of fermions, we may associate any of the J(2J + 1) antisymmetric spin functions with a symmetric space function or any of the (J + 1)(2J + 1) symmetric spin functions with an antisymmetric space function. This will lead to the quoted expression for the coeﬃcient bA2 .
+10.12. To derive the desired results, we make the following observations:
+(i) Since a pair of particles with spin J has (2J + 1)2 possible spin states while a pair of spinless particles has only one, we have to divide the expression for b2 pertaining to the former by (2J + 1)2 so that we are talking of the average contribution per state.
+(ii) To make a transition from discreteness in orientation (that is associated with a ﬁnite value of J) to continuity in orientation, we should take the limit J → ∞.
+(iii) In view of the foregoing, the distinction between the original system being symmetric or antisymmetric is completely lost, and we are led to the results quoted in the problem.
+
+Next, using eqns. (10.5.28, 36 and 37), we obtain for the quantum-mechanical Boltzmannian gas
+
+D1
+
+D 3 22π2 D 5
+
+b2 = − λ
+
+− 3π λ
+
++ 3
+
++..., λ
+
+which diﬀers signiﬁcantly from the corresponding classical result.
+
+10.13 Expand the deﬁnition of the pair density n2(r, r ) in powers of the fugacity z using the grand canonical partition function and the Mayer functions fij = exp (−βu(rij)) − 1.
+
+1
+
+∞
+
+zN
+
+n2(r12) = Q(µ, V, T )
+
+(N − 2)!
+
+N =2
+
+dr3 · · · drN exp (−βu(r12) − βu(r13) − · · · )
+
+= e−βu(r12) z2 + z3 (1 + f13 + f23 + f13f23) dr3 − z3Q1 + · · ·
+
+= e−βu(r12) z2 + 2z3 f (r)dr + z3 f13f23 dr3 + · · ·
+
+90
+
+Note every term includes the factor e−βu(r12). The coeﬃcients of those terms are integrals over the Mayer functions that are continuous functions of r12 even for the inﬁnite step function potential; see equation (10.3.19) and discussion in Hansen and McDonald (1986) Chapter 5.
+
+10.14 The pressure is given by
+
+P
+
+n
+
+du
+
+=1−
+
+rg(r) dr,
+
+nkT
+
+2dkT
+
+dr
+
+where g(r) = y(r)e−βu(r). This gives
+
+P
+
+n
+
+=1−
+
+du ry(r)
+
+e−βu(r)dr
+
+=
+
+1
+
++
+
+n
+
+d ry(r)
+
+e−βu(r) dr,
+
+nkT
+
+2dkT
+
+dr
+
+2d
+
+dr
+
+For the case of hard spheres,
+
+d e−βu(r) = δ(r − D), dr so
+
+P
+
+nDd
+
+=1+ nkT
+
+2d
+
+Ωdy(D).
+
+where Ωd is the area of the d-dimensional unit sphere. For hard spheres y(D) = g(D+). In three dimensions η = πnD3/6 and Ω3 = 4π, so P/(nkT ) = 1 + 4ηg(D+).
+
+10.15 Let P (r) be the cumulative probability that no particles are closer than r to a given particle. Breaking up the interval between zero and r into small intervals starting ar rk = k∆r with width ∆r gives
+
+r/∆r
+
+P (r) =
+
+1 − 4πng(rk)rk2∆r ,
+
+k=0
+
+since each factor represents the probability there are no neighbors in interval k. This gives
+
+r/∆r
+
+r/∆r
+
+ln (P (r)) ≈
+
+ln 1 − 4πng(rk)rk2∆r ≈ −
+
+4π ng (rk )rk2 ∆r.
+
+k=0
+
+k=0
+
+Therefore
+
+r
+P (r) = exp −4πn r2g(r)dr .
+0
+
+Finally
+
+dP w(r) = − .
+dr For an ideal gas g(r) = 1, so the integrals are easily evaluated.
+
+91
+
+10.17 & 10.18. For a complete solution to these problems, see Landau and Lifshitz (1958), sec. 117, pp. 369–74.
+
+10.19. (a) In this problem we are concerned with the integral
+
+∞
+I = ∂u e−βur3dr . dr
+0
+Integrating by parts, we get
+
+∞
+
+1 I =−
+β
+
+e−βu + c
+
+r3
+
+|∞ 0
+
++
+
+1 β
+
+e−βu + c 3r2 dr .
+
+0
+
+An arbitrary constant c has been introduced here to secure “proper behavior” at r = ∞. Since exp(−βu) → 1 as r → ∞, we choose c = −1. The integrated part then vanishes [assuming that u(r) → 0 faster than 1/r3], and we are left with the result
+
+∞
+
+3 I=
+β
+
+e−βu − 1 r2 dr .
+
+0
+
+This reduces eqn. (10.7.11) to the desired form.
+(b) In the case of hard-sphere potential, the function f (r) = −1 for r ≤ σ and 0 for r > σ. We then get
+
+PV
+
+2πnσ3
+
+1+
+
+NkT
+
+3
+
+N n= .
+V
+
+For nσ3
+
+1, we may write this result in the approximate form
+
+2πnσ3
+
+PV 1 −
+
+= NkT .
+
+3
+
+Comparison with Problem 1.4 shows that the parameter b of that problem is equal to (2π/3)N σ3, which is indeed four times the actual space
+occupied by the particles.
+
+10.20 Use
+
+[κT (n, T )]−1 = n
+
+∂p ∂n
+
+T
+
+P (n, T ) = n2 ∂f ∂n T
+
+92
+
+where f = A/N is the Helmholtz free energy per particle. Then
+
+n dn
+
+P (n, T ) = p(n0, T ) +
+
+, n0 n κ(n , T )
+
+n P (n , T )
+
+f (n, T ) = f (n0, T ) +
+n0
+
+(n )2 dn .
+
+10.21 The most general Gaussian distribution of variables {u1, · · · , uN } is of the form
+
+P (u1, · · · , uN ) ∼ exp
+
+− 1 uT Au 2
+
+where A is a symmetric positive deﬁnite matrix. The matrix has only positive eigenvalues and can be diagonalized into diagonal matrix (A˜ = U T = U −1 using the orthogonal the matrix U . The eigenvalues {λ1, · · · , λN }
+are all positive and detU = 1. The normalization is
+
+N = dN u exp − 1 uT Au = dN y exp − 1 yT A˜y
+
+2
+
+2
+
+N
+= (2π)N λi = (2π)N detA .
+i=1
+
+The transformed variables are y = U T u so the Jacobian is unity. The integral of the average of exp aT u can be determined from completing
+the square inside the exponential,
+
+dN u exp aT u − 1 uT Au = N exp 1 aT A−1a .
+
+2
+
+2
+
+Averaging the quantity aT u 2 is accomplished by transforming to the y variables which, using
+
+dx x2 exp(−λx2/2) = (2π)1/2/λ3/2,
+
+gives dN u aT u 2 exp − 1 uT Au = N aT U A˜−1U T a = N aT A−1a. 2
+
+10.22 The pressure is given by
+
+∂A p=−
+
+= n2 ∂A/N ,
+
+∂V N,T
+
+∂n T
+
+93
+
+and the excess pressure is given by
+
+P ex = Pcs − Pideal = nkT
+
+1 + η + η2 − η3 (1 − η)3 − 1
+
+=
+
+4η − 2η2 nkT (1 − η)3
+
+=
+
+n2
+
+∂Aex/N ∂n
+
+.
+T
+
+This can be integrated to give
+
+βAex
+
+η 4 − 2η
+
+3 − 2η
+
+4η − 3η2
+
+N = 0 (1 − η )2 dη = (1 − η)2 − 3 = (1 − η)2 .
+
+10.23 The simplest rational approximations are
+
+P nkT
+
+=
+
+1 + η/8 (1 − η)2
+
+≈ 1 + 2η + 3.125η2 + 4.25η3 + 5.375η4 + 6.5η5
+
++ 7.625η6 + 8.75η7 + 9.875η8 + 11.000η9 + · · · ,
+
+and
+
+P nkT
+
+=
+
+1 + 0.128018 η (1 − η)2
+
+≈ 1 + 2η + 3.128018η2 + 4.256036η3 + 5.384054η4 + 6.512072η5
+
++ 7.64009η6 + 8.768108η7 + 9.896126η8 + 11.024144η9 + · · ·
+
+The later gets the ﬁrst two orders exactly correct, and the third and fourth order coeﬃcients correct to better that 1%.
+
+Chapter 11
+
+11.4. The relevant results for T < Tc are given in eqns. (11.2.13–15). The corresponding results for T > Tc follow from eqn. (11.2.10) by neglecting n0 altogether; we get, to the ﬁrst order in a,
+
+1
+
+1
+
+4πa 2
+
+N A(N, V, T ) = N Aid (N, V, T ) +
+
+, mv
+
+4πa 2 P = Pid + mv2 ,
+
+8πa 2
+
+µ = µid +
+
+. mv
+
+(13a) (14a) (15a)
+
+Remembering that vc ∝ T−3/2, the various quantities of interest turn out to be
+
+CV = −T K = −v
+
+∂2A
+
+2πa 2
+
+∂T 2
+
+= (CV)id + N
+N,V
+
+mT
+
+0
+
+−
+
+3 2vc
+
++
+
+6v vc2
+
+∂P ∂v
+
+2πa 2
+
+= Kid +
+T
+
+m
+
+4/v2 2/v2
+
+(T > Tc) (T < Tc)
+
+(T > Tc) (T < Tc)
+
+∂2P
+
+∂T 2
+
+=
+v
+
+∂2P
+
+2πa 2
+
+∂T 2
+
++
+v,id
+
+mT 2
+
+0 6/vc2
+
+(T > Tc) (T < Tc)
+
+∂2µ
+
+∂T 2
+
+=
+v
+
+∂2µ
+
+4πa 2
+
+∂T 2
+
++
+v,id
+
+mT 2
+
+0 3/4vc
+
+(T > Tc) (T < Tc)
+
+The thermodynamic relationship quoted in part (b) of the problem is readily veriﬁed.
+
+As for the discontinuities at T = Tc, we get (setting v = vc)
+
+∆CV
+
+=
+
+9πa 2 N
+mT c
+
+1 vc
+
+=
+
+Nk 9aλ2c 2
+
+ζ (3/2) λ3c
+
+=
+
+9a Nk ζ(3/2),
+2λc
+
+4πa 2 1 ∆K = − m vc2 ,
+
+∂2P
+
+12πa 2
+
+∂2µ
+
+3πa 2
+
+∆
+
+∂T 2
+
+=
+v
+
+mT 2c vc2 ,
+
+∆
+
+∂T 2
+
+v = mT 2c vc .
+
+94
+
+95
+
+11.5. (a) We replace the sum over p appearing in eqn. (11.3.14) by an integral, viz.
+
+∞
+
+p2 4πa 2N
+
+4πa 2N 2 m V · 4πp2dp
+
+ε(p) − −
+
++
+
+0
+
+2m mV
+
+mV
+
+p2
+
+h3
+
+.
+
+Substituting p = (8πa 2N/V )1/2x, we get
+
+∞ 4πa 2N
+
+0
+
+mV
+
+x(x2
+
++
+
+2)1/2
+
+−
+
+x2
+
+−
+
+1
+
++
+
+1 2x2
+
+4πV h3
+
+8πa 2N
+
+3/2
+x2dx ,
+
+V
+
+which readily leads us from eqn. (11.3.14) to (11.3.15). The resulting integral over x can be done by elementary means, giving
+
+∞ 0
+
+x(x2
+
++
+
+2)1/2
+
+−
+
+x2
+
+−
+
+1
+
++
+
+1 2x2
+
+x2dx =
+
+1
+
+(3x2
+
+−
+
+4)(x2
+
++
+
+2)3/2
+
+−
+
+1 x5
+
+−
+
+1 x3
+
++
+
+1 x
+
+∞
+
+.
+
+15
+
+5
+
+3
+
+20
+
+For x 1,
+
+1 (3x2 − 4)(x2 + 2)3/2 = 1 (3x5 − 4x3)
+
+15
+
+15
+
+33 1 + x2 + 2x4 + O
+
+1 x6
+
+=
+
+1 x5
+
++
+
+1 x3
+
+−
+
+1 x
+
++O
+
+1
+
+.
+
+532
+
+x
+
+The contribution fr√om the upper limit is, therefore, zero. From the lower limit we get 128/15, which leads to eqn. (11.3.16). (b) Noting that
+
+4πVp2dp 4πV h3 = h3
+
+8πa 2N
+
+3/2
+x2 dx = N
+
+128 (na3)
+
+1/2
+x2dx ,
+
+V
+
+π
+
+we readily obtain eqn. (11.3.23). Now the integral
+
+∞ 0
+
+x(x2 + 1) (x2 + 2)1/2
+
+−
+
+x2
+
+dx
+
+=
+
+1 (x2 3
+
+−
+
+1)(x2
+
++ 2)1/2
+
+−
+
+1 3
+
+x3
+
+|∞ 0 .
+
+Again, for x 1,
+
+1 (x2−1)(x2+2)1/2 = 1 (x3−x)
+
+3
+
+3
+
+1 1 + x2 + O
+
+1 x4
+
+= 1 x3+O 1 ,
+
+3
+
+x
+
+with the result that the cont√ribution from the upper limit vanishes. From the lower limit we get 2/3, which leads to eqn. (11.3.24).
+
+11.6. We invert the given equation for n and write
+
+4πa 2n µ0 = m
+
+1 + 32 (na3)1/2 + . . . 3π1/2
+
+.
+
+96
+
+Substituting this into the given expressions for E0 and P0, we get
+
+E0 = 2πa 2n2
+
+V
+
+m
+
+2πa 2n2 =
+m
+
+2πa 2n2 P0 = m
+
+2πa 2n2 =
+m
+
+1+
+
+32
+
+2
+(na3)1/2 + . . .
+
+1−
+
+64 (na3)1/2 + . . .
+
+3π1/2
+
+5π1/2
+
+1
+
++
+
+128 15π1/2
+
+(na 3 )1/2
+
++
+
+.
+
+.
+
+.
+
+,
+
+and
+
+1+
+
+32
+
+2
+(na3)1/2 + . . .
+
+1−
+
+128 (na3)1/2 + . . .
+
+3π1/2
+
+15π1/2
+
+1
+
++
+
+64 5π1/2
+
+(na 3 )1/2
+
++
+
+.
+
+.
+
+.
+
+,
+
+in complete agreement with eqns. (11.3.16 and 17).
+
+11.7. By eqns. (11.3.11), the number operator nˆp for the real particles is given by
+
+nˆp
+
+=
+
+a+p ap
+
+=
+
+1 1 + αp2
+
+b+p bp − αp b−pbp + b+p b+−p + αp2 b−pb+−p
+
+.
+
+The terms linear in αp do not contribute to the expectation value of nˆp
+(with p = 0) because of the absence of the diagonal matrix elements in b−pbp and b+p b+−p. Further, since b+p bp = Nˆp and b−pb+−p = Nˆ−p +1, we get
+
+1 np = 1 − αp2
+
+N¯p + αp2(N¯−p + 1)
+
+(p = 0).
+
+Finally, in view of the isotropy of the problem, N −p = N p and we get the desired result.
+
+11.8. For a solution to this problem, see Feynman (1954).
+
+11.10 and 11. For solutions to these problems, see Fetter (1963, 1965).
+
+11.14. We set x = 1 + ε, where |ε| 1, and ﬁnd that
+
+2x4
+
+ln
+
+x2 |x2 −
+
+1|
+
+1 + 2ε
+
+2(1 + 4ε) ln 2|ε|
+
+1
+
++
+
+1 2
+
+ε
+
+3 2(1 + 4ε) − ln |ε| − ln 2 + ε ,
+2
+
+1 x+1
+
+2+ε
+
+10 x − ln
+
+20ε ln
+
+20ε{− ln |ε| + ln 2},
+
+x x−1
+
+|ε|
+
+√
+
+(2 − x2)5/2
+
+1 + x (2 − x2)
+
+2(2 − x2)5/2 x + 2 − x2
+
+ln
+
+=
+
+ln √
+
+x
+
+1 − x ((2 − x2)
+
+x
+
+x − 2 − x2
+
+2(1 − 2ε)5/2 (1 + ε) + (1 − ε − ε2) 1 + ε ln (1 + ε) − (1 − ε − ε2)
+
+2
+
+1
+
+2(1 − 6ε) ln 2ε + ε2
+
+2(1 − 6ε) − ln |ε| − ε . 2
+

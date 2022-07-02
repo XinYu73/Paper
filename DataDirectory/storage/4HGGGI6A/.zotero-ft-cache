@@ -1,0 +1,954 @@
+PYTHON BASICS
+
+LICENSE, DISCLAIMER OF LIABILITY, AND LIMITED WARRANTY
+By purchasing or using this book (the “Work”), you agree that this license grants permission to use the contents contained herein, but does not give you the right of ownership to any of the textual content in the book or ownership to any of the information or products contained in it. This license does not permit uploading of the Work onto the Internet or on a network (of any kind) without the written consent of the Publisher. Duplication or dissemination of any text, code, simulations, images, etc., contained herein is limited to and subject to licensing terms for the respective products, and permission must be obtained from the Publisher or the owner of the content, etc., in order to reproduce or network any portion of the textual material (in any media) that is contained in the Work.
+MERCURY LEARNING AND INFORMATION (“MLI” or “the Publisher”) and anyone involved in the creation, writing, production, accompanying algorithms, code, or computer programs (“the software”), and any accompanying Web site or software of the Work, cannot and do not warrant the performance or results that might be obtained by using the contents of the Work. The author, developers, and the Publisher have used their best efforts to insure the accuracy and functionality of the textual material and/or programs contained in this package; we, however, make no warranty of any kind, express or implied, regarding the performance of these contents or programs. The Work is sold “as is” without warranty (except for defective materials used in manufacturing the book or due to faulty workmanship).
+The author, developers, and the publisher of any accompanying content, and anyone involved in the composition, production, and manufacturing of this work will not be liable for damages of any kind arising out of the use of (or the inability to use) the algorithms, source code, computer programs, or textual material contained in this publication. This includes, but is not limited to, loss of revenue or profit, or other incidental, physical, or consequential damages arising out of the use of this Work.
+The sole remedy in the event of a claim of any kind is expressly limited to replacement of the book and only at the discretion of the Publisher. The use of “implied warranty” and certain “exclusions” vary from state to state, and might not apply to the purchaser of this product.
+
+PYTHON BASICS
+H. Bhasin
+MERCURY LEARNING AND INFORMATION
+Dulles, Virginia Boston, Massachusetts
+New Delhi
+
+Copyright ©2019 by MERCURY LEARNING AND INFORMATION LLC. All rights reserved. ISBN: 978-1-683923-53-4. Reprinted and revised with permission.
+Original Title and Copyright: Python for Beginners. Copyright ©2019 by New Age International (P) Ltd. Publishers. All rights reserved. ISBN: 978-93-86649-49-2
+This publication, portions of it, or any accompanying software may not be reproduced in any way, stored in a retrieval system of any type, or transmitted by any means, media, electronic display or mechanical display, including, but not limited to, photocopy, recording, Internet postings, or scanning, without prior permission in writing from the publisher.
+Publisher: David Pallai MERCURY LEARNING AND INFORMATION 22841 Quicksilver Drive Dulles, VA 20166 info@merclearning.com www.merclearning.com 1-800-232-0223
+H. Bhasin. Python Basics. ISBN: 978-1-683923-53-4
+The publisher recognizes and respects all marks used by companies, manufacturers, and developers as a means to distinguish their products. All brand names and product names mentioned in this book are trademarks or service marks of their respective companies. Any omission or misuse (of any kind) of service marks or trademarks, etc. is not an attempt to infringe on the property of others.
+Library of Congress Control Number: 2018962670 181920321 Printed on acid-free paper in the United States of America.
+Our titles are available for adoption, license, or bulk purchase by institutions, corporations, etc. For additional information, please contact the Customer Service Dept. at 800-232-0223(toll free).
+All of our titles are available in digital format at authorcloudware.com and other digital vendors. The sole obligation of MERCURY LEARNING AND INFORMATION to the purchaser is to replace the book, based on defective materials or faulty workmanship, but not based on the operation or functionality of the product.
+
+To My Mother
+
+CONTENTS
+Chapter 1: Introduction to Python 1.1 Introduction 1.2 Features of Python 1.2.1 Easy 1.2.2 Type and Run 1.2.3 Syntax 1.2.4 Mixing 1.2.5 Dynamic Typing 1.2.6 Built in Object Types 1.2.7 Numerous Libraries and Tools 1.2.8 Portable 1.2.9 Free 1.3 The Paradigms 1.3.1 Procedural 1.3.2 Object-Oriented 1.3.3 Functional 1.4 Chronology and Uses 1.4.1 Chronology 1.4.2 Uses 1.5 Installation of Anaconda 1.6 Conclusion
+Chapter 2: Python Objects 2.1 Introduction
+
+2.2 Basic Data Types Revisited 2.2.1 Fractions
+2.3 Strings 2.4 Lists and Tuples
+2.4.1 List 2.4.2 Tuples 2.4.3 Features of Tuples 2.5 Conclusion
+Chapter 3: Conditional Statements 3.1 Introduction 3.2 if, if-else, and if-elif-else constructs 3.3 The if-elif-else Ladder 3.4 Logical Operators 3.5 The Ternary Operator 3.6 The get Construct 3.7 Examples 3.8 Conclusion
+Chapter 4: Looping 4.1 Introduction 4.2 While 4.3 Patterns 4.4 Nesting and Applications of Loops in Lists 4.5 Conclusion
+Chapter 5: Functions 5.1 Introduction 5.2 Features of a Function 5.2.1 Modular Programming 5.2.2 Reusability of Code 5.2.3 Manageability 5.3 Basic Terminology
+
+5.3.1 Name of a Function 5.3.2 Arguments 5.3.3 Return Value 5.4 Definition and Invocation 5.4.1 Working 5.5 Types of Function 5.5.1 Advantage of Arguments 5.6 Implementing Search 5.7 Scope 5.8 Recursion 5.8.1 Rabbit Problem 5.8.2 Disadvantages of Using Recursion 5.9 Conclusion
+Chapter 6: Iterations, Generators, and Comprehensions 6.1 Introduction 6.2 The Power of “For” 6.3 Iterators 6.4 Defining an Iterable Object 6.5 Generators 6.6 Comprehensions 6.7 Conclusion
+Chapter 7: File Handling 7.1 Introduction 7.2 The File Handling Mechanism 7.3 The Open Function and File Access Modes 7.4 Python Functions for File Handling 7.4.1 The Essential Ones 7.4.2 The OS Methods 7.4.3 Miscellaneous Functions and File Attributes 7.5 Command Line Arguments
+
+7.6 Implementation and Illustrations 7.7 Conclusion
+
+Chapter 8: Strings
+
+8.1 Introduction
+
+8.2 The Use of “For” and “While”
+
+8.3 String Operators
+
+8.3.1 The Concatenation Operator (+)
+
+8.3.2 The Replication Operator
+
+8.3.3 The Membership Operator
+
+8.4 Functions for String Handling
+
+8.4.1 8.4.2 8.4.3 8.4.4 8.4.5 8.4.6 8.4.7 8.4.8
+
+len() Capitalize() find() count Endswith() Encode Decode
+Miscellaneous Functions
+
+8.5 Conclusion
+
+Chapter 9: Introduction to Object Oriented Paradigm 9.1 Introduction 9.2 Creating New Types 9.3 Attributes and Functions 9.3.1 Attributes 9.3.2 Functions 9.4 Elements of Object-Oriented Programming 9.4.1 Class 9.4.2 Object 9.4.3 Encapsulation 9.4.4 Data Hiding 9.4.5 Inheritance
+
+9.4.6 Polymorphism 9.4.7 Reusability 9.5 Conclusion
+Chapter 10: Classes and Objects 10.1 Introduction to Classes 10.2 Defining a Class 10.3 Creating an Object 10.4 Scope of Data Members 10.5 Nesting 10.6 Constructor 10.7 Constructor Overloading 10.8 Destructors 10.9 Conclusion
+Chapter 11: Inheritance 11.1 Introduction to Inheritance and Composition 11.1.1 Inheritance and Methods 11.1.2 Composition 11.2 Inheritance: Importance and Types 11.2.1 Need for Inheritance 11.2.2 Types of Inheritance 11.3 Methods 11.3.1 Bound Methods 11.3.2 Unbound Method 11.3.3 Methods are Callable Objects 11.3.4 The Importance and Usage of Super 11.3.5 Calling the Base Class Function Using Super 11.4 Search in Inheritance Tree 11.5 Class Interface and Abstract Classes 11.6 Conclusion
+Chapter 12: Operator Overloading
+
+12.1 Introduction 12.2 _init_ Revisited
+12.2.1 Overloading _init_ (sort of) 12.3 Methods for Overloading Binary Operators 12.4 Overloading Binary Operators: The Fraction Example 12.5 Overloading the += Operator 12.6 Overloading the > and < Operators 12.7 Overloading the _boolEan_ Operators: Precedence of
+_bool_over _len_
+12.8 Destructors 12.9 Conclusion
+Chapter 13: Exception Handling 13.1 Introduction 13.2 Importance and Mechanism 13.2.1 An Example of Try/Catch 13.2.2 Manually Raising Exceptions 13.3 Built-In Exceptions in Python 13.4 The Process 13.4.1 Exception Handling: Try/Except 13.4.2 Raising Exceptions 13.5 Crafting User Defined Exceptions 13.6 An Example of Exception Handling 13.7 Conclusion
+Chapter 14: Introduction to Data Structures 14.1 Introduction 14.2 Abstract Data Type 14.3 Algorithms 14.4 Arrays 14.5 Iterative and Recursive Algorithms 14.5.1 Iterative Algorithms
+
+14.5.2 Recursive Algorithms 14.6 Conclusion
+Chapter 15: Stacks and Queues 15.1 Introduction 15.2 Stack 15.3 Dynamic Implementation of Stacks 15.4 Dynamic Implementation: Another Way 15.5 Applications of Stacks 15.5.1 Reversing a String 15.5.2 Infix, Prefix, and Postfix Expressions 15.6 Queue 15.7 Conclusion
+Chapter 16: Linked Lists 16.1 Introduction 16.2 Operations 16.3 Implementing Stack Using a Linked List 16.4 Queue Using a Linked List 16.5 Conclusion
+Chapter 17: Binary Search Trees 17.1 Introduction 17.2 Definition and Terminology 17.2.1 Graphs: Definition and Representation 17.2.2 Trees: Definition, Classification, and Representation 17.2.3 Representation of a Binary Tree 17.2.4 Tree Traversal: In-order, Pre-order, and Post-order 17.3 Binary Search Tree 17.3.1 Creation and Insertion 17.3.2 Traversal 17.3.3 Maximum and Minimum Elements 17.4 Conclusion
+
+Chapter 18: Introduction to NUMPY 18.1 Introduction 18.2 Introduction to NumPy and Creation of a Basic Array 18.3 Functions for Generating Sequences 18.3.1 arange() 18.3.2 linspace() 18.3.3 logspace() 18.4 Aggregate Functions 18.5 Broadcasting 18.6 Structured Arrays 18.7 Conclusion
+Chapter 19: Introduction to MATPLOTLIB 19.1 Introduction 19.2 The Plot Function 19.3 Subplots 19.4 3 Dimensional Plotting 19.5 Conclusion
+Chapter 20: Introduction to Image Processing 20.1 Introduction 20.2 Opening, Reading, and Writing an Image 20.2.1 Opening an Image 20.2.2 Reading 20.2.3 Writing an Image to a File 20.2.4 Displaying an Image 20.3 The Contour Function 20.4 Clipping 20.5 Statistical Information of an Image 20.6 Basic Transformation 20.6.1 Translation 20.6.2 Rotation
+
+20.6.3 Scaling 20.7 Conclusion Appendix A: Multithreading in Python Appendix B: Regular Expressions Appendix C: Exercises for Practice: Programming Questions Appendix D: Problems for Practice: Multiple Choice Questions Appendix E: Answer to the Multiple Choice Questions Bibliography Index
+
+1 CHAPTER
+INTRODUCTION TO PYTHON
+After reading this chapter, the reader will be able to
+• Understand the chronology of Python • Appreciate the importance and features of Python • Discover the areas in which Python can be used • Install Anaconda
+1.1 INTRODUCTION
+Art is an expression of human creative skill, hence programming is an art. The choice of programming language is, therefore, important. This book introduces Python, which will help you to become a great artist. A. J. Perlis, who was a professor at the Purdue University, and who was the recipient of the first Turing award, stated
+“A language that doesn’t affect the way you think about programming is not worth knowing.”
+Python is worth knowing. Learning Python will not only motivate you to do highly complex tasks in the simplest manners but will also demolish the myths of conventional programming paradigms. It is a language which will change the way you program and hence look at a problem.
+Python is a strong, procedural, object-oriented, functional language crafted in the late 1980s by Guido Van Rossum. The language is named after Monty Python, a comedy group. The language is currently being used in diverse application domains. These include software development, web development, Desktop GUI development, education, and scientific applications. So, it spans almost all the facets of development. Its popularity is primarily owing to its simplicity and robustness, though there are many other factors too which are discussed in the
+
+chapters that follow. There are many third party modules for accomplishing the above tasks. For example Django, an immensely popular Web framework dedicated to clean and fast development, is developed on Python. This, along with the support for HTML, E-mails, FTP, etc., makes it a good choice for web development. Third party libraries are also available for software development. One of the most common examples is Scions, which is used for build controls. When joined with the inbuilt features and support, Python also works miracles for GUI development and for developing mobile applications, e.g., Kivy is used for developing multi-touch applications. Python also finds its applications in scientific analysis. SciPy is used for Engineering and Mathematics, and IPython is used for parallel computing. Those of you working in statistics and machine learning would find some of these libraries extremely useful and easy to use. SciPy provides MATLABMATLABMATLAB like features and can be used for processing multidimensional arrays. Figure 1.1 summarizes the above discussion.
+FIGURE 1.1 Some of the applications of Python
+This chapter introduces the Python programming language. The chapter has been organized as follows. Section 1.2 discusses the features of Python, Section 1.3 discusses the paradigms and Section 1.4 discusses the development and uses. The installation of Anaconda has been introduced in Section 1.5. The last section concludes the chapter.
+1.2 FEATURES OF PYTHON
+
+As stated earlier, Python is a simple but powerful language. Python is portable. It has built-in object types, many libraries and is free. This section briefly discusses the features and strengths of Python.
+1.2.1 Easy
+Python is easy to learn and understand. As a matter of fact, if you are from a programming background you will find it elegant and uncluttered. The removal of braces and parentheses makes the code short and sweet. Also, some of the tasks in Python are pretty easy. For example, swapping numbers in Python is as easy as writing (a, b)= (b, a).
+It may also be stated here that learning something new is an involved and intricate task. However, the simplicity of Python makes it almost a cake walk. Moreover, learning advanced features in Python is a bit intricate, but is worth the effort. It is also easy to understand a project written in Python. The code, in Python, is concise and effective and therefore understandable and manageable.
+1.2.2 Type and Run
+In most projects, testing something new requires scores of changes and therefore recompilations and re-runs. This makes testing of code a difficult and time consuming task. In Python, a code can be run easily. As a matter of fact, we run scripts in Python.
+As we will see later in this chapter, Python also provides the user with an interactive environment, in which one can run independent commands.
+1.2.3 Syntax
+The syntax of Python is easy; this makes the learning and understanding process easy. According to most of authors, the three main features which make Python attractive are that it’s simple, small, and flexible.
+1.2.4 Mixing
+If one is working on a big project, with perhaps a large team, it might be the case that some of the team members are good in other programming languages. This
+
+may lead to some of the modules in some other languages wanting to be embedded with the core Python code. Python allows and even supports this.
+1.2.5 Dynamic Typing
+Python has its own way of managing memory associated with objects. When an object is created in Python, memory is dynamically allocated to it. When the life cycle of the object ends, the memory is taken back from it. This memory management of Python makes the programs more efficient.
+1.2.6 Built in Object Types
+As we will see in the next chapter Python has built in object types. This makes the task to be accomplished easy and manageable. Moreover, the issues related to these objects are beautifully handled by the language.
+1.2.7 Numerous Libraries and Tools
+In Python, the task to be accomplished becomes easy—really easy. This is because most of the common tasks (as a matter of fact, not so common tasks too) have already been handled in Python. For example, Python has libraries which help users to develop GUI’s, write mobile applications, incorporate security features and even read MRI’s. As we will see in the following chapters, the libraries and supporting tools make even the intricate tasks like pattern recognition easy.
+1.2.8 Portable
+A program written in Python can run in almost every known platform, be it Windows, Linux, or Mac. It may also be stated here that Python is written in C.
+1.2.9 Free
+Python is not propriety software. One can download Python compilers from among the various available choices. Moreover, there are no known legal issues involved in the distribution of the code developed in Python.
+
+1.3 THE PARADIGMS
+1.3.1 Procedural
+In a procedural language, a program is actually a set of statements which execute sequentially. The only option a program has, in terms of manageability, is dividing the program into small modules. “C,” for example, is a procedural language. Python supports procedural programming. The first section of this book deals with procedural programming.
+1.3.2 Object-Oriented
+This type of language primarily focuses on the instance of a class. The instance of a class is called an object. A class is a real or a virtual entity that has an importance to the problem at hand, and has sharp physical boundaries. For example in a program that deals with student management, “student” can be a class. Its instances are made and the task at hand can be accomplished by communicating via methods. Python is object-oriented. Section 2 of this book deals with the object-oriented programming.
+1.3.3 Functional
+Python also supports functional programming. Moreover, Python supports immutable data, tail optimization, etc. This must be music to the ears for those from a functional programming background. Here it may be stated that functional programming is beyond the scope of this book. However, some of the above features would be discussed in the chapters that follow.
+So Python is a procedural, object-oriented and functional language.
+1.4 CHRONOLOGY AND USES
+Having seen the features, let us now move onto the chronology and uses of Python. This section briefly discusses the development and uses of Python and will motivate the reader to bind with the language.
+1.4.1 Chronology
+
+Python is written in C. It was developed by Guido Van Rossum, who is now the Benevolent Director for Life of Python. The reader is expected to take note of the fact that Python has got nothing to do with pythons or snakes. The name of the language comes from the show “Monty Python’s Flying Circus,” which was one of the favorite shows of the developer, Guido van Rossum. Many people attribute the fun part of the language to the inspiration.
+Python is easy to learn as the core of the language is pretty concise. The simplicity of Python can also be attributed to the desire of the developers to make a language that was very simple, easy to learn but quite powerful.
+The continuous betterment of the language has been possible because of a dedicated group of people, committed to supporting the cause of providing the world with an easy yet powerful language. The growth of the language has given rise to the creation of many interest groups and forums for Python. A change in the language can be brought about by what is generally referred to as the PEP (Python Enhancement Project). The PSF (Python Software Foundation) takes care of this.
+1.4.2 Uses
+Python is being used to accomplish many tasks, the most important of which are as follows:
+Graphical User Interface (GUI) development Scripting web pages Database programming Prototyping Gaming Component based programming
+If you are working in Unix or Linux, you don’t need to install Python. This is because in Unix and Linux systems, Python is generally pre-installed. However, if you work in Windows or Mac then you need to download Python. Once you have decided to download Python, look for its latest version. The reader is requested to ensure that the version he/she intends to download is not an alpha or a beta version. Reference 1 at the end of the book gives a brief overview of distinctions between two of the most famous versions. The next section briefly
+
+discusses the steps for downloading Anaconda, an open source distribution software.
+Many development environments are available for Python. Some of them are as follows:
+1. PyDev with Eclipse 2. Emacs 3. Vim 4. TextMate 5. Gedit 6. Idle 7. PIDA (Linux)(VIM based) 8. NotePad++ (Windows) 9. BlueFish (Linux)
+There are some more options available. However, this book uses IDLE and Anaconda. The next section presents the steps involved in the installation of Anaconda.
+1.5 INSTALLATION OF ANACONDA
+In order to install Anaconda, go to https://docs.continuum.io/anaconda/install and select the installer (Windows or Mac OS or Linux). This section presents the steps involved in the installation of Anaconda on the Windows Operating System.
+First of all, one must choose the installer (32 bit or 64 bit). In order to do so, click on the selected installer and download the .exe file. The installer will ask you to install it on the default location. You can provide a location that does not contain any spaces or Unicode characters. It may happen that during the installation you might have to disable your anti-virus software. Figures 1.2(a) to 1.2(g) take the reader through the steps of installation.
+
+FIGURE 1.2(a) The welcome screen of the installer, which asks the user to close all running applications and then click Next
+FIGURE 1.2(b) The license agreement to install Anaconda3 4.3.0 (32 bit)
+
+FIGURE 1.2(c) In the third step, the user is required to choose whether he wants to install Anaconda for a single user or for all the users
+FIGURE 1.2(d) The user then needs to select the folder in which it will install
+
+FIGURE 1.2(e) The user then must decide whether he wants to add Anaconda to path environment variable and whether to register Anaconda as the default Python 3.6
+The installation then starts. After installation, the following screen will appear:
+FIGURE 1.2(f) When the installation is complete, this screen appears
+
+FIGURE 1.2(g) You can also share your notebooks on cloud
+Once Anaconda is installed, you can open Anaconda and run your scripts. Figure 1.3 shows the Anaconda navigator. From the various options available you can choose the appropriate option for you. For example, you can open the QTConsole and run the commands/ scripts. Figure 1.4 shows the snapshot of QTConsole. The commands written may appear gibberish at this point, but will become clear in the chapters that follow.
+FIGURE 1.3 The Anaconda navigator
+
+FIGURE 1.4 The QtConsole
+1.6 CONCLUSION
+Before proceeding any further, the reader must take note of the fact that some things in Python are different when compared to any other language. The following points must be noted to avoid any confusion.
+In Python, statements do not end with any special characters. Python considers the newline character as an indication of the fact that the statement has ended. If a statement is to span more than a single line, the next line must be preceded with a (\). In Python, indentation is used to detect the presence of loops. The loops in Python do not began or end with delimiters or keywords. A file in Python is generally saved with a .py extension. The shell can be used as a handy calculator. The type of a variable need not to be mentioned in a program.
+Choice at every step is good but can also be intimidating. As stated earlier, Python’s core is small and therefore it is easy to learn. Moreover, there are some things like (if/else), loops and exception handling which are used in almost all the programs.
+
+The chapter introduces Python and discusses the features of Python. One must appreciate the fact that Python supports all three paradigms: procedural, objectoriented, and functional. This chapter also paves the way for the topics presented in the following chapters. It may also be stated that the codes presented in this book will run on versions 3.X.
+GLOSSARY
+PEP: Python Enhancement Project
+PSF: Python Software Foundation
+POINTS TO REMEMBER
+Python is a strong procedural, object-oriented, functional language crafted in late 1980s by Guido Van Rossum. Python is open source. The applications of Python include software development, web development, desktop GUI development, education and scientific applications. Python is popular due to its simplicity and robustness. It is easy to interface with C++ and Java. SciPy is used for engineering and mathematics, IPython for parallel computing etc., Scions is used for build control. The various development environments for Python are PyDev with Eclipse, Emacs, Vim, TextMate, Gedit, Idle, PIDA (Linux)(VIM Based), NotePad++ (Windows), and BlueFish (Linux).
+RESOURCES
+To download Python, visit www.python.org The documentation is available at www.python.org/doc/
+EXERCISES
+
+MULTIPLE CHOICE QUESTIONS
+1. Python can subclass a class made in (a) Python only (b) Python, C++ (c) Python, C++, C#, Java (d) None of the above
+2. Who created Python? (a) Monty Python (b) Guido Van Rossum (c) Dennis Richie (d) None of the above
+3. Monty Python was (a) Creator of Python Programming Language (b) British Comedy Group (c) American Band (d) Brother of Dosey Howser
+4. In Python, libraries and tools (a) Not supported (b) Supported but not encouraged (c) Supported and encouraged (d) Supported (only that of PSF’s)
+5. Python has (a) Built in object types (b) Data types (c) Both (d) None of the above
+
+6. Python is a (a) Procedural language (b) object-oriented Language (c) Fictional (d) All of the above
+7. There is no data type, so a code in Python is applicable to whole range of Objects. This is called (a) Dynamic Binding (b) Dynamic Typing (c) Dynamic Leadership (d) None of the above
+8. Which of the following is automatic memory management? (a) Automatically assigning memory to objects (b) Taking back the memory at the end of life cycle (c) Both (d) None of the above
+9. PEP is (a) Python Ending Procedure (b) Python Enhancement proposal (c) Python Endearment Project (d) none of the above
+10. PSF is (a) Python Software Foundation (b) Python Selection Function (c) Python segregation function (d) None of the above
+
+11. What can be done in Python (a) GUI (b) Internet scripting (c) Games (d) All of the above
+12. What can be done using Python? (a) System programming (b) Component based programming (c) Scientific programming (d) All of the above
+13. Python is used in (a) Google (b) Raspberry Pi (c) Bit Torrent (d) All of the above
+14. Python is used in (a) App Engine (b) YouTube sharing (c) Real time programming (d) All of the above
+15. Which is faster? (a) PyPy (b) IDLE (c) Both are equally good (d) depends on the task
+
+THEORY
+1. Write the names of three projects which are using Python. 2. Explain a few applications of Python. 3. What type of language is Python? (Procedural, object-oriented or functional) 4. What is PEP? 5. What is PSF? 6. Who manages Python? 7. Is Python open source or proprietary? 8. What languages can be supported by Python? 9. Explain the chronology of the development of Python. 10. Name a few editors for Python. 11. What are the features of Python? 12. What is the advantage of using Python over other languages? 13. What is Dynamic Typing? 14. Does Python have data types? 15. How is Python different from Java?
+
+2 CHAPTER
+PYTHON OBJECTS
+After reading this chapter, the reader will be able to
+• Understand the meaning and importance of variables, operators, keywords, and objects • Use numbers and fractions in a program • Appreciate the importance of strings • Understand slicing and indexing in strings • Use of lists and tuples • Understand the importance of tuples
+2.1 INTRODUCTION
+To be able to write a program in Python the programmer can use Anaconda, the installation of which was described in the previous chapter—or you can use IDLE, which can be downloaded from the reference given at the end of the Chapter 1. IDLE has an editor specially designed for writing a Python program.
+As stated earlier Python is an interpreted language, so one need not to compile every piece of code. The programmer can just write the command and see the output at the command prompt. For example, when writing 2+3 on the command line we get
+>>2+3 5
+As a matter of fact you can add, subtract, multiply, divide and perform exponentiation in the command line. Multiplication can be done using the * operator, the division can be performed using the / operator, the exponentiation can be done using the ** operator and the modulo can be found using the % operator. The modulo operator finds the remained if the first number is greater than the other, otherwise it returns the first number as the output. The results of the operations have been demonstrated as follows:
+
+>>> 2*3 6 >>> 2/3 0.6666666666666666 >>> 2**3 8 >>> 2%3 2 >>> 3%2 1 >>>
+In the above case, the Python interpreter is used to execute the commands. This is referred to as a script mode. This mode works with small codes. Though simple commands can be executed on the command line, the complex programs can be written in a file. A file can be created as follows:
+Step 1. Go to FILE NEW Step 2. Save the file as calc.py Step 3. Write the following code in the file
+print(2+3) print(2*3) print(2**3) print(2/3) print(2%3) print(3/2)
+
+Step 4. Go to debug and run the program. The following output will be displayed.
+>>> ============ RUN C:/Python/Chapter 2/calc.py ============ 5 6 8 0.6666666666666666 2 1.5 >>>
+Conversely, the script can be executed by writing Python calc.py on the command prompt. In order to exit IDLE go to FILE->EXIT or write the exit() function at the command prompt.
+In order to store values, we need variables. Python empowers the user to manipulate variables. These variables help us to use the values later. As a matter of fact, everything in Python is an object. This chapter focuses on objects. Each object has identity, a type, and a value (given by the user / or a default value). The identity, in Python, refers to the address and does not change. The type can be any of the following.
+None: This represents the absence of a value.
+Numbers: Python has three types of numbers:
+Integer: It does not have any fractional part Floating Point: It can store number with a fractional part Complex: It can store real and imaginary parts
+Sequences: These are ordered collections of elements. There are three types of sequences in Python:
+String Tuples Lists
+
+These types have been discussed in the sections that follow.
+Sets: This is an un-ordered collection of elements.
+Keywords: These are words having special meanings and are understood by the interpreter. For example, and, del, from, not, while, as, elif, global,
+else, if, pass, Yield, break, except, import, class, raise,
+continue, finally, return, def, for, and try are some of the keywords which have been extensively used in the book. For a complete list of keywords, the reader may refer to the Appendix.
+Operators: These are special symbols which help the user to carry out operations like addition, subtraction, etc. Python provides following type of operators:
+Arithmetic operators: +, –, *, /, %, ** and //. Assignment operators: =, + =, – =, *=, /=, %=, **= and //= Logical operators: or, and, and not Relational operators: <, <=, >, >=, != or < > and ==.
+This chapter deals with the basic data types in Python and their uses. The chapter has been organized as follows: Section 2 of this chapter deals with the introduction to programming in Python and basic data types, and Section 3 deals with strings. Section 4 deals with lists and tuples. The last section of this chapter concludes the chapter. The readers are advised to go through the references at the end of this book for comprehensive coverage of the topic.
+2.2 BASIC DATA TYPES REVISITED
+The importance of data types has already been discussed. There is another reason to understand and to be able to deal with built-in data types, which is that they generally are an intrinsic part of the bigger types which can be developed by the user.
+The data types provided by Python are not only powerful but also can be nested within others. In the following discussion the concept of nested lists has been presented, which is basically a list within a list. The power of data types can be gauged by the fact that Python provides the user with dictionaries, which makes
+
+mapping easy and efficient.
+Numbers are the simplest data types. Numbers comprise of integers, floats, decimals, and complexes in Python. The type of numbers and their explanations have been summarized in Table 2.1. The operators supported by numbers have been presented in Table 2.2.
+Table 2.1 Numbers
+
+Numbers Integers Floating point numbers Complex numbers Decimal Rational Sets
+
+Explanation Which do not have any fractional part That do have a fractional part The numbers having a real and an imaginary part Those having fixed precision Those having a numerator and a denominator Abstraction of a mathematical set
+
+Table 2.2 Operators supported in numbers
+
++ Addition – Subtraction * Multiplication ** Power % Modulo
+In addition to the above, Python is practically free from the problems of C and C++ and can calculate very, very large integers. Let us now have a look at how to use these operators. For example if one needs to calculate the square root of a number, then importing math and using math.sqrt() is a solution. Some of the most important functions have been explained in the following sneak peek.
+Sneak Peek
+1. Ceil: The ceiling of a given number is the nearest integer greater than or equal to that number. For example, the ceiling of 2.678 is 3.
+>>> import math
+
+>>>math.ceil(2.678) 3 That of 2 is 2. >>>math.ceil(2) 2 >>>
+2. Copy sign: The sign of the second argument is returned along with the result on the execution of this function.
+math.copysign(x, y) Return x with the sign of y.
+On a platform that supports signed zeros, copy sign (1.0, – 0.0) returns –1.0. 3. Fabs: The absolute value of a number is its positive value; that is if the
+number is positive then the number itself is returned. If, on the other hand, the number is negative then it is multiplied by –1 and returned.
+In Python, this task is accomplished with the function fabs (x). The fabs(x) returns the absolute value of x.
+>>>math.fabs(-2.45) 2.45 >>>math.fabs(x) Return the absolute value of x.
+4. Factorial: The factorial of a number x is defined as the continued product of the numbers from 1 to that value. That is:
+Factorial(x) = 1 × 2 × 3 × … × n.
+In Python, the task can be accomplished by the factorial function math. factorial(x). It returns the factorial of the number x. Also if the given number is not an integer or is negative, then an exception is raised. 5. Floor: The floor of a given number is the nearest integer smaller than or equal to that number. For example the floor of 2.678 is 2 and that of 2 is also 2.
+
+>>> import math >>>math.floor(2.678) 2 >>>math.floor(2) 2 >>>
+2.2.1 Fractions
+Python also provides the programmer the liberty to deal with fractions. The use of fractions and decimals has been shown in the following listing.
+Listing
+from fractions import Fraction print(Fraction(128, -26)) print(Fraction(256)) print(Fraction()) print(Fraction('2/5')) print(Fraction(' -5/7')) print(Fraction('2.675438 ')) print(Fraction('-32.75')) print(Fraction('5e-3')) print(Fraction(7.85)) print(Fraction(1.1)) print(Fraction(2476979795053773, 2251799813685248)) from decimal import Decimal print(Fraction(Decimal('1.1'))) >>>
+Output
+========== RUN C:/Python/Chapter 2/Fraction.py ========== -64/13 256 0 2/5 -5/7 1337719/500000 -131/4
+
+1/200 4419157134357299/562949953421312 2476979795053773/2251799813685248 2476979795053773/2251799813685248 11/10 >>>
+2.3 STRINGS
+In Python a string is a predefined object which contains characters. The string in Python is non-mutable; that is, once defined the value of a string cannot be changed. However, as we proceed further, the exceptions to the above premise will be discussed. To begin with, let us consider a string containing value “Harsh,” that is:
+name = 'Harsh'
+The value of this string can be displayed simply by typing the name of the object (name in this case) into the command prompt.
+>>>name Harsh
+The value can also be printed by using the print function, explained previously.
+print(name)
+The value at a particular location of a string can be displayed using indexing. The syntax of the above is as follows.
+<name of the String>[index]
+It may be stated here that the index of the first location is 0. So, name[0] would print the first letter of the string, which is “H.”
+print(name[0]) H
+Negative indexing in a string refers to the character present at the nth position
+
+beginning from the end. In the above case, name[-2] would generate “s.”
+print(name[-2]) s
+The length of a string can be found by calling the len function. len(str) returns the length of the string “str.” For example, len(name) would return 5, as 'harsh' has 5 characters.
+The last character of a given string can also be printed using the following.
+print(name[len(name)-1])
+The + operator concatenates, in the case of a string. For example “harsh” + “arsh” would return “Harsharsh,” that is
+name = name + 'arsh' print(name) Harsharsh
+After concatenation, if the first and the second last characters are to be printed then the following can be used.
+print(name[0]) print(name[-2]) print(name[len(name)-1→2]) H S s
+The * operator, of string, concatenates a given string the number of times, given as the first argument. For example, 3*name would return “harsharshharsharsh.” The complete script as follows:
+Listing
+name = 'Harsh' print(name) print(name[0]) print(name[-2]) print(name[len(name)-1])
+
+name = name + 'arsh' print(name) print(name[0]) print(name[-2]) print(name[len(name)-1]) >>>
+Output
+=========== RUN C:/Python/Chapter 2/String.py =========== Harsh H s h Harsharsh H s h >>>
+Slicing: Slicing, in strings, refers to removing some part of a string. For example:
+>>>name = 'Sonam' >>>name 'Sonam'
+Here, if we intend to extract the portion after the first letter we can write [1:].
+>>> name1=name[1:] >>> name1 'onam'
+In the same way the portion of the string after the first two letters can be extracted as follows.
+>>>name = name[2:] >>>name 'nam'
+
+Now, we modify the string by adding “man man”
+>>>name = “man”+name >>>name 'mannam'
+It may be noted that the last two characters cannot be removed in the same way as the first two. Observe the following output in order to understand the concept.
+>>>name = name[:2] >>>name 'ma' >>>name = “man manam”
+In order to accomplish the above task, negative indexing ought to be used.
+>>>name 'manmanam' >>> name2 = name[:-2] >>> name2 'man man' >>>
+Immutability of Strings
+It may be noted that when we write
+name = 'Hello' + name
+we don’t actually change the string; as a matter of fact we create a new string having the value 'Hello' concatenated with the value stored in name. The concept can be understood by the fact that when we try to change the value of a particular character in a string, an error crops up.
+>>>name='Anupam' >>>name 'Anupam' >>>name[2]='p' Traceback (most recent call last): File “<pyshell#17>”, line 1, in <module>
+
+name[2]='p' TypeError: 'str' object does not support item assignment >>>
+2.4 LISTS AND TUPLES
+2.4.1 List
+A list, in Python, is a collection of objects. As per Lutz “It is the most general sequence provided by the language.” Unlike strings, lists are mutable. That is, an element at a particular position can be changed in a list. A list is useful in dealing with homogeneous and heterogeneous sequences.
+A list can be one of the following:
+A list can be a collection of similar elements (homogeneous), for example [1, 2, 3] It can also contain different elements (heterogeneous), like [1, “abc,” 2.4] A list can also be empty ([]) A list can also contain a list (discussed in Chapter 4, of this book)
+For example, the following list of authors has elements “Harsh Bhasin,” “Mark Lutz,” and “Shiv.” The list can be printed using the usual print function. In the following example, the second list in the following listing contains a number, a string, a float, and a string. “list 3” is a null list and list-of-list contains list as its elements.
+Listing
+authors = ['Harsh Bhasin', 'Mark Lutz', 'Shiv'] print(authors) combined =[1, 'Harsh', 23.4, 'a'] print(combined) list3= [] print(list3) listoflist = [1, [1,2], 3] print(listoflist) >>>
+
+Output
+============ RUN C:/Python/Chapter 2/Lists.py =========== ['Harsh bhasin', 'Mark Lutz', 'Shiv'] [1, 'Harsh', 23.4, 'a'] [] [1, [1, 2], 3] >>>
+An element of a list can be accessed by indexing; for example if list 1 contains [1, 2, 3], then list 1[1] contains “2” and list 1[-1] contains “3.”
+Listing
+list1 = [1, 2, 3] print(list1[1]) print(list1[-1]) >>>
+Output
+=========== RUN C:/Python/Chapter 2/list2.py ============ 2 3 >>>
+A list can also contain list(s). The topic has been discussed in Chapter 4. Lists also support slicing.
+2.4.2 Tuples
+A tuple contains elements which can be treated individually or as a group. A tuple (say (x, y)) can be printed using the standard print( ) function. The elements of a tuple can be accessed by assigning it to a tuple, as shown in the following listing. A tuple may also contain heterogeneous elements. For example, in the following listing, tup2 and tup3 contain a string and an integer.
+Listing
+tup1= (2, 3) print(tup1) (a, b) = tup1
+
+print('The first element is ',a) print('The second element is ',b) tup2=(101, 'Hari') tup3=(102,'Shiv') (code1, name1)=tup1 (code2, name2)=tup2 print('The code of ', name1,' is ',code1,'\nThe code of ',name2, ' is ',code2) >>>
+Output
+=========== RUN C:/Python/Chapter 2/tuple.py ============ (2, 3) The first element is 2 The second element is 3 The code of 3 is 2 The code of Hari is 101 >>>
+Tuples are extremely useful in operations like swapping etc. Swapping in Python is as simple as assigning (a, b) to (b, a). The program for swapping two numbers using tuples has been given as follows.
+Illustration 2.1: Write a program to swap two numbers using tuples.
+Solution:
+print('Enter the first number\t:') num1= int(input()) print('Enter the second number\t:') num2= int(input()) print('\nThe numbers entered are ',num1,' & ', num2) (num1, num2) = (num2, num1) print('\nThe numbers now are ',num1,' & ', num2) >>>
+Output
+============ RUN C:/Python/Chapter 2/swap.py ============ Enter the first number :
+
+2 Enter the second number : 3 The numbers entered are 2& 3 The numbers now are 3& 2 >>>
+2.4.3 Features of Tuples
+Tuples are immutable—an element of a tuple cannot be assigned a different value once it has been set. For example,
+tup1 = (2, 3) tup1[1] = 4 would raise an exception.
+The “+” operator in a tuple concatenates two tuples. For example,
+>>> tup1= (1,2) >>> tup2=(3,4) >>> tup3= tup1+tup2 >>> tup3 (1, 2, 3, 4) >>>
+2.5 CONCLUSION
+In a program, instructions are given to a computer to perform a task. To be able to do so, the operators operate on what are referred to as “objects.” This chapter explains the various types of objects in Python and gives a brief overview of the operators that act upon them. The objects can be built in or user defined. As a matter of fact, everything that will be operated upon is an object.
+The first section of this chapter describes various built-in objects in Python. The readers familiar with “C” must have an idea as to what a procedural language is. In “C,” for example, a program is divided into manageable modules, each of which performs a particular task. The division of bigger tasks into smaller parts makes parts manageable and the tracking of bugs easy. There are many more advantages of using modules, some of which have been stated in Chapter 1.
+
+These modules contain a set of statements, which are equivalent to instructions (or no instruction, e.g. in case of a comment). The statements may contain expressions, in which objects are operated upon by operators. As stated earlier, Python gives its user the liberty to define their own objects. This will be dealt with in the chapter on classes and objects. This chapter focuses on the built in objects.
+In C (or for that matter C++), one needs to be careful not only about the built-in type used but also about the issues relating to the allocation of memory and data structures. However, Python spares the user of these problems and can therefore focus on the task at hand. The use of built-in data types makes things easy and efficient.
+GLOSSARY
+None: This represents the absence of value.
+Numbers: Python has three types of numbers: integers, floating point, complex.
+Sequences: These are ordered collections of elements. There are three types of sequences in Python:
+String Tuples Lists
+POINTS TO REMEMBER
+In order to store values, we need variables. Everything in Python is an object. Each object has identity, a type, and a value.
+EXERCISES
+MULTIPLE CHOICE QUESTIONS
+
+1. >>> a = 5
+>>> a + 2.7 >>> a
+(a) 7.7 (b) 7 (c) None of the above (d) An exception is raised
+2. >>> a = 5
+>>> b = 2 >>> a/b
+(a) 2 (b) 2.5 (c) 3 (d) None of the above
+3. >>> a = 5
+>>> b = 2
+>>> c = float (a)/b
+>>> c
+(a) 2 (b) 2.5 (c) 3 (d) An exception is raised
+4. >>> a = 2
+>>> b = 'A' >>> c = a + b >>> c
+(a) 67 (b) 60 (c) None of the above (d) An exception is raised
+
+5. >>> a = 'A'
+>>> 2*A
+(a) ‘AA’ (b) 2A (c) A2 (d) None of the above
+6. >>> a = 'A'
+>>> b = 'B' >>> a + b
+(a) A + B (b) AB (c) BA (d) None of the above
+7. >>> (a, b) = (2, 5)
+>>> (a, b) = (b, a)
+>>> (a, b) (a) (2, 5) (b) (5, 2) (c) (5, 5) (d) None of the above
+8. >>> a = 5
+>>> b = 2 >>> a = a + b >>> b = a - b >>> a = a - b >>> a
+(a) 5 (b) 2 (c) None of the above (d) An exception is raised
+
+9. >>> a = 5
+>>> b * b = a >>> b
+(a) 2.7 (b) 25 (c) None of the above (d) An exception is raised
+10. >>> (a, b) = (2, 3)
+>>> (c, d) = (4, 5) >>> (a, b) + (c, d)
+(a) (6, 8) (b) (2, 3, 4, 5) (c) (8, 6) (d) None of the above
+11. In the above question what would (a, b) – (c, d) generate (a) (6, 8) (b) (2, 3, 4, 5) (c) (8, 6) (d) None of the above
+12. In the above question what would (a, b) * (c, d) generate (a) (6, 8) (b) (2, 3, 4, 5) (c) (8, 6) (d) None of the above
+13. >>> a = 'harsh'
+>>> b = a[1: len(a)] >>> b
+(a) arsh
+
+(b) hars (c) harsh (d) None of the above
+14. >>>a = 'harsh'
+>>>b = [-3, len (a)]
+(a) rsh (b) arsh (c) harsh (d) None of the above
+15. >>>b
+>>>a = 'tar' >>>b = 'rat' >>>2*(a + b) is
+(a) tarrattarrat (b) rattarrattar (c) tarratrattar (d) None of the above
+PROGRAMS
+1. Write a program to swap two numbers.
+2. Ask the user to enter the coordinates of a point and find the distance of the point from the origin.
+3. Ask the user to enter two points (x and y coordinates) and find the distance between them.
+4. Ask the user to enter three points and find whether they are collinear.
+5. In the above question, if the points are not collinear then find the type of triangle formed by them (equilateral, isosceles or scalene).
+
+6. In the above question, check if the triangle is right angled.
+7. In question number 4, find the angles of the triangle.
+8. Ask the user to enter two points and find if they are at equal distances from the origin.
+9. In question number 8, find the angle between the line joining the points and the origin.
+10. Ask the user to enter 4 points and arrange them in order of their distances from the origin.
+11. In question 10, arrange the above points in order of their x co-ordinates.
+
+3 CHAPTER
+CONDITIONAL STATEMENTS
+After reading this chapter, the reader will be able to
+• Use conditional statements in programs • Appreciate the importance of the if-else construct • Use the if-elif-else ladder • Use the ternary operator • Understand the importance of & and | • Handle conditional statements using the get construct
+3.1 INTRODUCTION
+The preceding chapters presented the basic data types and simple statements in Python. The concepts studied so far are good for the execution of a program which has no branches. However, a programmer would seldom find a problem solving approach devoid of branches.
+Before proceeding any further let us spare some time contemplating life. Can you move forward in life without making decisions? The answer is NO. In the same way the problem solving approach would not yield results until the power of decision making is incorporated. This is the reason one must understand the implementation of decision making and looping. This chapter describes the first concept. This is needed to craft a program which has branches. Decision making empowers us to change the control-flow of the program. In C, C++, Java, C#, etc., there are two major ways to accomplish the above task. One is the ‘if’ construct and the other is ‘switch’. The ‘if’ block in a program is executed if the ‘test’ condition is true otherwise it is not executed. Switch is used to implement a scenario in which there are many ‘test’ conditions, and the corresponding block executes in case a particular test condition is true.
+The chapter introduces the concept of conditional statements, compound
+
+statements, the if-elif ladder and finally the get statement. The chapter assumes importance as conditional statements are used in every aspect of programming, be it client side development, web development, or mobile application development.
+The chapter has been organized as follows. The second section introduces the ‘if’ construct. Section 3.3 introduces ‘if-elif’ ladder. Section 3.4 discusses the use of logic operators. Section 3.5 introduces ternary operators. Section 3.6 presents the get statement and the last section concludes the chapter. The reader is advised to go through the basic data types before proceeding further.
+3.2 IF, IF-ELSE, AND IF-ELIF-ELSE CONSTRUCTS
+Implementing decision making gives the power to incorporate branching in a program. As stated earlier, a program is a set of instructions given to a computer. The instructions are given to accomplish a task and any task requires making decisions. So, conditional statements form an integral part of programming. The syntax of the construct is as follows:
+General Format
+1. if
+if <test condition>: <block if the test condition is true>
+2. if-else
+if <test condition>: <block if the test condition is true>
+else: <block if the test condition is not true>
+...
+3. If else ladder (discussed in the next section)
+if <test condition>: <block if the test condition is true>
+elif <test 2>: <second block> elif <test 3>: <third block> else:
+
+<block if the test condition is true>
+Note that indentation is important, as Python recognizes a block through indentation. So, make sure that the 'if (<condition>):' is followed by a block, each statement of which is at the same alignment. In order to understand the concept, let us consider a simple example. A student generally clears a university exam in India if he scores more than 40%. In order to implement the logic, the user is asked to enter the value of the percentage. If the percentage entered is more than 40 then “exam cleared” is printed, otherwise “failed” is printed. The situation has been depicted in the following figure (Figure 3.1).
+FIGURE 3.1 Flow chart for example 1
+Illustration 3.1: Ask the user to enter the marks of a student in a subject. If the marks entered are greater than 40 then print “pass,” if they are lower print “fail.”
+Program
+>>>a = input("Enter marks : ") if int(a)> 40:
+print('Pass') else:
+print('Fail') ...
+Output 1
+
+Enter Marks : 50 Pass
+Output 2
+Enter Marks : 30 Fail
+Let us have a look at another example. In the problem, the user is asked to enter a three digit number to find the number obtained by reversing the order of the digits of the number; then find the sum of the number and that obtained by reversing the order of the digits and finally, find whether this sum contains any digit in the original number. In order to accomplish the task, the following steps (presented in Illustration 3.2) must be carried out.
+Illustration 3.2: Ask the user to enter a three digit number. Call it 'num'. Find the number obtained by reversing the order of the digits. Find the sum of the given number and that obtained by reversing the order of the digits. Finally, find if any digit in the sum obtained is the same as that in the original number.
+Solution:
+The problem can be solved as follows:
+When the user enters a number, check whether it is between 100 and 999, both inclusive. Find the digits at unit’s, ten’s and hundred’s place. Call them 'u', 't' and 'h' respectively. Find the number obtained by reversing the order of the digits (say, ‘rev’) using the following formula. Number obtained by reversing the order of the digits, rev = h + t × 10 + u ×
+100
+Find the sum of the two numbers.
+Sum = rev + num
+The sum may be a three digit or a four digit number. In any case, find the digits of this sum. Call them 'u1', 't1', 'h1' and 'th1' (if required). Set 'flag=0'. Check the following condition. If any one is true, set the value of flag to 1. If “sum” is a three digit number
+
+u = = u1 u = = t1 u = = h1 t = = u1 t = = t1 t = = h1 h = = u1 h = = t1 h = = h1
+If “sum” is a four digit number the above conditions need to be checked along with the following conditions:
+u = = th1 h = = th1 t = = th1
+The above conditions would henceforth be referred to as “set 1.” If the value of “flag” is 1, then print 'true' else print 'false'.
+The above process has been depicted in the following figure (Figure 3.2).
+
+Program
+
+FIGURE 3.2 Flow chart for Illustration 2
+
+Output: First run
+>>> ========= RUN C:/Python/Conditional/Problem 2.py ========= Enter a three digit number :4 You have not entered a number between 100 and 999 >>>
+Output: Second run
+
+>>> ========= RUN C:/Python/Conditional/Problem 2.py ========= Enter a three digit number :343 o : 3 t : 4 h : 3 Number obtained by reversing the order of the digits : 343 No digit of the sum is same as the original number >>>
+Output: Third run
+>>> ========= RUN C:/Python/Conditional/Problem 2.py ========= Enter a three digit number : 435 o : 5 t : 3 h : 4 Number obtained by reversing the order of the digits : 534 No digit of the sum is same as the original number >>>
+Output: Fourth run
+>>> ========= RUN C:/Python/Conditional/Problem 2.py ========= Enter a three digit number :121 o : 1 t : 2 h : 1 Number obtained by reversing the order of the digits : 121 Sum of the number and that obtained by reversing the order of digits : 242 o1 : 2 t1 : 4 h1 : 2 Condition true >>> .
+Tip
+One must be careful regarding the indentation, failing which the program would not compile. The indentation decides the beginning and ending of a particular block in Python. It is advisable not to use a combination of spaces and tabs in indentation. Many versions of Python may treat this as a syntax error.
+The if-elif ladder can also be implemented using the get statement, explained later in the chapter. The important points regarding the conditional statements in
+
+Python are as follows: The if <test> is followed by a colon. There is no need of parentheses for this test condition. Though enclosing test in parentheses will not result in an error. The nested blocks in Python are determined by indentation. Therefore, proper indentation in Python is essential. As a matter of fact, an inconsistent indentation or no indentation will result in errors. An if can have any number of if's nested within. The test condition in if must result in a True or a False.
+Illustration 3.3: Write a program to find the greatest of the three numbers entered by the user. Solution: First of all, three variables (say num1, num2, and num3) are needed. These variables will get their values from the user. This input will be followed by the condition checking as depicted in the following program. Finally, the greatest number will be displayed. The listing is given as follows:
+Program
+3.3 THE IF-ELIF-ELSE LADDER
+
+If there are multiple conditions and the outcomes decide the action, then an ifelif- else ladder can be used. This section discusses the construct and presents the concept using relevant examples. The syntax of this construct is as follows:
+Syntax
+if <test condition 1>: # The task to be performed if the condition 1 is true
+elif <test condition 2>: # The task to be performed if the condition 2 is true
+elif <test condition 3>: # The task to be performed if the condition 1 is true
+else: # The task to be performed if none of the above condition is true
+The flow of the program can be managed using the above construct. Figure 3.3 shows the diagram depicting the flow of the program which uses the above constructs.
+In the figure, the left edge depicts the scenario where the condition C is true and the right edge depicts the scenario where the condition is false. In the second graph, conditions C1, C2, C3, and C4 lead to different paths [Programming in C#, Harsh Bhasin, 2014].
+FIGURE 3.3 The flow graph of if and elif ladder
+The following section has programs that depict the use of the elif ladder. It may be noted that if there are multiple else statements, then the second else is taken along with the nearest if.
+3.4 LOGICAL OPERATORS
+
+In many cases the execution of a block depends on the truth value of more than one statement. In such cases the operators “and” (“&”) and “or” (“|”) come to our rescue. The first ('and') is used when the output is 'true', when both the conditions are 'true'. The second ('or') is used if the output is 'true', if any of the conditions are 'true'.
+The truth table of 'and' and 'or' is given as follows. In the tables that follow “T” stands for “true” and “F” stands for “false.”
+Table 3.1 Truth table of a&b
+
+a
+
+b
+
+a&b
+
+t
+
+T
+
+T
+
+t
+
+F
+
+F
+
+F
+
+T
+
+F
+
+F
+
+F
+
+F
+
+Table 3.2 Truth table of a|b
+
+a
+
+b
+
+a|b
+
+t
+
+T
+
+T
+
+t
+
+F
+
+T
+
+F
+
+T
+
+T
+
+F
+
+F
+
+F
+
+The above statement helps the programmer to easily handle compound statements. As an example, consider a program to find the greatest of the three numbers entered by the user. The numbers entered by the user are (say) 'a', 'b', and 'c', then 'a' is greatest if (a > b) and (a > c). This can be written as follows:
+if((a>b)&(a>c)) print('The value of a greatest')
+
+In the same way, the condition of ‘b’ being greatest can be crafted. Another example can be that of a triangle. If all the three sides of a triangle are equal,
+
+then it is an equilateral triangle.
+if((a==b)||(b==c)||(c==a)) //The triangle is equilateral;
+3.5 THE TERNARY OPERATOR
+The conditional statements explained in the above section are immensely important to write any program that contains conditions. However, the code can still be reduced further by using the ternary statements provided by Python. The ternary operator performs the same task as the if-else construct. However, it has the same disadvantage as in the case of C or C++. The problem is that each part caters to a single statement. The syntax of the statement is given as follows.
+Syntax
+<Output variable> = <The result when the condition is true> if <condition> else <The result when the condition is not true>
+For example, the conditional operator can be used to check which of the two numbers entered by the user is greater.
+great = a if (a>b) else b
+Finding the greatest of the three given numbers is a bit intricate. The following statement puts the greatest of the three numbers in “great.”
+great = a if (a if (a > b) else c)) else(b if (b>c) else c))
+The program that finds the greatest of the three numbers entered by the user using a ternary operator is as follows.
+Illustration 3.4: Find the greatest of three numbers entered by the user, using a ternary operator.
+Program
+a = int(input('Enter the first number\t:')) b = int(input('Enter the second number\t:')) c = int(input('Enter the third number\t:'))
+
+big = (a if (a>c) else c) if (a>b) else (b if (b>c) else c) print('The greatest of the three numbers is '+str(big)) >>>
+Output
+========== RUN C:/Python/Conditional/big3.py ========== Enter the first number 2 Enter the second number 3 Enter the third number 4 The greatest of the three numbers is 4 >>>
+3.6 THE GET CONSTRUCT
+In C or C++ (even in C# and Java) a switch is used in the case where different conditions lead to different actions. This can also be done using the'if-elif' ladder, as explained in the previous sections. However, the get construct greatly eases this task in the case of dictionaries.
+In the example that follows there are three conditions. However, in many situations there are many more conditions. The contact can be used in such cases. The syntax of the construct is as follows:
+Syntax
+<dictionary name>.get('<value to be searched>', 'default value>')
+Here, the expression results in some value. If the value is value 1, then block 1 is executed. If it is value 2, block 2 is executed, and so on. If the value of the expression does not match any of the cases, then the statements in the default block are executed. Illustration 5 demonstrates the use of the get construct.
+Illustration 3.5: This illustration has a directory containing the names of books and the corresponding year they were published. The statements that follow find the year of publication for a given name. If the name is not found the string (given as the second argument, in get) is displayed.
+Program
+
+hbbooks = {'programming in C#': 2014, 'Algorithms': 2015, 'Python': 2016} print(hbbooks.get('Progarmming in C#', 'Bad Choice')) print(hbbooks.get('Algorithms', 'Bad Choice')) print(hbbooks.get('Python', 'Bad Choice')) print(hbbooks.get('Theory Theory, all the way', 'Bad Choice'))
+Output
+>>> ========== RUN C:/Python/Conditional/switch.py ========== Bad Choice 2015 2016 Bad Choice >>>
+Note that in the first case the “P” of “Programming” is capital, hence “Bad Choice” is displayed. In the second and the third cases, the get function is able to find the requisite value. In the last case the value is not found and so the second argument of the get function appears. Note that it is similar to the default of the “C” type switch statement. The flow diagram given in Figure 3.4 shows a program that has many branches.
+FIGURE 3.4 A program having multiple conditional statements
+
+Observation
+In Python, dictionaries and lists form an integral part of the language basics. The use of the get construct was not explained in Chapter 2 of this book, as it implements the concept of conditional selection. It may be noted that this construct greatly reduces the problems of dealing with the situations where mapping is required and is therefore important.
+3.7 EXAMPLES
+The 'if' condition is also used for input validation. The process will be explained in the following sections of this book. However, the idea has been used in the example that follows. The program asks the user to enter a character and checks whether its ASCII value is greater a certain value.
+Illustration 3.6: Ask the user to enter a number and check whether its ASCII value is greater than 80.
+Program
+inp = input('Enter a character :') if ord(inp) > 80:
+print('ASCII value is greater than 80') else:
+print('ASCII value is less than 80') Output 1: >>>Enter a character: A ASCII value is less than 80 ...
+Output 2
+>>>Enter a character: Z ASCII value is greater than 80 >>>
+The construct can also be used to find the value of a multi-valued function. For example, consider the following function:
+
+The following example asks the user to enter the value of x and calculates the value of the function as per the given value of x. Illustration 3.7: Implement the above function and find the values of the function at x = 2 and x = 4.
+Program
+Output
+========== RUN C:\Python\Conditional\func.py ========== Enter the value of x :4 Value of function f(x) = 39 >>> ========== RUN C:\Python\Conditional\func.py ========== Enter the value of x :1 Value of function f(x) = 4 >>>
+The 'if-else' construct, as stated earlier, can be used to find the outcome based on certain conditions. For example two lines are parallel if the ratio of the coefficients of x’s is same as that of those of y’s. For a1x + b1y + c1 = 0 and a2x + b2y + c2 = 0. Then the condition of lines being parallel is:
+The following program checks whether two lines are parallel or not.
+
+Illustration 3.8: Ask the user to enter the coefficients of a1x + b1y + c1 = 0 and a2x + b2y + c2 = 0 and find out whether the two lines depicted by the above equations are parallel or not.
+Program
+Output
+>>> ========== RUN C:\Python\Conditional\parallel.py ========== Enter Coefficients of the first equation [a1x + b1y + c1 = 0] Enter the value of a1: 2 Enter the value of b1: 3 Enter the value of c1: 4 Enter Coefficients of second equation [a2x + b2y + c2 = 0] Enter the value of a2: 4 Enter the value of b2: 6 Enter the value of c2: 7
+
+Lines are parallel >>>
+The above program can be extended to find whether the lines are intersecting or overlapping: two lines intersect if the following condition is true. a1x + b1y + c1 = 0 and a2x + b2y + c2 = 0. Then the lines intersect if:
+And the two lines overlap if:
+The following flow-chart shows the flow of control of the program (Figure 3.5).
+FIGURE 3.5 Checking whether lines are parallel, overlapping, or if they intersect
+The following program implements the above logic. Illustration 3.9: Ask the user to enter the values of a1, a2, b1, b2, c1, and c2 and find whether the lines are parallel, or if they overlap or intersect.
+Program
+
+Output
+>>> ========== RUN C:/Python/Conditional/Lines.py ========== Enter Coefficients of the first equation [a1x + b1y + c1 = 0]
+Enter the value of a1: 2 Enter the value of b1: 3 Enter the value of c1: 4 Enter Coefficients of second equation [a2x + b2y + c2 = 0]
+Enter the value of a2: 1 Enter the value of b2: 2 Enter the value of c2: 3 Lines intersect >>>
+3.8 CONCLUSION
+
+As stated in the first chapter, we write a program with a purpose. The purpose to be accomplished by a program generally requires making decisions. This decision making capacity also empowers a programmer to write a code that requires branching. Python greatly reduces unnecessary clutter when compared to C or C++. In a Python code there is hardly a need for braces, or for that matter handling obvious conditions. Python also provides us with a switch-like construct to handle multiple conditions. This chapter discusses the basics of conditional statements and presents ample illustrations to make things clear. These conditional statements are used everywhere; from a basic program to decision support systems and expert systems. The reader is required to go through the points to remember, and implement the problems given in the exercise for better understanding of this. One must also understand that the conditional statements are the first step towards programming. However understanding conditional statements, though essential, is just the beginning. Your journey of becoming a programmer has just started.
+GLOSSARY
+1. The syntax of “if” is as follows.
+if <test condition>: <block if the test condition is true>
+2. The “if else” construct is written as follows.
+if <test condition> <block if the test condition is true>
+else: <block if the test condition is not true>
+...
+3. The syntax of the “if else ladder”
+if <test condition>: <block if the test condition is true>
+elif <test 2>: <second block> elif <test 3>: <third block> else:
+<block if the test condition is true>
+
+POINTS TO REMEMBER
+The 'if' statement implements conditional branching. The test condition is a Boolean expression which results in a true or a false. The block of 'if' executes if the test condition it true. The else part executes if the test condition is false. Multiple branches can be implemented using the if-elif ladder. Any number of if-elif can be nested. A ternary if can be implemented in Python. Logical operators can be used in implementing conditional statements.
+EXERCISES
+MULTIPLE CHOICE QUESTIONS
+1. What will be the output of the following?
+if 28:  print('Hi') else:
+ print('Bye')
+(a) Hi (b) Bye (c) None of the above (d) The above snippet will not compile
+2. a = 5
+b = 7 c = 9 if a>b:
+  if b>c:    print(b)   else:    print(c)
+
+else:
+  if b>c:    print(c)   else:    print(b)
+(a) 7
+(b) 9
+(c) 34
+(d) None of the following
+3. a = 34
+b = 7 c = 9 if a>b:
+  if b>c:    print(b)   else:    print(c)
+else:
+  if b>c:    print(c)   else:    print(b)
+(a) 7
+(b) 9
+(c) None of the above
+(d) The code will not compile
+4. a = int(input('First number\t:'))
+b = int(input('Second number\t')) c = int(input('Third number\t:')) if ((a>b) & (a>c)):    print(a) elif ((b>a) &(b>c)):    print(b) else:    print(c)
+
+(a) The greatest of the three numbers entered by the user (b) The smallest of the three numbers entered by the user (c) None (d) The code will not compile
+5. n = int(input('Enter a three digit number\t:'))
+if (n%10)==(n/100):    print('Hi') else:    print('Bye')    # The three digit number entered by the user is 453
+(a) Hi (b) Bye (c) None of the above (d) The code will not compile
+6. In the above question, if the number entered is 545, what would the answer be? (a) Hi (b) Bye (c) None of the above (d) The code will not compile
+7. hb1 = ['Programming in C#','Oxford University Press', 2014]
+hb2 = ['Algorithms', 'Oxford University Press', 2015] if hb1[1]==hb2[1]:    print('Same') else:    print('Different')
+(a) same (b) Different (c) No output (d) The code would not compile
+
+8. hb1 = ['Programming in C#','Oxford University Press', 2014]
+hb2 = ['Algorithms', 'Oxford University Press', 2015] if (hb1[0][3]==hb2[0][3]):    print('Same') else:    print('Different')
+(a) Same
+(b) Different
+(c) No output
+(d) The code will not compile
+9. In the snippet given in question 8, the following changes are made. What will the output be?
+hb1 = ['Programming in C#','Oxford University Press', 2014] hb2 = ['Algorithms', 'Oxford University Press', 2015] if (str(hb1[0][3])==str(hb2[0][3])):    print('Same') else:    print('Different')
+(a) Same
+(b) Different
+(c) No output
+(d) The code will not compile
+10. Finally, the code in question 8 is changed to the following. What will the output be?
+hb1 = ['Programming in C#','Oxford University Press', 2014] hb2 = ['Algorithms', 'Oxford University Press', 2015] if (char(hb1[0][3])==char(hb2[0][3])):    print('Same') else:    print('Different')
+(a) Same
+(b) Different
+(c) No output
+(d) The code will not compile
+
+PROGRAMMING EXERCISE
+1. Ask the user to enter a number and find the number obtained by reversing the order of the digits.
+2. Ask the user to enter a four digit number and check whether the sum of the first and the last digits is same as the sum of the second and the third digits.
+3. In the above question if the answer is true then obtain a number in which the second and the third digit are one more than that in the given number. Example: Number 5342, sum of the first and the last digit = 7 that of the second and the third digit = 7. New number: 5452
+4. Ask the user to enter the concentration of hydrogen ions in a given solution (C) and find the PH of the solution using the following formula. PH = log10 C
+5. If the PH is <7 then the solution is deemed acidic, else it is deemed as basic. Find if the given solution is acidic.
+6. In the above question find whether the solution is neutral. (A solution is neutral if the PH is 7)
+7. The centripetal force acting on a body (mass m), moving with a velocity v, in a circle of radius r, is given by the formula mv2/r. The gravitational force on the body is given by the formula (GmM)/R2, where m and M are the masses of the body and earth and R is the radius of the earth. Ask the user to enter the requisite data and find whether the two forces are equal or not.
+8. Ask the user to enter his salary and calculate the TADA, which is 10% of the salary; the HRA, which is 20% of the salary and the gross income, which is the sum total of the salary, TADA and the HRA.
+9. In the above question find whether the net salary is greater than $300,000.
+10. Use the Tax Tables of the current year to find the tax on the above income (question number 8), assuming that the savings are $100,000.
+
+11. Find whether a number entered by the user is divisible by 3 and 13.
+12. Find whether the number entered by the user is a perfect square.
+13. Ask the user to enter a string and find the alphanumeric characters from the string.
+14. In the above question find the digits in the strings.
+15. In question 13, find all the components of the string which are not digits or alphabets.
+
+4 CHAPTER
+LOOPING
+After reading this chapter, the reader will be able to
+• Understand the importance and use of loops • Appreciate the importance of the while and for • Use range • Process list of lists • Understand nesting of loops and design patterns
+4.1 INTRODUCTION
+When we were young, we were taught tables of numbers. The table of a number had a pattern. Writing a table in an examination required writing, say, “n×” followed by “i” (i varying from 1 to n) and then the result of calculations (that is n × 1, n × 2 and so on). Many such situations require us to repeat a given task many times. This repetition can be used to calculate the value of a function, to print a pattern or to simply repeat something. This chapter discusses loops and iterations, which are an integral part of procedural programming. Looping means repeating a set of statements until a condition is true. The number of times this set is repeated depends on the test condition. Also, what is to be repeated needs to be chalked out with due deliberation. In general, repeating a block requires the following (Figure 4.1).
+
+FIGURE 4.1 Looping
+Python provides two types of loops: for and while (Figure 4.2).
+FIGURE 4.2 Loops in Python
+While loop is one of the most general constructs in any programming language. If you come from a “C” background, you must be equipped with the above construct. While loop retains most of its features in Python as well, however, there are notable differences too.
+The while loop repeats a block, identified by indentation, until the test condition remains true. As we will see in the following discussion, one can come out of the loop using break and continue. Also, to decide if the loop repeats as per the test condition after which the else condition executes. This is an additional feature in Python.
+The use of for in Python is a bit different to “C”-like languages. The for construct in Python is generally used for lists, tuples, strings, etc. The chapter presents range, which will help the programmer to select a value from a given range. The reader is advised to go through the discussion of lists and tuples presented in Chapter 2 of this book before starting with the for loop.
+The chapter has been organized as follows. Section 4.2 of this chapter presents the basics of the while loop. Section 4.3 uses looping to create patterns. Section
+
+4.4 introduces the concept of nesting and presents the processing of lists and tuples using for loops. The last section concludes the chapter.
+4.2 WHILE
+In Python, the while loop is the most commonly used construct for repeating a task over and over again. The task is repeated until the test condition remains true, after which the loop ends and if the exit occurs without a break, then the else part of the construct executes. The syntax of the loop is as follows:
+Syntax
+while test: ... ...
+else: ...
+It may be stated here that the body of the loop is determined by indentation. This is the reason why you must be extremely careful with indentation. Also, the else part is an addition in Python when compared to “C”-like languages. In order to understand the concept, let us go through the following illustrations.
+Illustration 4.1: Ask the user to enter a number and calculate its factorial.
+Solution: The factorial of a number n is defined as follows.
+factorial = 1 × 2 × 3 × … × n
+That is the factorial of a number, n, is the product of n terms starting from 1. To calculate the factorial of a given number, first of all the user is asked to input a number. The number is then converted into an integer. This is followed by the initialization of “factorial” by 1. Then a while loop successively multiplies i to 'factorial' (note that after each iteration the value of i increases by 1). The following program calculates the factorial of a number entered by the user.
+Program
+n = input('Enter number whose factorial is required')#ask user to enter number
+
+m = int(n)#convert the input to an integer factorial = 1#initialize i=1# counter while i<=m:
+factorial =factorial*i i=i+1 print('\factorial of '+str(m)+' is '+str(factorial))
+Output
+>>> RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/factorial.py Enter number whose factorial is required6 Factorial of 6 is 720
+Illustration 4.2: Ask the user to enter two numbers “a” and “b” and calculate “a” to the power of “b.”
+Solution: “a” raised to the power of “b” can be defined as follows.
+power = a × a × a × .. × a (b times)
+That is, the power of a number “a” raised to “b” is the product of the number “a,” “b” times. To calculate the power, first of all the user is asked to input two numbers. The numbers are then converted into integers. This is followed by the initialization of 'power' by 1. Then a while loop successively multiplies 'a' to 'power' (note that after each iteration the value of i increases by 1). The following program implements the above logic.
+Program
+>>> a = int(input('Enter the first number')) b = int(input('Enter the second number')) power=1 i = 1 while i < = b:
+power = power*a i=i+1
+
+else: print(str(a)+' to the power of '+str(b)+' is '+str(power))
+Output
+>>> RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/power.py Enter the first number4 Enter the second number5 4 to the power of 5 is 1024 >>>
+Illustration 4.3: The arithmetic progression is obtained by adding the common difference “d” to the first term “a,” successively. The ith term of the arithmetic progression is given by the following formula:
+T (i) = a + (i – 1) × d
+Ask the user to enter the value of “a,” “d,” and “n” (the number of terms), and find all the terms of the AP. Also, find the sum of all the terms.
+Solution: The following program asks the user to enter the values of “a,” “d,” and “n.” Note that the input is converted into integers. Also, since all the terms are to be calculated, this evaluation is done inside a loop. The 'sum' is initialized to 0 and the terms are added to 'sum' in each iteration.
+Program
+>>> a = int(input('Enter the first term of the Arithmetic Progression\t:')) d = int(input('Enter the common difference\t:')) n = int(input('Enter the number of terms\t:')) i = 1 sum = 0#initialize while i<=n:
+term = a +(i-1)*d print('The '+str(i)+'th term is '+str(term))
+
+sum = sum + term i=i+1 else: print('The sum of '+str(n)+' terms is\t:'+str(sum))
+Output
+RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/AP.py Enter the first term of the Arithmetic Progression :5 Enter the common difference :6 Enter the number of terms :7 The 1th term is 5 The 2th term is 11 The 3th term is 17 The 4th term is 23 The 5th term is 29 The 6th term is 35 The 7th term is 41 The sum of 7 terms is :161
+Illustration 4.4: The geometric progression is obtained by multiplying the common ratio 'r' to the first term 'a', successively. The ith term of the progression is given by the following formula. T(i) = a × ri – 1
+Ask the user to enter the value of 'a', 'r', and 'n'(the number of terms), and find all the terms of the GP. Also, find the sum of all the terms.
+Solution: The following program asks the user to enter the values of 'a', 'r', and 'n'. Since all the terms are to be calculated, this evaluation is done inside a loop. The 'sum' is initialized to 0 and the terms are added to 'sum' in each iteration.
+Program
+>>> a = int(input('Enter the first term of the Geometric Progression\t:')) r = int(input('Enter the common ratio\t:'))
+
+n = int(input('Enter the number of terms\t:')) i = 1 sum = 0#initialize while i<=n:
+term = a * (r**(i-1)) print('The '+str(i)+'th term is '+str(term)) sum = sum + term i=i+1 else: print('The sum of '+str(n)+' terms is\t:'+str(sum))
+Output
+>>> RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python 3532/Tools/scripts/GP.py Enter the first term of the Arithmetic Progression :5 Enter the common ratio 3 Enter the number of terms 5 The 1th term is 5 The 2th term is 15 The 3th term is 45 The 4th term is 135 The 5th term is 405 The sum of 5 terms is 605 >>>
+4.3 PATTERNS
+Have you ever wondered why quizzes and riddles form an integral part of any intelligence test? The following incident will help the reader to understand the importance of patterns. During World War II, the British were striving hard to break Enigma, the machine used by the Germans for encrypting their messages. The army somehow recruited Alan Turing, who was never in his lifetime recognized, for the above task. He wanted a team to help him, for which he conducted an exam. Many of you would be amazed to know what he asked in that exam which would determine the destiny of a country! He asked the candidates to solve the given puzzles in a given time. This incident underlines
+
+the importance of comprehending patterns. What happened thereafter is history. Decoding patterns and solving puzzles helps to judge the intellect of a person. This is much more important than learning a formula. This section presents the designing of patterns using loops to help the reader understand the concept of nesting. Moreover, this book also intends to inculcate the problem solving approach in the reader. Therefore this section becomes all the more important. The following illustrations show how to assign values to the counters of the inner and the outer loops to carry out the given task. The patterns, as such, may not be very useful. However, doing the following program would help the reader to comprehend the concept of nesting. The methodology of making a pattern has been explained in each of the following programs. Illustration 4.5: Write a program to generate the following pattern in Python.
+The number of rows would be entered by the user. Solution: The number of rows n, will determine the value of the counter (from 0 to n). The value of i denotes the row number in the following program. In each row, the number of stars is equal to the row number. The values of j, in each iteration, denotes the number of stars in each row. This loop is therefore nested. Also, note that after the inner loop ends a new line is printed using the print() function.
+Program
+Output
+RUN C:/Users/ACER
+
+ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/loop2.py Enter the number of rows 5 * * * * * * * * * *
+Illustration 4.6: Write a program to generate the following pattern in Python.
+1 2 2 3 3 3 4 4 4 4
+The number of rows would be entered by the user. Solution: The number of rows will determine the value of the counter i, (from 0 to n). The value of i denotes the row number in the following program. In each row, the number of elements is equal to the row number. The values of j in each iteration denote the number of elements in each row. This loop is therefore nested. The element printed is the value of i+1. Also, note that after the inner loop ends a new line is printed using the print() function.
+Program
+Output
+RUN C:/Users/ACER
+
+ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/loop2.py Enter the number of rows5 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5
+Illustration 4.7: Write a program to generate the following pattern in Python.
+2 2 3 2 3 4 2 3 4 5
+The number of rows would be entered by the user.
+Solution: The number of rows, entered by the user, will determine the value of i (from 0 to n). The value of i denotes the row number in the following program. In each row, the number of elements is equal to the row number. The values of j in each iteration denote the number of elements in each row. This loop is therefore nested. The element printed is the value of j+1. Also note that after the inner loop ends a new line is printed using the print() function.
+Program
+Output
+>>> RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/loop3.py
+
+Enter the number of rows5 2 2 3 2 3 4 2 3 4 5 2 3 4 5 6
+Illustration 4.8: Write a program to generate the following pattern in Python.
+1 2 3 4 5 6 7 8 9 10
+The number of rows would be entered by the user. Solution: The value of i denotes the row number in the following program. In each row, the number of elements is equal to the row number. The values of i in each iteration will denote the number of elements in each row. This loop is therefore nested. The element printed is the value of k, which starts from 1 and incrementally increases in each iteration. Also note that after the inner loop ends a new line is printed using the print() function.
+Program
+Output
+>>> RUN C:\Users\ACER ASPIRE\AppData\Local\Programs\Python\ Python35-32\Tools\scripts\loop1.py Enter the number of rows7 1
+
+2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+Illustration 4.9: Write a program to generate the following pattern in Python.
+* *** ***** ******* *********
+The number of rows would be entered by the user. Solution: The value of i denotes the row number in the following program. In each row, the number of stars is equal to the row number. The values of k in each iteration denote the number of stars in each row, which ranges from 0 to (2*i +1). This loop is therefore nested. The leading spaces are governed by the value of j, which ranges from 0 to (m-i-1). This is because if the value of i is 0, the number of spaces should be 4 (if the value of n is 5). In case the value of i is 1, the number of spaces should be 3 and so on. Also note that after the inner loop ends a new line is printed using the print() function.
+Program
+Output
+RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python35-
+
+32/Tools/scripts/loop5.py Enter the number of rows 6
+* *** ***** ******* *********
+4.4 NESTING AND APPLICATIONS OF LOOPS IN LISTS
+Nested loops can be used to generate matrices. In order to do this, the outer loop is designed to govern the rows and the inner loop to govern each element of a particular row. The following illustration shows the generation of a matrix having ith element given by the following formula:
+ai, j = 5 × (i + j)2
+Note that in the following illustration, two loops have been used. The outer loop runs n times where n is the number of rows, and the inner loop runs m times where m is the number of columns. The number of columns can be perceived as the number of elements in each row.
+The inner loop has one statement, which calculates the element. At the end of each iteration (of the outer loop) a new line is printed using the print() function.
+Illustration 4.10: Generate a n × m, matrix, wherein each element (aij), is given by
+ai, j = 5 × (i + j)2
+Solution: The concept has been explained in the above discussion. There will be two loops; the outer loop for the number of rows and the inner loop for the number of columns.
+Program
+
+Output
+RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/matrixgeneartion.py Enter the number of rows3 Enter the number of columns3 0 5 20 5 20 45 20 45 80 >>>
+It may be noted that in the following chapters, this nesting is used to deal with most of the operations of matrices. As a matter of fact addition and subtraction of two matrices requires two levels of nesting, whereas multiplication of two matrices requires three levels of nesting.
+Illustration 4.11: Handling list of lists: Note that in the following program the first list’s second element is itself a list. Its first element can be accessed by writing hb[0][1] and the first letter of the first element of the nested list would be hb[0][1][0].
+Program
+
+Output
+The following two illustrations handle the list of lists using nested loops. Kindly note the output and the corresponding mappings. Illustration 4.12: Handling list of lists using loops: The elements of nested lists can also be dealt with using nested loops as shown in this illustration.
+Program
+
+Output
+RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python3532/Tools/scripts/listfor.py [['Programming in C#', ['Oxford University Press', 2015]], ['SE is everything', ['Obscure Publishers', 2015]]] 0 0 Programming in C# 0 1 ['Oxford University Press', 2015] 1 0 SE is everything 1 1 ['Obscure Publishers', 2015] >>>
+Illustration 4.13: Another illustration of the use of loops in processing nested lists. The user is expected to observe the output and infer what happened.
+Program
+Output
+RUN C:/Users/ACER ASPIRE/AppData/Local/Programs/Python/Python35-
+
+32/Tools/scripts/listfor.py [['Programming in C#', ['Oxford University Press', 2015]], ['SE is everything', ['Obscure Publishers', 2015]]] 0 0 0 P 0 0 1 r 0 0 2 o 0 0 3 g 0 0 4 r 0 0 5 a 0 0 6 m 0 0 7 m 0 0 8 i 0 0 9 n 0 0 10 g 0 0 11 0 0 12 i 0 0 13 n 0 0 14 0 0 15 C 0 0 16 # 0 1 0 Oxford University Press 0 1 1 2015 1 0 0 S 1 0 1 E 1 0 2 1 0 3 i 1 0 4 s 1 0 5 1 0 6 e 1 0 7 v 1 0 8 e 1 0 9 r 1 0 10 y 1 0 11 t 1 0 12 h 1 0 13 i 1 0 14 n 1 0 15 g 1 1 0 Obscure Publishers
+
+1 1 1 2015
+4.5 CONCLUSION
+Repeating a task is an immensely important job. This is needed in a whole variety of situations to accomplish different tasks. This chapter introduces the two most important looping constructs in Python. The chapter demonstrated the use of these looping constructs by showing simple examples. Having a loop within a loop is called nesting. The nesting of loops has been explained using patterns and lists of lists. Chapter 6 revisits one of the constructs and compares the use of iterators and generators. The reader is expected to solve the problems given at the end of the chapter for better understanding. However, Python provides us with other constructs which greatly simplify program writing. At the moment try various permutations and combinations, observe the outputs and learn.
+GLOSSARY
+1. Looping means repeating a task a certain number of times.
+2. Syntax of for loop
+for i in range(n):
+... ... OR
+for i in range(n, m):
+... ... OR
+for i in (_, _,...)
+... ... ...
+3. Syntax of while loop
+while <test condition>:
+...
+
+POINTS TO REMEMBER
+In order to repeat a set of statements a certain number of times looping is used. Looping in Python can be implemented using while and for. 'while' is the most common looping construct in Python. The statements in the while block executes until the test condition remains true. The else part executes if the loop ends without a break. 'for' can be used for all the purposes for which a 'while' is used. 'for' is generally used for processing lists, tuples, matrices, etc. range (n) means values from 0 to (n – 1). range (m, n) means all the values from m to (n – 1). A loop can be nested in a loop. There can be any number of nestings, although this is undesirable.
+EXERCISES
+MULTIPLE CHOICE QUESTIONS
+1. What will be the output of the following?
+a=8 i=1 while a:  print(a)  i=i+1  a=a-i print(i)
+(a) 8, 6, 3 (b) 8, 6, 3, –1 (c) 8, 6, 3, –1, ... (d) None of the above
+
+2. a=8
+i=1 while a: print(a) i=i+1 a=a/2 print(i)
+(a) 8, 4, 2, 1 (b) 8, 4, 2, 1, 0 (c) 8, 4, 2, 1, 0.5 (d) Infinite loop
+3. How many times will the following loop execute?
+n = int(input('Enter number')) i = n while (i>0): print(n) i=i+1 n = int(n/2) print(i)
+#The value of n entered by the user is 10 (a) 4 (b) 5 (c) Infinite (d) The code will not compile
+4. Which loop can be used when the number of iterations is not known? (a) while (b) for (c) both (d) None of the above
+5. How many levels of nesting are possible in for? (a) 2 (b) 3
+
+(c) Both (d) The code will not compile
+6. n = int(input('Enter number'))
+for i in (0,7): print('i is '+str(i)) i = i+1; else: print('bye')
+How many values would be printed? (a) 2 (b) 3 (c) 6 (d) None of the above
+7. n = int(input('Enter number'))
+for i in range(n, 1, -1): for j in range(i): print(i, j)
+#value entered by the user is 5 (a) (5, 0), (5, 1), ...(2, 1) (b) (5, 1), (5,2),...(2, 0) (c) (0,1), (0,2), ...(5, 2) (d) None of the above
+8. In order to print the elements of a given matrix which of the following is essential? (a) Nested loops (b) Single loop (c) if-else (d) None of the above
+9. What is meant by range (5)? (a) Integers from 0 to 4
+
+(b) Integers from 0 to 5 (c) Integers from 1 to 4 (d) Integers from 1 to 5 10. What is meant by range (3, 8)? (a) 3, 4, 5, 6, 7, 8 (b) 3, 4, 5, 6, 7 (c) 1, 2, 4, 5, 6, 7, 8 (d) 8, 8, 8
+PROGRAMMING
+1. Ask the user to enter a number and find whether it is a prime number. 2. Ask the user to enter a number and find all its factors. 3. Find whether the number entered by the user is a perfect square.
+Example: If number = 30, then factors are 2, 3, and 5 4. Ask the user to enter two numbers and find the lowest common multiple.
+Example: If numbers are 30 and 20, then LCM is 60, as both 20 and 30 are factors of 60 5. Ask the user to enter two numbers and find the highest common factor. Example: If numbers are 30 and 20, the HCF is 10 6. Find the mean of numbers entered by the user.
+7. Find the variance and standard deviation of the numbers entered by the user. 8. Ask the user to enter the values of a and b and find aba. 9. Find the common factor of n numbers entered by a user.
+

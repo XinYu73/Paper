@@ -4,7 +4,7 @@
 	"label": "CSV",
 	"creator": "Philipp Zumstein and Aurimas Vinckevicius",
 	"target": "csv",
-	"minVersion": "4.0.27",
+	"minVersion": "4.0.26",
 	"maxVersion": null,
 	"priority": 100,
 	"inRepository": true,
@@ -12,7 +12,7 @@
 		"exportCharset": "UTF-8xBOM",
 		"exportNotes": false
 	},
-	"lastUpdated": "2022-06-24 21:50:00"
+	"lastUpdated": "2022-06-28 19:55:00"
 }
 
 /*
@@ -240,9 +240,12 @@ function getValue(item, field) {
 			value += escapeValue(creators.join(valueSeparator));
 			break;
 		case 'tags':
-			var tags = [], tagType = split[1] == 'automatic';
+			var tags = [];
+			var tagType = split[1] == 'automatic' ? 1 : 0;
 			for (let i = 0; i < item.tags.length; i++) {
-				if (item.tags[i].type == tagType) tags.push(item.tags[i].tag);
+				if ((item.tags[i].type || 0) === tagType) {
+					tags.push(item.tags[i].tag);
+				}
 			}
 			value += escapeValue(tags.join(valueSeparator));
 			break;

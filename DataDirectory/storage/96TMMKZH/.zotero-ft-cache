@@ -1,0 +1,4875 @@
+Group Theory
+
+M.S. Dresselhaus G. Dresselhaus A. Jorio
+Group Theory
+Application to the Physics of Condensed Matter
+With 131 Figures and 219 Tables
+123
+
+Professor Dr. Mildred S. Dresselhaus Dr. Gene Dresselhaus
+Massachusetts Institute of Technology Room 13-3005 Cambridge, MA, USA E-mail: millie@mgm.mit.edu, gene@mgm.mit.edu
+Professor Dr. Ado Jorio
+Departamento de Física Universidade Federal de Minas Gerais CP702 – Campus, Pampulha Belo Horizonte, MG, Brazil 30.123-970 E-mail: adojorio@ﬁsica.ufmg.br
+
+ISBN 978-3-540-32897-1
+
+e-ISBN 978-3-540-32899-8
+
+DOI 10.1007/978-3-540-32899-8
+
+Library of Congress Control Number: 2007922729
+
+© 2008 Springer-Verlag Berlin Heidelberg
+This work is subject to copyright. All rights are reserved, whether the whole or part of the material is concerned, speciﬁcally the rights of translation, reprinting, reuse of illustrations, recitation, broadcasting, reproduction on microﬁlm or in any other way, and storage in data banks. Duplication of this publication or parts thereof is permitted only under the provisions of the German Copyright Law of September 9, 1965, in its current version, and permission for use must always be obtained from Springer. Violations are liable to prosecution under the German Copyright Law.
+
+The use of general descriptive names, registered names, trademarks, etc. in this publication does not imply, even in the absence of a speciﬁc statement, that such names are exempt from the relevant protective laws and regulations and therefore free for general use.
+Production and Typesetting: LE-TEX Jelonek, Schmidt & Vöckler GbR, Leipzig, Germany Cover design: WMX Design GmbH, Heidelberg, Germany
+
+Printed on acid-free paper 987654321 springer.com
+
+The authors dedicate this book to John Van Vleck and Charles Kittel
+
+Preface
+Symmetry can be seen as the most basic and important concept in physics. Momentum conservation is a consequence of translational symmetry of space. More generally, every process in physics is governed by selection rules that are the consequence of symmetry requirements. On a given physical system, the eigenstate properties and the degeneracy of eigenvalues are governed by symmetry considerations. The beauty and strength of group theory applied to physics resides in the transformation of many complex symmetry operations into a very simple linear algebra. The concept of representation, connecting the symmetry aspects to matrices and basis functions, together with a few simple theorems, leads to the determination and understanding of the fundamental properties of the physical system, and any kind of physical property, its transformations due to interactions or phase transitions, are described in terms of the simple concept of symmetry changes.
+The reader may feel encouraged when we say group theory is “simple linear algebra.” It is true that group theory may look complex when either the mathematical aspects are presented with no clear and direct correlation to applications in physics, or when the applications are made with no clear presentation of the background. The contact with group theory in these terms usually leads to frustration, and although the reader can understand the speciﬁc treatment, he (she) is unable to apply the knowledge to other systems of interest. What this book is about is teaching group theory in close connection to applications, so that students can learn, understand, and use it for their own needs.
+This book is divided into six main parts. Part I, Chaps. 1–4, introduces the basic mathematical concepts important for working with group theory. Part II, Chaps. 5 and 6, introduces the ﬁrst application of group theory to quantum systems, considering the eﬀect of a crystalline potential on the electronic states of an impurity atom and general selection rules. Part III, Chaps. 7 and 8, brings the application of group theory to the treatment of electronic states and vibrational modes of molecules. Here one ﬁnds the important group theory concepts of equivalence and atomic site symmetry. Part IV, Chaps. 9 and 10, brings the application of group theory to describe periodic lattices in both real and reciprocal lattices. Translational symmetry gives rise to a linear momentum quantum number and makes the group very large. Here the
+
+VIII Preface
+
+concepts of cosets and factor groups, introduced in Chap. 1, are used to factor out the eﬀect of the very large translational group, leading to a ﬁnite group to work with each unique type of wave vector – the group of the wave vector. Part V, Chaps. 11–15, discusses phonons and electrons in solid-state physics, considering general positions and speciﬁc high symmetry points in the Brillouin zones, and including the addition of spins that have a 4π rotation as the identity transformation. Cubic and hexagonal systems are used as general examples. Finally, Part VI, Chaps. 16–18, discusses other important symmetries, such as time reversal symmetry, important for magnetic systems, permutation groups, important for many-body systems, and symmetry of tensors, important for other physical properties, such as conductivity, elasticity, etc.
+This book on the application of Group Theory to Solid-State Physics grew out of a course taught to Electrical Engineering and Physics graduate students by the authors and developed over the years to address their professional needs. The material for this book originated from group theory courses taught by Charles Kittel at U.C. Berkeley and by J.H. Van Vleck at Harvard in the early 1950s and taken by G. Dresselhaus and M.S. Dresselhaus, respectively. The material in the book was also stimulated by the classic paper of Bouckaert, Smoluchowski, and Wigner [1], which ﬁrst demonstrated the power of group theory in condensed matter physics. The diversity of applications of group theory to solid state physics was stimulated by the research interests of the authors and the many students who studied this subject matter with the authors of this volume. Although many excellent books have been published on this subject over the years, our students found the speciﬁc subject matter, the pedagogic approach, and the problem sets given in the course user friendly and urged the authors to make the course content more broadly available.
+The presentation and development of material in the book has been tailored pedagogically to the students taking this course for over three decades at MIT in Cambridge, MA, USA, and for three years at the University Federal of Minas Gerais (UFMG) in Belo Horizonte, Brazil. Feedback came from students in the classroom, teaching assistants, and students using the class notes in their doctoral research work or professionally.
+We are indebted to the inputs and encouragement of former and present students and collaborators including, Peter Asbeck, Mike Kim, Roosevelt Peoples, Peter Eklund, Riichiro Saito, Georgii Samsonidze, Jose Francisco de Sampaio, Luiz Gustavo Canc¸ado, and Eduardo Barros among others. The preparation of the material for this book was aided by Sharon Cooper on the ﬁgures, Mario Hofmann on the indexing and by Adelheid Duhm of Springer on editing the text. The MIT authors of this book would like to acknowledge the continued long term support of the Division of Materials Research section of the US National Science Foundation most recently under NSF Grant DMR-04-05538.
+
+Cambridge, Massachusetts USA, Belo Horizonte, Minas Gerais, Brazil, August 2007
+
+Mildred S. Dresselhaus Gene Dresselhaus Ado Jorio
+
+Contents
+Part I Basic Mathematics
+1 Basic Mathematical Background: Introduction . . . . . . . . . . . . . 3 1.1 Deﬁnition of a Group . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 1.2 Simple Example of a Group . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 1.3 Basic Deﬁnitions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6 1.4 Rearrangement Theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7 1.5 Cosets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7 1.6 Conjugation and Class . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9 1.7 Factor Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11 1.8 Group Theory and Quantum Mechanics . . . . . . . . . . . . . . . . . . . 11
+2 Representation Theory and Basic Theorems . . . . . . . . . . . . . . . 15 2.1 Important Deﬁnitions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15 2.2 Matrices . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3 Irreducible Representations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17 2.4 The Unitarity of Representations . . . . . . . . . . . . . . . . . . . . . . . . . 19 2.5 Schur’s Lemma (Part 1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21 2.6 Schur’s Lemma (Part 2) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 2.7 Wonderful Orthogonality Theorem . . . . . . . . . . . . . . . . . . . . . . . . 25 2.8 Representations and Vector Spaces . . . . . . . . . . . . . . . . . . . . . . . . 28
+3 Character of a Representation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29 3.1 Deﬁnition of Character . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29 3.2 Characters and Class . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30 3.3 Wonderful Orthogonality Theorem for Character . . . . . . . . . . . . 31 3.4 Reducible Representations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33 3.5 The Number of Irreducible Representations . . . . . . . . . . . . . . . . 35 3.6 Second Orthogonality Relation for Characters . . . . . . . . . . . . . . 36 3.7 Regular Representation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37 3.8 Setting up Character Tables . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+
+X
+
+Contents
+
+3.9 Schoenﬂies Symmetry Notation . . . . . . . . . . . . . . . . . . . . . . . . . . . 44 3.10 The Hermann–Mauguin Symmetry Notation . . . . . . . . . . . . . . . 46 3.11 Symmetry Relations and Point Group Classiﬁcations . . . . . . . . 48
+
+4 Basis Functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+4.1 Symmetry Operations and Basis Functions . . . . . . . . . . . . . . . . . 57
+4.2 Basis Functions for Irreducible Representations . . . . . . . . . . . . . 58 4.3 Projection Operators Pˆk(lΓn) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64 4.4 Derivation of an Explicit Expression for Pˆk(Γn) . . . . . . . . . . . . . . 64 4.5 The Eﬀect of Projection Operations on an Arbitrary Function 65
+4.6 Linear Combinations of Atomic Orbitals for Three
+Equivalent Atoms at the Corners of an Equilateral Triangle . . 67
+4.7 The Application of Group Theory to Quantum Mechanics . . . . 70
+
+Part II Introductory Application to Quantum Systems
+5 Splitting of Atomic Orbitals in a Crystal Potential . . . . . . . . . 79 5.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79 5.2 Characters for the Full Rotation Group . . . . . . . . . . . . . . . . . . . . 81 5.3 Cubic Crystal Field Environment for a Paramagnetic Transition Metal Ion . . . . . . . . . . . . . . . . . . . 85 5.4 Comments on Basis Functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90 5.5 Comments on the Form of Crystal Fields . . . . . . . . . . . . . . . . . . 92
+6 Application to Selection Rules and Direct Products . . . . . . . 97 6.1 The Electromagnetic Interaction as a Perturbation . . . . . . . . . . 97 6.2 Orthogonality of Basis Functions . . . . . . . . . . . . . . . . . . . . . . . . . . 99 6.3 Direct Product of Two Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . 100 6.4 Direct Product of Two Irreducible Representations . . . . . . . . . . 101 6.5 Characters for the Direct Product . . . . . . . . . . . . . . . . . . . . . . . . . 103 6.6 Selection Rule Concept in Group Theoretical Terms . . . . . . . . . 105 6.7 Example of Selection Rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 106
+
+Part III Molecular Systems
+7 Electronic States of Molecules and Directed Valence . . . . . . . 113 7.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113 7.2 General Concept of Equivalence . . . . . . . . . . . . . . . . . . . . . . . . . . 115 7.3 Directed Valence Bonding . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117 7.4 Diatomic Molecules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118 7.4.1 Homonuclear Diatomic Molecules . . . . . . . . . . . . . . . . . . . 118 7.4.2 Heterogeneous Diatomic Molecules . . . . . . . . . . . . . . . . . . 120
+
+Contents XI
+7.5 Electronic Orbitals for Multiatomic Molecules . . . . . . . . . . . . . . 124 7.5.1 The NH3 Molecule . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124 7.5.2 The CH4 Molecule . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 125 7.5.3 The Hypothetical SH6 Molecule . . . . . . . . . . . . . . . . . . . . 129 7.5.4 The Octahedral SF6 Molecule . . . . . . . . . . . . . . . . . . . . . . 133
+7.6 σ- and π-Bonds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 134 7.7 Jahn–Teller Eﬀect . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 141
+8 Molecular Vibrations, Infrared, and Raman Activity . . . . . . . 147 8.1 Molecular Vibrations: Background . . . . . . . . . . . . . . . . . . . . . . . . 147 8.2 Application of Group Theory to Molecular Vibrations . . . . . . . 149 8.3 Finding the Vibrational Normal Modes . . . . . . . . . . . . . . . . . . . . 152 8.4 Molecular Vibrations in H2O . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 154 8.5 Overtones and Combination Modes . . . . . . . . . . . . . . . . . . . . . . . 156 8.6 Infrared Activity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 157 8.7 Raman Eﬀect . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 159 8.8 Vibrations for Speciﬁc Molecules . . . . . . . . . . . . . . . . . . . . . . . . . . 161 8.8.1 The Linear Molecules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 161 8.8.2 Vibrations of the NH3 Molecule . . . . . . . . . . . . . . . . . . . . 166 8.8.3 Vibrations of the CH4 Molecule . . . . . . . . . . . . . . . . . . . . 168 8.9 Rotational Energy Levels . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 170 8.9.1 The Rigid Rotator . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 170 8.9.2 Wigner–Eckart Theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . 172 8.9.3 Vibrational–Rotational Interaction . . . . . . . . . . . . . . . . . . 174
+Part IV Application to Periodic Lattices
+9 Space Groups in Real Space . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 183 9.1 Mathematical Background for Space Groups . . . . . . . . . . . . . . . 184 9.1.1 Space Groups Symmetry Operations . . . . . . . . . . . . . . . . 184 9.1.2 Compound Space Group Operations . . . . . . . . . . . . . . . . 186 9.1.3 Translation Subgroup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 188 9.1.4 Symmorphic and Nonsymmorphic Space Groups . . . . . . 189 9.2 Bravais Lattices and Space Groups . . . . . . . . . . . . . . . . . . . . . . . . 190 9.2.1 Examples of Symmorphic Space Groups . . . . . . . . . . . . . 192 9.2.2 Cubic Space Groups and the Equivalence Transformation . . . . . . . . . . . . . . . . 194 9.2.3 Examples of Nonsymmorphic Space Groups . . . . . . . . . . 196 9.3 Two-Dimensional Space Groups . . . . . . . . . . . . . . . . . . . . . . . . . . 198 9.3.1 2D Oblique Space Groups . . . . . . . . . . . . . . . . . . . . . . . . . . 200 9.3.2 2D Rectangular Space Groups . . . . . . . . . . . . . . . . . . . . . . 201 9.3.3 2D Square Space Group . . . . . . . . . . . . . . . . . . . . . . . . . . . 203 9.3.4 2D Hexagonal Space Groups . . . . . . . . . . . . . . . . . . . . . . . 203 9.4 Line Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 204
+
+XII Contents
+9.5 The Determination of Crystal Structure and Space Group . . . . 205 9.5.1 Determination of the Crystal Structure . . . . . . . . . . . . . . 206 9.5.2 Determination of the Space Group . . . . . . . . . . . . . . . . . . 206
+10 Space Groups in Reciprocal Space and Representations . . . . 209 10.1 Reciprocal Space . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 210 10.2 Translation Subgroup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 211 10.2.1 Representations for the Translation Group . . . . . . . . . . . 211 10.2.2 Bloch’s Theorem and the Basis of the Translational Group . . . . . . . . . . . . . . . . . . . . . . . . . 212 10.3 Symmetry of k Vectors and the Group of the Wave Vector . . . 214 10.3.1 Point Group Operation in r-space and k-space . . . . . . . 214 10.3.2 The Group of the Wave Vector Gk and the Star of k . . 215 10.3.3 Eﬀect of Translations and Point Group Operations on Bloch Functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 215 10.4 Space Group Representations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 219 10.4.1 Symmorphic Group Representations . . . . . . . . . . . . . . . . . 219 10.4.2 Nonsymmorphic Group Representations and the Multiplier Algebra . . . . . . . . . . . . . . . . . . . . . . . . . 220 10.5 Characters for the Equivalence Representation . . . . . . . . . . . . . . 221 10.6 Common Cubic Lattices: Symmorphic Space Groups . . . . . . . . 222 10.6.1 The Γ Point . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 223 10.6.2 Points with k = 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 224 10.7 Compatibility Relations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 227 10.8 The Diamond Structure: Nonsymmorphic Space Group . . . . . . 230 10.8.1 Factor Group and the Γ Point . . . . . . . . . . . . . . . . . . . . . . 231 10.8.2 Points with k = 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 232 10.9 Finding Character Tables for all Groups of the Wave Vector . . 235
+Part V Electron and Phonon Dispersion Relation
+11 Applications to Lattice Vibrations . . . . . . . . . . . . . . . . . . . . . . . . . 241 11.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 241 11.2 Lattice Modes and Molecular Vibrations . . . . . . . . . . . . . . . . . . . 244 11.3 Zone Center Phonon Modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 246 11.3.1 The NaCl Structure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 246 11.3.2 The Perovskite Structure . . . . . . . . . . . . . . . . . . . . . . . . . . 247 11.3.3 Phonons in the Nonsymmorphic Diamond Lattice . . . . . 250 11.3.4 Phonons in the Zinc Blende Structure . . . . . . . . . . . . . . . 252 11.4 Lattice Modes Away from k = 0 . . . . . . . . . . . . . . . . . . . . . . . . . . 253 11.4.1 Phonons in NaCl at the X Point k = (π/a)(100) . . . . . . 254 11.4.2 Phonons in BaTiO3 at the X Point . . . . . . . . . . . . . . . . . 256 11.4.3 Phonons at the K Point in Two-Dimensional Graphite . 258
+
+Contents XIII
+11.5 Phonons in Te and α-Quartz Nonsymmorphic Structures . . . . . 262 11.5.1 Phonons in Tellurium . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 262 11.5.2 Phonons in the α-Quartz Structure . . . . . . . . . . . . . . . . . 268
+11.6 Eﬀect of Axial Stress on Phonons . . . . . . . . . . . . . . . . . . . . . . . . . 272
+12 Electronic Energy Levels in a Cubic Crystals . . . . . . . . . . . . . . 279 12.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 279 12.2 Plane Wave Solutions at k = 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . 282 12.3 Symmetrized Plane Solution Waves along the Δ-Axis . . . . . . . . 286 12.4 Plane Wave Solutions at the X Point . . . . . . . . . . . . . . . . . . . . . . 288 12.5 Eﬀect of Glide Planes and Screw Axes . . . . . . . . . . . . . . . . . . . . . 294
+13 Energy Band Models Based on Symmetry . . . . . . . . . . . . . . . . . 305 13.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 305 13.2 k · p Perturbation Theory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 307 13.3 Example of k · p Perturbation Theory for a Nondegenerate Γ1+ Band . . . . . . . . . . . . . . . . . . . . . . . . . . . . 308 13.4 Two Band Model: Degenerate First-Order Perturbation Theory . . . . . . . . . . . . . . . 311 13.5 Degenerate second-order k · p Perturbation Theory . . . . . . . . . . 316 13.6 Nondegenerate k · p Perturbation Theory at a Δ Point . . . . . . 324 13.7 Use of k · p Perturbation Theory to Interpret Optical Experiments . . . . . . . . . . . . . . . . . . . . . . . . . 326 13.8 Application of Group Theory to Valley–Orbit Interactions in Semiconductors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 327 13.8.1 Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 328 13.8.2 Impurities in Multivalley Semiconductors . . . . . . . . . . . . 330 13.8.3 The Valley–Orbit Interaction . . . . . . . . . . . . . . . . . . . . . . . 331
+14 Spin–Orbit Interaction in Solids and Double Groups . . . . . . . 337 14.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 337 14.2 Crystal Double Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 341 14.3 Double Group Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 343 14.4 Crystal Field Splitting Including Spin–Orbit Coupling . . . . . . . 349 14.5 Basis Functions for Double Group Representations . . . . . . . . . . 353 14.6 Some Explicit Basis Functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . 355 14.7 Basis Functions for Other Γ8+ States . . . . . . . . . . . . . . . . . . . . . . 358 14.8 Comments on Double Group Character Tables . . . . . . . . . . . . . . 359 14.9 Plane Wave Basis Functions for Double Group Representations . . . . . . . . . . . . . . . . . . . . . . . . 360 14.10 Group of the Wave Vector for Nonsymmorphic Double Groups . . . . . . . . . . . . . . . . . . . . . . . 362
+
+XIV Contents
+15 Application of Double Groups to Energy Bands with Spin . 367 15.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 367 15.2 E(k) for the Empty Lattice Including Spin–Orbit Interaction . 368 15.3 The k · p Perturbation with Spin–Orbit Interaction . . . . . . . . . 369 15.4 E(k) for a Nondegenerate Band Including Spin–Orbit Interaction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 372 15.5 E(k) for Degenerate Bands Including Spin–Orbit Interaction . 374 15.6 Eﬀective g-Factor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 378 15.7 Fourier Expansion of Energy Bands: Slater–Koster Method . . . 389 15.7.1 Contributions at d = 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 396 15.7.2 Contributions at d = 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 396 15.7.3 Contributions at d = 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 397 15.7.4 Summing Contributions through d = 2 . . . . . . . . . . . . . . 397 15.7.5 Other Degenerate Levels . . . . . . . . . . . . . . . . . . . . . . . . . . . 397
+Part VI Other Symmetries
+16 Time Reversal Symmetry . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 403 16.1 The Time Reversal Operator . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 403 16.2 Properties of the Time Reversal Operator . . . . . . . . . . . . . . . . . . 404 16.3 The Eﬀect of Tˆ on E(k), Neglecting Spin . . . . . . . . . . . . . . . . . . 407 16.4 The Eﬀect of Tˆ on E(k), Including the Spin–Orbit Interaction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 411 16.5 Magnetic Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 416 16.5.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 418 16.5.2 Types of Elements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 418 16.5.3 Types of Magnetic Point Groups . . . . . . . . . . . . . . . . . . . . 419 16.5.4 Properties of the 58 Magnetic Point Groups {Ai, Mk} . 419 16.5.5 Examples of Magnetic Structures . . . . . . . . . . . . . . . . . . . 423 16.5.6 Eﬀect of Symmetry on the Spin Hamiltonian for the 32 Ordinary Point Groups . . . . . . . . . . . . . . . . . . . 426
+17 Permutation Groups and Many-Electron States . . . . . . . . . . . . 431 17.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 432 17.2 Classes and Irreducible Representations of Permutation Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 434 17.3 Basis Functions of Permutation Groups . . . . . . . . . . . . . . . . . . . . 437 17.4 Pauli Principle in Atomic Spectra . . . . . . . . . . . . . . . . . . . . . . . . . 440 17.4.1 Two-Electron States . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 440 17.4.2 Three-Electron States . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 443 17.4.3 Four-Electron States . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 448 17.4.4 Five-Electron States . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 451 17.4.5 General Comments on Many-Electron States . . . . . . . . . 451
+
+Contents XV
+18 Symmetry Properties of Tensors . . . . . . . . . . . . . . . . . . . . . . . . . . . 455 18.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 455 18.2 Independent Components of Tensors Under Permutation Group Symmetry . . . . . . . . . . . . . . . . . . . . . . 458 18.3 Independent Components of Tensors: Point Symmetry Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 462 18.4 Independent Components of Tensors Under Full Rotational Symmetry . . . . . . . . . . . . . . . . . . . . . . . . . 463 18.5 Tensors in Nonlinear Optics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 463 18.5.1 Cubic Symmetry: Oh . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 464 18.5.2 Tetrahedral Symmetry: Td . . . . . . . . . . . . . . . . . . . . . . . . . 466 18.5.3 Hexagonal Symmetry: D6h . . . . . . . . . . . . . . . . . . . . . . . . . 466 18.6 Elastic Modulus Tensor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 467 18.6.1 Full Rotational Symmetry: 3D Isotropy . . . . . . . . . . . . . . 469 18.6.2 Icosahedral Symmetry . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 472 18.6.3 Cubic Symmetry . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 472 18.6.4 Other Symmetry Groups . . . . . . . . . . . . . . . . . . . . . . . . . . 474
+A Point Group Character Tables . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 479
+B Two-Dimensional Space Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . 489
+C Tables for 3D Space Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 499 C.1 Real Space . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 499 C.2 Reciprocal Space . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 503
+D Tables for Double Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 521
+E Group Theory Aspects of Carbon Nanotubes . . . . . . . . . . . . . . 533 E.1 Nanotube Geometry and the (n, m) Indices . . . . . . . . . . . . . . . . 534 E.2 Lattice Vectors in Real Space . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 534 E.3 Lattice Vectors in Reciprocal Space . . . . . . . . . . . . . . . . . . . . . . . 535 E.4 Compound Operations and Tube Helicity . . . . . . . . . . . . . . . . . . 536 E.5 Character Tables for Carbon Nanotubes . . . . . . . . . . . . . . . . . . . 538
+F Permutation Group Character Tables . . . . . . . . . . . . . . . . . . . . . . 543
+References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 549
+Index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 553
+
+Part I Basic Mathematics
+
+1
+Basic Mathematical Background: Introduction
+In this chapter we introduce the mathematical deﬁnitions and concepts that are basic to group theory and to the classiﬁcation of symmetry properties [2].
+1.1 Deﬁnition of a Group
+A collection of elements A, B, C, . . . form a group when the following four conditions are satisﬁed: 1. The product of any two elements of the group is itself an element of
+the group. For example, relations of the type AB = C are valid for all members of the group. 2. The associative law is valid – i.e., (AB)C = A(BC). 3. There exists a unit element E (also called the identity element) such that the product of E with any group element leaves that element unchanged AE = EA = A. 4. For every element A there exists an inverse element A−1 such that A−1A = AA−1 = E. In general, the elements of a group will not commute, i.e., AB = BA. But if all elements of a group commute, the group is then called an Abelian group.
+1.2 Simple Example of a Group
+As a simple example of a group, consider the permutation group for three numbers, P (3). Equation (1.1) lists the 3! = 6 possible permutations that can be carried out; the top row denotes the initial arrangement of the three numbers and the bottom row denotes the ﬁnal arrangement. Each permutation is an element of P (3).
+
+4
+
+1 Basic Mathematical Background: Introduction
+
+Fig. 1.1. The symmetry operations on an equilateral triangle are the rotations by ±2π/3 about the origin and the rotations by π about the three twofold axes. Here the axes or points of the equilateral triangle are denoted by numbers in circles
+
+E=
+
+123 123
+
+A=
+
+123 132
+
+B=
+
+123 321
+
+C=
+
+123 213
+
+D=
+
+123 312
+
+F=
+
+123 231
+
+.
+
+(1.1)
+
+We can also think of the elements in (1.1) in terms of the three points of an equilateral triangle (see Fig. 1.1). Again, the top row denotes the initial state and the bottom row denotes the ﬁnal position of each number. For example, in symmetry operation D, 1 moves to position 2, and 2 moves to position 3, while 3 moves to position 1, which represents a clockwise rotation of 2π/3 (see caption to Fig. 1.1). As the eﬀect of the six distinct symmetry operations that can be performed on these three points (see caption to Fig. 1.1). We can call each symmetry operation an element of the group. The P(3) group is, therefore, identical with the group for the symmetry operations on a equilateral triangle shown in Fig. 1.1. Similarly, F is a counter-clockwise rotation of 2π/3, so that the numbers inside the circles in Fig. 1.1 move exactly as deﬁned by Eq. 1.1.
+It is convenient to classify the products of group elements. We write these products using a multiplication table. In Table 1.1 a multiplication table is written out for the symmetry operations on an equilateral triangle or equivalently for the permutation group of three elements. It can easily be shown that the symmetry operations given in (1.1) satisfy the four conditions in Sect. 1.1 and therefore form a group. We illustrate the use of the notation in Table 1.1 by verifying the associative law (AB)C = A(BC) for a few elements:
+
+(AB)C = DC = B A(BC) = AD = B .
+
+(1.2)
+
+Each element of the permutation group P (3) has a one-to-one correspondence to the symmetry operations of an equilateral triangle and we therefore say that these two groups are isomorphic to each other. We furthermore can
+
+1.2 Simple Example of a Group
+
+5
+
+Table 1.1. Multiplicationa table for permutation group of three elements; P (3)
+
+E AB C DF
+E E AB C DF AAEDF BC BBF EDCA CCDF EAB DDC ABF E F F BCAED
+a AD = B deﬁnes use of multiplication table
+
+use identical group theoretical procedures in dealing with physical problems associated with either of these groups, even though the two groups arise from totally diﬀerent physical situations. It is this generality that makes group theory so useful as a general way to classify symmetry operations arising in physical problems.
+Often, when we deal with symmetry operations in a crystal, the geometrical visualization of repeated operations becomes diﬃcult. Group theory is designed to help with this problem. Suppose that the symmetry operations in practical problems are elements of a group; this is generally the case. Then if we can associate each element with a matrix that obeys the same multiplication table as the elements themselves, that is, if the elements obey AB = D, then the matrices representing the elements must obey
+
+M (A) M (B) = M (D) .
+
+(1.3)
+
+If this relation is satisﬁed, then we can carry out all geometrical operations analytically in terms of arithmetic operations on matrices, which are usually easier to perform. The one-to-one identiﬁcation of a generalized symmetry operation with a matrix is the basic idea of a representation and why group theory plays such an important role in the solution of practical problems.
+A set of matrices that satisfy the multiplication table (Table 1.1) for the group P (3) are:
+
+E=
+
+10 01
+
+A=
+
+−1 0 01
+
+B=
+
+√
+
+1 2√
+
+−
+
+3 2
+
+−
+
+3 2
+
+−
+
+1 2
+
+C=
+
+√ 13
+
+√2 2
+
+3 2
+
+−
+
+1 2
+
+D=
+
+√
+
+−√21
+
+3 2
+
+−
+
+3 2
+
+−
+
+1 2
+
+√
+
+F=
+
+−
+√
+
+1 2
+
+−
+
+3 2
+
+.
+
+3 2
+
+−
+
+1 2
+
+(1.4)
+
+We note that the matrix corresponding to the identity operation E is always a unit matrix. The matrices in (1.4) constitute a matrix representation of the group that is isomorphic to P (3) and to the symmetry operations on
+
+6
+
+1 Basic Mathematical Background: Introduction
+
+an equilateral triangle. The A matrix represents a rotation by ±π about the y axis, while the B and C matrices, respectively, represent rotations by ±π about axes 2 and 3 in Fig. 1.1. D and F , respectively, represent rotation of −2π/3 and +2π/3 around the center of the triangle.
+
+1.3 Basic Deﬁnitions
+
+Deﬁnition 1. The order of a group ≡ the number of elements in the group. We will be mainly concerned with ﬁnite groups. As an example, P (3) is of order 6.
+Deﬁnition 2. A subgroup ≡ a collection of elements within a group that by themselves form a group.
+Examples of subgroups in P (3):
+
+E (E, A) (E, D, F ) (E, B) (E, C)
+
+Theorem. If in a ﬁnite group, an element X is multiplied by itself enough times (n), the identity Xn = E is eventually recovered.
+
+Proof. If the group is ﬁnite, and any arbitrary element is multiplied by itself repeatedly, the product will eventually give rise to a repetition. For example, for P (3) which has six elements, seven multiplications must give a repetition. Let Y represent such a repetition:
+
+Y = Xp = Xq , where p > q .
+
+(1.5)
+
+Then let p = q + n so that Xp = Xq+n = XqXn = Xq = XqE ,
+
+(1.6)
+
+from which it follows that
+
+Xn = E .
+
+(1.7)
+
+Deﬁnition 3. The order of an element ≡ the smallest value of n in the relation Xn = E.
+We illustrate the order of an element using P (3) where:
+• E is of order 1, • A, B, C are of order 2, • D, F are of order 3.
+
+1.5 Cosets
+
+7
+
+Deﬁnition 4. The period of an element X ≡ collection of elements E, X, X2, . . . , Xn−1, where n is the order of the element. The period forms an
+Abelian subgroup.
+Some examples of periods based on the group P (3) are
+
+E, A E, B E, C E, D, F = E, D, D2 .
+
+(1.8)
+
+1.4 Rearrangement Theorem
+
+The rearrangement theorem is fundamental and basic to many theorems to be proven subsequently.
+
+Rearrangement Theorem. If E, A1, A2, . . . , Ah are the elements of a group, and if Ak is an arbitrary group element, then the assembly of
+
+elements
+
+AkE, AkA1, . . . , AkAh
+
+(1.9)
+
+contains each element of the group once and only once.
+
+Proof. 1. We show ﬁrst that every element is contained.
+Let X be an arbitrary element. If the elements form a group there will be an element Ar = A−k 1X. Then AkAr = AkA−k 1X = X. Thus we can always ﬁnd X after multiplication of the appropriate group elements.
+2. We now show that X occurs only once. Suppose that X appears twice
+in the assembly AkE, AkA1, . . . , AkAh, say X = AkAr = AkAs. Then by multiplying on the left by A−k 1 we get Ar = As, which implies that two elements in the original group are identical, contrary to the original listing
+of the group elements.
+Because of the rearrangement theorem, every row and column of a multi-
+plication table contains each element once and only once.
+
+1.5 Cosets
+In this section we will introduce the concept of cosets. The importance of cosets will be clear when introducing the factor group (Sect. 1.7). The cosets are the elements of a factor group, and the factor group is important for working with space groups (see Chap. 9).
+Deﬁnition 5. If B is a subgroup of the group G, and X is an element of G, then the assembly EX, B1X, B2X, . . . , BgX is the right coset of B, where B consists of E, B1, B2, . . . , Bg.
+A coset need not be a subgroup. A coset will itself be a subgroup B if X is an element of B (by the rearrangement theorem).
+
+8
+
+1 Basic Mathematical Background: Introduction
+
+Theorem. Two right cosets of given subgroup either contain exactly the same elements, or else have no elements in common.
+
+Proof. Clearly two right cosets either contain no elements in common or at least one element in common. We show that if there is one element in common, all elements are in common.
+Let BX and BY be two right cosets. If BkX = B Y = one element that the two cosets have in common, then
+
+B−1Bk = Y X −1
+
+(1.10)
+
+and Y X−1 is in B, since the product on the left-hand side of (1.10) is in B. And also contained in B is EY X−1, B1Y X−1, B2Y X−1, . . . , BgY X−1. Fur-
+thermore, according to the rearrangement theorem, these elements are, in
+fact, identical with B except for possible order of appearance. Therefore the elements of BY are identical to the elements of BY X−1X, which are also
+identical to the elements of BX so that all elements are in common.
+
+We now give some examples of cosets using the group P (3). Let B = E, A be a subgroup. Then the right cosets of B are
+
+(E, A)E → E, A (E, A)C → C, F (E, A)A → A, E (E, A)D → D, B (E, A)B → B, D (E, A)F → F, C ,
+
+(1.11)
+
+so that there are three distinct right cosets of (E, A), namely
+
+(E, A) (B, D) (C, F )
+
+which is a subgroup which is not a subgroup which is not a subgroup.
+
+Similarly there are three left cosets of (E, A) obtained by X(E, A):
+
+(E, A) (C, D) (B, F ) .
+
+(1.12)
+
+To multiply two cosets, we multiply constituent elements of each coset in proper order. Such multiplication either yields a coset or joins two cosets. For example:
+
+(E, A)(B, D) = (EB, ED, AB, AD) = (B, D, D, B) = (B, D) . (1.13)
+
+Theorem. The order of a subgroup is a divisor of the order of the group.
+
+Proof. If an assembly of all the distinct cosets of a subgroup is formed (n of them), then n multiplied by the number of elements in a coset, C, is exactly
+
+1.6 Conjugation and Class
+
+9
+
+the number of elements in the group. Each element must be included since cosets have no elements in common.
+For example, for the group P (3), the subgroup (E, A) is of order 2, the subgroup (E, D, F ) is of order 3 and both 2 and 3 are divisors of 6, which is the order of P (3).
+
+1.6 Conjugation and Class
+Deﬁnition 6. An element B conjugate to A is by deﬁnition B ≡ XAX−1, where X is an arbitrary element of the group. For example,
+A = X−1BX = Y BY −1 , where BX = XA and AY = Y B .
+The elements of an Abelian group are all selfconjugate. Theorem. If B is conjugate to A and C is conjugate to B, then C is conjugate to A. Proof. By deﬁnition of conjugation, we can write
+B = XAX−1 C = Y BY −1 .
+Thus, upon substitution we obtain C = Y XAX−1Y −1 = Y XA(Y X)−1 .
+
+Deﬁnition 7. A class is the totality of elements which can be obtained from a given group element by conjugation.
+
+For example in P (3), there are three classes:
+1. E; 2. A, B, C; 3. D, F .
+Consistent with this class designation is
+
+ABA−1 = AF = C DBD−1 = DA = C .
+
+(1.14) (1.15)
+
+Note that each class corresponds to a physically distinct kind of symmetry operation such as rotation of π about equivalent twofold axes, or rotation
+
+10 1 Basic Mathematical Background: Introduction
+
+of 2π/3 about equivalent threefold axes. The identity symmetry element is always in a class by itself. An Abelian group has as many classes as elements. The identity element is the only class forming a group, since none of the other classes contain the identity.
+Theorem. All elements of the same class have the same order.
+Proof. The order of an element n is deﬁned by An = E. An arbitrary conjugate of A is B = XAX−1. Then Bn = (XAX−1)(XAX−1) . . . n times gives XAnX−1 = XEX−1 = E.
+
+Deﬁnition 8. A subgroup B is self-conjugate (or invariant, or normal ) if XBX−1 is identical with B for all possible choices of X in the group.
+
+For example (E, D, F ) forms a self-conjugate subgroup of P (3), but (E, A) does not. The subgroups of an Abelian group are self-conjugate subgroups. We will denote self-conjugate subgroups by N . To form a self-conjugate subgroup, it is necessary to include entire classes in this subgroup.
+Deﬁnition 9. A group with no self-conjugate subgroups ≡ a simple group.
+
+Theorem. The right and left cosets of a self-conjugate subgroup N are the same.
+
+Proof. If Ni is an arbitrary element of the subgroup N , then the left coset is found by elements XNi = XNiX−1X = NjX, where the right coset is formed by the elements NjX, where Nj = XNkX−1.
+For example in the group P (3), one of the right cosets is (E, D, F )A =
+(A, C, B) and one of the left cosets is A(E, D, F ) = (A, B, C) and both cosets
+are identical except for the listing of the elements.
+
+Theorem. The multiplication of the elements of two right cosets of a selfconjugate subgroup gives another right coset.
+
+Proof. Let N X and N Y be two right cosets. Then multiplication of two right cosets gives
+
+(N X)(N Y ) ⇒ NiXN Y = Ni(XN )Y = Ni(NmX)Y = (NiNm)(XY ) ⇒ N (XY )
+and N (XY ) denotes a right coset.
+
+(1.16)
+
+The elements in one right coset of P (3) are (E, D, F )A = (A, C, B) while (E, D, F )D = (D, F, E) is another right coset. The product (A, C, B)(D, F, E) is (A, B, C) which is a right coset. Also the product of the two right cosets (A, B, C)(A, B, C) is (D, F, E) which is a right coset.
+
+1.8 Group Theory and Quantum Mechanics 11
+1.7 Factor Groups
+Deﬁnition 10. The factor group (or quotient group) is constructed with respect to a self-conjugate subgroup as the collection of cosets of the selfconjugate subgroup, each coset being considered an element of the factor group. The factor group satisﬁes the four rules of Sect. 1.1 and is therefore a group:
+1. Multiplication – (N X)(N Y ) = N XY . 2. Associative law – holds because it holds for the elements. 3. Identity – EN , where E is the coset that contains the identity element.
+N is sometimes called a normal divisor. 4. Inverse – (XN )(X−1N ) = (N X)(X−1N ) = N 2 = EN .
+Deﬁnition 11. The index of a subgroup ≡ total number of cosets = (order of group)/ (order of subgroup).
+The order of the factor group is the index of the self-conjugate subgroup. In Sect. 1.6 we saw that (E, D, F ) forms a self-conjugate subgroup, N .
+The only other coset of this subgroup N is (A, B, C), so that the order of this factor group = 2. Let (A, B, C) = A and (E, D, F ) = E be the two elements of the factor group. Then the multiplication table for this factor group is
+EA E EA AA E
+E is the identity element of this factor group. E and A are their own inverses. From this illustration you can see how the four group properties (see Sect. 1.1) apply to the factor group by taking an element in each coset, carrying out the multiplication of the elements and ﬁnding the coset of the resulting element. Note that this multiplication table is also the multiplication table for the group for the permutation of two objects P (2), i.e., this factor group maps one-on-one to the group P (2). This analogy between the factor group and P (2) gives insights into what the factor group is about.
+1.8 Group Theory and Quantum Mechanics
+We have now learned enough to start making connection of group theory to physical problems. In such problems we typically have a system described by a Hamiltonian which may be very complicated. Symmetry often allows us to make certain simpliﬁcations, without knowing the detailed Hamiltonian. To make a connection between group theory and quantum mechanics, we consider the group of symmetry operators PˆR which leave the Hamiltonian invariant. These operators PˆR are symmetry operations of the system and the PˆR operators commute with the Hamiltonian. The operators PˆR are said to
+
+12 1 Basic Mathematical Background: Introduction
+
+form the group of the Schr¨odinger equation. If H and PˆR commute, and if PˆR is a Hermitian operator, then H and PˆR can be simultaneously diagonalized.
+We now show that these operators form a group. The identity element clearly exists (leaving the system unchanged). Each symmetry operator PˆR has an inverse PˆR−1 to undo the operation PˆR and from physical considerations the element PˆR−1 is also in the group. The product of two operators of the group is still an operator of the group, since we can consider these separately
+as acting on the Hamiltonian. The associative law clearly holds. Thus the
+requirements for forming a group are satisﬁed. Whether the operators PˆR be rotations, reﬂections, translations, or per-
+mutations, these symmetry operations do not alter the Hamiltonian or its
+eigenvalues. If Hψn = Enψn is a solution to Schro¨dinger’s equation and H and PˆR commute, then
+
+PˆRHψn = PˆREnψn = H(PˆRψn) = En(PˆRψn) .
+
+(1.17)
+
+Thus PˆRψn is as good an eigenfunction of H as ψn itself. Furthermore, both ψn and PˆRψn correspond to the same eigenvalue En. Thus, starting with a particular eigenfunction, we can generate all other eigenfunctions of the same degenerate set (same energy) by applying all the symmetry operations that commute with the Hamiltonian (or leave it invariant). Similarly, if we consider the product of two symmetry operators, we again generate an eigenfunction of the Hamiltonian H
+
+PˆRPˆSH = HPˆRPˆS PˆRPˆSHψn = PˆRPˆS Enψn = En(PˆRPˆSψn) = H(PˆRPˆS ψn) ,
+
+(1.18)
+
+in which PˆRPˆS ψn is also an eigenfunction of H. We also note that the action of PˆR on an arbitrary vector consisting of eigenfunctions, yields a × matrix representation of PˆR that is in block diagonal form. The representation of physical systems, or equivalently their symmetry groups, in the form of matrices is the subject of the next chapter.
+
+Selected Problems
+1.1. (a) Show that the trace of an arbitrary square matrix X is invariant under a similarity (or equivalence) transformation U XU −1.
+(b) Given a set of matrices that represent the group G, denoted by D(R) (for all R in G), show that the matrices obtainable by a similarity transformation U D(R)U −1 also are a representation of G.
+1.2. (a) Show that the operations of P (3) in (1.1) form a group, referring to the rules in Sect. 1.1.
+(b) Multiply the two left cosets of subgroup (E, A): (B, F ) and (C, D), referring to Sect. 1.5. Is the result another coset?
+
+1.8 Group Theory and Quantum Mechanics 13
+
+(c) Prove that in order to form a normal (self-conjugate) subgroup, it is necessary to include only entire classes in this subgroup. What is the physical consequence of this result?
+(d) Demonstrate that the normal subgroup of P (3) includes entire classes.
+1.3. (a) What are the symmetry operations for the molecule AB4, where the B atoms lie at the corners of a square and the A atom is at the center and is not coplanar with the B atoms.
+(b) Find the multiplication table. (c) List the subgroups. Which subgroups are self-conjugate? (d) List the classes. (e) Find the multiplication table for the factor group for the self-conjugate
+subgroup(s) of (c).
+1.4. The group deﬁned by the permutations of four objects, P (4), is isomorphic (has a one-to-one correspondence) with the group of symmetry operations of a regular tetrahedron (Td). The symmetry operations of this group are suﬃciently complex so that the power of group theoretical methods can be appreciated. For notational convenience, the elements of this group are listed below.
+
+e = (1234) a = (1243) b = (2134) c = (2143) d = (1324) f = (1342)
+
+g = (3124) h = (3142) i = (2314) j = (2341) k = (3214) l = (3241)
+
+m = (1423) n = (1432) o = (4123) p = (4132) q = (2413) r = (2431)
+
+s = (4213) t = (4231) u = (3412) v = (3421) w = (4312) y = (4321) .
+
+Here we have used a shorthand notation to denote the elements: for example j = (2341) denotes
+
+1234 ,
+2341
+
+that is, the permutation which takes objects in the order 1234 and leaves them in the order 2341:
+(a) What is the product vw? wv? (b) List the subgroups of this group which correspond to the symmetry oper-
+ations on an equilateral triangle. (c) List the right and left cosets of the subgroup (e, a, k, l, s, t). (d) List all the symmetry classes for P (4), and relate them to symmetry op-
+erations on a regular tetrahedron. (e) Find the factor group and multiplication table formed from the self-
+conjugate subgroup (e, c, u, y). Is this factor group isomorphic to P (3)?
+
+2
+Representation Theory and Basic Theorems
+In this chapter we introduce the concept of a representation of an abstract group and prove a number of important theorems relating to irreducible representations, including the “Wonderful Orthogonality Theorem.” This mathematical background is necessary for developing the group theoretical framework that is used for the applications of group theory to solid state physics.
+2.1 Important Deﬁnitions
+Deﬁnition 12. Two groups are isomorphic or homomorphic if there exists a correspondence between their elements such that
+A → Aˆ B → Bˆ AB → AˆBˆ , where the plain letters denote elements in one group and the letters with carets denote elements in the other group. If the two groups have the same order (same number of elements), then they are isomorphic (one-to-one correspondence). Otherwise they are homomorphic (many-to-one correspondence). For example, the permutation group of three numbers P (3) is isomorphic to the symmetry group of the equilateral triangle and homomorphic to its factor group, as shown in Table 2.1. Thus, the homomorphic representations in Table 2.1 are unfaithful. Isomorphic representations are faithful, because they maintain the one-to-one correspondence. Deﬁnition 13. A representation of an abstract group is a substitution group (matrix group with square matrices) such that the substitution group is homomorphic (or isomorphic) to the abstract group. We assign a matrix D(A) to each element A of the abstract group such that D(AB) = D(A)D(B).
+
+16 2 Representation Theory and Basic Theorems
+
+Table 2.1. Table of homomorphic mapping of P (3) and its factor group
+
+permutation group element factor group
+
+E, D, F A, B, C
+
+→
+
+E
+
+→
+
+A
+
+The matrices of (1.4) are an isomorphic representation of the permutation
+
+group P (3). In considering the representation
+
+⎫
+
+⎫
+
+E⎬
+
+A⎬
+
+D F
+
+⎭
+
+→
+
+(1)
+
+B C
+
+⎭
+
+→
+
+(−1)
+
+the one-dimensional matrices (1) and (−1) are a homomorphic representation of P (3) and an isomorphic representation of the factor group E, A (see Sect. 1.7). The homomorphic one-dimensional representation (1) is a representation for any group, though an unfaithful one.
+In quantum mechanics, the matrix representation of a group is important for several reasons. First of all, we will ﬁnd that an eigenfunction for a quantum mechanical operator will transform under a symmetry operation similar to the application of the matrix representing the symmetry operation on the matrix for the wave function. Secondly, quantum mechanical operators are usually written in terms of a matrix representation, and thus it is convenient to write symmetry operations using the same kind of matrix representation. Finally, matrix algebra is often easier to manipulate than geometrical symmetry operations.
+
+2.2 Matrices
+
+Deﬁnition 14. Hermitian matrices are deﬁned by: A˜ = A∗, A˜∗ = A, or A† =
+
+A (where the symbol ∗ denotes complex conjugation, ∼ denotes transposition,
+
+and † denotes taking the adjoint )
+
+⎛
+
+⎞
+
+a11 a12 · · ·
+
+A = ⎜⎝ a21 a22 · · · ⎟⎠ ,
+
+... ...
+
+(2.1)
+
+⎛
+
+⎞
+
+a11 a21 · · ·
+
+A˜ = ⎜⎝ a12 a22 · · · ⎟⎠ , ... ...
+
+⎛ a∗11
+
+a∗21
+
+⎞ ···
+
+A†
+
+=
+
+⎜⎝
+
+a∗12 ...
+
+a∗22 ...
+
+· · · ⎟⎠
+
+.
+
+(2.2) (2.3)
+
+2.3 Irreducible Representations 17
+
+Unitary matrices are deﬁned by: A˜∗ = A† = A−1; Orthonormal matrices are deﬁned by: A˜ = A−1.
+
+Deﬁnition 15. The dimensionality of a representation is equal to the dimensionality of each of its matrices, which is in turn equal to the number of rows or columns of the matrix.
+
+These representations are not unique. For example, by performing a similarity (or equivalence, or canonical) transformation U D(A)U −1 we generate a new set of matrices which provides an equally good representation. A simple physical example for this transformation is the rotation of reference axes, such as (x, y, z) to (x , y , z ). We can also generate another representation by taking one or more representations and combining them according to
+
+D(A) O ,
+O D (A)
+
+(2.4)
+
+where O = (m × n) matrix of zeros, not necessarily a square zero matrix. The matrices D(A) and D (A) can be either two distinct representations or they can be identical representations.
+To overcome the diﬃculty of non-uniqueness of a representation with regard to a similarity transformation, we often just deal with the traces of the matrices which are invariant under similarity transformations, as discussed in Chap. 3. The trace of a matrix is deﬁned as the sum of the diagonal matrix elements. To overcome the diﬃculty of the ambiguity of representations in general, we introduce the concept of irreducible representations.
+
+2.3 Irreducible Representations
+Consider the representation made up of two distinct or identical representations for every element in the group
+D(A) O .
+O D (A)
+This is a reducible representation because the matrix corresponding to each and every element of the group is in the same block form. We could now carry out a similarity transformation which would mix up all the elements so that the matrices are no longer in block form. But still the representation is reducible. Hence the deﬁnition:
+Deﬁnition 16. If by one and the same equivalence transformation, all the matrices in the representation of a group can be made to acquire the same block form, then the representation is said to be reducible; otherwise it is irreducible. Thus, an irreducible representation cannot be expressed in terms of representations of lower dimensionality.
+
+18 2 Representation Theory and Basic Theorems
+
+We will now consider three irreducible representations for the permutation group P (3):
+
+E
+
+Γ1 : (1) Γ1 : (1)
+
+Γ2 :
+
+10 01
+
+Γ1 : Γ1 :
+Γ2 :
+
+C
+
+(1)
+
+(−1)
+√ 13
+
+√2 2
+
+3 2
+
+−
+
+1 2
+
+A (1) (−1)
+−1 0 01
+
+D
+
+(1)
+
+(1)
+
+√
+
+−√12
+
+3 2
+
+−
+
+3 2
+
+−
+
+1 2
+
+B
+
+(1)
+
+(−1)
+
+√
+
+1 2√
+
+−
+
+3 2
+
+−
+
+3 2
+
+−
+
+1 2
+
+F
+
+(1)
+
+(1)
+
+√
+
+−√21
+
+−
+
+3 2
+
+3 2
+
+−
+
+1 2
+
+.
+
+(2.5)
+
+A reducible representation containing these three irreducible representations is
+
+⎛ E ⎞⎛ 1000 1
+
+A 00
+
+0⎞ ⎛1
+
+0
+
+B 0
+
+0⎞
+
+ΓR
+
+:
+
+⎜⎜⎝
+
+0 0
+
+1 0
+
+0 1
+
+0 0
+
+⎟⎟⎠
+
+⎜⎜⎝
+
+0 0
+
+−1 0
+
+0 −1
+
+0 0
+
+⎟⎟⎠
+
+⎜⎜⎝
+
+0 0
+
+−1 0
+
+0
+1 2√
+
+0√
+
+−
+
+3 2
+
+⎟⎟⎠
+
+···
+
+,
+
+0001
+
+00 01
+
+0
+
+0
+
+−
+
+3 2
+
+−
+
+1 2
+
+(2.6)
+
+where ΓR is of the form
+
+⎛
+
+⎞
+
+Γ1 0 O
+
+⎝ 0 Γ1 O ⎠ .
+
+O O Γ2
+
+(2.7)
+
+It is customary to list the irreducible representations contained in a reducible
+
+representation ΓR as
+
+ΓR = Γ1 + Γ1 + Γ2 .
+
+(2.8)
+
+In working out problems of physical interest, each irreducible representation describes the transformation properties of a set of eigenfunctions and corresponds to a distinct energy eigenvalue. Assume ΓR is a reducible representation for some group G but an irreducible representation for some other group G . If ΓR contains the irreducible representations Γ1 + Γ1 + Γ2 as illustrated earlier for the group P (3), this indicates that some interaction is breaking up a fourfold degenerate level in group G into three energy levels in group G: two nondegenerate ones and a doubly degenerate one. Group theory does not tell us what these energies are, nor their ordering. Group theory only speciﬁes the symmetries and degeneracies of the energy levels. In general, the higher the symmetry, meaning the larger the number of symmetry operations in the group, the higher the degeneracy of the energy levels. Thus when a perturbation is applied to lower the symmetry, the degeneracy of the energy levels tends to be reduced. Group theory provides a systematic method for determining exactly how the degeneracy is lowered.
+
+2.4 The Unitarity of Representations 19
+Representation theory is useful for the treatment of physical problems because of certain orthogonality theorems which we will now discuss. To prove the orthogonality theorems we need ﬁrst to prove some other theorems (including the unitarity of representations in Sect. 2.4 and the two Schur lemmas in Sects. 2.5 and 2.6).
+
+2.4 The Unitarity of Representations
+
+The following theorem shows that in most physical cases, the elements of a group can be represented by unitary matrices, which have the property of preserving length scales. This theorem is then used to prove lemmas leading to the proof of the “Wonderful Orthogonality Theorem,” which is a central theorem of this chapter.
+
+Theorem. Every representation with matrices having nonvanishing determinants can be brought into unitary form by an equivalence (similarity) transformation.
+
+Proof. By unitary form we mean that the matrix elements obey the relation (A−1)ij = A†ij = A∗ji, where A is an arbitrary matrix of the representation. The proof is carried out by actually ﬁnding the corresponding unitary matrices
+
+if the Aij matrices are not already unitary matrices.
+
+Let A1, A2, · · · , Ah denote matrices of the representation. We start by
+
+forming the matrix sum
+
+h
+
+H = AxA†x ,
+
+(2.9)
+
+x=1
+
+where the sum is over all the elements in the group and where the adjoint of a matrix is the transposed complex conjugate matrix (A†x)ij = (Ax)∗ji. The matrix H is Hermitian because
+
+H† = (AxA†x)† = AxA†x .
+
+x
+
+x
+
+(2.10)
+
+Any Hermitian matrix can be diagonalized by a suitable unitary transformation. Let U be a unitary matrix made up of the orthonormal eigenvectors which diagonalize H to give the diagonal matrix d:
+
+d = U −1HU
+= U −1AxA†xU
+x
+= U −1AxU U −1A†xU
+x
+= AˆxAˆ†x ,
+x
+
+(2.11)
+
+20 2 Representation Theory and Basic Theorems
+where we deﬁne Aˆx = U −1AxU for all x. The diagonal matrix d is a special kind of matrix and contains only real, positive diagonal elements since
+
+dkk =
+x
+=
+x
+=
+x
+
+(Aˆx)kj (Aˆ†x)jk
+j
+(Aˆx)kj (Aˆx)∗kj
+j
+|(Aˆx)kj |2 .
+j
+
+(2.12)
+
+Out of the diagonal matrix d, one can form two matrices (d1/2 and d−1/2)
+
+such that
+
+⎛√
+
+⎞
+
+d1/2 ≡ ⎜⎝
+
+d11
+
+√ d22
+
+O
+
+⎟⎠
+
+O
+
+...
+
+(2.13)
+
+and
+
+⎛ √1
+
+O⎞
+
+d−1/2 ≡ ⎜⎝
+
+d11 √1 d22
+
+⎟⎠ ,
+
+(2.14)
+
+O
+
+...
+
+where d1/2 and d−1/2 are real, diagonal matrices. We note that the generation of d−1/2 from d1/2 requires that none of the dkk vanish. These matrices clearly
+obey the relations
+
+(d1/2)† = d1/2 (d−1/2)† = d−1/2 (d1/2)(d1/2) = d
+
+(2.15) (2.16) (2.17)
+
+so that
+
+d1/2d−1/2 = d−1/2d1/2 = ˆ1 = unit matrix .
+
+From (2.11) we can also write
+
+(2.18)
+
+d = d1/2d1/2 = AˆxAˆ†x .
+x
+We now deﬁne a new set of matrices Aˆˆx ≡ d−1/2Aˆxd1/2
+
+(2.19) (2.20)
+
+and
+
+Aˆ†x = (U −1AxU )† = U −1A†xU
+
+(2.21)
+
+Aˆˆ†x = (d−1/2Aˆxd1/2)† = d1/2Aˆ†xd−1/2 .
+
+(2.22)
+
+2.5 Schur’s Lemma (Part 1) 21
+
+We now show that the matrices Aˆˆx are unitary:
+AˆˆxAˆˆ†x = (d−1/2Aˆxd1/2)(d1/2Aˆ†xd−1/2) = d−1/2AˆxdAˆ†xd−1/2 = d−1/2 AˆxAˆyAˆ†yAˆ†xd−1/2
+y
+= d−1/2 (AˆxAˆy )(AˆxAˆy)†d−1/2
+y
+= d−1/2 AˆzAˆ†z d−1/2
+z
+by the rearrangement theorem (Sect. 1.4). But from the relation
+
+(2.23)
+
+d = AˆzAˆ†z
+z
+
+(2.24)
+
+it follows that AˆˆxAˆˆ†x = ˆ1, so that Aˆˆx is unitary. Therefore we have demonstrated how we can always construct a unitary
+representation by the transformation:
+
+Aˆˆx = d−1/2U −1AxU d1/2 ,
+
+(2.25)
+
+where
+
+h
+H = AxA†x
+x=1
+
+(2.26)
+
+h
+d = AˆxAˆ†x ,
+x=1
+
+(2.27)
+
+and where U is the unitary matrix that diagonalizes the Hermitian matrix H and Aˆx = U −1AxU .
+
+Note: On the other hand, not all symmetry operations can be represented by a unitary matrix; an example of an operation which cannot be represented by a unitary matrix is the time inversion operator (see Chap. 16). Time inversion symmetry is represented by an antiunitary matrix rather than a unitary matrix. It is thus not possible to represent all symmetry operations by a unitary matrix.
+
+2.5 Schur’s Lemma (Part 1)
+Schur’s lemmas (Parts 1 and 2) on irreducible representations are proved in order to prove the “Wonderful Orthogonality Theorem” in Sect. 2.7. We next prove Schur’s lemma Part 1.
+
+22 2 Representation Theory and Basic Theorems
+
+Lemma. A matrix which commutes with all matrices of an irreducible representation is a constant matrix, i.e., a constant times the unit matrix. Therefore, if a non-constant commuting matrix exists, the representation is reducible; if none exists, the representation is irreducible.
+
+Proof. Let M be a matrix which commutes with all the matrices of the representation A1, A2, . . . , Ah
+
+M Ax = AxM . Take the adjoint of both sides of (2.28) to obtain
+
+(2.28)
+
+A†xM † = M †A†x .
+
+(2.29)
+
+Since Ax can in all generality be taken to be unitary (see Sect. 2.4), multiply on the right and left of (2.29) by Ax to yield
+
+M †Ax = AxM † ,
+
+(2.30)
+
+so that if M commutes with Ax so does M †, and so do the Hermitian matrices H1 and H2 deﬁned by
+
+H1 = M + M † H2 = i(M − M †) ,
+
+(2.31)
+
+HjAx = AxHj , where j = 1, 2 .
+
+(2.32)
+
+We will now show that a commuting Hermitian matrix is a constant matrix
+
+from which it follows that M = H1 − iH2 is also a constant matrix.
+
+Since Hj (j = 1, 2) is a Hermitian matrix, it can be diagonalized. Let U
+
+be the matrix that diagonalizes Hj (for example H1) to give the diagonal
+
+matrix d
+
+d = U −1Hj U .
+
+(2.33)
+
+We now perform the unitary transformation on the matrices Ax of the representation Aˆx = U −1AxU . From the commutation relations (2.28), (2.29), and (2.32), a unitary transformation on all matrices HjAx = AxHj yields
+
+(U −1Hj U ) (U −1AxU ) = (U −1AxU ) (U −1Hj U ) .
+
+(2.34)
+
+d
+
+Aˆx
+
+Aˆx
+
+d
+
+So now we have a diagonal matrix d which commutes with all the matrices of
+the representation. We now show that this diagonal matrix d is a constant matrix, if all the Aˆx matrices (and thus also the Ax matrices) form an irreducible representation. Thus, starting with (2.34)
+
+dAˆx = Aˆxd
+
+(2.35)
+
+we take the ij element of both sides of (2.35)
+
+2.6 Schur’s Lemma (Part 2) 23
+
+dii(Aˆx)ij = (Aˆx)ij djj ,
+
+(2.36)
+
+so that
+
+(Aˆx)ij (dii − djj ) = 0
+
+(2.37)
+
+for all the matrices Ax.
+If dii = djj , so that the matrix d is not a constant diagonal matrix, then (Aˆx)ij must be 0 for all the Aˆx. This means that the similarity or unitary transformation U −1AxU has brought all the matrices of the representation Aˆx into the same block form, since any time dii = djj all the matrices (Aˆx)ij
+are null matrices. Thus by deﬁnition the representation Ax is reducible. But we have assumed the Ax to be an irreducible representation. Therefore (Aˆx)ij = 0 for all Aˆx, so that it is necessary that dii = djj , and Schur’s lemma Part 1 is
+proved.
+
+2.6 Schur’s Lemma (Part 2)
+
+Lemma. If the matrix representations D(1)(A1), D(1)(A2), . . . , D(1)(Ah) and D(2)(A1), D(2)(A2), . . . , D(2)(Ah) are two irreducible representations of a given group of dimensionality 1 and 2, respectively, then, if there is
+a matrix of 1 columns and 2 rows M such that
+
+M D(1)(Ax) = D(2)(Ax)M
+
+(2.38)
+
+for all Ax, then M must be the null matrix (M = O) if 1 = 2. If 1 = 2, then either M = O or the representations D(1)(Ax) and D(2)(Ax) diﬀer from
+each other by an equivalence (or similarity) transformation.
+
+Proof. Since the matrices which form the representation can always be trans-
+formed into unitary form, we can in all generality assume that the matrices of both representations D(1)(Ax) and D(2)(Ax) have already been brought into unitary form.
+
+Assume 1 ≤ 2, and take the adjoint of (2.38)
+
+[D(1)(Ax)]†M † = M †[D(2)(Ax)]† .
+
+(2.39)
+
+The unitary property of the representation implies [D(Ax)]† = [D(Ax)]−1 = D(A−x 1), since the matrices form a substitution group for the elements Ax of
+the group. Therefore we can write (2.39) as
+
+D(1)(A−x 1)M † = M †D(2)(A−x 1) .
+
+(2.40)
+
+Then multiplying (2.40) on the left by M yields
+
+M D(1)(A−x 1)M † = M M †D(2)(A−x 1) = D(2)(A−x 1)M M † ,
+
+(2.41)
+
+24 2 Representation Theory and Basic Theorems
+
+which follows from applying (2.38) to the element A−x 1 which is also an element of the group
+
+M D(1)(A−x 1) = D(2)(A−x 1)M .
+
+(2.42)
+
+We have now shown that if M D(1)(Ax) = D(2)(Ax)M then M M † commutes with all the matrices of representation (2) and M †M commutes with all ma-
+
+trices of representation (1). But if M M † commutes with all matrices of a rep-
+
+resentation, then by Schur’s lemma (Part 1), M M † is a constant matrix of
+
+dimensionality ( 2 × 2):
+
+M M † = c ˆ1 ,
+
+(2.43)
+
+where ˆ1 is the unit matrix.
+
+First we consider the case 1 = 2. Then M is a square matrix, with an
+
+inverse
+
+M −1 = M † , c = 0 . c
+
+(2.44)
+
+Then if M −1 = O, multiplying (2.38) by M −1 on the left yields
+
+D(1)(Ax) = M −1D(2)(Ax)M
+
+(2.45)
+
+and the two representations diﬀer by an equivalence transformation.
+However, if c = 0 then we cannot write (2.44), but instead we have to consider M M † = 0
+
+MikMk†j = 0 =
+
+Mik Mj∗k
+
+k
+
+k
+
+(2.46)
+
+for all ij elements. In particular, for i = j we can write
+
+MikMi∗k = |Mik|2 = 0 .
+
+k
+
+k
+
+(2.47)
+
+Therefore each element Mik = 0 so that M is a null matrix. This completes proof of the case 1 = 2 and M = O.
+Finally we prove that for 1 = 2, then M = O. Suppose that 1 = 2, then
+we can arbitrarily take 1 < 2. Then M has 1 columns and 2 rows. We can make a square ( 2 × 2) matrix out of M by adding ( 2 − 1) columns of zeros
+
+1 columns
+
+⎛
+
+⎞
+
+0 0 ··· 0
+
+2 rows ⎜⎜⎜⎜⎜⎝ M
+
+0
+0 ...
+
+0
+0 ...
+
+··· ···
+
+0
+0 ...
+
+⎟⎟⎟⎟⎟⎠
+
+=
+
+N
+
+= square (
+
+2×
+
+2) matrix .
+
+0 0 ··· 0
+
+(2.48)
+
+2.7 Wonderful Orthogonality Theorem 25
+
+The adjoint of (2.48) is then written as
+
+⎛ M†
+
+⎞
+
+⎜⎜⎜⎜⎜⎜⎜⎝
+
+0
+0 ...
+
+0
+0 ...
+
+0
+0 ...
+
+··· ···
+
+0
+0 ...
+
+⎟⎟⎟⎟⎟⎟⎟⎠
+
+=
+
+N†
+
+0 0 0 ··· 0
+
+(2.49)
+
+so that
+
+N N † = M M † = c ˆ1 dimension ( 2 × 2) .
+
+(2.50)
+
+NikNk†i =
+
+NikNi∗k = c ˆ1
+
+k
+
+k
+
+NikNi∗k = c 2 .
+ik
+
+But if we carry out the sum over i we see by direct computation that some of the diagonal terms of k,i NikNi∗k are 0, so that c must be zero. But this implies that for every element we have Nik = 0 and therefore also Mik = 0,
+so that M is a null matrix, completing the proof of Schur’s lemma Part 2.
+
+2.7 Wonderful Orthogonality Theorem
+
+The orthogonality theorem which we now prove is so central to the application of group theory to quantum mechanical problems that it was named the “Wonderful Orthogonality Theorem” by Van Vleck, and is widely known by this name. The theorem is in actuality an orthonormality theorem.
+Theorem. The orthonormality relation
+
+Dμ(Γνj )(R)Dν(Γμj )(R−1) =
+
+h δΓj ,Γj δμμ δνν
+
+R
+
+j
+
+(2.51)
+
+is obeyed for all the inequivalent, irreducible representations of a group, where the summation is over all h group elements A1, A2, . . . , Ah and j and j are, respectively, the dimensionalities of representations Γj and Γj . If the representations are unitary, the orthonormality relation becomes
+
+Dμ(Γνj ) (R)
+
+Dμ(Γνj )(R)
+
+∗
+=
+
+h δΓj ,Γj δμμ δνν
+
+.
+
+R
+
+j
+
+(2.52)
+
+26 2 Representation Theory and Basic Theorems
+
+Example. To illustrate the meaning of the mathematical symbols of this theorem, consider the orthogonality between the Γ1 and Γ1 irreducible representations for the P (3) group in Sect. 2.5 using the statements of the theorem (2.52):
+
+Dμ(Γν1)(R)Dμ(Γν1 )∗(R) = [(1) · (1)] + [(1) · (1)] + [(1) · (1)]
+R
+
+(2.53)
+
++[(1) · (−1)] + [(1) · (−1)] + [(1) · (−1)] = 0 .
+
+Proof. Consider the j × j matrix
+
+M = D(Γj )(R)X D(Γj)(R−1) ,
+
+(2.54)
+
+R
+
+where X is an arbitrary matrix with j rows and j columns so that M is a rectangular matrix of dimensionality ( j × j). Multiply M by D(Γj )(S) for
+some element S in the group:
+
+D(Γj )(S)M = D(Γj )(S)D(Γj )(R) X D(Γj)(R−1) .
+
+j×j
+
+R
+
+(2.55)
+
+We then carry out the multiplication of two elements in a group
+
+D(Γj )(S)M = D(Γj )(SR) X D(Γj )(R−1S−1)D(Γj)(S) ,
+
+j×j
+
+R
+
+(2.56)
+
+where we have used the group properties (1.3) of the representations Γj and Γj . By the rearrangement theorem, (2.56) can be rewritten
+
+D(Γj )(S)M = D(Γj )(R) X D(Γj)(R−1) D(Γj)(S) = M D(Γj)(S) . (2.57)
+R
+
+M
+Now apply Schur’s lemma Part 2 for the various cases.
+
+Case 1. j = j or if j = j , and the representations are not equivalent. Since D(Γj )(S)M = M D(Γj)(S), then by Schur’s lemma Part 2, M must
+
+be a null matrix. From the deﬁnition of M we have
+
+0 = Mμμ =
+
+Dμ(Γγj )(R)XγλDλ(Γμj)(R−1) .
+
+R γ,λ
+
+(2.58)
+
+But X is an arbitrary matrix. By choosing X to have an entry 1 in the νν
+
+position and 0 everywhere else, we write
+
+⎛
+
+⎞
+
+0 0 0 0 0 0 ···
+
+X
+
+=
+
+⎜⎜⎜⎜⎜⎝
+
+0 0 0
+
+00 00 00
+
+10 00 00
+
+0 0 0
+
+· · ·
+
+· · ·
+
+· · ·
+
+⎟⎟⎟⎟⎟⎠
+
+,
+
+... ... ... ... ... ...
+
+Xγλ = δγν δλν .
+
+(2.59)
+
+2.7 Wonderful Orthogonality Theorem 27
+
+It then follows by substituting (2.59) into (2.58) that
+
+0=
+
+Dμ(Γνj )(R)Dν(Γμj )(R−1) .
+
+R
+
+(2.60)
+
+Case 2. j = j and the representations Γj and Γj are equivalent.
+If the representations Γj and Γj are equivalent, then j = j and Schur’s lemma part 1 tells us that M = cˆ1. The deﬁnition for M in (2.54) gives
+
+Mμν = cδμμ =
+
+Dμ(Γγj )(R)XγλDλ(Γμj )(R−1) .
+
+R γ,λ
+
+(2.61)
+
+Choose X in (2.59) as above to have a nonzero entry at νν and 0 everywhere else. Then Xγλ = cνν δγνδλν , so that
+
+cνν δμμ =
+
+Dμ(Γνj )(R) Dν(Γμj )(R−1) ,
+
+R
+
+(2.62)
+
+where cνν = c/cνν . To evaluate cνν choose μ = μ in (2.62) and sum on μ:
+
+cνν
+
+δμμ =
+
+Dμ(Γνj )(R) Dν(Γμj )(R−1) =
+
+Dν(Γνj )(R−1R) . (2.63)
+
+μ
+
+Rμ
+
+R
+
+j
+
+since D(Γj )(R) is a representation of the group and follows the multiplication table for the group. Therefore we can write
+
+cνν j =
+
+Dν(Γνj )(R−1R) =
+
+Dν(Γνj )(E) = Dν(Γνj )(E)
+
+1.
+
+R
+
+R
+
+R
+
+(2.64)
+
+But Dν(Γνj )(E) is a unit ( j × j ) matrix and the ν ν matrix element is δν ν . The sum of unity over all the group elements is h. Therefore we obtain
+
+h cνν = δνν .
+j
+
+(2.65)
+
+Substituting (2.65) into (2.62) gives:
+
+h δμμ δνν =
+
+Dμ(Γνj )(R) Dν(Γμj )(R−1) .
+
+j
+
+R
+
+We can write the results of Cases 1 and 2 in compact form
+
+(2.66)
+
+Dμ(Γνj)(R) Dν(Γμj )(R−1) =
+
+h δΓj ,Γj δμμ δνν
+
+.
+
+R
+
+j
+
+(2.67)
+
+For a unitary representation (2.67) can also be written as
+
+Dμ(Γνj )(R) Dμ(Γνj )∗(R) =
+
+h δΓj ,Γj δμμ δνν
+
+.
+
+R
+
+j
+
+(2.68)
+
+This completes the proof of the wonderful orthogonality theorem, and we see explicitly that this theorem is an orthonormality theorem.
+
+28 2 Representation Theory and Basic Theorems
+2.8 Representations and Vector Spaces
+
+Let us spend a moment and consider what the representations in (2.68) mean as an orthonormality relation in a vector space of dimensionality h. Here h is the order of the group which equals the number of group elements. In this space, the representations Dμ(Γνj)(R) can be considered as elements in this hdimensional space:
+
+Vμ(,Γνj ) = Dμ(Γνj)(A1), Dμ(Γνj)(A2), . . . , Dμ(Γνj)(Ah) .
+
+(2.69)
+
+The three indices Γj, μ, ν label a particular vector. All distinct vectors in
+
+this space are orthogonal. Thus two representations are orthogonal if any one
+
+of their three indices is diﬀerent. But in an h-dimensional vector space, the
+
+maximum number of orthogonal vectors is h. We now ask how many vectors
+
+Vμ(,Γνj) can we make? For each representation, we have j choices for μ and ν
+
+so that the total number of vectors we can have is
+
+j
+
+2 j
+
+where
+
+we
+
+are
+
+now
+
+summing over representations Γj. This argument yields the important result
+
+2 j
+
+≤
+
+h
+
+.
+
+j
+
+(2.70)
+
+We will see later (Sect. 3.7) that it is the equality that holds in (2.70). The result in (2.70) is extremely helpful in ﬁnding the totality of irreducible (nonequivalent) representations (see Problem 2.2).
+
+Selected Problems
+
+2.1. Show that every symmetry operator for every group can be represented by the (1 × 1) unit matrix. Is it also true that every symmetry operator for every group can be represented by the (2 × 2) unit matrix? If so, does such a representation satisfy the Wonderful Orthogonality Theorem? Why?
+
+2.2. Consider the example of the group P (3) which has six elements. Using the
+
+irreducible representations of Sect. 2.3, ﬁnd the sum of
+
+2 j
+
+.
+
+Does
+
+the
+
+equality
+
+or inequality in (2.70) hold? Can P (3) have an irreducible representation with
+
+j = 3? Group P (4) has 24 elements and 5 irreducible representations. Using
+
+(2.70) as an equality, what are the dimensionalities of these 5 irreducible
+
+representations (see Problem 1.4)?
+
+3 Character of a Representation
+
+We have already discussed the arbitrariness of a representation with regard to similarity or equivalence transformations. Namely, if D(Γj)(R) is a representation of a group, so is U −1D(Γj)(R)U . To get around this arbitrariness, we introduce the use of the trace (or character) of a matrix representation which remains invariant under a similarity transformation. In this chapter we deﬁne the character of a representation, derive the most important theorems for the character, summarize the conventional notations used to denote symmetry operations and groups, and we discuss the construction of some of the most important character tables for the socalled point groups, that are listed in Appendix A. Point groups have no translation symmetry, in contrast to the space groups, that will be discussed in Chap. 9, and include both point group symmetry operations and translations.
+
+3.1 Deﬁnition of Character
+
+Deﬁnition 17. The character of the matrix representation χΓj (R) for a symmetry operation R in a representation D(Γj)(R) is the trace (or the sum over
+diagonal matrix elements) of the matrix of the representation:
+
+j
+χ(Γj)(R) = trace D(Γj)(R) = D(Γj)(R)μμ ,
+μ=1
+
+(3.1)
+
+where j is the dimensionality of the representation Γj and j is a representation index. From the deﬁnition, it follows that representation Γj will have h characters, one for each element in the group. Since the trace of a matrix is invariant under a similarity transformation, the character is invariant under such a transformation.
+
+30 3 Character of a Representation
+3.2 Characters and Class
+
+We relate concepts of class (see Sect. 1.6) and character by the following theorem.
+
+Theorem. The character for each element in a class is the same.
+
+Proof. Let A and B be elements in the same class. By the deﬁnition of class this means that A and B are related by conjugation (see Sect. 1.6)
+
+A = Y −1BY ,
+
+(3.2)
+
+where Y is an element of the group. Each element can always be represented by a unitary matrix D (see Sect. 2.4), so that
+
+D(A) = D(Y −1) D(B) D(Y ) = D−1(Y ) D(B) D(Y ) .
+
+(3.3)
+
+And since a similarity transformation leaves the trace invariant, we have the desired result for characters in the same class: χ(A) = χ(B), which completes the proof.
+
+The property that all elements in a class have the same character is responsible for what van Vleck called “the great beauty of character.” If two elements of a group are in the same class, this means that they correspond to similar symmetry operations – e.g., the class of twofold axes of rotation of the equilateral triangle, or the class of threefold rotations for the equilateral triangle.
+Sometimes a given group will have more than one kind of twofold symmetry axis. To test whether these two kinds of axes are indeed symmetrically inequivalent, we check whether or not they have the same characters.
+We summarize the information on the characters of the representations of a group in the celebrated character table. In a character table we list the irreducible representations (IR) in column form (for example, the left-hand column of the character table) and the class as rows (top row labels the class). For example, the character table for the permutation group P (3) (see Sect. 1.2) is shown in Table 3.1. (Sometimes you will see character tables with the columns and rows interchanged relative to this display.)
+
+Table 3.1. Character table for the permutation group P (3) or equivalently for group “D3” (see Sect. 3.9 for group notation)
+
+class → C1
+
+3C2
+
+2C3
+
+IR ↓ χ(E) χ(A, B, C) χ(D, F )
+
+Γ1
+
+1
+
+1
+
+1
+
+Γ1
+
+1
+
+−1
+
+1
+
+Γ2
+
+2
+
+0
+
+−1
+
+3.3 Wonderful Orthogonality Theorem for Character 31
+
+Table 3.2. Classes for group “D3” or equivalently for the permutation group P (3) and for the symmetry operations of the equilateral triangle
+
+notation for each class of D3 equilateral triangle
+
+class 1 E (Nk = 1) class 2 A, B, C (Nk = 3) class 3 D, F (Nk = 2)
+
+1C1 (identity class)
+3C2 (rotation of π about twofold axis) 2C3 (rotation of 120◦ about threefold axis)
+
+aFor the class notation for P (3) see Chap. 17
+
+P (3)a
+(1)(2)(3) (1)(23) (123)
+
+We will see in Sect. 3.9 that this group, more speciﬁcally this point group is named D3 (Schoenﬂies notation). In Table 3.1 the notation NkCk is used in the character table to label each class Ck, where Nk is the number of elements in Ck. If a representation is irreducible, then we say that its character is primitive. In a character table we limit ourselves to the primitive characters. The classes for group D3 and P (3) are listed in Table 3.2, showing diﬀerent ways that the classes of a group are presented.
+Now that we have introduced character and character tables, let us see how to use the character tables. To appreciate the power of the character tables we present in the following sections a few fundamental theorems for character.
+
+3.3 Wonderful Orthogonality Theorem for Character
+
+The “Wonderful Orthogonality Theorem” for character follows directly from the wonderful orthogonality theorem (see Sect. 2.7). There is also
+a second orthogonality theorem for character which is discussed later (see Sect. 3.6). These theorems give the basic orthonormality relations used to set up character tables.
+
+Theorem. The primitive characters of an irreducible representation obey the orthogonality relation
+
+χ(Γj)(R) χ(Γj )(R−1) = hδΓj,Γj
+R
+or χ(Γj)(R) χ(Γj )(R)∗ = hδΓj,Γj ,
+R
+where Γj denotes irreducible representation j with dimensionality j.
+
+(3.4) (3.5)
+
+This theorem says that unless the representations are identical or equivalent, the characters are orthogonal in h-dimensional space, where h is the order of the group.
+
+32 3 Character of a Representation
+
+Example. We now illustrate the meaning of the Wonderful Orthogonality Theorem for characters before going to the proof. Consider the permutation group P (3). Let Γj = Γ1 and Γj = Γ1 . Then use of (3.13) yields
+
+∗
+Nkχ(Γj)(Ck) χ(Γj )(Ck) = (1)(1)(1) + (3)(1)(−1) + (2)(1)(1)
+
+k
+
+class of E class of A,B,C class of D,F
+
+= 1−3+2 = 0.
+
+(3.6)
+
+It can likewise be veriﬁed that the Wonderful Orthogonality Theorem works for all possible combinations of Γj and Γj in Table 3.1.
+Proof. The proof of the wonderful orthogonality theorem for character follows from the Wonderful Orthogonality Theorem itself (see Sect. 2.7). Consider the wonderful orthogonality theorem (2.51)
+
+Dμ(Γνj )(R)Dν(Γμj )(R−1) =
+
+h δΓj ,Γj
+
+δμμ δνν
+
+.
+
+R
+
+j
+
+Take the diagonal elements of (3.7)
+
+(3.7)
+
+Dμ(Γμj )(R)Dμ(Γμj )(R−1) =
+
+h δΓj ,Γj δμμ δμ μ .
+
+R
+
+j
+
+Now sum (3.8) over μ and μ to calculate the traces or characters
+
+(3.8)
+
+Dμ(Γμj ) (R)
+
+Dμ(Γμj )(R−1) =
+
+h δΓj ,Γj
+
+δμμ δμ μ ,
+
+Rμ
+
+μ
+
+j
+
+μμ
+
+(3.9)
+
+where we note that
+
+δμμ δμ μ = δμμ = j ,
+
+μμ
+
+μ
+
+(3.10)
+
+so that
+
+χ(Γj )(R)χ(Γj )(R−1) = hδΓj,Γj ,
+R
+
+(3.11)
+
+completing the proof. Equation (3.11) implies that the primitive characters
+
+of an irreducible representation form a set of orthogonal vectors in group-
+
+element space, the space spanned by h vectors, one for each element of the
+
+group, also called Hilbert space (see Sect. 2.8). Since any arbitrary represen-
+
+tation is equivalent to some unitary representation (Sect. 2.4), and the char-
+
+acter is preserved under a unitary transformation, (3.11) can also be writ-
+
+ten as
+
+∗
+χ(Γj)(R) χ(Γj )(R) = hδΓj,Γj .
+
+(3.12)
+
+R
+
+3.4 Reducible Representations 33
+
+Since the character is the same for each element in the class, the summation in (3.12) can be written as a sum over classes k
+
+∗
+Nkχ(Γj)(Ck) χ(Γj )(Ck) = hδΓj,Γj ,
+k
+
+(3.13)
+
+where Nk denotes the number of elements in class k, since the representation for R is a unitary matrix, χ(Γj )(R−1) = [χ(Γj )(R)]∗ (see Sect. 2.2). Also,
+since the right-hand side of (3.13) is real, we can take the complex conjugate
+of this equation to obtain the equivalent form
+
+∗
+Nk χ(Γj)(Ck) χ(Γj )(Ck) = hδΓj ,Γj .
+k
+
+(3.14)
+
+The importance of the results in (3.11)–(3.14) cannot be over-emphasized:
+
+1. Character tells us if a representation is irreducible or not. If a representa-
+
+tion is reducible then the characters are not primitive and will generally
+
+not obey this orthogonality relation (and other orthogonality relations
+
+that we will discuss in Sect. 3.6).
+
+2. Character tells us whether or not we have found all the irreducible rep-
+
+resentations. For example, the permutation group P (3) could not contain
+
+a three-dimensional irreducible representation (see Problem 1.2), since by
+
+(2.70)
+
+2 j
+
+≤
+
+h
+
+.
+
+(3.15)
+
+j
+
+Furthermore, character allows us to check the uniqueness of an irreducible representation, using the following theorem.
+
+Theorem. A necessary and suﬃcient condition that two irreducible representations be equivalent is that the characters be the same.
+
+Proof. Necessary condition: If they are equivalent, then the characters are the same – we have demonstrated this already since the trace of a matrix is invariant under an equivalence transformation. Suﬃcient condition: If the characters are the same, the vectors for each of the irreducible representations in h-dimensional space cannot be orthogonal, so the representations must be equivalent.
+
+3.4 Reducible Representations
+We now prove a theorem that forms the basis for setting up the characters of a reducible representation in terms of the primitive characters for the irreducible representations. This theoretical background will also be used in constructing irreducible representations and character tables, and is essential to most of the practical applications of group theory to solid state physics.
+
+34 3 Character of a Representation
+
+Theorem. The reduction of any reducible representation into its irreducible constituents is unique.
+
+Thus, if χ(Ck) is the character for some class in a reducible representation,
+then this theorem claims that we can write the character for the reducible
+representation χ(Ck) as a linear combination of characters for the irreducible representations of the group χ(Γi)(Ck)
+
+χ(Ck) = aiχ(Γi)(Ck) ,
+Γi
+
+(3.16)
+
+where the ai coeﬃcients are non-negative integers which denote the number of times the irreducible representation Γi is contained in the reducible representation. Furthermore we show here that the ai coeﬃcients are unique. This theorem is sometimes called the decomposition theorem for reducible representations.
+
+Proof. In proving that the ai coeﬃcients are unique, we explicitly determine the values of each ai, which constitute the characters for a reducible representation. Consider the sum over classes k:
+
+∗
+Nk χ(Γj)(Ck) χ(Ck) = Sj .
+k
+
+(3.17)
+
+Since χ(Ck) is reducible, we write the linear combination for χ(Ck) in (3.17) using (3.16) as
+
+Sj =
+
+∗
+Nk χ(Γj)(Ck)
+
+ai χ(Γi ) (Ck )
+
+k
+
+Γi
+
+= ai
+Γi
+
+∗
+Nk χ(Γj)(Ck) χ(Γi)(Ck) .
+k
+
+(3.18)
+
+We now apply the Wonderful Orthogonality Theorem for Characters (3.13)
+
+to get
+
+aihδΓi,Γj = aj h =
+
+∗
+Nk χ(Γj)(Ck) χ(Ck) = Sj
+
+(3.19)
+
+Γi
+
+k
+
+yielding the decomposition relation
+
+1 aj = h
+
+Nk
+
+χ(Γj ) (Ck )
+
+∗
+χ(Ck )
+
+=
+
+Sj h
+
+k
+
+(3.20)
+
+and completing the proof of the theorem. Thus the coeﬃcients ai in (3.16) are uniquely determined. In other words, the number of times the various irreducible representations are contained in a given reducible representation can be obtained directly from the character table for the group.
+
+3.5 The Number of Irreducible Representations 35
+This sort of decomposition of the character for a reducible representation is important for the following type of physical problem. Consider a cubic crystal. A cubic crystal has many symmetry operations and therefore many classes and many irreducible representations. Now suppose that we squeeze this crystal and lower its symmetry. Let us further suppose that the energy levels for the cubic crystal are degenerate for certain points in the Brillouin zone. This squeezing would most likely lift some of the level degeneracies. To ﬁnd out how the degeneracy is lifted, we take the representation for the cubic group that corresponds to the unperturbed energy and treat this representation as a reducible representation in the group of lower symmetry. Then the decomposition formulae (3.16) and (3.20) tell us immediately the degeneracy and symmetry types of the split levels in the perturbed or stressed crystal. (A good example of this eﬀect is crystal ﬁeld splitting, discussed in Chap. 5.)
+
+3.5 The Number of Irreducible Representations
+
+We now come to another extremely useful theorem.
+Theorem. The number of irreducible representations is equal to the number of classes.
+Proof. The Wonderful Orthogonality Theorem for Character (3.14)
+
+k
+Nk
+k =1
+
+∗
+χ(Γi)(Ck ) χ(Γj)(Ck ) = h δΓi,Γj
+
+can be written as
+
+k k =1
+
+∗
+
+Nk h
+
+χ(Γi)(Ck )
+
+Nk h
+
+χ(Γj )(Ck
+
+)
+
+= δΓi,Γj .
+
+Each term
+
+(3.21) (3.22)
+
+Nk h
+
+χ(Γi)(Ck )
+
+in (3.22) gives the k th component of a k-dimensional vector. There can be only k such vectors in a k-dimensional space, since the (k + 1)th vector would be linearly dependent on the other k vectors. If there were less than k such vectors, then the number of independent vectors would not be large enough to span the k-dimensional space. To express a reducible representation in terms of its irreducible components requires that the vector space be spanned by irreducible representations. Therefore the number of irreducible representations must be k, the number of classes.
+
+36 3 Character of a Representation
+For our example of the permutation group of three objects, we have three classes and therefore only three irreducible representations (see Table 3.1). We have already found these irreducible representations and we now know that any additional representations that we might ﬁnd are either equivalent to these representations or they are reducible. Knowing the number of distinct irreducible representations is very important in setting up character tables.
+As a corollary of this theorem, the number of irreducible representations for Abelian groups is the number of symmetry elements in the group, because each element is in a class by itself. Since each class has only one element, all the irreducible representations are one dimensional.
+
+3.6 Second Orthogonality Relation for Characters
+
+We now prove a second orthogonality theorem for characters which sums over the irreducible representations and is extremely valuable for constructing character tables.
+
+Theorem. The summation over all irreducible representations
+
+∗
+χ(Γj)(Ck) χ(Γj)(Ck ) Nk = hδkk
+Γj
+
+(3.23)
+
+yields a second orthogonality relation for the characters. Thus, the Wonderful Orthogonality Theorem for Character yields an orthogonality relation between rows in the character table while the second orthogonality theorem gives a similar relation between the columns of the character table.
+
+Proof. Construct the matrix
+
+⎛
+
+⎞
+
+χ(1)(C1) χ(1)(C2) · · ·
+
+Q
+
+=
+
+⎜⎜⎜⎜⎜⎝
+
+χ(2) (C1 ) χ(3) (C1 )
+...
+
+χ(2)(C2) χ(3)(C2)
+...
+
+· ·
+
+· ·
+
+· ·
+
+⎟⎟⎟⎟⎟⎠
+
+,
+
+(3.24)
+
+where the irreducible representations label the rows and the classes label the
+
+columns. Q is a square matrix, since by (3.22) the number of classes (desig-
+
+nating the column index) is equal to the number of irreducible representations
+
+(designating the row index). We now also construct the square matrix
+
+⎛
+
+⎞
+
+Q
+
+=
+
+1 h
+
+⎜⎜⎜⎜⎜⎝
+
+N1 N2 N3
+
+χ(1)(C1)∗ χ(1)(C2)∗ χ(1)(C3)∗
+...
+
+N1 χ(2) (C1 )∗ N2 χ(2) (C2 )∗ N3 χ(2) (C3 )∗
+...
+
+· · ·
+
+· · ·
+
+· · ·
+
+⎟⎟⎟⎟⎟⎠
+
+,
+
+(3.25)
+
+3.7 Regular Representation 37
+
+where the classes label the rows, and the irreducible representations label the
+
+columns. The ij matrix element of the product QQ summing over classes is
+
+then
+
+(QQ )ij =
+
+Nk h
+
+χ(Γi
+
+)
+
+(Ck
+
+)
+
+∗
+χ(Γj )(Ck) = δΓi,Γj
+
+k
+
+(3.26)
+
+using the Wonderful Orthogonality Theorem for Character (3.13). Therefore QQ = ˆ1 or Q = Q−1 and Q Q = ˆ1 since QQ−1 = Q−1Q = ˆ1, where ˆ1 is the
+unit matrix. We then write Q Q in terms of components, but now summing
+over the irreducible representations
+
+(Q Q)kk =
+
+Nk h
+
+χ(Γi
+
+)
+
+(Ck
+
+)
+
+∗
+χ(Γi)(Ck ) = δkk
+
+Γi
+
+(3.27)
+
+so that
+
+Γi
+
+χ(Γi ) (Ck )
+
+χ(Γi ) (Ck
+
+)
+
+∗
+
+=
+
+h Nk δkk
+
+,
+
+which completes the proof of the second orthogonality theorem.
+
+(3.28)
+
+3.7 Regular Representation
+The regular representation provides a recipe for ﬁnding all the irreducible representations of a group. It is not always the fastest method for ﬁnding the irreducible representations, but it will always work.
+The regular representation is found directly from the multiplication table by rearranging the rows and columns so that the identity element is always along the main diagonal. When this is done, the group elements label the columns and the inverse of each group element labels the rows. We will illustrate this with the permutation group of three objects P (3) for which the multiplication table is given in Table 1.1. Application of the rearrangement theorem to place the identity element along the main diagonal gives Table 3.3. Then the matrix representation for an element X in the regular representation is obtained by putting 1 wherever X appears in the multiplication Table 3.3
+Table 3.3. Multiplication table for the group P (3) used to generate the regular representation
+E AB C DF E = E−1 E A B C D F A = A−1 A E D F B C B = B−1 B F E D C A C = C−1 C D F E A B F = D−1 F B C A E D D = F −1 D C A B F E
+
+38 3 Character of a Representation
+
+and 0 everywhere else. Thus we obtain
+
+⎛
+
+⎞
+
+100000
+
+Dreg(E)
+
+=
+
+⎜⎜⎜⎜⎜⎜⎝
+
+0 0 0 0
+
+1 0 0 0
+
+0 1 0 0
+
+0 0 1 0
+
+0 0 0 1
+
+0 0 0 0
+
+⎟⎟⎟⎟⎟⎟⎠
+
+,
+
+000001
+
+(3.29)
+
+which is always the unit matrix of dimension (h × h). For one of the other
+
+elements in the regular representation we obtain
+
+⎛
+
+⎞
+
+010000
+
+Dreg(A)
+
+=
+
+⎜⎜⎜⎜⎜⎜⎝
+
+1 0 0 0
+
+0 0 0 0
+
+0 0 0 0
+
+0 0 0 1
+
+0 0 1 0
+
+0 1 0 0
+
+⎟⎟⎟⎟⎟⎟⎠
+
+(3.30)
+
+001000
+
+and so on. By construction, only Dreg(E) has a non-zero trace! We now show that the regular representation is indeed a representation.
+This means that the regular representation obeys the multiplication table (either Table 1.1 or 3.3). Let us for example show
+
+Dreg(BC) = Dreg(B)Dreg(C) .
+
+(3.31)
+
+It is customary to denote the matrix elements of the regular representation
+
+directly from the deﬁnition Dreg(X)A− k 1,Ai , where A−k 1 labels the rows and Ai labels the columns using the notation
+
+⎧ ⎨1 Dreg(X )A− k 1,Ai = ⎩ 0
+
+if A−k 1Ai = X otherwise .
+
+(3.32)
+
+Using this notation, we have to show that
+
+Dreg(BC)A− k 1,Ai =
+
+Dreg(B)A− k 1,Aj Dreg(C)A− j 1,Ai .
+
+Aj
+
+(3.33)
+
+Now look at the rearranged multiplication table given in Table 3.3. By con-
+
+struction, we have for each of the matrices
+
+⎧ ⎨1 Dreg(B)A− k 1,Aj = ⎩ 0
+
+if A−k 1Aj = B otherwise ,
+
+(3.34)
+
+⎧ ⎨1 Dreg(C)A− j 1,Ai = ⎩ 0
+
+if A−j 1Ai = C otherwise .
+
+(3.35)
+
+3.7 Regular Representation 39
+
+Therefore in the sum Aj Dreg(B)A− k 1,Aj Dreg(C)A− j 1,Ai of (3.33), we have only nonzero entries when
+
+BC = (A−k 1 Aj )(A−j 1 Ai) = A−k 1Ai .
+
+1
+
+But this coincides with the deﬁnition of Dreg(BC):
+
+⎧ ⎨1 Dreg(BC)A− k 1,Ai = ⎩ 0
+
+if A−k 1Ai = BC otherwise .
+
+(3.36) (3.37)
+
+Therefore Dreg is, in fact, a representation of the group A1, . . . , Ah, completing the proof.
+The following theorem allows us to ﬁnd all the irreducible representations from the regular representation.
+
+Theorem. The regular representation contains each irreducible representation a number of times equal to the dimensionality of the representation.
+
+(For the group P (3), this theorem says that Dreg contains D(Γ1) once, D(Γ1 ) once, and D(Γ2) twice so that the regular representation of P (3) would be of
+dimensionality 6.)
+
+Proof. Since Dreg is a reducible representation, we can write for the characters
+
+(see (3.16))
+
+χreg(Ck) = aiχ(Γi)(Ck) ,
+
+(3.38)
+
+Γi
+
+where Γi is the sum over the irreducible representations and the ai coeﬃcients have been shown to be unique (3.20) and given by
+
+1 ai = h
+
+∗
+Nk χ(Γi)(Ck) χreg(Ck) .
+
+k
+
+(3.39)
+
+We note that NE = 1 for the identity element, which is in a class by itself. But by construction χreg(Ck) = 0 unless Ck = E in which case χreg(E) = h. Therefore ai = χ(Γi)(E) = i, where χ(Γi) is the trace of an i dimensional unit matrix, thereby completing the proof.
+The theorem (3.38) that we have just proven tells us that the regular representation contains each irreducible representation of the group at least once. To obtain these irreducible representations explicitly, we have to carry out a similarity transformation which brings the matrices of the regular representation into block diagonal form. It turns out to be very messy to extract the matrices of the regular representation – in fact, it is so tedious to do this operation that it does not even make an instructive homework problem.
+
+40 3 Character of a Representation
+
+It is much easier to write down the matrices which generate the symmetry
+operations of the group directly.
+Consider for example the permutation group of three objects P (3) which is isomorphic to the symmetry operations of a regular triangle (Sect. 1.2). The matrices for D and F generate rotations by ±2π/3 about the z axis, which is ⊥ to the plane of the triangle. The A matrix represents a rotation by ±π about the y axis while the B and C matrices represent rotations by ±π about axes in the x–y plane which are ±120◦ away from the y axis. In setting up a representation, it is advantageous to write down those matrices which can be easily written down – such as E, A, D, F . The remaining matrices such as
+B and C can then be found through the multiplication table.
+
+We will now make use of the regular representation to prove a useful theorem for setting up character tables. This is the most useful application of the regular representation for our purposes.
+
+Theorem. The order of a group h and the dimensionality j of its irreducible representations Γj are related by
+
+2 j
+
+=
+
+h
+
+.
+
+(3.40)
+
+j
+
+We had previously found (2.70) that
+
+j
+
+2 j
+
+≤
+
+h.
+
+The
+
+regular
+
+representation
+
+allows us to prove that it is the equality that applies.
+
+Proof. By construction, the regular representation is of dimensionality h which is the number of elements in the group and in the multiplication table. But each irreducible representation of the group is contained j times in the regular representation (see (3.38)) so that
+
+χreg(E) = h =
+
+aj χΓj (E) =
+
+j2 ,
+
+Γj
+
+Γj
+
+j
+
+j
+
+(3.41)
+
+where one j comes from the number of times each irreducible representation is contained in the regular representation and the second j is the dimension of the irreducible representation Γj.
+We thus obtain the result
+
+2 j
+
+=
+
+h
+
+,
+
+j
+
+(3.42)
+
+where j is the sum over irreducible representations. For example for P (3),
+
+we have 1 = 1, 1 = 1, 2 = 2 so that
+
+2 j
+
+=
+
+6
+
+=
+
+h.
+
+3.8 Setting up Character Tables
+For many applications it is suﬃcient to know just the character table without the actual matrix representations for a particular group. So far, we have only
+
+3.8 Setting up Character Tables 41
+
+set up the character table by taking traces of the irreducible representations – i.e., from the deﬁnition of χ. For the most simple cases, the character table can be constructed using the results of the theorems we have just proved – without knowing the representations themselves. In practice, the character tables that are needed to solve a given problem are found either in books or in journal articles. The examples in this section are thus designed to show the reader how character tables are constructed, should this be necessary. Our goal is further to give some practice in using the theorems proven in Chap. 3.
+A summary of useful rules for the construction of character tables is given next.
+
+(a) The number of irreducible representations is equal to the number of classes
+
+(Sect. 3.5). The number of classes is found most conveniently from the
+
+classiﬁcation of the symmetry operations of the group. Another way to
+
+ﬁnd the classes is to compute all possible conjugates for all group elements
+
+using the group multiplication table.
+
+(b) The dimensionalities of the irreducible representations are found from
+
+i
+
+2 i
+
+=
+
+h
+
+(see
+
+(3.42)).
+
+For
+
+simple
+
+cases,
+
+this
+
+relation
+
+uniquely
+
+determines
+
+the dimensionalities of the irreducible representations. For example, the
+
+permutation group of three objects P (3) has three classes and therefore
+
+three irreducible representations. The identity representation is always
+
+present, so that one of these must be one-dimensional (i.e., the matrix
+
+for the identity element of the group is the unit matrix). So this gives
+
+12+?2+?2 = 6.This equation only has one integer solution, namely 12 +
+
+12 + 22 = 6. No other solution works!
+
+(c) There is always a whole row of 1s in the character table for the identity
+
+representation.
+
+(d) The ﬁrst column of the character table is always the trace for the unit
+
+matrix representing the identity element or class. This character is always
+
+i, the dimensionality of the ( i × i) unit matrix. Therefore, the ﬁrst
+
+column of the character table is also ﬁlled in.
+
+(e) For all representations other than the identity representation Γ1, the fol-
+
+lowing relation is satisﬁed:
+
+Nkχ(Γi)(Ck) = 0 ,
+k
+
+(3.43)
+
+where k denotes the sum on classes. Equation (3.43) follows from the wonderful orthogonality theorem for character and taking the identity representation Γ1 as one of the irreducible representations. If there are only a few classes in the group, (3.43) often uniquely determines the characters for several of the irreducible representations; particularly for the one-dimensional representations. (f) The Wonderful Orthogonality Theorem for character works on rows of the character table:
+
+42 3 Character of a Representation
+
+∗
+χ(Γi)(Ck) χ(Γj)(Ck)Nk = hδΓi,Γj .
+k
+
+(3.44)
+
+This theorem can be used both for orthogonality (diﬀerent rows) or for
+
+normalization (same rows) of the characters in an irreducible representation and the complex conjugate can be applied either to the χ(Γi)(Ck) or to the χ(Γj)(Ck) terms in (3.44) since the right hand side of (3.44) is real.
+(g) The second orthogonality theorem works for columns of the character
+
+table:
+
+Γi
+
+χ(Γi ) (Ck )
+
+∗
+χ(Γi)(Ck ) =
+
+h Nk δkk
+
+.
+
+(3.45)
+
+This relation can be used both for orthogonality (diﬀerent columns) or
+
+normalization (same columns), as the wonderful orthogonality theorem
+
+for character.
+
+(h) From the second orthogonality theorem for character, and from the char-
+
+acter for the identity class
+
+χ(Γi)(E) = i
+
+(3.46)
+
+we see that the characters for all the other classes obey the relation
+
+χ(Γi)(Ck) i = 0 ,
+Γi
+
+(3.47)
+
+where Γi denotes the sum on irreducible representations and i is the dimensionality of representation Γi. Equation (3.47) follows from the wonderful orthogonality theorem for character, and it uses the identity rep-
+resentations as one of the irreducible representations, and for the second
+any but the identity representation (Γi = Γ1) can be used.
+
+With all this machinery it is often possible to complete the character tables for simple groups without an explicit determination of the matrices for a representation.
+Let us illustrate the use of the rules for setting up character tables with the permutation group of three objects, P (3). We ﬁll in the ﬁrst row and ﬁrst column of the character table immediately from rules #3 and #4 in the earlier list (see Table 3.4).
+In order to satisfy #5, we know that χ(Γ1 )(C2) = −1 and χ(Γ1 )(C3) = 1, which we add to the character table (Table 3.5).
+
+Table 3.4. Character table for P(3) – Step 1
+C1 3C2 2C3 Γ1 1 1 1 Γ1 1 Γ2 2
+
+3.8 Setting up Character Tables 43
+Table 3.5. Character table for P(3) – Step 2
+C1 3C2 2C3
+Γ1 1 1 1 Γ1 1 −1 1 Γ2 2
+Table 3.6. Character table for P(3)
+C1 3C2 2C3
+Γ1 1 1 1 Γ1 1 −1 1 Γ2 2 0 −1
+Table 3.7. Multiplication table for the cyclic group of three rotations by 2π/3 about a common axis
+E C3 C32 E E C3 C32 C3 C3 C32 E C32 C32 E C3
+Now apply the second orthogonality theorem using columns 1 and 2 and then again with columns 1 and 3, and this completes the character table, thereby obtaining Table 3.6.
+Let us give another example of a character table which illustrates another principle that not all entries in a character table need to be real. Such a situation can occur in the case of cyclic groups. Consider a group with three symmetry operations:
+• E – identity, • C3 – rotation by 2π/3, • C32 – rotation by 4π/3.
+See Table 3.7 for the multiplication table for this group. All three operations in this cyclic group C3 are in separate classes as can be easily seen by conjugation of the elements. Hence there are three classes and three irreducible representations to write down. The character table we start with is obtained by following Rules #3 and #4 (Table 3.8). Orthogonality of Γ2 to Γ1 yields the algebraic relation: 1 + a + b = 0.
+Since C32 = C3C3 and C32C3 = E, it follows that b = a2 and ab = a3 = 1, so that a = exp(2πi/3). Then, orthogonality of the second column with the ﬁrst yields c = exp(4πi/3) and orthogonality of the third column with the ﬁrst column yields d = [exp(4πi/3)]2. From this information we can readily complete the Character Table 3.9, where ω = exp[2πi/3]. Such a group
+
+44 3 Character of a Representation
+Table 3.8. Character table for Cyclic Group C3
+E C3 C32 Γ1 1 1 1 Γ2 1 a b Γ3 1 c d
+Table 3.9. Character table for cyclic group C3
+E C3 C32 Γ1 1 1 1 Γ2 1 ω ω2 Γ3 1 ω2 ω
+often enters into a physical problem which involves time inversion symmetry, where the energy levels corresponding to Γ2 and Γ3 are degenerate (see Chap. 16).
+This idea of the cyclic group can be applied to a four-element group: E, C2, C4, C43 – to a ﬁve-element group: E, C5, C52, C53, C54 – and to a six-element group: E, C6, C3, C2, C32, C65, etc. In each case, use the fact that the N th roots of unity sum to zero so that each Γj is orthogonal to Γ1 and by the rearrangement theorem each Γj is orthogonal to Γj . For the case of Bloch’s theorem, we have an N -element group with characters that comprise the N th roots of unity ω = exp[2πi/N ].
+All these cyclic groups are Abelian so that each element is in a class by itself. The representations for these groups correspond to the multiplication tables, which therefore contain the appropriate collections of roots of unity.
+The character tables for all the point groups used in this chapter are listed in Appendix A. The notation used in these tables is discussed in more detail in the next sections.
+3.9 Schoenﬂies Symmetry Notation
+There are two point group notations that are used for the symmetry operations in the character tables printed in books and journals. One is the Schoenﬂies symmetry notation, which is described in this section and the other is the Hermann–Mauguin notation that is used by the crystallography community and is summarized in Sect. 3.10. For the Schoenﬂies system the following notation is commonly used:
+• E = Identity • Cn = rotation through 2π/n. For example C2 is a rotation of 180◦. Likewise
+C3 is a rotation of 120◦, while C62 represents a rotation of 60◦ followed
+
+3.9 Schoenﬂies Symmetry Notation 45
+
+Fig. 3.1. Schematic illustration of a dihedral symmetry axis. The reﬂection plane containing the diagonal of the square and the fourfold axis is called a dihedral plane. For this geometry σd(x, y, z) = (−y, −x, z)
+
+by another rotation of 60◦ about the same axis so that C62 = C3. In a Bravais lattice it can be shown that n in Cn can only assume values of
+
+n = 1, 2, 3, 4, and 6. The observation of a diﬀraction pattern with ﬁvefold
+
+symmetry in 1984 was therefore completely unexpected, and launched the
+
+ﬁeld of quasicrystals, where a six-dimensional space is used for obtaining
+
+crystalline periodicity.
+
+• σ = reﬂection in a plane.
+
+• σh = reﬂection in a “horizontal” plane. The reﬂection plane here is per-
+
+pendicular to the axis of highest rotational symmetry.
+
+• σv = reﬂection in a “vertical” plane. The reﬂection plane here contains
+
+the axis of highest rotational symmetry.
+
+• σd is the reﬂection in a diagonal plane. The reﬂection plane here is a vertical plane which bisects the angle between the twofold axes ⊥ to the prin-
+
+cipal symmetry axis. An example of a diagonal plane is shown in Fig. 3.1.
+
+σd is also called a dihedral plane. • i is the inversion which takes
+
+⎧ ⎨ x → −x
+
+⎩
+
+y z
+
+→ →
+
+−y −z
+
+.
+
+• Sn is the improper rotation through 2π/n, which consists of a rotation by 2π/n followed by a reﬂection in a horizontal plane. Alternatively, we can
+deﬁne Sn as a rotation by 4π/n followed by the inversion. • iCn = compound rotation–inversion, which consists of a rotation followed
+by an inversion.
+
+46 3 Character of a Representation
+
+In addition to these point group symmetry operations, there are several space
+
+group symmetry operations, such as translations, glide planes, screw axes,
+
+etc. which are discussed in Chap. 9. The point groups, in contrast to the
+
+space groups, exhibit a point that never moves under the application of all
+
+symmetry operations. There are 32 common point groups for crystallographic
+
+systems (n = 1, 2, 3, 4, 6), and the character tables for these 32 point groups
+
+are given in many standard group theory texts. For convenience we also list
+
+the character tables for these point groups in Appendix A (Tables A.1–A.32).
+
+Tables A.22–A.28 are for groups with ﬁvefold symmetry axes and such tables
+
+are not readily found in group theory books, but have recently become im-
+
+portant, because of the discovery of quasicrystals, C60, and related molecules.
+
+Note that the tables for ﬁvefold symmetry are: C5 (Table A.22); C5v (Ta-
+
+ble A.23); C5h ≡ C5 ⊗ σh; D5 (Table A.24); D5d (Table A.25); D5h (Ta-
+
+ble the
+
+A.26); I “golden
+
+(Table mean,”
+
+A.27); and√Ih (Table A.28). τ = (1 + 5)/2 where τ −
+
+Recurrent in these 1 = 2 cos(2π/5) =
+
+tables is 2 cos 72◦.
+
+These are followed by Tables A.33 and A.34 for the semi-inﬁnite groups C∞v and D∞h, discussed later in this section.
+Certain patterns can be found between the various point groups. Groups
+
+C1, C2, . . . , C6 only have n-fold rotations about a simple symmetry axis Cn (see for example Table A.15) and are cyclic groups, mentioned in Sect. 3.8.
+
+Groups Cnv have, in addition to the n-fold axes, vertical reﬂection planes σv (e.g., Table A.16). Groups Cnh have, in addition to the n-fold axes, horizontal reﬂection planes σh and include each operation Cn together with the compound operations Cn followed by σh (Tables A.3 and A.11 illustrate this relation between groups). The groups S2, S4, and S6 have mostly compound operations (see Tables A.2, A.17, and A.20). The groups de-
+
+noted by Dn are dihedral groups and have non-equivalent symmetry axes in perpendicular planes (e.g., Table A.18). The group of the operations of
+
+a square is D4 and has in addition to the principal fourfold axes, two sets
+of non-equivalent twofold axes (Table A.18). We use the notation C2 to indicate that these twofold axis are in a diﬀerent plane (see also Table A.12
+
+for group D3, where this same situation occurs). When non-equivalent axes are combined with mirror planes we get groups like D2h, D3h, etc. (see Tables A.8 and A.14). There are ﬁve cubic groups T , O, Td, Th, and Oh. These groups have no principal axis but instead have four threefold axes (see Ta-
+
+bles A.29–A.32).
+
+3.10 The Hermann–Mauguin Symmetry Notation
+There is also a second notation for symmetry operations and groups, namely the Hermann–Mauguin or international notation, which is used in the International Tables for X-Ray Crystallography, a standard structural and symmetry reference book. The international notation is what is usually found in crystallography textbooks and various materials science journals. For that reason
+
+3.10 The Hermann–Mauguin Symmetry Notation 47
+
+Table 3.10. Comparison between Schoenﬂies and Hermann–Mauguin notation
+
+rotation
+rotation–inversion mirror plane horizontal reﬂection plane ⊥ to n-fold axes n-fold axes in vertical reﬂection plane two non-equivalent vertical reﬂection planes
+
+Schoenﬂies Cn iCn σ
+σh
+σv
+σv
+
+Hermann–Mauguin n n¯ m
+n/m
+nm
+nmm
+
+Table 3.11. Comparison of notation for proper and improper rotations in the Schoenﬂies and International systems
+
+proper rotations
+
+improper rotations
+
+international 1 2 3 32 4 43 5 54 6 65
+
+Schoenﬂies
+C1
+C2
+C3 C3−1 C4 C4−1 C5 C5−1 C6 C6−1
+
+international ¯1
+¯2 ≡ m ¯3 ¯32 ¯4 ¯43 ¯5 ¯54 ¯6 ¯65
+
+Schoenﬂies
+S2
+σ S6−1 S6 S4−1 S4
+S10 S1−01 S3−1 S3
+
+it is also necessary to become familiar with this notation. The general correspondence between the two notations is shown in Table 3.10 for rotations and mirror planes. The Hermann–Mauguin notation n¯ means iCn which is equivalent to a rotation of 2π/n followed by or preceded by an inversion. A string of numbers like 422 (see Table A.18) means that there is a fourfold major symmetry axis (C4 axis), and perpendicular to this axis are two inequivalent sets of twofold axes C2 and C2 , such as occur in the group of the square (D4). If there are several inequivalent horizontal mirror planes like
+222 ,,,
+mmm
+an abbreviated notation mmm is sometimes used [see notation for the group D2h (Table A.8)]. The notation 4mm (see Table A.16) denotes a fourfold axis
+
+48 3 Character of a Representation
+and two sets of vertical mirror planes, one set through the axes C4 and denoted by 2σv and the other set through the bisectors of the 2σv planes and denoted by the dihedral vertical mirror planes 2σd. Table 3.11 is useful in relating the two kinds of notations for rotations and improper rotations.
+3.11 Symmetry Relations and Point Group Classiﬁcations
+In this section we summarize some useful relations between symmetry operations and give the classiﬁcation of point groups. Some useful relations on the commutativity of symmetry operations are:
+(a) Inversion commutes with all point symmetry operations. (b) All rotations about the same axis commute. (c) All rotations about an arbitrary rotation axis commute with reﬂections
+across a plane perpendicular to this rotation axis. (d) Two twofold rotations about perpendicular axes commute. (e) Two reﬂections in perpendicular planes will commute. (f) Any two of the symmetry elements σh, Sn, Cn (n = even) implies the
+third.
+If we have a major symmetry axis Cn(n ≥ 2) and there are either twofold axes C2 or vertical mirror planes σv, then there will generally be more than one C2 or σv symmetry operations. In some cases these symmetry operations are in the same class and in the other cases they are not, and this distinction can be made by use of conjugation (see Sect. 1.6).
+The classiﬁcation of the 32 crystallographic point symmetry groups shown in Table 3.12 is often useful in making practical applications of character tables in textbooks and journal articles to speciﬁc materials.
+In Table 3.12 the ﬁrst symbol in the Hermann–Mauguin notation denotes the principal axis or plane. The second symbol denotes an axis (or plane) perpendicular to this axis, except for the cubic groups, where the second symbol refers to a 111 axis. The third symbol denotes an axis or plane that is ⊥ to the ﬁrst axis and at an angle of π/n with respect to the second axis.
+In addition to the 32 crystallographic point groups that are involved with the formation of three-dimensional crystals, there are nine symmetry groups that form clusters and molecules which show icosahedral symmetry or are related to the icosahedral group Ih. We are interested in these species because they can become part of crystallographic structures. Examples of such clusters and molecules are fullerenes. The fullerene C60 has full icosahedral symmetry Ih (Table A.28), while C70 has D5h symmetry (Table A.26) and C80 has D5d symmetry (Table A.25). The nine point groups related to icosahedral symmetry that are used in solid state physics, as noted earlier, are also listed in Table 3.12 later that double line.
+
+3.11 Symmetry Relations and Point Group Classiﬁcations 49
+
+Table 3.12. The extended 32 crystallographic point groups and their symbols(a)
+
+system
+
+Schoenﬂies Hermann–Mauguin symbol(b) examples
+
+symbol full
+
+abbreviated
+
+triclinic
+
+C1 Ci, (S2)
+
+monoclinic
+
+C1h, (S1) C2 C2h
+
+orthorhombic C2v D2, (V ) D2h, (Vh)
+
+tetragonal
+
+C4 S4 C4h D2d, (Vd) C4v D4 D4h
+
+rhombohedral C3 C3i, (S6) C3v D3 D3d
+
+hexagonal
+
+C3h, (S3) C6 C6h D3h C6v D6 D6h
+
+1
+
+1
+
+¯1
+
+¯1
+
+m
+
+m
+
+2
+
+2
+
+2/m
+
+2/m
+
+2mm
+
+mm
+
+222
+
+222
+
+2/m 2/m 2/m mmm
+
+4
+
+4
+
+¯4
+
+¯4
+
+4/m
+
+4/m
+
+¯42m
+
+¯42m
+
+4mm
+
+4mm
+
+422
+
+42
+
+4/m 2/m 2/m 4/mmm
+
+3
+
+3
+
+¯3
+
+¯3
+
+3m
+
+3m
+
+32
+
+32
+
+¯32/m
+
+¯3m
+
+¯6
+
+¯6
+
+6
+
+6
+
+6/m
+
+6/m
+
+¯62m
+
+¯62m
+
+6mm
+
+6mm
+
+622
+
+62
+
+6/m 2/m 2/m 6/mmm
+
+Al2SiO5 KNO2
+I, Ga
+CaWO4
+TiO2, In, β-Sn AsI3 FeTiO3 Se Bi, As, Sb, Al2O3
+ZnO, NiAs CeF3 Mg, Zn, graphite
+
+Footnote (a): The usual 32 crystallographic point groups are here extended by including 9 groups with 5 fold symmetry and are identiﬁed here as icosahedral point groups. Footnote (b): In the Hermann–Mauguin notation, the symmetry axes parallel to and the symmetry planes perpendicular to each of the “principal” directions in the crystal are named in order. When there is both an axis parallel to and a plane normal to a given direction, these are indicated as a fraction; thus 6/m means a sixfold rotation axis standing perpendicular to a plane of symmetry, while ¯4 denotes a fourfold rotary inversion axis. In some classiﬁcations, the rhombohedral (trigonal) groups are listed with the hexagonal groups. Also show are the corresponding entries for the icosahedral groups (see text).
+
+50 3 Character of a Representation
+
+Table 3.12. (continued)
+
+the extended 32 crystallographic point groups and their symmetries
+
+system Schoenﬂies Hermann–Mauguin symbol examples
+
+symbol full
+
+abbreviated
+
+cubic
+
+T
+
+Th
+
+Td
+
+O
+
+Oh
+
+icosahedral C5 C5i, (S10) C5v C5h, S5 D5 D5d D5h I Ih
+
+23
+
+23
+
+2/m¯3
+
+m3
+
+¯43m
+
+¯43m
+
+432
+
+43
+
+4/m ¯3 2/m m3m
+
+5 1¯0
+5m ¯5
+52 ¯52/m 1¯02m
+532
+
+5 1¯0
+5m ¯5
+52 ¯5/m 1¯02m
+532
+
+NaClO3 FeS2 ZnS β-Mn NaCl, diamond, Cu
+C80 C70 C60
+
+It is also convenient to picture many of the point group symmetries with stereograms (see Fig. 3.2). The stereogram is a mapping of a general point on a sphere onto a plane going through the center of the sphere. If the point on the sphere is above the plane it is indicated as a +, and if below as a ◦. In general, the polar axis of the stereogram coincides with the principal axis of symmetry. The ﬁrst ﬁve columns of Fig. 3.2 pertain to the crystallographic point group symmetries and the sixth column is for ﬁvefold symmetry.
+The ﬁve ﬁrst stereograms on the ﬁrst row pertaining to groups with a single axis of rotation show the eﬀect of two-, three-, four-, and sixfold rotation axes on a point +. These groups are cyclic groups with only n-fold axes. Note the symmetry of the central point for each group. On the second row we have added vertical mirror planes which are indicated by the solid lines. Since the “vertical” and “horizontal” planes are not distinguishable for C1, the addition of a mirror plane to C1 is given in the third row, showing the groups which result from the ﬁrst row upon addition of horizontal planes. The symbols ⊕ indicate the coincidence of the projection of points above and below the plane, characteristic of horizontal mirror planes.
+If instead of proper rotations as in the ﬁrst row, we can also have improper rotations, then the groups on row 4 are generated. Since S1 is identical with C1h, it is not shown separately; this also applies to S3 = C3h and to S5 = C5h (neither of which are shown). It is of interest to note that S2 and S6 have inversion symmetry but S4 does not.
+The addition of twofold axes ⊥ to the principal symmetry axis for the groups in the ﬁrst row yields the stereograms of the ﬁfth row where the twofold
+
+3.11 Symmetry Relations and Point Group Classiﬁcations 51
+Fig. 3.2. The ﬁrst ﬁve columns show stereographic projections of simple crystallographic point groups axes appear as dashed lines. Here we see that the higher the symmetry of the principal symmetry axis, the greater the number of twofold axes D5 (not shown) that would have 5 axes separated by 72◦.
+The addition of twofold axes to the groups on the fourth row yields the stereograms of the sixth row, where D2d comes from S4, while D3d comes from S6. Also group D5d (not shown) comes from S10. The addition of twofold axes
+
+52 3 Character of a Representation
+
+Fig. 3.3. Schematic diagram for the symmetry operations of the group Td
+
+to S2 results in C2h. The stereograms on the last row are obtained by adding twofold axes ⊥ to Cn to the stereograms for the Cnh groups on the third row. D5h (not shown) would fall into this category. The eﬀect of adding a twofold axis to C1h is to produce C2v.
+The ﬁve point symmetry groups associated with cubic symmetry (T , O, Td, Th and Oh) are not shown in Fig. 3.2. These groups have higher symmetry and have no single principal axis. The resulting stereograms are very complicated and for this reason are not given in Fig. 3.2. For the same reason the stereograph for the I and Ih icosahedral groups are not given. We give some of the symmetry elements for these groups next.
+The group T (or 23 using the International notation) has 12 symmetry elements which include:
+
+1 identity
+
+3 twofold axes
+
+(x, y, z)
+
+4 threefold axes
+
+(body diagonals – positive rotation)
+
+4 threefold axes
+
+(body diagonals – negative rotations)
+
+12 symmetry elements
+
+The point group Th (denoted by m3 in the abbreviated International notation or by 2/m3 in the full International notation) contains all the symmetry operations of T and inversion as well, and is written as Th ≡ T ⊗ i, indicating the direct product of the group T and the group Ci having two symmetry elements E, i (see Chap. 6). This is equivalent to adding a horizontal plane of
+symmetry, hence the notation 2/m; the symbol 3 means a threefold axis (see
+Table 3.11). Thus Th has 24 symmetry elements. The point group Td (¯43m) contains the symmetry operations of the reg-
+ular tetrahedron (see Fig. 3.3), which correspond to the point symmetry for
+diamond and the zincblende (III–V and II–VI) structures. We list next the 24
+symmetry operations of Td:
+
+3.11 Symmetry Relations and Point Group Classiﬁcations 53
+Fig. 3.4. Schematic for the symmetry operations of the group O
+Fig. 3.5. Schematic diagram of the CO molecule with symmetry C∞v and symmetry operations E, 2Cφ, σv, and the linear CO2 molecule in which the inversion operation together with (E, 2Cφ, σv) are also present to give the group D∞h
+• identity, • eight C3 about body diagonals corresponding to rotations of ±2π/3, • three C2 about x, y, z directions, • six S4 about x, y, z corresponding to rotations of ±π/2, • six σd planes that are diagonal reﬂection planes. The cubic groups are O (432) and Oh (m3m), and they are shown schematically in Fig. 3.4.
+The operations for group O as shown in Fig. 3.4 are E, 8C3, 3C2 = 3C42, 6C2, and 6C4. To get Oh we combine these 24 operations with inversion to give 48 operations in all. We note that the second symbol in the Hermann– Mauguin (International) notation for all ﬁve cubic groups is for the 111 axes rather than for an axis ⊥ to the principal symmetry axis.
+In addition to the 32 crystallographic point groups and to the eight ﬁvefold point groups, the character tables contain listings for C∞v (Table A.33) and D∞h (Table A.34) which have full rotational symmetry around a single axis, and therefore have an ∞ number of symmetry operations and classes. These two groups are sometimes called the semi-inﬁnite groups because they have
+
+54 3 Character of a Representation
+an inﬁnite number of operations about the major symmetry axis. An example of C∞v symmetry is the CO molecule shown in Fig. 3.5.
+Here the symmetry operations are E, 2Cφ, and σv. The notation Cφ denotes an axis of full rotational symmetry and σv denotes the corresponding inﬁnite array of vertical planes. The group D∞h has in addition the inversion operation which is compounded with each of the operations in C∞v, and this is written as D∞h = C∞v ⊗ i (see Chap. 6). An example of a molecule with D∞h symmetry is the CO2 molecule (see Fig. 3.5).
+
+Selected Problems
+
+3.1. (a) Explain the symmetry operations pertaining to each class of the point group D3h. You may ﬁnd the stereograms on p. 51 useful.
+(b) Prove that the following irreducible representations E1 and E2 in the group D5 (see Table A.24) are orthonormal.
+(c) Given the group T (see Table A.29), verify that the equality
+
+2 j
+
+=
+
+h
+
+j
+
+is satisﬁed. What is the meaning of the two sets of characters given for the two-dimensional irreducible representation E? Are they orthogonal to each other or are they part of the same irreducible representation? (d) Which symmetry operation results from multiplying the operations σv and σd in group C4v? Can you obtain this information from the character table? If so, how?
+
+3.2. Consider an A3B3 molecule consisting of 3A atoms at the corners of a regular triangle and 3B atoms at the corners of another regular triangle, rotated by 60◦ with respect to the ﬁrst.
+(a) Consider the A and B atoms alternately occupy the corners of a planar regular hexagon. What are the symmetry operations of the symmetry group and what is the corresponding point group? Make a sketch of the atomic equilibrium positions for this case.
+(b) If now the A atoms are on one plane and the B atoms are on another parallel plane, what are the symmetry operations and point group?
+(c) If now all atoms in (a) are of the same species, what then are the symmetry operations of the appropriate point group, and what is this group?
+(d) Which of these groups are subgroups of the highest symmetry group? How could you design an experiment to test your symmetry group identiﬁcations?
+
+3.3. (a) What are the symmetry operations of a regular hexagon? (b) Find the classes. Why are not all the two-fold axes in the same class?
+
+3.11 Symmetry Relations and Point Group Classiﬁcations 55
+(c) Find the self-conjugate subgroups, if any. (d) Identify the appropriate character table. (e) For some representative cases (two cases are suﬃcient), check the validity
+of the “Wonderful Orthogonality and Second Orthogonality Theorems” on character, using the character table in (d).
+3.4. Suppose that you have the following set of characters: χ(E) = 4, χ(σh) = 2, χ(C3) = 1, χ(S3) = −1, χ(C2) = 0, χ(σv) = 0.
+(a) Do these characters correspond to a representation of the point group D3h? Is it irreducible?
+(b) If the representation is reducible, ﬁnd the irreducible representations contained therein.
+(c) Give an example of a molecule with D3h symmetry.
+3.5. Consider a cube that has Oh symmetry.
+(a) Which symmetry group is obtained by squeezing the cube along one of the main diagonals?
+(b) Which symmetry group is obtained if you add mirror planes perpendicular to the main diagonals, and have a mirror plane crossing these main diagonals in the middle.
+
+4 Basis Functions
+
+In the previous chapters we have discussed symmetry elements, their matrix representations and the properties of the characters of these representations. In this discussion we saw that the matrix representations are not unique though their characters are unique. Because of the uniqueness of the characters of each irreducible representation, the characters for each group are tabulated in character tables. Also associated with each irreducible representation are “basis functions” which can be used to generate the matrices that represent the symmetry elements of a particular irreducible representation. Because of the importance of basis functions, it is customary to list the most important basis functions in the character tables.
+
+4.1 Symmetry Operations and Basis Functions
+
+Suppose that we have a group G with symmetry elements R and symmetry operators PˆR. We denote the irreducible representations by Γn, where n labels the representation. We can then deﬁne a set of basis vectors denoted by |Γnj . Each vector |Γnj of an irreducible representation Γn is called a component
+or partner and j labels the component or partner of the representation, so
+that if we have a two-dimensional representation, then j = 1, 2. All partners collectively generate the matrix representation denoted by D(Γn)(R). These basis vectors relate the symmetry operator PˆR with its matrix representation D(Γn)(R) through the relation
+
+PˆR|Γnα = D(Γn)(R)jα|Γnj .
+j
+
+(4.1)
+
+The basis vectors can be abstract vectors; a very important type of basis vector is a basis function which we deﬁne here as a basis vector expressed explicitly in coordinate space. Wave functions in quantum mechanics, which are basis functions for symmetry operators, are a special but important example of such basis functions.
+
+58 4 Basis Functions
+
+In quantum mechanics, each energy eigenvalue of Schro¨dinger’s equation is labeled according to its symmetry classiﬁcation, which is speciﬁed according to an irreducible representation of a symmetry group. If the dimensionality of the representation is j > 1, the energy eigenvalue will correspond to a j-fold degenerate state, with j linearly independent wave-functions. The eﬀect of the symmetry operator PˆR on one of these wave functions (e.g., the αth wave function) will generally be the formation of a linear combination of the j wave functions, as is seen in (4.1).
+Like the matrix representations and the characters, the basis vectors also satisfy orthogonality relations
+
+Γnj|Γn j = δnn δjj ,
+
+(4.2)
+
+and this relation is proved in Sect. 6.2 in connection with selection rules. In quantum (wave) mechanics, this orthogonality relation would be written in terms of the orthogonality for the wave functions
+
+ψn∗,j (r)ψn ,j (r)d3r = δnn δjj ,
+
+(4.3)
+
+where the wave functions ψn,j and ψn ,j correspond to diﬀerent energy eigenvalues (n, n ) and to diﬀerent components (j, j ) of a particular degenerate state, and the integration is usually performed in 3D space. The orthogonality relation (4.3) allows us to generate matrices for an irreducible representation from a complete set of basis vectors, as is demonstrated in Sect. 4.2.
+
+4.2 Use of Basis Functions to Generate Irreducible Representations
+
+In this section we demonstrate how basis functions can be used to generate
+the matrices for an irreducible representation.
+Multiplying (4.1) on the left by the basis vector Γn j | (corresponding in wave mechanics to ψn∗ ,j (r)), we obtain using the orthogonality relation for basis functions (4.2):
+
+Γn j |PˆR|Γnα = D(Γn)(R)jα Γn j |Γnj = D(Γn )(R)j αδnn . (4.4)
+j
+
+From (4.4) we obtain a relation between each matrix element of D(Γn)(R)jα and the eﬀect of the symmetry operation on the basis functions:
+
+D(Γn)(R)jα = Γnj|PˆR|Γnα .
+
+(4.5)
+
+Thus by taking matrix elements of a symmetry operator PˆR between all possible partners of an irreducible representation as shown by (4.5) the matrix
+
+4.2 Basis Functions for Irreducible Representations 59
+
+Fig. 4.1. Symmetry operations of an equilateral triangle. The notation of this diagram deﬁnes the symmetry operations in Table 4.1. Each vertex is labeled by the same number as its axis
+
+representation DΓn (R)jα can be generated. In practice, this turns out to be the easiest way to obtain these matrix representations for the symmetry elements.
+As an example of how basis vectors or basis functions can generate the matrices for an irreducible representation, consider a planar molecule with threefold symmetry such that the symmetry operations are isomorphic to those of an equilateral triangle and also isomorphic to P (3) (see Chap. 1). Thus there are six symmetry operations and six operators PˆR (see Sect. 1.2). The proper point group to describe all the symmetry operations of a regular planar triangle could be D3h = D3 ⊗ σh. However, since the triangle is a 2D object, the horizontal mirror plane may not be an important symmetry operation and we can here simplify the algebra by using the group D3 which has six symmetry elements. Group theory tells us that the energy levels can never be more than twofold degenerate. Thus no threefold or sixfold degenerate levels can occur because the largest dimensionality of an irreducible representation of P (3) is 2 (see Problem 2.2). For the one-dimensional representation Γ1, the operator PˆR leaves every basis vector invariant. Thus any constant such as the number one forms a suitable basis function. For many practical problems we like to express our basis functions in terms of functions of the coordinates (x, y, z). Some explanation is needed here about the meaning of (x, y, z) as a basis function. To satisfy the orthonormality requirement, the basis functions are vectors with unit length and the matrices which represent the symmetry operations are unitary matrices. The transformation properties of the x, y, and z components of an arbitrary vector under the symmetry operations of the group are the same as those for the unit vectors x, y, and z.
+In this connection it is convenient to write out a basis function table such as Table 4.1. On the top row we list the functions to be investigated; in the ﬁrst column we list all the symmetry operations of the group (see Fig. 4.1 for notation). If we denote the entries in the table by f (x, y, z), then Table 4.1 can be summarized as
+
+PˆRf (x, y, z) = f (x, y, z) ,
+
+(4.6)
+
+60 4 Basis Functions
+
+Table 4.1. Symmetry operations PˆR of the group of the equilateral triangle on basis functions taking (x, y, z) into (x , y , z )
+
+PˆR E=E C3 = F C3−1 = D C2(1) = A C2(2) = B C2(3) = C
+
+x
+
+x
+
+1
+
+(−x
+
++
+
+√ 3y)
+
+2
+
+1
+
+(−x
+
+−
+
+√ 3y)
+
+2
+
+−x
+
+1
+
+(x
+
+−
+
+√ 3y)
+
+2
+
+1
+
+(x
+
++
+
+√ 3y)
+
+2
+
+y
+
+z
+
+y
+
+z
+
+1
+
+(−y
+
+−
+
+√ 3x)
+
+z
+
+2
+
+1
+
+(−y
+
++
+
+√ 3x)
+
+z
+
+2
+
+y
+
+−z
+
+1
+
+(−y
+
+−
+
+√ 3x)
+
+−z
+
+2
+
+1
+
+(−y
+
++
+
+√ 3x)
+
+−z
+
+2
+
+x2
+
+x2
+
+1
+
+(x2
+
++
+
+3y2
+
+−
+
+√ 2 3xy)
+
+4
+
+1
+
+(x2
+
++
+
+3y2
+
++
+
+√ 2 3xy)
+
+4
+
+x2
+
+1
+
+(x2
+
++
+
+3y2
+
+−
+
+√ 2 3xy)
+
+4
+
+1
+
+(x2
+
++
+
+3y2
+
++
+
+√ 2 3xy)
+
+4
+
+y2
+
+z2
+
+y2
+
+z2
+
+1
+
+(y2
+
++
+
+3x2
+
++
+
+√ 2 3xy)
+
+z2
+
+4
+
+1
+
+(y2
+
++
+
+3x2
+
+−
+
+√ 2 3xy)
+
+z2
+
+4
+
+y2
+
+z2
+
+1
+
+(y2
+
++
+
+3x2
+
++
+
+√ 2 3xy)
+
+z2
+
+4
+
+1
+
+(y2
+
++
+
+3x2
+
+−
+
+√ 2 3xy)
+
+z2
+
+4
+
+4.2 Basis Functions for Irreducible Representations 61
+
+where the symmetry operations PˆR label the rows. From Table 4.1 we can then write down the matrix representations for entries on each irreducible representation. In the trivial case of the identity representation, the (1 × 1) matrix 1 satisﬁes PˆR1 = 1 for all PˆR so that this homomorphic representation always applies, i.e., |Γ1 = 1.
+To ﬁnd the basis functions for the Γ1 representation (i.e., the representation of the factor group for P (3)), we note that (E, D, F ) leaves z invariant while (A, B, C) takes z into −z, so that z forms a suitable basis function for Γ1 , which we write as |Γ1 = z. Then application of (4.5) yields the matrices for the irreducible representation Γ1
+
+z|(E, D, F )|z = 1 , z|(A, B, C)|z = −1 .
+
+(4.7)
+
+Thus the characters (1) and (−1) for the (1 × 1) irreducible representations are obtained for Γ1 . We note that in the case of (1 × 1) representations, the characters and the representations are identical.
+To ﬁnd the two-dimensional representation Γ2 we note that all the group operations take (x, y) into (x , y ). Table 4.1 shows the results of each PˆR operator acting on x, y, z to yield x , y , z and PˆR acting on x2, y2, z2 to yield x 2, y 2, z 2. Table 4.1 thus can be used to ﬁnd the matrix representation for Γ2 by taking as basis functions |Γ2, 1 = |x and |Γ2, 2 = |y . We now illustrate the use of Table 4.1 to generate the matrix D(Γ2)(C3−1 = D) where D is a clockwise rotation of 2π/3 about the z-axis:
+√ D|x = −1/2√(x + 3y) yields ﬁrst column of matrix representation D|y = 1/2( 3x − y) yields second column of matrix representation
+
+so that
+
+√
+
+D(Γ2)(C3−1 = D) =
+
+−√21
+
+3 2
+
+−
+
+3 2
+
+−
+
+1 2
+
+.
+
+(4.8)
+
+To clarify how we obtain all the matrices for the irreducible representations
+
+with Γ2 symmetry, we repeat the operations leading to (4.8) for each of the symmetry operations PˆR. We thus obtain for the other ﬁve symmetry operations of the group PˆR using the same basis functions (x, y) and the notation of Fig. 4.1:
+
+D(Γ2)(E) = 1 0 , 01
+
+√
+
+D(Γ2)(C2(2) = B) =
+
+1 2√
+
+−
+
+3 2
+
+,
+
+−
+
+3 2
+
+−
+
+1 2
+
+(4.9) (4.10)
+
+62 4 Basis Functions
+
+√
+
+D(Γ2)(C3 = F ) =
+
+−
+√
+
+1 2
+
+−
+
+3 2
+
+3 2
+
+−
+
+1 2
+
+,
+
+(4.11)
+
+D(Γ2)(C2(1) = A) =
+
+−1 0 01
+
+,
+
+(4.12)
+
+√
+
+13
+
+D(Γ2)(C2(3) = C) = √2 2 .
+
+3 2
+
+−
+
+1 2
+
+(4.13)
+
+As mentioned before, x and y are both basis functions for representation Γ2 and are called the partners of this irreducible representation. The number of partners is equal to the dimensionality of the representa-
+
+tion. In Table 4.1 we have included entries for PˆRx2, PˆRy2, PˆRz2 and these
+entries are obtained as illustrated below by the operation D = C3−1:
+
+√2
+
+√
+
+Dx2 =
+
+−x −
+
+3 y
+
+=
+
+x2 +
+
+3 xy
+
++
+
+3 y2
+
+,
+
+22
+
+42
+
+4
+
+(4.14)
+
+√2
+
+√
+
+Dy2 =
+
+−y +
+
+3 x
+
+=
+
+y2 −
+
+3 xy
+
++
+
+3 x2
+
+,
+
+22
+
+42
+
+4
+
+(4.15)
+
+D(x2 + y2) = x2 + y2 ,
+
+√
+
+D(xy) =
+
+−x −
+
+3 y
+
+22
+
+√
+
+−y +
+
+3 x
+
+22
+
+1 =
+
+√ −2xy − 3[x2 − y2]
+
+,
+
+4
+
+D(x2 − y2) = − 1
+
+√ 2[x2 − y2] − 4 3xy
+
+,
+
+4
+
+√
+
+D(xz) =
+
+−x −
+
+3 y z,
+
+22
+
+√
+
+D(yz) =
+
+−y +
+
+3 x z.
+
+22
+
+(4.16)
+(4.17) (4.18) (4.19) (4.20)
+
+Using (4.1) we see that PˆR(x2 + y2) = (x2 + y2) for all PˆR so that (x2 + y2)
+is a basis function for Γ1 or as we often say transforms according to the irreducible representation Γ1. Correspondingly z(x2+y2) transforms as Γ1 and z2
+
+4.2 Basis Functions for Irreducible Representations 63
+
+transforms as Γ1. These transformation properties will be used extensively for many applications of group theory. It is found that many important basis functions are given directly in the published character tables. Like the matrix representations, the basis functions are not unique. However, corresponding to a given set of basis functions, the matrix representation which is generated by these basis functions will be unique.
+As before, the characters for a given representation are found by taking the sum of the diagonal elements of each matrix in a given representation:
+
+χ(Γn)(R) ≡ tr D(Γn)(R) = D(Γn)(R)jj =
+
+Γnj|PˆR|Γnj .
+
+j
+
+j
+
+(4.21)
+
+Since the trace is invariant under a similarity transformation, the character
+is independent of the particular choice of basis functions or matrix representations.
+If instead of a basis function (which generates irreducible representations)
+we use an arbitrary function f , then a reducible representation will result, in general. We can express an arbitrary function as a linear combination of the
+basis functions. For example, any linear function of x, y, z such as f (x, y, z) can be expressed in terms of linear combinations of basis vectors x, y, z and likewise
+any quadratic function is expressed in terms of quadratic basis functions which
+transform as irreducible representations of the group. For example for the group P (3) (see Table 4.1), quadratic forms which serve as basis functions are (x2 + y2) and z2 which both transform as Γ1; z transforms as Γ1 ; (xz, yz) and (xy, x2 − y2) both transform as Γ2.
+If we now inspect the character table D3(32) found in Table A.12 (and reproduced below in Table 4.2), we ﬁnd that these basis functions are listed in this character table. The basis functions labeled Rα represent the angular momentum component around axis α (e.g., Rx = ypz − zpy). For the two dimensional irreducible representations both partners of the basis functions are listed, for example (xz, xy) and (x2 − y2, xy), etc. The reason why (x, y, z) and (Rx, Ry, Rz) often transform as diﬀerent irreducible representations (not the case for the group D3(32)) is that x, y, z transforms as a radial vector (such as coordinate, momentum) while Rx, Ry, Rz transforms as an axial vector (such as angular momentum r × p).
+
+Table 4.2. Character Table for Group D3 (rhombohedral)
+
+D3(32)
+
+x2 + y2, z2
+
+(xz, yz) (x2 − y2, xy)
+
+Rz, z (x, y) (Rx, Ry)
+
+E 2C3 3C2
+
+A1 1 A2 1
+
+11 1 −1
+
+E 2 −1 0
+
+64 4 Basis Functions
+4.3 Projection Operators Pˆk(lΓn)
+
+The previous discussion of basis vectors assumed that we already knew how to write down the basis vectors. In many cases, representative basis functions are tabulated in the character tables. However, suppose that we have to ﬁnd basis functions for the following cases:
+(a) An irreducible representation for which no basis functions are listed in the character table; or
+(b) An arbitrary function.
+In such cases the basis functions can often be found using projection operators Pˆk , not to be confused with the symmetry operators PˆR. We deﬁne the projection operator Pˆk(Γn) as transforming one basis vector |Γn into another basis vector |Γnk of the same irreducible representation Γn:
+
+Pˆk(Γn)|Γn ≡ |Γnk .
+
+(4.22)
+
+The utility of projection operators is mainly to project out basis functions for a given partner of a given irreducible representation from an arbitrary function. The discussion of this topic focuses on the following issues:
+
+(a) The relation of the projection operator to symmetry operators of the group and to the matrix representation of these symmetry operators for an irreducible representation (see Sect. 4.4).
+(b) The eﬀect of projection operators on an arbitrary function (see Sect. 4.5).
+
+As an example, we illustrate in Sect. 4.6 how to ﬁnd basis functions from an arbitrary function for the case of the group of the equilateral triangle (see Sect. 4.2).
+
+4.4 Derivation of an Explicit Expression for Pˆk(Γn)
+
+In this section we ﬁnd an explicit expression for the projection operators Pˆk(lΓn) by considering the relation of the projection operator to symmetry operators
+of the group. We will ﬁnd that the coeﬃcients of this expression give the
+matrix representations of each of the symmetry elements. Let the projection operator Pˆk(Γn) be written as a linear combination of
+the symmetry operators PˆR:
+
+Pˆk(Γn) = Ak (R)PˆR ,
+R
+
+(4.23)
+
+where the Ak (R) are arbitrary expansion coeﬃcients to be determined. Substitution of (4.23) into (4.22) yields
+
+4.5 The Eﬀect of Projection Operations on an Arbitrary Function 65
+
+Pˆk(Γn)|Γn ≡ |Γnk = Ak (R)PˆR|Γn .
+R
+Multiply (4.24) on the left by Γnk| to yield
+
+(4.24)
+
+Γnk|Γnk = 1 = Ak (R) Γnk|PˆR|Γn .
+
+R
+
+D(Γn ) (R)k
+
+(4.25)
+
+But the Wonderful Orthogonality Theorem (2.51) speciﬁes that
+
+D(Γn)(R)∗k D(Γn)(R)k = h ,
+
+R
+
+n
+
+(4.26)
+
+where h is the number of symmetry operators in the group and n is the dimensionality of the irreducible representation Γn, so that we can identify Ak (R) with the matrix element of the representation for the symmetry element R:
+
+Ak (R) =
+
+n
+h
+
+D(Γn
+
+)
+
+(R)∗k
+
+.
+
+(4.27)
+
+Thus the projection operator is explicitly given in terms of the symmetry operators of the group by the relation:
+
+Pˆk(Γn) =
+
+n
+h
+
+D(Γn)(R)∗k PˆR .
+
+R
+
+(4.28)
+
+From the explicit form for Pˆk(Γn) in (4.28) and from (4.22) we see how to ﬁnd the partners of an irreducible representation Γn from any single known basis
+vector, provided that the matrix representation for all the symmetry operators D(Γn)(R) is known.
+As a special case, the projection operator Pˆk(kΓn) transforms |Γnk into itself and can be used to check that |Γnk is indeed a basis function. We note that the relation of Pˆk(kΓn) to the symmetry operators PˆR involves only the diagonal elements of the matrix representations (though not the trace):
+
+where
+
+Pˆk(kΓn) =
+
+n
+h
+
+D(Γn)(R)∗kkPˆR ,
+
+R
+
+Pˆk(kΓn)|Γnk ≡ |Γnk .
+
+(4.29) (4.30)
+
+4.5 The Eﬀect of Projection Operations on an Arbitrary Function
+The projection operators Pˆk(kΓn) deﬁned in (4.30) are of special importance because they can project the kth partner of irreducible representation Γn
+
+66 4 Basis Functions
+
+from an arbitrary function. Any arbitrary function F can be written as a linear combination of a complete set of basis functions |Γn j :
+
+F=
+
+fj(Γn )|Γn j .
+
+Γn j
+
+(4.31)
+
+We can then write from (4.29):
+
+Pˆk(kΓn)F
+
+=
+
+n
+h
+
+D(Γn ) (R)∗kk PˆR F
+
+R
+
+and substitution of (4.31) into (4.32) then yields
+
+(4.32)
+
+Pˆk(kΓn)F =
+
+n
+h
+
+fj(Γn )D(Γn)(R)∗kk PˆR|Γn j .
+
+R Γn j
+
+(4.33)
+
+But substitution of (4.1) into (4.33) and use of the Wonderful Orthogonality Theorem (2.51):
+
+D(Γn )(R)jj D(Γn)(R)∗kk =
+
+h δΓnΓn δjk δj k
+
+R
+
+n
+
+(4.34)
+
+yields
+
+Pˆk(kΓn)F = fk(Γn)|Γnk ,
+
+(4.35)
+
+where
+
+Pˆk(kΓn) =
+
+n
+h
+
+D(Γn)(R)∗kkPˆR .
+
+R
+
+(4.36)
+
+We note that the projection operator does not yield normalized basis functions. One strategy to ﬁnd basis functions is to start with an arbitrary function F .
+
+(a) We then use Pˆk(kΓn) to project out one basis function |Γnk . (b) We can then use the projection operator Pˆk(Γn) to project out all other
+partners |Γn orthogonal to |Γnk in irreducible representation Γn. Or alternatively we can use Pˆ(Γn) to project out each of the partners of the
+representation, whichever method works most easily in a given case.
+
+If we do not know the explicit representations Dk(Γn)(R)∗, but only know the characters, then we can still project out basis functions which transform according to the irreducible representations (using the argument given in the next paragraph), though we cannot in this case project out speciﬁc partners but only linear combinations of the partners of these irreducible representations.
+If we only know the characters of an irreducible representation Γn, we deﬁne the projection operator for this irreducible representation as Pˆ(Γn):
+
+4.6 Linear Combinations of Atomic Orbitals for Three Equivalent Atoms 67
+
+Pˆ(Γn) ≡
+
+Pˆk(kΓn) =
+
+n
+h
+
+D(Γn)(R)∗kkPˆR ,
+
+k
+
+Rk
+
+so that
+
+Pˆ(Γn) = n h
+
+χ(Γn ) (R)∗ PˆR
+
+R
+
+and using (4.35) we then obtain
+
+(4.37) (4.38)
+
+Pˆ(Γn)F =
+
+Pˆk(kΓn)F =
+
+fk(Γn)|Γnk ,
+
+k
+
+k
+
+(4.39)
+
+which projects out a function transforming as Γn but not a speciﬁc partner of Γn.
+In dealing with physical problems it is useful to use physical insight in guessing at an appropriate “arbitrary function” to initiate this process for ﬁnding the basis functions and matrix representations for speciﬁc problems. This is the strategy to pursue when you do not know either the matrix representations or the basis functions a priori.
+
+4.6 Linear Combinations of Atomic Orbitals for Three Equivalent Atoms at the Corners of an Equilateral Triangle
+As an example of ﬁnding basis functions from an arbitrary function, we here consider forming linear combinations of atomic orbitals which transform as irreducible representations of the symmetry group.
+In many of the applications that we will be making of group theory to solid-state physics, we will have equivalent atoms at diﬀerent sites. We use the symmetry operations of the group to show which irreducible representations result when the equivalent atoms transform into each other under the symmetry operations of the group. The discussion of projection operators of an arbitrary function applies to this very important case.
+As an example of this application, suppose that we have three equivalent atoms at the three corners of an equilateral triangle (see Fig. 4.2) and that each atom is in the same spherically symmetric ground state described by a wave function ψ0(ri), where the subscript i is a site index, which can apply to any of the three sites. As a short-hand notation for ψ0(ra), ψ0(rb), ψ0(rc) we will here use a, b, c.
+We now want to combine these atomic orbitals to make a molecular orbital that transforms according to the irreducible representations of the group. We will see that only the Γ1 and Γ2 irreducible representations are contained in the linear combination of atomic orbitals for a, b, c. This makes sense since we have
+
+68 4 Basis Functions
+
+Fig. 4.2. Equilateral triangle and arbitrary functions a, b, c for atomic orbitals at corners of an equilateral triangle, deﬁning the notation used in Sect. 4.6
+
+three atomic orbitals which split into a nondegenerate and a two-dimensional representation in trigonal symmetry through the symmetry operations PˆR on the equivalent site functions a, b, c.
+To generate the proper linear combination of atomic orbitals that trans-
+form as irreducible representations of the symmetry group, we use the
+results on the projection operator to ﬁnd out which irreducible represen-
+tations are contained in the function F . According to the above discus-
+sion, we can project out a basis function for representation Γn by considering the action of Pˆk(kΓn) on one of the atomic orbitals, as for example orbital F = a:
+
+Pˆk(kΓn)a =
+
+n
+h
+
+D(Γn)(R)∗kk PˆRa = fk(Γn)|Γnk ,
+
+R
+
+(4.40)
+
+in which we have used the deﬁnition for Pˆk(kΓn) given by (4.35) and the expression for Pˆk(kΓn) given by (4.36). If the representation Γn is one-dimensional, then we can obtain D(Γn)(R) directly from the character table, and (4.40)
+then becomes
+
+Pˆ(Γn)a = n h
+
+χ(Γn)(R)∗PˆRa = f (Γn)|Γn .
+
+R
+
+(4.41)
+
+For the appropriate symmetry operators for this problem we refer to Sect. 1.2 where we have deﬁned: E ≡ identity; (A, B, C) ≡ π rotations about twofold axes in the plane of triangle; (D, F ) ≡ 2π/3 rotations about the threefold axis ⊥ to the plane of the triangle. These symmetry operations are also indicated in Fig. 4.2.
+For the identity representation Γ1 the characters and matrix representations are all unity so that
+
+4.6 Linear Combinations of Atomic Orbitals for Three Equivalent Atoms 69
+
+Pˆ (Γ1 ) a
+
+=
+
+1 6
+
+(PˆE
+
+a
+
++ PˆAa
+
++
+
+PˆBa +
+
+PˆC a
+
++
+
+PˆD a
+
++
+
+PˆF a)
+
+1 = (a + a + c + b + b + c)
+6
+
+1 = (a + b + c) ,
+3
+
+(4.42)
+
+a result which is intuitively obvious. Each atom site must contribute equally to the perfectly symmetrical molecular representation Γ1. This example illustrates how starting with an arbitrary function a (or ψ(ra)) we have found a linear combination that transforms as Γ1. Likewise, we obtain the same result by selecting b or c as the arbitrary function
+
+Pˆ (Γ1 ) b
+
+=
+
+Pˆ (Γ1 ) c
+
+=
+
+1 (a
+
++
+
+b
+
++
+
+c)
+
+.
+
+3
+
+(4.43)
+
+We now apply a similar analysis for representation Γ1 to illustrate another important point. In this case the matrix representations and characters are +1 for (E, D, F ), and −1 for (A, B, C). Thus
+
+Pˆ(Γ1
+
+)a
+
+=
+
+1 6
+
+(PˆE
+
+a
+
+−
+
+PˆAa
+
+− PˆBa − PˆC a + PˆDa + PˆF a)
+
+= 1 (a − a − c − b + b + c) = 0 , 6
+
+(4.44)
+
+which states that no molecular orbital with Γ1 symmetry can be made by taking a linear combination of the a, b, c orbitals. This is veriﬁed by considering
+
+Pˆ(Γ1 )b = Pˆ(Γ1 )c = 0 .
+
+(4.45)
+
+The same approach can be used to obtain the two-dimensional irreducible representations, but it does not result in a simple set of linear combinations of atomic orbitals with a set of unitary matrices for the representation of the symmetry operations of the group (see Problem 4.6).
+To obtain a symmetrical set of basis functions for higher dimensional representations it is useful to start with an arbitrary function that takes account of the dominant symmetry operations of the group (e.g., a threefold rotation PˆD)
+
+|Γ2α = a + ωb + ω2c ,
+
+(4.46)
+
+where ω = e2πi/3 and we note here from symmetry that PˆD|Γ2α = ω2|Γ2α and PˆF |Γ2α = ω|Γ2α .
+Thus |Γ2α is already a basis function. Clearly the partner of |Γ2α is |Γ2α ∗ since PˆD|Γ2α ∗ = PˆD(a + ω2b + ωc) = ω(a + ω2b + ωc) = ω|Γ2β , where we have used the notation (α, β) to denote the two partners of the Γ2 representation:
+
+|Γ2α = a + ωb + ω2c , |Γ2β = a + ω2b + ωc .
+
+(4.47)
+
+70 4 Basis Functions
+
+The two partners in (4.47) are complex conjugates of each other. Corresponding to these basis functions, the matrix representation for each of the group elements is simple and symmetrical
+
+E=
+
+10 01
+
+A=
+
+01 10
+
+B=
+
+0 ω2 ω0
+
+(4.48)
+
+C=
+
+0ω ω2 0
+
+D=
+
+ω2 0 0ω
+
+F=
+
+ω0 0 ω2
+
+.
+
+By inspection, the representation given by (4.48) is unitary.
+
+4.7 The Application of Group Theory to Quantum Mechanics
+
+Suppose En is a k-fold degenerate level of the group of Schro¨dinger’s equation (see Sect. 1.8). Then any linear combination of the eigenfunctions ψn1,ψn2, . . . , ψnk is also a solution of Schro¨dinger’s equation. We can write the operation PˆRψnα on one of these eigenfunctions as
+
+PˆRψnα = D(n)(R)jαψnj ,
+j
+
+(4.49)
+
+where D(n)(R)jα is an irreducible matrix which deﬁnes the linear combination, n labels the energy index, α labels the degeneracy index.
+Equation (4.49) is identical with the more general equation for a basis function (4.1) where the states |Γnα and |Γnj are written symbolically rather than explicitly as they are in (4.49).
+We show here that the matrices D(n)(R) form an n dimensional irreducible representation of the group of Schro¨dinger’s equation where n denotes the degeneracy of the energy eigenvalue En. Let R and S be two symmetry operations which commute with the Hamiltonian and let RS be their product.
+Then from (4.49) we can write
+
+PˆRS ψnα = PˆRPˆS ψnα = PˆR D(n)(S)jαψnj
+j
+
+(4.50)
+
+= D(n)(R)kj D(n)(S)jαψnk =
+
+D(n)(R)D(n)(S) ψnk
+
+kα
+
+jk
+
+k
+
+after carrying out the indicated matrix multiplication. But by deﬁnition, the product operator RS can be written as
+
+PˆRS ψnα = D(n)(RS)kαψnk ,
+k
+
+(4.51)
+
+4.7 The Application of Group Theory to Quantum Mechanics 71
+
+so that
+
+D(n)(RS) = D(n)(R)D(n)(S)
+
+(4.52)
+
+and the matrices D(n)(R) form a representation for the group. We label quan-
+tum mechanical states typically by a state vector (basis vector) |α, Γn, j where Γn labels the irreducible representation, j the component or partner of the irreducible representation, and α labels the other quantum numbers that do not involve the symmetry of the PˆR operators.
+The dimension of the irreducible representation is equal to the degeneracy of the eigenvalue En. The representation D(n)(R) generated by PˆRψnα is an irreducible representation if all the ψnk correspond to a single eigenvalue En. For otherwise it would be possible to form linear combinations of the type
+
+ψn1, ψn2, . . . , ψns ψn,s+1, . . . , ψnk ,
+
+subset 1
+
+subset 2
+
+(4.53)
+
+whereby the linear combinations within the subsets would transform amongst themselves. But if this happened, then the eigenvalues for the two subsets would be diﬀerent, except for the rare case of accidental degeneracy. Thus, the transformation matrices for the symmetry operations form an irreducible representation for the group of Schro¨dinger’s equation.
+The rest of the book discusses several applications of the group theory introduced up to this point to problems of solid state physics. It is convenient at this point to classify the ways that group theory is used to solve quantum mechanical problems. Group theory is used both to obtain exact results and in applications of perturbation theory. In the category of exact results, we have as examples:
+
+(a) Irreducible representations of the symmetry group of Schr¨odinger’s equa-
+
+tion label the states and specify their degeneracies (e.g., an atom in
+
+a crystal ﬁeld).
+
+(b) Group theory is useful in following the changes in the degeneracies of the
+
+energy levels as the symmetry is lowered. This case can be thought of in
+
+terms of a Hamiltonian
+
+H = H0 + H ,
+
+(4.54)
+
+where H0 has high symmetry corresponding to the group G, and H is a perturbation having lower symmetry and corresponding to a group G of lower order (fewer symmetry elements). Normally group G is a subgroup of group G. Here we ﬁnd ﬁrst which symmetry operations of G are contained in G ; the irreducible representations of G label the states of the lower symmetry situation exactly. In going to lower symmetry we want to know what happens to the degeneracy of the various states in the initial higher symmetry situation (see Fig. 4.3). We say that in general the irreducible representation of the higher symmetry group forms reducible representations for the lower symmetry group.
+
+72 4 Basis Functions
+Fig. 4.3. The eﬀect of lowering the symmetry often results in a lowering of the degeneracy of degenerate energy states
+The degeneracy of states may either be lowered as the symmetry is lowered or the degeneracy may be unchanged. Group theory tells us exactly what happens to these degeneracies. We are also interested in ﬁnding the basis functions for the lower symmetry group G . For those states where the degeneracy is unchanged, the basis functions are generally unchanged. When the degeneracy is reduced, then by proper choice of the form of the partners, the basis functions for the degenerate state will also be basis functions for the states in the lower symmetry situation. An example of going from higher to lower symmetry is the following: If (x, y, z) are basis functions for a three-dimensional representation in the cubic group, then lowering the symmetry to tetragonal with z as the main symmetry direction will give a two-dimensional representation with basis functions (x, y) and a one-dimensional representation with basis function z. However, if the symmetry is lowered to tetragonal along a z direction (diﬀerent from z), then linear combinations of (x, y, z) must be taken to obtain a vector along z and two others that are mutually orthogonal. The lowering of degeneracy is a very general topic and will enter the discussion of many applications of group theory (see Chap. 5). (c) Group theory is helpful in ﬁnding the correct linear combination of wavefunctions that is needed to diagonalize the Hamiltonian. This procedure involves the concept of equivalence which applies to situations where equivalent atoms sit at symmetrically equivalent sites (see Chap. 7).
+Selected Problems
+4.1. (a) What are the matrix representations for (2xy, x2 − y2) and (Rx, Ry) in the point group D3?
+(b) Using the results in (a), ﬁnd the unitary transformation which transforms the matrices for the representation corresponding to the basis functions (xy, x2 − y2) into the representation corresponding to the basis functions (x, y).
+(c) Using projection operators, check that xy forms a proper basis function of the two-dimensional irreducible representation Γ2 in point group D3. Using the matrix representation found in (a) and projection operators, ﬁnd the partner of xy.
+
+4.7 The Application of Group Theory to Quantum Mechanics 73
+(d) Using the basis functions in the character table for D3h, write a set of (2 × 2) matrices for the two two-dimensional representations E and E . Give some examples of molecular clusters that require D3h symmetry.
+4.2. (a) Explain the Hermann–Manguin notation Td(¯43 m). (b) What are the irreducible representations and partners of the following
+basis functions in Td symmetry? (i) ωx2+ω2y2+z2, where ω = exp(2πi/3); (ii) xyz; and (iii) x2yz. (c) Using the results of (b) and the basis functions in the character table for the point group Td, give one set of basis functions for each irreducible representation of Td. (d) Using the basis function ωx2 + ω2y2 + z2 and its partner (or partners), ﬁnd the matrix for an S4 rotation about the x-axis in this irreducible representation.
+4.3. Consider the cubic group Oh. Find the basis functions for all the symmetric combinations of cubic forms (x, y, z) and give their irreducible representations for the point group Oh.
+4.4. Consider the hypothetical molecule CH4 (Fig. 4.4) where the four H atoms are at the corners of a square (±a, 0, 0) and (0, ±a, 0) while the C atom is at (0, 0, z), where z < a. What are the symmetry elements?
+(a) Identify the appropriate character table. (b) Using the basis functions in the character table, write down a set of
+(2 × 2) matrices which provide a representation for the two-dimensional irreducible representation of this group. (c) Find the four linear combinations of the four H orbitals (assume identical s-functions at each H site) that transform as the irreducible representations of the group. What are their symmetry types? (d) What are the basis functions that generate the irreducible representations. (e) Check that xz forms a proper basis function for the two-dimensional representation of this point group and ﬁnd its partner. (f) What are the irreducible representations and partners of the following basis functions in the point group (assuming that the four hydrogens lie in the xy plane): (i) xyz, (ii) x2y, (iii) x2z, (iv) x + iy. (g) What additional symmetry operations result in the limit that all H atoms are coplanar with atom C? What is now the appropriate group and character table? (The stereograms in Figure 3.2 may be useful.)
+Fig. 4.4. Molecule CH4
+
+74 4 Basis Functions
+Fig. 4.5. Molecule AB6
+4.5. Consider a molecule AB6 (Fig. 4.5) where the A atom lies in the central plane and three B atoms indicated by “ ” lie in a plane at a distance c above
+× the central plane and the B atoms indicated by “ ” lie in a plane below the
+central plane at a distance −c . When projected onto the central plane, all B atoms occupy the corners of a hexagon. (a) Find the symmetry elements and classes. (b) Construct the character table. To which point group (Chap. 3) does this
+molecule correspond? How many irreducible representations are there? How many are one-dimensional and how many are of higher dimensionality? (c) Using the basis functions in the character table for this point group, ﬁnd a set of matrices for each irreducible representation of the group. (d) Find the linear combinations of the six s-orbitals of the B atoms that transform as the irreducible representations of the group. (e) What additional symmetry operations result in the limit that all B atoms are coplanar with A? What is now the appropriate group and character table for this more symmetric molecule? (f) Indicate which stereograms in Fig. 3.2 are appropriate for the case where the B atoms are not coplanar with A and the case where they are coplanar.
+4.6. Consider the linear combinations of atomic orbitals on an equilateral triangle (Sect. 4.6). (a) Generate the basis functions |Γ21 and |Γ22 for the linear combination
+of atomic orbitals for the Γ2 irreducible representation obtained by using the projection operator acting on one of the atomic orbitals Pˆ1(1Γ2)a and Pˆ2(2Γ2 ) a. (b) Show that the resulting basis functions |Γ21 and |Γ22 lead to matrix representations that are not unitary. (c) Show that the |Γ21 and |Γ22 thus obtained can be expressed in terms of the basis functions |Γ2α and |Γ2β given in (4.47).
+4.7. The aim of this problem is to give the reader experience in going from a group with higher symmetry to a group with lower symmetry and to give
+
+4.7 The Application of Group Theory to Quantum Mechanics 75
+Fig. 4.6. Hypothetical XH12 molecule where the atom X is at the center of a regular dodecahedron
+Fig. 4.7. Hypothetical XH12 molecule where the atom X is at the center of a regular truncated icosahedron
+some experience in working with groups with icosahedral and ﬁvefold symmetry. Consider the hypothetical XH12 molecule (see Fig. 4.6) which has Ih icosahedral symmetry, and the X atom is at the center. The lines connecting the X and H atoms are ﬁvefold axes. (a) Suppose that we stretch the XH12 molecule along one of the ﬁvefold axes.
+What are the resulting symmetry elements of the stretched molecule? (b) What is the appropriate point group for the stretched molecule? (c) Consider the Gu and Hg irreducible representations of group Ih as a re-
+ducible representation of the lower symmetry group. Find the symmetries of the lower symmetry group that were contained in a fourfold energy level that transforms as Gu and in a ﬁvefold level that transforms as Hg in the Ih group. Assuming the basis functions given in the character table for the Ih point group, give the corresponding basis functions for each of the levels in the multiplets for the stretched molecule. (d) Suppose that the symmetry of the XH12 molecule is described in terms of hydrogen atoms placed at the center of each pentagon of a regular dodecahedron (see Fig. 4.7). A regular dodecahedron has 12 regular pentagonal faces, 20 vertices and 30 edges. What are the symmetry classes for the regular dodecahedron. Suppose that the XH12 molecule is stretched along one of its ﬁvefold axes as in (a). What are the symmetry elements of the stretched XH12 molecule when viewed from the point of view of a distortion from dodecahedral symmetry?
+
+Part II Introductory Application to Quantum Systems
+
+5
+Splitting of Atomic Orbitals in a Crystal Potential
+This is the ﬁrst of several chapters aimed at presenting some general applications of group theory while further developing theoretical concepts and amplifying on those given in the ﬁrst four chapters. The ﬁrst application of group theory is made to the splitting of atomic energy levels when the atom is placed in a crystal potential, because of the relative simplicity of this application and because it provides a good example of going from higher to lower symmetry, a procedure used very frequently in applications of group theory to solid state physics. In this chapter we also consider irreducible representations of the full rotation group.
+5.1 Introduction
+The study of crystal ﬁeld theory is relevant for physics and engineering applications in situations where it is desirable to exploit the sharp, discrete energy levels that are characteristic of atomic systems together with the larger atomic densities that are typical of solids. As an example, consider the variety of powerful lasers whose operation is based on the population inversion of impurity levels of rare earth ions in a transparent host crystal. The energy levels of an electron moving in the ﬁeld of an ion embedded in such a solid are approximately the same as for an electron moving in the ﬁeld of a free ion. Thus the interaction between the ion and the host crystal can be treated in perturbation theory. Group theory plays a major role in ﬁnding the degeneracy and the symmetry types of the electronic levels in the crystalline ﬁeld. The topic of crystal ﬁeld splittings has found many important applications such as in the use of erbium-doped silica-based optical glass ﬁber ampliﬁers in optical communications systems. Such applications provide motivation for understanding the splitting of the energy levels of an impurity ion in a crystal ﬁeld.
+In this chapter the point group symmetry of an impurity ion in a crystal is presented. The crystal potential Vxtal determines the point group symmetry.
+
+80 5 Splitting of Atomic Orbitals in a Crystal Potential
+
+Following the discussion on the form of the crystal potential, some properties of the full rotation group are given, most importantly the characters χ( )(α) for rotations through an angle α and χ( )(i) for inversions. Irreducible representations of the full
+rotation group are generally found to be reducible representations of a point group of lower symmetry which is a subgroup of the higher symmetry group. If the representation is reducible, then crystal ﬁeld splittings of the energy levels occur. If, however, the representation is irreducible, then no crystal ﬁeld splittings occur. Examples of each type of representation are presented. We focus explicitly on giving examples of going from higher to lower symmetry. In so doing, we consider the
+
+(a) Splitting of the energy levels, (b) Symmetry types of the split levels, (c) Choice of basis functions to bring the Hamiltonian H into block diag-
+onal form. Spherical symmetry results in spherical harmonics Y m(θ, φ) for basis functions. Proper linear combinations of the spherical harmonics Y m(θ, φ) are taken to make appropriate basis functions for the point group of lower symmetry.
+
+In crystal ﬁeld theory we write down the Hamiltonian for the impurity ion in
+
+a crystalline solid as
+
+⎧
+
+⎫
+
+H=
+
+i
+
+⎨ p2i ⎩ 2m
+
+−
+
+Z e2 riμ
+
++
+
+j
+
+e2 +
+rij
+
+j
+
+⎬ ξij i · sj + γiμji · Iμ⎭ + Vxtal ,
+
+(5.1)
+
+where the ﬁrst term is the kinetic energy of the electrons associated with the ion, the second term represents the Coulomb attraction of the electrons of the ion to their nucleus, the third term represents the mutual Coulomb repulsion of the electrons associated with the impurity ion, and the sum on j denotes a sum on pairs of electrons. These three quantities are denoted by H0 the electronic Hamiltonian of the free atom without spin–orbit interaction. H0 is the dominant term in the total Hamiltonian H. The remaining terms are treated in perturbation theory in some order. Here ξij i · sj is the spin–orbit interaction of electrons on the impurity ion and γiμji · Iμ is the hyperﬁne interaction between the electrons on the ion and the nuclear spin. The perturbing crystal potential Vxtal of the host ions acts on the impurity ion and lowers its spherical symmetry.
+Because of the various perturbation terms appearing in (5.1), it is important to distinguish the two limiting cases of weak and strong crystal ﬁelds.
+(a) Weak ﬁeld case. In this case, the perturbing crystal ﬁeld Vxtal is considered to be small compared with the spin–orbit interaction. In this limit, we ﬁnd the energy levels of the free impurity ion with spin–orbit interaction and at this point we consider the crystal ﬁeld as an additional perturbation. These approximations are appropriate to rare earth ions in ionic host
+
+5.2 Characters for the Full Rotation Group 81
+crystals. We will deal with the group theoretical aspects of this case in Chap. 14, after we have learned how to deal with the spin on the electron in the context of group theory. (b) Strong ﬁeld case. In this case, the perturbing crystal ﬁeld Vxtal is strong compared with the spin–orbit interaction. We now consider Vxtal as the major perturbation on the energy levels of H0. Examples of the strong crystal ﬁeld case are transition metal ions (Fe, Ni, Co, Cr, etc.) in a host crystal. It is this limit that we will consider ﬁrst, and is the focus of this chapter.
+We note that the crystal potential Vxtal lowers the full rotational symmetry of the free atom to cause level splittings relative to those of the free atom.
+We now consider in Sect. 5.2 some of the fundamental properties of the full rotation group. These results are liberally used in later chapters.
+
+5.2 Characters for the Full Rotation Group
+
+The free atom has full rotational symmetry and the number of symmetry operations which commute with the Hamiltonian is inﬁnite. That is, all Cφ rotations about any axis are symmetry operations of the full rotation group. We are not going to discuss inﬁnite or continuous groups in any detail, but we will adopt results that we use frequently in quantum mechanics without rigorous proofs.
+Let us then recall the form of the spherical harmonics Y m(θ, φ) which are the basis functions for the full rotation group:
+
+Y m(θ, φ) =
+
+2 +1( 4π (
+
+− |m|)! + |m|)!
+
+1/2
+P m(cos θ)eimφ ,
+
+(5.2)
+
+in which
+
+Y ,−m(θ, φ) = (−1)mY ,m(θ, φ)∗ ,
+
+(5.3)
+
+and the symbol ∗ denotes the complex conjugate. The associated Legendre
+
+polynomial in (5.2) is written as
+
+P m(x)
+
+=
+
+(1
+
+−
+
+x2
+
+)1/2|m|
+
+d|m| dx|m|
+
+P
+
+(x) ,
+
+in which x = cos θ, while
+
+P −m(x) = [(−1)m( − m)!/( + m)!]P m(x) ,
+
+(5.4)
+
+and the Legendre polynomial P (x) is generated by
+∞
+1/ 1 − 2sx + s2 = P (x)s .
+=0
+
+(5.5)
+
+82 5 Splitting of Atomic Orbitals in a Crystal Potential
+
+It is shown above that the spherical harmonics (angular momentum eigenfunctions) can be written in the form
+
+Y ,m(θ, φ) = CP m(θ) eimφ ,
+
+(5.6)
+
+where C is a normalization constant and P m(θ) is an associated Legendre polynomial given explicitly in (5.4). The coordinate system used to deﬁne the polar and azimuthal angles is shown in Fig. 5.1. The Y ,m(θ, φ) spherical harmonics generate odd-dimensional representations of the rotation group and these representations are irreducible representations. For = 0, we have a onedimensional representation; = 1 (m = 1, 0, −1) gives a three-dimensional irreducible representation; = 2 (m = 2, 1, 0, −1, −2) gives a ﬁve-dimensional representation, etc. So for each value of the angular momentum, the spherical harmonics provide us with a representation of the proper 2 +1 dimensionality.
+These irreducible representations are found from the so-called addition theorem for spherical harmonics which tells us that if we change the polar axis (i.e., the axis of quantization), then the “old” spherical harmonics Y ,m(θ, φ) and the “new” Y ,m (θ , φ ) are related by a linear transformation of basis functions when = :
+
+PˆRY ,m(θ , φ ) = D( )(R)m mY ,m (θ, φ) ,
+m
+
+(5.7)
+
+where PˆR denotes a rotation operator that changes the polar axis, and the matrix D( )(R)m m provides an -dimensional matrix representation of element
+R in the full rotation group. Let us assume that the reader has previously
+
+Fig. 5.1. Polar coordinate system deﬁning the polar angle θ and the azimuthal angle φ
+
+5.2 Characters for the Full Rotation Group 83
+
+seen this expansion for spherical harmonics which is a major point in the
+development of the irreducible representations of the rotation group. From
+the similarity between (5.7) and (4.1), the reader can see the connection be-
+tween the group theory mathematical background given in Chap. 4 and the
+application discussed here.
+In any system with full rotational symmetry, the choice of the z-axis is arbitrary. We thus choose the z-axis as the axis about which the operator Pˆα makes the rotation α. Because of the form of the spherical harmonics Y ,m(θ, φ) [see (5.6)] and the choice of the z-axis, the action of Pˆα on the Y m(θ, φ) basis functions only aﬀects the φ dependence of the spherical harmonic (not the θ
+dependence). The eﬀect of this rotation on the function Y ,m(θ, φ) is equivalent to a rotation of the axes in the opposite sense by the angle −α
+
+PˆαY ,m(θ, φ) = Y ,m(θ, φ − α) = e−imαY ,m(θ, φ) ,
+
+(5.8)
+
+in which the second equality results from the explicit form of Y ,m(θ, φ). But
+(5.8) gives the linear transformation of Y ,m(θ, φ) resulting from the action by the operator Pˆα. Thus by comparing (5.7) and (5.8), we see that the matrix D( )(α)m m is diagonal in m so that we can write D( )(α)m m = e−imαδm m, where − ≤ m ≤ , yielding
+
+⎛ e−i α
+
+⎞ O
+
+D( )(α) = ⎜⎜⎜⎝
+
+e−i( −1)α ...
+
+⎟⎟⎟⎠ ,
+
+(5.9)
+
+O
+
+ei α
+
+where O represents all the zero entries in the oﬀ-diagonal positions. The character of the rotations Cα is thus given by the geometric series
+χ( )(α) = trace D( )(α) = e−i α + · · · + ei α = e−i α 1 + eiα + · · · + e2i α
+
+2
+= e−i α (eikα)
+k=0
+
+= e−i α
+
+ei(2 +1)α − 1 eiα − 1
+
+=
+
+ei(
+
++1/2)α − e−i( +1/2)α eiα/2 − e−iα/2
+
+=
+
+sin[(
+
++
+
+1 2
+
+)α]
+
+sin[(
+
+1 2
+
+)α]
+
+.
+
+Thus we show that the character for rotations α about the z-axis is
+
+χ( )(α) = sin[(
+
++
+
+1 2
+
+)α]
+
+.
+
+sin[α/2]
+
+(5.10) (5.11)
+
+84 5 Splitting of Atomic Orbitals in a Crystal Potential
+
+To obtain the character for the inversion operator i, we have
+
+iY m(θ, φ) = Y m(π − θ, π + φ) = (−1) Y m(θ, φ)
+
+(5.12)
+
+and therefore
+
+m=
+
+χ( )(i) =
+
+(−1) = (−1) (2 + 1) ,
+
+m=−
+
+(5.13)
+
+where Y m(θ, φ) are the spherical harmonics, while and m denote the total and z-component angular momentum quantum numbers, respectively.
+The dimensionalities of the representations for = 0, 1, 2, . . . are 1, 3, 5, . . .. In dealing with the symmetry operations of the full rotation group, the inversion operation frequently occurs. This operation also occurs in the lower symmetry point groups either as a separate operation i or in conjunction with other compound operations (e.g., S6 = i ⊗ C3−1). A compound operation (like an improper rotation or a mirror plane) can be represented as a product of a proper rotation followed by inversion. The character for the inversion operation is +(2 + 1) for even angular momentum states ( = even in Y ,m(θ, φ)) and −(2 + 1) for odd angular momentum states (see (5.13)). This idea of compound operations will become clearer after we have discussed in Chap. 6 the direct product groups and direct product representations.
+We now give a general result for an improper rotation deﬁned by
+
+Sn = Cn ⊗ σh
+
+(5.14)
+
+and S3 = C3 ⊗ σh is an example of (5.14) (for an odd integer n). Also Sn can be written as a product of Cn/2 ⊗ i, as for example, S6 = C3 ⊗ i, for n an even integer, where ⊗ denotes the direct product of the two symmetry operations appearing at the left and right of the symbol ⊗, which is discussed in Chap. 6.
+If we now apply (5.11) and (5.12), we obtain
+
+χ(
+
+)(Sn) = χ( )(Cn/2 ⊗ i) = (−1)
+
+sin[(
+
++
+
+1 2
+
+)α]
+
+.
+
+sin[α/2]
+
+(5.15)
+
+In the case of mirror planes, such as σh, σd, or σv we can make use of relations
+
+such as
+
+σh = C2 ⊗ i
+
+(5.16)
+
+to obtain the character for mirror planes in the full rotation group. Now we are going to place our free ion into a crystal ﬁeld which does not
+have full rotational symmetry operations, but rather has the symmetry operations of a crystal which may include rotations about ﬁnite angles, inversions and a ﬁnite number of reﬂections. The full rotation group contains all these symmetry operations. Therefore, the representation D( )(α) given above is a representation of the crystal point group if α is a symmetry operation in that point group. But D( )(α) is, in general, a reducible representation of the lower
+
+5.3 Cubic Crystal Field Environment 85
+symmetry group. Therefore the (2 + 1)-fold degeneracy of each level will in general be partially lifted.
+We can ﬁnd out how the degeneracy of each level is lifted by asking what are the irreducible representations contained in D( )(α) in terms of the group of lower symmetry for the crystal. The actual calculation of the crystal ﬁeld splittings depends on setting up a suitable Hamiltonian and solving it, usually in some approximation scheme. But the energy level degeneracy does not depend on the detailed Hamiltonian, but only on its symmetry. Thus, the decomposition of the level degeneracies in a crystal ﬁeld is a consequence of the symmetry of the crystal ﬁeld.
+5.3 Cubic Crystal Field Environment for a Paramagnetic Transition Metal Ion
+As an example of a crystal ﬁeld environment, suppose that we place our paramagnetic ion (e.g., an iron impurity) in a cubic host crystal. Assume
+further that this impurity goes into a substitutional lattice site, and is surrounded by a regular octahedron of negative ions (see Fig. 5.2). A regular octahedron has Oh symmetry, but since we have not yet discussed the inversion operation and direct product groups (see Chap. 6), we will simplify the symmetry operations and work with the point group O. The character table for O is shown in Table 5.1 (see also Table A.30). From all possible rotations on a sphere, only 24 symmetry operations of the full rotation group remain in the group O.
+Reviewing the notation in Table 5.1, the Γ notations for the irreducible representations are the usual ones used in solid-state physics and are due to Bouckaert, Smoluchowski and Wigner [1].
+The second column in Table 5.1 follows the notation usually found in molecular physics and chemistry applications, which are two research ﬁelds that also make lots of use of symmetry and group theory. The key
+Fig. 5.2. A regular octahedron inscribed in a cube, illustrating the symmetry operations of group O
+
+86 5 Splitting of Atomic Orbitals in a Crystal Potential
+
+Table 5.1. Character table for O and decomposition of the angular momenta representations into the irreducible representations of group O
+
+O
+
+E 8C3 3C2 = 3C42 6C2 6C4
+
+Γ1
+
+A1
+
+Γ2
+
+A2
+
+Γ12 E
+
+Γ15 T1
+
+Γ25 T2
+
+11
+
+1
+
+11
+
+11
+
+1
+
+−1 −1
+
+2 −1
+
+2
+
+00
+
+30
+
+−1
+
+−1 1
+
+30
+
+−1
+
+1 −1
+
+Γ =0 A1
+
+11
+
+1
+
+11
+
+Γ =1 T1
+
+30
+
+−1
+
+1 −1
+
+Γ =2 E + T2
+
+5 −1
+
+1
+
+1 −1
+
+Γ =3 A2 + T1 + T2
+
+71
+
+−1
+
+−1 −1
+
+Γ =4 A1 + E + T1 + T2 9
+
+0
+
+1
+
+11
+
+Γ =5 E + 2T1 + T2
+
+11 −1
+
+−1
+
+−1 1
+
+to the notation is that A denotes one-dimensional representations, E denotes two-dimensional representations, and T denotes three-dimensional representations. Papers on lattice dynamics of solids often use the A, E, T symmetry notation to make contact with the molecular analog. The subscripts in Table 5.1 refer to the conventional indexing of the representations of the group O (see Table A.30). The pertinent symmetry operations can be found from Fig. 5.2, and the classes associated with these symmetry operations label the various columns where the characters in Table 5.1 appear.
+The various types of rotational symmetry operations are listed as
+
+• the 8C3 rotations are about the axes through the triangular face centroids
+of the octahedron,
+• the 6C4 rotations are about the corners of the octahedron, • the 3C2 rotations are also about the corners of the octahedron, with
+C2 = C42, • the 6C2 rotations are twofold rotations about a (110) axis passing through
+the midpoint of the edges (along the 110 directions of the cube).
+
+To be speciﬁc, suppose that we have a magnetic impurity atom with angular momentum = 2. We ﬁrst ﬁnd the characters for all the symmetry operations which occur in the O group for an irreducible representation of the full rotation group. The representation of the full rotation group will be a representation of group O, but in general this representation will be reducible.
+Since the character for a general rotation α in the full rotation group is found using (5.11), the identity class (or α = 0) yields the characters
+
+χ( )(0) =
+
++
+
+1 2
+
+=2
+
++1.
+
+1/2
+
+(5.17)
+
+5.3 Cubic Crystal Field Environment 87
+
+Table 5.2. Classes and characters for the group O
+
+class 8C3
+6C4
+
+α 2π/3
+
+χ(2)(α)
+
+sin(5/2) · (2π/3) sin((2π)/(2 · 3))
+
+=
+
+√
+
+√
+
+(− 3/2)/( 3/2)
+
+=
+
+−1
+
+2π/4
+
+sin(5/2)
+
+·
+
+(π/2)
+
+=
+
+√
+
+√
+
+(−1/ 2)/(1/ 2)
+
+=
+
+−1
+
+sin(π/4)
+
+sin(5/2)π
+
+3C2 and 6C2 2π/2
+
+=1 sin(π/2)
+
+Table 5.3. Characters found in Table 5.2 for the Γr(o2t) of the full rotation group ( = 2)
+
+E 8C3 3C2 6C2 6C4
+
+Γr(o2t) 5 −1
+
+1
+
+1 −1
+
+For our case = 2 (χ(2)(E) = 5), and by applying (5.11) to the symmetry
+operations in each class we obtain the results summarized in Table 5.2. To
+compare with the character table for group O (Table 5.1), we list in Table 5.3 the characters found in Table 5.2 for the Γr(o2t) of the full rotation group ( = 2) according to the classes listed in the character table for gr oup O (see
+Tables 5.1 and A.30). We note that Γr(o2t) is a reducible representation of group O because group O
+has no irreducible representations with dimensions n > 3. To ﬁnd the irreducible representations contained in Γr(o2t) we use the decomposition formula for reducible representations (3.20):
+
+1 aj = h
+
+Nkχ(Γj)(Ck)∗χreducible(Ck) ,
+
+k
+
+(5.18)
+
+where we have used (3.16)
+
+χreducible(Ck) =
+
+aj χ(Γj)(Ck) ,
+
+Γj
+
+(5.19)
+
+in which χ(Γj) is an irreducible representation and the characters for the re-
+ducible representation Γr(o2t) are written as χreducible(Ck) ≡ χΓr(o2t) (Ck). We now ask how many times is A1 contained in Γr(o2t)? Using (5.18) we obtain
+
+aA1
+
+=
+
+1 [5
+24
+
+−
+
+8
+
++
+
+3
+
++
+
+6
+
+−
+
+6]
+
+=
+
+0,
+
+(5.20)
+
+88 5 Splitting of Atomic Orbitals in a Crystal Potential
+
+Fig. 5.3. The splitting of the d-Levels (ﬁvefold) in an octahedral crystal ﬁeld
+
+which shows that the irreducible representation A1 is not contained in Γr(o2t). We then apply (5.18) to the other irreducible representations of group O:
+
+A2 : E: T1 : T2 :
+
+aA2
+
+=
+
+1 [5 − 8 + 3 − 6 + 6] 24
+
+=
+
+0
+
+aE
+
+=
+
+1 [10 + 8 +
+24
+
+6 + 0 − 0]
+
+=
+
+1
+
+aT1
+
+=
+
+1 [15 + 0 − 3 − 6 − 6] 24
+
+=
+
+0
+
+aT2
+
+=
+
+1 [15 + 0 − 3 + 6 + 6] 24
+
+=
+
+1,
+
+so that ﬁnally we write
+
+Γr(o2t) = E + T2 ,
+which means that the reducible representation Γr(o2t) breaks into the irreducible representations E and T2 in cubic symmetry. In other words, an atomic d-level in a cubic O crystal ﬁeld splits into an E and a T2 level. Similarly, an atomic d-level in a cubic Oh crystal ﬁeld splits into an Eg and a T2g level, where the g denotes evenness under inversion. Group theory does not provide any information about the ordering of the levels (see Fig. 5.3). For general utility, we have included in Table 5.1 the characters for the angular momentum states
+= 0, 1, 2, 3, 4, 5 for the full rotation group expressed as reducible representations of the group O. The splittings of these angular momentum states in cubic group O symmetry are also included in Table 5.1.
+We can now carry out the passage from higher to lower symmetry by going one step further. Suppose that the presence of the impurity strains the crystal. Let us further imagine (for the sake of argument) that the new local symmetry of the impurity site is D4 (see Table 5.4 and Table A.18), which is a proper subgroup of the full rotation group. Then the levels E and T2 given above may be split further in D4 (tetragonal) symmetry (for example by stretching the molecule along the fourfold axis). We now apply the same technique to investigate this tetragonal ﬁeld splitting. We start again by writing the character table for the group D4 which is of order 8. We then consider the representations E and T2 of the group O as reducible representations of group D4
+
+5.3 Cubic Crystal Field Environment 89
+
+Fig. 5.4. d-Level splitting in octahedral and D4 crystal ﬁelds
+
+Table 5.4. Character table for D4 and the decomposition of the irreducible representations of group O into representations for group D4
+
+character table for D4 E C2 = C42 2C4 2C2 2C2
+
+Γ1 A1 Γ1 A2 Γ2 B1 Γ2 B2 Γ3 E
+
+1
+
+1
+
+11
+
+1
+
+1
+
+1
+
+1 −1 −1
+
+1
+
+1
+
+−1 1 −1
+
+1
+
+1
+
+−1 −1
+
+1
+
+2 −2
+
+00
+
+0
+
+reducible representations from O group
+
+E
+
+2
+
+2
+
+02
+
+0 ≡ A1 + B1
+
+T2
+
+3
+
+−1
+
+−1 −1
+
+1 ≡ E + B2
+
+Table 5.5. Decomposition of the = 2 angular momentum level into the irreducible representations of group D4
+
+E C2 2C4 2C2 2C2
+
+Γr(o2t) 5 1 −1
+
+1
+
+1 A1 + B1 + B2 + E
+
+and write down the characters for the E, C4, C42, C2 and C2 operations from the character table for O given above, noting that the C2 in the group D4 refers to three of the (110) axes 6C2 of the cubic group O (Table 5.4). Using the decomposition theorem, (3.20), we ﬁnd that E splits into the irreducible
+representations A1 + B1 in the group D4 while T2 splits into the irreducible representations E + B2 in the group D4, as summarized in Fig. 5.4.
+We note that the C2 operations in D4 is a π rotation about the z-axis and the 2C2 are π rotations about the x- and y-axes. The C2 and the 2C2 come from the 3C2 = 3C42 in group O. The 2C2 are π rotations about (110) axes and come from the 6C2 in group O. To check the decomposition of the = 2 level in D4 symmetry, we add up the characters for A1 + B1 + B2 + E for group D4 (see Table 5.5), which are the characters for the spherical harmonics considered as a reducible representation of group D4, so that this result checks.
+
+90 5 Splitting of Atomic Orbitals in a Crystal Potential
+Fig. 5.5. d-Level splitting in various crystal ﬁelds
+Suppose now that instead of applying a stress along a (001) direction, we apply a stress along a (110) direction (see Problem 5.4). You will see that the crystal ﬁeld pattern is somewhat altered, so that the crystal ﬁeld pattern provides symmetry information about the crystal ﬁeld. Figure 5.5 shows the splitting of the = 2 level in going from full rotational symmetry to various lower symmetries, including D∞h, Td, Oh, and D2h, showing in agreement with the above discussion, the lifting of all the degeneracy of the = 2 level in D2h symmetry.
+5.4 Comments on Basis Functions
+Although group theory tells us how the impurity ion energy levels are split by the crystal ﬁeld, it does not tell us the ordering of these levels. Often a simple physical argument can be given to decide which levels ought to lie lower. Consider the case of a d-electron in a cubic ﬁeld, where the host ions are at x = ±a, y = ±a, z = ±a. Assume that the impurity ion enters the lattice substitutionally, so that it is replacing one of the cations. Then the nearest neighbor host ions are all anions. The charge distributions for the dstates are shown in Fig. 5.6. Referring to the basis functions for O, which can be obtained from Table A.30, we see that for the irreducible representation E we have basis functions (x2 − y2, 3z2 − r2) and for T2 we have basis functions (xy, yz, zx). For the basis functions which transform as the T2 representation, the charge distributions do not point to the host ions and hence the crystal ﬁeld interaction is relatively weak.
+However, for the d-functions which transform as E, the interaction will be stronger since the charge distributions now do point to the host ion sites. If, however, the interaction is repulsive, then the E level will lie higher than the T2 level. A more quantitative way to determine the ordering of the levels is to solve the eigenvalue problem explicitly. In carrying out this solution it is con-
+
+5.4 Comments on Basis Functions 91
+
+Fig. 5.6. The angular parts of d-wave functions in cubic crystals are shown as
+labeled by the basis functions for the partners of their irreducible representations. (a) xy/r2 ⇒ (T2), (b) yz/r2 ⇒ (T2), (c) (x2−y2)/r2 ⇒ (E), (d) (3z2 −r2)/r2 ⇒ (E)
+
+venient to use basis functions that transform as the irreducible representations of the crystal ﬁeld group.
+We now look at the basis functions which provide irreducible representations for these cases of lower symmetry. In going from the full rotation group to the cubic group O, we obtain the irreducible representations E and T2 shown in Fig. 5.3, which can be expressed in terms of the basis functions for these irreducible representations. The basis functions for the twofold level are (x2 − y2) and (3z2 − r2), while the basis functions for the threefold level are (xy), (yz), and (zx). We note that these basis functions bring the crystal ﬁeld potential into block form, but need not completely diagonalize the Hamiltonian. There are various forms of the crystal ﬁeld potential that have Oh symmetry (e.g., octahedral sites, cubic sites, etc.), and in each case the appropriate set of basis functions that transform as irreducible representations of the group will bring the secular equation into block form.
+Upon lowering the symmetry further to D4 symmetry, the T2 and E levels split further according to T2 → E + B2 and E → A1 + B1 (see Fig. 5.4). The appropriate basis functions for these levels can be identiﬁed with the help of the character table for group D4 in Table A.18:
+
+E
+
+yz zx
+
+,
+
+B2{xy ,
+
+B1{x2 − y2 ,
+
+A1{z2 .
+
+(5.21)
+
+In Sects. 5.3 and 5.4 we consider the spherical harmonics for = 2 as reducible representations of the point groups Oh, O, and D4. In this connection, Table 5.6 gives the decomposition of the various spherical harmonics for angular
+
